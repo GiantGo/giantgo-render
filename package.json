@@ -1,0 +1,25 @@
+{
+  "name": "giantgo-render",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "element-plus": "^1.0.2-beta.44",
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.8",
+    "vuedraggable": "^4.0.1",
+    "vuex": "^4.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.2",
+    "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.2.6",
+    "sass": "~1.32.12",
+    "vite": "^2.3.4",
+    "vite-plugin-style-import": "^0.10.1"
+  }
+}
