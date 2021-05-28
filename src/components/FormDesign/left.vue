@@ -18,6 +18,23 @@
           </div>
         </template>
       </draggable>
+      <div class="title">布局组件</div>
+      <draggable
+        class="form-item-group"
+        v-model="layouts"
+        @start="dragStart"
+        @end="dragEnd"
+        item-key="name"
+        :group="{ name: 'form-draggable', pull: 'clone', put: false }"
+        ghost-class="ghost"
+        :sort="false"
+      >
+        <template #item="{ element }">
+          <div class="form-item">
+            {{ element.name }}
+          </div>
+        </template>
+      </draggable>
     </div>
   </div>
 </template>
@@ -41,7 +58,8 @@ export default {
     return {
       dragStart,
       dragEnd,
-      basics: computed(() => store.getters.basics)
+      basics: computed(() => store.getters.basics),
+      layouts: computed(() => store.getters.layouts)
     }
   }
 }
@@ -61,7 +79,7 @@ export default {
 
     .title {
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       color: $primary-text;
     }
 
@@ -70,11 +88,12 @@ export default {
       display: flex;
       flex-wrap: wrap;
       align-content: flex-start;
+      margin-bottom: 15px;
 
       .form-item {
         width: calc(50% - 10px);
         height: 36px;
-        margin: 4px;
+        margin: 0 8px 8px 0;
         display: flex;
         justify-content: center;
         align-items: center;

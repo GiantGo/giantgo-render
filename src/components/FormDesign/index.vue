@@ -3,7 +3,9 @@
     <div class="left-container">
       <left></left>
     </div>
-    <div class="center-container"></div>
+    <div class="center-container">
+      <center></center>
+    </div>
     <div class="right-container">
       <right></right>
     </div>
@@ -13,10 +15,11 @@
 <script>
 import { reactive } from 'vue'
 import left from './left.vue'
+import center from './center.vue'
 import right from './right.vue'
 
 export default {
-  components: { left, right },
+  components: { left, center, right },
   setup() {
     const state = reactive({ count: 0 })
     return { state }
