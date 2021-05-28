@@ -51,6 +51,7 @@ export default {
     height: 100%;
     border-left: 1px solid $divider-color;
     border-right: 1px solid $divider-color;
+    padding: 5px;
   }
 }
 </style>

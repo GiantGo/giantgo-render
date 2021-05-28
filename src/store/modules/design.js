@@ -3,19 +3,19 @@ const getDefaultState = () => {
     basics: [
       {
         name: '输入框',
-        component: 'input',
+        component: 'gg-input',
         type: 'string',
         options: {
-          title: '输入框',
+          label: '输入框',
           key: ''
         }
       },
       {
         name: '文本框',
-        component: 'textarea',
+        component: 'gg-textarea',
         type: 'string',
         options: {
-          title: '文本框',
+          label: '文本框',
           key: '',
           rows: ''
         }
@@ -24,10 +24,10 @@ const getDefaultState = () => {
     layouts: [
       {
         name: '卡片布局',
-        component: 'card',
+        component: 'gg-card',
         type: 'object',
         options: {
-          title: '卡片布局',
+          label: '卡片布局',
           key: ''
         }
       }
