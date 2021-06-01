@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import getters from './getters.js'
+import createFormDesignPlugin from './plugins/createFormDesignPlugin'
 
 const modulesFiles = import.meta.globEager('./modules/*.js')
 let modules = {}
@@ -11,6 +12,7 @@ for (const modulePath in modulesFiles) {
 
 const store = createStore({
   modules,
+  plugins: [createFormDesignPlugin],
   getters
 })
 

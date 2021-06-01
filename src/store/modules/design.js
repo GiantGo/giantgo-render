@@ -3,8 +3,8 @@ const getDefaultState = () => {
     basics: [
       {
         name: '输入框',
-        component: 'gg-input',
-        type: 'string',
+        component: 'input-field',
+        uuid: '',
         options: {
           label: '输入框',
           key: ''
@@ -12,31 +12,33 @@ const getDefaultState = () => {
       },
       {
         name: '文本框',
-        component: 'gg-textarea',
-        type: 'string',
+        component: 'textarea-field',
+        uuid: '',
         options: {
           label: '文本框',
           key: '',
-          rows: ''
+          rows: 4
         }
       }
     ],
     layouts: [
       {
         name: '卡片布局',
-        component: 'gg-card',
-        type: 'object',
+        component: 'card-field',
+        uuid: '',
         options: {
           label: '卡片布局',
-          key: ''
-        }
+          key: '',
+          shadow: 'always'
+        },
+        fields: []
       }
     ],
     formItems: [],
     formOptions: {
       labelWidth: '80px'
     },
-    formItemOptions: {}
+    selected: ''
   }
 }
 
@@ -49,11 +51,11 @@ const mutations = {
   UPDATE_FORM_ITEMS: (state, formItems) => {
     state.formItems = formItems
   },
-  UPDATE_FORM_ITEM_OPTIONS: (state, formItemOptions) => {
-    state.formItemOptions = formItemOptions
-  },
   UPDATE_FORM_OPTIONS: (state, formOptions) => {
     state.formOptions = formOptions
+  },
+  SET_SELECTED: (state, uuid) => {
+    state.selected = uuid
   }
 }
 
@@ -61,11 +63,11 @@ const actions = {
   updateFormItems({ commit }, formItems) {
     commit('UPDATE_FORM_ITEMS', formItems)
   },
-  updateFormItemOptions({ commit }, formItemOptions) {
-    commit('UPDATE_FORM_ITEM_OPTIONS', formItemOptions)
-  },
   updateFormOptions({ commit }, formOptions) {
     commit('UPDATE_FORM_OPTIONS', formOptions)
+  },
+  setSeleted({ commit }, uuid) {
+    commit('SET_SELECTED', uuid)
   }
 }
 

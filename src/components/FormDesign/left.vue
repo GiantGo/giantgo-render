@@ -49,10 +49,10 @@ export default {
   setup() {
     const store = useStore()
     const dragStart = () => {
-      console.log(arguments)
+      //   console.log(arguments)
     }
     const dragEnd = () => {
-      console.log(arguments)
+      //   console.log(arguments)
     }
 
     return {
@@ -97,7 +97,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $bg-color;
+        background-color: $deep-light-primary-color;
         cursor: move;
         color: $normal-text;
 

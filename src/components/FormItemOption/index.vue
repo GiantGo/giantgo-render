@@ -1,16 +1,16 @@
 <template>
-  <el-form-item :label="options.label">
+  <el-form>
     <component :is="component" :options="options" :fields="fields"></component>
-  </el-form-item>
+  </el-form>
 </template>
 
 <script>
 export default {
-  name: 'formItem',
+  name: 'formItemOption',
   props: {
     component: {
       type: String,
-      default: 'input-field'
+      default: 'labelProperty'
     },
     options: {
       type: Object,

@@ -1,11 +1,19 @@
 <template>
-  <el-input type="textarea" :rows="4"></el-input>
+  <el-input type="textarea" :rows="options.rows"></el-input>
 </template>
 
 <script>
 export default {
+  name: 'textareaField',
   components: {},
-  props: {},
+  props: {
+    options: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+  },
   setup() {}
 }
 </script>

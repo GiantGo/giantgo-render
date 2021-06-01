@@ -5,10 +5,14 @@ import 'element-plus/lib/theme-chalk/index.css'
 import './styles/index.scss' // global css
 import router from './router'
 import store from './store/index.js'
+import FormItem from './components/FormItem/index.js'
+import FormItemOption from './components/FormItemOption/index.js'
 
 const app = createApp(App)
 
 app.use(ElementPlus)
+app.use(FormItem)
+app.use(FormItemOption)
 app.use(router)
 app.use(store)
 
