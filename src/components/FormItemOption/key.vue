@@ -1,12 +1,12 @@
 <template>
-  <el-form-item label="标签:">
+  <el-form-item label="ID (字段名称/英文):">
     <el-input type="text" :model-value="modelValue" @input="input"></el-input>
   </el-form-item>
 </template>
 
 <script>
 export default {
-  name: 'labelOption',
+  name: 'keyOption',
   components: {},
   props: {
     modelValue: String

@@ -11,7 +11,7 @@ const query = (fields, uuid) => {
     }
 
     if (fields[i].fields && fields[i].fields.length) {
-      result = this.query(fields[i].fields, uuid)
+      result = query(fields[i].fields, uuid)
       if (result.uuid) {
         return result
       }
@@ -24,10 +24,10 @@ const query = (fields, uuid) => {
 const getters = {
   basics: (state) => state.design.basics,
   layouts: (state) => state.design.layouts,
-  formItems: (state) => state.design.formItems,
+  formDesign: (state) => state.design.formDesign,
   formOptions: (state) => state.design.formOptions,
   formItemOptions: (state) => {
-    return query(state.design.formItems, state.design.selected)
+    return query(state.design.formDesign.fields, state.design.selected).options || {}
   }
 }
 export default getters

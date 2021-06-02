@@ -1,38 +1,39 @@
 <template>
-  <el-tabs v-model="activeName" @tab-click="tabClick" stretch>
-    <el-tab-pane label="表单配置" name="form">表单配置</el-tab-pane>
-    <el-tab-pane label="组件配置" name="component">
+  <el-tabs v-model="activeName" stretch>
+    <el-tab-pane label="表单配置" name="formOptions">
       <div class="form-setting">
-        <form-item-option v-model="formItemOptions"></form-item-option>
+        <form-option></form-option>
+      </div>
+    </el-tab-pane>
+    <el-tab-pane label="组件配置" name="formItemOptions">
+      <div class="form-setting">
+        <form-item-option></form-item-option>
       </div>
     </el-tab-pane>
   </el-tabs>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { useStore } from 'vuex'
+import FormOption from '../FormOption/index.vue'
 
 export default {
+  components: { FormOption },
+  props: {},
   setup() {
+    const activeName = ref('formOptions')
     const store = useStore()
-    const activeName = ref('form')
 
-    const tabClick = (tab, event) => {
-      console.log(tab, event)
-    }
+    store.watch(
+      (state) => state.design.selected,
+      () => {
+        activeName.value = 'formItemOptions'
+      }
+    )
 
     return {
-      activeName,
-      tabClick,
-      formItemOptions: computed({
-        get() {
-          return store.getters.formItemOptions
-        },
-        set(value) {
-          store.dispatch('design/updateFormItemOptions', value)
-        }
-      })
+      activeName
     }
   }
 }
@@ -44,6 +45,7 @@ export default {
 .form-setting {
   width: 100%;
   height: 100%;
-  padding: 5px;
+  padding: 8px;
+  overflow-y: auto;
 }
 </style>

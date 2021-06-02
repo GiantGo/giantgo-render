@@ -1,15 +1,15 @@
 <template>
-  <el-form-item label="标签:">
-    <el-input type="text" :model-value="modelValue" @input="input"></el-input>
+  <el-form-item label="文本域高度:">
+    <el-slider :model-value="modelValue" @input="input" :min="2" :max="10"></el-slider>
   </el-form-item>
 </template>
 
 <script>
 export default {
-  name: 'labelOption',
+  name: 'rowsOption',
   components: {},
   props: {
-    modelValue: String
+    modelValue: Number
   },
   setup(props, { emit }) {
     const input = (value) => {

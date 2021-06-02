@@ -13,17 +13,13 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
 import left from './left.vue'
 import center from './center.vue'
 import right from './right.vue'
 
 export default {
   components: { left, center, right },
-  setup() {
-    const state = reactive({ count: 0 })
-    return { state }
-  }
+  setup() {}
 }
 </script>
 
@@ -55,7 +51,7 @@ export default {
   }
 
   .flip-list-move {
-    transition: transform 0.5s;
+    transition: transform 0;
   }
 
   .form-panel {
@@ -77,18 +73,28 @@ export default {
     .form-item-panel {
       width: 100%;
       height: 100%;
-      min-height: 60px;
-      border: 1px dashed $border;
-      padding: 5px;
+
+      .form-item-drop {
+        width: 100%;
+        height: 100%;
+        min-height: 60px;
+        background: $white;
+        border: 1px dashed $border;
+        overflow-y: auto;
+      }
 
       .form-item {
         position: relative;
-        width: 100%;
         min-height: 60px;
-        padding: 10px 5px;
+        padding: 5px;
+        margin: 5px;
         overflow: hidden;
-        background: $deep-light-primary-color;
         color: $normal-text;
+        background: $deep-light-primary-color;
+
+        .el-form-item {
+          margin: 10px;
+        }
 
         &.active:before {
           content: '';

@@ -23,6 +23,16 @@ const getDefaultState = () => {
     ],
     layouts: [
       {
+        name: '对象布局',
+        component: 'object-field',
+        uuid: '',
+        options: {
+          label: '对象布局',
+          key: ''
+        },
+        fields: []
+      },
+      {
         name: '卡片布局',
         component: 'card-field',
         uuid: '',
@@ -34,7 +44,16 @@ const getDefaultState = () => {
         fields: []
       }
     ],
-    formItems: [],
+    formDesign: {
+      name: '对象布局',
+      component: 'object-field',
+      uuid: '',
+      options: {
+        label: '对象布局',
+        key: ''
+      },
+      fields: []
+    },
     formOptions: {
       labelWidth: '80px'
     },

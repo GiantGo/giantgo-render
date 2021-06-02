@@ -1,10 +1,18 @@
 <template>
-  <el-form-item :label="options.label">
-    <component :is="component" :options="options" :fields="fields"></component>
-  </el-form-item>
+  <component
+    :is="component"
+    :model-value="modelValue"
+    @update:modelValue="$emit('update:modelValue', $event)"
+    :fields="fields"
+    @update:fields="$emit('update:fields', $event)"
+    :options="options"
+    @click.prevent="select"
+  ></component>
 </template>
 
 <script>
+import { useStore } from 'vuex'
+
 export default {
   name: 'formItem',
   props: {
@@ -12,20 +20,31 @@ export default {
       type: String,
       default: 'input-field'
     },
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    },
+    modelValue: [String, Number, Boolean, Array, Object],
     fields: {
       type: Array,
       default() {
         return []
       }
+    },
+    options: {
+      type: Object,
+      default() {
+        return {}
+      }
     }
   },
-  setup() {}
+  setup(props) {
+    const store = useStore()
+
+    const select = () => {
+      store.dispatch('design/setSeleted', props.options.uuid)
+    }
+
+    return {
+      select
+    }
+  }
 }
 </script>
 

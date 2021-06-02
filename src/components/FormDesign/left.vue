@@ -5,8 +5,6 @@
       <draggable
         class="form-item-group"
         v-model="basics"
-        @start="dragStart"
-        @end="dragEnd"
         item-key="name"
         :group="{ name: 'form-draggable', pull: 'clone', put: false }"
         ghost-class="ghost"
@@ -22,8 +20,6 @@
       <draggable
         class="form-item-group"
         v-model="layouts"
-        @start="dragStart"
-        @end="dragEnd"
         item-key="name"
         :group="{ name: 'form-draggable', pull: 'clone', put: false }"
         ghost-class="ghost"
@@ -48,16 +44,7 @@ export default {
   components: { draggable },
   setup() {
     const store = useStore()
-    const dragStart = () => {
-      //   console.log(arguments)
-    }
-    const dragEnd = () => {
-      //   console.log(arguments)
-    }
-
     return {
-      dragStart,
-      dragEnd,
       basics: computed(() => store.getters.basics),
       layouts: computed(() => store.getters.layouts)
     }
