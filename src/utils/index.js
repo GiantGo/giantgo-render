@@ -18,6 +18,18 @@ export function isDefined(value) {
   return typeof value !== 'undefined'
 }
 
+export function isEmptyObject(obj) {
+  var name
+  for (name in obj) {
+    return false
+  }
+  return true
+}
+
+export function hasOwn(obj, key) {
+  return Object.hasOwnProperty.call(obj, key)
+}
+
 /**
  *
  * @param time

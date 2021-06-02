@@ -1,23 +1,35 @@
 <template>
-  <el-form>
-    <el-form-item label="标签宽度（px）:">
-      <el-input v-model="options.labelWidth"></el-input>
-    </el-form-item>
+  <el-form label-position="top">
+    <component
+      v-for="(value, key) in formOptions"
+      :key="key"
+      :is="key + 'FormOption'"
+      :model-value="formOptions[key]"
+      @update:modelValue="updateFormOption(key, $event)"
+    >
+    </component>
   </el-form>
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
 export default {
   name: 'formOption',
-  props: {
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+  props: {},
+  setup() {
+    const store = useStore()
+
+    const updateFormOption = (key, value) => {
+      store.dispatch('design/updateFormOption', { key, value })
     }
-  },
-  setup() {}
+
+    return {
+      formOptions: computed(() => store.getters.formOptions),
+      updateFormOption
+    }
+  }
 }
 </script>
 

@@ -5,16 +5,16 @@
         <span>{{ options.label }}</span>
       </div>
     </template>
-    <object-field :fields="fields" @update:fields="$emit('update:fields', $event)"></object-field>
+    <object-item :items="items" @update:items="$emit('update:items', $event)"></object-item>
   </el-card>
 </template>
 
 <script>
-import ObjectField from './object.vue'
+import ObjectItem from './object.vue'
 
 export default {
-  name: 'cardField',
-  components: { ObjectField },
+  name: 'cardItem',
+  components: { ObjectItem },
   props: {
     options: {
       type: Object,
@@ -22,7 +22,7 @@ export default {
         return {}
       }
     },
-    fields: {
+    items: {
       type: Array,
       default() {
         return []

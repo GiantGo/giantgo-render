@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'inputField',
+  name: 'inputItem',
   components: {},
   props: {
     options: {

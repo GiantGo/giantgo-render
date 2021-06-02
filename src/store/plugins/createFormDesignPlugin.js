@@ -3,7 +3,7 @@ import { ElMessage } from 'element-plus'
 
 const createFormDesignPlugin = (store) => {
   const save = debounce(() => {
-    console.log(JSON.stringify(store.getters.formItems))
+    console.log(JSON.stringify(store.getters.formDesign))
     ElMessage.success('已自动保存')
   }, 1000)
   // 当 store 初始化后调用

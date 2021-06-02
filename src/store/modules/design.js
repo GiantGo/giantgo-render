@@ -1,9 +1,34 @@
+import { isEmptyObject } from '@/utils/index.js'
+
+const query = (items, uuid) => {
+  let result = {}
+
+  if (!uuid) {
+    return result
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].uuid === uuid) {
+      return items[i]
+    }
+
+    if (items[i].items && items[i].items.length) {
+      result = query(items[i].items, uuid)
+      if (!isEmptyObject(result)) {
+        return result
+      }
+    }
+  }
+
+  return result
+}
+
 const getDefaultState = () => {
   return {
     basics: [
       {
         name: '输入框',
-        component: 'input-field',
+        component: 'input-item',
         uuid: '',
         options: {
           label: '输入框',
@@ -12,7 +37,7 @@ const getDefaultState = () => {
       },
       {
         name: '文本框',
-        component: 'textarea-field',
+        component: 'textarea-item',
         uuid: '',
         options: {
           label: '文本框',
@@ -24,39 +49,40 @@ const getDefaultState = () => {
     layouts: [
       {
         name: '对象布局',
-        component: 'object-field',
+        component: 'object-item',
         uuid: '',
         options: {
           label: '对象布局',
           key: ''
         },
-        fields: []
+        items: []
       },
       {
         name: '卡片布局',
-        component: 'card-field',
+        component: 'card-item',
         uuid: '',
         options: {
           label: '卡片布局',
           key: '',
           shadow: 'always'
         },
-        fields: []
+        items: []
       }
     ],
     formDesign: {
       name: '对象布局',
-      component: 'object-field',
+      component: 'object-item',
       uuid: '',
       options: {
         label: '对象布局',
         key: ''
       },
-      fields: []
+      items: []
     },
     formOptions: {
       labelWidth: '80px'
     },
+    formItemOptions: {},
     selected: ''
   }
 }
@@ -68,13 +94,17 @@ const mutations = {
     Object.assign(state, getDefaultState())
   },
   UPDATE_FORM_ITEMS: (state, formItems) => {
-    state.formItems = formItems
+    state.formDesign.items = formItems
   },
-  UPDATE_FORM_OPTIONS: (state, formOptions) => {
-    state.formOptions = formOptions
+  UPDATE_FORM_OPTION: (state, { key, value }) => {
+    state.formOptions[key] = value
+  },
+  UPDATE_FORM_ITEM_OPTION: (state, { key, value }) => {
+    state.formItemOptions[key] = value
   },
   SET_SELECTED: (state, uuid) => {
     state.selected = uuid
+    state.formItemOptions = query(state.formDesign.items, uuid).options || {}
   }
 }
 
@@ -82,8 +112,11 @@ const actions = {
   updateFormItems({ commit }, formItems) {
     commit('UPDATE_FORM_ITEMS', formItems)
   },
-  updateFormOptions({ commit }, formOptions) {
-    commit('UPDATE_FORM_OPTIONS', formOptions)
+  updateFormOption({ commit }, { key, value }) {
+    commit('UPDATE_FORM_OPTION', { key, value })
+  },
+  updateFormItemOption({ commit }, { key, value }) {
+    commit('UPDATE_FORM_ITEM_OPTION', { key, value })
   },
   setSeleted({ commit }, uuid) {
     commit('SET_SELECTED', uuid)

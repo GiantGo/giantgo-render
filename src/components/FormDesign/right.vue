@@ -16,10 +16,9 @@
 <script>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import FormOption from '../FormOption/index.vue'
 
 export default {
-  components: { FormOption },
+  components: {},
   props: {},
   setup() {
     const activeName = ref('formOptions')

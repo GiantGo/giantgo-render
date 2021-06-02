@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'textareaField',
+  name: 'textareaItem',
   components: {},
   props: {
     options: {

@@ -55,9 +55,9 @@ export default {
   }
 
   .form-panel {
+    position: relative;
     width: 100%;
     height: 100%;
-    position: relative;
 
     .empty {
       position: absolute;
@@ -68,6 +68,10 @@ export default {
     .el-form {
       width: 100%;
       height: 100%;
+
+      & > .form-item {
+        height: 100%;
+      }
     }
 
     .form-item-panel {

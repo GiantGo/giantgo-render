@@ -2,8 +2,8 @@
   <div class="form-item-panel">
     <draggable
       class="form-item-drop"
-      :model-value="fields"
-      @update:modelValue="$emit('update:fields', $event)"
+      :model-value="items"
+      @update:modelValue="$emit('update:items', $event)"
       @start="dragStart"
       @add="add"
       tag="transition-group"
@@ -11,14 +11,14 @@
       v-bind="{ animation: 200, group: 'form-draggable', disabled: false, ghostClass: 'ghost' }"
       :component-data="{ tag: 'div', type: 'transition-group', name: !drag ? 'flip-list' : null }"
     >
-      <template #item="{ element }">
-        <div class="form-item">
-          <form-item
-            :options="element.options"
-            :component="element.component"
-            v-model:fields="element.fields"
-          ></form-item>
-        </div>
+      <template #item="{ element, index }">
+        <form-item
+          :uuid="element.uuid"
+          :options="element.options"
+          :component="element.component"
+          :items="element.items"
+          @update:items="elementChange(index, $event)"
+        ></form-item>
       </template>
     </draggable>
   </div>
@@ -32,35 +32,41 @@ import { uuid, deepClone } from '@/utils/index.js'
 import FormItem from './index.vue'
 
 export default {
-  name: 'objectField',
+  name: 'objectItem',
   components: { draggable, FormItem },
   props: {
-    fields: {
+    items: {
       type: Array,
       default() {
         return []
       }
     }
   },
-  setup(props) {
+  setup(props, { emit }) {
     const store = useStore()
     const drag = ref(false)
 
     const add = (evt) => {
-      const field = deepClone(props.fields[evt.newIndex])
-      field.uuid = field.options.key = field.component + '-' + uuid(16)
-      props.fields[evt.newIndex] = field
-      store.dispatch('design/setSeleted', field.uuid)
+      const item = deepClone(props.items[evt.newIndex])
+      item.uuid = item.options.key = item.component + '-' + uuid(16)
+      props.items[evt.newIndex] = item
+      store.dispatch('design/setSeleted', item.uuid)
     }
 
     const dragStart = (evt) => {
-      store.dispatch('design/setSeleted', props.fields[evt.oldIndex].uuid)
+      store.dispatch('design/setSeleted', props.items[evt.oldIndex].uuid)
+    }
+
+    const elementChange = (index, value) => {
+      props.items[index].items = value
+      emit('update:items', props.items)
     }
 
     return {
       drag,
       add,
-      dragStart
+      dragStart,
+      elementChange
     }
   }
 }

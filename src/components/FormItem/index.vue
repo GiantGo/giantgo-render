@@ -1,13 +1,14 @@
 <template>
-  <component
-    :is="component"
-    :model-value="modelValue"
-    @update:modelValue="$emit('update:modelValue', $event)"
-    :fields="fields"
-    @update:fields="$emit('update:fields', $event)"
-    :options="options"
-    @click.prevent="select"
-  ></component>
+  <div class="form-item" @click.stop="select">
+    <component
+      :is="component"
+      :model-value="modelValue"
+      @update:modelValue="$emit('update:modelValue', $event)"
+      :items="items"
+      @update:items="$emit('update:items', $event)"
+      :options="options"
+    ></component>
+  </div>
 </template>
 
 <script>
@@ -18,10 +19,11 @@ export default {
   props: {
     component: {
       type: String,
-      default: 'input-field'
+      default: 'input-item'
     },
+    uuid: String,
     modelValue: [String, Number, Boolean, Array, Object],
-    fields: {
+    items: {
       type: Array,
       default() {
         return []
@@ -38,7 +40,9 @@ export default {
     const store = useStore()
 
     const select = () => {
-      store.dispatch('design/setSeleted', props.options.uuid)
+      if (props.uuid) {
+        store.dispatch('design/setSeleted', props.uuid)
+      }
     }
 
     return {
