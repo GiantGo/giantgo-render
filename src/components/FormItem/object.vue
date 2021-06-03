@@ -2,22 +2,22 @@
   <div class="form-item-panel">
     <draggable
       class="form-item-drop"
-      :model-value="items"
-      @update:modelValue="$emit('update:items', $event)"
+      v-model="items"
+      @update:modelValue="update"
       @start="dragStart"
       @add="add"
       tag="transition-group"
-      item-key="name"
+      item-key="uuid"
       v-bind="{ animation: 200, group: 'form-draggable', disabled: false, ghostClass: 'ghost' }"
       :component-data="{ tag: 'div', type: 'transition-group', name: !drag ? 'flip-list' : null }"
     >
-      <template #item="{ element, index }">
+      <template #item="{ element }">
         <form-item
           :uuid="element.uuid"
           :options="element.options"
           :component="element.component"
-          :items="element.items"
-          @update:items="elementChange(index, $event)"
+          v-model:items="element.items"
+          @update:items="update"
         ></form-item>
       </template>
     </draggable>
@@ -35,6 +35,7 @@ export default {
   name: 'objectItem',
   components: { draggable, FormItem },
   props: {
+    uuid: String,
     items: {
       type: Array,
       default() {
@@ -48,7 +49,11 @@ export default {
 
     const add = (evt) => {
       const item = deepClone(props.items[evt.newIndex])
-      item.uuid = item.options.key = item.component + '-' + uuid(16)
+
+      if (!item.uuid) {
+        item.uuid = item.options.key = item.component + '-' + uuid(16)
+      }
+
       props.items[evt.newIndex] = item
       store.dispatch('design/setSeleted', item.uuid)
     }
@@ -57,16 +62,15 @@ export default {
       store.dispatch('design/setSeleted', props.items[evt.oldIndex].uuid)
     }
 
-    const elementChange = (index, value) => {
-      props.items[index].items = value
+    const update = () => {
       emit('update:items', props.items)
     }
 
     return {
       drag,
       add,
-      dragStart,
-      elementChange
+      update,
+      dragStart
     }
   }
 }

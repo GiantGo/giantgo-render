@@ -70,11 +70,11 @@ const getDefaultState = () => {
       }
     ],
     formDesign: {
-      name: '对象布局',
+      name: '根布局',
       component: 'object-item',
       uuid: '',
       options: {
-        label: '对象布局',
+        label: '根布局',
         key: ''
       },
       items: []

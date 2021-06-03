@@ -2,8 +2,12 @@
   <div class="form-panel">
     <el-empty v-if="formDesign.items.length === 0" class="empty" description="从左侧选择控件添加"></el-empty>
     <el-form :ref="formRef" :label-width="formOptions.labelWidth">
-      {{ formItems }}
-      <form-item :component="formDesign.component" :options="formDesign.options" v-model:items="formItems"></form-item>
+      <form-item
+        :component="formDesign.component"
+        :uuid="formDesign.uuid"
+        :options="formDesign.options"
+        v-model:items="formItems"
+      ></form-item>
     </el-form>
   </div>
 </template>

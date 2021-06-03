@@ -2,6 +2,7 @@
   <div class="form-item" @click.stop="select">
     <component
       :is="component"
+      :uuid="uuid"
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
       :items="items"
