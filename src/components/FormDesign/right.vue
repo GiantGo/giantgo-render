@@ -40,11 +40,4 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/variables.scss';
-
-.form-setting {
-  width: 100%;
-  height: 100%;
-  padding: 8px;
-  overflow-y: auto;
-}
 </style>

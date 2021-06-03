@@ -1,5 +1,16 @@
 <template>
-  <div class="form-item" @click.stop="select">
+  <div class="form-item" @click.stop="select" :class="{ selected: selected }">
+    <div class="operator">
+      <div class="copy" @click.stop="copy">
+        <i class="el-icon-copy-document"></i>
+      </div>
+      <div class="remove" @click.stop="remove">
+        <i class="el-icon-delete"></i>
+      </div>
+    </div>
+    <div class="info">
+      {{ options.key }}
+    </div>
     <component
       :is="component"
       :uuid="uuid"
@@ -13,6 +24,7 @@
 </template>
 
 <script>
+import { computed } from 'vue'
 import { useStore } from 'vuex'
 
 export default {
@@ -46,8 +58,23 @@ export default {
       }
     }
 
+    const copy = () => {
+      if (props.uuid) {
+        store.dispatch('design/copyFormItem', props.uuid)
+      }
+    }
+
+    const remove = () => {
+      if (props.uuid) {
+        store.dispatch('design/removeFormItem', props.uuid)
+      }
+    }
+
     return {
-      select
+      select,
+      copy,
+      remove,
+      selected: computed(() => store.getters.selected === props.uuid)
     }
   }
 }

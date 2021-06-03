@@ -35,7 +35,6 @@ export default {
   name: 'objectItem',
   components: { draggable, FormItem },
   props: {
-    uuid: String,
     items: {
       type: Array,
       default() {

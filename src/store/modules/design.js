@@ -1,4 +1,4 @@
-import { isEmptyObject } from '@/utils/index.js'
+import { isEmptyObject, deepClone, uuid as makeId } from '@/utils/index.js'
 
 const query = (items, uuid) => {
   let result = {}
@@ -21,6 +21,46 @@ const query = (items, uuid) => {
   }
 
   return result
+}
+
+const copy = (items, uuid) => {
+  if (!uuid) {
+    return false
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].uuid === uuid) {
+      let item = deepClone(items[i])
+      item.uuid = item.options.key = item.component + '-' + makeId(16)
+      items.splice(i, 0, item)
+      return true
+    }
+
+    if (items[i].items && items[i].items.length) {
+      if (copy(items[i].items, uuid)) {
+        return true
+      }
+    }
+  }
+}
+
+const remove = (items, uuid) => {
+  if (!uuid) {
+    return false
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].uuid === uuid) {
+      items.splice(i, 1)
+      return true
+    }
+
+    if (items[i].items && items[i].items.length) {
+      if (remove(items[i].items, uuid)) {
+        return true
+      }
+    }
+  }
 }
 
 const getDefaultState = () => {
@@ -83,7 +123,7 @@ const getDefaultState = () => {
       labelWidth: '80px'
     },
     formItemOptions: {},
-    selected: ''
+    selected: null
   }
 }
 
@@ -117,6 +157,16 @@ const actions = {
   },
   updateFormItemOption({ commit }, { key, value }) {
     commit('UPDATE_FORM_ITEM_OPTION', { key, value })
+  },
+  copyFormItem({ commit, state }, uuid) {
+    const formItems = deepClone(state.formDesign.items)
+    copy(formItems, uuid)
+    commit('UPDATE_FORM_ITEMS', formItems)
+  },
+  removeFormItem({ commit }, uuid) {
+    const formItems = deepClone(state.formDesign.items)
+    remove(formItems, uuid)
+    commit('UPDATE_FORM_ITEMS', formItems)
   },
   setSeleted({ commit }, uuid) {
     commit('SET_SELECTED', uuid)

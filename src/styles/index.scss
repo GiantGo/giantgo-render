@@ -2,6 +2,7 @@
 @import 'mixin';
 @import 'transition';
 @import 'element-ui';
+@import 'design';
 @import 'btn';
 
 html {
@@ -184,22 +185,6 @@ div:focus {
   overflow: hidden;
   &.bg-color {
     background-color: #f0f2f5;
-  }
-}
-
-.text-center {
-  text-align: center;
-}
-
-.link-type,
-.link-type:focus {
-  color: $primary-color;
-  cursor: pointer;
-  text-decoration: underline;
-
-  &:hover {
-    color: $light-primary-color;
-    text-decoration: underline;
   }
 }
 
