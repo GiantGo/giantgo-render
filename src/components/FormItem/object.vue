@@ -3,7 +3,7 @@
     <draggable
       class="form-item-drop"
       v-model="items"
-      @update:modelValue="update"
+      @update:modelValue="$emit('update:items', items)"
       @start="dragStart"
       @add="add"
       tag="transition-group"
@@ -13,11 +13,11 @@
     >
       <template #item="{ element }">
         <form-item
+          :component="element.component"
           :uuid="element.uuid"
           :options="element.options"
-          :component="element.component"
           v-model:items="element.items"
-          @update:items="update"
+          @update:items="$emit('update:items', items)"
         ></form-item>
       </template>
     </draggable>
@@ -61,14 +61,9 @@ export default {
       store.dispatch('design/setSeleted', props.items[evt.oldIndex].uuid)
     }
 
-    const update = () => {
-      emit('update:items', props.items)
-    }
-
     return {
       drag,
       add,
-      update,
       dragStart
     }
   }

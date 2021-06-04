@@ -64,66 +64,68 @@ const remove = (items, uuid) => {
 }
 
 const getDefaultState = () => {
-  return {
-    basics: [
-      {
-        name: '输入框',
-        component: 'input-item',
-        uuid: '',
-        options: {
-          label: '输入框',
-          key: ''
-        }
-      },
-      {
-        name: '文本框',
-        component: 'textarea-item',
-        uuid: '',
-        options: {
-          label: '文本框',
-          key: '',
-          rows: 4
-        }
+  const basics = [
+    {
+      name: '输入框',
+      component: 'input-item',
+      uuid: '',
+      options: {
+        label: '输入框',
+        key: ''
       }
-    ],
-    layouts: [
-      {
-        name: '对象布局',
-        component: 'object-item',
-        uuid: '',
-        options: {
-          label: '对象布局',
-          key: ''
-        },
-        items: []
-      },
-      {
-        name: '卡片布局',
-        component: 'card-item',
-        uuid: '',
-        options: {
-          label: '卡片布局',
-          key: '',
-          shadow: 'always'
-        },
-        items: []
+    },
+    {
+      name: '文本框',
+      component: 'textarea-item',
+      uuid: '',
+      options: {
+        label: '文本框',
+        key: '',
+        rows: 4
       }
-    ],
-    formDesign: {
-      name: '根布局',
+    }
+  ]
+
+  const layouts = [
+    {
+      name: '对象布局',
       component: 'object-item',
       uuid: '',
       options: {
-        label: '根布局',
+        label: '对象布局',
         key: ''
       },
       items: []
     },
-    formOptions: {
+    {
+      name: '卡片布局',
+      component: 'card-item',
+      uuid: '',
+      options: {
+        label: '卡片布局',
+        key: '',
+        shadow: 'always'
+      },
+      items: []
+    }
+  ]
+
+  const formDesign = {
+    name: '表单',
+    component: 'object-item',
+    uuid: 'root',
+    options: {
       labelWidth: '80px'
     },
-    formItemOptions: {},
-    selected: null
+    items: []
+  }
+
+  return {
+    basics: basics,
+    layouts: layouts,
+    formDesign: formDesign,
+    formOptions: formDesign.options,
+    selected: 'root'
   }
 }
 
@@ -139,24 +141,23 @@ const mutations = {
   UPDATE_FORM_OPTION: (state, { key, value }) => {
     state.formOptions[key] = value
   },
-  UPDATE_FORM_ITEM_OPTION: (state, { key, value }) => {
-    state.formItemOptions[key] = value
-  },
   SET_SELECTED: (state, uuid) => {
-    state.selected = uuid
-    state.formItemOptions = query(state.formDesign.items, uuid).options || {}
+    if (state.selected !== uuid) {
+      state.selected = uuid
+      state.formOptions = query([state.formDesign], uuid).options || {}
+    }
   }
 }
 
 const actions = {
+  init({ commit }, {}) {
+    commit('INIT', {})
+  },
   updateFormItems({ commit }, formItems) {
     commit('UPDATE_FORM_ITEMS', formItems)
   },
   updateFormOption({ commit }, { key, value }) {
     commit('UPDATE_FORM_OPTION', { key, value })
-  },
-  updateFormItemOption({ commit }, { key, value }) {
-    commit('UPDATE_FORM_ITEM_OPTION', { key, value })
   },
   copyFormItem({ commit, state }, uuid) {
     const formItems = deepClone(state.formDesign.items)

@@ -3,7 +3,7 @@
     <component
       v-for="(value, key) in formOptions"
       :key="key"
-      :is="key + 'FormOption'"
+      :is="key + 'Option'"
       :model-value="formOptions[key]"
       @update:modelValue="updateFormOption(key, $event)"
     >

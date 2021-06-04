@@ -16,6 +16,8 @@
           </div>
         </template>
       </draggable>
+    </div>
+    <div class="form-item-section">
       <div class="title">布局组件</div>
       <draggable
         class="form-item-group"

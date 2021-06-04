@@ -7,14 +7,12 @@ import router from './router'
 import store from './store/index.js'
 import FormItem from './components/FormItem/index.js'
 import FormOption from './components/FormOption/index.js'
-import FormItemOption from './components/FormItemOption/index.js'
 
 const app = createApp(App)
 
 app.use(ElementPlus)
 app.use(FormItem)
 app.use(FormOption)
-app.use(FormItemOption)
 app.use(router)
 app.use(store)
 

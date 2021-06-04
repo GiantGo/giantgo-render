@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'labelWidthFormOption',
+  name: 'labelWidthOption',
   components: {},
   props: {
     modelValue: String

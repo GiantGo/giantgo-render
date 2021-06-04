@@ -1,11 +1,11 @@
 <template>
   <div class="form-design">
     <el-empty v-if="formDesign.items.length === 0" class="empty" description="从左侧选择控件添加"></el-empty>
-    <el-form :ref="formRef" :label-width="formOptions.labelWidth">
+    <el-form :ref="formRef" :label-width="formDesign.options.labelWidth">
       <form-item
+        class="root"
         :component="formDesign.component"
         :uuid="formDesign.uuid"
-        :options="formDesign.options"
         v-model:items="formItems"
       ></form-item>
     </el-form>
@@ -25,7 +25,6 @@ export default {
 
     return {
       formRef,
-      formOptions: computed(() => store.getters.formOptions),
       formDesign: computed(() => store.getters.formDesign),
       formItems: computed({
         get() {
