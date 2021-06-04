@@ -119,7 +119,8 @@ const getDefaultState = () => {
     component: 'object-item',
     uuid: 'root',
     options: {
-      labelWidth: '80px'
+      labelWidth: '80px',
+      labelPosition: 'right'
     },
     items: []
   }
@@ -129,15 +130,16 @@ const getDefaultState = () => {
     layouts: layouts,
     formDesign: formDesign,
     formOptions: formDesign.options,
-    selected: 'root'
+    selected: ''
   }
 }
 
 const state = getDefaultState()
 
 const mutations = {
-  INIT: (state, {}) => {
-    Object.assign(state, getDefaultState())
+  INIT: (state, formDesign) => {
+    const initState = getDefaultState()
+    Object.assign(state, initState, { formDesign: formDesign || initState.formDesign })
   },
   UPDATE_FORM_ITEMS: (state, formItems) => {
     state.formDesign.items = formItems
@@ -154,8 +156,9 @@ const mutations = {
 }
 
 const actions = {
-  init({ commit }, {}) {
-    commit('INIT', {})
+  init({ commit }, formDesign) {
+    commit('INIT', formDesign)
+    commit('SET_SELECTED', 'root')
   },
   updateFormItems({ commit }, formItems) {
     commit('UPDATE_FORM_ITEMS', formItems)
