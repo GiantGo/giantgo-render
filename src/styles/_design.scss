@@ -14,17 +14,6 @@
     position: relative;
     overflow: hidden;
     color: $normal-text;
-
-    &.active:before {
-      content: '';
-      height: 5px;
-      width: 100%;
-      background: $primary-color;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: all 0.3s;
-    }
   }
 
   .form-item + .form-item {
@@ -130,10 +119,6 @@
     height: 100%;
     padding: 8px;
     overflow-y: auto;
-  }
-
-  .flip-list-move {
-    transition: transform 0;
   }
 
   .form-design {

@@ -6,10 +6,8 @@
       @update:modelValue="$emit('update:items', items)"
       @start="dragStart"
       @add="add"
-      tag="transition-group"
       item-key="uuid"
       v-bind="{ animation: 200, group: 'form-draggable', disabled: false, ghostClass: 'ghost' }"
-      :component-data="{ tag: 'div', type: 'transition-group', name: !drag ? 'flip-list' : null }"
     >
       <template #item="{ element }">
         <form-item

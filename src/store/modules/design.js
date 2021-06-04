@@ -31,17 +31,21 @@ const copy = (items, uuid) => {
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
       let item = deepClone(items[i])
-      item.uuid = item.options.key = item.component + '-' + makeId(16)
-      items.splice(i, 0, item)
-      return true
+      const newId = item.component + '-' + makeId(16)
+      item.uuid = item.options.key = newId
+      items.splice(i + 1, 0, item)
+      return newId
     }
 
     if (items[i].items && items[i].items.length) {
-      if (copy(items[i].items, uuid)) {
-        return true
+      const newId = copy(items[i].items, uuid)
+      if (newId) {
+        return newId
       }
     }
   }
+
+  return false
 }
 
 const remove = (items, uuid) => {
@@ -161,13 +165,15 @@ const actions = {
   },
   copyFormItem({ commit, state }, uuid) {
     const formItems = deepClone(state.formDesign.items)
-    copy(formItems, uuid)
+    const newId = copy(formItems, uuid)
     commit('UPDATE_FORM_ITEMS', formItems)
+    commit('SET_SELECTED', newId)
   },
   removeFormItem({ commit }, uuid) {
     const formItems = deepClone(state.formDesign.items)
     remove(formItems, uuid)
     commit('UPDATE_FORM_ITEMS', formItems)
+    commit('SET_SELECTED', 'root')
   },
   setSeleted({ commit }, uuid) {
     commit('SET_SELECTED', uuid)
