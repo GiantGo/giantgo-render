@@ -1,15 +1,27 @@
 <template>
   <div class="form-operator">
-    <el-tooltip class="item" effect="dark" content="预览" placement="top">
-      <i class="el-icon-view" />
-    </el-tooltip>
-    <el-tooltip class="item" effect="dark" content="清空" placement="top">
-      <i class="el-icon-delete" @click="clear" />
-    </el-tooltip>
+    <div>
+      <el-tooltip class="item" effect="dark" content="清空" placement="top">
+        <i class="el-icon-delete" @click="clear" />
+      </el-tooltip>
+    </div>
+    <div class="fr">
+      <el-switch
+        v-model="mode"
+        active-color="#13ce66"
+        inactive-color="#409eff"
+        active-text="预览"
+        inactive-text="编辑"
+        active-value="preview"
+        inactive-value="design"
+      >
+      </el-switch>
+    </div>
   </div>
 </template>
 
 <script>
+import { computed } from 'vue'
 import { useStore } from 'vuex'
 
 export default {
@@ -22,7 +34,15 @@ export default {
     }
 
     return {
-      clear
+      clear,
+      mode: computed({
+        get() {
+          return store.getters.mode
+        },
+        set(value) {
+          store.dispatch('design/setMode', value)
+        }
+      })
     }
   }
 }

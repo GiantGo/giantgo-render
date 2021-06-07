@@ -1,14 +1,42 @@
 <template>
-  <button @click="state.count++">count is: {{ state.count }}</button>
+  <el-form
+    :class="'form-' + mode"
+    ref="formRef"
+    :label-width="formDesign.options.labelWidth"
+    :label-position="formDesign.options.labelPosition"
+    v-model="formData"
+  >
+    <form-item class="root" :config="formDesign" path="root"></form-item>
+    <el-button class="mt-10" type="primary" @click="submit">提交</el-button>
+  </el-form>
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
+  name: 'formRender',
+  props: {},
   setup() {
-    const state = reactive({ count: 0 })
-    return { state }
+    const formRef = ref(null)
+    const store = useStore()
+
+    const submit = () => {
+      formRef.value.validate((valid) => {
+        if (valid) {
+          console.log(store.getters.formData)
+        }
+      })
+    }
+
+    return {
+      formRef,
+      mode: computed(() => store.getters.mode),
+      formDesign: computed(() => store.getters.formDesign),
+      formData: computed(() => store.getters.formData),
+      submit
+    }
   }
 }
 </script>

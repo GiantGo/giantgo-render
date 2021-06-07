@@ -126,11 +126,13 @@ const getDefaultState = () => {
   }
 
   return {
+    mode: 'design',
     basics: basics,
     layouts: layouts,
     formDesign: formDesign,
     formOptions: formDesign.options,
-    selected: ''
+    selected: '',
+    formData: {}
   }
 }
 
@@ -141,8 +143,12 @@ const mutations = {
     const initState = getDefaultState()
     Object.assign(state, initState, { formDesign: formDesign || initState.formDesign })
   },
-  UPDATE_FORM_ITEMS: (state, formItems) => {
-    state.formDesign.items = formItems
+  UPDATE_FORM_ITEMS: (state, { uuid, items }) => {
+    const target = query([state.formDesign], uuid)
+
+    if (target) {
+      target.items = items
+    }
   },
   UPDATE_FORM_OPTION: (state, { key, value }) => {
     state.formOptions[key] = value
@@ -152,6 +158,9 @@ const mutations = {
       state.selected = uuid
       state.formOptions = query([state.formDesign], uuid).options || {}
     }
+  },
+  SET_MODE: (state, mode) => {
+    state.mode = mode
   }
 }
 
@@ -160,8 +169,8 @@ const actions = {
     commit('INIT', formDesign)
     commit('SET_SELECTED', 'root')
   },
-  updateFormItems({ commit }, formItems) {
-    commit('UPDATE_FORM_ITEMS', formItems)
+  updateFormItems({ commit }, { uuid, items }) {
+    commit('UPDATE_FORM_ITEMS', { uuid, items })
   },
   updateFormOption({ commit }, { key, value }) {
     commit('UPDATE_FORM_OPTION', { key, value })
@@ -180,6 +189,9 @@ const actions = {
   },
   setSeleted({ commit }, uuid) {
     commit('SET_SELECTED', uuid)
+  },
+  setMode({ commit }, mode) {
+    commit('SET_MODE', mode)
   }
 }
 
