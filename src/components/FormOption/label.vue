@@ -1,6 +1,6 @@
 <template>
   <el-form-item label="标签:">
-    <el-input type="text" :model-value="modelValue" @input="input"></el-input>
+    <el-input type="text" :model-value="modelValue" @input="$emit('update:modelValue', $event)"></el-input>
   </el-form-item>
 </template>
 
@@ -11,13 +11,7 @@ export default {
   props: {
     modelValue: String
   },
-  setup(props, { emit }) {
-    const input = (value) => {
-      emit('update:modelValue', value)
-    }
-
-    return { input }
-  }
+  setup() {}
 }
 </script>
 

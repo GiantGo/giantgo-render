@@ -1,12 +1,12 @@
 <template>
-  <el-form-item label="ID (字段名称/英文):">
+  <el-form-item label="占位文本:">
     <el-input type="text" :model-value="modelValue" @input="$emit('update:modelValue', $event)"></el-input>
   </el-form-item>
 </template>
 
 <script>
 export default {
-  name: 'keyOption',
+  name: 'placeholderOption',
   components: {},
   props: {
     modelValue: String

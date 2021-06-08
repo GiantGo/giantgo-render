@@ -1,4 +1,5 @@
 <template>
+  <el-empty v-if="formDesign.items.length === 0" class="empty" description="从左侧选择控件添加"></el-empty>
   <el-form
     class="form-design"
     :label-width="formDesign.options.labelWidth"

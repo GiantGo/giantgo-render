@@ -71,23 +71,43 @@ const getDefaultState = () => {
   const basics = [
     {
       name: '输入框',
+      type: String,
       builder: 'input-builder',
       render: 'input-render',
       uuid: '',
       options: {
         label: '输入框',
-        key: ''
+        key: '',
+        default: '',
+        placeholder: '请输入'
       }
     },
     {
       name: '文本框',
+      type: String,
       builder: 'textarea-builder',
       render: 'textarea-render',
       uuid: '',
       options: {
         label: '文本框',
         key: '',
+        default: '',
+        placeholder: '请输入内容',
         rows: 4
+      }
+    },
+    {
+      name: '数字输入框',
+      type: Number,
+      builder: 'number-builder',
+      render: 'number-render',
+      uuid: '',
+      options: {
+        label: '数字输入框',
+        key: '',
+        default: 0,
+        min: 0,
+        max: 100
       }
     }
   ]
@@ -95,6 +115,7 @@ const getDefaultState = () => {
   const layouts = [
     {
       name: '对象布局',
+      type: Object,
       builder: 'object-builder',
       render: 'object-render',
       uuid: '',
@@ -106,6 +127,7 @@ const getDefaultState = () => {
     },
     {
       name: '卡片布局',
+      type: Object,
       builder: 'card-builder',
       render: 'card-render',
       uuid: '',
@@ -120,11 +142,12 @@ const getDefaultState = () => {
 
   const formDesign = {
     name: '表单',
+    type: Object,
     builder: 'object-builder',
     render: 'object-render',
     uuid: 'root',
     options: {
-      labelWidth: '80px',
+      labelWidth: '120px',
       labelPosition: 'right'
     },
     items: []

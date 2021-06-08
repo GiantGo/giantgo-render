@@ -26,7 +26,6 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import draggable from 'vuedraggable/src/vuedraggable'
-import { uuid } from '@/utils/index.js'
 
 export default {
   name: 'objectBuilder',

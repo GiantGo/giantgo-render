@@ -1,6 +1,14 @@
 <template>
   <div>
-    <component :is="render" :uuid="uuid" :items="items" :options="options"></component>
+    <component
+      :is="render"
+      :uuid="uuid"
+      :items="items"
+      :options="options"
+      :model-value="modelValue"
+      @update:modelValue="$emit('update:modelValue', $event)"
+      :path="options.key ? path + '.' + options.key : path"
+    ></component>
   </div>
 </template>
 
@@ -11,8 +19,10 @@ export default {
   name: 'formItemRender',
   components: {},
   props: {
+    path: String,
     render: String,
     uuid: String,
+    modelValue: [String, Number, Boolean, Object, Array],
     items: {
       type: Array,
       default() {

@@ -5,7 +5,7 @@
     </div>
     <div class="center-container">
       <operator></operator>
-      <center></center>
+      <form-builder />
     </div>
     <div class="right-container">
       <right></right>
@@ -15,12 +15,11 @@
 
 <script>
 import left from './left.vue'
-import center from './center.vue'
 import right from './right.vue'
 import operator from './operator.vue'
 
 export default {
-  components: { left, center, right, operator },
+  components: { left, right, operator },
   setup() {}
 }
 </script>

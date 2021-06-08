@@ -1,6 +1,6 @@
 <template>
   <el-form-item :label="options.label">
-    <el-input type="text" v-model="value" :placeholder="options.placeholder"></el-input>
+    <el-input-number v-model="value" :min="options.min" :max="options.max" label="描述文字"></el-input-number>
   </el-form-item>
 </template>
 
@@ -8,10 +8,9 @@
 import { ref } from 'vue'
 
 export default {
-  name: 'inputBuilder',
+  name: 'numberBuilder',
   components: {},
   props: {
-    path: String,
     uuid: String,
     options: {
       type: Object,
@@ -21,7 +20,7 @@ export default {
     }
   },
   setup() {
-    const value = ref('')
+    const value = ref(0)
 
     return {
       value

@@ -1,23 +1,26 @@
 <template>
-  <form-item-render
-    v-for="item in items"
-    :key="item.uuid"
-    :render="item.render"
-    :uuid="item.uuid"
-    :items="item.items"
-    :options="item.options"
-  ></form-item-render>
+  <div class="form-item-panel">
+    <form-item-render
+      v-for="item in items"
+      :key="item.uuid"
+      :model-value="modelValue[item.options.key]"
+      @update:modelValue="update(item.options.key, $event)"
+      :render="item.render"
+      :uuid="item.uuid"
+      :items="item.items"
+      :options="item.options"
+      :path="path"
+    ></form-item-render>
+  </div>
 </template>
 
 <script>
-import { useStore } from 'vuex'
-
 export default {
   name: 'objectRender',
   components: {},
   props: {
     path: String,
-    uuid: String,
+    modelValue: Object,
     items: {
       type: Array,
       default() {
@@ -31,8 +34,13 @@ export default {
       }
     }
   },
-  setup() {
-    return {}
+  setup(props, { emit }) {
+    const update = (key, value) => {
+      emit('update:modelValue', Object.assign({}, props.modelValue, { [key]: value }))
+    }
+    return {
+      update
+    }
   }
 }
 </script>

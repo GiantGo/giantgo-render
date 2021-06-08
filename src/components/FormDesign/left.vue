@@ -27,6 +27,7 @@
         :group="{ name: 'form-draggable', pull: 'clone', put: false }"
         ghost-class="ghost"
         :sort="false"
+        :clone="clone"
       >
         <template #item="{ element }">
           <div class="form-item">

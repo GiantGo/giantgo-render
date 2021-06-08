@@ -1,23 +1,23 @@
 <template>
   <el-form-item :label="options.label" :prop="path">
-    <el-input
-      type="textarea"
+    <el-input-number
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
-      :placeholder="options.placeholder"
-      :rows="options.rows"
-    ></el-input>
+      :min="options.min"
+      :max="options.max"
+      label="描述文字"
+    ></el-input-number>
   </el-form-item>
 </template>
 
 <script>
 export default {
-  name: 'textareaRender',
+  name: 'numberRender',
   components: {},
   props: {
     path: String,
-    modelValue: String,
     uuid: String,
+    modelValue: Number,
     options: {
       type: Object,
       default() {
@@ -25,7 +25,9 @@ export default {
       }
     }
   },
-  setup() {}
+  setup(props) {
+    return {}
+  }
 }
 </script>
 
