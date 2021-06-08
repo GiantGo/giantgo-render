@@ -1,17 +1,17 @@
 import FormRender from './index.vue'
-import FormItem from './FormItem/index.vue'
-import ObjectItem from './FormItem/object.vue'
-import InputItem from './FormItem/input.vue'
-import TextareaItem from './FormItem/textarea.vue'
-import CardItem from './FormItem/card.vue'
+import FormItemRender from './FormItem/index.vue'
+import ObjectRender from './FormItem/object.vue'
+import InputRender from './FormItem/input.vue'
+import TextareaRender from './FormItem/textarea.vue'
+import CardRender from './FormItem/card.vue'
 
 export default {
   install: (app) => {
     app.component(FormRender.name, FormRender)
-    app.component(FormItem.name, FormItem)
-    app.component(ObjectItem.name, ObjectItem)
-    app.component(InputItem.name, InputItem)
-    app.component(TextareaItem.name, TextareaItem)
-    app.component(CardItem.name, CardItem)
+    app.component(FormItemRender.name, FormItemRender)
+    app.component(ObjectRender.name, ObjectRender)
+    app.component(InputRender.name, InputRender)
+    app.component(TextareaRender.name, TextareaRender)
+    app.component(CardRender.name, CardRender)
   }
 }

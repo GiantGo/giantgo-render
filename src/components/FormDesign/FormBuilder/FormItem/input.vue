@@ -19,7 +19,7 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 
 export default {
-  name: 'inputRender',
+  name: 'inputBuilder',
   components: {},
   props: {
     path: String,

@@ -12,7 +12,7 @@
         inactive-color="#409eff"
         active-text="预览"
         inactive-text="编辑"
-        active-value="preview"
+        active-value="render"
         inactive-value="design"
       >
       </el-switch>

@@ -111,36 +111,7 @@
   }
 }
 
-.form-design,
-.form-preview {
-  .form-item-panel {
-    width: 100%;
-    height: 100%;
-
-    .form-item-drop {
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-    }
-  }
-
-  .form-item {
-    position: relative;
-    overflow: hidden;
-    color: $normal-text;
-
-    .operator,
-    .info {
-      display: none;
-    }
-  }
-
-  .form-item + .form-item {
-    margin-top: 5px;
-  }
-}
-
-.form-preview {
+.form-render {
   position: relative;
   padding: 10px 2px 2px 2px;
   height: 100%;
@@ -153,19 +124,29 @@
   height: calc(100% - 50px);
   overflow: hidden;
 
-  .form-item-drop {
-    min-height: 60px;
-    background: $white;
-    border: 1px dashed $border;
+  .form-item-panel {
+    width: 100%;
+    height: 100%;
+
+    .form-item-drop {
+      width: 100%;
+      height: 100%;
+      min-height: 60px;
+      background: $white;
+      border: 1px dashed $border;
+      overflow-y: auto;
+    }
   }
 
   .form-item {
+    position: relative;
     padding: 28px 5px;
     margin: 5px;
-    background: $deep-light-primary-color;
     overflow: hidden;
     box-sizing: border-box;
     border: 2px solid white;
+    background: $deep-light-primary-color;
+    color: $normal-text;
 
     .operator {
       display: none;
@@ -213,6 +194,10 @@
     .el-form-item {
       margin: 0px;
     }
+  }
+
+  .form-item + .form-item {
+    margin-top: 5px;
   }
 
   & > .form-item {

@@ -9,6 +9,7 @@
         :group="{ name: 'form-draggable', pull: 'clone', put: false }"
         ghost-class="ghost"
         :sort="false"
+        :clone="clone"
       >
         <template #item="{ element }">
           <div class="form-item">
@@ -41,12 +42,18 @@
 import draggable from 'vuedraggable/src/vuedraggable'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import { uuid, deepClone } from '@/utils/index.js'
 
 export default {
   components: { draggable },
   setup() {
     const store = useStore()
     return {
+      clone: (original) => {
+        const item = deepClone(original)
+        item.uuid = item.options.key = uuid(8)
+        return item
+      },
       basics: computed(() => store.getters.basics),
       layouts: computed(() => store.getters.layouts)
     }

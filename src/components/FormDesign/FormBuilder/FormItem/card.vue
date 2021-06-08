@@ -5,13 +5,13 @@
         <span>{{ options.label }}</span>
       </div>
     </template>
-    <object-render :uuid="uuid" :items="items" :options="options" :path="path"></object-render>
+    <object-builder :uuid="uuid" :items="items" :options="options" :path="path"></object-builder>
   </el-card>
 </template>
 
 <script>
 export default {
-  name: 'cardRender',
+  name: 'cardBuilder',
   props: {
     path: String,
     uuid: String,

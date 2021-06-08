@@ -71,7 +71,8 @@ const getDefaultState = () => {
   const basics = [
     {
       name: '输入框',
-      component: 'input-item',
+      builder: 'input-builder',
+      render: 'input-render',
       uuid: '',
       options: {
         label: '输入框',
@@ -80,7 +81,8 @@ const getDefaultState = () => {
     },
     {
       name: '文本框',
-      component: 'textarea-item',
+      builder: 'textarea-builder',
+      render: 'textarea-render',
       uuid: '',
       options: {
         label: '文本框',
@@ -93,7 +95,8 @@ const getDefaultState = () => {
   const layouts = [
     {
       name: '对象布局',
-      component: 'object-item',
+      builder: 'object-builder',
+      render: 'object-render',
       uuid: '',
       options: {
         label: '对象布局',
@@ -103,7 +106,8 @@ const getDefaultState = () => {
     },
     {
       name: '卡片布局',
-      component: 'card-item',
+      builder: 'card-builder',
+      render: 'card-render',
       uuid: '',
       options: {
         label: '卡片布局',
@@ -116,7 +120,8 @@ const getDefaultState = () => {
 
   const formDesign = {
     name: '表单',
-    component: 'object-item',
+    builder: 'object-builder',
+    render: 'object-render',
     uuid: 'root',
     options: {
       labelWidth: '80px',
@@ -131,8 +136,7 @@ const getDefaultState = () => {
     layouts: layouts,
     formDesign: formDesign,
     formOptions: formDesign.options,
-    selected: '',
-    formData: {}
+    selected: 'root'
   }
 }
 

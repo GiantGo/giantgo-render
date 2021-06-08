@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'textareaRender',
+  name: 'textareaBuilder',
   components: {},
   props: {
     path: String,
