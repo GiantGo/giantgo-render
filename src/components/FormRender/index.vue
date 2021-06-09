@@ -4,6 +4,10 @@
     ref="formRef"
     :label-width="formDesign.options.labelWidth"
     :label-position="formDesign.options.labelPosition"
+    :hide-required-asterisk="formDesign.options.hideRequiredAsterisk"
+    :status-icon="formDesign.options.statusIcon"
+    :inline="formDesign.options.inline"
+    :size="formDesign.options.size"
     :model="formData"
   >
     <form-item-render
@@ -17,7 +21,7 @@
     ></form-item-render>
     <div class="btn-submit">
       <el-button type="primary" @click="submit">提交</el-button>
-      <el-button type="default" @click="submit">重置</el-button>
+      <el-button type="default" @click="reset">重置</el-button>
     </div>
   </el-form>
 </template>
@@ -68,18 +72,39 @@ export default {
       })
     }
 
+    const reset = () => {
+      formRef.value.resetFields()
+    }
+
     return {
       formRef,
       formDesign,
       formData,
       init,
-      submit
+      submit,
+      reset
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.form-render {
+  position: relative;
+  padding: 10px 2px 2px 2px;
+  height: 100%;
+  overflow: auto;
+
+  &.el-form--inline {
+    .form-item-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+    }
+  }
+}
+
 .btn-submit {
   margin-top: 10px;
   text-align: center;

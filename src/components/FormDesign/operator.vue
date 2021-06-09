@@ -47,4 +47,30 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+@import '../../styles/variables.scss';
+
+.form-operator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2px 2px 5px 2px;
+  height: 45px;
+  padding: 0 10px;
+  border: 1px solid $divider-color;
+  color: $primary-text;
+  font-size: 16px;
+
+  i {
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  i + i {
+    margin-left: 10px;
+  }
+}
+</style>

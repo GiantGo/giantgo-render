@@ -149,7 +149,11 @@ const getDefaultState = () => {
     uuid: 'root',
     options: {
       labelWidth: '120px',
-      labelPosition: 'right'
+      labelPosition: 'right',
+      size: 'medium',
+      inline: false,
+      hideRequiredAsterisk: false,
+      statusIcon: false
     },
     items: []
   }

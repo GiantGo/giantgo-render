@@ -12,7 +12,7 @@
         :clone="clone"
       >
         <template #item="{ element }">
-          <div class="form-item">
+          <div class="form-item-drop">
             {{ element.name }}
           </div>
         </template>
@@ -30,7 +30,7 @@
         :clone="clone"
       >
         <template #item="{ element }">
-          <div class="form-item">
+          <div class="form-item-drop">
             {{ element.name }}
           </div>
         </template>
@@ -64,4 +64,48 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/variables.scss';
+
+.form-item-picker {
+  height: 100%;
+  padding: 8px;
+
+  .form-item-section {
+    margin-top: 10px;
+
+    .title {
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: $primary-text;
+    }
+
+    .form-item-group {
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+
+      .form-item-drop {
+        width: calc(50% - 10px);
+        height: 36px;
+        margin: 0 8px 8px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $deep-light-primary-color;
+        cursor: move;
+        color: $normal-text;
+
+        &.ghost {
+          opacity: 0.5;
+          background: #c8ebfb;
+        }
+
+        &:hover {
+          color: $primary-color;
+          border: 1px dashed $primary-color;
+        }
+      }
+    }
+  }
+}
 </style>

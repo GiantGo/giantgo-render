@@ -7,6 +7,10 @@ import RowsOption from './rows.vue'
 import MinOption from './min.vue'
 import MaxOption from './max.vue'
 import PlaceholderOption from './placeholder.vue'
+import HideRequiredAsteriskOption from './hide-required-asterisk.vue'
+import StatusIconOption from './status-icon.vue'
+import inlineOption from './inline.vue'
+import sizeOption from './size.vue'
 
 export default {
   install: (app) => {
@@ -19,5 +23,9 @@ export default {
     app.component(MinOption.name, MinOption)
     app.component(MaxOption.name, MaxOption)
     app.component(PlaceholderOption.name, PlaceholderOption)
+    app.component(HideRequiredAsteriskOption.name, HideRequiredAsteriskOption)
+    app.component(StatusIconOption.name, StatusIconOption)
+    app.component(inlineOption.name, inlineOption)
+    app.component(sizeOption.name, sizeOption)
   }
 }

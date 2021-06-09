@@ -1,25 +1,23 @@
 <template>
-  <div class="form-item-panel">
-    <draggable
-      class="form-item-drop"
-      :model-value="items"
-      @update:modelValue="updateFormItems"
-      @start="dragStart"
-      @add="add"
-      item-key="uuid"
-      v-bind="{ animation: 200, group: 'form-draggable', disabled: !draggable, ghostClass: 'ghost' }"
-    >
-      <template #item="{ element }">
-        <form-item-builder
-          :builder="element.builder"
-          :uuid="element.uuid"
-          :items="element.items"
-          :options="element.options"
-          :path="path"
-        ></form-item-builder>
-      </template>
-    </draggable>
-  </div>
+  <draggable
+    class="form-item-drop-list"
+    :model-value="items"
+    @update:modelValue="updateFormItems"
+    @start="dragStart"
+    @add="add"
+    item-key="uuid"
+    v-bind="{ animation: 200, group: 'form-draggable', disabled: !draggable, ghostClass: 'ghost' }"
+  >
+    <template #item="{ element }">
+      <form-item-builder
+        :builder="element.builder"
+        :uuid="element.uuid"
+        :items="element.items"
+        :options="element.options"
+        :path="path"
+      ></form-item-builder>
+    </template>
+  </draggable>
 </template>
 
 <script>

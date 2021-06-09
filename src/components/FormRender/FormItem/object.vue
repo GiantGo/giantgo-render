@@ -1,5 +1,5 @@
 <template>
-  <div class="form-item-panel">
+  <div class="form-item-list">
     <form-item-render
       v-for="item in items"
       :key="item.uuid"
