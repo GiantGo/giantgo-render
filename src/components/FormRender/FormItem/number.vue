@@ -5,7 +5,7 @@
       @update:modelValue="$emit('update:modelValue', $event)"
       :min="options.min"
       :max="options.max"
-      label="描述文字"
+      :disabled="options.disabled"
     ></el-input-number>
   </el-form-item>
 </template>

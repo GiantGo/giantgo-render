@@ -31,7 +31,7 @@ const copy = (items, uuid) => {
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
       let item = deepClone(items[i])
-      const newId = makeId(8)
+      const newId = makeId(16)
       item.uuid = item.options.key = newId
       item.items = []
       items.splice(i + 1, 0, item)
@@ -79,8 +79,13 @@ const getDefaultState = () => {
       options: {
         label: '输入框',
         key: '',
-        default: '',
-        placeholder: '请输入'
+        defaultValue: '1',
+        placeholder: '请输入',
+        size: 'medium',
+        clearable: false,
+        disabled: false,
+        prefixIcon: '',
+        suffixIcon: ''
       }
     },
     {
@@ -92,9 +97,10 @@ const getDefaultState = () => {
       options: {
         label: '文本框',
         key: '',
-        default: '',
+        defaultValue: '',
         placeholder: '请输入内容',
-        rows: 4
+        rows: 4,
+        disabled: false
       }
     },
     {
@@ -106,9 +112,10 @@ const getDefaultState = () => {
       options: {
         label: '数字输入框',
         key: '',
-        default: 0,
+        defaultValue: 0,
         min: 0,
-        max: 100
+        max: 100,
+        disabled: false
       }
     }
   ]
@@ -159,12 +166,10 @@ const getDefaultState = () => {
   }
 
   return {
-    mode: 'design',
     basics: basics,
     layouts: layouts,
     formDesign: formDesign,
-    formOptions: formDesign.options,
-    selected: 'root'
+    selected: formDesign
   }
 }
 
@@ -183,16 +188,12 @@ const mutations = {
     }
   },
   UPDATE_FORM_OPTION: (state, { key, value }) => {
-    state.formOptions[key] = value
+    state.selected.options[key] = value
   },
   SET_SELECTED: (state, uuid) => {
     if (state.selected !== uuid) {
-      state.selected = uuid
-      state.formOptions = query([state.formDesign], uuid).options || {}
+      state.selected = query([state.formDesign], uuid) || {}
     }
-  },
-  SET_MODE: (state, mode) => {
-    state.mode = mode
   }
 }
 
@@ -221,9 +222,6 @@ const actions = {
   },
   setSeleted({ commit }, uuid) {
     commit('SET_SELECTED', uuid)
-  },
-  setMode({ commit }, mode) {
-    commit('SET_MODE', mode)
   }
 }
 

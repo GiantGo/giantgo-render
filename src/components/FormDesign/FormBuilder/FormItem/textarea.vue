@@ -1,12 +1,16 @@
 <template>
   <el-form-item :label="options.label" :prop="path">
-    <el-input type="textarea" v-model="value" :rows="options.rows" :placeholder="options.placeholder"></el-input>
+    <el-input
+      type="textarea"
+      :model-value="options.defaultValue"
+      :rows="options.rows"
+      :placeholder="options.placeholder"
+      :disabled="options.disabled"
+    ></el-input>
   </el-form-item>
 </template>
 
 <script>
-import { ref } from 'vue'
-
 export default {
   name: 'textareaBuilder',
   components: {},
@@ -20,13 +24,7 @@ export default {
       }
     }
   },
-  setup() {
-    const value = ref('')
-
-    return {
-      value
-    }
-  }
+  setup() {}
 }
 </script>
 

@@ -6,6 +6,7 @@
       @update:modelValue="$emit('update:modelValue', $event)"
       :placeholder="options.placeholder"
       :rows="options.rows"
+      :disabled="options.disabled"
     ></el-input>
   </el-form-item>
 </template>

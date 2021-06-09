@@ -1,12 +1,19 @@
 <template>
   <el-form-item :label="options.label">
-    <el-input type="text" v-model="value" :placeholder="options.placeholder"></el-input>
+    <el-input
+      type="text"
+      :model-value="options.defaultValue"
+      :placeholder="options.placeholder"
+      :clearable="options.clearable"
+      :disabled="options.disabled"
+      :size="options.size"
+      :prefix-icon="options.prefixIcon"
+      :suffix-icon="options.suffixIcon"
+    ></el-input>
   </el-form-item>
 </template>
 
 <script>
-import { ref } from 'vue'
-
 export default {
   name: 'inputBuilder',
   components: {},
@@ -20,13 +27,7 @@ export default {
       }
     }
   },
-  setup() {
-    const value = ref('')
-
-    return {
-      value
-    }
-  }
+  setup() {}
 }
 </script>
 

@@ -6,7 +6,7 @@
     @start="dragStart"
     @add="add"
     item-key="uuid"
-    v-bind="{ animation: 200, group: 'form-draggable', disabled: !draggable, ghostClass: 'ghost' }"
+    v-bind="{ animation: 200, group: 'form-draggable', disabled: false, ghostClass: 'ghost' }"
   >
     <template #item="{ element }">
       <form-item-builder
@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
 import { useStore } from 'vuex'
 import draggable from 'vuedraggable/src/vuedraggable'
 
@@ -62,8 +61,7 @@ export default {
     return {
       add,
       dragStart,
-      updateFormItems,
-      draggable: computed(() => store.getters.draggable)
+      updateFormItems
     }
   }
 }

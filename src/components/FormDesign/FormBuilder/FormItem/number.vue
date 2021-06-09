@@ -1,12 +1,15 @@
 <template>
   <el-form-item :label="options.label">
-    <el-input-number v-model="value" :min="options.min" :max="options.max" label="描述文字"></el-input-number>
+    <el-input-number
+      :model-value="options.defaultValue"
+      :min="options.min"
+      :max="options.max"
+      :disabled="options.disabled"
+    ></el-input-number>
   </el-form-item>
 </template>
 
 <script>
-import { ref } from 'vue'
-
 export default {
   name: 'numberBuilder',
   components: {},
@@ -19,13 +22,7 @@ export default {
       }
     }
   },
-  setup() {
-    const value = ref(0)
-
-    return {
-      value
-    }
-  }
+  setup() {}
 }
 </script>
 

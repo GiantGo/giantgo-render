@@ -47,7 +47,7 @@ export default {
 
     const traverse = (items, data) => {
       items.forEach((item) => {
-        data[item.options.key] = item.type(item.options.default)
+        data[item.options.key] = item.options.defaultValue ? item.options.defaultValue : item.type()
 
         if (item.items) {
           traverse(item.items, data[item.options.key])

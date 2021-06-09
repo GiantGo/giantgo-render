@@ -52,7 +52,7 @@ export default {
     return {
       clone: (original) => {
         const item = deepClone(original)
-        item.uuid = item.options.key = uuid(8)
+        item.uuid = item.options.key = uuid(16)
         return item
       },
       basics: computed(() => store.getters.basics),

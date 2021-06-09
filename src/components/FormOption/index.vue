@@ -1,11 +1,12 @@
 <template>
   <el-form label-position="top">
     <component
-      v-for="(value, key) in formOptions"
+      v-for="(value, key) in selected.options"
       :key="key"
       :is="key + 'Option'"
-      :model-value="formOptions[key]"
+      :model-value="selected.options[key]"
       @update:modelValue="updateFormOption(key, $event)"
+      :selected="selected"
     >
     </component>
   </el-form>
@@ -26,7 +27,7 @@ export default {
     }
 
     return {
-      formOptions: computed(() => store.getters.formOptions),
+      selected: computed(() => store.getters.selected),
       updateFormOption
     }
   }

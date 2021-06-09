@@ -31,6 +31,7 @@ export default {
     path: String,
     builder: String,
     uuid: String,
+    defaultValue: [String, Number, Boolean, Object, Array],
     items: {
       type: Array,
       default() {
@@ -51,7 +52,7 @@ export default {
       select: () => store.dispatch('design/setSeleted', props.uuid),
       copy: () => store.dispatch('design/copyFormItem', props.uuid),
       remove: () => store.dispatch('design/removeFormItem', props.uuid),
-      isSelected: computed(() => store.getters.selected === props.uuid)
+      isSelected: computed(() => store.getters.selected.uuid === props.uuid)
     }
   }
 }
