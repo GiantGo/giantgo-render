@@ -32,7 +32,7 @@ const copy = (items, uuid) => {
     if (items[i].uuid === uuid) {
       let item = deepClone(items[i])
       const newId = makeId(16)
-      item.uuid = item.options.key = newId
+      item.uuid = item.options.key = item.component + '_' + newId
       item.items = []
       items.splice(i + 1, 0, item)
       return newId
@@ -68,13 +68,14 @@ const remove = (items, uuid) => {
   }
 }
 
+const rules = [{ required: false, message: '必填项', trigger: 'blur' }]
+
 const getDefaultState = () => {
   const basics = [
     {
       name: '输入框',
       type: String,
-      builder: 'input-builder',
-      render: 'input-render',
+      component: 'input',
       uuid: '',
       options: {
         label: '输入框',
@@ -85,17 +86,13 @@ const getDefaultState = () => {
         disabled: false,
         prefixIcon: '',
         suffixIcon: '',
-        rules: [
-          { required: false, message: '必填项', trigger: 'blur' },
-          { pattern: '123', message: '正则', trigger: 'blur' }
-        ]
+        rules: rules
       }
     },
     {
       name: '文本框',
       type: String,
-      builder: 'textarea-builder',
-      render: 'textarea-render',
+      component: 'textarea',
       uuid: '',
       options: {
         label: '文本框',
@@ -104,14 +101,13 @@ const getDefaultState = () => {
         placeholder: '请输入内容',
         rows: 4,
         disabled: false,
-        rules: [{ required: false, message: '必填项', trigger: 'blur' }]
+        rules: rules
       }
     },
     {
       name: '数字输入框',
       type: Number,
-      builder: 'number-builder',
-      render: 'number-render',
+      component: 'number',
       uuid: '',
       options: {
         label: '数字输入框',
@@ -120,7 +116,7 @@ const getDefaultState = () => {
         min: 0,
         max: 100,
         disabled: false,
-        rules: [{ required: false, message: '必填项', trigger: 'blur' }]
+        rules: rules
       }
     }
   ]
@@ -129,8 +125,7 @@ const getDefaultState = () => {
     {
       name: '对象布局',
       type: Object,
-      builder: 'object-builder',
-      render: 'object-render',
+      component: 'object',
       uuid: '',
       options: {
         label: '对象布局',
@@ -141,8 +136,7 @@ const getDefaultState = () => {
     {
       name: '卡片布局',
       type: Object,
-      builder: 'card-builder',
-      render: 'card-render',
+      component: 'card',
       uuid: '',
       options: {
         label: '卡片布局',
@@ -156,8 +150,7 @@ const getDefaultState = () => {
   const formDesign = {
     name: '表单',
     type: Object,
-    builder: 'object-builder',
-    render: 'object-render',
+    component: 'object',
     uuid: 'root',
     options: {
       labelWidth: '120px',

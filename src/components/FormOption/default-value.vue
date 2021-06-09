@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="selected.render"
+    :is="selected.component + '-render'"
     :options="options"
     :model-value="modelValue"
     @update:modelValue="$emit('update:modelValue', $event)"

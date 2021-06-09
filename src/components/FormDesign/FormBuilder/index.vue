@@ -11,7 +11,7 @@
   >
     <form-item-builder
       class="root"
-      :builder="formDesign.builder"
+      :component="formDesign.component"
       :uuid="formDesign.uuid"
       :items="formDesign.items"
       :options="formDesign.options"

@@ -13,7 +13,7 @@
     <form-item-render
       class="root"
       v-model="formData.root"
-      :render="formDesign.render"
+      :component="formDesign.component"
       :uuid="formDesign.uuid"
       :items="formDesign.items"
       :options="formDesign.options"
@@ -56,7 +56,7 @@ export default {
     }
 
     const init = (config) => {
-      formDesign.render = config.render
+      formDesign.component = config.component
       formDesign.uuid = config.uuid
       formDesign.items = config.items
       formDesign.options = config.options

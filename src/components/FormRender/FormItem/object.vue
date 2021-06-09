@@ -5,7 +5,7 @@
       :key="item.uuid"
       :model-value="modelValue[item.options.key]"
       @update:modelValue="update(item.options.key, $event)"
-      :render="item.render"
+      :component="item.component"
       :uuid="item.uuid"
       :items="item.items"
       :options="item.options"

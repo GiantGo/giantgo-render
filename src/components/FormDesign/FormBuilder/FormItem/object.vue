@@ -10,7 +10,7 @@
   >
     <template #item="{ element }">
       <form-item-builder
-        :builder="element.builder"
+        :component="element.component"
         :uuid="element.uuid"
         :items="element.items"
         :options="element.options"

@@ -1,7 +1,7 @@
 <template>
   <div class="form-item">
     <component
-      :is="render"
+      :is="component + '-render'"
       :uuid="uuid"
       :items="items"
       :options="options"
@@ -20,7 +20,7 @@ export default {
   components: {},
   props: {
     path: String,
-    render: String,
+    component: String,
     uuid: String,
     modelValue: [String, Number, Boolean, Object, Array],
     items: {

@@ -12,7 +12,7 @@
       {{ options.key }}
     </div>
     <component
-      :is="builder"
+      :is="component + '-builder'"
       :uuid="uuid"
       :items="items"
       :options="options"
@@ -29,7 +29,7 @@ export default {
   name: 'formItemBuilder',
   props: {
     path: String,
-    builder: String,
+    component: String,
     uuid: String,
     defaultValue: [String, Number, Boolean, Object, Array],
     items: {
