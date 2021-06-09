@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { ref, reactive, toRaw } from 'vue'
+import { ref, reactive, toRaw, nextTick } from 'vue'
 
 export default {
   name: 'formRender',
@@ -62,6 +62,7 @@ export default {
       formDesign.options = config.options
       formData.root = {}
       traverse(formDesign.items, formData.root)
+      formRef.value && formRef.value.clearValidate()
     }
 
     const submit = () => {

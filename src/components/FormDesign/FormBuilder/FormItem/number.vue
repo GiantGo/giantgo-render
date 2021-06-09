@@ -1,5 +1,5 @@
 <template>
-  <el-form-item :label="options.label">
+  <el-form-item :prop="path" :label="options.label">
     <el-input-number
       :model-value="options.defaultValue"
       :min="options.min"
@@ -14,6 +14,7 @@ export default {
   name: 'numberBuilder',
   components: {},
   props: {
+    path: String,
     uuid: String,
     options: {
       type: Object,

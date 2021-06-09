@@ -81,11 +81,14 @@ const getDefaultState = () => {
         key: '',
         defaultValue: '1',
         placeholder: '请输入',
-        size: 'medium',
         clearable: false,
         disabled: false,
         prefixIcon: '',
-        suffixIcon: ''
+        suffixIcon: '',
+        rules: [
+          { required: false, message: '必填项', trigger: 'blur' },
+          { pattern: '123', message: '正则', trigger: 'blur' }
+        ]
       }
     },
     {
@@ -100,7 +103,8 @@ const getDefaultState = () => {
         defaultValue: '',
         placeholder: '请输入内容',
         rows: 4,
-        disabled: false
+        disabled: false,
+        rules: [{ required: false, message: '必填项', trigger: 'blur' }]
       }
     },
     {
@@ -115,7 +119,8 @@ const getDefaultState = () => {
         defaultValue: 0,
         min: 0,
         max: 100,
-        disabled: false
+        disabled: false,
+        rules: [{ required: false, message: '必填项', trigger: 'blur' }]
       }
     }
   ]

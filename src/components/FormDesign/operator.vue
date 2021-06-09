@@ -8,7 +8,7 @@
         <i class="el-icon-delete" @click="clear" />
       </el-tooltip>
     </div>
-    <el-dialog v-model="dialog">
+    <el-dialog title="预览" v-model="dialog">
       <form-render ref="formRender" />
     </el-dialog>
   </div>
@@ -32,7 +32,7 @@ export default {
     const preview = () => {
       dialog.value = true
       nextTick(() => {
-        formRender.value.init(store.getters.formDesign)
+        formRender.value && formRender.value.init(store.getters.formDesign)
       })
     }
 

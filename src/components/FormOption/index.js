@@ -17,6 +17,7 @@ import clearableOption from './clearable.vue'
 import disabledOption from './disabled.vue'
 import prefixIconOption from './prefix-icon.vue'
 import suffixIconOption from './suffix-icon.vue'
+import rulesOption from './rules.vue'
 
 export default {
   install: (app) => {
@@ -39,5 +40,6 @@ export default {
     app.component(disabledOption.name, disabledOption)
     app.component(prefixIconOption.name, prefixIconOption)
     app.component(suffixIconOption.name, suffixIconOption)
+    app.component(rulesOption.name, rulesOption)
   }
 }

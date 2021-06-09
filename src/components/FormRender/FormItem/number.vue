@@ -1,5 +1,5 @@
 <template>
-  <el-form-item :label="options.label" :prop="path">
+  <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-input-number
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
