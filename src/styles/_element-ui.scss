@@ -2,3 +2,6 @@
 @import './btn.scss';
 
 //覆盖一些element-ui样式
+.el-select {
+  width: 100%;
+}

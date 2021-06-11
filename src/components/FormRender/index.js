@@ -5,6 +5,7 @@ import InputRender from './FormItem/input.vue'
 import TextareaRender from './FormItem/textarea.vue'
 import CardRender from './FormItem/card.vue'
 import NumberRender from './FormItem/number.vue'
+import SelectRender from './FormItem/select.vue'
 
 export default {
   install: (app) => {
@@ -15,5 +16,6 @@ export default {
     app.component(TextareaRender.name, TextareaRender)
     app.component(CardRender.name, CardRender)
     app.component(NumberRender.name, NumberRender)
+    app.component(SelectRender.name, SelectRender)
   }
 }

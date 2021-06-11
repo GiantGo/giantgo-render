@@ -31,8 +31,8 @@ const copy = (items, uuid) => {
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
       let item = deepClone(items[i])
-      const newId = makeId(16)
-      item.uuid = item.options.key = item.component + '_' + newId
+      const newId = item.component + '_' + makeId(16)
+      item.uuid = item.options.key = newId
       item.items = []
       items.splice(i + 1, 0, item)
       return newId
@@ -84,11 +84,11 @@ const getDefaultState = () => {
         width: '100%',
         placeholder: '请输入',
         maxlength: undefined,
+        prefixIcon: '',
+        suffixIcon: '',
         clearable: false,
         disabled: false,
         showWordLimit: false,
-        prefixIcon: '',
-        suffixIcon: '',
         rules: rules
       }
     },
@@ -124,6 +124,29 @@ const getDefaultState = () => {
         max: 100,
         disabled: false,
         rules: rules
+      }
+    },
+    {
+      name: '下拉选择器',
+      type: String,
+      component: 'select',
+      uuid: '',
+      options: {
+        label: '下拉选择器',
+        key: '',
+        defaultValue: undefined,
+        placeholder: '请选择',
+        noDataText: '暂无数据',
+        noMatchText: '无匹配数据',
+        width: '100%',
+        clearable: false,
+        disabled: false,
+        filterable: false,
+        rules: rules,
+        options: {
+          remote: false,
+          items: []
+        }
       }
     }
   ]

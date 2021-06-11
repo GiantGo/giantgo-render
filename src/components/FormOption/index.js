@@ -16,12 +16,16 @@ import sizeOption from './size.vue'
 import shadowOption from './shadow.vue'
 import clearableOption from './clearable.vue'
 import disabledOption from './disabled.vue'
+import filterableOption from './filterable.vue'
 import prefixIconOption from './prefix-icon.vue'
 import suffixIconOption from './suffix-icon.vue'
 import rulesOption from './rules.vue'
+import optionsOption from './options.vue'
 import gutterOption from './gutter.vue'
 import showWordLimitOption from './show-word-limit.vue'
 import maxlengthOption from './maxlength.vue'
+import noDataTextOption from './no-data-text.vue'
+import noMatchTextOption from './no-match-text.vue'
 
 export default {
   install: (app) => {
@@ -43,11 +47,15 @@ export default {
     app.component(shadowOption.name, shadowOption)
     app.component(clearableOption.name, clearableOption)
     app.component(disabledOption.name, disabledOption)
+    app.component(filterableOption.name, filterableOption)
     app.component(prefixIconOption.name, prefixIconOption)
     app.component(suffixIconOption.name, suffixIconOption)
     app.component(rulesOption.name, rulesOption)
+    app.component(optionsOption.name, optionsOption)
     app.component(gutterOption.name, gutterOption)
     app.component(showWordLimitOption.name, showWordLimitOption)
     app.component(maxlengthOption.name, maxlengthOption)
+    app.component(noDataTextOption.name, noDataTextOption)
+    app.component(noMatchTextOption.name, noMatchTextOption)
   }
 }

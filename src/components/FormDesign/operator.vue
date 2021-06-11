@@ -8,7 +8,7 @@
         <i class="el-icon-delete" @click="clear" />
       </el-tooltip>
     </div>
-    <el-dialog title="预览" v-model="dialog">
+    <el-dialog title="预览" v-model="dialog" destroy-on-close>
       <form-render ref="formRender" />
     </el-dialog>
   </div>

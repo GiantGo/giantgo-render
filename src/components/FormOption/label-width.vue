@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="标签宽度（px）:">
+  <el-form-item :label="'标签宽度（' + modelValue + '）:'">
     <el-slider
       :model-value="parseInt(modelValue)"
       @update:modelValue="$emit('update:modelValue', $event + 'px')"

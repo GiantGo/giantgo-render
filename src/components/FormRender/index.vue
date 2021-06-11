@@ -100,6 +100,7 @@ export default {
     display: inline-block;
     width: 100%;
     line-height: 0px;
+    vertical-align: top;
   }
 }
 

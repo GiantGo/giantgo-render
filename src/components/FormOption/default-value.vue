@@ -23,7 +23,7 @@ export default {
   },
   setup(props) {
     return {
-      options: computed(() => Object.assign({}, props.selected.options, { label: '默认值' }))
+      options: computed(() => Object.assign({}, props.selected.options, { label: '默认值', clearable: true }))
     }
   }
 }

@@ -26,6 +26,7 @@
 
 <script>
 import { reactive, watch } from 'vue'
+import { deepClone } from '@/utils/index.js'
 
 export default {
   name: 'rulesOption',
@@ -42,8 +43,8 @@ export default {
     watch(
       () => props.modelValue,
       (modelValue) => {
-        data.required = { ...modelValue[0] }
-        data.patterns = [...modelValue.slice(1)]
+        data.required = deepClone(modelValue[0])
+        data.patterns = deepClone(modelValue.slice(1))
       },
       { deep: true }
     )

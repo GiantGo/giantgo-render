@@ -73,7 +73,7 @@ export default {
   overflow: hidden;
 
   .form-item-drop-list {
-    padding: 5px;
+    padding: 2.5px 5px;
     width: 100%;
     min-height: 60px;
     background: $white;
@@ -97,6 +97,7 @@ export default {
     width: 100%;
     line-height: 0px;
     overflow: hidden;
+    vertical-align: top;
 
     .form-item-box {
       position: relative;
@@ -146,7 +147,7 @@ export default {
       &.is-selected {
         border: 2px solid $primary-color;
 
-        &:not(.root) > .operator {
+        & > .operator {
           display: block;
         }
       }
@@ -157,10 +158,9 @@ export default {
     }
   }
 
-  .form-item + .form-item,
-  .form-item-drop + .form-item,
-  .form-item + .form-item-drop {
-    margin-top: 5px;
+  .form-item,
+  .form-item-drop {
+    margin: 2.5px 0;
   }
 
   .root {
@@ -173,6 +173,10 @@ export default {
 
       .form-item-drop-list {
         height: 100%;
+      }
+
+      &.is-selected > .operator {
+        display: none;
       }
     }
   }
