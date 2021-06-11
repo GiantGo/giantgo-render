@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { reactive, watch } from 'vue'
+import { reactive, watch, onMounted } from 'vue'
 import { deepClone } from '@/utils/index.js'
 
 export default {
@@ -40,14 +40,13 @@ export default {
       patterns: []
     })
 
-    watch(
-      () => props.modelValue,
-      (modelValue) => {
-        data.required = deepClone(modelValue[0])
-        data.patterns = deepClone(modelValue.slice(1))
-      },
-      { deep: true }
-    )
+    const setInternal = () => {
+      data.required = deepClone(props.modelValue[0])
+      data.patterns = deepClone(props.modelValue.slice(1))
+    }
+
+    onMounted(setInternal)
+    watch(() => props.modelValue, setInternal)
 
     const emitChange = () => {
       emit('update:modelValue', [data.required, ...data.patterns])

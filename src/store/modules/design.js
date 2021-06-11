@@ -83,11 +83,11 @@ const getDefaultState = () => {
         defaultValue: '',
         width: '100%',
         placeholder: '请输入',
-        maxlength: undefined,
         prefixIcon: '',
         suffixIcon: '',
         clearable: false,
         disabled: false,
+        maxlength: undefined,
         showWordLimit: false,
         rules: rules
       }
@@ -104,8 +104,8 @@ const getDefaultState = () => {
         width: '100%',
         placeholder: '请输入内容',
         rows: 4,
-        maxlength: undefined,
         disabled: false,
+        maxlength: undefined,
         showWordLimit: false,
         rules: rules
       }
@@ -127,12 +127,12 @@ const getDefaultState = () => {
       }
     },
     {
-      name: '下拉选择器',
+      name: '下拉单选',
       type: String,
       component: 'select',
       uuid: '',
       options: {
-        label: '下拉选择器',
+        label: '下拉单选',
         key: '',
         defaultValue: undefined,
         placeholder: '请选择',
@@ -142,6 +142,31 @@ const getDefaultState = () => {
         clearable: false,
         disabled: false,
         filterable: false,
+        rules: rules,
+        options: {
+          remote: false,
+          items: []
+        }
+      }
+    },
+    {
+      name: '下拉多选',
+      type: Array,
+      component: 'multi-select',
+      uuid: '',
+      options: {
+        label: '下拉多选',
+        key: '',
+        defaultValue: [],
+        placeholder: '请选择',
+        noDataText: '暂无数据',
+        noMatchText: '无匹配数据',
+        width: '100%',
+        clearable: false,
+        disabled: false,
+        filterable: false,
+        collapseTags: false,
+        multipleLimit: 0,
         rules: rules,
         options: {
           remote: false,

@@ -2,6 +2,9 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-select
       :model-value="options.defaultValue"
+      :multiple="true"
+      :collapse-tags="options.collapseTags"
+      :multiple-limit="options.multipleLimit"
       :clearable="options.clearable"
       :disabled="options.disabled"
       :filterable="options.filterable"
@@ -17,7 +20,7 @@
 
 <script>
 export default {
-  name: 'selectBuilder',
+  name: 'multiSelectBuilder',
   components: {},
   props: {
     path: String,

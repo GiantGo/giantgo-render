@@ -17,6 +17,8 @@ import shadowOption from './shadow.vue'
 import clearableOption from './clearable.vue'
 import disabledOption from './disabled.vue'
 import filterableOption from './filterable.vue'
+import collapseTagsOption from './collapse-tags.vue'
+import multipleLimitOption from './multiple-limit.vue'
 import prefixIconOption from './prefix-icon.vue'
 import suffixIconOption from './suffix-icon.vue'
 import rulesOption from './rules.vue'
@@ -48,6 +50,8 @@ export default {
     app.component(clearableOption.name, clearableOption)
     app.component(disabledOption.name, disabledOption)
     app.component(filterableOption.name, filterableOption)
+    app.component(collapseTagsOption.name, collapseTagsOption)
+    app.component(multipleLimitOption.name, multipleLimitOption)
     app.component(prefixIconOption.name, prefixIconOption)
     app.component(suffixIconOption.name, suffixIconOption)
     app.component(rulesOption.name, rulesOption)

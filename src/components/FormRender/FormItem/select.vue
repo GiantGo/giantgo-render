@@ -3,8 +3,6 @@
     <el-select
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
-      :multiple="options.multiple"
-      :collapse-tags="options.collapseTags"
       :clearable="options.clearable"
       :disabled="options.disabled"
       :filterable="options.filterable"

@@ -6,6 +6,7 @@ import TextareaRender from './FormItem/textarea.vue'
 import CardRender from './FormItem/card.vue'
 import NumberRender from './FormItem/number.vue'
 import SelectRender from './FormItem/select.vue'
+import MultiSelectRender from './FormItem/multi-select.vue'
 
 export default {
   install: (app) => {
@@ -17,5 +18,6 @@ export default {
     app.component(CardRender.name, CardRender)
     app.component(NumberRender.name, NumberRender)
     app.component(SelectRender.name, SelectRender)
+    app.component(MultiSelectRender.name, MultiSelectRender)
   }
 }

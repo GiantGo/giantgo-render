@@ -1,7 +1,11 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-select
-      :model-value="options.defaultValue"
+      :model-value="modelValue"
+      @update:modelValue="$emit('update:modelValue', $event)"
+      :multiple="true"
+      :collapse-tags="options.collapseTags"
+      :multiple-limit="options.multipleLimit"
       :clearable="options.clearable"
       :disabled="options.disabled"
       :filterable="options.filterable"
@@ -17,11 +21,12 @@
 
 <script>
 export default {
-  name: 'selectBuilder',
+  name: 'multiSelectRender',
   components: {},
   props: {
     path: String,
     uuid: String,
+    modelValue: Array,
     options: {
       type: Object,
       default() {
