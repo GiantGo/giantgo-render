@@ -20,6 +20,8 @@ import prefixIconOption from './prefix-icon.vue'
 import suffixIconOption from './suffix-icon.vue'
 import rulesOption from './rules.vue'
 import gutterOption from './gutter.vue'
+import showWordLimitOption from './show-word-limit.vue'
+import maxlengthOption from './maxlength.vue'
 
 export default {
   install: (app) => {
@@ -45,5 +47,7 @@ export default {
     app.component(suffixIconOption.name, suffixIconOption)
     app.component(rulesOption.name, rulesOption)
     app.component(gutterOption.name, gutterOption)
+    app.component(showWordLimitOption.name, showWordLimitOption)
+    app.component(maxlengthOption.name, maxlengthOption)
   }
 }

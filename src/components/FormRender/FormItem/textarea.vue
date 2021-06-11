@@ -7,6 +7,7 @@
       :placeholder="options.placeholder"
       :rows="options.rows"
       :disabled="options.disabled"
+      :show-word-limit="options.showWordLimit"
     ></el-input>
   </el-form-item>
 </template>

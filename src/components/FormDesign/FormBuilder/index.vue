@@ -78,10 +78,11 @@ export default {
     min-height: 60px;
     background: $white;
     border: 1px dashed $border;
+    overflow-x: hidden;
     overflow-y: auto;
 
     .form-item-drop {
-      padding: 15px 0;
+      height: 36px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -94,6 +95,7 @@ export default {
     display: inline-block;
     padding: 0;
     width: 100%;
+    line-height: 0px;
     overflow: hidden;
 
     .form-item-box {
@@ -155,15 +157,9 @@ export default {
     }
   }
 
-  .form-item + .form-item {
-    margin-top: 3px;
-  }
-
+  .form-item + .form-item,
+  .form-item-drop + .form-item,
   .form-item + .form-item-drop {
-    margin-top: 3px;
-  }
-
-  .form-item-drop + .form-item {
     margin-top: 5px;
   }
 
@@ -172,9 +168,8 @@ export default {
 
     & > .form-item-box {
       height: 100%;
-      padding: 5px;
+      padding: 3px;
       margin: 0;
-      border: 0;
 
       .form-item-drop-list {
         height: 100%;

@@ -83,8 +83,10 @@ const getDefaultState = () => {
         defaultValue: '',
         width: '100%',
         placeholder: '请输入',
+        maxlength: undefined,
         clearable: false,
         disabled: false,
+        showWordLimit: false,
         prefixIcon: '',
         suffixIcon: '',
         rules: rules
@@ -102,7 +104,9 @@ const getDefaultState = () => {
         width: '100%',
         placeholder: '请输入内容',
         rows: 4,
+        maxlength: undefined,
         disabled: false,
+        showWordLimit: false,
         rules: rules
       }
     },

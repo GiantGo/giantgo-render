@@ -54,7 +54,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 2px 2px 5px 2px;
+  margin: 0 0 5px 0;
   height: 45px;
   padding: 0 10px;
   border: 1px solid $divider-color;

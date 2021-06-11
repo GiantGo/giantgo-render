@@ -39,6 +39,7 @@ export default {
     width: $sideBarWidth;
     height: 100%;
     padding: 0;
+    overflow-x: hidden;
     overflow-y: auto;
     flex-shrink: 0;
   }
