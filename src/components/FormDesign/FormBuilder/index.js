@@ -7,6 +7,8 @@ import CardBuilder from './FormItem/card.vue'
 import NumberBuilder from './FormItem/number.vue'
 import SelectBuilder from './FormItem/select.vue'
 import MultiSelectBuilder from './FormItem/multi-select.vue'
+import CheckboxBuilder from './FormItem/checkbox.vue'
+import RadioBuilder from './FormItem/radio.vue'
 
 export default {
   install: (app) => {
@@ -19,5 +21,7 @@ export default {
     app.component(NumberBuilder.name, NumberBuilder)
     app.component(SelectBuilder.name, SelectBuilder)
     app.component(MultiSelectBuilder.name, MultiSelectBuilder)
+    app.component(CheckboxBuilder.name, CheckboxBuilder)
+    app.component(RadioBuilder.name, RadioBuilder)
   }
 }

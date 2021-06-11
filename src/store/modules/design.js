@@ -173,6 +173,42 @@ const getDefaultState = () => {
           items: []
         }
       }
+    },
+    {
+      name: '多选框',
+      type: Array,
+      component: 'checkbox',
+      uuid: '',
+      options: {
+        label: '多选框',
+        key: '',
+        defaultValue: [],
+        width: '100%',
+        disabled: false,
+        rules: rules,
+        options: {
+          remote: false,
+          items: []
+        }
+      }
+    },
+    {
+      name: '单选框',
+      type: String,
+      component: 'radio',
+      uuid: '',
+      options: {
+        label: '单选框',
+        key: '',
+        defaultValue: '',
+        width: '100%',
+        disabled: false,
+        rules: rules,
+        options: {
+          remote: false,
+          items: []
+        }
+      }
     }
   ]
 

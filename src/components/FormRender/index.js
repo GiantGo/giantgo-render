@@ -7,6 +7,8 @@ import CardRender from './FormItem/card.vue'
 import NumberRender from './FormItem/number.vue'
 import SelectRender from './FormItem/select.vue'
 import MultiSelectRender from './FormItem/multi-select.vue'
+import CheckboxRender from './FormItem/checkbox.vue'
+import RadioRender from './FormItem/radio.vue'
 
 export default {
   install: (app) => {
@@ -19,5 +21,7 @@ export default {
     app.component(NumberRender.name, NumberRender)
     app.component(SelectRender.name, SelectRender)
     app.component(MultiSelectRender.name, MultiSelectRender)
+    app.component(CheckboxRender.name, CheckboxRender)
+    app.component(RadioRender.name, RadioRender)
   }
 }
