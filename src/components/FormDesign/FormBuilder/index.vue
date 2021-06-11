@@ -73,16 +73,15 @@ export default {
   overflow: hidden;
 
   .form-item-drop-list {
+    padding: 5px;
     width: 100%;
-    min-width: 300px;
     min-height: 60px;
     background: $white;
     border: 1px dashed $border;
     overflow-y: auto;
 
     .form-item-drop {
-      margin: 5px;
-      padding: 17px 5px;
+      padding: 15px 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -92,84 +91,94 @@ export default {
   }
 
   .form-item {
-    position: relative;
-    padding: 28px 5px;
-    margin: 5px;
-    min-width: 120px;
+    display: inline-block;
+    padding: 0;
+    width: 100%;
     overflow: hidden;
-    box-sizing: border-box;
-    border: 2px solid white;
-    background: $deep-light-primary-color;
-    color: $normal-text;
 
-    .operator {
-      display: none;
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: $primary-color;
-      z-index: 1;
-      border-bottom-left-radius: 8px;
+    .form-item-box {
+      position: relative;
+      width: 100%;
+      padding: 28px 5px;
+      background: $deep-light-primary-color;
+      color: $normal-text;
+      overflow: hidden;
+      border: 2px solid $deep-light-primary-color;
+      box-sizing: border-box;
 
-      .remove,
-      .copy {
-        display: inline-block;
-        width: 25px;
+      .operator {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $primary-color;
+        z-index: 1;
+        border-bottom-left-radius: 8px;
+
+        .remove,
+        .copy {
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          line-height: 25px;
+          text-align: center;
+          color: $white;
+        }
+
+        i {
+          font-weight: bold;
+        }
+      }
+
+      .info {
+        display: block;
+        position: absolute;
+        bottom: 2px;
+        right: 5px;
         height: 25px;
         line-height: 25px;
-        text-align: center;
-        color: $white;
+        font-size: 14px;
+        color: $secondary-text;
       }
 
-      i {
-        font-weight: bold;
+      &.is-selected {
+        border: 2px solid $primary-color;
+
+        &:not(.root) > .operator {
+          display: block;
+        }
       }
-    }
 
-    .info {
-      display: block;
-      position: absolute;
-      bottom: 2px;
-      right: 5px;
-      height: 25px;
-      line-height: 25px;
-      font-size: 14px;
-      color: $secondary-text;
-    }
-
-    &.is-selected {
-      border: 2px solid $primary-color;
-
-      &:not(.root) > .operator {
-        display: block;
+      .el-form-item {
+        margin: 0px;
       }
-    }
-
-    .el-form-item {
-      margin: 0px;
     }
   }
 
   .form-item + .form-item {
+    margin-top: 3px;
+  }
+
+  .form-item + .form-item-drop {
+    margin-top: 3px;
+  }
+
+  .form-item-drop + .form-item {
     margin-top: 5px;
   }
 
   .root {
     height: 100%;
-    padding: 5px;
-    margin: 0;
 
-    & > .form-item-drop-list {
+    & > .form-item-box {
       height: 100%;
-    }
-  }
+      padding: 5px;
+      margin: 0;
+      border: 0;
 
-  &.el-form--inline {
-    .form-item-drop-list {
-      display: flex;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      justify-content: flex-start;
+      .form-item-drop-list {
+        height: 100%;
+      }
     }
   }
 }

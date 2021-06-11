@@ -15,6 +15,10 @@
         :items="element.items"
         :options="element.options"
         :path="path"
+        :style="{
+          'padding-left': options.gutter / 2 + 'px',
+          'padding-right': options.gutter / 2 + 'px'
+        }"
       ></form-item-builder>
     </template>
   </draggable>

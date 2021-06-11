@@ -80,7 +80,8 @@ const getDefaultState = () => {
       options: {
         label: '输入框',
         key: '',
-        defaultValue: '1',
+        defaultValue: '',
+        width: '100%',
         placeholder: '请输入',
         clearable: false,
         disabled: false,
@@ -98,6 +99,7 @@ const getDefaultState = () => {
         label: '文本框',
         key: '',
         defaultValue: '',
+        width: '100%',
         placeholder: '请输入内容',
         rows: 4,
         disabled: false,
@@ -113,6 +115,7 @@ const getDefaultState = () => {
         label: '数字输入框',
         key: '',
         defaultValue: 0,
+        width: '100%',
         min: 0,
         max: 100,
         disabled: false,
@@ -129,7 +132,9 @@ const getDefaultState = () => {
       uuid: '',
       options: {
         label: '对象布局',
-        key: ''
+        key: '',
+        width: '100%',
+        gutter: 0
       },
       items: []
     },
@@ -141,6 +146,8 @@ const getDefaultState = () => {
       options: {
         label: '卡片布局',
         key: '',
+        width: '100%',
+        gutter: 0,
         shadow: 'always'
       },
       items: []
@@ -156,7 +163,7 @@ const getDefaultState = () => {
       labelWidth: '120px',
       labelPosition: 'right',
       size: 'medium',
-      inline: false,
+      gutter: 0,
       hideRequiredAsterisk: false,
       statusIcon: false
     },

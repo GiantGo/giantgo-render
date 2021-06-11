@@ -1,6 +1,7 @@
 import FormOption from './index.vue'
 import LabelOption from './label.vue'
 import DefaultValueOption from './default-value.vue'
+import WidthOption from './width.vue'
 import LabelWidthOption from './label-width.vue'
 import LabelPositionOption from './label-position.vue'
 import KeyOption from './key.vue'
@@ -18,12 +19,14 @@ import disabledOption from './disabled.vue'
 import prefixIconOption from './prefix-icon.vue'
 import suffixIconOption from './suffix-icon.vue'
 import rulesOption from './rules.vue'
+import gutterOption from './gutter.vue'
 
 export default {
   install: (app) => {
     app.component(FormOption.name, FormOption)
     app.component(LabelOption.name, LabelOption)
     app.component(DefaultValueOption.name, DefaultValueOption)
+    app.component(WidthOption.name, WidthOption)
     app.component(LabelWidthOption.name, LabelWidthOption)
     app.component(LabelPositionOption.name, LabelPositionOption)
     app.component(KeyOption.name, KeyOption)
@@ -41,5 +44,6 @@ export default {
     app.component(prefixIconOption.name, prefixIconOption)
     app.component(suffixIconOption.name, suffixIconOption)
     app.component(rulesOption.name, rulesOption)
+    app.component(gutterOption.name, gutterOption)
   }
 }

@@ -17,8 +17,8 @@ export default {
   components: {},
   props: {
     path: String,
-    modelValue: String,
     uuid: String,
+    modelValue: String,
     options: {
       type: Object,
       default() {

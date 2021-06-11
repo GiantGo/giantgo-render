@@ -1,5 +1,5 @@
 <template>
-  <div class="form-item">
+  <div class="form-item" :style="{ width: options.width }">
     <component
       :is="component + '-render'"
       :uuid="uuid"

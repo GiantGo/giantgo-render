@@ -10,6 +10,10 @@
       :items="item.items"
       :options="item.options"
       :path="path"
+      :style="{
+        'padding-left': options.gutter / 2 + 'px',
+        'padding-right': options.gutter / 2 + 'px'
+      }"
     ></form-item-render>
   </div>
 </template>
@@ -20,6 +24,7 @@ export default {
   components: {},
   props: {
     path: String,
+    uuid: String,
     modelValue: Object,
     items: {
       type: Array,

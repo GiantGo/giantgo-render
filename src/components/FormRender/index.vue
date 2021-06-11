@@ -96,13 +96,9 @@ export default {
   height: 100%;
   overflow: auto;
 
-  &.el-form--inline {
-    .form-item-list {
-      display: flex;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      justify-content: flex-start;
-    }
+  .form-item {
+    display: inline-block;
+    width: 100%;
   }
 }
 

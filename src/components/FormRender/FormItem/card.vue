@@ -5,7 +5,14 @@
         <span>{{ options.label }}</span>
       </div>
     </template>
-    <object-render :uuid="uuid" :items="items" :options="options" :path="path"></object-render>
+    <object-render
+      :uuid="uuid"
+      :items="items"
+      :options="options"
+      :path="path"
+      :model-value="modelValue"
+      @update:modelValue="$emit('update:modelValue', $event)"
+    ></object-render>
   </el-card>
 </template>
 
@@ -15,6 +22,7 @@ export default {
   props: {
     path: String,
     uuid: String,
+    modelValue: Object,
     items: {
       type: Array,
       default() {
