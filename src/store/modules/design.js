@@ -125,6 +125,21 @@ const getDefaultState = () => {
         disabled: false,
         rules: rules
       }
+    },
+    {
+      name: '富文本编辑器',
+      type: String,
+      component: 'editor',
+      uuid: '',
+      options: {
+        label: '富文本编辑器',
+        key: '',
+        defaultValue: '',
+        width: '100%',
+        placeholder: '请输入',
+        disabled: false,
+        rules: rules
+      }
     }
   ]
 
