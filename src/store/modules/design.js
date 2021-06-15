@@ -31,7 +31,7 @@ const copy = (items, uuid) => {
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
       let item = deepClone(items[i])
-      const newId = item.component + '_' + makeId(16)
+      const newId = item.component + '-' + makeId(16)
       item.uuid = item.options.key = newId
       item.items = []
       items.splice(i + 1, 0, item)
@@ -71,7 +71,7 @@ const remove = (items, uuid) => {
 const rules = [{ required: false, message: '必填项', trigger: 'blur' }]
 
 const getDefaultState = () => {
-  const basics = [
+  const inputs = [
     {
       name: '输入框',
       type: String,
@@ -125,7 +125,10 @@ const getDefaultState = () => {
         disabled: false,
         rules: rules
       }
-    },
+    }
+  ]
+
+  const pickers = [
     {
       name: '下拉单选',
       type: String,
@@ -209,6 +212,94 @@ const getDefaultState = () => {
           items: []
         }
       }
+    },
+    {
+      name: '时间选择器',
+      type: Date,
+      component: 'time-picker',
+      uuid: '',
+      options: {
+        label: '时间选择器',
+        key: '',
+        defaultValue: undefined,
+        placeholder: '请选择',
+        width: '100%',
+        prefixIcon: 'el-icon-time',
+        format: 'HH:mm:ss',
+        clearable: false,
+        disabled: false,
+        rules: rules
+      }
+    },
+    {
+      name: '时间范围',
+      type: Array,
+      component: 'time-range-picker',
+      uuid: '',
+      options: {
+        label: '时间范围',
+        key: '',
+        defaultValue: [],
+        placeholder: '请选择',
+        width: '100%',
+        prefixIcon: 'el-icon-time',
+        format: 'HH:mm:ss',
+        clearable: false,
+        disabled: false,
+        rules: rules
+      }
+    },
+    {
+      name: '日期选择器',
+      type: Date,
+      component: 'date-picker',
+      uuid: '',
+      options: {
+        label: '日期选择器',
+        key: '',
+        defaultValue: undefined,
+        placeholder: '请选择',
+        width: '100%',
+        prefixIcon: 'el-icon-time',
+        format: 'YYYY-MM-DD',
+        clearable: false,
+        disabled: false,
+        rules: rules
+      }
+    },
+    {
+      name: '日期范围',
+      type: Array,
+      component: 'date-range-picker',
+      uuid: '',
+      options: {
+        label: '日期范围',
+        key: '',
+        defaultValue: [],
+        placeholder: '请选择',
+        width: '100%',
+        prefixIcon: 'el-icon-time',
+        format: 'YYYY-MM-DD',
+        clearable: false,
+        disabled: false,
+        rules: rules
+      }
+    },
+    {
+      name: '评分',
+      type: Number,
+      component: 'rate',
+      uuid: '',
+      options: {
+        label: '评分',
+        key: '',
+        defaultValue: 0,
+        width: '100%',
+        max: 5,
+        disabled: false,
+        allowHalf: false,
+        rules: rules
+      }
     }
   ]
 
@@ -259,7 +350,8 @@ const getDefaultState = () => {
   }
 
   return {
-    basics: basics,
+    inputs: inputs,
+    pickers: pickers,
     layouts: layouts,
     formDesign: formDesign,
     selected: formDesign

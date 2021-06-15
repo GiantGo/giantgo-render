@@ -38,7 +38,7 @@ export default {
     path: String,
     component: String,
     uuid: String,
-    defaultValue: [String, Number, Boolean, Object, Array],
+    defaultValue: [String, Number, Boolean, Date, Object, Array],
     items: {
       type: Array,
       default() {

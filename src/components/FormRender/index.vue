@@ -101,6 +101,7 @@ export default {
     width: 100%;
     line-height: 0px;
     vertical-align: top;
+    overflow: hidden;
   }
 }
 

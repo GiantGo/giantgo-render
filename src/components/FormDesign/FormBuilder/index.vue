@@ -69,8 +69,7 @@ export default {
 .form-design {
   position: relative;
   width: 100%;
-  height: calc(100% - 50px);
-  overflow: hidden;
+  height: calc(100% - 55px);
 
   .form-item-drop-list {
     padding: 2.5px 5px;

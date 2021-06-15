@@ -1,10 +1,28 @@
 <template>
   <div class="form-item-picker">
     <div class="form-item-section">
-      <div class="title">基础组件</div>
+      <div class="title">输入组件</div>
       <draggable
         class="form-item-group"
-        v-model="basics"
+        v-model="inputs"
+        item-key="name"
+        :group="{ name: 'form-draggable', pull: 'clone', put: false }"
+        ghost-class="ghost"
+        :sort="false"
+        :clone="clone"
+      >
+        <template #item="{ element }">
+          <div class="form-item-drop">
+            {{ element.name }}
+          </div>
+        </template>
+      </draggable>
+    </div>
+    <div class="form-item-section">
+      <div class="title">选择组件</div>
+      <draggable
+        class="form-item-group"
+        v-model="pickers"
         item-key="name"
         :group="{ name: 'form-draggable', pull: 'clone', put: false }"
         ghost-class="ghost"
@@ -52,10 +70,11 @@ export default {
     return {
       clone: (original) => {
         const item = deepClone(original)
-        item.uuid = item.options.key = item.component + '_' + uuid(16)
+        item.uuid = item.options.key = item.component + '-' + uuid(16)
         return item
       },
-      basics: computed(() => store.getters.basics),
+      inputs: computed(() => store.getters.inputs),
+      pickers: computed(() => store.getters.pickers),
       layouts: computed(() => store.getters.layouts)
     }
   }

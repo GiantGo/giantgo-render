@@ -13,7 +13,7 @@ export default {
   name: 'defaultValueOption',
   components: {},
   props: {
-    modelValue: [String, Number, Boolean, Object, Array],
+    modelValue: [String, Number, Boolean, Date, Object, Array],
     selected: {
       type: Object,
       default() {
@@ -23,7 +23,13 @@ export default {
   },
   setup(props) {
     return {
-      options: computed(() => Object.assign({}, props.selected.options, { label: '默认值', clearable: true }))
+      options: computed(() =>
+        Object.assign({}, props.selected.options, {
+          label: '默认值',
+          clearable: true,
+          disabled: false
+        })
+      )
     }
   }
 }

@@ -1,27 +1,12 @@
 import FormRender from './index.vue'
-import FormItemRender from './FormItem/index.vue'
-import ObjectRender from './FormItem/object.vue'
-import InputRender from './FormItem/input.vue'
-import TextareaRender from './FormItem/textarea.vue'
-import CardRender from './FormItem/card.vue'
-import NumberRender from './FormItem/number.vue'
-import SelectRender from './FormItem/select.vue'
-import MultiSelectRender from './FormItem/multi-select.vue'
-import CheckboxRender from './FormItem/checkbox.vue'
-import RadioRender from './FormItem/radio.vue'
+const formItems = import.meta.globEager('./FormItem/*.vue')
 
 export default {
   install: (app) => {
     app.component(FormRender.name, FormRender)
-    app.component(FormItemRender.name, FormItemRender)
-    app.component(ObjectRender.name, ObjectRender)
-    app.component(InputRender.name, InputRender)
-    app.component(TextareaRender.name, TextareaRender)
-    app.component(CardRender.name, CardRender)
-    app.component(NumberRender.name, NumberRender)
-    app.component(SelectRender.name, SelectRender)
-    app.component(MultiSelectRender.name, MultiSelectRender)
-    app.component(CheckboxRender.name, CheckboxRender)
-    app.component(RadioRender.name, RadioRender)
+    for (const modulePath in formItems) {
+      const component = formItems[modulePath].default
+      app.component(component.name, component)
+    }
   }
 }

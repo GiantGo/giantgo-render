@@ -22,7 +22,7 @@ export default {
     path: String,
     component: String,
     uuid: String,
-    modelValue: [String, Number, Boolean, Object, Array],
+    modelValue: [String, Number, Boolean, Date, Object, Array],
     items: {
       type: Array,
       default() {
