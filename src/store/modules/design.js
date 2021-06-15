@@ -300,6 +300,59 @@ const getDefaultState = () => {
         allowHalf: false,
         rules: rules
       }
+    },
+    {
+      name: '滑块',
+      type: Number,
+      component: 'slider',
+      uuid: '',
+      options: {
+        label: '滑块',
+        key: '',
+        defaultValue: 0,
+        width: '100%',
+        min: 0,
+        max: 10,
+        step: 1,
+        disabled: false,
+        showStops: false,
+        showToolTip: true,
+        showInput: false,
+        rules: rules
+      }
+    },
+    {
+      name: '开关',
+      type: Boolean,
+      component: 'switch',
+      uuid: '',
+      options: {
+        label: '开关',
+        key: '',
+        defaultValue: false,
+        width: '100%',
+        disabled: false,
+        activeText: '',
+        inactiveText: '',
+        activeColor: '#409EFF',
+        inactiveColor: '#C0CCDA',
+        rules: rules
+      }
+    },
+    {
+      name: '颜色选择器',
+      type: String,
+      component: 'color-picker',
+      uuid: '',
+      options: {
+        label: '颜色选择器',
+        key: '',
+        defaultValue: '',
+        width: '100%',
+        disabled: false,
+        showAlpha: false,
+        rules: rules
+      }
     }
   ]
 
