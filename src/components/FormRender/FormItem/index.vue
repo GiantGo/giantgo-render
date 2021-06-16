@@ -1,5 +1,5 @@
 <template>
-  <div class="form-item" :style="{ width: options.width }">
+  <div class="form-item" :style="{ width: options.width }" v-if="!options.hidden">
     <component
       :is="component + '-render'"
       :uuid="uuid"

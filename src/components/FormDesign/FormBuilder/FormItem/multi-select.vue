@@ -1,6 +1,7 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-select
+      v-if="!options.hidden"
       :model-value="options.defaultValue"
       :multiple="true"
       :collapse-tags="options.collapseTags"

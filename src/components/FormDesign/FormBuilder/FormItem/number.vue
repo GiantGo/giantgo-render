@@ -1,6 +1,7 @@
 <template>
   <el-form-item :prop="path" :label="options.label">
     <el-input-number
+      v-if="!options.hidden"
       :model-value="options.defaultValue"
       :min="options.min"
       :max="options.max"

@@ -85,6 +85,7 @@ const getDefaultState = () => {
         placeholder: '请输入',
         prefixIcon: '',
         suffixIcon: '',
+        hidden: false,
         clearable: false,
         disabled: false,
         maxlength: undefined,
@@ -104,6 +105,7 @@ const getDefaultState = () => {
         width: '100%',
         placeholder: '请输入内容',
         rows: 4,
+        hidden: false,
         disabled: false,
         maxlength: undefined,
         showWordLimit: false,
@@ -122,6 +124,7 @@ const getDefaultState = () => {
         width: '100%',
         min: 0,
         max: 100,
+        hidden: false,
         disabled: false,
         rules: rules
       }
@@ -137,6 +140,7 @@ const getDefaultState = () => {
         defaultValue: '',
         width: '100%',
         placeholder: '请输入',
+        hidden: false,
         disabled: false,
         rules: rules
       }
@@ -157,6 +161,7 @@ const getDefaultState = () => {
         noDataText: '暂无数据',
         noMatchText: '无匹配数据',
         width: '100%',
+        hidden: false,
         clearable: false,
         disabled: false,
         filterable: false,
@@ -180,6 +185,7 @@ const getDefaultState = () => {
         noDataText: '暂无数据',
         noMatchText: '无匹配数据',
         width: '100%',
+        hidden: false,
         clearable: false,
         disabled: false,
         filterable: false,
@@ -202,6 +208,7 @@ const getDefaultState = () => {
         key: '',
         defaultValue: [],
         width: '100%',
+        hidden: false,
         disabled: false,
         rules: rules,
         options: {
@@ -220,6 +227,7 @@ const getDefaultState = () => {
         key: '',
         defaultValue: '',
         width: '100%',
+        hidden: false,
         disabled: false,
         rules: rules,
         options: {
@@ -241,6 +249,7 @@ const getDefaultState = () => {
         width: '100%',
         prefixIcon: 'el-icon-time',
         format: 'HH:mm:ss',
+        hidden: false,
         clearable: false,
         disabled: false,
         rules: rules
@@ -259,6 +268,7 @@ const getDefaultState = () => {
         width: '100%',
         prefixIcon: 'el-icon-time',
         format: 'HH:mm:ss',
+        hidden: false,
         clearable: false,
         disabled: false,
         rules: rules
@@ -277,6 +287,7 @@ const getDefaultState = () => {
         width: '100%',
         prefixIcon: 'el-icon-time',
         format: 'YYYY-MM-DD',
+        hidden: false,
         clearable: false,
         disabled: false,
         rules: rules
@@ -295,6 +306,7 @@ const getDefaultState = () => {
         width: '100%',
         prefixIcon: 'el-icon-time',
         format: 'YYYY-MM-DD',
+        hidden: false,
         clearable: false,
         disabled: false,
         rules: rules
@@ -311,6 +323,7 @@ const getDefaultState = () => {
         defaultValue: 0,
         width: '100%',
         max: 5,
+        hidden: false,
         disabled: false,
         allowHalf: false,
         rules: rules
@@ -329,6 +342,7 @@ const getDefaultState = () => {
         min: 0,
         max: 10,
         step: 1,
+        hidden: false,
         disabled: false,
         showStops: false,
         showToolTip: true,
@@ -346,6 +360,7 @@ const getDefaultState = () => {
         key: '',
         defaultValue: false,
         width: '100%',
+        hidden: false,
         disabled: false,
         activeText: '',
         inactiveText: '',
@@ -364,6 +379,7 @@ const getDefaultState = () => {
         key: '',
         defaultValue: '',
         width: '100%',
+        hidden: false,
         disabled: false,
         showAlpha: false,
         rules: rules
@@ -387,6 +403,7 @@ const getDefaultState = () => {
         uploadData: {},
         uploadHeaders: {},
         limit: 3,
+        hidden: false,
         disabled: false,
         showToolTip: false,
         showFileList: false,

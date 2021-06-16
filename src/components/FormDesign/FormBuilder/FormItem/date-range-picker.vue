@@ -1,6 +1,7 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-date-picker
+      v-if="!options.hidden"
       type="daterange"
       :model-value="options.defaultValue"
       :placeholder="options.placeholder"

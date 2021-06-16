@@ -1,6 +1,7 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-time-picker
+      v-if="!options.hidden"
       is-range
       :model-value="options.defaultValue"
       :placeholder="options.placeholder"
