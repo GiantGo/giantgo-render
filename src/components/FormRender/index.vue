@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { ref, reactive, toRaw, nextTick } from 'vue'
+import { ref, reactive, toRaw } from 'vue'
 
 export default {
   name: 'formRender',

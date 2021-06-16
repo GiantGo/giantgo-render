@@ -96,10 +96,10 @@ export default {
     )
 
     watch(
-      () => props.options,
+      () => props.options.placeholder,
       (val) => {
         if (state.quill) {
-          state.quill.root.dataset.placeholder = val.placeholder
+          state.quill.root.dataset.placeholder = val
         }
       }
     )

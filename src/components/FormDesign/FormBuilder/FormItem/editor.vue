@@ -1,6 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <quill-editor :disabled="options.disabled" :options="{ placeholder: options.placeholder }" />
+    <quill-editor :disabled="options.disabled" :options="{ placeholder: options.placeholder, readOnly: true }" />
   </el-form-item>
 </template>
 

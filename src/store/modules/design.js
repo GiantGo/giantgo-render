@@ -368,6 +368,28 @@ const getDefaultState = () => {
         showAlpha: false,
         rules: rules
       }
+    },
+    {
+      name: '文件上传',
+      type: Array,
+      component: 'upload',
+      uuid: '',
+      options: {
+        label: '文件上传',
+        key: '',
+        defaultValue: [],
+        width: '100%',
+        action: '/',
+        uploadName: 'file',
+        buttonText: '上传文件',
+        tip: '',
+        limit: 3,
+        disabled: false,
+        showToolTip: false,
+        showFileList: false,
+        multiple: false,
+        rules: rules
+      }
     }
   ]
 

@@ -4,7 +4,7 @@
       :value="modelValue"
       @change="$emit('update:modelValue', $event.html)"
       :disabled="options.disabled"
-      :options="{ placeholder: options.placeholder }"
+      :options="{ placeholder: options.placeholder, readOnly: false }"
     />
   </el-form-item>
 </template>
