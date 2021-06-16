@@ -1,9 +1,10 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-upload
-      :action="options.action"
+      :action="options.uploadUrl"
       :name="options.uploadName"
       :multiple="options.multiple"
+      :show-file-list="options.showFileList"
       :limit="options.limit"
       :file-list="options.defaultValue"
       :disabled="options.disabled"

@@ -1,14 +1,14 @@
 <template>
   <el-form-item>
     <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)">
-      允许多选
+      显示已上传文件列表
     </el-checkbox>
   </el-form-item>
 </template>
 
 <script>
 export default {
-  name: 'multipleOption',
+  name: 'showFileListOption',
   components: {},
   props: {
     modelValue: Boolean
