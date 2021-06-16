@@ -8,10 +8,12 @@
       :headers="options.uploadHeaders"
       :show-file-list="options.showFileList"
       :limit="options.limit"
-      :file-list="modelValue"
+      :file-list="data.fileList"
       :disabled="options.disabled"
       :before-upload="beforeUpload"
-      :on-success="handleSuccess"
+      :on-success="handleChange"
+      :on-remove="handleChange"
+      :before-remove="beforeRemove"
       :on-error="handleError"
     >
       <el-button size="small" type="primary">
@@ -25,7 +27,9 @@
 </template>
 
 <script>
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { reactive, watch, onMounted } from 'vue'
+import { deepClone } from '@/utils/index.js'
 
 export default {
   name: 'uploadRender',
@@ -42,6 +46,17 @@ export default {
     }
   },
   setup(props, { emit }) {
+    const data = reactive({
+      fileList: []
+    })
+
+    const setInternal = () => {
+      data.fileList = deepClone(props.modelValue)
+    }
+
+    onMounted(setInternal)
+    watch(() => props.modelValue, setInternal)
+
     const beforeUpload = (file) => {
       const uploadSize = props.options.uploadSize
       const size = parseFloat(uploadSize)
@@ -56,16 +71,19 @@ export default {
       return isOverLimit
     }
 
-    const handleSuccess = (response, file, fileList) => {
-      emit(
-        'update:modelValue',
-        fileList.map((item) => {
-          return {
-            name: item.name,
-            ...item.response
-          }
+    const handleChange = (file, fileList) => {
+      const files = []
+      fileList.forEach((item) => {
+        files.push({
+          name: item.name,
+          ...item.response
         })
-      )
+      })
+      emit('update:modelValue', files)
+    }
+
+    const beforeRemove = (file, fileList) => {
+      return ElMessageBox.confirm(`确定移除 ${file.name}？`)
     }
 
     const handleError = () => {
@@ -73,8 +91,10 @@ export default {
     }
 
     return {
-      handleSuccess,
+      data,
       beforeUpload,
+      handleChange,
+      beforeRemove,
       handleError
     }
   }

@@ -379,7 +379,7 @@ const getDefaultState = () => {
         key: '',
         defaultValue: [],
         width: '100%',
-        uploadUrl: '/',
+        uploadUrl: 'https://jsonplaceholder.typicode.com/posts/',
         uploadName: 'file',
         buttonText: '上传文件',
         uploadSize: '500KB',
