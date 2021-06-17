@@ -37,6 +37,24 @@
       </draggable>
     </div>
     <div class="form-item-section">
+      <div class="title">复杂组件</div>
+      <draggable
+        class="form-item-group"
+        v-model="complexs"
+        item-key="name"
+        :group="{ name: 'form-draggable', pull: 'clone', put: false }"
+        ghost-class="ghost"
+        :sort="false"
+        :clone="clone"
+      >
+        <template #item="{ element }">
+          <div class="form-item-drop">
+            {{ element.name }}
+          </div>
+        </template>
+      </draggable>
+    </div>
+    <div class="form-item-section">
       <div class="title">布局组件</div>
       <draggable
         class="form-item-group"
@@ -75,6 +93,7 @@ export default {
       },
       inputs: computed(() => store.getters.inputs),
       pickers: computed(() => store.getters.pickers),
+      complexs: computed(() => store.getters.complexs),
       layouts: computed(() => store.getters.layouts)
     }
   }

@@ -33,7 +33,7 @@ export default {
   name: 'formRender',
   components: {},
   props: {},
-  setup() {
+  setup(props, { emit }) {
     const formRef = ref(null)
     const formDesign = reactive({
       render: 'object-render',
@@ -45,30 +45,31 @@ export default {
       root: {}
     })
 
-    const traverse = (items, data) => {
+    const traverse = (items, form, data = {}) => {
       items.forEach((item) => {
-        data[item.options.key] = item.options.defaultValue ? item.options.defaultValue : item.type()
+        const key = item.options.key
+        form[key] = data[key] ? data[key] : item.options.defaultValue ? item.options.defaultValue : item.type()
 
         if (item.items) {
-          traverse(item.items, data[item.options.key])
+          traverse(item.items, form[key], data[key])
         }
       })
     }
 
-    const init = (config) => {
+    const init = (config, data) => {
       formDesign.component = config.component
       formDesign.uuid = config.uuid
       formDesign.items = config.items
       formDesign.options = config.options
       formData.root = {}
-      traverse(formDesign.items, formData.root)
+      traverse(formDesign.items, formData.root, data)
       formRef.value && formRef.value.clearValidate()
     }
 
     const submit = () => {
       formRef.value.validate((valid) => {
         if (valid) {
-          console.log(toRaw(formData.root))
+          emit('submit', toRaw(formData.root))
         }
       })
     }

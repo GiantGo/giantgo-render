@@ -128,22 +128,6 @@ const getDefaultState = () => {
         disabled: false,
         rules: rules
       }
-    },
-    {
-      name: '富文本编辑器',
-      type: String,
-      component: 'editor',
-      uuid: '',
-      options: {
-        label: '富文本编辑器',
-        key: '',
-        defaultValue: '',
-        width: '100%',
-        placeholder: '请输入',
-        hidden: false,
-        disabled: false,
-        rules: rules
-      }
     }
   ]
 
@@ -413,6 +397,36 @@ const getDefaultState = () => {
     }
   ]
 
+  const complexs = [
+    {
+      name: '富文本编辑器',
+      type: String,
+      component: 'editor',
+      uuid: '',
+      options: {
+        label: '富文本编辑器',
+        key: '',
+        defaultValue: '',
+        width: '100%',
+        placeholder: '请输入',
+        hidden: false,
+        disabled: false,
+        rules: rules
+      }
+    },
+    {
+      name: '列表',
+      type: Array,
+      component: 'table',
+      uuid: '',
+      options: {
+        label: '列表',
+        key: '',
+        width: '100%'
+      }
+    }
+  ]
+
   const layouts = [
     {
       name: '对象布局',
@@ -462,6 +476,7 @@ const getDefaultState = () => {
   return {
     inputs: inputs,
     pickers: pickers,
+    complexs: complexs,
     layouts: layouts,
     formDesign: formDesign,
     selected: formDesign

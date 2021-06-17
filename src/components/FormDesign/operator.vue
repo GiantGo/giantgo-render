@@ -8,14 +8,14 @@
         <i class="el-icon-delete" @click="clear" />
       </el-tooltip>
     </div>
-    <el-dialog title="预览" v-model="dialog" destroy-on-close>
-      <form-render ref="formRender" />
+    <el-dialog title="预览" v-model="dialog" destroy-on-close :close-on-click-modal="false" width="750px">
+      <form-render ref="formRender" @submit="submit" />
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { computed, ref, nextTick } from 'vue'
+import { computed, ref, nextTick, toRaw } from 'vue'
 import { useStore } from 'vuex'
 
 export default {
@@ -36,10 +36,15 @@ export default {
       })
     }
 
+    const submit = (result) => {
+      console.log(toRaw(result))
+    }
+
     return {
       dialog,
       clear,
       preview,
+      submit,
       formRender,
       formDesign: computed(() => store.getters.formDesign)
     }
