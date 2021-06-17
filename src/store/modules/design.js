@@ -183,6 +183,31 @@ const getDefaultState = () => {
       }
     },
     {
+      name: '级联选择器',
+      type: Array,
+      component: 'multi-select',
+      uuid: '',
+      options: {
+        label: '级联选择器',
+        key: '',
+        defaultValue: [],
+        placeholder: '请选择',
+        width: '100%',
+        expandTrigger: 'click',
+        hidden: false,
+        clearable: false,
+        disabled: false,
+        filterable: false,
+        collapseTags: false,
+        multipleLimit: 0,
+        rules: rules,
+        options: {
+          remote: false,
+          items: []
+        }
+      }
+    },
+    {
       name: '多选框',
       type: Array,
       component: 'checkbox',

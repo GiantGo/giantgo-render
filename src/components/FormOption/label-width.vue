@@ -3,7 +3,7 @@
     <el-slider
       :model-value="parseInt(modelValue)"
       @update:modelValue="$emit('update:modelValue', $event + 'px')"
-      :min="50"
+      :min="0"
       :max="300"
     ></el-slider>
   </el-form-item>

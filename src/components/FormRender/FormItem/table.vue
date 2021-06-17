@@ -1,8 +1,10 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <el-button class="fr" type="primary" icon="el-icon-plus" @click="add">添加</el-button>
-    <el-table :data="data.items" style="width: 100%">
-      <el-table-column type="index" width="50"> </el-table-column>
+    <div class="clearfix">
+      <el-button class="fr" type="primary" icon="el-icon-plus" @click="add">添加</el-button>
+    </div>
+    <el-table class="mt-10" :data="data.items" style="width: 100%" border>
+      <el-table-column type="index" width="50" label="序号" align="center"> </el-table-column>
       <el-table-column v-for="(item, index) in items" :key="index" :prop="item.options.key" :label="item.options.label">
       </el-table-column>
       <el-table-column label="操作" align="center" width="120" class-name="small-padding">
