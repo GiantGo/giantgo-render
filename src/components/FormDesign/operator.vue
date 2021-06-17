@@ -50,7 +50,7 @@ export default {
       previewDialog,
       codeDialog,
       code,
-      clear,
+      clear: () => clear(),
       preview,
       submit,
       formRender

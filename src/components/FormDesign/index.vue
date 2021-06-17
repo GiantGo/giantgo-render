@@ -14,12 +14,13 @@
 </template>
 
 <script>
-import { provide, reactive, readonly } from 'vue'
+import { provide, reactive, readonly, watch, toRaw } from 'vue'
+import { ElMessage } from 'element-plus'
 import left from './left.vue'
 import right from './right.vue'
 import operator from './operator.vue'
 import { form } from './config.js'
-import { isEmptyObject, deepClone, uuid as makeId } from '@/utils/index.js'
+import { isEmptyObject, deepClone, uuid as makeId, debounce } from '@/utils/index.js'
 
 const query = (items, uuid) => {
   let result = {}
@@ -99,7 +100,9 @@ export default {
     })
 
     const init = (config) => {
-      state.formDesign = config || deepClone(form)
+      const formDesign = config || deepClone(form)
+      state.formDesign = formDesign
+      state.selected = formDesign
     }
 
     const setSelected = (uuid) => {
@@ -129,6 +132,13 @@ export default {
       remove(state.formDesign.items, uuid)
       state.selected = state.formDesign
     }
+
+    const save = debounce(() => {
+      console.log(toRaw(state.formDesign))
+      ElMessage.success('已自动保存')
+    }, 3000)
+
+    watch(state.formDesign, save)
 
     provide('state', readonly(state))
     provide('clear', init)

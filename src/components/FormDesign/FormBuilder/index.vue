@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { inject } from 'vue'
+import { computed, inject } from 'vue'
 
 export default {
   name: 'formBuilder',
@@ -31,7 +31,7 @@ export default {
     const state = inject('state')
 
     return {
-      formDesign: state.formDesign
+      formDesign: computed(() => state.formDesign)
     }
   }
 }
