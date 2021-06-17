@@ -14,13 +14,134 @@
 </template>
 
 <script>
+import { provide, reactive, readonly } from 'vue'
 import left from './left.vue'
 import right from './right.vue'
 import operator from './operator.vue'
+import { form } from './config.js'
+import { isEmptyObject, deepClone, uuid as makeId } from '@/utils/index.js'
+
+const query = (items, uuid) => {
+  let result = {}
+
+  if (!uuid) {
+    return result
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].uuid === uuid) {
+      return items[i]
+    }
+
+    if (items[i].items && items[i].items.length) {
+      result = query(items[i].items, uuid)
+      if (!isEmptyObject(result)) {
+        return result
+      }
+    }
+  }
+
+  return result
+}
+
+const copy = (items, uuid) => {
+  if (!uuid) {
+    return false
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].uuid === uuid) {
+      let newItem = deepClone(items[i])
+      const newId = newItem.component + '-' + makeId(16)
+      newItem.uuid = newItem.options.key = newId
+      newItem.items = []
+      items.splice(i + 1, 0, newItem)
+      return newItem
+    }
+
+    if (items[i].items && items[i].items.length) {
+      const newItem = copy(items[i].items, uuid)
+      if (newItem) {
+        return newItem
+      }
+    }
+  }
+
+  return false
+}
+
+const remove = (items, uuid) => {
+  if (!uuid) {
+    return false
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].uuid === uuid) {
+      items.splice(i, 1)
+      return true
+    }
+
+    if (items[i].items && items[i].items.length) {
+      if (remove(items[i].items, uuid)) {
+        return true
+      }
+    }
+  }
+}
 
 export default {
   components: { left, right, operator },
-  setup() {}
+  setup() {
+    const formDesign = deepClone(form)
+    let state = reactive({
+      formDesign: formDesign,
+      selected: formDesign
+    })
+
+    const init = (config) => {
+      state.formDesign = config || deepClone(form)
+    }
+
+    const setSelected = (uuid) => {
+      if (state.selected.uuid !== uuid) {
+        state.selected = query([state.formDesign], uuid) || {}
+      }
+    }
+
+    const updateFormItem = ({ uuid, items }) => {
+      const target = query([state.formDesign], uuid)
+
+      if (target) {
+        target.items = items
+      }
+    }
+
+    const updateFormOption = ({ key, value }) => {
+      state.selected.options[key] = value
+    }
+
+    const copyFormItem = (uuid) => {
+      const newItem = copy(state.formDesign.items, uuid)
+      state.selected = reactive(newItem)
+    }
+
+    const removeFormItem = (uuid) => {
+      remove(state.formDesign.items, uuid)
+      state.selected = state.formDesign
+    }
+
+    provide('state', readonly(state))
+    provide('clear', init)
+    provide('setSelected', setSelected)
+    provide('updateFormItem', updateFormItem)
+    provide('updateFormOption', updateFormOption)
+    provide('copyFormItem', copyFormItem)
+    provide('removeFormItem', removeFormItem)
+
+    return {
+      init
+    }
+  }
 }
 </script>
 

@@ -20,26 +20,22 @@
 </template>
 
 <script>
-import { computed, ref, nextTick } from 'vue'
-import { useStore } from 'vuex'
+import { ref, nextTick, inject } from 'vue'
 
 export default {
   components: {},
   setup() {
-    const store = useStore()
     const formRender = ref(null)
     const previewDialog = ref(false)
     const codeDialog = ref(false)
     const code = ref('')
-
-    const clear = () => {
-      store.dispatch('design/init')
-    }
+    const state = inject('state')
+    const clear = inject('clear')
 
     const preview = () => {
       previewDialog.value = true
       nextTick(() => {
-        formRender.value && formRender.value.init(store.getters.formDesign)
+        formRender.value && formRender.value.init(state.formDesign)
       })
     }
 
@@ -57,8 +53,7 @@ export default {
       clear,
       preview,
       submit,
-      formRender,
-      formDesign: computed(() => store.getters.formDesign)
+      formRender
     }
   }
 }

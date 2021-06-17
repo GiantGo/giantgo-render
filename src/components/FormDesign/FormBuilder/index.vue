@@ -17,39 +17,21 @@
       :options="formDesign.options"
       path="root"
     ></form-item-builder>
-    <el-button class="mt-10" type="primary" @click="submit">提交</el-button>
   </el-form>
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { inject } from 'vue'
 
 export default {
   name: 'formBuilder',
   components: {},
   props: {},
   setup() {
-    const store = useStore()
-
-    const init = () => {
-      store.dispatch('design/init')
-    }
-
-    const submit = () => {
-      formRef.value.validate((valid) => {
-        if (valid) {
-          console.log(store.getters.formData)
-        }
-      })
-    }
+    const state = inject('state')
 
     return {
-      init,
-      submit,
-      mode: computed(() => store.getters.mode),
-      formDesign: computed(() => store.getters.formDesign),
-      formData: computed(() => store.getters.formData)
+      formDesign: state.formDesign
     }
   }
 }

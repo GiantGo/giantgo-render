@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { useStore } from 'vuex'
-
 export default {
   name: 'formItemRender',
   components: {},
@@ -36,11 +34,7 @@ export default {
       }
     }
   },
-  setup(props) {
-    const store = useStore()
-
-    return {}
-  }
+  setup() {}
 }
 </script>
 

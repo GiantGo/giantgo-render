@@ -29,8 +29,7 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { computed, inject } from 'vue'
 
 export default {
   name: 'formItemBuilder',
@@ -53,13 +52,16 @@ export default {
     }
   },
   setup(props) {
-    const store = useStore()
+    const state = inject('state')
+    const setSelected = inject('setSelected')
+    const copyFormItem = inject('copyFormItem')
+    const removeFormItem = inject('removeFormItem')
 
     return {
-      select: () => store.dispatch('design/setSeleted', props.uuid),
-      copy: () => store.dispatch('design/copyFormItem', props.uuid),
-      remove: () => store.dispatch('design/removeFormItem', props.uuid),
-      isSelected: computed(() => store.getters.selected.uuid === props.uuid)
+      select: () => setSelected(props.uuid),
+      copy: () => copyFormItem(props.uuid),
+      remove: () => removeFormItem(props.uuid),
+      isSelected: computed(() => state.selected.uuid === props.uuid)
     }
   }
 }

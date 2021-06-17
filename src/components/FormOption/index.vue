@@ -5,7 +5,7 @@
       :key="key"
       :is="key + 'Option'"
       :model-value="selected.options[key]"
-      @update:modelValue="updateFormOption(key, $event)"
+      @update:modelValue="updateOption(key, $event)"
       :selected="selected"
     >
     </component>
@@ -13,22 +13,18 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { inject, computed } from 'vue'
 
 export default {
   name: 'formOption',
   props: {},
   setup() {
-    const store = useStore()
-
-    const updateFormOption = (key, value) => {
-      store.dispatch('design/updateFormOption', { key, value })
-    }
+    const state = inject('state')
+    const updateFormOption = inject('updateFormOption')
 
     return {
-      selected: computed(() => store.getters.selected),
-      updateFormOption
+      selected: computed(() => state.selected),
+      updateOption: (key, value) => updateFormOption({ key, value })
     }
   }
 }

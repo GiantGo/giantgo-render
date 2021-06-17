@@ -77,24 +77,22 @@
 
 <script>
 import draggable from 'vuedraggable/src/vuedraggable'
-import { computed } from 'vue'
-import { useStore } from 'vuex'
 import { uuid, deepClone } from '@/utils/index.js'
+import { inputs, pickers, complexs, layouts } from './config.js'
 
 export default {
   components: { draggable },
   setup() {
-    const store = useStore()
     return {
       clone: (original) => {
         const item = deepClone(original)
         item.uuid = item.options.key = item.component + '-' + uuid(16)
         return item
       },
-      inputs: computed(() => store.getters.inputs),
-      pickers: computed(() => store.getters.pickers),
-      complexs: computed(() => store.getters.complexs),
-      layouts: computed(() => store.getters.layouts)
+      inputs,
+      pickers,
+      complexs,
+      layouts
     }
   }
 }

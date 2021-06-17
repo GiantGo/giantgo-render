@@ -2,7 +2,7 @@
   <draggable
     class="form-item-drop-list"
     :model-value="items"
-    @update:modelValue="updateFormItems"
+    @update:modelValue="updateItems"
     @start="dragStart"
     @add="add"
     item-key="uuid"
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import { useStore } from 'vuex'
 import draggable from 'vuedraggable/src/vuedraggable'
+import { inject } from 'vue'
 
 export default {
   name: 'objectBuilder',
@@ -48,24 +48,13 @@ export default {
     }
   },
   setup(props) {
-    const store = useStore()
-
-    const add = (evt) => {
-      store.dispatch('design/setSeleted', props.items[evt.newIndex].uuid)
-    }
-
-    const dragStart = (evt) => {
-      store.dispatch('design/setSeleted', props.items[evt.oldIndex].uuid)
-    }
-
-    const updateFormItems = (items) => {
-      store.dispatch('design/updateFormItems', { uuid: props.uuid, items: items })
-    }
+    const setSelected = inject('setSelected')
+    const updateFormItem = inject('updateFormItem')
 
     return {
-      add,
-      dragStart,
-      updateFormItems
+      add: (evt) => setSelected(props.items[evt.newIndex].uuid),
+      dragStart: (evt) => setSelected(props.items[evt.oldIndex].uuid),
+      updateItems: (items) => updateFormItem({ uuid: props.uuid, items })
     }
   }
 }

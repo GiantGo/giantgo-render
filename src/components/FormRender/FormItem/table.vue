@@ -21,9 +21,8 @@
 </template>
 
 <script>
-import { reactive, ref, watch, onMounted, nextTick } from 'vue'
+import { reactive, ref, watch, onMounted, nextTick, inject } from 'vue'
 import { deepClone } from '@/utils/index.js'
-import { useStore } from 'vuex'
 
 export default {
   name: 'tableRender',
@@ -45,7 +44,7 @@ export default {
     }
   },
   setup(props, { emit }) {
-    const store = useStore()
+    const state = inject('state')
     const data = reactive({
       items: []
     })
@@ -66,7 +65,7 @@ export default {
       formDialog.title = '添加'
       formDialog.isShow = true
       nextTick(() => {
-        formRender.value && formRender.value.init(Object.assign({}, store.getters.formDesign, { items: props.items }))
+        formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }))
       })
     }
 
@@ -74,8 +73,7 @@ export default {
       formDialog.title = '编辑'
       formDialog.isShow = true
       nextTick(() => {
-        formRender.value &&
-          formRender.value.init(Object.assign({}, store.getters.formDesign, { items: props.items }), item)
+        formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }), item)
       })
     }
 
