@@ -185,7 +185,7 @@ const getDefaultState = () => {
     {
       name: '级联选择器',
       type: Array,
-      component: 'multi-select',
+      component: 'cascader',
       uuid: '',
       options: {
         label: '级联选择器',

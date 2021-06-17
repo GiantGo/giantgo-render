@@ -11,7 +11,7 @@
     <el-dialog title="预览" v-model="previewDialog" destroy-on-close width="750px">
       <form-render ref="formRender" @submit="submit" />
     </el-dialog>
-    <el-dialog title="获取数据" v-model="codeDialog" destroy-on-close width="750px">
+    <el-dialog title="获取数据" v-model="codeDialog" width="750px">
       <div class="json-box">
         <code-mirror v-model="code" />
       </div>

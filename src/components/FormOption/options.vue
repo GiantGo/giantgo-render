@@ -12,11 +12,24 @@
       </el-col>
     </el-row>
     <el-button type="text" @click="addOption">增加选项</el-button>
+    <el-button type="text" @click="editOptions">编辑选项</el-button>
+    <el-dialog title="编辑选项" v-model="codeDialog" width="750px">
+      <div class="json-box">
+        <code-mirror v-model="code" />
+      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="codeDialog = false">取 消</el-button>
+          <el-button type="primary" @click="setOptions">确定</el-button>
+        </div>
+      </template>
+    </el-dialog>
   </el-form-item>
 </template>
 
 <script>
-import { reactive, watch, onMounted } from 'vue'
+import { ElMessage } from 'element-plus'
+import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@/utils/index.js'
 
 export default {
@@ -30,6 +43,8 @@ export default {
       remote: false,
       items: []
     })
+    const code = ref('')
+    const codeDialog = ref(false)
 
     const setInternal = () => {
       data.remote = props.modelValue.remote
@@ -65,12 +80,33 @@ export default {
       emitChange()
     }
 
+    const editOptions = () => {
+      codeDialog.value = true
+      nextTick(() => {
+        code.value = JSON.stringify(data.items, null, '\t')
+      })
+    }
+
+    const setOptions = () => {
+      try {
+        data.items = JSON.parse(code.value)
+      } catch (e) {
+        return ElMessage.error('数据格式不正确')
+      }
+      codeDialog.value = false
+      emitChange()
+    }
+
     return {
       data,
+      code,
+      codeDialog,
       update,
       emitChange,
       addOption,
-      removeOption
+      removeOption,
+      editOptions,
+      setOptions
     }
   }
 }
