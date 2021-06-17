@@ -31,3 +31,35 @@
     line-height: 28px;
   }
 }
+
+.json-box {
+  height: 570px;
+  overflow: auto;
+
+  .vue-codemirror-wrap {
+    height: 100%;
+
+    .CodeMirror-wrap {
+      height: 100%;
+
+      .CodeMirror-scroll {
+        height: 100%;
+        width: 100%;
+      }
+
+      pre.CodeMirror-line,
+      .CodeMirror-linenumber {
+        min-height: 21px;
+        line-height: 21px;
+      }
+
+      .CodeMirror-sizer {
+        margin-left: 35px !important;
+      }
+
+      .CodeMirror-gutter {
+        min-width: 34px;
+      }
+    }
+  }
+}

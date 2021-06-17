@@ -10,6 +10,7 @@ import store from './store/index.js'
 import FormBuilder from './components/FormDesign/FormBuilder/index.js'
 import FormRender from './components/FormRender/index.js'
 import FormOption from './components/FormOption/index.js'
+import CodeMirror from './components/CodeMirror/index.js'
 
 const app = createApp(App)
 
@@ -17,6 +18,7 @@ app.use(ElementPlus, { locale })
 app.use(FormBuilder)
 app.use(FormRender)
 app.use(FormOption)
+app.use(CodeMirror)
 app.use(router)
 app.use(store)
 

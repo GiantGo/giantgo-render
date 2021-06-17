@@ -8,14 +8,19 @@
         <i class="el-icon-delete" @click="clear" />
       </el-tooltip>
     </div>
-    <el-dialog title="预览" v-model="dialog" destroy-on-close :close-on-click-modal="false" width="750px">
+    <el-dialog title="预览" v-model="previewDialog" destroy-on-close width="750px">
       <form-render ref="formRender" @submit="submit" />
+    </el-dialog>
+    <el-dialog title="获取数据" v-model="codeDialog" destroy-on-close width="750px">
+      <div class="json-box">
+        <code-mirror v-model="code" />
+      </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { computed, ref, nextTick, toRaw } from 'vue'
+import { computed, ref, nextTick } from 'vue'
 import { useStore } from 'vuex'
 
 export default {
@@ -23,25 +28,32 @@ export default {
   setup() {
     const store = useStore()
     const formRender = ref(null)
-    const dialog = ref(false)
+    const previewDialog = ref(false)
+    const codeDialog = ref(false)
+    const code = ref('')
 
     const clear = () => {
       store.dispatch('design/init')
     }
 
     const preview = () => {
-      dialog.value = true
+      previewDialog.value = true
       nextTick(() => {
         formRender.value && formRender.value.init(store.getters.formDesign)
       })
     }
 
     const submit = (result) => {
-      console.log(toRaw(result))
+      codeDialog.value = true
+      nextTick(() => {
+        code.value = JSON.stringify(result, null, '\t')
+      })
     }
 
     return {
-      dialog,
+      previewDialog,
+      codeDialog,
+      code,
       clear,
       preview,
       submit,
