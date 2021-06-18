@@ -49,7 +49,7 @@ export const inputs = [
     options: {
       label: '数字输入框',
       key: '',
-      defaultValue: 0,
+      defaultValue: 10,
       width: '100%',
       min: 0,
       max: 100,
@@ -258,7 +258,7 @@ export const pickers = [
     options: {
       label: '评分',
       key: '',
-      defaultValue: 0,
+      defaultValue: 3,
       width: '100%',
       max: 5,
       hidden: false,
@@ -275,10 +275,10 @@ export const pickers = [
     options: {
       label: '滑块',
       key: '',
-      defaultValue: 0,
+      defaultValue: 10,
       width: '100%',
       min: 0,
-      max: 10,
+      max: 100,
       step: 1,
       hidden: false,
       disabled: false,

@@ -1,5 +1,5 @@
 <template>
-  <el-form label-position="top">
+  <el-form label-position="top" :key="selected.uuid">
     <component
       v-for="(value, key) in selected.options"
       :key="key"

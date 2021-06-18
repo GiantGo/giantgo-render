@@ -9,7 +9,8 @@ export default {
   name: 'Dashboard',
   components: {
     FormDesign
-  }
+  },
+  setup() {}
 }
 </script>
 

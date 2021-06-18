@@ -25,9 +25,7 @@ export default {
       }
     }
   },
-  setup(props) {
-    return {}
-  }
+  setup() {}
 }
 </script>
 

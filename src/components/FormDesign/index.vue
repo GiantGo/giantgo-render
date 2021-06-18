@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { provide, reactive, readonly, watch, toRaw } from 'vue'
+import { provide, reactive, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import left from './left.vue'
 import right from './right.vue'
@@ -23,10 +23,10 @@ import { form } from './config.js'
 import { isEmptyObject, deepClone, uuid as makeId, debounce } from '@/utils/index.js'
 
 const query = (items, uuid) => {
-  let result = {}
+  let result = false
 
   if (!uuid) {
-    return result
+    return false
   }
 
   for (let i = 0; i < items.length; i++) {
@@ -96,19 +96,21 @@ export default {
     const formDesign = deepClone(form)
     let state = reactive({
       formDesign: formDesign,
-      selected: formDesign
+      selected: formDesign,
+      cached: [deepClone(formDesign)],
+      current: 0
     })
 
     const init = (config) => {
       const formDesign = config || deepClone(form)
       state.formDesign = formDesign
       state.selected = formDesign
+      state.cached = [deepClone(formDesign)]
+      state.current = 0
     }
 
     const setSelected = (uuid) => {
-      if (state.selected.uuid !== uuid) {
-        state.selected = query([state.formDesign], uuid) || {}
-      }
+      state.selected = query([state.formDesign], uuid) || state.formDesign
     }
 
     const updateFormItem = ({ uuid, items }) => {
@@ -117,36 +119,68 @@ export default {
       if (target) {
         target.items = items
       }
+      addCache()
     }
 
     const updateFormOption = ({ key, value }) => {
       state.selected.options[key] = value
+      addCache()
     }
 
     const copyFormItem = (uuid) => {
       const newItem = copy(state.formDesign.items, uuid)
-      state.selected = reactive(newItem)
+      state.selected = newItem
+      addCache()
     }
 
     const removeFormItem = (uuid) => {
       remove(state.formDesign.items, uuid)
       state.selected = state.formDesign
+      addCache()
     }
 
-    const save = debounce(() => {
-      console.log(toRaw(state.formDesign))
-      ElMessage.success('已自动保存')
-    }, 3000)
+    const revoke = () => {
+      if (state.cached.length && state.current > 0) {
+        state.current--
+        state.formDesign = deepClone(state.cached[state.current])
+        setSelected(state.selected.uuid)
+      }
+    }
 
-    watch(state.formDesign, save)
+    const forward = () => {
+      if (state.cached.length && state.current < state.cached.length - 1) {
+        state.current++
+        state.formDesign = deepClone(state.cached[state.current])
+        setSelected(state.selected.uuid)
+      }
+    }
 
-    provide('state', readonly(state))
+    const addCache = () => {
+      if (state.cached.length >= 10) {
+        state.cached.shift()
+      }
+
+      state.cached.splice(state.current + 1, Infinity, deepClone(state.formDesign))
+      state.current = state.cached.length - 1
+    }
+
+    watch(
+      () => state.formDesign,
+      debounce(() => {
+        ElMessage.success('已自动保存')
+      }, 3000),
+      { deep: true }
+    )
+
+    provide('state', state)
     provide('clear', init)
     provide('setSelected', setSelected)
     provide('updateFormItem', updateFormItem)
     provide('updateFormOption', updateFormOption)
     provide('copyFormItem', copyFormItem)
     provide('removeFormItem', removeFormItem)
+    provide('revoke', revoke)
+    provide('forward', forward)
 
     return {
       init
