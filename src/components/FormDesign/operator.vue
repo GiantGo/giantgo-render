@@ -1,20 +1,20 @@
 <template>
   <div class="form-operator">
     <div>
-      <el-tooltip class="item" effect="dark" content="预览" placement="top">
+      <el-tooltip class="item" effect="dark" content="预览" placement="bottom">
         <i class="el-icon-video-play" @click="preview" />
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="查看JSON" placement="top">
+      <el-tooltip class="item" effect="dark" content="查看JSON" placement="bottom">
         <i class="el-icon-view" @click="json" />
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="清空" placement="top">
+      <el-tooltip class="item" effect="dark" content="清空" placement="bottom">
         <i class="el-icon-delete" @click="clear" />
       </el-tooltip>
       <el-divider direction="vertical"></el-divider>
-      <el-tooltip class="item" effect="dark" content="后退" placement="top">
+      <el-tooltip class="item" effect="dark" content="后退" placement="bottom">
         <i class="el-icon-refresh-left" @click="revoke" :class="{ disabled: current <= 0 }" />
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="前进" placement="top">
+      <el-tooltip class="item" effect="dark" content="前进" placement="bottom">
         <i class="el-icon-refresh-right" @click="forward" :class="{ disabled: current >= cached.length - 1 }" />
       </el-tooltip>
     </div>

@@ -2,7 +2,8 @@
   <el-form-item :label="'标签宽度（' + modelValue + '）:'">
     <el-slider
       :model-value="parseInt(modelValue)"
-      @update:modelValue="$emit('update:modelValue', $event + 'px')"
+      @update:modelValue="modelValue = $event + 'px'"
+      @change="$emit('update:modelValue', $event + 'px')"
       :min="0"
       :max="300"
     ></el-slider>

@@ -1,6 +1,12 @@
 <template>
   <el-form-item label="文本域高度:">
-    <el-slider :model-value="modelValue" @input="input" :min="2" :max="10"></el-slider>
+    <el-slider
+      :model-value="modelValue"
+      @update:modelValue="modelValue = $event"
+      @change="$emit('update:modelValue', $event)"
+      :min="2"
+      :max="10"
+    ></el-slider>
   </el-form-item>
 </template>
 
@@ -11,13 +17,7 @@ export default {
   props: {
     modelValue: Number
   },
-  setup(props, { emit }) {
-    const input = (value) => {
-      emit('update:modelValue', value)
-    }
-
-    return { input }
-  }
+  setup() {}
 }
 </script>
 

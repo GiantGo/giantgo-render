@@ -7,9 +7,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "axios": "^0.21.1",
     "codemirror": "^5.41.0",
-    "element-plus": "^1.0.2-beta.44",
+    "element-plus": "^1.0.2-beta.47",
     "quill": "^1.3.7",
     "vue": "^3.0.5",
     "vue-router": "^4.0.8",
