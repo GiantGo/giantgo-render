@@ -45,7 +45,7 @@ export default {
     const formData = reactive({
       root: {}
     })
-    const reg = /\{\{((?:.|\n)+?)\}\}/g
+    const interpolationReg = /\{\{((?:.|\n)+?)\}\}/g
 
     const traverse = (items, form, data = {}) => {
       items.forEach((item) => {
@@ -53,16 +53,20 @@ export default {
         form[key] = data[key] ? data[key] : item.options.defaultValue ? item.options.defaultValue : item.type()
 
         for (let option in item.options) {
-          if (reg.test(item.options[option])) {
-            reg.lastIndex = 0
-            const functionBody = new Function('root', 'options', 'return ' + reg.exec(item.options[option])[1])
+          if (interpolationReg.test(item.options[option])) {
+            interpolationReg.lastIndex = 0
+            const functionBody = new Function(
+              'root',
+              'options',
+              'return ' + interpolationReg.exec(item.options[option])[1]
+            )
             item.options[option] = computed({
               get() {
                 return functionBody(formData.root, item.options)
               }
             })
 
-            reg.lastIndex = 0
+            interpolationReg.lastIndex = 0
           }
         }
 

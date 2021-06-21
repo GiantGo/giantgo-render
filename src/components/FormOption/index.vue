@@ -8,7 +8,6 @@
       @update:modelValue="updateOption(key, $event)"
       :selected="selected"
     >
-      阿萨德
     </component>
   </el-form>
 </template>
