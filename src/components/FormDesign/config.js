@@ -17,6 +17,7 @@ export const inputs = [
       hidden: false,
       clearable: false,
       disabled: false,
+      showPassword: false,
       maxlength: undefined,
       showWordLimit: false,
       rules: rules

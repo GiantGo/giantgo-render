@@ -7,6 +7,7 @@
       :placeholder="options.placeholder"
       :clearable="options.clearable"
       :disabled="options.disabled"
+      :show-password="options.showPassword"
       :prefix-icon="options.prefixIcon"
       :suffix-icon="options.suffixIcon"
       :maxlength="options.maxlength"

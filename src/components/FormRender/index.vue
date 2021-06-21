@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import { ref, reactive, toRaw } from 'vue'
+import { ref, reactive, toRaw, computed } from 'vue'
+import { deepClone } from '@/utils/index.js'
 
 export default {
   name: 'formRender',
@@ -44,11 +45,26 @@ export default {
     const formData = reactive({
       root: {}
     })
+    const reg = /\{\{((?:.|\n)+?)\}\}/g
 
     const traverse = (items, form, data = {}) => {
       items.forEach((item) => {
         const key = item.options.key
         form[key] = data[key] ? data[key] : item.options.defaultValue ? item.options.defaultValue : item.type()
+
+        for (let option in item.options) {
+          if (reg.test(item.options[option])) {
+            reg.lastIndex = 0
+            const functionBody = new Function('root', 'options', 'return ' + reg.exec(item.options[option])[1])
+            item.options[option] = computed({
+              get() {
+                return functionBody(formData.root, item.options)
+              }
+            })
+
+            reg.lastIndex = 0
+          }
+        }
 
         if (item.items) {
           traverse(item.items, form[key], data[key])
@@ -59,10 +75,11 @@ export default {
     const init = (config, data) => {
       formDesign.component = config.component
       formDesign.uuid = config.uuid
-      formDesign.items = config.items
+      formDesign.items = deepClone(config.items)
       formDesign.options = config.options
       formData.root = {}
       traverse(formDesign.items, formData.root, data)
+
       formRef.value && formRef.value.clearValidate()
     }
 
