@@ -2,7 +2,7 @@
 基于vue3 element plus的快速表单生成器
 ![image](https://raw.githubusercontent.com/GiantGo/giantgo-render/master/public/preview.jpg)
 
-- 【[预览地址](https://giantgo.github.com/giantgo-render)】
+- 【[预览地址](https://giantgo.github.io/giantgo-render/)】
 ## 简介
 编辑器风格主要参考下面三个项目
 - [k-form-design](https://github.com/Kchengz/k-form-design)
