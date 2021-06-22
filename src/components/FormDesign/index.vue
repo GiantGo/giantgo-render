@@ -93,21 +93,12 @@ const remove = (items, uuid) => {
 export default {
   components: { left, right, operator },
   setup() {
-    const formDesign = deepClone(form)
     let state = reactive({
-      formDesign: formDesign,
-      selected: formDesign,
-      cached: [deepClone(formDesign)],
-      current: 0
+      formDesign: {},
+      selected: {},
+      cached: [],
+      current: -1
     })
-
-    const init = (config) => {
-      const formDesign = config || deepClone(form)
-      state.formDesign = formDesign
-      state.selected = formDesign
-      state.cached = [deepClone(formDesign)]
-      state.current = 0
-    }
 
     const setSelected = (uuid) => {
       state.selected = query([state.formDesign], uuid) || state.formDesign
@@ -163,6 +154,15 @@ export default {
       state.cached.splice(state.current + 1, Infinity, deepClone(state.formDesign))
       state.current = state.cached.length - 1
     }
+
+    const init = (config) => {
+      const formDesign = config || deepClone(form)
+      state.formDesign = formDesign
+      state.selected = formDesign
+      addCache()
+    }
+
+    init()
 
     watch(
       () => state.formDesign,
