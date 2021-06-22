@@ -5,7 +5,6 @@ import 'dayjs/locale/zh-cn'
 import locale from 'element-plus/lib/locale/lang/zh-cn'
 import 'element-plus/lib/theme-chalk/index.css'
 import './styles/index.scss' // global css
-import router from './router'
 import FormBuilder from './components/FormDesign/FormBuilder/index.js'
 import FormRender from './components/FormRender/index.js'
 import FormOption from './components/FormOption/index.js'
@@ -18,7 +17,6 @@ app.use(FormBuilder)
 app.use(FormRender)
 app.use(FormOption)
 app.use(CodeMirror)
-app.use(router)
 
 app.config.globalProperties.$ELEMENT = { size: 'medium', zIndex: 3000 }
 
