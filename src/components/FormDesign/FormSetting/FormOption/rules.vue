@@ -9,7 +9,7 @@
       </el-col>
       <el-col :span="4"> </el-col>
     </el-row>
-    <el-row class="mt-10" v-for="(rule, index) in data.patterns" :key="index" :gutter="5">
+    <el-row class="rule-row" v-for="(rule, index) in data.patterns" :key="index" :gutter="5">
       <el-col :span="10">
         <el-input :model-value="rule.pattern" @input="update(index, 'pattern', $event)" placeholder="正则表达式" />
       </el-col>
@@ -37,12 +37,14 @@
 </template>
 
 <script>
+import { ElMessage } from 'element-plus'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@/utils/index.js'
+import CodeMirror from '@/components/CodeMirror/index.vue'
 
 export default {
   name: 'rulesOption',
-  components: {},
+  components: { CodeMirror },
   props: {
     modelValue: Array
   },
@@ -117,4 +119,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.rule-row {
+  margin-top: 10px;
+}
+</style>

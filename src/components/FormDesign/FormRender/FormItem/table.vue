@@ -1,9 +1,9 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <div class="clearfix">
-      <el-button class="fr" type="primary" icon="el-icon-plus" @click="add">添加</el-button>
+    <div class="tools">
+      <el-button class="add-btn" type="primary" icon="el-icon-plus" @click="add">添加</el-button>
     </div>
-    <el-table class="mt-10" :data="data.items" style="width: 100%" border>
+    <el-table class="edit-table" :data="data.items" style="width: 100%" border>
       <el-table-column type="index" width="50" label="序号" align="center"> </el-table-column>
       <el-table-column v-for="(item, index) in items" :key="index" :prop="item.options.key" :label="item.options.label">
       </el-table-column>
@@ -101,4 +101,23 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.tools {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ' ';
+    clear: both;
+    height: 0;
+  }
+
+  .add-btn {
+    float: right;
+  }
+}
+
+.edit-table {
+  margin-top: 10px;
+}
+</style>

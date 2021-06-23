@@ -1,6 +1,6 @@
 <template>
   <div class="form-setting">
-    <form-option></form-option>
+    <form-setting></form-setting>
   </div>
 </template>
 

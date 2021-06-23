@@ -16,7 +16,7 @@
 import { inject, computed } from 'vue'
 
 export default {
-  name: 'formOption',
+  name: 'formSetting',
   props: {},
   setup() {
     const state = inject('state')

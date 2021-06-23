@@ -37,10 +37,11 @@
 
 <script>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
+import CodeMirror from '@/components/CodeMirror/index.vue'
 import SvgIcon from '@/components/SvgIcon/index.vue'
 
 export default {
-  components: { SvgIcon },
+  components: { CodeMirror, SvgIcon },
   setup() {
     const formRender = ref(null)
     const previewDialog = ref(false)

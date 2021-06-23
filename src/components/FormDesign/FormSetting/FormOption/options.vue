@@ -1,6 +1,6 @@
 <template>
   <el-form-item label="选项配置:">
-    <el-row class="mt-10" v-for="(item, index) in data.items" :key="index" :gutter="5">
+    <el-row class="option-row" v-for="(item, index) in data.items" :key="index" :gutter="5">
       <el-col :span="10">
         <el-input :model-value="item.label" @input="update(index, 'label', $event)" placeholder="名称" />
       </el-col>
@@ -31,10 +31,11 @@
 import { ElMessage } from 'element-plus'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@/utils/index.js'
+import CodeMirror from '@/components/CodeMirror/index.vue'
 
 export default {
   name: 'optionsOption',
-  components: {},
+  components: { CodeMirror },
   props: {
     modelValue: Object
   },
@@ -112,4 +113,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.option-row + .option-row {
+  margin-top: 10px;
+}
+</style>
