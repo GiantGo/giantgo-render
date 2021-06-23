@@ -1,6 +1,6 @@
 # giantgo-render
 基于vue3 element plus的快速表单生成器
-![image](https://raw.githubusercontent.com/GiantGo/giantgo-render/master/public/preview.jpg)
+![image](https://raw.githubusercontent.com/GiantGo/giantgo-render/master/public/preview.png)
 
 - 【[预览地址](https://giantgo.github.io/giantgo-render/)】
 ## 简介
