@@ -19,6 +19,7 @@
     "autoprefixer": "^10.2.6",
     "sass": "~1.32.12",
     "vite": "2.3.7",
-    "vite-plugin-style-import": "^0.10.1"
+    "vite-plugin-style-import": "^0.10.1",
+    "vite-plugin-svg-icons": "^0.7.1"
   }
 }

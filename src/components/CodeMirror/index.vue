@@ -95,8 +95,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .CodeMirror-code {
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.form-setting {
+  .CodeMirror {
+    height: 100px;
+  }
 }
 </style>

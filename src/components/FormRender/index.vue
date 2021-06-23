@@ -52,6 +52,7 @@ export default {
         const key = item.options.key
         form[key] = data[key] ? data[key] : item.options.defaultValue ? item.options.defaultValue : item.type()
 
+        //处理插值表达式
         for (let option in item.options) {
           if (interpolationReg.test(item.options[option])) {
             interpolationReg.lastIndex = 0

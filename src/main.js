@@ -9,6 +9,7 @@ import FormBuilder from './components/FormDesign/FormBuilder/index.js'
 import FormRender from './components/FormRender/index.js'
 import FormOption from './components/FormOption/index.js'
 import CodeMirror from './components/CodeMirror/index.js'
+import 'virtual:svg-icons-register'
 
 const app = createApp(App)
 

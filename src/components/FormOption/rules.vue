@@ -21,11 +21,23 @@
       </el-col>
     </el-row>
     <el-button type="text" @click="addRule">增加验证</el-button>
+    <el-button type="text" @click="editRules">编辑验证</el-button>
+    <el-dialog title="编辑验证" v-model="codeDialog" width="750px">
+      <div class="json-box">
+        <code-mirror v-model="code" />
+      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="codeDialog = false">取 消</el-button>
+          <el-button type="primary" @click="setRules">确定</el-button>
+        </div>
+      </template>
+    </el-dialog>
   </el-form-item>
 </template>
 
 <script>
-import { reactive, watch, onMounted } from 'vue'
+import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@/utils/index.js'
 
 export default {
@@ -39,6 +51,8 @@ export default {
       required: { required: false, message: '必填项', trigger: 'blur' },
       patterns: []
     })
+    const code = ref('')
+    const codeDialog = ref(false)
 
     const setInternal = () => {
       data.required = deepClone(props.modelValue[0])
@@ -59,8 +73,8 @@ export default {
 
     const addRule = () => {
       data.patterns.push({
-        message: '',
         pattern: '',
+        message: '',
         trigger: 'blur'
       })
       emitChange()
@@ -71,12 +85,33 @@ export default {
       emitChange()
     }
 
+    const editRules = () => {
+      codeDialog.value = true
+      nextTick(() => {
+        code.value = JSON.stringify(data.patterns, null, '\t')
+      })
+    }
+
+    const setRules = () => {
+      try {
+        data.patterns = JSON.parse(code.value)
+      } catch (e) {
+        return ElMessage.error('数据格式不正确')
+      }
+      codeDialog.value = false
+      emitChange()
+    }
+
     return {
       data,
+      code,
+      codeDialog,
       update,
       emitChange,
       addRule,
-      removeRule
+      removeRule,
+      editRules,
+      setRules
     }
   }
 }

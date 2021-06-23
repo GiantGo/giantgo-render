@@ -2,20 +2,20 @@
   <div class="form-operator">
     <div>
       <el-tooltip class="item" effect="dark" content="预览" placement="bottom">
-        <i class="el-icon-video-play" @click="preview" />
+        <i class="icon el-icon-video-play" @click="preview" />
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="查看JSON" placement="bottom">
-        <i class="el-icon-view" @click="json" />
+      <el-tooltip class="item" effect="dark" content="编辑JSON" placement="bottom">
+        <svg-icon name="json" class-name="icon" @click="editCode"></svg-icon>
       </el-tooltip>
       <el-tooltip class="item" effect="dark" content="清空" placement="bottom">
-        <i class="el-icon-delete" @click="clear" />
+        <i class="icon el-icon-delete" @click="clear" />
       </el-tooltip>
       <el-divider direction="vertical"></el-divider>
       <el-tooltip class="item" effect="dark" content="后退" placement="bottom">
-        <i class="el-icon-refresh-left" @click="revoke" :class="{ disabled: current <= 0 }" />
+        <i class="icon el-icon-refresh-left" @click="revoke" :class="{ disabled: current <= 0 }" />
       </el-tooltip>
       <el-tooltip class="item" effect="dark" content="前进" placement="bottom">
-        <i class="el-icon-refresh-right" @click="forward" :class="{ disabled: current >= cached.length - 1 }" />
+        <i class="icon el-icon-refresh-right" @click="forward" :class="{ disabled: current >= cached.length - 1 }" />
       </el-tooltip>
     </div>
     <el-dialog title="预览" v-model="previewDialog" destroy-on-close width="750px">
@@ -25,15 +25,22 @@
       <div class="json-box">
         <code-mirror v-model="code" />
       </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="codeDialog.isShow = false">取 消</el-button>
+          <el-button type="primary" @click="saveCode">确定</el-button>
+        </div>
+      </template>
     </el-dialog>
   </div>
 </template>
 
 <script>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
+import SvgIcon from '@/components/SvgIcon/index.vue'
 
 export default {
-  components: {},
+  components: { SvgIcon },
   setup() {
     const formRender = ref(null)
     const previewDialog = ref(false)
@@ -46,6 +53,7 @@ export default {
     const clear = inject('clear')
     const revoke = inject('revoke')
     const forward = inject('forward')
+    const init = inject('init')
 
     const preview = () => {
       previewDialog.value = true
@@ -62,12 +70,21 @@ export default {
       })
     }
 
-    const json = () => {
+    const editCode = () => {
       codeDialog.title = '查看JSON'
       codeDialog.isShow = true
       nextTick(() => {
         code.value = JSON.stringify(state.formDesign, null, '\t')
       })
+    }
+
+    const saveCode = () => {
+      try {
+        init(JSON.parse(code.value))
+      } catch (e) {
+        return ElMessage.error('数据格式不正确')
+      }
+      codeDialog.isShow = false
     }
 
     return {
@@ -79,7 +96,8 @@ export default {
       forward,
       preview,
       submit,
-      json,
+      editCode,
+      saveCode,
       formRender,
       cached: computed(() => state.cached),
       current: computed(() => state.current)
@@ -102,7 +120,7 @@ export default {
   color: $primary-text;
   font-size: 16px;
 
-  i {
+  .icon {
     cursor: pointer;
 
     &:hover {
@@ -110,12 +128,12 @@ export default {
     }
   }
 
-  i.disabled {
+  .icon.disabled {
     color: $disabled;
     cursor: not-allowed;
   }
 
-  i + i {
+  .icon + .icon {
     margin-left: 10px;
   }
 }

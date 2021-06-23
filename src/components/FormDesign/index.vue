@@ -156,9 +156,9 @@ export default {
     }
 
     const init = (config) => {
-      const formDesign = config || deepClone(form)
-      state.formDesign = formDesign
-      state.selected = formDesign
+      state.formDesign = config || deepClone(form)
+      state.selected = query([state.formDesign], state.selected.uuid) || state.formDesign
+
       addCache()
     }
 
@@ -174,6 +174,7 @@ export default {
 
     provide('state', state)
     provide('clear', init)
+    provide('init', init)
     provide('setSelected', setSelected)
     provide('updateFormItem', updateFormItem)
     provide('updateFormOption', updateFormOption)
