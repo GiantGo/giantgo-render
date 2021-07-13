@@ -20,11 +20,11 @@ export default {
   props: {},
   setup() {
     const state = inject('state')
-    const updateFormOption = inject('updateFormOption')
+    const updateSelectedFormOption = inject('updateSelectedFormOption')
 
     return {
       selected: computed(() => state.selected),
-      updateOption: (key, value) => updateFormOption({ key, value })
+      updateOption: (key, value) => updateSelectedFormOption({ key, value })
     }
   }
 }

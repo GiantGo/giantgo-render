@@ -113,7 +113,15 @@ export default {
       addCache()
     }
 
-    const updateFormOption = ({ key, value }) => {
+    const updateFormOption = ({ uuid, key, value }) => {
+      const item = query([state.formDesign], uuid)
+
+      if (item) {
+        item.options[key] = value
+      }
+    }
+
+    const updateSelectedFormOption = ({ key, value }) => {
       state.selected.options[key] = value
       addCache()
     }
@@ -178,6 +186,7 @@ export default {
     provide('setSelected', setSelected)
     provide('updateFormItem', updateFormItem)
     provide('updateFormOption', updateFormOption)
+    provide('updateSelectedFormOption', updateSelectedFormOption)
     provide('copyFormItem', copyFormItem)
     provide('removeFormItem', removeFormItem)
     provide('revoke', revoke)

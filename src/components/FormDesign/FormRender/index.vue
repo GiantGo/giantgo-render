@@ -27,8 +27,9 @@
 </template>
 
 <script>
-import { ref, reactive, toRaw, computed } from 'vue'
+import { ref, reactive, toRaw, computed, provide } from 'vue'
 import { deepClone } from '@/utils/index.js'
+import mitt from 'mitt'
 
 export default {
   name: 'formRender',
@@ -45,6 +46,7 @@ export default {
     const formData = reactive({
       root: {}
     })
+    const emitter = mitt()
     const interpolationReg = /\{\{((?:.|\n)+?)\}\}/g
 
     const traverse = (items, form, data = {}) => {
@@ -89,9 +91,11 @@ export default {
     }
 
     const submit = () => {
-      formRef.value.validate((valid) => {
+      formRef.value.validate((valid, error) => {
         if (valid) {
           emit('submit', toRaw(formData.root))
+        } else {
+          emitter.emit('validateError', Object.keys(error)[0])
         }
       })
     }
@@ -99,6 +103,8 @@ export default {
     const reset = () => {
       formRef.value.resetFields()
     }
+
+    provide('emitter', emitter)
 
     return {
       formRef,

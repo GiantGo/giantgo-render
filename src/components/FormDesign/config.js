@@ -18,8 +18,8 @@ export const inputs = [
       clearable: false,
       disabled: false,
       showPassword: false,
-      maxlength: undefined,
-      showWordLimit: false,
+      maxlength: 50,
+      showWordLimit: true,
       rules: rules
     }
   },
@@ -37,8 +37,8 @@ export const inputs = [
       rows: 4,
       hidden: false,
       disabled: false,
-      maxlength: undefined,
-      showWordLimit: false,
+      maxlength: 50,
+      showWordLimit: true,
       rules: rules
     }
   },
@@ -382,20 +382,22 @@ export const complexs = [
   }
 ]
 
-export const layouts = [
-  {
-    name: '对象布局',
-    type: Object,
-    component: 'object',
-    uuid: '',
-    options: {
-      label: '对象布局',
-      key: '',
-      width: '100%',
-      gutter: 0
-    },
-    items: []
+export const objectLayout = {
+  name: '对象布局',
+  type: Object,
+  component: 'object',
+  uuid: '',
+  options: {
+    label: '对象布局',
+    key: '',
+    width: '100%',
+    gutter: 0
   },
+  items: []
+}
+
+export const layouts = [
+  objectLayout,
   {
     name: '卡片布局',
     type: Object,
@@ -408,6 +410,20 @@ export const layouts = [
       gutter: 0,
       shadow: 'always',
       padding: '20px 20px 0px 0px'
+    },
+    items: []
+  },
+  {
+    name: '标签布局',
+    type: Object,
+    component: 'tabs',
+    uuid: '',
+    options: {
+      label: '标签布局',
+      key: '',
+      width: '100%',
+      tabType: 'border-card',
+      tabPosition: 'top'
     },
     items: []
   }
