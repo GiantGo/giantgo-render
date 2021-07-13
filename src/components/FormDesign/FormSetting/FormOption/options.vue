@@ -115,6 +115,6 @@ export default {
 
 <style lang="scss" scoped>
 .option-row + .option-row {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <el-card :shadow="options.shadow">
+  <el-card :shadow="options.shadow" :body-style="{ padding: options.padding }">
     <template #header>
       <div class="card-header">
         <span>{{ options.label }}</span>

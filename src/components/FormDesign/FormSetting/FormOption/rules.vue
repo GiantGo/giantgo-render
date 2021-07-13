@@ -121,6 +121,6 @@ export default {
 
 <style lang="scss" scoped>
 .rule-row {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 </style>

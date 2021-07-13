@@ -1,5 +1,5 @@
 <template>
-  <el-card :shadow="options.shadow">
+  <el-card class="form-card" :shadow="options.shadow" :body-style="{ padding: options.padding }">
     <template #header>
       <div class="card-header">
         <span>{{ options.label }}</span>
@@ -40,4 +40,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.form-card {
+  margin-bottom: 22px;
+}
+</style>

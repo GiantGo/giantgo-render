@@ -406,7 +406,8 @@ export const layouts = [
       key: '',
       width: '100%',
       gutter: 0,
-      shadow: 'always'
+      shadow: 'always',
+      padding: '20px 20px 0px 0px'
     },
     items: []
   }
