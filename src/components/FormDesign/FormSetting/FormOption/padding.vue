@@ -1,5 +1,5 @@
 <template>
-  <el-form-item :label="'内边距:'">
+  <el-form-item label="内边距：">
     <el-row class="padding-row">
       <el-col :span="24"> 上：<el-input-number v-model="data.top" @input="emitChange" /> </el-col>
     </el-row>

@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="最小值:">
+  <el-form-item label="最小值：">
     <el-input-number :model-value="modelValue" @change="$emit('update:modelValue', $event)"></el-input-number>
   </el-form-item>
 </template>

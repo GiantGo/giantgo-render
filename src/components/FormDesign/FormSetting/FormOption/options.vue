@@ -1,14 +1,14 @@
 <template>
-  <el-form-item label="选项配置:">
+  <el-form-item label="选项：">
     <el-row class="option-row" v-for="(item, index) in data.items" :key="index" :gutter="5">
-      <el-col :span="10">
+      <el-col :span="11">
         <el-input :model-value="item.label" @input="update(index, 'label', $event)" placeholder="名称" />
       </el-col>
-      <el-col :span="10">
+      <el-col :span="11">
         <el-input :model-value="item.value" @input="update(index, 'value', $event)" placeholder="值" />
       </el-col>
-      <el-col :span="4">
-        <el-button type="danger" icon="el-icon-delete" circle @click="removeOption(index)"></el-button>
+      <el-col :span="2" class="text-center">
+        <i class="el-icon-delete" @click="removeOption(index)" />
       </el-col>
     </el-row>
     <el-button type="text" @click="addOption">增加选项</el-button>
@@ -114,6 +114,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../../styles/variables.scss';
+
+.el-icon-delete {
+  cursor: pointer;
+  color: $danger-color;
+  font-weight: bold;
+}
+
 .option-row + .option-row {
   margin-top: 5px;
 }

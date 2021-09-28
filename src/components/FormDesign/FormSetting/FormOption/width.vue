@@ -1,5 +1,5 @@
 <template>
-  <el-form-item :label="'组件宽度（' + modelValue + '）:'">
+  <el-form-item :label="'组件宽度（' + modelValue + '）：'">
     <el-slider
       :model-value="parseInt(modelValue)"
       @update:modelValue="modelValue = $event + '%'"

@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="验证:">
+  <el-form-item label="验证：">
     <el-row :gutter="5">
       <el-col :span="10">
         <el-checkbox v-model="data.required.required" @change="emitChange"> 必填 </el-checkbox>
@@ -10,14 +10,14 @@
       <el-col :span="4"> </el-col>
     </el-row>
     <el-row class="rule-row" v-for="(rule, index) in data.patterns" :key="index" :gutter="5">
-      <el-col :span="10">
+      <el-col :span="11">
         <el-input :model-value="rule.pattern" @input="update(index, 'pattern', $event)" placeholder="正则表达式" />
       </el-col>
-      <el-col :span="10">
+      <el-col :span="11">
         <el-input :model-value="rule.message" @input="update(index, 'message', $event)" placeholder="提示信息" />
       </el-col>
-      <el-col :span="4">
-        <el-button type="danger" icon="el-icon-delete" circle @click="removeRule(index)"></el-button>
+      <el-col :span="2" class="text-center">
+        <i class="el-icon-delete" @click="removeRule(index)" />
       </el-col>
     </el-row>
     <el-button type="text" @click="addRule">增加验证</el-button>
@@ -120,7 +120,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../../styles/variables.scss';
+
 .rule-row {
   margin-top: 5px;
+}
+
+.el-icon-delete {
+  cursor: pointer;
+  color: $danger-color;
+  font-weight: bold;
 }
 </style>

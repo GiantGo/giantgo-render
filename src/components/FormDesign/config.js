@@ -10,6 +10,7 @@ export const inputs = [
       label: '输入框',
       key: '',
       defaultValue: '',
+      rules: rules,
       width: '100%',
       placeholder: '请输入',
       prefixIcon: '',
@@ -19,8 +20,7 @@ export const inputs = [
       disabled: false,
       showPassword: false,
       maxlength: 50,
-      showWordLimit: true,
-      rules: rules
+      showWordLimit: true
     }
   },
   {
@@ -32,14 +32,14 @@ export const inputs = [
       label: '文本框',
       key: '',
       defaultValue: '',
+      rules: rules,
       width: '100%',
       placeholder: '请输入内容',
       rows: 4,
       hidden: false,
       disabled: false,
       maxlength: 50,
-      showWordLimit: true,
-      rules: rules
+      showWordLimit: true
     }
   },
   {
@@ -51,12 +51,12 @@ export const inputs = [
       label: '数字输入框',
       key: '',
       defaultValue: 10,
+      rules: rules,
       width: '100%',
       min: 0,
       max: 100,
       hidden: false,
-      disabled: false,
-      rules: rules
+      disabled: false
     }
   }
 ]
@@ -70,7 +70,12 @@ export const pickers = [
     options: {
       label: '下拉单选',
       key: '',
+      options: {
+        remote: false,
+        items: []
+      },
       defaultValue: undefined,
+      rules: rules,
       placeholder: '请选择',
       noDataText: '暂无数据',
       noMatchText: '无匹配数据',
@@ -78,12 +83,7 @@ export const pickers = [
       hidden: false,
       clearable: false,
       disabled: false,
-      filterable: false,
-      rules: rules,
-      options: {
-        remote: false,
-        items: []
-      }
+      filterable: false
     }
   },
   {
@@ -94,7 +94,12 @@ export const pickers = [
     options: {
       label: '下拉多选',
       key: '',
+      options: {
+        remote: false,
+        items: []
+      },
       defaultValue: [],
+      rules: rules,
       placeholder: '请选择',
       noDataText: '暂无数据',
       noMatchText: '无匹配数据',
@@ -104,12 +109,7 @@ export const pickers = [
       disabled: false,
       filterable: false,
       collapseTags: false,
-      multipleLimit: 0,
-      rules: rules,
-      options: {
-        remote: false,
-        items: []
-      }
+      multipleLimit: 0
     }
   },
   {
@@ -120,7 +120,12 @@ export const pickers = [
     options: {
       label: '级联选择器',
       key: '',
+      options: {
+        remote: false,
+        items: []
+      },
       defaultValue: [],
+      rules: rules,
       placeholder: '请选择',
       width: '100%',
       expandTrigger: 'click',
@@ -130,11 +135,7 @@ export const pickers = [
       filterable: false,
       collapseTags: false,
       multipleLimit: 0,
-      rules: rules,
-      options: {
-        remote: false,
-        items: []
-      }
+      rules: rules
     }
   },
   {
@@ -145,15 +146,15 @@ export const pickers = [
     options: {
       label: '多选框',
       key: '',
-      defaultValue: [],
-      width: '100%',
-      hidden: false,
-      disabled: false,
-      rules: rules,
       options: {
         remote: false,
         items: []
-      }
+      },
+      defaultValue: [],
+      rules: rules,
+      width: '100%',
+      hidden: false,
+      disabled: false
     }
   },
   {
@@ -164,15 +165,15 @@ export const pickers = [
     options: {
       label: '单选框',
       key: '',
-      defaultValue: '',
-      width: '100%',
-      hidden: false,
-      disabled: false,
-      rules: rules,
       options: {
         remote: false,
         items: []
-      }
+      },
+      defaultValue: '',
+      rules: rules,
+      width: '100%',
+      hidden: false,
+      disabled: false
     }
   },
   {
@@ -184,14 +185,14 @@ export const pickers = [
       label: '时间选择器',
       key: '',
       defaultValue: undefined,
+      rules: rules,
       placeholder: '请选择',
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'HH:mm:ss',
       hidden: false,
       clearable: false,
-      disabled: false,
-      rules: rules
+      disabled: false
     }
   },
   {
@@ -203,14 +204,14 @@ export const pickers = [
       label: '时间范围',
       key: '',
       defaultValue: [],
+      rules: rules,
       placeholder: '请选择',
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'HH:mm:ss',
       hidden: false,
       clearable: false,
-      disabled: false,
-      rules: rules
+      disabled: false
     }
   },
   {
@@ -222,14 +223,14 @@ export const pickers = [
       label: '日期选择器',
       key: '',
       defaultValue: undefined,
+      rules: rules,
       placeholder: '请选择',
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'YYYY-MM-DD',
       hidden: false,
       clearable: false,
-      disabled: false,
-      rules: rules
+      disabled: false
     }
   },
   {
@@ -241,14 +242,14 @@ export const pickers = [
       label: '日期范围',
       key: '',
       defaultValue: [],
+      rules: rules,
       placeholder: '请选择',
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'YYYY-MM-DD',
       hidden: false,
       clearable: false,
-      disabled: false,
-      rules: rules
+      disabled: false
     }
   },
   {
@@ -260,12 +261,12 @@ export const pickers = [
       label: '评分',
       key: '',
       defaultValue: 3,
+      rules: rules,
       width: '100%',
       max: 5,
       hidden: false,
       disabled: false,
-      allowHalf: false,
-      rules: rules
+      allowHalf: false
     }
   },
   {
@@ -277,6 +278,7 @@ export const pickers = [
       label: '滑块',
       key: '',
       defaultValue: 10,
+      rules: rules,
       width: '100%',
       min: 0,
       max: 100,
@@ -285,8 +287,7 @@ export const pickers = [
       disabled: false,
       showStops: false,
       showToolTip: true,
-      showInput: false,
-      rules: rules
+      showInput: false
     }
   },
   {
@@ -298,14 +299,14 @@ export const pickers = [
       label: '开关',
       key: '',
       defaultValue: false,
+      rules: rules,
       width: '100%',
       hidden: false,
       disabled: false,
       activeText: '',
       inactiveText: '',
       activeColor: '#409EFF',
-      inactiveColor: '#C0CCDA',
-      rules: rules
+      inactiveColor: '#C0CCDA'
     }
   },
   {
@@ -317,11 +318,11 @@ export const pickers = [
       label: '颜色选择器',
       key: '',
       defaultValue: '',
+      rules: rules,
       width: '100%',
       hidden: false,
       disabled: false,
-      showAlpha: false,
-      rules: rules
+      showAlpha: false
     }
   },
   {
@@ -333,6 +334,7 @@ export const pickers = [
       label: '文件上传',
       key: '',
       defaultValue: [],
+      rules: rules,
       width: '100%',
       uploadUrl: 'https://jsonplaceholder.typicode.com/posts/',
       uploadName: 'file',
@@ -346,8 +348,7 @@ export const pickers = [
       disabled: false,
       showToolTip: false,
       showFileList: false,
-      multiple: false,
-      rules: rules
+      multiple: false
     }
   }
 ]
@@ -362,11 +363,11 @@ export const complexs = [
       label: '富文本编辑器',
       key: '',
       defaultValue: '',
+      rules: rules,
       width: '100%',
       placeholder: '请输入',
       hidden: false,
-      disabled: false,
-      rules: rules
+      disabled: false
     }
   },
   {

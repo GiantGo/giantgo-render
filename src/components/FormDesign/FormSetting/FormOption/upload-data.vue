@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="上传额外参数:">
+  <el-form-item label="上传额外参数：">
     <el-dialog title="编辑额外参数" v-model="codeDialog" width="750px">
       <div class="json-box">
         <code-mirror v-model="code" />
