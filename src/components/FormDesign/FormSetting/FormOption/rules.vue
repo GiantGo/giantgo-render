@@ -1,13 +1,13 @@
 <template>
   <el-form-item label="验证：">
     <el-row :gutter="5">
-      <el-col :span="10">
+      <el-col :span="11">
         <el-checkbox v-model="data.required.required" @change="emitChange"> 必填 </el-checkbox>
       </el-col>
-      <el-col :span="10">
+      <el-col :span="11">
         <el-input v-model="data.required.message" @input="emitChange" placeholder="提示信息" />
       </el-col>
-      <el-col :span="4"> </el-col>
+      <el-col :span="2"> </el-col>
     </el-row>
     <el-row class="rule-row" v-for="(rule, index) in data.patterns" :key="index" :gutter="5">
       <el-col :span="11">
