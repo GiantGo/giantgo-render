@@ -5,7 +5,7 @@
         <i class="icon el-icon-video-play" @click="preview" />
       </el-tooltip>
       <el-tooltip class="item" effect="dark" content="编辑JSON" placement="bottom">
-        <svg-icon name="json" class-name="icon" @click="editCode"></svg-icon>
+        <svg-icon name="json" class-name="icon" @click="editJson"></svg-icon>
       </el-tooltip>
       <el-tooltip class="item" effect="dark" content="清空" placement="bottom">
         <i class="icon el-icon-delete" @click="clear" />
@@ -21,14 +21,24 @@
     <el-dialog title="预览" v-model="previewDialog" destroy-on-close width="750px">
       <form-render ref="formRender" @submit="submit" />
     </el-dialog>
-    <el-dialog :title="codeDialog.title" v-model="codeDialog.isShow" width="750px">
+    <el-dialog :title="jsonDialog.title" v-model="jsonDialog.isShow" width="750px">
       <div class="json-box">
-        <code-mirror v-model="code" />
+        <code-mirror v-model="jsonDialog.code" />
       </div>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="codeDialog.isShow = false">取 消</el-button>
-          <el-button type="primary" @click="saveCode">确定</el-button>
+          <el-button @click="jsonDialog.isShow = false">取消</el-button>
+          <el-button type="primary" @click="saveJson">确定</el-button>
+        </div>
+      </template>
+    </el-dialog>
+    <el-dialog :title="resultDialog.title" v-model="resultDialog.isShow" width="750px">
+      <div class="json-box">
+        <code-mirror v-model="resultDialog.code" />
+      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="resultDialog.isShow = false">关闭</el-button>
         </div>
       </template>
     </el-dialog>
@@ -39,17 +49,23 @@
 import { ref, nextTick, inject, reactive, computed } from 'vue'
 import CodeMirror from '@/components/CodeMirror/index.vue'
 import SvgIcon from '@/components/SvgIcon/index.vue'
+import { ElMessage } from 'element-plus'
 
 export default {
   components: { CodeMirror, SvgIcon },
   setup() {
     const formRender = ref(null)
     const previewDialog = ref(false)
-    const codeDialog = reactive({
+    const jsonDialog = reactive({
       title: '',
-      isShow: false
+      isShow: false,
+      code: ''
     })
-    const code = ref('')
+    const resultDialog = reactive({
+      title: '',
+      isShow: false,
+      code: ''
+    })
     const state = inject('state')
     const clear = inject('clear')
     const revoke = inject('revoke')
@@ -64,41 +80,41 @@ export default {
     }
 
     const submit = (result) => {
-      codeDialog.title = '获取数据'
-      codeDialog.isShow = true
+      resultDialog.title = '获取数据'
+      resultDialog.isShow = true
       nextTick(() => {
-        code.value = JSON.stringify(result, null, '\t')
+        resultDialog.code = JSON.stringify(result, null, '\t')
       })
     }
 
-    const editCode = () => {
-      codeDialog.title = '查看JSON'
-      codeDialog.isShow = true
+    const editJson = () => {
+      jsonDialog.title = '查看JSON'
+      jsonDialog.isShow = true
       nextTick(() => {
-        code.value = JSON.stringify(state.formDesign, null, '\t')
+        jsonDialog.code = JSON.stringify(state.formDesign, null, '\t')
       })
     }
 
-    const saveCode = () => {
+    const saveJson = () => {
       try {
-        init(JSON.parse(code.value))
+        init(JSON.parse(jsonDialog.code))
       } catch (e) {
         return ElMessage.error('数据格式不正确')
       }
-      codeDialog.isShow = false
+      jsonDialog.isShow = false
     }
 
     return {
       previewDialog,
-      codeDialog,
-      code,
+      jsonDialog,
+      resultDialog,
       clear: () => clear(),
       revoke,
       forward,
       preview,
       submit,
-      editCode,
-      saveCode,
+      editJson,
+      saveJson,
       formRender,
       cached: computed(() => state.cached),
       current: computed(() => state.current)

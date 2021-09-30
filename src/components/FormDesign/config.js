@@ -3,7 +3,6 @@ export const rules = [{ required: false, message: '必填项', trigger: 'blur' }
 export const inputs = [
   {
     name: '输入框',
-    type: String,
     component: 'input',
     uuid: '',
     options: {
@@ -25,7 +24,6 @@ export const inputs = [
   },
   {
     name: '文本框',
-    type: String,
     component: 'textarea',
     uuid: '',
     options: {
@@ -44,7 +42,6 @@ export const inputs = [
   },
   {
     name: '数字输入框',
-    type: Number,
     component: 'number',
     uuid: '',
     options: {
@@ -64,7 +61,6 @@ export const inputs = [
 export const pickers = [
   {
     name: '下拉单选',
-    type: String,
     component: 'select',
     uuid: '',
     options: {
@@ -74,7 +70,7 @@ export const pickers = [
         remote: false,
         items: []
       },
-      defaultValue: undefined,
+      defaultValue: '',
       rules: rules,
       placeholder: '请选择',
       noDataText: '暂无数据',
@@ -88,7 +84,6 @@ export const pickers = [
   },
   {
     name: '下拉多选',
-    type: Array,
     component: 'multi-select',
     uuid: '',
     options: {
@@ -114,7 +109,6 @@ export const pickers = [
   },
   {
     name: '级联选择器',
-    type: Array,
     component: 'cascader',
     uuid: '',
     options: {
@@ -140,7 +134,6 @@ export const pickers = [
   },
   {
     name: '多选框',
-    type: Array,
     component: 'checkbox',
     uuid: '',
     options: {
@@ -159,7 +152,6 @@ export const pickers = [
   },
   {
     name: '单选框',
-    type: String,
     component: 'radio',
     uuid: '',
     options: {
@@ -178,7 +170,6 @@ export const pickers = [
   },
   {
     name: '时间选择器',
-    type: Date,
     component: 'time-picker',
     uuid: '',
     options: {
@@ -197,7 +188,6 @@ export const pickers = [
   },
   {
     name: '时间范围',
-    type: Array,
     component: 'time-range-picker',
     uuid: '',
     options: {
@@ -216,7 +206,6 @@ export const pickers = [
   },
   {
     name: '日期选择器',
-    type: Date,
     component: 'date-picker',
     uuid: '',
     options: {
@@ -235,7 +224,6 @@ export const pickers = [
   },
   {
     name: '日期范围',
-    type: Array,
     component: 'date-range-picker',
     uuid: '',
     options: {
@@ -254,7 +242,6 @@ export const pickers = [
   },
   {
     name: '评分',
-    type: Number,
     component: 'rate',
     uuid: '',
     options: {
@@ -271,7 +258,6 @@ export const pickers = [
   },
   {
     name: '滑块',
-    type: Number,
     component: 'slider',
     uuid: '',
     options: {
@@ -292,7 +278,6 @@ export const pickers = [
   },
   {
     name: '开关',
-    type: Boolean,
     component: 'switch',
     uuid: '',
     options: {
@@ -311,7 +296,6 @@ export const pickers = [
   },
   {
     name: '颜色选择器',
-    type: String,
     component: 'color-picker',
     uuid: '',
     options: {
@@ -327,7 +311,6 @@ export const pickers = [
   },
   {
     name: '文件上传',
-    type: Array,
     component: 'upload',
     uuid: '',
     options: {
@@ -356,7 +339,6 @@ export const pickers = [
 export const complexs = [
   {
     name: '富文本编辑器',
-    type: String,
     component: 'editor',
     uuid: '',
     options: {
@@ -369,28 +351,17 @@ export const complexs = [
       hidden: false,
       disabled: false
     }
-  },
-  {
-    name: '列表',
-    type: Array,
-    component: 'table',
-    uuid: '',
-    options: {
-      label: '列表',
-      key: '',
-      width: '100%'
-    }
   }
 ]
 
 export const objectLayout = {
   name: '对象布局',
-  type: Object,
   component: 'object',
   uuid: '',
   options: {
     label: '对象布局',
     key: '',
+    defaultValue: {},
     width: '100%',
     gutter: 0
   },
@@ -401,12 +372,12 @@ export const layouts = [
   objectLayout,
   {
     name: '卡片布局',
-    type: Object,
     component: 'card',
     uuid: '',
     options: {
       label: '卡片布局',
       key: '',
+      defaultValue: {},
       width: '100%',
       gutter: 0,
       shadow: 'always',
@@ -416,15 +387,27 @@ export const layouts = [
   },
   {
     name: '标签布局',
-    type: Object,
     component: 'tabs',
     uuid: '',
     options: {
       label: '标签布局',
       key: '',
+      defaultValue: {},
       width: '100%',
       tabType: 'border-card',
       tabPosition: 'top'
+    },
+    items: []
+  },
+  {
+    name: '列表',
+    component: 'table',
+    uuid: '',
+    options: {
+      label: '列表',
+      key: '',
+      defaultValue: [],
+      width: '100%'
     },
     items: []
   }
@@ -432,7 +415,6 @@ export const layouts = [
 
 export const form = {
   name: '表单',
-  type: Object,
   component: 'object',
   uuid: 'root',
   options: {

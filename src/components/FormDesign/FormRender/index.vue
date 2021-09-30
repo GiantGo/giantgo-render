@@ -52,7 +52,7 @@ export default {
     const traverse = (items, form, data = {}) => {
       items.forEach((item) => {
         const key = item.options.key
-        form[key] = data[key] ? data[key] : item.options.defaultValue ? item.options.defaultValue : item.type()
+        form[key] = data[key] ? data[key] : item.options.defaultValue
 
         //处理插值表达式
         for (let option in item.options) {
