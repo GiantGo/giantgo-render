@@ -1,11 +1,9 @@
 <template>
-  <el-form-item label="最大长度">
-    <el-input-number
-      :model-value="modelValue"
-      @change="$emit('update:modelValue', $event ? $event : undefined)"
-      size="small"
-    ></el-input-number>
-  </el-form-item>
+  <el-input-number
+    :model-value="modelValue"
+    @change="$emit('update:modelValue', $event ? $event : undefined)"
+    size="small"
+  ></el-input-number>
 </template>
 
 <script>

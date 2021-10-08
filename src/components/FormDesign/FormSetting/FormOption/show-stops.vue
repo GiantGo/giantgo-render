@@ -1,7 +1,5 @@
 <template>
-  <el-form-item label="显示间断点">
-    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
-  </el-form-item>
+  <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
 </template>
 
 <script>

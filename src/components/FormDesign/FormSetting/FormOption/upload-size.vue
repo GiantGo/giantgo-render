@@ -1,15 +1,13 @@
 <template>
-  <el-form-item label="上传大小限制">
-    <el-input type="text" v-model.number="size" @input="update">
-      <template #append>
-        <el-select v-model="unit" :style="{ width: '70px' }" @change="update">
-          <el-option label="KB" value="KB" />
-          <el-option label="MB" value="MB" />
-          <el-option label="GB" value="GB" />
-        </el-select>
-      </template>
-    </el-input>
-  </el-form-item>
+  <el-input type="text" v-model.number="size" @input="update">
+    <template #append>
+      <el-select v-model="unit" :style="{ width: '70px' }" @change="update">
+        <el-option label="KB" value="KB" />
+        <el-option label="MB" value="MB" />
+        <el-option label="GB" value="GB" />
+      </el-select>
+    </template>
+  </el-input>
 </template>
 
 <script>

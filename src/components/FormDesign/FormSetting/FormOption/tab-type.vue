@@ -1,10 +1,8 @@
 <template>
-  <el-form-item label="选项卡样式">
-    <el-radio-group :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)" size="mini">
-      <el-radio-button label="card">选项卡</el-radio-button>
-      <el-radio-button label="border-card">卡片化</el-radio-button>
-    </el-radio-group>
-  </el-form-item>
+  <el-radio-group :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)" size="mini">
+    <el-radio-button label="card">选项卡</el-radio-button>
+    <el-radio-button label="border-card">卡片化</el-radio-button>
+  </el-radio-group>
 </template>
 
 <script>

@@ -88,3 +88,8 @@ export function validatePasswordStrength(str) {
   const re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/
   return re.test(str)
 }
+
+export function validateInterpolation(str) {
+  const re = /\{\{((?:.|\n)+?)\}\}/g
+  return re.test(str)
+} 

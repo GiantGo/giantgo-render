@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="选项" label-width="50px">
+  <div>
     <el-row class="option-row" v-for="(item, index) in data.items" :key="index" :gutter="5">
       <el-col :span="11">
         <el-input :model-value="item.label" @input="update(index, 'label', $event)" placeholder="名称" />
@@ -24,7 +24,7 @@
         </div>
       </template>
     </el-dialog>
-  </el-form-item>
+  </div>
 </template>
 
 <script>

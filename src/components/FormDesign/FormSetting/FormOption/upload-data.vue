@@ -1,18 +1,16 @@
 <template>
-  <el-form-item label="上传额外参数">
-    <el-dialog title="编辑额外参数" v-model="codeDialog" width="750px">
-      <div class="json-box">
-        <code-mirror v-model="code" />
+  <el-dialog title="编辑额外参数" v-model="codeDialog" width="750px">
+    <div class="json-box">
+      <code-mirror v-model="code" />
+    </div>
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button @click="codeDialog = false">取 消</el-button>
+        <el-button type="primary" @click="setData">确定</el-button>
       </div>
-      <template #footer>
-        <div class="dialog-footer">
-          <el-button @click="codeDialog = false">取 消</el-button>
-          <el-button type="primary" @click="setData">确定</el-button>
-        </div>
-      </template>
-    </el-dialog>
-    <el-button type="text" @click="editData">编辑数据</el-button>
-  </el-form-item>
+    </template>
+  </el-dialog>
+  <el-button type="text" @click="editData">编辑数据</el-button>
 </template>
 
 <script>

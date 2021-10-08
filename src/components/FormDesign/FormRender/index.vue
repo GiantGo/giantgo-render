@@ -61,7 +61,12 @@ export default {
             const functionBody = new Function(
               'root',
               'options',
-              'return ' + interpolationReg.exec(item.options[option])[1]
+              `try { 
+                return ${interpolationReg.exec(item.options[option])[1]}
+              } catch(e) {
+                console.log(e)
+                return ''
+              }`
             )
             item.options[option] = computed({
               get() {

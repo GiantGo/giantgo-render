@@ -1,18 +1,16 @@
 <template>
-  <el-form-item label="标签宽度">
-    <el-slider
-      :model-value="parseInt(modelValue)"
-      @update:modelValue="modelValue = $event + 'px'"
-      @change="$emit('update:modelValue', $event + 'px')"
-      :min="0"
-      :max="300"
-      :format-tooltip="
-        (value) => {
-          return value + 'px'
-        }
-      "
-    ></el-slider>
-  </el-form-item>
+  <el-slider
+    :model-value="parseInt(modelValue)"
+    @update:modelValue="modelValue = $event + 'px'"
+    @change="$emit('update:modelValue', $event + 'px')"
+    :min="0"
+    :max="300"
+    :format-tooltip="
+      (value) => {
+        return value + 'px'
+      }
+    "
+  ></el-slider>
 </template>
 
 <script>

@@ -1,4 +1,4 @@
-export const rules = [{ required: false, message: '必填项', trigger: 'blur' }]
+const rules = [{ required: false, message: '必填项', trigger: 'blur' }]
 
 export const inputs = [
   {
@@ -426,4 +426,64 @@ export const form = {
     statusIcon: false
   },
   items: []
+}
+
+export const components = [form, ...inputs, ...pickers, ...complexs, ...layouts]
+
+export const optionKeyLabels = {
+  activeColor: '打开时背景色',
+  activeText: '打开时文字描述',
+  allowHalf: '允许半选',
+  buttonText: '按钮文字',
+  clearable: '可清除',
+  collapseTags: '多选合并显示',
+  defaultValue: '默认值',
+  disabled: '禁用',
+  expandTrigger: '触发子菜单方式',
+  filterable: '可搜索',
+  format: '显示格式',
+  gutter: '行内间距',
+  hidden: '隐藏',
+  hideRequiredAsterisk: '隐藏必选标记',
+  inactiveColor: '关闭时背景色',
+  inactiveText: '关闭时文字描述',
+  inline: '是否行内表单',
+  key: '字段名称(英文)',
+  labelPosition: '对齐方式',
+  labelWidth: '标签宽度',
+  label: '标签',
+  limit: '个数限制',
+  max: '最大值',
+  maxlength: '最大长度',
+  min: '最小值',
+  multipleLimit: '多选个数限制',
+  multiple: '允许多选',
+  noDataText: '无选项提示',
+  noMatchText: '搜索无匹配提示',
+  options: '选项',
+  padding: '内边距',
+  placeholder: '占位文本',
+  prefixIcon: '前缀图标',
+  rows: '文本域高度',
+  rules: '验证',
+  shadow: '阴影显示',
+  showAlpha: '透明度选择',
+  showFileList: '显示上传列表',
+  showInput: '显示输入框',
+  showPassword: '密码框',
+  showStops: '显示间断点',
+  showToolTip: '显示提示',
+  showWordLimit: '显示字数统计',
+  size: '组件尺寸',
+  statusIcon: '显示校验反馈图标',
+  suffixIcon: '后缀图标',
+  tabPosition: '选项卡位置',
+  tabType: '选项卡样式',
+  tip: '提示说明文字',
+  uploadData: '上传额外参数',
+  uploadHeaders: '上传请求头部',
+  uploadName: '文件字段名',
+  uploadSize: '上传大小限制',
+  uploadUrl: '上传地址',
+  width: '组件宽度'
 }

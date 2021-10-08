@@ -21,6 +21,8 @@ import right from './right.vue'
 import operator from './operator.vue'
 import { form } from './config.js'
 import { isEmptyObject, deepClone, uuid as makeId, debounce } from '@/utils/index.js'
+import { validateInterpolation } from '@/utils/validate.js'
+import { components } from './config'
 
 const query = (items, uuid) => {
   let result = false
@@ -126,6 +128,14 @@ export default {
       addCache()
     }
 
+    const switchInterpolate = (key) => {
+      const option = state.selected.options[key]
+      state.selected.options[key] = validateInterpolation(option)
+        ? components.find((component) => component.name === state.selected.name).options[key]
+        : '{{  }}'
+      addCache()
+    }
+
     const copyFormItem = (uuid) => {
       const newItem = copy(state.formDesign.items, uuid)
       state.selected = newItem
@@ -187,6 +197,7 @@ export default {
     provide('updateFormItem', updateFormItem)
     provide('updateFormOption', updateFormOption)
     provide('updateSelectedFormOption', updateSelectedFormOption)
+    provide('switchInterpolate', switchInterpolate)
     provide('copyFormItem', copyFormItem)
     provide('removeFormItem', removeFormItem)
     provide('revoke', revoke)
@@ -223,7 +234,7 @@ export default {
   }
 
   .right-container {
-    width: 360px;
+    width: 380px;
   }
 
   .center-container {
