@@ -1,9 +1,9 @@
 <template>
-  <el-form-item label="阴影显示：">
-    <el-radio-group :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)" size="small">
-      <el-radio-button label="always">总是显示</el-radio-button>
-      <el-radio-button label="hover">悬浮显示</el-radio-button>
-      <el-radio-button label="never">从不显示</el-radio-button>
+  <el-form-item label="阴影显示">
+    <el-radio-group :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)" size="mini">
+      <el-radio-button label="always">总是</el-radio-button>
+      <el-radio-button label="hover">悬浮</el-radio-button>
+      <el-radio-button label="never">从不</el-radio-button>
     </el-radio-group>
   </el-form-item>
 </template>

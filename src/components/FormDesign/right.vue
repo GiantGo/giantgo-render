@@ -17,7 +17,7 @@ export default {
 .form-setting {
   width: 100%;
   height: 100%;
-  padding: 8px 15px;
+  padding: 5px 10px 5px 10px;
   overflow-x: hidden;
   overflow-y: auto;
 }

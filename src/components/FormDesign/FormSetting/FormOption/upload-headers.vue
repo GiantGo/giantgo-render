@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="上传请求头部：">
+  <el-form-item label="上传请求头部">
     <el-dialog title="编辑请求头部" v-model="codeDialog" width="750px">
       <div class="json-box">
         <code-mirror v-model="code" />

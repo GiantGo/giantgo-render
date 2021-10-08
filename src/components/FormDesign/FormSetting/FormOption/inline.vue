@@ -1,8 +1,6 @@
 <template>
-  <el-form-item>
-    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)">
-      是否行内表单
-    </el-checkbox>
+  <el-form-item label="是否行内表单">
+    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
   </el-form-item>
 </template>
 

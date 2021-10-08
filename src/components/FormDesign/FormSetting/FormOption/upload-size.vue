@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="打开时文字描述：">
+  <el-form-item label="上传大小限制">
     <el-input type="text" v-model.number="size" @input="update">
       <template #append>
         <el-select v-model="unit" :style="{ width: '70px' }" @change="update">

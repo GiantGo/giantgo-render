@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="行内间距：">
+  <el-form-item label="行内间距">
     <el-slider
       :model-value="modelValue"
       @update:modelValue="modelValue = $event"

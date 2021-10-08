@@ -1,8 +1,6 @@
 <template>
-  <el-form-item>
-    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)">
-      显示校验结果反馈图标
-    </el-checkbox>
+  <el-form-item label="显示校验反馈图标">
+    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
   </el-form-item>
 </template>
 

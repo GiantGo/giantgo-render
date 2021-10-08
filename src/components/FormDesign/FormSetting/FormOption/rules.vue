@@ -1,7 +1,7 @@
 <template>
-  <el-form-item label="验证：">
+  <el-form-item label="验证" label-width="50px">
     <el-row :gutter="5">
-      <el-col :span="11">
+      <el-col :span="11" class="text-center">
         <el-checkbox v-model="data.required.required" @change="emitChange"> 必填 </el-checkbox>
       </el-col>
       <el-col :span="11">

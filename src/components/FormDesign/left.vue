@@ -103,14 +103,15 @@ export default {
 
 .form-item-picker {
   height: 100%;
-  padding: 8px;
+  padding: 5px;
 
   .form-item-section {
     margin-top: 10px;
 
     .title {
       font-weight: bold;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      padding-left: 5px;
       color: $primary-text;
     }
 
@@ -123,7 +124,7 @@ export default {
       .form-item-drop {
         width: calc(50% - 10px);
         height: 36px;
-        margin: 0 8px 8px 0;
+        margin: 5px;
         display: flex;
         justify-content: center;
         align-items: center;

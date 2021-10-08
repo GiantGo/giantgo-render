@@ -1,8 +1,6 @@
 <template>
-  <el-form-item>
-    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)">
-      隐藏必选标记
-    </el-checkbox>
+  <el-form-item label="隐藏必选标记">
+    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
   </el-form-item>
 </template>
 

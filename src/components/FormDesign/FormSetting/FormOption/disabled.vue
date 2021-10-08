@@ -1,6 +1,6 @@
 <template>
-  <el-form-item>
-    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> 禁用 </el-checkbox>
+  <el-form-item label="禁用">
+    <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
   </el-form-item>
 </template>
 

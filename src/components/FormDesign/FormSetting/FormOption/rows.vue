@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label="文本域高度：">
+  <el-form-item label="文本域高度">
     <el-slider
       :model-value="modelValue"
       @update:modelValue="modelValue = $event"

@@ -211,12 +211,19 @@ export default {
 
   .left-container,
   .right-container {
-    width: $sideBarWidth;
     height: 100%;
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
     flex-shrink: 0;
+  }
+
+  .left-container {
+    width: 270px;
+  }
+
+  .right-container {
+    width: 360px;
   }
 
   .center-container {
