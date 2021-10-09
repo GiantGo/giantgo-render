@@ -18,7 +18,7 @@
           </component>
         </el-form-item>
       </el-col>
-      <el-col :span="2" class="code-switch" v-if="isPrimitive(selected.options[key])">
+      <el-col :span="2" class="code-switch" v-if="isPrimitive(selected.options[key]) && key !== 'defaultValue'">
         <svg-icon
           name="code"
           :class-name="validateInterpolation(selected.options[key]) ? 'highlight' : ''"
