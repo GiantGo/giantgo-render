@@ -86,7 +86,7 @@ export default {
     return {
       clone: (original) => {
         const item = deepClone(original)
-        item.uuid = item.options.key = item.component + '_' + uuid(16)
+        item.uuid = item.options.key = item.component + '_' + uuid(8)
         return item
       },
       inputs,

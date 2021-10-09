@@ -20,7 +20,7 @@ import left from './left.vue'
 import right from './right.vue'
 import operator from './operator.vue'
 import { form } from './config.js'
-import { isEmptyObject, deepClone, uuid as makeId, debounce } from '@/utils/index.js'
+import { isEmptyObject, deepClone, uuid as makeId, debounce, hasOwn } from '@/utils/index.js'
 import { validateInterpolation } from '@/utils/validate.js'
 import { components } from './config'
 
@@ -55,9 +55,10 @@ const copy = (items, uuid) => {
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
       let newItem = deepClone(items[i])
-      const newId = newItem.component + '_' + makeId(16)
-      newItem.uuid = newItem.options.key = newId
-      newItem.items = []
+      newItem.uuid = newItem.options.key = newItem.component + '_' + makeId(8)
+      if (hasOwn(newItem, 'items')) {
+        newItem.items = []
+      }
       items.splice(i + 1, 0, newItem)
       return newItem
     }

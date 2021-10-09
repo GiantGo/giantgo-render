@@ -123,7 +123,7 @@ export default {
         if (valid) {
           if (!tabForm.uuid) {
             const item = deepClone(objectLayout)
-            item.uuid = item.component + '_' + uuid(16)
+            item.uuid = item.component + '_' + uuid(8)
             item.options.label = tabForm.label
             item.options.key = tabForm.key
             tabsValue.value = item.uuid
