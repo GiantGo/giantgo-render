@@ -34,6 +34,17 @@ export function hasOwn(obj, key) {
   return Object.hasOwnProperty.call(obj, key)
 }
 
+export function getInterpolation(str) {
+  const interpolationReg = /\{\{((?:.|\n)+?)\}\}/g
+
+  if (interpolationReg.test(str)) {
+    interpolationReg.lastIndex = 0
+    return interpolationReg.exec(str)[1]
+  } else {
+    return str
+  }
+}
+
 /**
  *
  * @param time

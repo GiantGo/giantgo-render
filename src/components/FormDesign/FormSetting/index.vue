@@ -3,12 +3,11 @@
     <el-row v-for="(value, key) in selected.options" :key="key">
       <el-col :span="isPrimitive(selected.options[key]) ? 22 : 24">
         <el-form-item :label="optionKeyLabels[key]">
-          <el-input
+          <interpolation
             v-if="validateInterpolation(selected.options[key])"
-            type="text"
             :model-value="selected.options[key]"
             @update:modelValue="updateOption(key, $event)"
-          ></el-input>
+          ></interpolation>
           <component
             v-else
             :is="key + 'Option'"
@@ -32,10 +31,11 @@ import SvgIcon from '@/components/SvgIcon/index.vue'
 import { isPrimitive } from '@/utils'
 import { validateInterpolation } from '@/utils/validate'
 import { optionKeyLabels } from '../config'
+import Interpolation from './interpolation.vue'
 
 export default {
   name: 'formSetting',
-  components: { SvgIcon },
+  components: { SvgIcon, Interpolation },
   props: {},
   setup() {
     const state = inject('state')

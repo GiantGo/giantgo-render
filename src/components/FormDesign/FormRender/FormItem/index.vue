@@ -17,7 +17,10 @@ export default {
   name: 'formItemRender',
   components: {},
   props: {
-    path: String,
+    path: {
+      type: String,
+      default: ''
+    },
     component: String,
     uuid: String,
     modelValue: [String, Number, Boolean, Date, Object, Array],

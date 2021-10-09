@@ -17,7 +17,6 @@
       :uuid="formDesign.uuid"
       :items="formDesign.items"
       :options="formDesign.options"
-      path="root"
     ></form-item-render>
     <div class="btn-submit">
       <el-button type="primary" @click="submit">提交</el-button>
@@ -28,7 +27,8 @@
 
 <script>
 import { ref, reactive, toRaw, computed, provide } from 'vue'
-import { deepClone } from '@/utils/index.js'
+import { deepClone, getInterpolation } from '@/utils/index.js'
+import { validateInterpolation } from '@/utils/validate.js'
 import mitt from 'mitt'
 
 export default {
@@ -47,25 +47,22 @@ export default {
       root: {}
     })
     const emitter = mitt()
-    const interpolationReg = /\{\{((?:.|\n)+?)\}\}/g
 
     const traverse = (items, form, data = {}) => {
       items.forEach((item) => {
         const key = item.options.key
-        form[key] = data[key] ? data[key] : item.options.defaultValue
+        form[key] = data[key] || item.options.defaultValue
 
         //处理插值表达式
         for (let option in item.options) {
-          if (interpolationReg.test(item.options[option])) {
-            interpolationReg.lastIndex = 0
+          if (validateInterpolation(item.options[option])) {
             const functionBody = new Function(
               'root',
               'options',
-              `try { 
-                return ${interpolationReg.exec(item.options[option])[1]}
+              `try {
+                return ${getInterpolation(item.options[option])}
               } catch(e) {
                 console.log(e)
-                return ''
               }`
             )
             item.options[option] = computed({
@@ -73,8 +70,6 @@ export default {
                 return functionBody(formData.root, item.options)
               }
             })
-
-            interpolationReg.lastIndex = 0
           }
         }
 
@@ -88,9 +83,10 @@ export default {
       formDesign.component = config.component
       formDesign.uuid = config.uuid
       formDesign.items = deepClone(config.items)
-      formDesign.options = config.options
-      formData.root = {}
-      traverse(formDesign.items, formData.root, data)
+      formDesign.options = deepClone(config.options)
+      formDesign.options.key = 'root'
+      formDesign.options.defaultValue = {}
+      traverse([formDesign], formData, data)
 
       formRef.value && formRef.value.clearValidate()
     }

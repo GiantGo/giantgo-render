@@ -55,7 +55,7 @@ const copy = (items, uuid) => {
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
       let newItem = deepClone(items[i])
-      const newId = newItem.component + '-' + makeId(16)
+      const newId = newItem.component + '_' + makeId(16)
       newItem.uuid = newItem.options.key = newId
       newItem.items = []
       items.splice(i + 1, 0, newItem)
