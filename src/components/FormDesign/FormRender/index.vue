@@ -17,6 +17,7 @@
       :uuid="formDesign.uuid"
       :items="formDesign.items"
       :options="formDesign.options"
+      path="root"
     ></form-item-render>
     <div class="btn-submit">
       <el-button type="primary" @click="submit">提交</el-button>
@@ -27,7 +28,7 @@
 
 <script>
 import { ref, reactive, toRaw, computed, provide } from 'vue'
-import { deepClone, getInterpolation } from '@/utils/index.js'
+import { getInterpolation } from '@/utils/index.js'
 import { validateInterpolation } from '@/utils/validate.js'
 import mitt from 'mitt'
 
@@ -38,7 +39,6 @@ export default {
   setup(props, { emit }) {
     const formRef = ref(null)
     const formDesign = reactive({
-      render: 'object-render',
       uuid: '',
       items: [],
       options: {}
@@ -53,7 +53,7 @@ export default {
         const key = item.options.key
         form[key] = data[key] || item.options.defaultValue
 
-        //处理插值表达式
+        // 处理插值表达式
         for (let option in item.options) {
           if (validateInterpolation(item.options[option])) {
             const functionBody = new Function(
@@ -82,10 +82,11 @@ export default {
     const init = (config, data) => {
       formDesign.component = config.component
       formDesign.uuid = config.uuid
-      formDesign.items = deepClone(config.items)
-      formDesign.options = deepClone(config.options)
+      formDesign.items = config.items
+      formDesign.options = config.options
       formDesign.options.key = 'root'
       formDesign.options.defaultValue = {}
+
       traverse([formDesign], formData, data)
 
       formRef.value && formRef.value.clearValidate()

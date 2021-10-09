@@ -7,7 +7,7 @@
       :options="options"
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
-      :path="options.key ? path + '.' + options.key : path"
+      :path="path"
     ></component>
   </div>
 </template>

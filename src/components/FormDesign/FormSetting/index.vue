@@ -19,7 +19,11 @@
         </el-form-item>
       </el-col>
       <el-col :span="2" class="code-switch" v-if="isPrimitive(selected.options[key])">
-        <svg-icon name="code" class-name="icon" @click="switchInterpolate(key)"></svg-icon>
+        <svg-icon
+          name="code"
+          :class-name="validateInterpolation(selected.options[key]) ? 'highlight' : ''"
+          @click="switchInterpolate(key)"
+        ></svg-icon>
       </el-col>
     </el-row>
   </el-form>
@@ -55,6 +59,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../styles/variables.scss';
+
 .code-switch {
   display: flex;
   align-items: center;
@@ -64,6 +70,10 @@ export default {
     font-size: 16px;
     margin-bottom: 22px;
     cursor: pointer;
+  }
+
+  .svg-icon.highlight {
+    color: $primary-color;
   }
 }
 </style>

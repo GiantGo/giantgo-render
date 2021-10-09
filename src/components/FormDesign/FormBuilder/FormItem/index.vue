@@ -17,13 +17,7 @@
       <div class="info">
         {{ options.key }}
       </div>
-      <component
-        :is="component + '-builder'"
-        :uuid="uuid"
-        :items="items"
-        :options="options"
-        :path="options.key ? path + '.' + options.key : path"
-      ></component>
+      <component :is="component + '-builder'" :uuid="uuid" :items="items" :options="options" :path="path"></component>
     </div>
   </div>
 </template>

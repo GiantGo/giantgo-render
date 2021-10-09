@@ -9,7 +9,7 @@
       :uuid="item.uuid"
       :items="item.items"
       :options="item.options"
-      :path="path"
+      :path="item.options.key ? path + '.' + item.options.key : path"
       :style="{
         'padding-left': options.gutter / 2 + 'px',
         'padding-right': options.gutter / 2 + 'px'

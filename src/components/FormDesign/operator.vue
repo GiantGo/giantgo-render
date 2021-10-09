@@ -49,6 +49,7 @@
 import { ref, nextTick, inject, reactive, computed } from 'vue'
 import CodeMirror from '@/components/CodeMirror/index.vue'
 import SvgIcon from '@/components/SvgIcon/index.vue'
+import { deepClone } from '@/utils/index.js'
 import { ElMessage } from 'element-plus'
 
 export default {
@@ -75,7 +76,7 @@ export default {
     const preview = () => {
       previewDialog.value = true
       nextTick(() => {
-        formRender.value && formRender.value.init(state.formDesign)
+        formRender.value && formRender.value.init(deepClone(state.formDesign))
       })
     }
 

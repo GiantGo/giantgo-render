@@ -14,7 +14,7 @@
         :uuid="element.uuid"
         :items="element.items"
         :options="element.options"
-        :path="path"
+        :path="element.options.key ? path + '.' + element.options.key : path"
         :style="{
           'padding-left': options.gutter / 2 + 'px',
           'padding-right': options.gutter / 2 + 'px'
