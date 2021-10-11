@@ -4,6 +4,7 @@
       v-if="!options.hidden"
       :disabled="options.disabled"
       :options="{ placeholder: options.placeholder, readOnly: true }"
+      :style="{ height: options.height }"
     />
   </el-form-item>
 </template>

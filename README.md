@@ -4,10 +4,11 @@
 
 - 【[预览地址](https://giantgo.github.io/giantgo-render/)】
 ## 简介
-编辑器风格主要参考下面三个项目
+编辑器风格主要参考以下项目
 - [k-form-design](https://github.com/Kchengz/k-form-design)
 - [form-generator](https://github.com/JakHuang/form-generator)
 - [x-render](https://github.com/alibaba/x-render)
+- [imgcook](https://www.imgcook.com/)
 
 看到的项目都是react和vue2的，没有看到vue3的版本，本项目就来填补这个空缺！
 代码风格追求精炼简单，如果您阅读过源码后觉得很爽,请留下您宝贵的小星星！

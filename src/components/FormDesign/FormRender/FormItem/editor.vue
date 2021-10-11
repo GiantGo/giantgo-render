@@ -5,6 +5,7 @@
       @change="$emit('update:modelValue', $event.html)"
       :disabled="options.disabled"
       :options="{ placeholder: options.placeholder, readOnly: false }"
+      :style="{ height: options.height }"
     />
   </el-form-item>
 </template>

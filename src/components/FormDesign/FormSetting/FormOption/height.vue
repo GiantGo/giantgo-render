@@ -1,0 +1,27 @@
+<template>
+  <el-slider
+    :model-value="parseInt(modelValue)"
+    @update:modelValue="modelValue = $event + 'px'"
+    @change="$emit('update:modelValue', $event + 'px')"
+    :min="0"
+    :max="300"
+    :format-tooltip="
+      (value) => {
+        return value + 'px'
+      }
+    "
+  ></el-slider>
+</template>
+
+<script>
+export default {
+  name: 'heightOption',
+  components: {},
+  props: {
+    modelValue: String
+  },
+  setup() {}
+}
+</script>
+
+<style lang="scss" scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="form-design-container">
+  <div class="form-design">
     <div class="left-container">
       <left></left>
     </div>
@@ -55,7 +55,7 @@ const copy = (items, uuid) => {
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
       let newItem = deepClone(items[i])
-      newItem.uuid = newItem.options.key = newItem.component + '_' + makeId(8)
+      newItem.uuid = newItem.options.key = newItem.component.replaceAll('-', '_') + '_' + makeId(8)
       if (hasOwn(newItem, 'items')) {
         newItem.items = []
       }
@@ -214,7 +214,7 @@ export default {
 <style lang="scss">
 @import '../../styles/variables.scss';
 
-.form-design-container {
+.form-design {
   display: flex;
   overflow: hidden;
   height: 100%;

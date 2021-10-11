@@ -1,7 +1,7 @@
 <template>
   <el-empty v-if="formDesign.items.length === 0" class="empty" description="从左侧选择控件添加"></el-empty>
   <el-form
-    class="form-design"
+    class="form-build"
     :label-width="formDesign.options.labelWidth"
     :label-position="formDesign.options.labelPosition"
     :hide-required-asterisk="formDesign.options.hideRequiredAsterisk"
@@ -48,7 +48,7 @@ export default {
   z-index: 1;
 }
 
-.form-design {
+.form-build {
   position: relative;
   width: 100%;
   height: calc(100% - 55px);

@@ -347,6 +347,7 @@ export const complexs = [
       defaultValue: '',
       rules: rules,
       width: '100%',
+      height: '100px',
       placeholder: '请输入',
       hidden: false,
       disabled: false
@@ -485,5 +486,6 @@ export const optionKeyLabels = {
   uploadName: '文件字段名',
   uploadSize: '上传大小限制',
   uploadUrl: '上传地址',
-  width: '组件宽度'
+  width: '组件宽度',
+  height: '组件高度'
 }

@@ -84,7 +84,7 @@ export default {
     const addTab = () => {
       tabForm.uuid = ''
       tabForm.label = '标签' + (props.items.length + 1)
-      tabForm.key = 'tab-' + uuid(8)
+      tabForm.key = 'tab_' + uuid(8)
       tabDialog.isShow = true
       tabDialog.title = '添加'
       nextTick(() => {
@@ -123,7 +123,7 @@ export default {
         if (valid) {
           if (!tabForm.uuid) {
             const item = deepClone(objectLayout)
-            item.uuid = item.component + '_' + uuid(8)
+            item.uuid = item.component.replaceAll('-', '_') + '_' + uuid(8)
             item.options.label = tabForm.label
             item.options.key = tabForm.key
             tabsValue.value = item.uuid

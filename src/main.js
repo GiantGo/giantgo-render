@@ -4,12 +4,12 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import locale from 'element-plus/lib/locale/lang/zh-cn'
 import './styles/index.scss' // global css
-import FormBuilder from './components/FormDesign/index.js'
+import FormDesign from './components/FormDesign/index.js'
 import 'virtual:svg-icons-register'
 
 const app = createApp(App)
 
 app.use(ElementPlus, { size: 'medium', zIndex: 3000, locale })
-app.use(FormBuilder)
+app.use(FormDesign)
 
 app.mount('#app')
