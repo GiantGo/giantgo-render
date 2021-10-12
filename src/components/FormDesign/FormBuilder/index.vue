@@ -9,14 +9,14 @@
     :inline="formDesign.options.inline"
     :size="formDesign.options.size"
   >
-    <form-item-builder
+    <form-builder-item
       class="root"
       :component="formDesign.component"
       :uuid="formDesign.uuid"
       :items="formDesign.items"
       :options="formDesign.options"
       path="root"
-    ></form-item-builder>
+    ></form-builder-item>
   </el-form>
 </template>
 

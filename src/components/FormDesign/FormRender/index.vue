@@ -10,7 +10,7 @@
     :size="formDesign.options.size"
     :model="formData"
   >
-    <form-item-render
+    <form-render-item
       class="root"
       v-model="formData.root"
       :component="formDesign.component"
@@ -18,7 +18,7 @@
       :items="formDesign.items"
       :options="formDesign.options"
       path="root"
-    ></form-item-render>
+    ></form-render-item>
     <div class="btn-submit">
       <el-button type="primary" @click="submit">提交</el-button>
       <el-button type="default" @click="reset">重置</el-button>

@@ -382,7 +382,7 @@ export const layouts = [
       width: '100%',
       gutter: 0,
       shadow: 'always',
-      padding: '20px 20px 0px 0px'
+      padding: '20px 20px 20px 20px'
     },
     items: []
   },
