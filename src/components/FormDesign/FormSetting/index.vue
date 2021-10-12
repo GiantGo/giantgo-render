@@ -1,7 +1,8 @@
 <template>
   <el-form label-position="left" label-width="120px" :key="selected.uuid">
     <div v-for="(value, key) in selected.options" :key="key">
-      <form-option :option-key="key" :option-value="value"> </form-option>
+      <form-option :option-key="key" :option-value="value" v-if="key !== 'defaultValue' || !selected.items">
+      </form-option>
     </div>
   </el-form>
 </template>

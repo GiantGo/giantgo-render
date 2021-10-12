@@ -57,7 +57,7 @@ export default {
     padding: 2.5px 5px;
     width: 100%;
     min-height: 60px;
-    background: $white;
+    background: #ffffff;
     border: 1px dashed $border;
     overflow-x: hidden;
     overflow-y: auto;
@@ -106,7 +106,7 @@ export default {
           height: 25px;
           line-height: 25px;
           text-align: center;
-          color: $white;
+          color: #ffffff;
         }
 
         i {

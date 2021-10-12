@@ -1,10 +1,11 @@
 <template>
-  <component
-    :is="component + '-render'"
-    :options="options"
+  <form-render-item
     :model-value="modelValue"
     @update:modelValue="$emit('update:modelValue', $event)"
-  ></component>
+    :component="component"
+    :items="items"
+    :options="options"
+  ></form-render-item>
 </template>
 
 <script>
@@ -21,6 +22,7 @@ export default {
 
     return {
       component: computed(() => state.selected.component),
+      items: computed(() => state.selected.items),
       options: computed(() =>
         Object.assign({}, state.selected.options, {
           label: '',

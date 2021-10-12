@@ -14,7 +14,6 @@
       class="root"
       v-model="formData.root"
       :component="formDesign.component"
-      :uuid="formDesign.uuid"
       :items="formDesign.items"
       :options="formDesign.options"
       path="root"
