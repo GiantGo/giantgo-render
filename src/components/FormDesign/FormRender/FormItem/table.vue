@@ -22,7 +22,7 @@
 
 <script>
 import { reactive, ref, watch, onMounted, nextTick, inject } from 'vue'
-import { deepClone } from '@/utils/index.js'
+import { deepClone } from '@/utils'
 
 export default {
   name: 'tableRender',

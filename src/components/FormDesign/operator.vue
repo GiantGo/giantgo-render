@@ -49,7 +49,7 @@
 import { ref, nextTick, inject, reactive, computed } from 'vue'
 import CodeMirror from '@/components/CodeMirror/index.vue'
 import SvgIcon from '@/components/SvgIcon/index.vue'
-import { deepClone } from '@/utils/index.js'
+import { deepClone } from '@/utils'
 import { ElMessage } from 'element-plus'
 
 export default {

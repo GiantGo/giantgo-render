@@ -32,8 +32,7 @@
 <script>
 import { inject, computed } from 'vue'
 import SvgIcon from '@/components/SvgIcon/index.vue'
-import { isPrimitive } from '@/utils'
-import { validateInterpolation } from '@/utils/validate'
+import { isPrimitive, validateInterpolation } from '@/utils'
 import { optionKeyLabels } from '../config'
 import Interpolation from './interpolation.vue'
 

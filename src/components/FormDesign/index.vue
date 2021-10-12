@@ -20,8 +20,7 @@ import left from './left.vue'
 import right from './right.vue'
 import operator from './operator.vue'
 import { form } from './config.js'
-import { isEmptyObject, deepClone, uuid as makeId, debounce, hasOwn } from '@/utils/index.js'
-import { validateInterpolation } from '@/utils/validate.js'
+import { isEmptyObject, deepClone, uuid as makeId, debounce, hasOwn, validateInterpolation } from '@/utils'
 import { components } from './config'
 
 const query = (items, uuid) => {

@@ -28,8 +28,7 @@
 
 <script>
 import { ref, reactive, toRaw, computed, provide } from 'vue'
-import { getInterpolation } from '@/utils/index.js'
-import { validateInterpolation } from '@/utils/validate.js'
+import { getInterpolation, validateInterpolation } from '@/utils'
 import mitt from 'mitt'
 
 export default {

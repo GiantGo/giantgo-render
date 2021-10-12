@@ -30,7 +30,7 @@
 <script>
 import { ElMessage } from 'element-plus'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
-import { deepClone } from '@/utils/index.js'
+import { deepClone } from '@/utils'
 import CodeMirror from '@/components/CodeMirror/index.vue'
 
 export default {
