@@ -10,7 +10,7 @@
 
 <script>
 import { computed, inject } from 'vue'
-import FormRenderItem from '../../../FormRender/FormRenderItem/index.vue'
+import FormRenderItem from '../../../../FormRender/FormRenderItem/index.vue'
 
 export default {
   name: 'defaultValueOption',

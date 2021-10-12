@@ -29,7 +29,7 @@
 <script>
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { reactive, watch, onMounted } from 'vue'
-import { deepClone } from '../../../../../utils'
+import { deepClone } from '../../../../utils'
 
 export default {
   name: 'uploadRender',

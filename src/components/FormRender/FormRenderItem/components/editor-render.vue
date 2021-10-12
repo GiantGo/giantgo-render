@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import quillEditor from '../../../../QuillEditor/index.vue'
+import quillEditor from '../../../QuillEditor/index.vue'
 
 export default {
   name: 'editorRender',

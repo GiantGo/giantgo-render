@@ -51,7 +51,7 @@ import CodeMirror from '../CodeMirror/index.vue'
 import SvgIcon from '../SvgIcon/index.vue'
 import { deepClone } from '../../utils'
 import { ElMessage } from 'element-plus'
-import FormRender from './FormRender/index.vue'
+import FormRender from '../FormRender/index.vue'
 
 export default {
   components: { CodeMirror, SvgIcon, FormRender },

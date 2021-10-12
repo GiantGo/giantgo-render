@@ -16,14 +16,12 @@
 <script>
 import { provide, reactive, watch } from 'vue'
 import { ElMessage } from 'element-plus'
+import { isEmptyObject, deepClone, uuid as makeId, debounce, hasOwn, validateInterpolation } from '../../utils'
 import left from './left.vue'
 import operator from './operator.vue'
-import { form } from './config.js'
-import { isEmptyObject, deepClone, uuid as makeId, debounce, hasOwn, validateInterpolation } from '../../utils'
-import { components } from './config'
 import FormBuilder from './FormBuilder/index.vue'
-import FormRender from './FormRender/index.vue'
 import FormSetting from './FormSetting/index.vue'
+import { form, components } from './config.js'
 
 const query = (items, uuid) => {
   let result = false
@@ -95,7 +93,7 @@ const remove = (items, uuid) => {
 }
 
 export default {
-  components: { left, operator, FormBuilder, FormRender, FormSetting },
+  components: { left, operator, FormBuilder, FormSetting },
   setup() {
     let state = reactive({
       formDesign: {},
