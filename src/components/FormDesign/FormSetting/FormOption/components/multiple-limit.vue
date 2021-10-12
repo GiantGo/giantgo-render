@@ -7,9 +7,11 @@
 </template>
 
 <script>
+import { ElInputNumber } from 'element-plus'
+
 export default {
   name: 'multipleLimitOption',
-  components: {},
+  components: { ElInputNumber },
   props: {
     modelValue: Number
   },

@@ -6,9 +6,11 @@
 </template>
 
 <script>
+import { ElRadioGroup, ElRadioButton } from 'element-plus'
+
 export default {
   name: 'expandTriggerOption',
-  components: {},
+  components: { ElRadioGroup, ElRadioButton },
   props: {
     modelValue: String
   },

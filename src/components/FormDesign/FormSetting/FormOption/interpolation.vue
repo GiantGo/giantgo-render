@@ -16,10 +16,11 @@
 
 <script>
 import { getInterpolation } from '../../../../utils'
+import { ElInput } from 'element-plus'
 
 export default {
   name: 'interpolation',
-  components: {},
+  components: { ElInput },
   props: {
     modelValue: String
   },

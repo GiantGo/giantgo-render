@@ -15,9 +15,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElCascader } from 'element-plus'
+
 export default {
   name: 'cascaderRender',
-  components: {},
+  components: { ElFormItem, ElCascader },
   props: {
     path: String,
     modelValue: Array,

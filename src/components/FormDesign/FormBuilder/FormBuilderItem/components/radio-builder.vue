@@ -9,9 +9,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElRadioGroup, ElRadio } from 'element-plus'
+
 export default {
   name: 'radioBuilder',
-  components: {},
+  components: { ElFormItem, ElRadioGroup, ElRadio },
   props: {
     path: String,
     uuid: String,

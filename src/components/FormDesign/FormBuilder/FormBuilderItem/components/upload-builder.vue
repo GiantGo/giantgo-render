@@ -21,9 +21,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElUpload, ElButton } from 'element-plus'
+
 export default {
   name: 'uploadBuilder',
-  components: {},
+  components: { ElFormItem, ElUpload, ElButton },
   props: {
     path: String,
     uuid: String,

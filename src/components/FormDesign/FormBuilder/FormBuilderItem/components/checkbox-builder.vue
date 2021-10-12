@@ -9,9 +9,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElCheckboxGroup, ElCheckbox } from 'element-plus'
+
 export default {
   name: 'checkboxBuilder',
-  components: {},
+  components: { ElFormItem, ElCheckboxGroup, ElCheckbox },
   props: {
     path: String,
     uuid: String,

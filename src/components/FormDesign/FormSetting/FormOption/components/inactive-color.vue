@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { ElColorPicker } from 'element-plus'
+
 export default {
   name: 'inactiveColorOption',
-  components: {},
+  components: { ElColorPicker },
   props: {
     modelValue: String
   },

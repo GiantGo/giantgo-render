@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { ElCheckbox } from 'element-plus'
+
 export default {
   name: 'inlineOption',
-  components: {},
+  components: { ElCheckbox },
   props: {
     modelValue: Boolean
   },

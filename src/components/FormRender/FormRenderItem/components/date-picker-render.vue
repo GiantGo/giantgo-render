@@ -14,9 +14,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElDatePicker } from 'element-plus'
+
 export default {
   name: 'datePickerRender',
-  components: {},
+  components: { ElFormItem, ElDatePicker },
   props: {
     path: String,
     modelValue: Date,

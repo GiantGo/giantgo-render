@@ -13,9 +13,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElRadioGroup, ElRadio } from 'element-plus'
+
 export default {
   name: 'radioRender',
-  components: {},
+  components: { ElFormItem, ElRadioGroup, ElRadio },
   props: {
     path: String,
     modelValue: String,

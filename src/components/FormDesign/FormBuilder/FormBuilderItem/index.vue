@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { computed, inject, defineAsyncComponent } from 'vue'
+import { computed, inject } from 'vue'
 
 const components = {}
 Object.values(import.meta.globEager('./components/*.vue')).forEach(

@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { ElInput } from 'element-plus'
+
 export default {
   name: 'keyOption',
-  components: {},
+  components: { ElInput },
   props: {
     modelValue: String
   },

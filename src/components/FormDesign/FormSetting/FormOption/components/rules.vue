@@ -37,14 +37,14 @@
 </template>
 
 <script>
-import { ElMessage } from 'element-plus'
+import { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElMessage } from 'element-plus'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '../../../../../utils'
 import CodeMirror from '../../../../CodeMirror/index.vue'
 
 export default {
   name: 'rulesOption',
-  components: { CodeMirror },
+  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, CodeMirror },
   props: {
     modelValue: Array
   },

@@ -21,11 +21,20 @@
 </template>
 
 <script>
-import { reactive, ref, watch, onMounted, nextTick, inject } from 'vue'
+import { reactive, ref, watch, onMounted, nextTick, inject, defineAsyncComponent } from 'vue'
+import { ElFormItem, ElButton, ElTable, ElTableColumn, ElDialog } from 'element-plus'
 import { deepClone } from '../../../../utils'
 
 export default {
   name: 'tableRender',
+  components: {
+    ElFormItem,
+    ElButton,
+    ElTable,
+    ElTableColumn,
+    ElDialog,
+    FormRender: defineAsyncComponent(() => import('../../index.vue'))
+  },
   props: {
     path: String,
     modelValue: Array,

@@ -20,9 +20,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElSelect, ElOption } from 'element-plus'
+
 export default {
   name: 'multiSelectRender',
-  components: {},
+  components: { ElFormItem, ElSelect, ElOption },
   props: {
     path: String,
     modelValue: Array,

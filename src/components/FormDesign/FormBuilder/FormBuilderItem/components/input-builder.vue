@@ -17,9 +17,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElInput } from 'element-plus'
+
 export default {
   name: 'inputBuilder',
-  components: {},
+  components: { ElFormItem, ElInput },
   props: {
     path: String,
     uuid: String,

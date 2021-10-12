@@ -14,9 +14,12 @@
 
 <script>
 import { ref, onMounted, inject } from 'vue'
+import { ElFormItem, ElTabs, ElTabPane } from 'element-plus'
+import objectRender from './object-render.vue'
 
 export default {
   name: 'tabsRender',
+  components: { ElFormItem, ElTabs, ElTabPane, objectRender },
   props: {
     path: String,
     modelValue: Object,

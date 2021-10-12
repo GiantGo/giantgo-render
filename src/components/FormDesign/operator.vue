@@ -47,6 +47,7 @@
 
 <script>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
+import { ElTooltip, ElDialog, ElButton, ElDivider } from 'element-plus'
 import CodeMirror from '../CodeMirror/index.vue'
 import SvgIcon from '../SvgIcon/index.vue'
 import { deepClone } from '../../utils'
@@ -54,7 +55,7 @@ import { ElMessage } from 'element-plus'
 import FormRender from '../FormRender/index.vue'
 
 export default {
-  components: { CodeMirror, SvgIcon, FormRender },
+  components: { ElTooltip, ElDialog, ElButton, ElDivider, CodeMirror, SvgIcon, FormRender },
   setup() {
     const formRender = ref(null)
     const previewDialog = ref(false)

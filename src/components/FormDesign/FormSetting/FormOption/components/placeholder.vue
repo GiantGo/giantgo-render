@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { ElInput } from 'element-plus'
+
 export default {
   name: 'placeholderOption',
-  components: {},
+  components: { ElInput },
   props: {
     modelValue: String
   },

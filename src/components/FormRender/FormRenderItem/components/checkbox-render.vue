@@ -13,9 +13,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElCheckboxGroup, ElCheckbox } from 'element-plus'
+
 export default {
   name: 'checkboxRender',
-  components: {},
+  components: { ElFormItem, ElCheckboxGroup, ElCheckbox },
   props: {
     path: String,
     modelValue: Array,

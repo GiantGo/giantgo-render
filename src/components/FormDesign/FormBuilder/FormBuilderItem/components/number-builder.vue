@@ -11,9 +11,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElInputNumber } from 'element-plus'
+
 export default {
   name: 'numberBuilder',
-  components: {},
+  components: { ElFormItem, ElInputNumber },
   props: {
     path: String,
     uuid: String,

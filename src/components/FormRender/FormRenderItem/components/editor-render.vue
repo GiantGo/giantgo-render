@@ -11,11 +11,12 @@
 </template>
 
 <script>
+import { ElFormItem } from 'element-plus'
 import quillEditor from '../../../QuillEditor/index.vue'
 
 export default {
   name: 'editorRender',
-  components: { quillEditor },
+  components: { ElFormItem, quillEditor },
   props: {
     path: String,
     modelValue: String,

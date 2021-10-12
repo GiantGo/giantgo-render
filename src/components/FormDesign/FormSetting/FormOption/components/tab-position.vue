@@ -8,9 +8,11 @@
 </template>
 
 <script>
+import { ElRadioGroup, ElRadioButton } from 'element-plus'
+
 export default {
   name: 'tabPositionOption',
-  components: {},
+  components: { ElRadioGroup, ElRadioButton },
   props: {
     modelValue: String
   },

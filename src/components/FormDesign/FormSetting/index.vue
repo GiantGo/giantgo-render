@@ -11,11 +11,12 @@
 
 <script>
 import { inject, computed } from 'vue'
+import { ElForm } from 'element-plus'
 import formOption from './FormOption/index.vue'
 
 export default {
   name: 'formSetting',
-  components: { formOption },
+  components: { ElForm, formOption },
   props: {},
   setup() {
     const state = inject('state')

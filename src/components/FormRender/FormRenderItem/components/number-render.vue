@@ -11,9 +11,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElInputNumber } from 'element-plus'
+
 export default {
   name: 'numberRender',
-  components: {},
+  components: { ElFormItem, ElInputNumber },
   props: {
     path: String,
     modelValue: Number,

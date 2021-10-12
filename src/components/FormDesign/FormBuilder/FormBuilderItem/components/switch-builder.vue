@@ -13,9 +13,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElSwitch } from 'element-plus'
+
 export default {
   name: 'switchBuilder',
-  components: {},
+  components: { ElFormItem, ElSwitch },
   props: {
     path: String,
     uuid: String,

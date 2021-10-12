@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { ElCheckbox } from 'element-plus'
+
 export default {
   name: 'multipleOption',
-  components: {},
+  components: { ElCheckbox },
   props: {
     modelValue: Boolean
   },

@@ -7,9 +7,11 @@
 </template>
 
 <script>
+import { ElRadioGroup, ElRadioButton } from 'element-plus'
+
 export default {
   name: 'labelPositionOption',
-  components: {},
+  components: { ElRadioGroup, ElRadioButton },
   props: {
     modelValue: String
   },

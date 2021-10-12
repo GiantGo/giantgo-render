@@ -10,9 +10,11 @@
 </template>
 
 <script>
+import { ElSlider } from 'element-plus'
+
 export default {
   name: 'widthOption',
-  components: {},
+  components: { ElSlider },
   props: {
     modelValue: String
   },

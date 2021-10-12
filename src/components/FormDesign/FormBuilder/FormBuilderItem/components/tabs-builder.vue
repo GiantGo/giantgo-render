@@ -41,11 +41,14 @@
 
 <script>
 import { ref, inject, reactive, nextTick } from 'vue'
+import { ElForm, ElFormItem, ElTabs, ElTabPane, ElDialog, ElInput, ElButton } from 'element-plus'
+import objectBuilder from './object-builder.vue'
 import { objectLayout } from '../../../config.js'
 import { uuid, deepClone } from '../../../../../utils'
 
 export default {
   name: 'tabsBuilder',
+  components: { ElForm, ElFormItem, ElTabs, ElTabPane, ElDialog, ElInput, ElButton, objectBuilder },
   props: {
     path: String,
     uuid: String,

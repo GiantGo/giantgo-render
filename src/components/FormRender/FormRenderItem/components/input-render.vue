@@ -17,9 +17,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElInput } from 'element-plus'
+
 export default {
   name: 'inputRender',
-  components: {},
+  components: { ElFormItem, ElInput },
   props: {
     path: String,
     modelValue: String,

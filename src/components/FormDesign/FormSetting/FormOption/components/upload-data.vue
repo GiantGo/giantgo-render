@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import { ElMessage } from 'element-plus'
+import { ElDialog, ElButton, ElMessage } from 'element-plus'
 import { ref, nextTick } from 'vue'
 import CodeMirror from '../../../../CodeMirror/index.vue'
 
 export default {
   name: 'uploadDataOption',
-  components: { CodeMirror },
+  components: { ElDialog, ElButton, CodeMirror },
   props: {
     modelValue: Object
   },

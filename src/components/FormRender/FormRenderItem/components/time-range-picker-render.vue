@@ -15,9 +15,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElTimePicker } from 'element-plus'
+
 export default {
   name: 'timeRangePickerRender',
-  components: {},
+  components: { ElFormItem, ElTimePicker },
   props: {
     path: String,
     modelValue: Array,

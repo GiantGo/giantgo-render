@@ -28,14 +28,14 @@
 </template>
 
 <script>
-import { ElMessage } from 'element-plus'
+import { ElRow, ElCol, ElButton, ElDialog, ElInput, ElMessage } from 'element-plus'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '../../../../../utils'
 import CodeMirror from '../../../../CodeMirror/index.vue'
 
 export default {
   name: 'optionsOption',
-  components: { CodeMirror },
+  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, CodeMirror },
   props: {
     modelValue: Object
   },

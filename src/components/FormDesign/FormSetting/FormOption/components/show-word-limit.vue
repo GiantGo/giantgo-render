@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { ElCheckbox } from 'element-plus'
+
 export default {
   name: 'showWordLimitOption',
-  components: {},
+  components: { ElCheckbox },
   props: {
     modelValue: Boolean
   },

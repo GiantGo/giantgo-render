@@ -28,6 +28,7 @@
 
 <script>
 import { inject } from 'vue'
+import { ElRow, ElCol, ElFormItem } from 'element-plus'
 import SvgIcon from '../../../SvgIcon/index.vue'
 import { isPrimitive, validateInterpolation } from '../../../../utils'
 import { optionKeyLabels } from '../../config'
@@ -40,7 +41,7 @@ Object.values(import.meta.globEager('./components/*.vue')).forEach(
 
 export default {
   name: 'formOption',
-  components: { SvgIcon, Interpolation, ...components },
+  components: { ElRow, ElCol, ElFormItem, SvgIcon, Interpolation, ...components },
   props: {
     optionKey: String,
     optionValue: [String, Number, Boolean, Date, Object, Array]

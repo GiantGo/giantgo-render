@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { ElFormItem, ElUpload, ElButton, ElMessage, ElMessageBox } from 'element-plus'
 import { reactive, watch, onMounted } from 'vue'
 import { deepClone } from '../../../../utils'
 
 export default {
   name: 'uploadRender',
-  components: {},
+  components: { ElFormItem, ElUpload, ElButton },
   props: {
     path: String,
     modelValue: Array,

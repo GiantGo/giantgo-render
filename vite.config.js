@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import ElementPlus from 'unplugin-element-plus/vite'
 import viteSvgIcons from 'vite-plugin-svg-icons'
 import path from 'path'
 
@@ -9,9 +8,7 @@ export default () => {
   return defineConfig({
     plugins: [
       vue(),
-      Components({
-        resolvers: [ElementPlusResolver()]
-      }),
+      ElementPlus(),
       viteSvgIcons({
         // Specify the icon folder to be cached
         iconDirs: [path.resolve(process.cwd(), 'src/icons')],
@@ -32,7 +29,7 @@ export default () => {
           // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
           globals: {
             vue: 'Vue',
-            'element-plus': 'elementPlus'
+            'element-plus': 'ElementPlus'
           }
         }
       }

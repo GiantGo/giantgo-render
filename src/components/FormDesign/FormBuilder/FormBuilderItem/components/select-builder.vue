@@ -17,9 +17,11 @@
 </template>
 
 <script>
+import { ElFormItem, ElSelect, ElOption } from 'element-plus'
+
 export default {
   name: 'selectBuilder',
-  components: {},
+  components: { ElFormItem, ElSelect, ElOption },
   props: {
     path: String,
     uuid: String,

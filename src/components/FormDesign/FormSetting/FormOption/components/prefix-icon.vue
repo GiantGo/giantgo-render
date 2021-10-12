@@ -3,9 +3,11 @@
 </template>
 
 <script>
+import { ElInput } from 'element-plus'
+
 export default {
   name: 'prefixIconOption',
-  components: {},
+  components: { ElInput },
   props: {
     modelValue: String
   },
