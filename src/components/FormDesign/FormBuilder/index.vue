@@ -1,7 +1,7 @@
 <template>
   <el-empty v-if="formDesign.items.length === 0" class="empty" description="从左侧选择控件添加"></el-empty>
   <el-form
-    class="form-build"
+    class="form-builder"
     :label-width="formDesign.options.labelWidth"
     :label-position="formDesign.options.labelPosition"
     :hide-required-asterisk="formDesign.options.hideRequiredAsterisk"
@@ -40,15 +40,7 @@ export default {
 <style lang="scss">
 @import '../../../styles/variables.scss';
 
-.empty {
-  position: absolute;
-  width: 100%;
-  height: calc(100% - 45px);
-  top: 60px;
-  z-index: 1;
-}
-
-.form-build {
+.form-builder {
   position: relative;
   width: 100%;
   height: calc(100% - 55px);
@@ -160,6 +152,10 @@ export default {
         display: none;
       }
     }
+  }
+
+  .form-rate {
+    line-height: 2;
   }
 }
 </style>

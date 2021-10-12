@@ -17,13 +17,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.form-item {
-  margin-bottom: 22px;
-  .form-item-label {
-    font-size: 14px;
-    color: #606266;
-    padding: 0 0 10px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

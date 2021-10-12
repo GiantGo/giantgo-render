@@ -1,5 +1,5 @@
 <template>
-  <div class="form-item-picker">
+  <div class="form-picker">
     <div class="form-item-section">
       <div class="title">输入组件</div>
       <draggable
@@ -98,10 +98,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../styles/variables.scss';
 
-.form-item-picker {
+.form-picker {
   height: 100%;
   padding: 5px;
 

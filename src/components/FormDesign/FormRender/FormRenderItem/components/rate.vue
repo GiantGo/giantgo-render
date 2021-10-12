@@ -1,6 +1,7 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-rate
+      class="form-rate"
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
       :disabled="options.disabled"

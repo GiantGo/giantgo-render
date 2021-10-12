@@ -53,20 +53,4 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-@import '../../../../styles/variables.scss';
-
-.code-switch {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  .svg-icon {
-    font-size: 16px;
-    margin-bottom: 22px;
-    cursor: pointer;
-  }
-  .svg-icon.highlight {
-    color: $primary-color;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

@@ -8,7 +8,7 @@
       <form-builder />
     </div>
     <div class="right-container">
-      <right></right>
+      <form-setting></form-setting>
     </div>
   </div>
 </template>
@@ -17,7 +17,6 @@
 import { provide, reactive, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import left from './left.vue'
-import right from './right.vue'
 import operator from './operator.vue'
 import { form } from './config.js'
 import { isEmptyObject, deepClone, uuid as makeId, debounce, hasOwn, validateInterpolation } from '@/utils'
@@ -93,7 +92,7 @@ const remove = (items, uuid) => {
 }
 
 export default {
-  components: { left, right, operator },
+  components: { left, operator },
   setup() {
     let state = reactive({
       formDesign: {},
@@ -220,6 +219,21 @@ export default {
   min-height: 30vh;
   position: relative;
 
+  .el-input,
+  .el-input__inner,
+  .el-select,
+  .el-cascader {
+    width: 100%;
+  }
+
+  .empty {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 45px);
+    top: 60px;
+    z-index: 1;
+  }
+
   .left-container,
   .right-container {
     height: 100%;
@@ -246,6 +260,38 @@ export default {
     flex-direction: column;
     border-left: 1px solid $divider-color;
     border-right: 1px solid $divider-color;
+  }
+
+  .json-box {
+    height: 500px;
+    overflow: auto;
+
+    .vue-codemirror-wrap {
+      height: 100%;
+
+      .CodeMirror-wrap {
+        height: 100%;
+
+        .CodeMirror-scroll {
+          height: 100%;
+          width: 100%;
+        }
+
+        pre.CodeMirror-line,
+        .CodeMirror-linenumber {
+          min-height: 21px;
+          line-height: 21px;
+        }
+
+        .CodeMirror-sizer {
+          margin-left: 35px !important;
+        }
+
+        .CodeMirror-gutter {
+          min-width: 34px;
+        }
+      }
+    }
   }
 }
 </style>

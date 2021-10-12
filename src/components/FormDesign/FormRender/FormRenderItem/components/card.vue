@@ -38,8 +38,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.form-card {
-  margin-bottom: 22px;
-}
-</style>
+<style lang="scss" scoped></style>

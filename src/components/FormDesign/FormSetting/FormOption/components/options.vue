@@ -7,7 +7,7 @@
       <el-col :span="11">
         <el-input :model-value="item.value" @input="update(index, 'value', $event)" placeholder="值" />
       </el-col>
-      <el-col :span="2" class="text-center">
+      <el-col :span="2" class="btn-del">
         <i class="el-icon-delete" @click="removeOption(index)" />
       </el-col>
     </el-row>
@@ -113,16 +113,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../../../../styles/variables.scss';
-
-.el-icon-delete {
-  cursor: pointer;
-  color: $danger-color;
-  font-weight: bold;
-}
-
-.option-row + .option-row {
-  margin-top: 5px;
-}
-</style>
+<style lang="scss" scoped></style>

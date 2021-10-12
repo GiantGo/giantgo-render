@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row :gutter="5">
+    <el-row class="option-row" :gutter="5">
       <el-col :span="11">
         <el-checkbox v-model="data.required.required" @change="emitChange"> 必填 </el-checkbox>
       </el-col>
@@ -9,14 +9,14 @@
       </el-col>
       <el-col :span="2"> </el-col>
     </el-row>
-    <el-row class="rule-row" v-for="(rule, index) in data.patterns" :key="index" :gutter="5">
+    <el-row class="option-row" v-for="(rule, index) in data.patterns" :key="index" :gutter="5">
       <el-col :span="11">
         <el-input :model-value="rule.pattern" @input="update(index, 'pattern', $event)" placeholder="正则表达式" />
       </el-col>
       <el-col :span="11">
         <el-input :model-value="rule.message" @input="update(index, 'message', $event)" placeholder="提示信息" />
       </el-col>
-      <el-col :span="2" class="text-center">
+      <el-col :span="2" class="btn-del">
         <i class="el-icon-delete" @click="removeRule(index)" />
       </el-col>
     </el-row>
@@ -119,16 +119,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../../../../styles/variables.scss';
-
-.rule-row {
-  margin-top: 5px;
-}
-
-.el-icon-delete {
-  cursor: pointer;
-  color: $danger-color;
-  font-weight: bold;
-}
-</style>
+<style lang="scss" scoped></style>
