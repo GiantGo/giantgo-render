@@ -42,7 +42,7 @@
 <script>
 import { ref, inject, reactive, nextTick } from 'vue'
 import { objectLayout } from '../../../config.js'
-import { uuid, deepClone } from '@/utils'
+import { uuid, deepClone } from '../../../../../utils'
 
 export default {
   name: 'tabsBuilder',

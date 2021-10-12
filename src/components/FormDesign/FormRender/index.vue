@@ -27,12 +27,13 @@
 
 <script>
 import { ref, reactive, toRaw, computed, provide } from 'vue'
-import { getInterpolation, validateInterpolation } from '@/utils'
+import { getInterpolation, validateInterpolation } from '../../../utils'
 import mitt from 'mitt'
+import FormRenderItem from './FormRenderItem/index.vue'
 
 export default {
   name: 'formRender',
-  components: {},
+  components: { FormRenderItem },
   props: {},
   setup(props, { emit }) {
     const formRef = ref(null)

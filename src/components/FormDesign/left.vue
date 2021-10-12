@@ -77,7 +77,7 @@
 
 <script>
 import draggable from 'vuedraggable/src/vuedraggable'
-import { uuid, deepClone } from '@/utils'
+import { uuid, deepClone } from '../../utils'
 import { inputs, pickers, complexs, layouts } from './config.js'
 
 export default {

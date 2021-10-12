@@ -16,7 +16,7 @@
 <script>
 import { ElMessage } from 'element-plus'
 import { ref, nextTick } from 'vue'
-import CodeMirror from '@/components/CodeMirror/index.vue'
+import CodeMirror from '../../../../CodeMirror/index.vue'
 
 export default {
   name: 'uploadHeadersOption',

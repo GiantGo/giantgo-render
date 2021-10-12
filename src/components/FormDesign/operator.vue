@@ -47,13 +47,14 @@
 
 <script>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
-import CodeMirror from '@/components/CodeMirror/index.vue'
-import SvgIcon from '@/components/SvgIcon/index.vue'
-import { deepClone } from '@/utils'
+import CodeMirror from '../CodeMirror/index.vue'
+import SvgIcon from '../SvgIcon/index.vue'
+import { deepClone } from '../../utils'
 import { ElMessage } from 'element-plus'
+import FormRender from './FormRender/index.vue'
 
 export default {
-  components: { CodeMirror, SvgIcon },
+  components: { CodeMirror, SvgIcon, FormRender },
   setup() {
     const formRender = ref(null)
     const previewDialog = ref(false)

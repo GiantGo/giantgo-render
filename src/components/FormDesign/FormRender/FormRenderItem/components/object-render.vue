@@ -18,9 +18,11 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue'
+
 export default {
   name: 'objectRender',
-  components: {},
+  components: { FormRenderItem: defineAsyncComponent(() => import('../index.vue')) },
   props: {
     path: String,
     modelValue: Object,

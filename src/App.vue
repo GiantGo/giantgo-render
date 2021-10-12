@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import FormDesign from '@/components/FormDesign/index.vue'
+import FormDesign from './components/FormDesign/index.vue'
 
 export default {
   name: 'App',

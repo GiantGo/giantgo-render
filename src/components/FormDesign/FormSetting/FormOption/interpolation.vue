@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { getInterpolation } from '@/utils'
+import { getInterpolation } from '../../../../utils'
 
 export default {
   name: 'interpolation',

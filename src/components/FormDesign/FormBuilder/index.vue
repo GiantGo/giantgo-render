@@ -22,10 +22,11 @@
 
 <script>
 import { computed, inject } from 'vue'
+import FormBuilderItem from './FormBuilderItem/index.vue'
 
 export default {
   name: 'formBuilder',
-  components: {},
+  components: { FormBuilderItem },
   props: {},
   setup() {
     const state = inject('state')

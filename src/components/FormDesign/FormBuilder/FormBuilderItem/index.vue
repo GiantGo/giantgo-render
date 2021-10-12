@@ -23,10 +23,16 @@
 </template>
 
 <script>
-import { computed, inject } from 'vue'
+import { computed, inject, defineAsyncComponent } from 'vue'
+
+const components = {}
+Object.values(import.meta.globEager('./components/*.vue')).forEach(
+  ({ default: component }) => (components[component.name] = component)
+)
 
 export default {
   name: 'formBuilderItem',
+  components: { ...components },
   props: {
     path: String,
     component: String,

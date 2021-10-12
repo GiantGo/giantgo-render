@@ -28,14 +28,19 @@
 
 <script>
 import { inject } from 'vue'
-import SvgIcon from '@/components/SvgIcon/index.vue'
-import { isPrimitive, validateInterpolation } from '@/utils'
+import SvgIcon from '../../../SvgIcon/index.vue'
+import { isPrimitive, validateInterpolation } from '../../../../utils'
 import { optionKeyLabels } from '../../config'
 import Interpolation from './interpolation.vue'
 
+const components = {}
+Object.values(import.meta.globEager('./components/*.vue')).forEach(
+  ({ default: component }) => (components[component.name] = component)
+)
+
 export default {
   name: 'formOption',
-  components: { SvgIcon, Interpolation },
+  components: { SvgIcon, Interpolation, ...components },
   props: {
     optionKey: String,
     optionValue: [String, Number, Boolean, Date, Object, Array]

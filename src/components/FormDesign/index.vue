@@ -5,7 +5,7 @@
     </div>
     <div class="center-container">
       <operator></operator>
-      <form-builder />
+      <form-builder></form-builder>
     </div>
     <div class="right-container">
       <form-setting></form-setting>
@@ -19,8 +19,11 @@ import { ElMessage } from 'element-plus'
 import left from './left.vue'
 import operator from './operator.vue'
 import { form } from './config.js'
-import { isEmptyObject, deepClone, uuid as makeId, debounce, hasOwn, validateInterpolation } from '@/utils'
+import { isEmptyObject, deepClone, uuid as makeId, debounce, hasOwn, validateInterpolation } from '../../utils'
 import { components } from './config'
+import FormBuilder from './FormBuilder/index.vue'
+import FormRender from './FormRender/index.vue'
+import FormSetting from './FormSetting/index.vue'
 
 const query = (items, uuid) => {
   let result = false
@@ -92,7 +95,7 @@ const remove = (items, uuid) => {
 }
 
 export default {
-  components: { left, operator },
+  components: { left, operator, FormBuilder, FormRender, FormSetting },
   setup() {
     let state = reactive({
       formDesign: {},

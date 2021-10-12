@@ -12,9 +12,14 @@
 </template>
 
 <script>
+const components = {}
+Object.values(import.meta.globEager('./components/*.vue')).forEach(
+  ({ default: component }) => (components[component.name] = component)
+)
+
 export default {
   name: 'formRenderItem',
-  components: {},
+  components: { ...components },
   props: {
     path: {
       type: String,

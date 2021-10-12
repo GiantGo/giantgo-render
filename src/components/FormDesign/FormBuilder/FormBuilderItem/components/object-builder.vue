@@ -26,11 +26,11 @@
 
 <script>
 import draggable from 'vuedraggable/src/vuedraggable'
-import { inject } from 'vue'
+import { inject, defineAsyncComponent } from 'vue'
 
 export default {
   name: 'objectBuilder',
-  components: { draggable },
+  components: { draggable, FormBuilderItem: defineAsyncComponent(() => import('../index.vue')) },
   props: {
     path: String,
     uuid: String,

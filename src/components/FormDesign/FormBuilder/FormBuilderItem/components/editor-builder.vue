@@ -1,24 +1,23 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <quill-editor
-      :value="modelValue"
-      @change="$emit('update:modelValue', $event.html)"
+      v-if="!options.hidden"
       :disabled="options.disabled"
-      :options="{ placeholder: options.placeholder, readOnly: false }"
+      :options="{ placeholder: options.placeholder, readOnly: true }"
       :style="{ height: options.height }"
     />
   </el-form-item>
 </template>
 
 <script>
-import quillEditor from '@/components/QuillEditor/index.vue'
+import quillEditor from '../../../../QuillEditor/index.vue'
 
 export default {
-  name: 'editorRender',
+  name: 'editorBuilder',
   components: { quillEditor },
   props: {
     path: String,
-    modelValue: String,
+    uuid: String,
     options: {
       type: Object,
       default() {

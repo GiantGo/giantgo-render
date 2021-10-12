@@ -10,10 +10,11 @@
 
 <script>
 import { computed, inject } from 'vue'
+import FormRenderItem from '../../../FormRender/FormRenderItem/index.vue'
 
 export default {
   name: 'defaultValueOption',
-  components: {},
+  components: { FormRenderItem },
   props: {
     modelValue: [String, Number, Boolean, Date, Object, Array]
   },
