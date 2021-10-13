@@ -8,10 +8,6 @@
 import CodeMirror from 'codemirror/lib/codemirror.js'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/javascript/javascript'
-import 'codemirror/mode/vue/vue'
-import 'codemirror/addon/hint/show-hint.js'
-import 'codemirror/addon/hint/show-hint.css'
-import 'codemirror/addon/hint/javascript-hint.js'
 
 export default {
   name: 'code-mirror',
@@ -98,11 +94,5 @@ export default {
 <style lang="scss">
 .CodeMirror-code {
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-.form-setting {
-  .CodeMirror {
-    height: 100px;
-  }
 }
 </style>

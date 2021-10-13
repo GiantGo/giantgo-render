@@ -120,38 +120,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.form-render {
-  position: relative;
-  padding: 10px 2px 2px 2px;
-  height: 100%;
-  overflow: auto;
-
-  .el-input,
-  .el-input__inner,
-  .el-select,
-  .el-cascader {
-    width: 100%;
-  }
-
-  .form-item {
-    display: inline-block;
-    width: 100%;
-    line-height: 0px;
-    vertical-align: top;
-  }
-
-  .btn-submit {
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .form-rate {
-    line-height: 2;
-  }
-
-  .form-card {
-    margin-bottom: 22px;
-  }
-}
-</style>
+<style lang="scss"></style>
