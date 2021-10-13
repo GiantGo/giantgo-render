@@ -1,6 +1,17 @@
 {
   "name": "giantgo-render",
   "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/giantgo-render.umd.js",
+  "module": "./dist/giantgo-render.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/giantgo-render.es.js",
+      "require": "./dist/giantgo-render.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
