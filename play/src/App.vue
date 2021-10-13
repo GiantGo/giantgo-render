@@ -1,17 +1,15 @@
-<template>
-  <form-design></form-design>
-</template>
-
-<script>
-import FormDesign from './components/FormDesign/index.vue'
-
-export default {
-  name: 'App',
-  components: { FormDesign }
-}
+<script setup>
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import { FormDesign } from '@giantgo-render/lib'
+import '@giantgo-render/lib/dist/style.css'
 </script>
 
-<style lang="scss">
+<template>
+  <FormDesign />
+</template>
+
+<style>
 html {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'SourceHanSansCN-Regular',
     'SourceHanSansCN', Arial, sans-serif;
