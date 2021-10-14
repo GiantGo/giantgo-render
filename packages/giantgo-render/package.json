@@ -1,26 +1,12 @@
 {
   "name": "giantgo-render",
-  "version": "0.0.7",
+  "version": "1.1.1",
   "description": "A form generator and form render for Vue3 + ElementPlus",
   "main": "./src/main.js",
   "module": "./src/main.js",
-  "exports": {
-    "./src/styles/index.scss": "./src/styles/index.scss",
-    ".": {
-      "import": "./src/main.js",
-      "require": "./src/main.js"
-    }
-  },
   "publishConfig": {
     "main": "./dist/giantgo-render.umd.js",
-    "module": "./dist/giantgo-render.es.js",
-    "exports": {
-      "./dist/style.css": "./dist/styles.css",
-      ".": {
-        "import": "./dist/giantgo-render.es.js",
-        "require": "./dist/giantgo-render.umd.js"
-      }
-    }
+    "module": "./dist/giantgo-render.es.js"
   },
   "scripts": {
     "build": "vite build",
