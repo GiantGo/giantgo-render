@@ -1,0 +1,10 @@
+{
+  "name": "@giantgo-render/components",
+  "version": "1.0.0",
+  "description": "all components are settled here",
+  "peerDependencies": {
+    "vue": "^3.2.16"
+  },
+  "main": "index.js",
+  "module": "index.js"
+}

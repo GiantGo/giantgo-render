@@ -4,7 +4,8 @@ importers:
 
   .:
     specifiers:
-      '@giantgo-render/lib': workspace:*
+      '@giantgo-render/components': workspace:*
+      '@giantgo-render/utils': workspace:*
       '@vitejs/plugin-vue': ^1.9.3
       '@vue/compiler-sfc': ^3.2.16
       autoprefixer: ^10.3.6
@@ -19,7 +20,8 @@ importers:
       vue: ^3.2.16
       vuedraggable: ^4.1.0
     dependencies:
-      '@giantgo-render/lib': link:packages/lib
+      '@giantgo-render/components': link:packages/components
+      '@giantgo-render/utils': link:packages/utils
       codemirror: 5.63.3
       element-plus: 1.1.0-beta.19_vue@3.2.19
       mitt: 3.0.0
@@ -41,46 +43,30 @@ importers:
     devDependencies:
       vitepress: 0.15.6_sass@1.32.13
 
-  packages/lib:
-    specifiers:
-      '@vitejs/plugin-vue': ^1.9.3
-      '@vue/compiler-sfc': ^3.2.16
-      autoprefixer: ^10.3.6
-      codemirror: ^5.63.3
-      element-plus: ^1.1.0-beta.19
-      mitt: ^3.0.0
-      quill: ^1.3.7
-      sass: ~1.32.13
-      unplugin-vue-components: ^0.15.6
-      vite: ^2.6.4
-      vite-svg-loader: ^2.2.0
-      vue: ^3.2.16
-      vuedraggable: ^4.1.0
-    dependencies:
-      codemirror: 5.63.3
-      element-plus: 1.1.0-beta.19_vue@3.2.19
-      mitt: 3.0.0
-      quill: 1.3.7
-      vue: 3.2.19
-      vuedraggable: 4.1.0_vue@3.2.19
-    devDependencies:
-      '@vitejs/plugin-vue': 1.9.3_vite@2.6.7
-      '@vue/compiler-sfc': 3.2.19
-      autoprefixer: 10.3.6
-      sass: 1.32.13
-      unplugin-vue-components: 0.15.6_vite@2.6.7+vue@3.2.19
-      vite: 2.6.7_sass@1.32.13
-      vite-svg-loader: 2.2.0
+  packages/components:
+    specifiers: {}
+
+  packages/giantgo-render:
+    specifiers: {}
+
+  packages/utils:
+    specifiers: {}
 
   play:
     specifiers:
       '@vitejs/plugin-vue': ^1.9.3
+      autoprefixer: ^10.3.6
+      giantgo-render: workspace:*
+      sass: ~1.32.13
       vite: ^2.6.4
       vue: ^3.2.16
     dependencies:
+      giantgo-render: link:../packages/giantgo-render
       vue: 3.2.19
     devDependencies:
       '@vitejs/plugin-vue': 1.9.3_vite@2.6.7
+      autoprefixer: 10.3.6
+      sass: 1.32.13
       vite: 2.6.7_sass@1.32.13
 
 packages:

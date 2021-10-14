@@ -6,17 +6,17 @@
     "play",
     "docs"
   ],
-  "main": "./dist/giantgo-render.umd.js",
-  "module": "./dist/giantgo-render.es.js",
+  "main": "./packages/dist/giantgo-render.umd.js",
+  "module": "./packages/dist/giantgo-render.es.js",
   "exports": {
     ".": {
-      "import": "./dist/giantgo-render.es.js",
-      "require": "./dist/giantgo-render.umd.js"
+      "import": "./packages/dist/giantgo-render.es.js",
+      "require": "./packages/dist/giantgo-render.umd.js"
     }
   },
   "scripts": {
     "dev": "pnpm -C play dev",
-    "build": "pnpm -C packages/lib build",
+    "build": "pnpm -C packages/giantgo-render build",
     "docs:dev": "pnpm -C docs dev",
     "docs:build": "pnpm -C docs build",
     "docs:serve": "pnpm -C docs serve"
@@ -41,7 +41,8 @@
     "vue": "^3.2.16"
   },
   "dependencies": {
-    "@giantgo-render/lib": "workspace:*",
+    "@giantgo-render/components": "workspace:*",
+    "@giantgo-render/utils": "workspace:*",
     "codemirror": "^5.63.3",
     "element-plus": "^1.1.0-beta.19",
     "mitt": "^3.0.0",

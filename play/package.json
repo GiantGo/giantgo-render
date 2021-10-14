@@ -6,10 +6,13 @@
     "dev": "vite"
   },
   "dependencies": {
-    "vue": "^3.2.16"
+    "vue": "^3.2.16",
+    "giantgo-render": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
-    "vite": "^2.6.4"
+    "vite": "^2.6.4",
+    "autoprefixer": "^10.3.6",
+    "sass": "~1.32.13"
   }
 }

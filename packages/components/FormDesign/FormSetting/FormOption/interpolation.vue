@@ -1,0 +1,35 @@
+<template>
+  <el-input
+    type="text"
+    :model-value="getInterpolation(modelValue).trim()"
+    @input="$emit('update:modelValue', $event.trim() ? `{{${$event.trim()}}}` : '{{  }}')"
+    placeholder="请输入JS表达式"
+  >
+    <template #prefix>
+      <span v-html="'{{'"></span>
+    </template>
+    <template #suffix>
+      <span v-html="'}}'"></span>
+    </template>
+  </el-input>
+</template>
+
+<script>
+import { getInterpolation } from '@giantgo-render/utils'
+import { ElInput } from 'element-plus'
+
+export default {
+  name: 'interpolation',
+  components: { ElInput },
+  props: {
+    modelValue: String
+  },
+  setup() {
+    return {
+      getInterpolation
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped></style>
