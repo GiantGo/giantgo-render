@@ -1,19 +1,11 @@
 {
-  "name": "giantgo-render",
-  "version": "1.0.1",
+  "private": true,
+  "packageManager": "pnpm@6.15.1",
   "workspaces": [
     "packages/*",
     "play",
     "docs"
   ],
-  "main": "./packages/dist/giantgo-render.umd.js",
-  "module": "./packages/dist/giantgo-render.es.js",
-  "exports": {
-    ".": {
-      "import": "./packages/dist/giantgo-render.es.js",
-      "require": "./packages/dist/giantgo-render.umd.js"
-    }
-  },
   "scripts": {
     "dev": "pnpm -C play dev",
     "build": "pnpm -C packages/giantgo-render build",
@@ -21,22 +13,6 @@
     "docs:build": "pnpm -C docs build",
     "docs:serve": "pnpm -C docs serve"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/GiantGo/giantgo-render.git"
-  },
-  "keywords": [
-    "giantgo-render",
-    "form-generator",
-    "vite",
-    "vue3"
-  ],
-  "author": "spx443812507",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GiantGo/giantgo-render/issues"
-  },
-  "homepage": "https://github.com/GiantGo/giantgo-render",
   "peerDependencies": {
     "vue": "^3.2.16"
   },
