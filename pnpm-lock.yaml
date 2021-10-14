@@ -11,6 +11,7 @@ importers:
       autoprefixer: ^10.3.6
       codemirror: ^5.63.3
       element-plus: ^1.1.0-beta.19
+      giantgo-render: workspace:*
       mitt: ^3.0.0
       quill: ^1.3.7
       sass: ~1.32.13
@@ -24,6 +25,7 @@ importers:
       '@giantgo-render/utils': link:packages/utils
       codemirror: 5.63.3
       element-plus: 1.1.0-beta.19_vue@3.2.19
+      giantgo-render: link:packages/giantgo-render
       mitt: 3.0.0
       quill: 1.3.7
       vue: 3.2.19
@@ -56,6 +58,7 @@ importers:
       mitt: ^3.0.0
       quill: ^1.3.7
       sass: ~1.32.13
+      unplugin-element-plus: ^0.1.0
       unplugin-vue-components: ^0.15.6
       vite: ^2.6.4
       vite-svg-loader: ^2.2.0
@@ -73,6 +76,7 @@ importers:
       '@vue/compiler-sfc': 3.2.19
       autoprefixer: 10.3.6
       sass: 1.32.13
+      unplugin-element-plus: 0.1.0_vite@2.6.7+vue@3.2.19
       unplugin-vue-components: 0.15.6_vite@2.6.7+vue@3.2.19
       vite: 2.6.7_sass@1.32.13
       vite-svg-loader: 2.2.0
@@ -83,18 +87,12 @@ importers:
   play:
     specifiers:
       '@vitejs/plugin-vue': ^1.9.3
-      autoprefixer: ^10.3.6
-      giantgo-render: workspace:*
-      sass: ~1.32.13
       vite: ^2.6.4
       vue: ^3.2.16
     dependencies:
-      giantgo-render: link:../packages/giantgo-render
       vue: 3.2.19
     devDependencies:
       '@vitejs/plugin-vue': 1.9.3_vite@2.6.7
-      autoprefixer: 10.3.6
-      sass: 1.32.13
       vite: 2.6.7_sass@1.32.13
 
 packages:
@@ -814,6 +812,10 @@ packages:
 
   /entities/2.2.0:
     resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
+    dev: true
+
+  /es-module-lexer/0.7.1:
+    resolution: {integrity: sha512-MgtWFl5No+4S3TmhDmCz2ObFGm6lEpTnzbQi+Dd+pw4mlTIZTmM2iAs5gRlmx5zS9luzobCSBSI90JM/1/JgOw==}
     dev: true
 
   /esbuild-android-arm64/0.13.4:
@@ -1725,6 +1727,23 @@ packages:
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
+    dev: true
+
+  /unplugin-element-plus/0.1.0_vite@2.6.7+vue@3.2.19:
+    resolution: {integrity: sha512-DdNgXlZtarpU6dGzh8WIP5bxLSIWg1qPKHnGvlqOY+RGlljyxe3yULPo6HMAzovdxy+ix4kAijncZSEud72khA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      vue: 2 || 3
+    dependencies:
+      '@rollup/pluginutils': 4.1.1
+      es-module-lexer: 0.7.1
+      magic-string: 0.25.7
+      unplugin: 0.2.16_vite@2.6.7
+      vue: 3.2.19
+    transitivePeerDependencies:
+      - rollup
+      - vite
+      - webpack
     dev: true
 
   /unplugin-vue-components/0.15.6_vite@2.6.7+vue@3.2.19:

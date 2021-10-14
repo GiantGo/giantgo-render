@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "pnpm -C play dev",
     "build": "pnpm -C packages/giantgo-render build",
+    "mini": "pnpm -C packages/giantgo-render mini",
     "docs:dev": "pnpm -C docs dev",
     "docs:build": "pnpm -C docs build",
     "docs:serve": "pnpm -C docs serve"
@@ -17,6 +18,7 @@
     "vue": "^3.2.16"
   },
   "dependencies": {
+    "giantgo-render": "workspace:*",
     "@giantgo-render/components": "workspace:*",
     "@giantgo-render/utils": "workspace:*",
     "codemirror": "^5.63.3",

@@ -1,21 +1,30 @@
 {
   "name": "giantgo-render",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "A form generator and form render for Vue3 + ElementPlus",
-  "files": [
-    "dist",
-    "dist/*.css"
-  ],
-  "main": "./dist/giantgo-render.umd.js",
-  "module": "./dist/giantgo-render.es.js",
+  "main": "./src/main.js",
+  "module": "./src/main.js",
   "exports": {
+    "./src/styles/index.scss": "./src/styles/index.scss",
     ".": {
-      "import": "./dist/giantgo-render.es.js",
-      "require": "./dist/giantgo-render.umd.js"
+      "import": "./src/main.js",
+      "require": "./src/main.js"
+    }
+  },
+  "publishConfig": {
+    "main": "./dist/giantgo-render.umd.js",
+    "module": "./dist/giantgo-render.es.js",
+    "exports": {
+      "./dist/style.css": "./dist/styles.css",
+      ".": {
+        "import": "./dist/giantgo-render.es.js",
+        "require": "./dist/giantgo-render.umd.js"
+      }
     }
   },
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "mini": "vite build --mode mini"
   },
   "repository": {
     "type": "git",
@@ -49,6 +58,7 @@
     "@vue/compiler-sfc": "^3.2.16",
     "autoprefixer": "^10.3.6",
     "sass": "~1.32.13",
+    "unplugin-element-plus": "^0.1.0",
     "unplugin-vue-components": "^0.15.6",
     "vite": "^2.6.4",
     "vite-svg-loader": "^2.2.0"
