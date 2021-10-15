@@ -9,8 +9,7 @@
     "module": "./dist/giantgo-render.es.js"
   },
   "scripts": {
-    "build": "vite build",
-    "mini": "vite build --mode mini"
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
@@ -44,8 +43,6 @@
     "@vue/compiler-sfc": "^3.2.16",
     "autoprefixer": "^10.3.6",
     "sass": "~1.32.13",
-    "unplugin-element-plus": "^0.1.0",
-    "unplugin-vue-components": "^0.15.6",
     "vite": "^2.6.4",
     "vite-svg-loader": "^2.2.0"
   }

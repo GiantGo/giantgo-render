@@ -47,11 +47,9 @@
 
 <script>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
-import { ElTooltip, ElDialog, ElButton, ElDivider } from 'element-plus'
-import { CodeMirror } from '@giantgo-render/components'
+import { ElTooltip, ElDialog, ElButton, ElDivider, ElMessage } from 'element-plus'
+import { CodeMirror, FormRender } from '@giantgo-render/components'
 import { deepClone } from '@giantgo-render/utils'
-import { ElMessage } from 'element-plus'
-import FormRender from '../FormRender/index.vue'
 import JsonIcon from './icons/json.svg'
 
 export default {
