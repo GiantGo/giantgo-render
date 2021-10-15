@@ -3,6 +3,11 @@
 # 当发生错误时中止脚本
 set -e
 
+cd example
+
+# 安装
+npm i
+
 # 构建
 npm run build
 
@@ -22,4 +27,5 @@ git commit -m 'deploy'
 # 部署到 https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:GiantGo/giantgo-render.git master:gh-pages
 
+cd -
 cd -
