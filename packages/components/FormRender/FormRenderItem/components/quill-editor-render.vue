@@ -1,24 +1,25 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <quill-editor
-      v-if="!options.hidden"
+      :value="modelValue"
+      @change="$emit('update:modelValue', $event.html)"
       :disabled="options.disabled"
-      :options="{ placeholder: options.placeholder, readOnly: true }"
+      :options="{ placeholder: options.placeholder, readOnly: false }"
       :style="{ height: options.height }"
     />
   </el-form-item>
 </template>
 
 <script>
-import { QuillEditor } from '@giantgo-render/components'
 import { ElFormItem } from 'element-plus'
+import { QuillEditor } from '@giantgo-render/components'
 
 export default {
-  name: 'editorBuilder',
+  name: 'quillEditorRender',
   components: { ElFormItem, QuillEditor },
   props: {
     path: String,
-    uuid: String,
+    modelValue: String,
     options: {
       type: Object,
       default() {

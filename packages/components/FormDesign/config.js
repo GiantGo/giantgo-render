@@ -338,11 +338,27 @@ export const pickers = [
 
 export const complexs = [
   {
-    name: '富文本编辑器',
-    component: 'editor',
+    name: 'Quill编辑器',
+    component: 'quill-editor',
     uuid: '',
     options: {
-      label: '富文本编辑器',
+      label: 'Quill编辑器',
+      key: '',
+      defaultValue: '',
+      rules: rules,
+      width: '100%',
+      height: '100px',
+      placeholder: '请输入',
+      hidden: false,
+      disabled: false
+    }
+  },
+  {
+    name: 'Tinymce编辑器',
+    component: 'tinymce-editor',
+    uuid: '',
+    options: {
+      label: 'Tinymce编辑器',
       key: '',
       defaultValue: '',
       rules: rules,

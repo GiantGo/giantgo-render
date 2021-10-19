@@ -1,22 +1,23 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <quill-editor
+    <tinymce-editor
+      ref="tinymceRef"
       :value="modelValue"
-      @change="$emit('update:modelValue', $event.html)"
+      @input="$emit('update:modelValue', $event)"
       :disabled="options.disabled"
-      :options="{ placeholder: options.placeholder, readOnly: false }"
-      :style="{ height: options.height }"
+      :readOnly="false"
+      :height="options.height"
     />
   </el-form-item>
 </template>
 
 <script>
 import { ElFormItem } from 'element-plus'
-import { QuillEditor } from '@giantgo-render/components'
+import { TinymceEditor } from '@giantgo-render/components'
 
 export default {
-  name: 'editorRender',
-  components: { ElFormItem, QuillEditor },
+  name: 'tinymceEditorRender',
+  components: { ElFormItem, TinymceEditor },
   props: {
     path: String,
     modelValue: String,
@@ -27,7 +28,7 @@ export default {
       }
     }
   },
-  setup() {}
+  setup(props) {}
 }
 </script>
 

@@ -17,8 +17,8 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-import { openBlock, createElementBlock, createElementVNode, watch, ref, onBeforeUnmount, onMounted, onUnmounted, defineAsyncComponent, resolveComponent, Fragment, renderList, createBlock, normalizeStyle, withCtx, toDisplayString, createVNode, createCommentVNode, createTextVNode, inject, reactive, nextTick, createSlots, resolveDynamicComponent, provide, toRaw, computed, TransitionGroup, defineComponent, h, normalizeClass, mergeProps, withModifiers } from "vue";
-import { ElCard, ElFormItem, ElCascader, ElCheckboxGroup, ElCheckbox, ElColorPicker, ElDatePicker, ElInput, ElSelect, ElOption, ElInputNumber, ElRadioGroup, ElRadio, ElRate, ElSlider, ElSwitch, ElButton, ElTable, ElTableColumn, ElDialog, ElTabs, ElTabPane, ElTimePicker, ElUpload, ElMessage, ElMessageBox, ElForm, ElTooltip, ElDivider, ElEmpty, ElRadioButton, ElRow, ElCol } from "element-plus";
+import { openBlock, createElementBlock, createElementVNode, watch, ref, onBeforeUnmount, onMounted, onUnmounted, reactive, computed, nextTick, toRefs, normalizeClass, normalizeStyle, defineAsyncComponent, resolveComponent, Fragment, renderList, createBlock, withCtx, toDisplayString, createVNode, createCommentVNode, createTextVNode, inject, createSlots, resolveDynamicComponent, provide, toRaw, TransitionGroup, defineComponent, h, mergeProps, withModifiers } from "vue";
+import { ElMessage, ElCard, ElFormItem, ElCascader, ElCheckboxGroup, ElCheckbox, ElColorPicker, ElDatePicker, ElInput, ElSelect, ElOption, ElInputNumber, ElRadioGroup, ElRadio, ElRate, ElSlider, ElSwitch, ElButton, ElTable, ElTableColumn, ElDialog, ElTabs, ElTabPane, ElTimePicker, ElUpload, ElMessageBox, ElForm, ElTooltip, ElDivider, ElEmpty, ElRadioButton, ElRow, ElCol } from "element-plus";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
@@ -2175,10 +2175,10 @@ var codemirror$1 = { exports: {} };
       }
     }
     function fireCallbacksForOps(group) {
-      var callbacks = group.delayedCallbacks, i2 = 0;
+      var callbacks2 = group.delayedCallbacks, i2 = 0;
       do {
-        for (; i2 < callbacks.length; i2++) {
-          callbacks[i2].call(null);
+        for (; i2 < callbacks2.length; i2++) {
+          callbacks2[i2].call(null);
         }
         for (var j = 0; j < group.ops.length; j++) {
           var op = group.ops[j];
@@ -2188,7 +2188,7 @@ var codemirror$1 = { exports: {} };
             }
           }
         }
-      } while (i2 < callbacks.length);
+      } while (i2 < callbacks2.length);
     }
     function finishOperation(op, endCb) {
       var group = op.ownsGroup;
@@ -11710,7 +11710,7 @@ var _export_sfc = (sfc, props2) => {
   }
   return sfc;
 };
-const _sfc_main$1L = {
+const _sfc_main$1O = {
   name: "code-mirror",
   props: {
     modelValue: {
@@ -11790,15 +11790,15 @@ const _sfc_main$1L = {
     }
   }
 };
-const _hoisted_1$s = { class: "vue-codemirror-wrap" };
+const _hoisted_1$t = { class: "vue-codemirror-wrap" };
 const _hoisted_2$l = /* @__PURE__ */ createElementVNode("textarea", null, null, -1);
 const _hoisted_3$h = [
   _hoisted_2$l
 ];
-function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$s, _hoisted_3$h);
+function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$t, _hoisted_3$h);
 }
-var CodeMirror = /* @__PURE__ */ _export_sfc(_sfc_main$1L, [["render", _sfc_render$1L]]);
+var CodeMirror = /* @__PURE__ */ _export_sfc(_sfc_main$1O, [["render", _sfc_render$1O]]);
 var quill_core = "";
 var quill_snow = "";
 var quill_bubble = "";
@@ -21401,14 +21401,14 @@ var quill = { exports: {} };
           }
           _createClass(SnowTheme2, [{
             key: "extendToolbar",
-            value: function extendToolbar(toolbar) {
-              toolbar.container.classList.add("ql-snow");
-              this.buildButtons([].slice.call(toolbar.container.querySelectorAll("button")), _icons2.default);
-              this.buildPickers([].slice.call(toolbar.container.querySelectorAll("select")), _icons2.default);
+            value: function extendToolbar(toolbar2) {
+              toolbar2.container.classList.add("ql-snow");
+              this.buildButtons([].slice.call(toolbar2.container.querySelectorAll("button")), _icons2.default);
+              this.buildPickers([].slice.call(toolbar2.container.querySelectorAll("select")), _icons2.default);
               this.tooltip = new SnowTooltip(this.quill, this.options.bounds);
-              if (toolbar.container.querySelector(".ql-link")) {
+              if (toolbar2.container.querySelector(".ql-link")) {
                 this.quill.keyboard.addBinding({ key: "K", shortKey: true }, function(range, context) {
-                  toolbar.handlers["link"].call(toolbar, !context.format.link);
+                  toolbar2.handlers["link"].call(toolbar2, !context.format.link);
                 });
               }
             }
@@ -23005,11 +23005,11 @@ var quill = { exports: {} };
           }
           _createClass(BubbleTheme2, [{
             key: "extendToolbar",
-            value: function extendToolbar(toolbar) {
+            value: function extendToolbar(toolbar2) {
               this.tooltip = new BubbleTooltip(this.quill, this.options.bounds);
-              this.tooltip.root.appendChild(toolbar.container);
-              this.buildButtons([].slice.call(toolbar.container.querySelectorAll("button")), _icons2.default);
-              this.buildPickers([].slice.call(toolbar.container.querySelectorAll("select")), _icons2.default);
+              this.tooltip.root.appendChild(toolbar2.container);
+              this.buildButtons([].slice.call(toolbar2.container.querySelectorAll("button")), _icons2.default);
+              this.buildPickers([].slice.call(toolbar2.container.querySelectorAll("select")), _icons2.default);
             }
           }]);
           return BubbleTheme2;
@@ -23130,7 +23130,7 @@ const defaultOptions = {
   placeholder: "Insert content here ...",
   readOnly: false
 };
-const _sfc_main$1K = {
+const _sfc_main$1N = {
   name: "quill-editor",
   props: {
     content: String,
@@ -23238,11 +23238,234 @@ const _sfc_main$1K = {
     return { editor };
   }
 };
-const _hoisted_1$r = { ref: "editor" };
-function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("section", _hoisted_1$r, null, 512);
+const _hoisted_1$s = { ref: "editor" };
+function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("section", _hoisted_1$s, null, 512);
 }
-var QuillEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1K, [["render", _sfc_render$1K]]);
+var QuillEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1N, [["render", _sfc_render$1N]]);
+let callbacks = [];
+function loadedTinymce() {
+  return window.tinymce;
+}
+const dynamicLoadScript = (src, callback) => {
+  const existingScript = document.getElementById(src);
+  const cb = callback || function() {
+  };
+  if (!existingScript) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.id = src;
+    document.body.appendChild(script);
+    callbacks.push(cb);
+    const onEnd = "onload" in script ? stdOnEnd : ieOnEnd;
+    onEnd(script);
+  }
+  if (existingScript && cb) {
+    if (loadedTinymce()) {
+      cb(null, existingScript);
+    } else {
+      callbacks.push(cb);
+    }
+  }
+  function stdOnEnd(script) {
+    script.onload = function() {
+      this.onerror = this.onload = null;
+      for (const cb2 of callbacks) {
+        cb2(null, script);
+      }
+      callbacks = null;
+    };
+    script.onerror = function() {
+      this.onerror = this.onload = null;
+      cb(new Error("Failed to load " + src), script);
+    };
+  }
+  function ieOnEnd(script) {
+    script.onreadystatechange = function() {
+      if (this.readyState !== "complete" && this.readyState !== "loaded")
+        return;
+      this.onreadystatechange = null;
+      for (const cb2 of callbacks) {
+        cb2(null, script);
+      }
+      callbacks = null;
+    };
+  }
+};
+var index_vue_vue_type_style_index_0_scoped_true_lang = "";
+var index_vue_vue_type_style_index_1_lang = "";
+const tinymceCDN = "https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js";
+const plugins$1 = [
+  "advlist anchor autolink autosave code codesample colorpicker colorpicker contextmenu directionality emoticons fullscreen hr image imagetools insertdatetime link lists media nonbreaking noneditable pagebreak paste preview print save searchreplace spellchecker tabfocus table template textcolor textpattern visualblocks visualchars wordcount"
+];
+const toolbar = [
+  "searchreplace bold italic underline strikethrough alignleft aligncenter alignright outdent indent  blockquote undo redo removeformat subscript superscript code codesample",
+  "hr bullist numlist link image charmap preview anchor pagebreak insertdatetime media table emoticons forecolor backcolor fullscreen"
+];
+const _sfc_main$1M = {
+  name: "tinymce-editor",
+  components: {},
+  props: {
+    id: {
+      type: String,
+      default: function() {
+        return "vue-tinymce-" + +new Date() + ((Math.random() * 1e3).toFixed(0) + "");
+      }
+    },
+    value: {
+      type: String,
+      default: ""
+    },
+    toolbar: {
+      type: Array,
+      required: false,
+      default() {
+        return [];
+      }
+    },
+    menubar: {
+      type: String,
+      default: "file edit insert view format table"
+    },
+    height: {
+      type: [Number, String],
+      required: false,
+      default: 360
+    },
+    width: {
+      type: [Number, String],
+      required: false,
+      default: "auto"
+    },
+    readOnly: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(props2, { emit: emit2 }) {
+    let state = reactive({
+      hasChange: false,
+      hasInit: false,
+      tinymceId: props2.id,
+      fullscreen: false,
+      languageTypeList: {
+        en: "en",
+        zh: "zh_CN",
+        es: "es_MX",
+        ja: "ja"
+      }
+    });
+    const initTinymce = () => {
+      window.tinymce.init({
+        selector: `#${state.tinymceId}`,
+        content_style: "p {margin: 0px; border:0px ; padding: 4px;}",
+        language: state.languageTypeList["zh"],
+        height: props2.height,
+        body_class: "panel-body ",
+        object_resizing: false,
+        readonly: props2.readOnly,
+        statusbar: !props2.readOnly,
+        toolbar: props2.readOnly ? false : props2.toolbar.length > 0 ? props2.toolbar : toolbar,
+        menubar: props2.readOnly ? false : props2.menubar,
+        plugins: props2.readOnly ? false : plugins$1,
+        end_container_on_empty_block: true,
+        powerpaste_word_import: "clean",
+        code_dialog_height: 450,
+        code_dialog_width: 1e3,
+        plugin_preview_width: "500",
+        plugin_preview_height: "600",
+        advlist_bullet_styles: "square",
+        advlist_number_styles: "default",
+        imagetools_cors_hosts: ["www.tinymce.com", "codepen.io"],
+        default_link_target: "_blank",
+        link_title: false,
+        nonbreaking_force_tab: true,
+        init_instance_callback: (editor) => {
+          if (props2.value) {
+            editor.setContent(props2.value);
+          }
+          state.hasInit = true;
+          editor.on("NodeChange Change KeyUp SetContent", () => {
+            state.hasChange = true;
+            emit2("input", editor.getContent());
+          });
+        },
+        setup(editor) {
+          editor.on("FullscreenStateChanged", (e) => {
+            state.fullscreen = e.state;
+          });
+        },
+        file_picker_types: "file image media",
+        convert_urls: false
+      });
+    };
+    const init = () => {
+      dynamicLoadScript(tinymceCDN, (err) => {
+        if (err) {
+          ElMessage.error(err.message);
+          return;
+        }
+        initTinymce();
+      });
+    };
+    const setContent = (value) => {
+      window.tinymce.get(state.tinymceId).setContent(value);
+    };
+    const getContent = () => {
+      return window.tinymce.get(state.tinymceId).getContent();
+    };
+    const destroyTinymce = () => {
+      const tinymce = window.tinymce.get(state.tinymceId);
+      if (state.fullscreen) {
+        tinymce.execCommand("mceFullScreen");
+      }
+      if (tinymce) {
+        tinymce.destroy();
+      }
+    };
+    const containerWidth = computed(() => {
+      const width2 = props2.width;
+      if (/^[\d]+(\.[\d]+)?$/.test(width2)) {
+        return `${width2}px`;
+      }
+      return width2;
+    });
+    watch(() => props2.value, () => {
+      if (!state.hasChange && state.hasInit) {
+        nextTick(() => {
+          window.tinymce.get(state.tinymceId).setContent(props2.value || "");
+        });
+      }
+    }, { immediate: true });
+    onMounted(() => {
+      init();
+    });
+    onBeforeUnmount(() => {
+      destroyTinymce();
+    });
+    let { tinymceId, fullscreen } = toRefs(state);
+    return {
+      tinymceId,
+      fullscreen,
+      containerWidth,
+      setContent,
+      getContent
+    };
+  }
+};
+const _hoisted_1$r = ["id"];
+function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", {
+    class: normalizeClass([{ fullscreen: $setup.fullscreen }, "tinymce-container"]),
+    style: normalizeStyle({ width: $setup.containerWidth })
+  }, [
+    createElementVNode("textarea", {
+      id: $setup.tinymceId,
+      class: "tinymce-textarea"
+    }, null, 8, _hoisted_1$r)
+  ], 6);
+}
+var TinymceEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-25e56352"]]);
 function debounce(func, wait, immediate) {
   var timeout;
   return function() {
@@ -23361,7 +23584,7 @@ function mitt(n) {
     });
   } };
 }
-const _sfc_main$1J = {
+const _sfc_main$1L = {
   name: "objectRender",
   components: { FormRenderItem: defineAsyncComponent(() => Promise.resolve().then(function() {
     return index$4;
@@ -23392,7 +23615,7 @@ const _sfc_main$1J = {
   }
 };
 const _hoisted_1$q = { class: "form-item-list" };
-function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_render_item = resolveComponent("form-render-item");
   return openBlock(), createElementBlock("div", _hoisted_1$q, [
     (openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item) => {
@@ -23412,13 +23635,13 @@ function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var objectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1J, [["render", _sfc_render$1J]]);
-var __glob_0_10 = /* @__PURE__ */ Object.freeze({
+var objectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1L, [["render", _sfc_render$1L]]);
+var __glob_0_9 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": objectRender
 });
-const _sfc_main$1I = {
+const _sfc_main$1K = {
   name: "cardRender",
   components: { ElCard, objectRender },
   props: {
@@ -23441,7 +23664,7 @@ const _sfc_main$1I = {
   }
 };
 const _hoisted_1$p = { class: "card-header" };
-function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_render = resolveComponent("object-render");
   const _component_el_card = resolveComponent("el-card");
   return openBlock(), createBlock(_component_el_card, {
@@ -23466,13 +23689,13 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["shadow", "body-style"]);
 }
-var cardRender = /* @__PURE__ */ _export_sfc(_sfc_main$1I, [["render", _sfc_render$1I]]);
+var cardRender = /* @__PURE__ */ _export_sfc(_sfc_main$1K, [["render", _sfc_render$1K]]);
 var __glob_0_0 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": cardRender
 });
-const _sfc_main$1H = {
+const _sfc_main$1J = {
   name: "cascaderRender",
   components: { ElFormItem, ElCascader },
   props: {
@@ -23488,7 +23711,7 @@ const _sfc_main$1H = {
   setup() {
   }
 };
-function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -23512,13 +23735,13 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var cascaderRender = /* @__PURE__ */ _export_sfc(_sfc_main$1H, [["render", _sfc_render$1H]]);
+var cascaderRender = /* @__PURE__ */ _export_sfc(_sfc_main$1J, [["render", _sfc_render$1J]]);
 var __glob_0_1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": cascaderRender
 });
-const _sfc_main$1G = {
+const _sfc_main$1I = {
   name: "checkboxRender",
   components: { ElFormItem, ElCheckboxGroup, ElCheckbox },
   props: {
@@ -23534,7 +23757,7 @@ const _sfc_main$1G = {
   setup() {
   }
 };
-function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -23568,13 +23791,13 @@ function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var checkboxRender = /* @__PURE__ */ _export_sfc(_sfc_main$1G, [["render", _sfc_render$1G]]);
+var checkboxRender = /* @__PURE__ */ _export_sfc(_sfc_main$1I, [["render", _sfc_render$1I]]);
 var __glob_0_2 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": checkboxRender
 });
-const _sfc_main$1F = {
+const _sfc_main$1H = {
   name: "colorPickerRender",
   components: { ElFormItem, ElColorPicker },
   props: {
@@ -23590,7 +23813,7 @@ const _sfc_main$1F = {
   setup() {
   }
 };
-function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -23609,13 +23832,13 @@ function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var colorPickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1F, [["render", _sfc_render$1F]]);
+var colorPickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1H, [["render", _sfc_render$1H]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": colorPickerRender
 });
-const _sfc_main$1E = {
+const _sfc_main$1G = {
   name: "datePickerRender",
   components: { ElFormItem, ElDatePicker },
   props: {
@@ -23631,7 +23854,7 @@ const _sfc_main$1E = {
   setup() {
   }
 };
-function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -23653,13 +23876,13 @@ function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var datePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1E, [["render", _sfc_render$1E]]);
+var datePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1G, [["render", _sfc_render$1G]]);
 var __glob_0_4 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": datePickerRender
 });
-const _sfc_main$1D = {
+const _sfc_main$1F = {
   name: "dateRangePickerRender",
   components: { ElFormItem, ElDatePicker },
   props: {
@@ -23675,7 +23898,7 @@ const _sfc_main$1D = {
   setup() {
   }
 };
-function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -23698,55 +23921,13 @@ function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var dateRangePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1D, [["render", _sfc_render$1D]]);
+var dateRangePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1F, [["render", _sfc_render$1F]]);
 var __glob_0_5 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": dateRangePickerRender
 });
-const _sfc_main$1C = {
-  name: "editorRender",
-  components: { ElFormItem, QuillEditor },
-  props: {
-    path: String,
-    modelValue: String,
-    options: {
-      type: Object,
-      default() {
-        return {};
-      }
-    }
-  },
-  setup() {
-  }
-};
-function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_quill_editor = resolveComponent("quill-editor");
-  const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    prop: $props.path,
-    label: $props.options.label,
-    rules: $props.options.rules
-  }, {
-    default: withCtx(() => [
-      createVNode(_component_quill_editor, {
-        value: $props.modelValue,
-        onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event.html)),
-        disabled: $props.options.disabled,
-        options: { placeholder: $props.options.placeholder, readOnly: false },
-        style: normalizeStyle({ height: $props.options.height })
-      }, null, 8, ["value", "disabled", "options", "style"])
-    ]),
-    _: 1
-  }, 8, ["prop", "label", "rules"]);
-}
-var editorRender = /* @__PURE__ */ _export_sfc(_sfc_main$1C, [["render", _sfc_render$1C]]);
-var __glob_0_6 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": editorRender
-});
-const _sfc_main$1B = {
+const _sfc_main$1E = {
   name: "inputRender",
   components: { ElFormItem, ElInput },
   props: {
@@ -23762,7 +23943,7 @@ const _sfc_main$1B = {
   setup() {
   }
 };
-function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -23788,13 +23969,13 @@ function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var inputRender = /* @__PURE__ */ _export_sfc(_sfc_main$1B, [["render", _sfc_render$1B]]);
-var __glob_0_7 = /* @__PURE__ */ Object.freeze({
+var inputRender = /* @__PURE__ */ _export_sfc(_sfc_main$1E, [["render", _sfc_render$1E]]);
+var __glob_0_6 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": inputRender
 });
-const _sfc_main$1A = {
+const _sfc_main$1D = {
   name: "multiSelectRender",
   components: { ElFormItem, ElSelect, ElOption },
   props: {
@@ -23810,7 +23991,7 @@ const _sfc_main$1A = {
   setup() {
   }
 };
-function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -23848,13 +24029,13 @@ function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var multiSelectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1A, [["render", _sfc_render$1A]]);
-var __glob_0_8 = /* @__PURE__ */ Object.freeze({
+var multiSelectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1D, [["render", _sfc_render$1D]]);
+var __glob_0_7 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": multiSelectRender
 });
-const _sfc_main$1z = {
+const _sfc_main$1C = {
   name: "numberRender",
   components: { ElFormItem, ElInputNumber },
   props: {
@@ -23870,7 +24051,7 @@ const _sfc_main$1z = {
   setup() {
   }
 };
-function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -23890,13 +24071,55 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var numberRender = /* @__PURE__ */ _export_sfc(_sfc_main$1z, [["render", _sfc_render$1z]]);
-var __glob_0_9 = /* @__PURE__ */ Object.freeze({
+var numberRender = /* @__PURE__ */ _export_sfc(_sfc_main$1C, [["render", _sfc_render$1C]]);
+var __glob_0_8 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": numberRender
 });
-const _sfc_main$1y = {
+const _sfc_main$1B = {
+  name: "quillEditorRender",
+  components: { ElFormItem, QuillEditor },
+  props: {
+    path: String,
+    modelValue: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_quill_editor = resolveComponent("quill-editor");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, {
+    prop: $props.path,
+    label: $props.options.label,
+    rules: $props.options.rules
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_quill_editor, {
+        value: $props.modelValue,
+        onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event.html)),
+        disabled: $props.options.disabled,
+        options: { placeholder: $props.options.placeholder, readOnly: false },
+        style: normalizeStyle({ height: $props.options.height })
+      }, null, 8, ["value", "disabled", "options", "style"])
+    ]),
+    _: 1
+  }, 8, ["prop", "label", "rules"]);
+}
+var quillEditorRender = /* @__PURE__ */ _export_sfc(_sfc_main$1B, [["render", _sfc_render$1B]]);
+var __glob_0_10 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": quillEditorRender
+});
+const _sfc_main$1A = {
   name: "radioRender",
   components: { ElFormItem, ElRadioGroup, ElRadio },
   props: {
@@ -23912,7 +24135,7 @@ const _sfc_main$1y = {
   setup() {
   }
 };
-function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -23946,13 +24169,13 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var radioRender = /* @__PURE__ */ _export_sfc(_sfc_main$1y, [["render", _sfc_render$1y]]);
+var radioRender = /* @__PURE__ */ _export_sfc(_sfc_main$1A, [["render", _sfc_render$1A]]);
 var __glob_0_11 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": radioRender
 });
-const _sfc_main$1x = {
+const _sfc_main$1z = {
   name: "rateRender",
   components: { ElFormItem, ElRate },
   props: {
@@ -23968,7 +24191,7 @@ const _sfc_main$1x = {
   setup() {
   }
 };
-function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -23989,13 +24212,13 @@ function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var rateRender = /* @__PURE__ */ _export_sfc(_sfc_main$1x, [["render", _sfc_render$1x]]);
+var rateRender = /* @__PURE__ */ _export_sfc(_sfc_main$1z, [["render", _sfc_render$1z]]);
 var __glob_0_12 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": rateRender
 });
-const _sfc_main$1w = {
+const _sfc_main$1y = {
   name: "selectRender",
   components: { ElFormItem, ElSelect, ElOption },
   props: {
@@ -24011,7 +24234,7 @@ const _sfc_main$1w = {
   setup() {
   }
 };
-function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -24046,13 +24269,13 @@ function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var selectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1w, [["render", _sfc_render$1w]]);
+var selectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1y, [["render", _sfc_render$1y]]);
 var __glob_0_13 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": selectRender
 });
-const _sfc_main$1v = {
+const _sfc_main$1x = {
   name: "sliderRender",
   components: { ElFormItem, ElSlider },
   props: {
@@ -24068,7 +24291,7 @@ const _sfc_main$1v = {
   setup() {
   }
 };
-function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -24092,13 +24315,13 @@ function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var sliderRender = /* @__PURE__ */ _export_sfc(_sfc_main$1v, [["render", _sfc_render$1v]]);
+var sliderRender = /* @__PURE__ */ _export_sfc(_sfc_main$1x, [["render", _sfc_render$1x]]);
 var __glob_0_14 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": sliderRender
 });
-const _sfc_main$1u = {
+const _sfc_main$1w = {
   name: "switchRender",
   components: { ElFormItem, ElSwitch },
   props: {
@@ -24114,7 +24337,7 @@ const _sfc_main$1u = {
   setup() {
   }
 };
-function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -24136,14 +24359,14 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var switchRender = /* @__PURE__ */ _export_sfc(_sfc_main$1u, [["render", _sfc_render$1u]]);
+var switchRender = /* @__PURE__ */ _export_sfc(_sfc_main$1w, [["render", _sfc_render$1w]]);
 var __glob_0_15 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": switchRender
 });
 var tableRender_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1t = {
+const _sfc_main$1v = {
   name: "tableRender",
   components: {
     ElFormItem,
@@ -24222,7 +24445,7 @@ const _sfc_main$1t = {
 };
 const _hoisted_1$o = { class: "tools" };
 const _hoisted_2$k = /* @__PURE__ */ createTextVNode("\u6DFB\u52A0");
-function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_table_column = resolveComponent("el-table-column");
   const _component_el_table = resolveComponent("el-table");
@@ -24314,13 +24537,13 @@ function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["title", "modelValue"])
   ], 64);
 }
-var tableRender = /* @__PURE__ */ _export_sfc(_sfc_main$1t, [["render", _sfc_render$1t], ["__scopeId", "data-v-7565aaf4"]]);
+var tableRender = /* @__PURE__ */ _export_sfc(_sfc_main$1v, [["render", _sfc_render$1v], ["__scopeId", "data-v-7565aaf4"]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tableRender
 });
-const _sfc_main$1s = {
+const _sfc_main$1u = {
   name: "tabsRender",
   components: { ElFormItem, ElTabs, ElTabPane, objectRender },
   props: {
@@ -24362,7 +24585,7 @@ const _sfc_main$1s = {
     };
   }
 };
-function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_render = resolveComponent("object-render");
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
@@ -24395,13 +24618,13 @@ function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "type", "tab-position"]);
 }
-var tabsRender = /* @__PURE__ */ _export_sfc(_sfc_main$1s, [["render", _sfc_render$1s]]);
+var tabsRender = /* @__PURE__ */ _export_sfc(_sfc_main$1u, [["render", _sfc_render$1u]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tabsRender
 });
-const _sfc_main$1r = {
+const _sfc_main$1t = {
   name: "textareaRender",
   components: { ElFormItem, ElInput },
   props: {
@@ -24417,7 +24640,7 @@ const _sfc_main$1r = {
   setup() {
   }
 };
-function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -24440,13 +24663,13 @@ function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var textareaRender = /* @__PURE__ */ _export_sfc(_sfc_main$1r, [["render", _sfc_render$1r]]);
+var textareaRender = /* @__PURE__ */ _export_sfc(_sfc_main$1t, [["render", _sfc_render$1t]]);
 var __glob_0_18 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": textareaRender
 });
-const _sfc_main$1q = {
+const _sfc_main$1s = {
   name: "timePickerRender",
   components: { ElFormItem, ElTimePicker },
   props: {
@@ -24462,7 +24685,7 @@ const _sfc_main$1q = {
   setup() {
   }
 };
-function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -24484,13 +24707,13 @@ function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var timePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1q, [["render", _sfc_render$1q]]);
+var timePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1s, [["render", _sfc_render$1s]]);
 var __glob_0_19 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": timePickerRender
 });
-const _sfc_main$1p = {
+const _sfc_main$1r = {
   name: "timeRangePickerRender",
   components: { ElFormItem, ElTimePicker },
   props: {
@@ -24506,7 +24729,7 @@ const _sfc_main$1p = {
   setup() {
   }
 };
-function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -24529,13 +24752,56 @@ function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var timeRangePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1p, [["render", _sfc_render$1p]]);
+var timeRangePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1r, [["render", _sfc_render$1r]]);
 var __glob_0_20 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": timeRangePickerRender
 });
-const _sfc_main$1o = {
+const _sfc_main$1q = {
+  name: "tinymceEditorRender",
+  components: { ElFormItem, TinymceEditor },
+  props: {
+    path: String,
+    modelValue: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup(props2) {
+  }
+};
+function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_tinymce_editor = resolveComponent("tinymce-editor");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, {
+    prop: $props.path,
+    label: $props.options.label,
+    rules: $props.options.rules
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_tinymce_editor, {
+        ref: "tinymceRef",
+        value: $props.modelValue,
+        onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
+        disabled: $props.options.disabled,
+        readOnly: false,
+        height: $props.options.height
+      }, null, 8, ["value", "disabled", "height"])
+    ]),
+    _: 1
+  }, 8, ["prop", "label", "rules"]);
+}
+var tinymceEditorRender = /* @__PURE__ */ _export_sfc(_sfc_main$1q, [["render", _sfc_render$1q]]);
+var __glob_0_21 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": tinymceEditorRender
+});
+const _sfc_main$1p = {
   name: "uploadRender",
   components: { ElFormItem, ElUpload, ElButton },
   props: {
@@ -24593,7 +24859,7 @@ const _sfc_main$1o = {
   }
 };
 const _hoisted_1$n = { class: "el-upload__tip" };
-function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -24643,15 +24909,15 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var uploadRender = /* @__PURE__ */ _export_sfc(_sfc_main$1o, [["render", _sfc_render$1o]]);
-var __glob_0_21 = /* @__PURE__ */ Object.freeze({
+var uploadRender = /* @__PURE__ */ _export_sfc(_sfc_main$1p, [["render", _sfc_render$1p]]);
+var __glob_0_22 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadRender
 });
 const components$3 = {};
-Object.values({ "./components/card-render.vue": __glob_0_0, "./components/cascader-render.vue": __glob_0_1, "./components/checkbox-render.vue": __glob_0_2, "./components/color-picker-render.vue": __glob_0_3, "./components/date-picker-render.vue": __glob_0_4, "./components/date-range-picker-render.vue": __glob_0_5, "./components/editor-render.vue": __glob_0_6, "./components/input-render.vue": __glob_0_7, "./components/multi-select-render.vue": __glob_0_8, "./components/number-render.vue": __glob_0_9, "./components/object-render.vue": __glob_0_10, "./components/radio-render.vue": __glob_0_11, "./components/rate-render.vue": __glob_0_12, "./components/select-render.vue": __glob_0_13, "./components/slider-render.vue": __glob_0_14, "./components/switch-render.vue": __glob_0_15, "./components/table-render.vue": __glob_0_16, "./components/tabs-render.vue": __glob_0_17, "./components/textarea-render.vue": __glob_0_18, "./components/time-picker-render.vue": __glob_0_19, "./components/time-range-picker-render.vue": __glob_0_20, "./components/upload-render.vue": __glob_0_21 }).forEach(({ default: component }) => components$3[component.name] = component);
-const _sfc_main$1n = {
+Object.values({ "./components/card-render.vue": __glob_0_0, "./components/cascader-render.vue": __glob_0_1, "./components/checkbox-render.vue": __glob_0_2, "./components/color-picker-render.vue": __glob_0_3, "./components/date-picker-render.vue": __glob_0_4, "./components/date-range-picker-render.vue": __glob_0_5, "./components/input-render.vue": __glob_0_6, "./components/multi-select-render.vue": __glob_0_7, "./components/number-render.vue": __glob_0_8, "./components/object-render.vue": __glob_0_9, "./components/quill-editor-render.vue": __glob_0_10, "./components/radio-render.vue": __glob_0_11, "./components/rate-render.vue": __glob_0_12, "./components/select-render.vue": __glob_0_13, "./components/slider-render.vue": __glob_0_14, "./components/switch-render.vue": __glob_0_15, "./components/table-render.vue": __glob_0_16, "./components/tabs-render.vue": __glob_0_17, "./components/textarea-render.vue": __glob_0_18, "./components/time-picker-render.vue": __glob_0_19, "./components/time-range-picker-render.vue": __glob_0_20, "./components/tinymce-editor-render.vue": __glob_0_21, "./components/upload-render.vue": __glob_0_22 }).forEach(({ default: component }) => components$3[component.name] = component);
+const _sfc_main$1o = {
   name: "formRenderItem",
   components: __spreadValues({}, components$3),
   props: {
@@ -24677,7 +24943,7 @@ const _sfc_main$1n = {
   setup() {
   }
 };
-function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
   return !$props.options.hidden ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "form-item",
@@ -24692,13 +24958,13 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["items", "options", "model-value", "path"]))
   ], 4)) : createCommentVNode("", true);
 }
-var FormRenderItem = /* @__PURE__ */ _export_sfc(_sfc_main$1n, [["render", _sfc_render$1n]]);
+var FormRenderItem = /* @__PURE__ */ _export_sfc(_sfc_main$1o, [["render", _sfc_render$1o]]);
 var index$4 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": FormRenderItem
 });
-const _sfc_main$1m = {
+const _sfc_main$1n = {
   name: "formRender",
   components: { ElForm, FormRenderItem, ElButton },
   props: {},
@@ -24772,7 +25038,7 @@ const _sfc_main$1m = {
 const _hoisted_1$m = { class: "btn-submit" };
 const _hoisted_2$j = /* @__PURE__ */ createTextVNode("\u63D0\u4EA4");
 const _hoisted_3$g = /* @__PURE__ */ createTextVNode("\u91CD\u7F6E");
-function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_render_item = resolveComponent("form-render-item");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form = resolveComponent("el-form");
@@ -24821,7 +25087,7 @@ function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label-width", "label-position", "hide-required-asterisk", "status-icon", "inline", "size", "model"]);
 }
-var FormRender = /* @__PURE__ */ _export_sfc(_sfc_main$1m, [["render", _sfc_render$1m]]);
+var FormRender = /* @__PURE__ */ _export_sfc(_sfc_main$1n, [["render", _sfc_render$1n]]);
 var index$3 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
@@ -27830,11 +28096,27 @@ const pickers = [
 ];
 const complexs = [
   {
-    name: "\u5BCC\u6587\u672C\u7F16\u8F91\u5668",
-    component: "editor",
+    name: "Quill\u7F16\u8F91\u5668",
+    component: "quill-editor",
     uuid: "",
     options: {
-      label: "\u5BCC\u6587\u672C\u7F16\u8F91\u5668",
+      label: "Quill\u7F16\u8F91\u5668",
+      key: "",
+      defaultValue: "",
+      rules: rules$1,
+      width: "100%",
+      height: "100px",
+      placeholder: "\u8BF7\u8F93\u5165",
+      hidden: false,
+      disabled: false
+    }
+  },
+  {
+    name: "Tinymce\u7F16\u8F91\u5668",
+    component: "tinymce-editor",
+    uuid: "",
+    options: {
+      label: "Tinymce\u7F16\u8F91\u5668",
       key: "",
       defaultValue: "",
       rules: rules$1,
@@ -27976,7 +28258,7 @@ const optionKeyLabels = {
   width: "\u7EC4\u4EF6\u5BBD\u5EA6",
   height: "\u7EC4\u4EF6\u9AD8\u5EA6"
 };
-const _sfc_main$1l = {
+const _sfc_main$1m = {
   components: { draggable: draggableComponent },
   setup() {
     return {
@@ -28005,7 +28287,7 @@ const _hoisted_10 = { class: "form-item-drop" };
 const _hoisted_11 = { class: "form-item-section" };
 const _hoisted_12 = /* @__PURE__ */ createElementVNode("div", { class: "title" }, "\u5E03\u5C40\u7EC4\u4EF6", -1);
 const _hoisted_13 = { class: "form-item-drop" };
-function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
   return openBlock(), createElementBlock("div", _hoisted_1$l, [
     createElementVNode("div", _hoisted_2$i, [
@@ -28082,7 +28364,7 @@ function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var left = /* @__PURE__ */ _export_sfc(_sfc_main$1l, [["render", _sfc_render$1l]]);
+var left = /* @__PURE__ */ _export_sfc(_sfc_main$1m, [["render", _sfc_render$1m]]);
 const _hoisted_1$k = {
   class: "icon",
   viewBox: "0 0 1024 1024",
@@ -28097,7 +28379,7 @@ const _hoisted_3$e = [
 function render$1(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$k, _hoisted_3$e);
 }
-const _sfc_main$1k = {
+const _sfc_main$1l = {
   components: { ElTooltip, ElDialog, ElButton, ElDivider, CodeMirror, FormRender, JsonIcon: render$1 },
   setup() {
     const formRender = ref(null);
@@ -28171,7 +28453,7 @@ const _hoisted_6$4 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
 const _hoisted_7$3 = { class: "json-box" };
 const _hoisted_8$1 = { class: "dialog-footer" };
 const _hoisted_9 = /* @__PURE__ */ createTextVNode("\u5173\u95ED");
-function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_JsonIcon = resolveComponent("JsonIcon");
   const _component_el_divider = resolveComponent("el-divider");
@@ -28327,8 +28609,8 @@ function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["title", "modelValue"])
   ]);
 }
-var operator = /* @__PURE__ */ _export_sfc(_sfc_main$1k, [["render", _sfc_render$1k]]);
-const _sfc_main$1j = {
+var operator = /* @__PURE__ */ _export_sfc(_sfc_main$1l, [["render", _sfc_render$1l]]);
+const _sfc_main$1k = {
   name: "objectBuilder",
   components: { draggable: draggableComponent, FormBuilderItem: defineAsyncComponent(() => Promise.resolve().then(function() {
     return index$1;
@@ -28359,7 +28641,7 @@ const _sfc_main$1j = {
     };
   }
 };
-function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_builder_item = resolveComponent("form-builder-item");
   const _component_draggable = resolveComponent("draggable");
   return openBlock(), createBlock(_component_draggable, mergeProps({
@@ -28386,13 +28668,13 @@ function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 16, ["model-value", "onUpdate:modelValue", "onStart", "onAdd"]);
 }
-var objectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1j, [["render", _sfc_render$1j]]);
-var __glob_1_10 = /* @__PURE__ */ Object.freeze({
+var objectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1k, [["render", _sfc_render$1k]]);
+var __glob_1_9 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": objectBuilder
 });
-const _sfc_main$1i = {
+const _sfc_main$1j = {
   name: "cardBuilder",
   components: { ElCard, objectBuilder },
   props: {
@@ -28415,7 +28697,7 @@ const _sfc_main$1i = {
   }
 };
 const _hoisted_1$i = { class: "card-header" };
-function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_builder = resolveComponent("object-builder");
   const _component_el_card = resolveComponent("el-card");
   return openBlock(), createBlock(_component_el_card, {
@@ -28438,13 +28720,13 @@ function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["shadow", "body-style"]);
 }
-var cardBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1i, [["render", _sfc_render$1i]]);
+var cardBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1j, [["render", _sfc_render$1j]]);
 var __glob_1_0 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": cardBuilder
 });
-const _sfc_main$1h = {
+const _sfc_main$1i = {
   name: "cascaderBuilder",
   components: { ElFormItem, ElCascader },
   props: {
@@ -28460,7 +28742,7 @@ const _sfc_main$1h = {
   setup() {
   }
 };
-function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -28483,13 +28765,13 @@ function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var cascadeBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1h, [["render", _sfc_render$1h]]);
+var cascadeBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1i, [["render", _sfc_render$1i]]);
 var __glob_1_1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": cascadeBuilder
 });
-const _sfc_main$1g = {
+const _sfc_main$1h = {
   name: "checkboxBuilder",
   components: { ElFormItem, ElCheckboxGroup, ElCheckbox },
   props: {
@@ -28505,7 +28787,7 @@ const _sfc_main$1g = {
   setup() {
   }
 };
-function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -28539,13 +28821,13 @@ function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var checkboxBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1g, [["render", _sfc_render$1g]]);
+var checkboxBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1h, [["render", _sfc_render$1h]]);
 var __glob_1_2 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": checkboxBuilder
 });
-const _sfc_main$1f = {
+const _sfc_main$1g = {
   name: "colorPickerBuilder",
   components: { ElFormItem, ElColorPicker },
   props: {
@@ -28561,7 +28843,7 @@ const _sfc_main$1f = {
   setup() {
   }
 };
-function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -28580,14 +28862,58 @@ function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var colorPickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1f, [["render", _sfc_render$1f]]);
+var colorPickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1g, [["render", _sfc_render$1g]]);
 var __glob_1_3 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": colorPickerBuilder
 });
-const _sfc_main$1e = {
+const _sfc_main$1f = {
   name: "datePickerBuilder",
+  components: { ElFormItem, ElDatePicker },
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_date_picker = resolveComponent("el-date-picker");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, {
+    prop: $props.path,
+    label: $props.options.label,
+    rules: $props.options.rules
+  }, {
+    default: withCtx(() => [
+      !$props.options.hidden ? (openBlock(), createBlock(_component_el_date_picker, {
+        key: 0,
+        "model-value": $props.options.defaultValue,
+        placeholder: $props.options.placeholder,
+        clearable: $props.options.clearable,
+        disabled: $props.options.disabled,
+        format: $props.options.format,
+        "prefix-icon": $props.options.prefixIcon
+      }, null, 8, ["model-value", "placeholder", "clearable", "disabled", "format", "prefix-icon"])) : createCommentVNode("", true)
+    ]),
+    _: 1
+  }, 8, ["prop", "label", "rules"]);
+}
+var datePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1f, [["render", _sfc_render$1f]]);
+var __glob_1_4 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": datePickerBuilder
+});
+const _sfc_main$1e = {
+  name: "dateRangePickerBuilder",
   components: { ElFormItem, ElDatePicker },
   props: {
     path: String,
@@ -28613,50 +28939,6 @@ function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
     default: withCtx(() => [
       !$props.options.hidden ? (openBlock(), createBlock(_component_el_date_picker, {
         key: 0,
-        "model-value": $props.options.defaultValue,
-        placeholder: $props.options.placeholder,
-        clearable: $props.options.clearable,
-        disabled: $props.options.disabled,
-        format: $props.options.format,
-        "prefix-icon": $props.options.prefixIcon
-      }, null, 8, ["model-value", "placeholder", "clearable", "disabled", "format", "prefix-icon"])) : createCommentVNode("", true)
-    ]),
-    _: 1
-  }, 8, ["prop", "label", "rules"]);
-}
-var datePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1e, [["render", _sfc_render$1e]]);
-var __glob_1_4 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": datePickerBuilder
-});
-const _sfc_main$1d = {
-  name: "dateRangePickerBuilder",
-  components: { ElFormItem, ElDatePicker },
-  props: {
-    path: String,
-    uuid: String,
-    options: {
-      type: Object,
-      default() {
-        return {};
-      }
-    }
-  },
-  setup() {
-  }
-};
-function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_date_picker = resolveComponent("el-date-picker");
-  const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    prop: $props.path,
-    label: $props.options.label,
-    rules: $props.options.rules
-  }, {
-    default: withCtx(() => [
-      !$props.options.hidden ? (openBlock(), createBlock(_component_el_date_picker, {
-        key: 0,
         type: "daterange",
         "model-value": $props.options.defaultValue,
         placeholder: $props.options.placeholder,
@@ -28669,54 +28951,13 @@ function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var dateRangePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1d]]);
+var dateRangePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1e, [["render", _sfc_render$1e]]);
 var __glob_1_5 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": dateRangePickerBuilder
 });
-const _sfc_main$1c = {
-  name: "editorBuilder",
-  components: { ElFormItem, QuillEditor },
-  props: {
-    path: String,
-    uuid: String,
-    options: {
-      type: Object,
-      default() {
-        return {};
-      }
-    }
-  },
-  setup() {
-  }
-};
-function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_quill_editor = resolveComponent("quill-editor");
-  const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    prop: $props.path,
-    label: $props.options.label,
-    rules: $props.options.rules
-  }, {
-    default: withCtx(() => [
-      !$props.options.hidden ? (openBlock(), createBlock(_component_quill_editor, {
-        key: 0,
-        disabled: $props.options.disabled,
-        options: { placeholder: $props.options.placeholder, readOnly: true },
-        style: normalizeStyle({ height: $props.options.height })
-      }, null, 8, ["disabled", "options", "style"])) : createCommentVNode("", true)
-    ]),
-    _: 1
-  }, 8, ["prop", "label", "rules"]);
-}
-var editorBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1c]]);
-var __glob_1_6 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": editorBuilder
-});
-const _sfc_main$1b = {
+const _sfc_main$1d = {
   name: "inputBuilder",
   components: { ElFormItem, ElInput },
   props: {
@@ -28732,7 +28973,7 @@ const _sfc_main$1b = {
   setup() {
   }
 };
-function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -28758,13 +28999,13 @@ function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var inputBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1b]]);
-var __glob_1_7 = /* @__PURE__ */ Object.freeze({
+var inputBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1d]]);
+var __glob_1_6 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": inputBuilder
 });
-const _sfc_main$1a = {
+const _sfc_main$1c = {
   name: "multiSelectBuilder",
   components: { ElFormItem, ElSelect, ElOption },
   props: {
@@ -28780,7 +29021,7 @@ const _sfc_main$1a = {
   setup() {
   }
 };
-function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -28818,13 +29059,13 @@ function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var multiSelectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1a, [["render", _sfc_render$1a]]);
-var __glob_1_8 = /* @__PURE__ */ Object.freeze({
+var multiSelectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1c]]);
+var __glob_1_7 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": multiSelectBuilder
 });
-const _sfc_main$19 = {
+const _sfc_main$1b = {
   name: "numberBuilder",
   components: { ElFormItem, ElInputNumber },
   props: {
@@ -28840,7 +29081,7 @@ const _sfc_main$19 = {
   setup() {
   }
 };
-function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -28859,13 +29100,54 @@ function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label"]);
 }
-var numberBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$19, [["render", _sfc_render$19]]);
-var __glob_1_9 = /* @__PURE__ */ Object.freeze({
+var numberBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1b]]);
+var __glob_1_8 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": numberBuilder
 });
-const _sfc_main$18 = {
+const _sfc_main$1a = {
+  name: "quillEditorBuilder",
+  components: { ElFormItem, QuillEditor },
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_quill_editor = resolveComponent("quill-editor");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, {
+    prop: $props.path,
+    label: $props.options.label,
+    rules: $props.options.rules
+  }, {
+    default: withCtx(() => [
+      !$props.options.hidden ? (openBlock(), createBlock(_component_quill_editor, {
+        key: 0,
+        disabled: $props.options.disabled,
+        options: { placeholder: $props.options.placeholder },
+        style: normalizeStyle({ height: $props.options.height })
+      }, null, 8, ["disabled", "options", "style"])) : createCommentVNode("", true)
+    ]),
+    _: 1
+  }, 8, ["prop", "label", "rules"]);
+}
+var quillEditorBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1a, [["render", _sfc_render$1a]]);
+var __glob_1_10 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": quillEditorBuilder
+});
+const _sfc_main$19 = {
   name: "radioBuilder",
   components: { ElFormItem, ElRadioGroup, ElRadio },
   props: {
@@ -28881,7 +29163,7 @@ const _sfc_main$18 = {
   setup() {
   }
 };
-function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -28915,13 +29197,13 @@ function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var radioBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$18, [["render", _sfc_render$18]]);
+var radioBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$19, [["render", _sfc_render$19]]);
 var __glob_1_11 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": radioBuilder
 });
-const _sfc_main$17 = {
+const _sfc_main$18 = {
   name: "rateBuilder",
   components: { ElFormItem, ElRate },
   props: {
@@ -28937,7 +29219,7 @@ const _sfc_main$17 = {
   setup() {
   }
 };
-function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -28958,13 +29240,13 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var rateBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$17, [["render", _sfc_render$17]]);
+var rateBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$18, [["render", _sfc_render$18]]);
 var __glob_1_12 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": rateBuilder
 });
-const _sfc_main$16 = {
+const _sfc_main$17 = {
   name: "selectBuilder",
   components: { ElFormItem, ElSelect, ElOption },
   props: {
@@ -28980,7 +29262,7 @@ const _sfc_main$16 = {
   setup() {
   }
 };
-function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -29015,13 +29297,13 @@ function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var selectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$16]]);
+var selectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$17, [["render", _sfc_render$17]]);
 var __glob_1_13 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": selectBuilder
 });
-const _sfc_main$15 = {
+const _sfc_main$16 = {
   name: "sliderBuilder",
   components: { ElFormItem, ElSlider },
   props: {
@@ -29037,7 +29319,7 @@ const _sfc_main$15 = {
   setup() {
   }
 };
-function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29061,13 +29343,13 @@ function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var sliderBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$15, [["render", _sfc_render$15]]);
+var sliderBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$16]]);
 var __glob_1_14 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": sliderBuilder
 });
-const _sfc_main$14 = {
+const _sfc_main$15 = {
   name: "switchBuilder",
   components: { ElFormItem, ElSwitch },
   props: {
@@ -29083,7 +29365,7 @@ const _sfc_main$14 = {
   setup() {
   }
 };
-function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29105,13 +29387,13 @@ function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var switchBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$14]]);
+var switchBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$15, [["render", _sfc_render$15]]);
 var __glob_1_15 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": switchBuilder
 });
-const _sfc_main$13 = {
+const _sfc_main$14 = {
   name: "tableBuilder",
   components: { ElFormItem, objectBuilder },
   props: {
@@ -29133,7 +29415,7 @@ const _sfc_main$13 = {
   setup() {
   }
 };
-function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_builder = resolveComponent("object-builder");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29152,13 +29434,13 @@ function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var tableBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$13, [["render", _sfc_render$13]]);
+var tableBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$14]]);
 var __glob_1_16 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tableBuilder
 });
-const _sfc_main$12 = {
+const _sfc_main$13 = {
   name: "tabsBuilder",
   components: { ElForm, ElFormItem, ElTabs, ElTabPane, ElDialog, ElInput, ElButton, objectBuilder },
   props: {
@@ -29267,7 +29549,7 @@ const _hoisted_4$9 = /* @__PURE__ */ createTextVNode(" \u5220\u9664 ");
 const _hoisted_5$5 = { class: "dialog-footer" };
 const _hoisted_6$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_7$2 = /* @__PURE__ */ createTextVNode("\u786E \u5B9A");
-function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_object_builder = resolveComponent("object-builder");
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
@@ -29409,13 +29691,13 @@ function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["title", "modelValue"])
   ], 64);
 }
-var tabsBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$12, [["render", _sfc_render$12]]);
+var tabsBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$13, [["render", _sfc_render$13]]);
 var __glob_1_17 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tabsBuilder
 });
-const _sfc_main$11 = {
+const _sfc_main$12 = {
   name: "textareaBuilder",
   components: { ElFormItem, ElInput },
   props: {
@@ -29431,7 +29713,7 @@ const _sfc_main$11 = {
   setup() {
   }
 };
-function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29454,14 +29736,58 @@ function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var textareaBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["render", _sfc_render$11]]);
+var textareaBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$12, [["render", _sfc_render$12]]);
 var __glob_1_18 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": textareaBuilder
 });
-const _sfc_main$10 = {
+const _sfc_main$11 = {
   name: "timePickerBuilder",
+  components: { ElFormItem, ElTimePicker },
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_time_picker = resolveComponent("el-time-picker");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, {
+    prop: $props.path,
+    label: $props.options.label,
+    rules: $props.options.rules
+  }, {
+    default: withCtx(() => [
+      !$props.options.hidden ? (openBlock(), createBlock(_component_el_time_picker, {
+        key: 0,
+        "model-value": $props.options.defaultValue,
+        placeholder: $props.options.placeholder,
+        clearable: $props.options.clearable,
+        disabled: $props.options.disabled,
+        format: $props.options.format,
+        "prefix-icon": $props.options.prefixIcon
+      }, null, 8, ["model-value", "placeholder", "clearable", "disabled", "format", "prefix-icon"])) : createCommentVNode("", true)
+    ]),
+    _: 1
+  }, 8, ["prop", "label", "rules"]);
+}
+var timePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["render", _sfc_render$11]]);
+var __glob_1_19 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": timePickerBuilder
+});
+const _sfc_main$10 = {
+  name: "timeRangePickerBuilder",
   components: { ElFormItem, ElTimePicker },
   props: {
     path: String,
@@ -29487,50 +29813,6 @@ function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
     default: withCtx(() => [
       !$props.options.hidden ? (openBlock(), createBlock(_component_el_time_picker, {
         key: 0,
-        "model-value": $props.options.defaultValue,
-        placeholder: $props.options.placeholder,
-        clearable: $props.options.clearable,
-        disabled: $props.options.disabled,
-        format: $props.options.format,
-        "prefix-icon": $props.options.prefixIcon
-      }, null, 8, ["model-value", "placeholder", "clearable", "disabled", "format", "prefix-icon"])) : createCommentVNode("", true)
-    ]),
-    _: 1
-  }, 8, ["prop", "label", "rules"]);
-}
-var timePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$10, [["render", _sfc_render$10]]);
-var __glob_1_19 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": timePickerBuilder
-});
-const _sfc_main$$ = {
-  name: "timeRangePickerBuilder",
-  components: { ElFormItem, ElTimePicker },
-  props: {
-    path: String,
-    uuid: String,
-    options: {
-      type: Object,
-      default() {
-        return {};
-      }
-    }
-  },
-  setup() {
-  }
-};
-function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_time_picker = resolveComponent("el-time-picker");
-  const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    prop: $props.path,
-    label: $props.options.label,
-    rules: $props.options.rules
-  }, {
-    default: withCtx(() => [
-      !$props.options.hidden ? (openBlock(), createBlock(_component_el_time_picker, {
-        key: 0,
         "is-range": "",
         "model-value": $props.options.defaultValue,
         placeholder: $props.options.placeholder,
@@ -29543,11 +29825,59 @@ function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var timeRangePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["render", _sfc_render$$]]);
+var timeRangePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$10, [["render", _sfc_render$10]]);
 var __glob_1_20 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": timeRangePickerBuilder
+});
+const _sfc_main$$ = {
+  name: "tinymceEditorBuilder",
+  components: { ElFormItem, TinymceEditor },
+  props: {
+    path: String,
+    modelValue: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup(props2) {
+    const tinymceRef = ref(null);
+    watch(() => props2.options.defaultValue, (val) => {
+      tinymceRef.value.setContent(val);
+    });
+    return {
+      tinymceRef
+    };
+  }
+};
+function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_tinymce_editor = resolveComponent("tinymce-editor");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, {
+    prop: $props.path,
+    label: $props.options.label,
+    rules: $props.options.rules
+  }, {
+    default: withCtx(() => [
+      !$props.options.hidden ? (openBlock(), createBlock(_component_tinymce_editor, {
+        key: 0,
+        ref: "tinymceRef",
+        disabled: $props.options.disabled,
+        height: $props.options.height
+      }, null, 8, ["disabled", "height"])) : createCommentVNode("", true)
+    ]),
+    _: 1
+  }, 8, ["prop", "label", "rules"]);
+}
+var tinymceEditorBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["render", _sfc_render$$]]);
+var __glob_1_21 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": tinymceEditorBuilder
 });
 const _sfc_main$_ = {
   name: "uploadBuilder",
@@ -29611,13 +29941,13 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["prop", "label", "rules"]);
 }
 var uploadBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$_, [["render", _sfc_render$_]]);
-var __glob_1_21 = /* @__PURE__ */ Object.freeze({
+var __glob_1_22 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadBuilder
 });
 const components$1 = {};
-Object.values({ "./components/card-builder.vue": __glob_1_0, "./components/cascade-builder.vue": __glob_1_1, "./components/checkbox-builder.vue": __glob_1_2, "./components/color-picker-builder.vue": __glob_1_3, "./components/date-picker-builder.vue": __glob_1_4, "./components/date-range-picker-builder.vue": __glob_1_5, "./components/editor-builder.vue": __glob_1_6, "./components/input-builder.vue": __glob_1_7, "./components/multi-select-builder.vue": __glob_1_8, "./components/number-builder.vue": __glob_1_9, "./components/object-builder.vue": __glob_1_10, "./components/radio-builder.vue": __glob_1_11, "./components/rate-builder.vue": __glob_1_12, "./components/select-builder.vue": __glob_1_13, "./components/slider-builder.vue": __glob_1_14, "./components/switch-builder.vue": __glob_1_15, "./components/table-builder.vue": __glob_1_16, "./components/tabs-builder.vue": __glob_1_17, "./components/textarea-builder.vue": __glob_1_18, "./components/time-picker-builder.vue": __glob_1_19, "./components/time-range-picker-builder.vue": __glob_1_20, "./components/upload-builder.vue": __glob_1_21 }).forEach(({ default: component }) => components$1[component.name] = component);
+Object.values({ "./components/card-builder.vue": __glob_1_0, "./components/cascade-builder.vue": __glob_1_1, "./components/checkbox-builder.vue": __glob_1_2, "./components/color-picker-builder.vue": __glob_1_3, "./components/date-picker-builder.vue": __glob_1_4, "./components/date-range-picker-builder.vue": __glob_1_5, "./components/input-builder.vue": __glob_1_6, "./components/multi-select-builder.vue": __glob_1_7, "./components/number-builder.vue": __glob_1_8, "./components/object-builder.vue": __glob_1_9, "./components/quill-editor-builder.vue": __glob_1_10, "./components/radio-builder.vue": __glob_1_11, "./components/rate-builder.vue": __glob_1_12, "./components/select-builder.vue": __glob_1_13, "./components/slider-builder.vue": __glob_1_14, "./components/switch-builder.vue": __glob_1_15, "./components/table-builder.vue": __glob_1_16, "./components/tabs-builder.vue": __glob_1_17, "./components/textarea-builder.vue": __glob_1_18, "./components/time-picker-builder.vue": __glob_1_19, "./components/time-range-picker-builder.vue": __glob_1_20, "./components/tinymce-editor-builder.vue": __glob_1_21, "./components/upload-builder.vue": __glob_1_22 }).forEach(({ default: component }) => components$1[component.name] = component);
 const _sfc_main$Z = {
   name: "formBuilderItem",
   components: __spreadValues({}, components$1),
