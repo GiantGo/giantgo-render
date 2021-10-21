@@ -9,11 +9,11 @@ rm -rf dist
 pnpm i
 
 # 构建
-pnpm run example:build
 pnpm run docs:build
+pnpm run example:build
 
-mv example/dist dist
-mv docs/.vitepress/dist/ dist/docs/
+mv docs/.vitepress/dist/ dist
+mv example/dist dist/example
 
 # cd 到构建输出的目录下 
 cd dist

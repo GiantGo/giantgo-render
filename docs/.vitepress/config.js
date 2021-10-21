@@ -2,7 +2,7 @@
 module.exports = {
   title: 'GiantGo Render',
   description: '基于vue3 element plus的快速表单生成器',
-  base: '/docs',
+  base: '/giantgo-render/',
   lang: 'zh-CN',
   markdown: {
     lineNumbers: true
