@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "pnpm -C play dev",
     "build": "pnpm -C packages/giantgo-render build",
+    "example:dev": "pnpm -C example dev",
+    "example:build": "pnpm -C example build",
     "docs:dev": "pnpm -C docs dev",
     "docs:build": "pnpm -C docs build",
     "docs:serve": "pnpm -C docs serve"

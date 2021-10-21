@@ -1,26 +1,13 @@
 {
-  "name": "docs",
-  "version": "0.0.0",
-  "private": true,
-  "description": "Docs for this lib.",
-  "author": "Thorsten Luenborg <t.luneborg@googlemail.com>",
-  "homepage": "",
-  "license": "MIT",
-  "main": "index.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
+  "name": "@giantgo-render/docs",
+  "version": "1.0.0",
+  "description": "all components are settled here",
   "scripts": {
     "dev": "vitepress dev .",
     "build": "vitepress build .",
-    "lint": "eslint 'src/**/*.{ts,vue}' --no-error-on-unmatched-pattern"
+    "serve": "vitepress serve ."
   },
-  "dependencies": {},
   "devDependencies": {
-    "vitepress": "^0.15.6"
+    "vitepress": "^0.20.0"
   }
 }

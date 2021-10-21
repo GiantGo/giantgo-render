@@ -3,13 +3,17 @@
 # 当发生错误时中止脚本
 set -e
 
-cd example
+rm -rf dist
 
 # 安装
-npm i
+pnpm i
 
 # 构建
-npm run build
+pnpm run example:build
+pnpm run docs:build
+
+mv example/dist dist
+mv docs/.vitepress/dist/ dist/docs/
 
 # cd 到构建输出的目录下 
 cd dist

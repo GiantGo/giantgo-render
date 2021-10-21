@@ -1,35 +1,55 @@
+//https://github.com/vuejs/vitepress/tree/master/docs
 module.exports = {
-  title: 'VueMonoRepoLib',
-  description: 'Replace this descriptions with something nice!',
+  title: 'GiantGo Render',
+  description: '基于vue3 element plus的快速表单生成器',
+  base: '/docs',
+  lang: 'zh-CN',
+  markdown: {
+    lineNumbers: true
+  },
   themeConfig: {
-    repo: '',
-    repoLabel: 'GitHub',
     docsDir: 'docs',
-    docsBranch: 'next',
-    editLinks: true,
-    editLinkText: 'Help improve these docs!',
+    // editLinks: true,
+    editLinkText: 'Edit this page on GitHub',
+
     lastUpdated: 'Last Updated',
+    // repo: 'vuejs/vitepress',
+    displayAllHeaders: true, // Default: false
+    activeHeaderLinks: false, // Default: true
     nav: [
-      { text: 'Installation', link: '/guide/installation' },
-      {
-        text: 'Guide',
-        link: '/guide/getting-started',
-      },
-      {
-        text: 'API',
-        link: '/api',
-      },
+      { text: '首页', link: '/' },
+      { text: '教程', link: '/guide/' },
+      { text: 'API', link: '/api/' }
     ],
     sidebar: {
+      // sidebar: "auto",
       '/guide/': getGuideSidebar(),
       '/api/': getApiSidebar(),
-    },
-  },
+      '/': getGuideSidebar()
+      // we don't need to do anything to index
+      // because the default sidebar is created via page headings
+    }
+  }
 }
 
 function getGuideSidebar() {
-  return [{ text: 'Getting Started', link: '/guide/getting-started' }]
+  return [
+    {
+      text: 'Guide',
+      children: [
+        { text: 'Getting Started', link: '/guide/' },
+        { text: 'Chapter One', link: '/guide/getting-start' },
+        { text: 'Chapter two', link: '/guide/two' }
+      ]
+    }
+  ]
 }
+
 function getApiSidebar() {
-  return []
+  return [
+    {
+      text: 'API',
+      children: [{ text: 'API', link: '/api/' }]
+    }
+  ]
 }
