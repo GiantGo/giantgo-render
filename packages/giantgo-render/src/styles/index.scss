@@ -4,3 +4,18 @@
 @import 'form-builder';
 @import 'form-setting';
 @import 'form-render';
+
+.form-setting-interpolation {
+  li {
+    .value {
+      float: left;
+      font-size: 12px;
+    }
+
+    .label {
+      float: right;
+      color: #6897f2;
+      font-size: 12px;
+    }
+  }
+}
