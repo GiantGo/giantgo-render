@@ -5,7 +5,7 @@ module.exports = {
   base: '/giantgo-render/',
   lang: 'zh-CN',
   markdown: {
-    lineNumbers: true
+    lineNumbers: false
   },
   themeConfig: {
     docsDir: 'docs',
@@ -18,13 +18,13 @@ module.exports = {
     activeHeaderLinks: false, // Default: true
     nav: [
       { text: '首页', link: '/' },
-      { text: '教程', link: '/guide/' },
-      { text: 'API', link: '/api/' }
+      { text: '教程', link: '/guide/' }
+      // { text: 'API', link: '/api/' }
     ],
     sidebar: {
       // sidebar: "auto",
       '/guide/': getGuideSidebar(),
-      '/api/': getApiSidebar(),
+      // '/api/': getApiSidebar(),
       '/': getGuideSidebar()
       // we don't need to do anything to index
       // because the default sidebar is created via page headings
@@ -35,11 +35,18 @@ module.exports = {
 function getGuideSidebar() {
   return [
     {
-      text: 'Guide',
+      text: '开始',
       children: [
-        { text: 'Getting Started', link: '/guide/' },
-        { text: 'Chapter One', link: '/guide/getting-start' },
-        { text: 'Chapter two', link: '/guide/two' }
+        { text: '介绍', link: '/guide/' },
+        { text: '安装', link: '/guide/start' },
+        { text: '源码', link: '/guide/source' }
+      ]
+    },
+    {
+      text: '组件',
+      children: [
+        { text: 'form-design', link: '/component/design' },
+        { text: 'form-render', link: '/component/render' }
       ]
     }
   ]

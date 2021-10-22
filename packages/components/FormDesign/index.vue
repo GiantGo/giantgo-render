@@ -211,7 +211,10 @@ export default {
     provide('forward', forward)
 
     return {
-      init
+      init,
+      getJson() {
+        return state.formDesign
+      }
     }
   }
 }

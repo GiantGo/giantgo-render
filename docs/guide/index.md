@@ -1,78 +1,63 @@
-## Reference
+## 介绍
 
-1. [Vitepress official docs](https://vitepress.vuejs.org/)
-2. [markdown-it](https://markdown-it.github.io/)
-3. [Guthub vitepress docs Example](https://github.com/vuejs/vitepress/tree/master/docs)
-4. [Guthub markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-5. [Markdown basic syntax](https://www.markdownguide.org/basic-syntax/)
-6. [Markdown extended syntax](https://www.markdownguide.org/extended-syntax/)
-7. [A list of emojis](https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.json)
-8. [A list of Code syntax highlighting](https://prismjs.com/#languages-list)
+基于 vue3+vite2+element-plus 实现的表单设计器（未来有精力会增加列表和建站功能），通过可视化拖拽生成表单，支持 JS 表达式实现组件复杂联动。
 
-## Routing!
+本人写代码非常有洁癖，非常认同代码是给人看的，顺便可以在机器上运行 :smile:，有兴趣可以 fork，并留下您宝贵的:star: 你会发现二次开发也很爽:smile:
 
-<!-- [docs/index.md](/) -> /
+- 【[预览地址](https://giantgo.github.io/giantgo-render/example)】
+- 【[项目地址](https://github.com/GiantGo/giantgo-render)】
 
-[docs/guide/one.md](/guide/getting-start) -> /one
+## 特性
 
-[docs/api/index.md](/api/) -> /api/
+- 可视化拖拽配置
+- 20+种表单组件
+- 富文本编辑器
+- 多种布局组件
+- 提供表单预览，json 编辑，清空，撤销，重做等功能
+- 表单自定义验证
 
-[docs/guide/two.md](/guide/two) -> /guide/two -->
+## 组件
 
-### All these options work!
+- FormDesign 表单配置，可视化操作生成表单 json
+- FormRender 通过 FormDesign 生成的 json 渲染表单
 
-<!-- [docs/guide/one.md](/guide/getting-start) |
-[docs/api/index.md](/api/) |
-[docs/guide/two.md](/guide/two) -->
+## 安装
 
-# Hello VitePress
+```
+# 使用yarn
+yarn add giantgo-render
 
-| Tables        |      Are      |  Cool |
-| ------------- | :-----------: | ----: |
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      |   centered    |   $12 |
-| zebra stripes |   are neat    |    $1 |
+# 使用npm
+npm i giantgo-render --save
 
-| Headings      |   Are    |    Centered |
-| ------------- | :------: | ----------: |
-| left align    | centered | right align |
-| zebra striped |   rows   |        easy |
+# 使用pnpm
+pnpm i giantgo-render --save
+```
 
-### Blogging Like a Hacker
+## 引入组件
 
----
+```
+// 在main.js引入
 
-head:
+import giantgo-render from 'giantgo-render'
+import 'giantgo-render/dist/style.css'
+app.use(GiantgoRender)
+```
 
-- - meta
-  - name: description
-    content: hello
-- - meta
-  - name: keywords
-    content: super duper SEO
+## 使用组件
 
-### Emoji
+```
+<template>
+  <form-design />
+</template>
+```
 
----
+- 【[参考 example](https://github.com/GiantGo/giantgo-render/tree/master/example)】
 
-:tada: :100:
+## 捐赠
 
-## Custom Containers
+如果 giantgo-render 对您有帮助，please buy me a coffee :smile:
 
-::: tip
-This is a tip
-:::
+## License
 
-::: warning
-This is a warning
-:::
-
-::: danger
-This is a dangerous warning
-:::
-
-::: danger STOP
-Danger zone, do not proceed
-:::
-
-## Syntax Highlighting in Code Blocks
+MIT Copyright (c) 2019-present siler
