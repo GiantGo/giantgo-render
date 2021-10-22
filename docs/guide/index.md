@@ -58,6 +58,8 @@ app.use(GiantgoRender)
 
 如果 giantgo-render 对您有帮助，please buy me a coffee :smile:
 
+![image](/assets/donate.jpg)
+
 ## License
 
 MIT Copyright (c) 2019-present siler
