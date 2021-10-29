@@ -30,6 +30,8 @@
         background-color: $deep-light-primary-color;
         cursor: move;
         color: $normal-text;
+        font-size: 14px;
+        font-weight: normal;
 
         &.ghost {
           opacity: 0.5;

@@ -22,7 +22,7 @@
     "@giantgo-render/components": "workspace:*",
     "@giantgo-render/utils": "workspace:*",
     "codemirror": "^5.63.3",
-    "element-plus": "^1.1.0-beta.19",
+    "element-plus": "^1.1.0-beta.24",
     "giantgo-render": "workspace:*",
     "mitt": "^3.0.0",
     "quill": "^1.3.7",
@@ -33,7 +33,8 @@
     "@vitejs/plugin-vue": "^1.9.3",
     "@vue/compiler-sfc": "^3.2.16",
     "autoprefixer": "^10.3.6",
-    "sass": "~1.32.13",
+    "sass": "^1.43.3",
+    "unplugin-vue-components": "^0.16.0",
     "vite": "^2.6.4",
     "vite-svg-loader": "^2.2.0"
   }
