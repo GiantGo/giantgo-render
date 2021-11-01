@@ -18,7 +18,7 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { openBlock, createElementBlock, createElementVNode, watch, ref, onBeforeUnmount, onMounted, onUnmounted, reactive, computed, nextTick, toRefs, normalizeClass, normalizeStyle, defineAsyncComponent, resolveComponent, Fragment, renderList, createBlock, withCtx, toDisplayString, createVNode, createCommentVNode, createTextVNode, inject, createSlots, resolveDynamicComponent, provide, toRaw, TransitionGroup, defineComponent, h, mergeProps, withModifiers } from "vue";
-import { ElMessage, ElCard, ElFormItem, ElCascader, ElCheckboxGroup, ElCheckbox, ElColorPicker, ElDatePicker, ElInput, ElSelect, ElOption, ElInputNumber, ElRadioGroup, ElRadio, ElRate, ElSlider, ElSwitch, ElButton, ElTable, ElTableColumn, ElDialog, ElTabs, ElTabPane, ElTimePicker, ElUpload, ElMessageBox, ElForm, ElTooltip, ElDivider, ElEmpty, ElRadioButton, ElRow, ElCol } from "element-plus";
+import { ElMessage, ElCard, ElFormItem, ElCascader, ElCheckboxGroup, ElCheckbox, ElColorPicker, ElDatePicker, ElInput, ElSelect, ElOption, ElInputNumber, ElRadioGroup, ElRadio, ElRate, ElSlider, ElSwitch, ElButton, ElTable, ElTableColumn, ElDialog, ElTabs, ElTabPane, ElTimePicker, ElUpload, ElMessageBox, ElForm, ElTooltip, ElDivider, ElEmpty, ElRadioButton, ElRow, ElCol, ElAutocomplete } from "element-plus";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
@@ -11792,11 +11792,11 @@ const _sfc_main$1O = {
 };
 const _hoisted_1$t = { class: "vue-codemirror-wrap" };
 const _hoisted_2$l = /* @__PURE__ */ createElementVNode("textarea", null, null, -1);
-const _hoisted_3$h = [
+const _hoisted_3$i = [
   _hoisted_2$l
 ];
 function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$t, _hoisted_3$h);
+  return openBlock(), createElementBlock("div", _hoisted_1$t, _hoisted_3$i);
 }
 var CodeMirror = /* @__PURE__ */ _export_sfc(_sfc_main$1O, [["render", _sfc_render$1O]]);
 var quill_core = "";
@@ -25037,7 +25037,7 @@ const _sfc_main$1n = {
 };
 const _hoisted_1$m = { class: "btn-submit" };
 const _hoisted_2$j = /* @__PURE__ */ createTextVNode("\u63D0\u4EA4");
-const _hoisted_3$g = /* @__PURE__ */ createTextVNode("\u91CD\u7F6E");
+const _hoisted_3$h = /* @__PURE__ */ createTextVNode("\u91CD\u7F6E");
 function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_render_item = resolveComponent("form-render-item");
   const _component_el_button = resolveComponent("el-button");
@@ -25078,7 +25078,7 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: $setup.reset
         }, {
           default: withCtx(() => [
-            _hoisted_3$g
+            _hoisted_3$h
           ]),
           _: 1
         }, 8, ["onClick"])
@@ -28276,8 +28276,8 @@ const _sfc_main$1m = {
 };
 const _hoisted_1$l = { class: "form-picker" };
 const _hoisted_2$i = { class: "form-item-section" };
-const _hoisted_3$f = /* @__PURE__ */ createElementVNode("div", { class: "title" }, "\u8F93\u5165\u7EC4\u4EF6", -1);
-const _hoisted_4$b = { class: "form-item-drop" };
+const _hoisted_3$g = /* @__PURE__ */ createElementVNode("div", { class: "title" }, "\u8F93\u5165\u7EC4\u4EF6", -1);
+const _hoisted_4$c = { class: "form-item-drop" };
 const _hoisted_5$7 = { class: "form-item-section" };
 const _hoisted_6$5 = /* @__PURE__ */ createElementVNode("div", { class: "title" }, "\u9009\u62E9\u7EC4\u4EF6", -1);
 const _hoisted_7$4 = { class: "form-item-drop" };
@@ -28291,7 +28291,7 @@ function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
   return openBlock(), createElementBlock("div", _hoisted_1$l, [
     createElementVNode("div", _hoisted_2$i, [
-      _hoisted_3$f,
+      _hoisted_3$g,
       createVNode(_component_draggable, {
         class: "form-item-group",
         modelValue: $setup.inputs,
@@ -28303,7 +28303,7 @@ function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
         clone: $setup.clone
       }, {
         item: withCtx(({ element }) => [
-          createElementVNode("div", _hoisted_4$b, toDisplayString(element.name), 1)
+          createElementVNode("div", _hoisted_4$c, toDisplayString(element.name), 1)
         ]),
         _: 1
       }, 8, ["modelValue", "clone"])
@@ -28373,11 +28373,11 @@ const _hoisted_1$k = {
   height: "200"
 };
 const _hoisted_2$h = /* @__PURE__ */ createElementVNode("path", { d: "M276.096 152a40 40 0 0 1 1.736 79.96l-1.736.04h-37.888c-17.936 0-29.664 4.504-37.616 13.168l-2.16 2.456c-7.896 8.696-12.544 22.928-12.936 43.848l-.024 2.896v149.504c0 25.576-5.368 47.824-16.816 65.584l-1.688 2.52.272.384c11.824 17.152 17.704 39.032 18.192 64.296l.04 3.472v150.24c0 21.32 4.176 35.488 11.888 44.768l2.12 2.432c7.6 9.056 18.856 13.976 36.208 14.4l2.52.032h37.888a40 40 0 0 1 1.736 79.96l-1.736.04h-37.888c-40.088 0-73.952-13.512-97.92-40.592l-1.568-1.816-1.616-1.824c-20.992-24.376-30.984-55.84-31.6-93.6l-.032-3.8v-150.24c0-12.72-2.176-20.144-4.088-22.4-1.096-1.256-9.008-4.032-24.552-5.808l-4.432-.456c-49.304-4.576-47.976-77 1.456-79.768 17.408-.976 26.24-3.944 27.256-5.12 2.056-2.416 4.104-9.12 4.336-20.512l.024-2.192V294.368c0-39.616 9.968-72.944 31.632-98.136l1.672-1.904 1.504-1.736c23.272-26.288 55.856-39.784 94.408-40.56l3.52-.032h37.888zm505.792 0 3.52.032c38.56.776 71.136 14.272 94.4 40.56l1.512 1.736 1.672 1.904c21.656 25.192 31.632 58.52 31.632 98.136v149.504l.024 2.192c.24 11.384 2.28 18.096 4.336 20.512 1.016 1.176 9.84 4.144 27.256 5.12 49.44 2.768 50.76 75.2 1.456 79.76l-4.432.464c-15.544 1.776-23.464 4.56-24.552 5.808-1.92 2.256-4.08 9.68-4.08 22.4v150.24l-.04 3.792c-.616 37.776-10.608 69.232-31.6 93.6l-1.616 1.832-1.56 1.816C855.84 858.488 821.976 872 781.888 872H744l-1.736-.04A40 40 0 0 1 744 792h37.888l2.52-.032c17.352-.424 28.608-5.344 36.208-14.4l2.12-2.432c7.712-9.28 11.888-23.448 11.888-44.768v-150.24l.032-3.472c.496-25.264 6.368-47.144 18.192-64.296l.28-.384-1.688-2.52c-11.448-17.76-16.816-40.008-16.816-65.584V294.368l-.024-2.896c-.392-20.92-5.04-35.152-12.944-43.84l-2.152-2.464c-7.952-8.664-19.68-13.168-37.616-13.168H744l-1.736-.04A40 40 0 0 1 744 152h37.888zM336 624a48 48 0 1 1 0 96 48 48 0 0 1 0-96zm176 0a48 48 0 1 1 0 96 48 48 0 0 1 0-96zm176 0a48 48 0 1 1 0 96 48 48 0 0 1 0-96z" }, null, -1);
-const _hoisted_3$e = [
+const _hoisted_3$f = [
   _hoisted_2$h
 ];
 function render$1(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$k, _hoisted_3$e);
+  return openBlock(), createElementBlock("svg", _hoisted_1$k, _hoisted_3$f);
 }
 const _sfc_main$1l = {
   components: { ElTooltip, ElDialog, ElButton, ElDivider, CodeMirror, FormRender, JsonIcon: render$1 },
@@ -28446,8 +28446,8 @@ const _sfc_main$1l = {
 };
 const _hoisted_1$j = { class: "form-operator" };
 const _hoisted_2$g = { class: "icon" };
-const _hoisted_3$d = { class: "json-box" };
-const _hoisted_4$a = { class: "dialog-footer" };
+const _hoisted_3$e = { class: "json-box" };
+const _hoisted_4$b = { class: "dialog-footer" };
 const _hoisted_5$6 = /* @__PURE__ */ createTextVNode("\u53D6\u6D88");
 const _hoisted_6$4 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
 const _hoisted_7$3 = { class: "json-box" };
@@ -28549,7 +28549,7 @@ function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
       width: "750px"
     }, {
       footer: withCtx(() => [
-        createElementVNode("div", _hoisted_4$a, [
+        createElementVNode("div", _hoisted_4$b, [
           createVNode(_component_el_button, {
             onClick: _cache[6] || (_cache[6] = ($event) => $setup.jsonDialog.isShow = false)
           }, {
@@ -28570,7 +28570,7 @@ function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
         ])
       ]),
       default: withCtx(() => [
-        createElementVNode("div", _hoisted_3$d, [
+        createElementVNode("div", _hoisted_3$e, [
           createVNode(_component_code_mirror, {
             modelValue: $setup.jsonDialog.code,
             "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $setup.jsonDialog.code = $event)
@@ -29544,8 +29544,8 @@ const _sfc_main$13 = {
 };
 const _hoisted_1$h = { style: { "margin-bottom": "20px" } };
 const _hoisted_2$f = /* @__PURE__ */ createTextVNode(" \u6DFB\u52A0 ");
-const _hoisted_3$c = /* @__PURE__ */ createTextVNode(" \u4FEE\u6539 ");
-const _hoisted_4$9 = /* @__PURE__ */ createTextVNode(" \u5220\u9664 ");
+const _hoisted_3$d = /* @__PURE__ */ createTextVNode(" \u4FEE\u6539 ");
+const _hoisted_4$a = /* @__PURE__ */ createTextVNode(" \u5220\u9664 ");
 const _hoisted_5$5 = { class: "dialog-footer" };
 const _hoisted_6$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_7$2 = /* @__PURE__ */ createTextVNode("\u786E \u5B9A");
@@ -29576,7 +29576,7 @@ function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: $setup.editTab
       }, {
         default: withCtx(() => [
-          _hoisted_3$c
+          _hoisted_3$d
         ]),
         _: 1
       }, 8, ["onClick"]),
@@ -29587,7 +29587,7 @@ function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: $setup.removeTab
       }, {
         default: withCtx(() => [
-          _hoisted_4$9
+          _hoisted_4$a
         ]),
         _: 1
       }, 8, ["disabled", "onClick"])
@@ -29984,12 +29984,12 @@ const _sfc_main$Z = {
 };
 const _hoisted_1$f = { class: "operator" };
 const _hoisted_2$e = /* @__PURE__ */ createElementVNode("i", { class: "el-icon-copy-document" }, null, -1);
-const _hoisted_3$b = [
+const _hoisted_3$c = [
   _hoisted_2$e
 ];
-const _hoisted_4$8 = /* @__PURE__ */ createElementVNode("i", { class: "el-icon-delete" }, null, -1);
+const _hoisted_4$9 = /* @__PURE__ */ createElementVNode("i", { class: "el-icon-delete" }, null, -1);
 const _hoisted_5$4 = [
-  _hoisted_4$8
+  _hoisted_4$9
 ];
 const _hoisted_6$2 = { class: "info" };
 function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
@@ -30007,7 +30007,7 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
         createElementVNode("div", {
           class: "copy",
           onClick: _cache[0] || (_cache[0] = withModifiers((...args) => $setup.copy && $setup.copy(...args), ["stop"]))
-        }, _hoisted_3$b),
+        }, _hoisted_3$c),
         createElementVNode("div", {
           class: "remove",
           onClick: _cache[1] || (_cache[1] = withModifiers((...args) => $setup.remove && $setup.remove(...args), ["stop"]))
@@ -30550,7 +30550,7 @@ const _sfc_main$E = {
 };
 const _hoisted_1$d = /* @__PURE__ */ createTextVNode("\u5DE6");
 const _hoisted_2$c = /* @__PURE__ */ createTextVNode("\u53F3");
-const _hoisted_3$a = /* @__PURE__ */ createTextVNode("\u9876\u90E8");
+const _hoisted_3$b = /* @__PURE__ */ createTextVNode("\u9876\u90E8");
 function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -30574,7 +30574,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "top" }, {
         default: withCtx(() => [
-          _hoisted_3$a
+          _hoisted_3$b
         ]),
         _: 1
       })
@@ -30893,8 +30893,8 @@ const _sfc_main$t = {
 };
 const _hoisted_1$c = ["onClick"];
 const _hoisted_2$b = /* @__PURE__ */ createTextVNode("\u589E\u52A0\u9009\u9879");
-const _hoisted_3$9 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9009\u9879");
-const _hoisted_4$7 = { class: "json-box" };
+const _hoisted_3$a = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9009\u9879");
+const _hoisted_4$8 = { class: "json-box" };
 const _hoisted_5$3 = { class: "dialog-footer" };
 const _hoisted_6$1 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_7$1 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
@@ -30963,7 +30963,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: $setup.editOptions
     }, {
       default: withCtx(() => [
-        _hoisted_3$9
+        _hoisted_3$a
       ]),
       _: 1
     }, 8, ["onClick"]),
@@ -30995,7 +30995,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
         ])
       ]),
       default: withCtx(() => [
-        createElementVNode("div", _hoisted_4$7, [
+        createElementVNode("div", _hoisted_4$8, [
           createVNode(_component_code_mirror, {
             modelValue: $setup.code,
             "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.code = $event)
@@ -31042,8 +31042,8 @@ const _sfc_main$s = {
 };
 const _hoisted_1$b = /* @__PURE__ */ createTextVNode(" \u4E0A\uFF1A");
 const _hoisted_2$a = /* @__PURE__ */ createTextVNode(" \u53F3\uFF1A");
-const _hoisted_3$8 = /* @__PURE__ */ createTextVNode(" \u4E0B\uFF1A");
-const _hoisted_4$6 = /* @__PURE__ */ createTextVNode(" \u5DE6\uFF1A");
+const _hoisted_3$9 = /* @__PURE__ */ createTextVNode(" \u4E0B\uFF1A");
+const _hoisted_4$7 = /* @__PURE__ */ createTextVNode(" \u5DE6\uFF1A");
 function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_col = resolveComponent("el-col");
@@ -31087,7 +31087,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
       default: withCtx(() => [
         createVNode(_component_el_col, { span: 24 }, {
           default: withCtx(() => [
-            _hoisted_3$8,
+            _hoisted_3$9,
             createVNode(_component_el_input_number, {
               modelValue: $setup.data.down,
               "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.data.down = $event),
@@ -31104,7 +31104,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
       default: withCtx(() => [
         createVNode(_component_el_col, { span: 24 }, {
           default: withCtx(() => [
-            _hoisted_4$6,
+            _hoisted_4$7,
             createVNode(_component_el_input_number, {
               modelValue: $setup.data.left,
               "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.data.left = $event),
@@ -31264,8 +31264,8 @@ const _sfc_main$o = {
 };
 const _hoisted_1$a = /* @__PURE__ */ createTextVNode(" \u5FC5\u586B ");
 const _hoisted_2$9 = ["onClick"];
-const _hoisted_3$7 = /* @__PURE__ */ createTextVNode("\u589E\u52A0\u9A8C\u8BC1");
-const _hoisted_4$5 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9A8C\u8BC1");
+const _hoisted_3$8 = /* @__PURE__ */ createTextVNode("\u589E\u52A0\u9A8C\u8BC1");
+const _hoisted_4$6 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9A8C\u8BC1");
 const _hoisted_5$2 = { class: "json-box" };
 const _hoisted_6 = { class: "dialog-footer" };
 const _hoisted_7 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
@@ -31362,7 +31362,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: $setup.addRule
     }, {
       default: withCtx(() => [
-        _hoisted_3$7
+        _hoisted_3$8
       ]),
       _: 1
     }, 8, ["onClick"]),
@@ -31371,7 +31371,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: $setup.editRules
     }, {
       default: withCtx(() => [
-        _hoisted_4$5
+        _hoisted_4$6
       ]),
       _: 1
     }, 8, ["onClick"]),
@@ -31431,7 +31431,7 @@ const _sfc_main$n = {
 };
 const _hoisted_1$9 = /* @__PURE__ */ createTextVNode("\u603B\u662F");
 const _hoisted_2$8 = /* @__PURE__ */ createTextVNode("\u60AC\u6D6E");
-const _hoisted_3$6 = /* @__PURE__ */ createTextVNode("\u4ECE\u4E0D");
+const _hoisted_3$7 = /* @__PURE__ */ createTextVNode("\u4ECE\u4E0D");
 function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -31455,7 +31455,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "never" }, {
         default: withCtx(() => [
-          _hoisted_3$6
+          _hoisted_3$7
         ]),
         _: 1
       })
@@ -31634,7 +31634,7 @@ const _sfc_main$f = {
 };
 const _hoisted_1$8 = /* @__PURE__ */ createTextVNode("\u6B63\u5E38");
 const _hoisted_2$7 = /* @__PURE__ */ createTextVNode("\u5C0F\u53F7");
-const _hoisted_3$5 = /* @__PURE__ */ createTextVNode("\u8FF7\u4F60");
+const _hoisted_3$6 = /* @__PURE__ */ createTextVNode("\u8FF7\u4F60");
 function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -31658,7 +31658,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "mini" }, {
         default: withCtx(() => [
-          _hoisted_3$5
+          _hoisted_3$6
         ]),
         _: 1
       })
@@ -31728,8 +31728,8 @@ const _sfc_main$c = {
 };
 const _hoisted_1$7 = /* @__PURE__ */ createTextVNode("\u4E0A");
 const _hoisted_2$6 = /* @__PURE__ */ createTextVNode("\u53F3");
-const _hoisted_3$4 = /* @__PURE__ */ createTextVNode("\u4E0B");
-const _hoisted_4$4 = /* @__PURE__ */ createTextVNode("\u5DE6");
+const _hoisted_3$5 = /* @__PURE__ */ createTextVNode("\u4E0B");
+const _hoisted_4$5 = /* @__PURE__ */ createTextVNode("\u5DE6");
 function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -31753,13 +31753,13 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "bottom" }, {
         default: withCtx(() => [
-          _hoisted_3$4
+          _hoisted_3$5
         ]),
         _: 1
       }),
       createVNode(_component_el_radio_button, { label: "left" }, {
         default: withCtx(() => [
-          _hoisted_4$4
+          _hoisted_4$5
         ]),
         _: 1
       })
@@ -31872,8 +31872,8 @@ const _sfc_main$9 = {
 };
 const _hoisted_1$5 = { class: "json-box" };
 const _hoisted_2$4 = { class: "dialog-footer" };
-const _hoisted_3$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
-const _hoisted_4$3 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
+const _hoisted_3$4 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
+const _hoisted_4$4 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
 const _hoisted_5$1 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u6570\u636E");
 function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_code_mirror = resolveComponent("code-mirror");
@@ -31892,7 +31892,7 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: _cache[1] || (_cache[1] = ($event) => $setup.codeDialog = false)
           }, {
             default: withCtx(() => [
-              _hoisted_3$3
+              _hoisted_3$4
             ]),
             _: 1
           }),
@@ -31901,7 +31901,7 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: $setup.setData
           }, {
             default: withCtx(() => [
-              _hoisted_4$3
+              _hoisted_4$4
             ]),
             _: 1
           }, 8, ["onClick"])
@@ -31968,8 +31968,8 @@ const _sfc_main$8 = {
 };
 const _hoisted_1$4 = { class: "json-box" };
 const _hoisted_2$3 = { class: "dialog-footer" };
-const _hoisted_3$2 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
-const _hoisted_4$2 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
+const _hoisted_3$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
+const _hoisted_4$3 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
 const _hoisted_5 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u6570\u636E");
 function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_code_mirror = resolveComponent("code-mirror");
@@ -31988,7 +31988,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: _cache[1] || (_cache[1] = ($event) => $setup.codeDialog = false)
           }, {
             default: withCtx(() => [
-              _hoisted_3$2
+              _hoisted_3$3
             ]),
             _: 1
           }),
@@ -31997,7 +31997,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: $setup.setData
           }, {
             default: withCtx(() => [
-              _hoisted_4$2
+              _hoisted_4$3
             ]),
             _: 1
           }, 8, ["onClick"])
@@ -32173,34 +32173,50 @@ var __glob_6_55 = /* @__PURE__ */ Object.freeze({
 });
 const _sfc_main$3 = {
   name: "interpolation",
-  components: { ElInput },
+  components: { ElAutocomplete },
   props: {
     modelValue: String
   },
   setup() {
+    const tips = ref([
+      { value: "root", label: "\u6574\u4E2A\u8868\u5355\u7684\u503C" },
+      { value: "options", label: "\u8BE5\u7EC4\u4EF6\u7684\u9009\u9879" }
+    ]);
+    const querySearch = (queryString, cb) => {
+      const results = queryString ? tips.value.filter((tip2) => tip2.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0) : tips.value;
+      cb(results);
+    };
     return {
-      getInterpolation
+      getInterpolation,
+      querySearch
     };
   }
 };
-const _hoisted_1$3 = /* @__PURE__ */ createElementVNode("span", { innerHTML: "{{" }, null, -1);
-const _hoisted_2$2 = /* @__PURE__ */ createElementVNode("span", { innerHTML: "}}" }, null, -1);
+const _hoisted_1$3 = { class: "value" };
+const _hoisted_2$2 = { class: "label" };
+const _hoisted_3$2 = /* @__PURE__ */ createElementVNode("span", { innerHTML: "{{" }, null, -1);
+const _hoisted_4$2 = /* @__PURE__ */ createElementVNode("span", { innerHTML: "}}" }, null, -1);
 function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_input = resolveComponent("el-input");
-  return openBlock(), createBlock(_component_el_input, {
-    type: "text",
+  const _component_el_autocomplete = resolveComponent("el-autocomplete");
+  return openBlock(), createBlock(_component_el_autocomplete, {
+    "popper-class": "form-setting-interpolation",
     "model-value": $setup.getInterpolation($props.modelValue).trim(),
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event.trim() ? `{{${$event.trim()}}}` : "{{  }}")),
+    "fetch-suggestions": $setup.querySearch,
     placeholder: "\u8BF7\u8F93\u5165JS\u8868\u8FBE\u5F0F"
   }, {
+    default: withCtx(({ item }) => [
+      createElementVNode("div", _hoisted_1$3, toDisplayString(item.value), 1),
+      createElementVNode("span", _hoisted_2$2, toDisplayString(item.label), 1)
+    ]),
     prefix: withCtx(() => [
-      _hoisted_1$3
+      _hoisted_3$2
     ]),
     suffix: withCtx(() => [
-      _hoisted_2$2
+      _hoisted_4$2
     ]),
     _: 1
-  }, 8, ["model-value"]);
+  }, 8, ["model-value", "fetch-suggestions"]);
 }
 var Interpolation = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$3]]);
 const _hoisted_1$2 = {
@@ -32471,7 +32487,10 @@ const _sfc_main = {
     provide("revoke", revoke);
     provide("forward", forward);
     return {
-      init
+      init,
+      getJson() {
+        return state.formDesign;
+      }
     };
   }
 };
