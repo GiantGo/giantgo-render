@@ -8,14 +8,10 @@
     <div class="form-item-box" @click.stop="select" :class="{ 'is-selected': isSelected }">
       <div class="operator">
         <div class="copy" @click.stop="copy">
-          <el-icon>
-            <copy-document />
-          </el-icon>
+          <el-icon><copy-document /></el-icon>
         </div>
         <div class="remove" @click.stop="remove">
-          <el-icon>
-            <delete />
-          </el-icon>
+          <el-icon><delete /></el-icon>
         </div>
       </div>
       <div class="info">

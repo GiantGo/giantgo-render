@@ -1,7 +1,9 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <div class="tools">
-      <el-button class="add-btn" type="primary" :icon="Plus" @click="add">添加</el-button>
+      <el-button class="add-btn" type="primary" @click="add">
+        <el-icon><plus></plus></el-icon> 添加
+      </el-button>
     </div>
     <el-table class="edit-table" :data="data.items" style="width: 100%" border>
       <el-table-column type="index" width="50" label="序号" align="center"> </el-table-column>
@@ -9,8 +11,12 @@
       </el-table-column>
       <el-table-column label="操作" align="center" width="120" class-name="small-padding">
         <template #default="scope">
-          <el-button type="primary" :icon="Edit" circle @click="edit(scope.$index, scope.row)"></el-button>
-          <el-button type="danger" :icon="Delete" circle @click="remove(scope.$index)"></el-button>
+          <el-button type="primary" circle @click="edit(scope.$index, scope.row)">
+            <el-icon><edit /></el-icon>
+          </el-button>
+          <el-button type="danger" circle @click="remove(scope.$index)">
+            <el-icon><delete /></el-icon>
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -22,7 +28,7 @@
 
 <script>
 import { reactive, ref, watch, onMounted, nextTick, inject, defineAsyncComponent } from 'vue'
-import { ElFormItem, ElButton, ElTable, ElTableColumn, ElDialog } from 'element-plus'
+import { ElFormItem, ElButton, ElTable, ElTableColumn, ElDialog, ElIcon } from 'element-plus'
 import { Plus, Edit, Delete } from '@element-plus/icons'
 import { deepClone } from '@giantgo-render/utils'
 
@@ -34,6 +40,10 @@ export default {
     ElTable,
     ElTableColumn,
     ElDialog,
+    ElIcon,
+    Plus,
+    Edit,
+    Delete,
     FormRender: defineAsyncComponent(() => import('../../index.vue'))
   },
   props: {
@@ -109,9 +119,6 @@ export default {
     }
 
     return {
-      Plus,
-      Edit,
-      Delete,
       data,
       formRender,
       formDialog,
