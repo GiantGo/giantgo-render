@@ -7,7 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "element-plus": "^1.1.0-beta.20",
+    "element-plus": "^1.1.0-beta.24",
     "giantgo-render": "^1.1.3",
     "vue": "^3.2.20"
   },

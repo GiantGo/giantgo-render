@@ -19,6 +19,7 @@
     "vue": "^3.2.16"
   },
   "dependencies": {
+    "@element-plus/icons": "^0.0.11",
     "@giantgo-render/components": "workspace:*",
     "@giantgo-render/utils": "workspace:*",
     "codemirror": "^5.63.3",

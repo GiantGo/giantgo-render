@@ -1,22 +1,30 @@
 <template>
   <div class="form-operator">
     <el-tooltip effect="dark" content="预览" placement="bottom">
-      <i class="icon el-icon-video-play" @click="preview" />
+      <el-icon class="icon" @click="preview">
+        <video-play />
+      </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="编辑JSON" placement="bottom">
-      <i class="icon">
+      <el-icon class="icon" @click="editJson">
         <JsonIcon @click="editJson"></JsonIcon>
-      </i>
+      </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="清空" placement="bottom">
-      <i class="icon el-icon-delete" @click="clear" />
+      <el-icon class="icon" @click="clear">
+        <delete />
+      </el-icon>
     </el-tooltip>
     <el-divider direction="vertical"></el-divider>
     <el-tooltip effect="dark" content="后退" placement="bottom">
-      <i class="icon el-icon-refresh-left" @click="revoke" :class="{ disabled: current <= 0 }" />
+      <el-icon class="icon" :class="{ disabled: current <= 0 }" @click="revoke">
+        <refresh-left />
+      </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="前进" placement="bottom">
-      <i class="icon el-icon-refresh-right" @click="forward" :class="{ disabled: current >= cached.length - 1 }" />
+      <el-icon class="icon" :class="{ disabled: current >= cached.length - 1 }" @click="forward">
+        <refresh-right />
+      </el-icon>
     </el-tooltip>
     <el-dialog title="预览" v-model="previewDialog" destroy-on-close width="750px">
       <form-render ref="formRender" @submit="submit" />
@@ -47,13 +55,27 @@
 
 <script>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
-import { ElTooltip, ElDialog, ElButton, ElDivider, ElMessage } from 'element-plus'
+import { ElTooltip, ElDialog, ElButton, ElDivider, ElMessage, ElIcon } from 'element-plus'
+import { Delete, VideoPlay, RefreshLeft, RefreshRight } from '@element-plus/icons'
 import { CodeMirror, FormRender } from '@giantgo-render/components'
 import { deepClone } from '@giantgo-render/utils'
 import JsonIcon from './icons/json.svg'
 
 export default {
-  components: { ElTooltip, ElDialog, ElButton, ElDivider, CodeMirror, FormRender, JsonIcon },
+  components: {
+    ElTooltip,
+    ElDialog,
+    ElButton,
+    ElDivider,
+    ElIcon,
+    Delete,
+    VideoPlay,
+    RefreshLeft,
+    RefreshRight,
+    CodeMirror,
+    FormRender,
+    JsonIcon
+  },
   setup() {
     const formRender = ref(null)
     const previewDialog = ref(false)
