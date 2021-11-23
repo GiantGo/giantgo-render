@@ -9,7 +9,7 @@
       </el-col>
       <el-col :span="2" class="btn-del">
         <el-icon class="el-icon-delete" @click="removeOption(index)">
-          <delete />
+          <DeleteIcon />
         </el-icon>
       </el-col>
     </el-row>
@@ -31,14 +31,14 @@
 
 <script>
 import { ElRow, ElCol, ElButton, ElDialog, ElInput, ElMessage, ElIcon } from 'element-plus'
-import { Delete } from '@element-plus/icons'
+import DeleteIcon from '../../../../icons/delete.svg'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@giantgo-render/utils'
 import { CodeMirror } from '@giantgo-render/components'
 
 export default {
   name: 'optionsOption',
-  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, Delete, CodeMirror },
+  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, DeleteIcon, CodeMirror },
   props: {
     modelValue: Object
   },

@@ -20,7 +20,7 @@
     }
   }
 
-  .icon.disabled {
+  .disabled .icon {
     color: var(--el-disabled-color-base);
     cursor: not-allowed;
   }

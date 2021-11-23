@@ -18,7 +18,7 @@
       </el-col>
       <el-col :span="2" class="btn-del">
         <el-icon class="el-icon-delete" @click="removeRule(index)">
-          <delete />
+          <DeleteIcon />
         </el-icon>
       </el-col>
     </el-row>
@@ -40,14 +40,14 @@
 
 <script>
 import { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElMessage, ElIcon } from 'element-plus'
-import { Delete } from '@element-plus/icons'
+import DeleteIcon from '../../../../icons/delete.svg'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@giantgo-render/utils'
 import { CodeMirror } from '@giantgo-render/components'
 
 export default {
   name: 'rulesOption',
-  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElIcon, Delete, CodeMirror },
+  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElIcon, DeleteIcon, CodeMirror },
   props: {
     modelValue: Array
   },

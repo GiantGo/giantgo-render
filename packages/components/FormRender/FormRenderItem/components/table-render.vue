@@ -2,7 +2,7 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <div class="tools">
       <el-button class="add-btn" type="primary" @click="add">
-        <el-icon><plus></plus></el-icon> 添加
+        <el-icon><PlusIcon /></el-icon> 添加
       </el-button>
     </div>
     <el-table class="edit-table" :data="data.items" style="width: 100%" border>
@@ -12,10 +12,10 @@
       <el-table-column label="操作" align="center" width="120" class-name="small-padding">
         <template #default="scope">
           <el-button type="primary" circle @click="edit(scope.$index, scope.row)">
-            <el-icon><edit /></el-icon>
+            <el-icon><EditIcon /></el-icon>
           </el-button>
           <el-button type="danger" circle @click="remove(scope.$index)">
-            <el-icon><delete /></el-icon>
+            <el-icon><DeleteIcon /></el-icon>
           </el-button>
         </template>
       </el-table-column>
@@ -29,8 +29,10 @@
 <script>
 import { reactive, ref, watch, onMounted, nextTick, inject, defineAsyncComponent } from 'vue'
 import { ElFormItem, ElButton, ElTable, ElTableColumn, ElDialog, ElIcon } from 'element-plus'
-import { Plus, Edit, Delete } from '@element-plus/icons'
 import { deepClone } from '@giantgo-render/utils'
+import PlusIcon from '../../../icons/plus.svg'
+import EditIcon from '../../../icons/edit.svg'
+import DeleteIcon from '../../../icons/delete.svg'
 
 export default {
   name: 'tableRender',
@@ -41,9 +43,9 @@ export default {
     ElTableColumn,
     ElDialog,
     ElIcon,
-    Plus,
-    Edit,
-    Delete,
+    PlusIcon,
+    EditIcon,
+    DeleteIcon,
     FormRender: defineAsyncComponent(() => import('../../index.vue'))
   },
   props: {

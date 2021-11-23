@@ -2,31 +2,31 @@
   <div class="form-operator">
     <el-tooltip effect="dark" content="预览" placement="bottom">
       <el-icon class="icon" @click="preview">
-        <video-play />
+        <PlayIcon />
       </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="编辑JSON" placement="bottom">
       <el-icon class="icon" @click="editJson">
-        <JsonIcon @click="editJson"></JsonIcon>
+        <JsonIcon />
       </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="清空" placement="bottom">
       <el-icon class="icon" @click="clear">
-        <delete />
+        <DeleteIcon />
       </el-icon>
     </el-tooltip>
     <el-divider direction="vertical"></el-divider>
     <el-tooltip effect="dark" content="后退" placement="bottom">
       <el-icon class="icon" :class="{ disabled: current <= 0 }" @click="revoke">
-        <refresh-left />
+        <RefreshLeftIcon />
       </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="前进" placement="bottom">
       <el-icon class="icon" :class="{ disabled: current >= cached.length - 1 }" @click="forward">
-        <refresh-right />
+        <RefreshRightIcon />
       </el-icon>
     </el-tooltip>
-    <el-dialog title="预览" v-model="previewDialog" destroy-on-close width="750px">
+    <el-dialog title="预览" v-model="previewDialog" destroy-on-close append-to-body width="750px">
       <form-render ref="formRender" @submit="submit" />
     </el-dialog>
     <el-dialog :title="jsonDialog.title" v-model="jsonDialog.isShow" width="750px">
@@ -56,10 +56,13 @@
 <script>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
 import { ElTooltip, ElDialog, ElButton, ElDivider, ElMessage, ElIcon } from 'element-plus'
-import { Delete, VideoPlay, RefreshLeft, RefreshRight } from '@element-plus/icons'
 import { CodeMirror, FormRender } from '@giantgo-render/components'
 import { deepClone } from '@giantgo-render/utils'
-import JsonIcon from './icons/json.svg'
+import JsonIcon from '../icons/json.svg'
+import DeleteIcon from '../icons/delete.svg'
+import PlayIcon from '../icons/play.svg'
+import RefreshLeftIcon from '../icons/refresh-left.svg'
+import RefreshRightIcon from '../icons/refresh-right.svg'
 
 export default {
   components: {
@@ -68,13 +71,13 @@ export default {
     ElButton,
     ElDivider,
     ElIcon,
-    Delete,
-    VideoPlay,
-    RefreshLeft,
-    RefreshRight,
     CodeMirror,
     FormRender,
-    JsonIcon
+    JsonIcon,
+    DeleteIcon,
+    PlayIcon,
+    RefreshLeftIcon,
+    RefreshRightIcon
   },
   setup() {
     const formRender = ref(null)
