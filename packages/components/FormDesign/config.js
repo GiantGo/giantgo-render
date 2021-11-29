@@ -368,6 +368,22 @@ export const complexs = [
       hidden: false,
       disabled: false
     }
+  },
+  {
+    name: '手写签名',
+    component: 'signature',
+    uuid: '',
+    options: {
+      label: '手写签名',
+      key: '',
+      defaultValue: '',
+      rules: rules,
+      width: '100%',
+      height: '100px',
+      disabled: false,
+      penColor: '#000000',
+      backgroundColor: '#dddddd'
+    }
   }
 ]
 
@@ -503,5 +519,7 @@ export const optionKeyLabels = {
   uploadSize: '上传大小限制',
   uploadUrl: '上传地址',
   width: '组件宽度',
-  height: '组件高度'
+  height: '组件高度',
+  penColor: '笔颜色',
+  backgroundColor: '背景颜色'
 }

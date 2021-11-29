@@ -1,6 +1,7 @@
 export { default as CodeMirror } from './CodeMirror/index.vue'
 export { default as QuillEditor } from './QuillEditor/index.vue'
 export { default as TinymceEditor } from './TinymceEditor/index.vue'
+export { default as Signature } from './Signature/index.vue'
 export { default as FormRender } from './FormRender/index.vue'
 export { default as FormRenderItem } from './FormRender/FormRenderItem/index.vue'
 export { default as FormDesign } from './FormDesign/index.vue'

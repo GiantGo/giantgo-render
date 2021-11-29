@@ -76,13 +76,6 @@ export default {
       index: -1
     })
 
-    const setInternal = () => {
-      data.items = deepClone(props.modelValue)
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
-
     const add = () => {
       formDialog.title = '添加'
       formDialog.isShow = true
@@ -119,6 +112,13 @@ export default {
       formDialog.isShow = false
       emit('update:modelValue', data.items)
     }
+
+    const setInternal = () => {
+      data.items = deepClone(props.modelValue)
+    }
+
+    onMounted(setInternal)
+    watch(() => props.modelValue, setInternal)
 
     return {
       data,

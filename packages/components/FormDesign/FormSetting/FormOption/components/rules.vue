@@ -59,14 +59,6 @@ export default {
     const code = ref('')
     const codeDialog = ref(false)
 
-    const setInternal = () => {
-      data.required = deepClone(props.modelValue[0])
-      data.patterns = deepClone(props.modelValue.slice(1))
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
-
     const emitChange = () => {
       emit('update:modelValue', [data.required, ...data.patterns])
     }
@@ -106,6 +98,14 @@ export default {
       codeDialog.value = false
       emitChange()
     }
+
+    const setInternal = () => {
+      data.required = deepClone(props.modelValue[0])
+      data.patterns = deepClone(props.modelValue.slice(1))
+    }
+
+    onMounted(setInternal)
+    watch(() => props.modelValue, setInternal)
 
     return {
       data,
