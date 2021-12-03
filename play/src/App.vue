@@ -1,12 +1,42 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import { ref, onMounted } from 'vue'
 import { FormDesign } from '@giantgo-render/components'
 import 'giantgo-render/src/styles/index.scss'
+
+const formDesignRef = ref(null)
+
+onMounted(() => {
+  formDesignRef.value.register('自定义唯一组件', [
+    {
+      name: '输入框',
+      component: 'input',
+      uuid: 'unique',
+      options: {
+        label: '输入框',
+        key: '',
+        defaultValue: ''
+      }
+    }
+  ])
+  formDesignRef.value.register('自定义非唯一组件', [
+    {
+      name: '输入框',
+      component: 'input',
+      uuid: '',
+      options: {
+        label: '输入框',
+        key: '',
+        defaultValue: ''
+      }
+    }
+  ])
+})
 </script>
 
 <template>
-  <FormDesign />
+  <FormDesign ref="formDesignRef" />
 </template>
 
 <style>

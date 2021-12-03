@@ -17,7 +17,7 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-import { openBlock, createElementBlock, createElementVNode, watch, ref, onBeforeUnmount, onMounted, onUnmounted, reactive, computed, nextTick, toRefs, normalizeClass, normalizeStyle, defineComponent, h, defineAsyncComponent, resolveComponent, Fragment, renderList, createBlock, withCtx, toDisplayString, createVNode, createCommentVNode, createTextVNode, inject, createSlots, resolveDynamicComponent, provide, toRaw, TransitionGroup, mergeProps, withModifiers } from "vue";
+import { openBlock, createElementBlock, createElementVNode, watch, ref, onBeforeUnmount, onMounted, onUnmounted, reactive, computed, nextTick, toRefs, normalizeClass, normalizeStyle, defineComponent, h, defineAsyncComponent, resolveComponent, Fragment, renderList, createBlock, withCtx, toDisplayString, createVNode, createCommentVNode, createTextVNode, inject, createSlots, resolveDynamicComponent, provide, toRaw, TransitionGroup, withModifiers } from "vue";
 import { ElMessage, ElCard, ElFormItem, ElCascader, ElCheckboxGroup, ElCheckbox, ElColorPicker, ElDatePicker, ElInput, ElSelect, ElOption, ElInputNumber, ElRadioGroup, ElRadio, ElRate, ElButton, ElSlider, ElSwitch, ElTable, ElTableColumn, ElDialog, ElIcon, ElTabs, ElTabPane, ElTimePicker, ElUpload, ElMessageBox, ElForm, ElTooltip, ElDivider, ElEmpty, ElRadioButton, ElRow, ElCol, ElAutocomplete } from "element-plus";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs(x) {
@@ -1158,8 +1158,8 @@ var codemirror$1 = { exports: {} };
         return new Context(doc, copyState(doc.mode, saved), line);
       }
     };
-    Context.prototype.save = function(copy2) {
-      var state = copy2 !== false ? copyState(this.doc.mode, this.state) : this.state;
+    Context.prototype.save = function(copy) {
+      var state = copy !== false ? copyState(this.doc.mode, this.state) : this.state;
       return this.maxLookAhead > 0 ? new SavedContext(state, this.maxLookAhead) : state;
     };
     function highlightLine(cm, line, context, forceToEnd) {
@@ -5113,15 +5113,15 @@ var codemirror$1 = { exports: {} };
       return old;
     }
     function copyHistoryArray(events2, newGroup, instantiateSel) {
-      var copy2 = [];
+      var copy = [];
       for (var i2 = 0; i2 < events2.length; ++i2) {
         var event = events2[i2];
         if (event.ranges) {
-          copy2.push(instantiateSel ? Selection.prototype.deepCopy.call(event) : event);
+          copy.push(instantiateSel ? Selection.prototype.deepCopy.call(event) : event);
           continue;
         }
         var changes = event.changes, newChanges = [];
-        copy2.push({ changes: newChanges });
+        copy.push({ changes: newChanges });
         for (var j = 0; j < changes.length; ++j) {
           var change = changes[j], m = void 0;
           newChanges.push({ from: change.from, to: change.to, text: change.text });
@@ -5137,7 +5137,7 @@ var codemirror$1 = { exports: {} };
           }
         }
       }
-      return copy2;
+      return copy;
     }
     function extendRange(range2, head, other, extend2) {
       if (extend2) {
@@ -5780,10 +5780,10 @@ var codemirror$1 = { exports: {} };
           var spilled = me.children.splice(me.children.length - 5, 5);
           var sibling = new BranchChunk(spilled);
           if (!me.parent) {
-            var copy2 = new BranchChunk(me.children);
-            copy2.parent = me;
-            me.children = [copy2, sibling];
-            me = copy2;
+            var copy = new BranchChunk(me.children);
+            copy.parent = me;
+            me.children = [copy, sibling];
+            me = copy;
           } else {
             me.size -= sibling.size;
             me.height -= sibling.height;
@@ -6664,14 +6664,14 @@ var codemirror$1 = { exports: {} };
         if (options2.to != null && options2.to < to) {
           to = options2.to;
         }
-        var copy2 = new Doc(getLines(this, from, to), options2.mode || this.modeOption, from, this.lineSep, this.direction);
+        var copy = new Doc(getLines(this, from, to), options2.mode || this.modeOption, from, this.lineSep, this.direction);
         if (options2.sharedHist) {
-          copy2.history = this.history;
+          copy.history = this.history;
         }
-        (this.linked || (this.linked = [])).push({ doc: copy2, sharedHist: options2.sharedHist });
-        copy2.linked = [{ doc: this, isParent: true, sharedHist: options2.sharedHist }];
-        copySharedMarkers(copy2, findSharedMarkers(this));
-        return copy2;
+        (this.linked || (this.linked = [])).push({ doc: copy, sharedHist: options2.sharedHist });
+        copy.linked = [{ doc: this, isParent: true, sharedHist: options2.sharedHist }];
+        copySharedMarkers(copy, findSharedMarkers(this));
+        return copy;
       },
       unlinkDoc: function(other) {
         if (other instanceof CodeMirror2) {
@@ -7107,7 +7107,7 @@ var codemirror$1 = { exports: {} };
       return name;
     }
     function normalizeKeyMap(keymap) {
-      var copy2 = {};
+      var copy = {};
       for (var keyname in keymap) {
         if (keymap.hasOwnProperty(keyname)) {
           var value = keymap[keyname];
@@ -7128,9 +7128,9 @@ var codemirror$1 = { exports: {} };
               name = keys.slice(0, i2 + 1).join(" ");
               val = "...";
             }
-            var prev = copy2[name];
+            var prev = copy[name];
             if (!prev) {
-              copy2[name] = val;
+              copy[name] = val;
             } else if (prev != val) {
               throw new Error("Inconsistent bindings for " + name);
             }
@@ -7138,8 +7138,8 @@ var codemirror$1 = { exports: {} };
           delete keymap[keyname];
         }
       }
-      for (var prop2 in copy2) {
-        keymap[prop2] = copy2[prop2];
+      for (var prop2 in copy) {
+        keymap[prop2] = copy[prop2];
       }
       return keymap;
     }
@@ -11943,7 +11943,7 @@ var quill = { exports: {} };
           Scope2[Scope2["ANY"] = 15] = "ANY";
         })(Scope = exports2.Scope || (exports2.Scope = {}));
         function create(input, value) {
-          var match = query2(input);
+          var match = query(input);
           if (match == null) {
             throw new ParchmentError("Unable to create " + input + " blot");
           }
@@ -11965,29 +11965,29 @@ var quill = { exports: {} };
           return null;
         }
         exports2.find = find2;
-        function query2(query3, scope) {
+        function query(query2, scope) {
           if (scope === void 0) {
             scope = Scope.ANY;
           }
           var match;
-          if (typeof query3 === "string") {
-            match = types[query3] || attributes[query3];
-          } else if (query3 instanceof Text || query3["nodeType"] === Node.TEXT_NODE) {
+          if (typeof query2 === "string") {
+            match = types[query2] || attributes[query2];
+          } else if (query2 instanceof Text || query2["nodeType"] === Node.TEXT_NODE) {
             match = types["text"];
-          } else if (typeof query3 === "number") {
-            if (query3 & Scope.LEVEL & Scope.BLOCK) {
+          } else if (typeof query2 === "number") {
+            if (query2 & Scope.LEVEL & Scope.BLOCK) {
               match = types["block"];
-            } else if (query3 & Scope.LEVEL & Scope.INLINE) {
+            } else if (query2 & Scope.LEVEL & Scope.INLINE) {
               match = types["inline"];
             }
-          } else if (query3 instanceof HTMLElement) {
-            var names = (query3.getAttribute("class") || "").split(/\s+/);
+          } else if (query2 instanceof HTMLElement) {
+            var names = (query2.getAttribute("class") || "").split(/\s+/);
             for (var i in names) {
               match = classes[names[i]];
               if (match)
                 break;
             }
-            match = match || tags2[query3.tagName];
+            match = match || tags2[query2.tagName];
           }
           if (match == null)
             return null;
@@ -11995,7 +11995,7 @@ var quill = { exports: {} };
             return match;
           return null;
         }
-        exports2.query = query2;
+        exports2.query = query;
         function register() {
           var Definitions = [];
           for (var _i = 0; _i < arguments.length; _i++) {
@@ -12402,7 +12402,7 @@ var quill = { exports: {} };
           return obj[name];
         };
         module2.exports = function extend2() {
-          var options2, name, src, copy2, copyIsArray, clone2;
+          var options2, name, src, copy, copyIsArray, clone2;
           var target = arguments[0];
           var i = 1;
           var length = arguments.length;
@@ -12420,18 +12420,18 @@ var quill = { exports: {} };
             if (options2 != null) {
               for (name in options2) {
                 src = getProperty(target, name);
-                copy2 = getProperty(options2, name);
-                if (target !== copy2) {
-                  if (deep && copy2 && (isPlainObject(copy2) || (copyIsArray = isArray(copy2)))) {
+                copy = getProperty(options2, name);
+                if (target !== copy) {
+                  if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
                     if (copyIsArray) {
                       copyIsArray = false;
                       clone2 = src && isArray(src) ? src : [];
                     } else {
                       clone2 = src && isPlainObject(src) ? src : {};
                     }
-                    setProperty(target, { name, newValue: extend2(deep, clone2, copy2) });
-                  } else if (typeof copy2 !== "undefined") {
-                    setProperty(target, { name, newValue: copy2 });
+                    setProperty(target, { name, newValue: extend2(deep, clone2, copy) });
+                  } else if (typeof copy !== "undefined") {
+                    setProperty(target, { name, newValue: copy });
                   }
                 }
               }
@@ -15505,11 +15505,11 @@ var quill = { exports: {} };
                 b = {};
               var attributes = extend2(true, {}, b);
               if (!keepNull) {
-                attributes = Object.keys(attributes).reduce(function(copy2, key3) {
+                attributes = Object.keys(attributes).reduce(function(copy, key3) {
                   if (attributes[key3] != null) {
-                    copy2[key3] = attributes[key3];
+                    copy[key3] = attributes[key3];
                   }
-                  return copy2;
+                  return copy;
                 }, {});
               }
               for (var key2 in a) {
@@ -16896,7 +16896,7 @@ var quill = { exports: {} };
             }
           }, {
             key: "remove",
-            value: function remove2() {
+            value: function remove() {
               _get(Cursor2.prototype.__proto__ || Object.getPrototypeOf(Cursor2.prototype), "remove", this).call(this);
               this.parent = null;
             }
@@ -21922,7 +21922,7 @@ var quill = { exports: {} };
             }
           }, {
             key: "remove",
-            value: function remove2() {
+            value: function remove() {
               if (this.prev == null && this.next == null) {
                 this.parent.remove();
               } else {
@@ -24143,22 +24143,6 @@ const _sfc_main$1Q = defineComponent({
     ]);
   }
 });
-function debounce(func, wait, immediate) {
-  var timeout;
-  return function() {
-    var context = this, args = arguments;
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(function() {
-      timeout = null;
-      if (!immediate) {
-        func.apply(context, args);
-      }
-    }, wait);
-    if (callNow)
-      func.apply(context, args);
-  };
-}
 function deepClone(item) {
   if (!item) {
     return item;
@@ -25221,7 +25205,7 @@ const _sfc_main$1y = {
       nextTick(() => {
         setTimeout(() => {
           formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props2.items }));
-        }, 10);
+        }, 20);
       });
     };
     const edit = (index2, item) => {
@@ -25231,10 +25215,10 @@ const _sfc_main$1y = {
       nextTick(() => {
         setTimeout(() => {
           formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props2.items }), item);
-        }, 10);
+        }, 20);
       });
     };
-    const remove2 = (index2) => {
+    const remove = (index2) => {
       data.items.splice(index2, 1);
       emit2("update:modelValue", data.items);
     };
@@ -25258,7 +25242,7 @@ const _sfc_main$1y = {
       formDialog,
       add,
       edit,
-      remove: remove2,
+      remove,
       save: save2
     };
   }
@@ -25384,7 +25368,7 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["title", "modelValue"])
   ], 64);
 }
-var tableRender = /* @__PURE__ */ _export_sfc(_sfc_main$1y, [["render", _sfc_render$1y], ["__scopeId", "data-v-3f008463"]]);
+var tableRender = /* @__PURE__ */ _export_sfc(_sfc_main$1y, [["render", _sfc_render$1y], ["__scopeId", "data-v-5818c165"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
@@ -25762,11 +25746,11 @@ var __glob_0_23 = /* @__PURE__ */ Object.freeze({
   [Symbol.toStringTag]: "Module",
   "default": uploadRender
 });
-const components$3 = {};
-Object.values({ "./components/card-render.vue": __glob_0_0, "./components/cascader-render.vue": __glob_0_1, "./components/checkbox-render.vue": __glob_0_2, "./components/color-picker-render.vue": __glob_0_3, "./components/date-picker-render.vue": __glob_0_4, "./components/date-range-picker-render.vue": __glob_0_5, "./components/input-render.vue": __glob_0_6, "./components/multi-select-render.vue": __glob_0_7, "./components/number-render.vue": __glob_0_8, "./components/object-render.vue": __glob_0_9, "./components/quill-editor-render.vue": __glob_0_10, "./components/radio-render.vue": __glob_0_11, "./components/rate-render.vue": __glob_0_12, "./components/select-render.vue": __glob_0_13, "./components/signature-render.vue": __glob_0_14, "./components/slider-render.vue": __glob_0_15, "./components/switch-render.vue": __glob_0_16, "./components/table-render.vue": __glob_0_17, "./components/tabs-render.vue": __glob_0_18, "./components/textarea-render.vue": __glob_0_19, "./components/time-picker-render.vue": __glob_0_20, "./components/time-range-picker-render.vue": __glob_0_21, "./components/tinymce-editor-render.vue": __glob_0_22, "./components/upload-render.vue": __glob_0_23 }).forEach(({ default: component }) => components$3[component.name] = component);
+const components$2 = {};
+Object.values({ "./components/card-render.vue": __glob_0_0, "./components/cascader-render.vue": __glob_0_1, "./components/checkbox-render.vue": __glob_0_2, "./components/color-picker-render.vue": __glob_0_3, "./components/date-picker-render.vue": __glob_0_4, "./components/date-range-picker-render.vue": __glob_0_5, "./components/input-render.vue": __glob_0_6, "./components/multi-select-render.vue": __glob_0_7, "./components/number-render.vue": __glob_0_8, "./components/object-render.vue": __glob_0_9, "./components/quill-editor-render.vue": __glob_0_10, "./components/radio-render.vue": __glob_0_11, "./components/rate-render.vue": __glob_0_12, "./components/select-render.vue": __glob_0_13, "./components/signature-render.vue": __glob_0_14, "./components/slider-render.vue": __glob_0_15, "./components/switch-render.vue": __glob_0_16, "./components/table-render.vue": __glob_0_17, "./components/tabs-render.vue": __glob_0_18, "./components/textarea-render.vue": __glob_0_19, "./components/time-picker-render.vue": __glob_0_20, "./components/time-range-picker-render.vue": __glob_0_21, "./components/tinymce-editor-render.vue": __glob_0_22, "./components/upload-render.vue": __glob_0_23 }).forEach(({ default: component }) => components$2[component.name] = component);
 const _sfc_main$1r = {
   name: "formRenderItem",
-  components: __spreadValues({}, components$3),
+  components: __spreadValues({}, components$2),
   props: {
     path: {
       type: String,
@@ -29062,7 +29046,6 @@ const form = {
   },
   items: []
 };
-const components$2 = [form, ...inputs, ...pickers, ...complexs, ...layouts];
 const optionKeyLabels = {
   activeColor: "\u6253\u5F00\u65F6\u80CC\u666F\u8272",
   activeText: "\u6253\u5F00\u65F6\u6587\u5B57\u63CF\u8FF0",
@@ -29126,107 +29109,60 @@ const optionKeyLabels = {
 const _sfc_main$1p = {
   components: { draggable: draggableComponent },
   setup() {
+    const uuids = inject("uuids");
+    const groups = inject("groups");
+    const register = inject("register");
+    register("\u8F93\u5165\u7EC4\u4EF6", inputs);
+    register("\u9009\u62E9\u7EC4\u4EF6", pickers);
+    register("\u590D\u6742\u7EC4\u4EF6", complexs);
+    register("\u5E03\u5C40\u7EC4\u4EF6", layouts);
     return {
+      uuids,
+      groups,
       clone: (original) => {
         const item = deepClone(original);
-        item.uuid = item.options.key = item.component.replaceAll("-", "_") + "_" + uuid(8);
+        const uuid$1 = item.uuid || item.component.replaceAll("-", "_") + "_" + uuid(8);
+        item.uuid = item.options.key = uuid$1;
         return item;
-      },
-      inputs,
-      pickers,
-      complexs,
-      layouts
+      }
     };
   }
 };
 const _hoisted_1$p = { class: "form-picker" };
-const _hoisted_2$m = { class: "form-item-section" };
-const _hoisted_3$j = /* @__PURE__ */ createElementVNode("div", { class: "title" }, "\u8F93\u5165\u7EC4\u4EF6", -1);
+const _hoisted_2$m = { class: "title" };
+const _hoisted_3$j = { class: "form-item-group" };
 const _hoisted_4$c = { class: "form-item-drop" };
-const _hoisted_5$6 = { class: "form-item-section" };
-const _hoisted_6$4 = /* @__PURE__ */ createElementVNode("div", { class: "title" }, "\u9009\u62E9\u7EC4\u4EF6", -1);
-const _hoisted_7$3 = { class: "form-item-drop" };
-const _hoisted_8$1 = { class: "form-item-section" };
-const _hoisted_9 = /* @__PURE__ */ createElementVNode("div", { class: "title" }, "\u590D\u6742\u7EC4\u4EF6", -1);
-const _hoisted_10 = { class: "form-item-drop" };
-const _hoisted_11 = { class: "form-item-section" };
-const _hoisted_12 = /* @__PURE__ */ createElementVNode("div", { class: "title" }, "\u5E03\u5C40\u7EC4\u4EF6", -1);
-const _hoisted_13 = { class: "form-item-drop" };
 function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
   return openBlock(), createElementBlock("div", _hoisted_1$p, [
-    createElementVNode("div", _hoisted_2$m, [
-      _hoisted_3$j,
-      createVNode(_component_draggable, {
-        class: "form-item-group",
-        modelValue: $setup.inputs,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.inputs = $event),
-        "item-key": "name",
-        group: { name: "form-draggable", pull: "clone", put: false },
-        "ghost-class": "ghost",
-        sort: false,
-        clone: $setup.clone
-      }, {
-        item: withCtx(({ element }) => [
-          createElementVNode("div", _hoisted_4$c, toDisplayString(element.name), 1)
-        ]),
-        _: 1
-      }, 8, ["modelValue", "clone"])
-    ]),
-    createElementVNode("div", _hoisted_5$6, [
-      _hoisted_6$4,
-      createVNode(_component_draggable, {
-        class: "form-item-group",
-        modelValue: $setup.pickers,
-        "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.pickers = $event),
-        "item-key": "name",
-        group: { name: "form-draggable", pull: "clone", put: false },
-        "ghost-class": "ghost",
-        sort: false,
-        clone: $setup.clone
-      }, {
-        item: withCtx(({ element }) => [
-          createElementVNode("div", _hoisted_7$3, toDisplayString(element.name), 1)
-        ]),
-        _: 1
-      }, 8, ["modelValue", "clone"])
-    ]),
-    createElementVNode("div", _hoisted_8$1, [
-      _hoisted_9,
-      createVNode(_component_draggable, {
-        class: "form-item-group",
-        modelValue: $setup.complexs,
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.complexs = $event),
-        "item-key": "name",
-        group: { name: "form-draggable", pull: "clone", put: false },
-        "ghost-class": "ghost",
-        sort: false,
-        clone: $setup.clone
-      }, {
-        item: withCtx(({ element }) => [
-          createElementVNode("div", _hoisted_10, toDisplayString(element.name), 1)
-        ]),
-        _: 1
-      }, 8, ["modelValue", "clone"])
-    ]),
-    createElementVNode("div", _hoisted_11, [
-      _hoisted_12,
-      createVNode(_component_draggable, {
-        class: "form-item-group",
-        modelValue: $setup.layouts,
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.layouts = $event),
-        "item-key": "name",
-        group: { name: "form-draggable", pull: "clone", put: false },
-        "ghost-class": "ghost",
-        sort: false,
-        clone: $setup.clone
-      }, {
-        item: withCtx(({ element }) => [
-          createElementVNode("div", _hoisted_13, toDisplayString(element.name), 1)
-        ]),
-        _: 1
-      }, 8, ["modelValue", "clone"])
-    ])
+    (openBlock(true), createElementBlock(Fragment, null, renderList($setup.groups, (group) => {
+      return openBlock(), createElementBlock("div", {
+        class: "form-item-section",
+        key: group.name
+      }, [
+        createElementVNode("div", _hoisted_2$m, toDisplayString(group.name), 1),
+        createElementVNode("div", _hoisted_3$j, [
+          (openBlock(true), createElementBlock(Fragment, null, renderList(group.components, (component) => {
+            return openBlock(), createBlock(_component_draggable, {
+              key: component.name,
+              class: normalizeClass(["form-item-group-item", { "is-disabled": $setup.uuids.indexOf(component.uuid) > -1 }]),
+              "model-value": [component],
+              "item-key": "name",
+              group: { name: "form-draggable", pull: "clone", put: false },
+              "ghost-class": "ghost",
+              sort: false,
+              disabled: $setup.uuids.indexOf(component.uuid) > -1,
+              clone: $setup.clone
+            }, {
+              item: withCtx(({ element }) => [
+                createElementVNode("div", _hoisted_4$c, toDisplayString(element.name), 1)
+              ]),
+              _: 2
+            }, 1032, ["class", "model-value", "disabled", "clone"]);
+          }), 128))
+        ])
+      ]);
+    }), 128))
   ]);
 }
 var left = /* @__PURE__ */ _export_sfc(_sfc_main$1p, [["render", _sfc_render$1p]]);
@@ -29600,14 +29536,17 @@ const _sfc_main$1n = {
 function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_builder_item = resolveComponent("form-builder-item");
   const _component_draggable = resolveComponent("draggable");
-  return openBlock(), createBlock(_component_draggable, mergeProps({
+  return openBlock(), createBlock(_component_draggable, {
     class: "form-item-drop-list",
     "model-value": $props.items,
     "onUpdate:modelValue": $setup.updateItems,
     onStart: $setup.dragStart,
     onAdd: $setup.add,
-    "item-key": "uuid"
-  }, { animation: 200, group: "form-draggable", disabled: false, ghostClass: "ghost" }), {
+    "item-key": "uuid",
+    animation: 200,
+    group: { name: "form-draggable" },
+    "ghost-class": "ghost"
+  }, {
     item: withCtx(({ element }) => [
       createVNode(_component_form_builder_item, {
         component: element.component,
@@ -29622,7 +29561,7 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 8, ["component", "uuid", "items", "options", "path", "style"])
     ]),
     _: 1
-  }, 16, ["model-value", "onUpdate:modelValue", "onStart", "onAdd"]);
+  }, 8, ["model-value", "onUpdate:modelValue", "onStart", "onAdd"]);
 }
 var objectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1n, [["render", _sfc_render$1n]]);
 var __glob_4_9 = /* @__PURE__ */ Object.freeze({
@@ -33434,72 +33373,88 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var FormSetting = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render$1]]);
-const query = (items, uuid2) => {
-  let result = false;
-  if (!uuid2) {
-    return false;
-  }
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].uuid === uuid2) {
-      return items[i];
-    }
-    if (items[i].items && items[i].items.length) {
-      result = query(items[i].items, uuid2);
-      if (!isEmptyObject(result)) {
-        return result;
-      }
-    }
-  }
-  return result;
-};
-const copy = (items, uuid$1) => {
-  if (!uuid$1) {
-    return false;
-  }
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].uuid === uuid$1) {
-      let newItem = deepClone(items[i]);
-      newItem.uuid = newItem.options.key = newItem.component.replaceAll("-", "_") + "_" + uuid(8);
-      if (hasOwn(newItem, "items")) {
-        newItem.items = [];
-      }
-      items.splice(i + 1, 0, newItem);
-      return newItem;
-    }
-    if (items[i].items && items[i].items.length) {
-      const newItem = copy(items[i].items, uuid$1);
-      if (newItem) {
-        return newItem;
-      }
-    }
-  }
-  return false;
-};
-const remove = (items, uuid2) => {
-  if (!uuid2) {
-    return false;
-  }
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].uuid === uuid2) {
-      items.splice(i, 1);
-      return true;
-    }
-    if (items[i].items && items[i].items.length) {
-      if (remove(items[i].items, uuid2)) {
-        return true;
-      }
-    }
-  }
-};
 const _sfc_main = {
   components: { left, operator, FormBuilder, FormSetting },
   setup() {
-    let state = reactive({
+    const state = reactive({
       formDesign: {},
       selected: {},
       cached: [],
       current: -1
     });
+    const groups = ref([]);
+    const allComponents = computed(() => {
+      return groups.value.reduce((pre, group) => pre.concat(group.components), []);
+    });
+    const uuids = computed(() => {
+      return getUuid(state.formDesign.items, []);
+    });
+    const getUuid = (items, result) => {
+      for (let i = 0; i < items.length; i++) {
+        result.push(items[i].uuid);
+        if (items[i].items && items[i].items.length) {
+          getUuid(items[i].items, result);
+        }
+      }
+      return result;
+    };
+    const query = (items, uuid2) => {
+      let result = false;
+      if (!uuid2) {
+        return false;
+      }
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].uuid === uuid2) {
+          return items[i];
+        }
+        if (items[i].items && items[i].items.length) {
+          result = query(items[i].items, uuid2);
+          if (!isEmptyObject(result)) {
+            return result;
+          }
+        }
+      }
+      return result;
+    };
+    const copy = (items, uuid$1) => {
+      if (!uuid$1) {
+        return false;
+      }
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].uuid === uuid$1) {
+          let newItem = deepClone(items[i]);
+          newItem.uuid = newItem.options.key = newItem.component.replaceAll("-", "_") + "_" + uuid(8);
+          if (hasOwn(newItem, "items")) {
+            newItem.items = [];
+          }
+          items.splice(i + 1, 0, newItem);
+          return newItem;
+        }
+        if (items[i].items && items[i].items.length) {
+          const newItem = copy(items[i].items, uuid$1);
+          if (newItem) {
+            return newItem;
+          }
+        }
+      }
+      return false;
+    };
+    const remove = (items, uuid2) => {
+      if (!uuid2) {
+        return false;
+      }
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].uuid === uuid2) {
+          items.splice(i, 1);
+          return true;
+        }
+        if (items[i].items && items[i].items.length) {
+          if (remove(items[i].items, uuid2)) {
+            return true;
+          }
+        }
+      }
+    };
     const setSelected = (uuid2) => {
       state.selected = query([state.formDesign], uuid2) || state.formDesign;
     };
@@ -33522,7 +33477,7 @@ const _sfc_main = {
     };
     const switchInterpolate = (key2) => {
       const option2 = state.selected.options[key2];
-      state.selected.options[key2] = validateInterpolation(option2) ? components$2.find((component) => component.name === state.selected.name).options[key2] : "{{  }}";
+      state.selected.options[key2] = validateInterpolation(option2) ? allComponents.value.find((component) => component.name === state.selected.name).options[key2] : "{{  }}";
       addCache();
     };
     const copyFormItem = (uuid2) => {
@@ -33561,11 +33516,17 @@ const _sfc_main = {
       state.selected = query([state.formDesign], state.selected.uuid) || state.formDesign;
       addCache();
     };
+    const register = (name = "\u57FA\u7840\u7EC4\u4EF6", components2) => {
+      const index2 = groups.value.findIndex((group) => group.name === name);
+      if (index2 > -1) {
+        throw new Error("\u5206\u7EC4\u5DF2\u5B58\u5728");
+      } else {
+        groups.value.push({ name, components: components2 });
+      }
+    };
     init();
-    watch(() => state.formDesign, debounce(() => {
-      ElMessage.success("\u5DF2\u81EA\u52A8\u4FDD\u5B58");
-    }, 3e3), { deep: true });
     provide("state", state);
+    provide("uuids", uuids);
     provide("clear", init);
     provide("init", init);
     provide("setSelected", setSelected);
@@ -33577,8 +33538,11 @@ const _sfc_main = {
     provide("removeFormItem", removeFormItem);
     provide("revoke", revoke);
     provide("forward", forward);
+    provide("groups", groups);
+    provide("register", register);
     return {
       init,
+      register,
       getJson() {
         return state.formDesign;
       }

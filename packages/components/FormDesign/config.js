@@ -461,8 +461,6 @@ export const form = {
   items: []
 }
 
-export const components = [form, ...inputs, ...pickers, ...complexs, ...layouts]
-
 export const optionKeyLabels = {
   activeColor: '打开时背景色',
   activeText: '打开时文字描述',

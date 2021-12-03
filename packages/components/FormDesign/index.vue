@@ -14,100 +14,114 @@
 </template>
 
 <script>
-import { provide, reactive, watch } from 'vue'
-import { ElMessage } from 'element-plus'
-import {
-  isEmptyObject,
-  deepClone,
-  uuid as makeId,
-  debounce,
-  hasOwn,
-  validateInterpolation
-} from '@giantgo-render/utils'
+import { ref, reactive, provide, computed } from 'vue'
+import { isEmptyObject, deepClone, uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
 import left from './left.vue'
 import operator from './operator.vue'
 import FormBuilder from './FormBuilder/index.vue'
 import FormSetting from './FormSetting/index.vue'
-import { form, components } from './config.js'
-
-const query = (items, uuid) => {
-  let result = false
-
-  if (!uuid) {
-    return false
-  }
-
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].uuid === uuid) {
-      return items[i]
-    }
-
-    if (items[i].items && items[i].items.length) {
-      result = query(items[i].items, uuid)
-      if (!isEmptyObject(result)) {
-        return result
-      }
-    }
-  }
-
-  return result
-}
-
-const copy = (items, uuid) => {
-  if (!uuid) {
-    return false
-  }
-
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].uuid === uuid) {
-      let newItem = deepClone(items[i])
-      newItem.uuid = newItem.options.key = newItem.component.replaceAll('-', '_') + '_' + makeId(8)
-      if (hasOwn(newItem, 'items')) {
-        newItem.items = []
-      }
-      items.splice(i + 1, 0, newItem)
-      return newItem
-    }
-
-    if (items[i].items && items[i].items.length) {
-      const newItem = copy(items[i].items, uuid)
-      if (newItem) {
-        return newItem
-      }
-    }
-  }
-
-  return false
-}
-
-const remove = (items, uuid) => {
-  if (!uuid) {
-    return false
-  }
-
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].uuid === uuid) {
-      items.splice(i, 1)
-      return true
-    }
-
-    if (items[i].items && items[i].items.length) {
-      if (remove(items[i].items, uuid)) {
-        return true
-      }
-    }
-  }
-}
+import { form } from './config.js'
 
 export default {
   components: { left, operator, FormBuilder, FormSetting },
   setup() {
-    let state = reactive({
+    const state = reactive({
       formDesign: {},
       selected: {},
       cached: [],
       current: -1
     })
+
+    const groups = ref([])
+
+    const allComponents = computed(() => {
+      return groups.value.reduce((pre, group) => pre.concat(group.components), [])
+    })
+
+    const uuids = computed(() => {
+      return getUuid(state.formDesign.items, [])
+    })
+
+    const getUuid = (items, result) => {
+      for (let i = 0; i < items.length; i++) {
+        result.push(items[i].uuid)
+
+        if (items[i].items && items[i].items.length) {
+          getUuid(items[i].items, result)
+        }
+      }
+
+      return result
+    }
+
+    const query = (items, uuid) => {
+      let result = false
+
+      if (!uuid) {
+        return false
+      }
+
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].uuid === uuid) {
+          return items[i]
+        }
+
+        if (items[i].items && items[i].items.length) {
+          result = query(items[i].items, uuid)
+          if (!isEmptyObject(result)) {
+            return result
+          }
+        }
+      }
+
+      return result
+    }
+
+    const copy = (items, uuid) => {
+      if (!uuid) {
+        return false
+      }
+
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].uuid === uuid) {
+          let newItem = deepClone(items[i])
+          newItem.uuid = newItem.options.key = newItem.component.replaceAll('-', '_') + '_' + makeId(8)
+          if (hasOwn(newItem, 'items')) {
+            newItem.items = []
+          }
+          items.splice(i + 1, 0, newItem)
+          return newItem
+        }
+
+        if (items[i].items && items[i].items.length) {
+          const newItem = copy(items[i].items, uuid)
+          if (newItem) {
+            return newItem
+          }
+        }
+      }
+
+      return false
+    }
+
+    const remove = (items, uuid) => {
+      if (!uuid) {
+        return false
+      }
+
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].uuid === uuid) {
+          items.splice(i, 1)
+          return true
+        }
+
+        if (items[i].items && items[i].items.length) {
+          if (remove(items[i].items, uuid)) {
+            return true
+          }
+        }
+      }
+    }
 
     const setSelected = (uuid) => {
       state.selected = query([state.formDesign], uuid) || state.formDesign
@@ -138,7 +152,7 @@ export default {
     const switchInterpolate = (key) => {
       const option = state.selected.options[key]
       state.selected.options[key] = validateInterpolation(option)
-        ? components.find((component) => component.name === state.selected.name).options[key]
+        ? allComponents.value.find((component) => component.name === state.selected.name).options[key]
         : '{{  }}'
       addCache()
     }
@@ -187,17 +201,20 @@ export default {
       addCache()
     }
 
+    const register = (name = '基础组件', components) => {
+      const index = groups.value.findIndex((group) => group.name === name)
+
+      if (index > -1) {
+        throw new Error('分组已存在')
+      } else {
+        groups.value.push({ name, components })
+      }
+    }
+
     init()
 
-    watch(
-      () => state.formDesign,
-      debounce(() => {
-        ElMessage.success('已自动保存')
-      }, 3000),
-      { deep: true }
-    )
-
     provide('state', state)
+    provide('uuids', uuids)
     provide('clear', init)
     provide('init', init)
     provide('setSelected', setSelected)
@@ -209,9 +226,12 @@ export default {
     provide('removeFormItem', removeFormItem)
     provide('revoke', revoke)
     provide('forward', forward)
+    provide('groups', groups)
+    provide('register', register)
 
     return {
       init,
+      register,
       getJson() {
         return state.formDesign
       }

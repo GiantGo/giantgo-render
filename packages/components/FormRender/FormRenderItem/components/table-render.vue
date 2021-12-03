@@ -83,7 +83,7 @@ export default {
       nextTick(() => {
         setTimeout(() => {
           formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }))
-        }, 10)
+        }, 20)
       })
     }
 
@@ -94,7 +94,7 @@ export default {
       nextTick(() => {
         setTimeout(() => {
           formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }), item)
-        }, 10)
+        }, 20)
       })
     }
 

@@ -1,98 +1,59 @@
 <template>
   <div class="form-picker">
-    <div class="form-item-section">
-      <div class="title">输入组件</div>
-      <draggable
-        class="form-item-group"
-        v-model="inputs"
-        item-key="name"
-        :group="{ name: 'form-draggable', pull: 'clone', put: false }"
-        ghost-class="ghost"
-        :sort="false"
-        :clone="clone"
-      >
-        <template #item="{ element }">
-          <div class="form-item-drop">
-            {{ element.name }}
-          </div>
+    <div class="form-item-section" v-for="group in groups" :key="group.name">
+      <div class="title">{{ group.name }}</div>
+      <div class="form-item-group">
+        <template v-for="component in group.components" :key="component.name">
+          <draggable
+            class="form-item-group-item"
+            :class="{ 'is-disabled': uuids.indexOf(component.uuid) > -1 }"
+            :model-value="[component]"
+            item-key="name"
+            :group="{ name: 'form-draggable', pull: 'clone', put: false }"
+            ghost-class="ghost"
+            :sort="false"
+            :disabled="uuids.indexOf(component.uuid) > -1"
+            :clone="clone"
+          >
+            <template #item="{ element }">
+              <div class="form-item-drop">
+                {{ element.name }}
+              </div>
+            </template>
+          </draggable>
         </template>
-      </draggable>
-    </div>
-    <div class="form-item-section">
-      <div class="title">选择组件</div>
-      <draggable
-        class="form-item-group"
-        v-model="pickers"
-        item-key="name"
-        :group="{ name: 'form-draggable', pull: 'clone', put: false }"
-        ghost-class="ghost"
-        :sort="false"
-        :clone="clone"
-      >
-        <template #item="{ element }">
-          <div class="form-item-drop">
-            {{ element.name }}
-          </div>
-        </template>
-      </draggable>
-    </div>
-    <div class="form-item-section">
-      <div class="title">复杂组件</div>
-      <draggable
-        class="form-item-group"
-        v-model="complexs"
-        item-key="name"
-        :group="{ name: 'form-draggable', pull: 'clone', put: false }"
-        ghost-class="ghost"
-        :sort="false"
-        :clone="clone"
-      >
-        <template #item="{ element }">
-          <div class="form-item-drop">
-            {{ element.name }}
-          </div>
-        </template>
-      </draggable>
-    </div>
-    <div class="form-item-section">
-      <div class="title">布局组件</div>
-      <draggable
-        class="form-item-group"
-        v-model="layouts"
-        item-key="name"
-        :group="{ name: 'form-draggable', pull: 'clone', put: false }"
-        ghost-class="ghost"
-        :sort="false"
-        :clone="clone"
-      >
-        <template #item="{ element }">
-          <div class="form-item-drop">
-            {{ element.name }}
-          </div>
-        </template>
-      </draggable>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
-import { uuid, deepClone } from '@giantgo-render/utils'
+import { uuid as makeId, deepClone } from '@giantgo-render/utils'
 import { inputs, pickers, complexs, layouts } from './config.js'
 
 export default {
   components: { draggable },
   setup() {
+    const uuids = inject('uuids')
+    const groups = inject('groups')
+    const register = inject('register')
+
+    register('输入组件', inputs)
+    register('选择组件', pickers)
+    register('复杂组件', complexs)
+    register('布局组件', layouts)
+
     return {
+      uuids,
+      groups,
       clone: (original) => {
         const item = deepClone(original)
-        item.uuid = item.options.key = item.component.replaceAll('-', '_') + '_' + uuid(8)
+        const uuid = item.uuid || item.component.replaceAll('-', '_') + '_' + makeId(8)
+        item.uuid = item.options.key = uuid
         return item
-      },
-      inputs,
-      pickers,
-      complexs,
-      layouts
+      }
     }
   }
 }

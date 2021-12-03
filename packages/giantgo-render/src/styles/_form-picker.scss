@@ -18,18 +18,34 @@
       flex-wrap: wrap;
       align-content: flex-start;
 
-      .form-item-drop {
+      .form-item-group-item {
         width: calc(50% - 10px);
         height: 36px;
         margin: 5px;
+        background: var(--el-color-primary-light-9);
+        cursor: move;
+        color: var(--el-text-color-regular);
+
+        &.is-disabled {
+          .form-item-drop {
+            cursor: not-allowed;
+            background: var(--el-disabled-bg-color);
+            color: var(--el-disabled-text-color);
+            border: none;
+          }
+        }
+      }
+
+      .form-item-drop {
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: var(--el-color-primary-light-9);
-        cursor: move;
-        color: var(--el-text-color-regular);
         font-size: 14px;
         font-weight: normal;
+        background: var(--el-color-primary-light-9);
+        color: var(--el-text-color-regular);
 
         &.ghost {
           opacity: 0.5;
