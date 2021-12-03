@@ -1,5 +1,3 @@
-@import 'variables';
-
 .form-setting {
   width: 100%;
   height: 100%;
@@ -26,7 +24,7 @@
       cursor: pointer;
     }
     .svg-icon.highlight {
-      color: $primary-color;
+      color: var(--el-color-primary);
     }
   }
 
@@ -37,12 +35,17 @@
 
     .el-icon-delete {
       cursor: pointer;
-      color: $danger-color;
+      color: var(--el-color-danger);
       font-weight: bold;
     }
   }
 
   .option-row + .option-row {
     margin-top: 5px;
+  }
+
+  .btn-submit {
+    margin-top: 10px;
+    text-align: center;
   }
 }

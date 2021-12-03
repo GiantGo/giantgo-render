@@ -31,6 +31,10 @@ export default {
       left: 0
     })
 
+    const emitChange = () => {
+      emit('update:modelValue', `${data.top || 0}px ${data.right || 0}px ${data.down || 0}px ${data.left || 0}px`)
+    }
+
     const setInternal = () => {
       const [top, right, down, left] = props.modelValue.split(' ')
       data.top = parseFloat(top)
@@ -41,10 +45,6 @@ export default {
 
     onMounted(setInternal)
     watch(() => props.modelValue, setInternal)
-
-    const emitChange = () => {
-      emit('update:modelValue', `${data.top || 0}px ${data.right || 0}px ${data.down || 0}px ${data.left || 0}px`)
-    }
 
     return { data, emitChange }
   }

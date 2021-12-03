@@ -17,7 +17,9 @@
         <el-input :model-value="rule.message" @input="update(index, 'message', $event)" placeholder="提示信息" />
       </el-col>
       <el-col :span="2" class="btn-del">
-        <i class="el-icon-delete" @click="removeRule(index)" />
+        <el-icon class="el-icon-delete" @click="removeRule(index)">
+          <DeleteIcon />
+        </el-icon>
       </el-col>
     </el-row>
     <el-button type="text" @click="addRule">增加验证</el-button>
@@ -37,14 +39,15 @@
 </template>
 
 <script>
-import { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElMessage } from 'element-plus'
+import { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElMessage, ElIcon } from 'element-plus'
+import DeleteIcon from '../../../../icons/delete.svg'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@giantgo-render/utils'
 import { CodeMirror } from '@giantgo-render/components'
 
 export default {
   name: 'rulesOption',
-  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, CodeMirror },
+  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElIcon, DeleteIcon, CodeMirror },
   props: {
     modelValue: Array
   },
@@ -55,14 +58,6 @@ export default {
     })
     const code = ref('')
     const codeDialog = ref(false)
-
-    const setInternal = () => {
-      data.required = deepClone(props.modelValue[0])
-      data.patterns = deepClone(props.modelValue.slice(1))
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
 
     const emitChange = () => {
       emit('update:modelValue', [data.required, ...data.patterns])
@@ -103,6 +98,14 @@ export default {
       codeDialog.value = false
       emitChange()
     }
+
+    const setInternal = () => {
+      data.required = deepClone(props.modelValue[0])
+      data.patterns = deepClone(props.modelValue.slice(1))
+    }
+
+    onMounted(setInternal)
+    watch(() => props.modelValue, setInternal)
 
     return {
       data,

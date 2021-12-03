@@ -6,7 +6,9 @@
     @start="dragStart"
     @add="add"
     item-key="uuid"
-    v-bind="{ animation: 200, group: 'form-draggable', disabled: false, ghostClass: 'ghost' }"
+    :animation="200"
+    :group="{ name: 'form-draggable' }"
+    ghost-class="ghost"
   >
     <template #item="{ element }">
       <form-builder-item

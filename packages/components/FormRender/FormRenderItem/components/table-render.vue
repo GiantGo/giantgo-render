@@ -1,7 +1,9 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <div class="tools">
-      <el-button class="add-btn" type="primary" icon="el-icon-plus" @click="add">添加</el-button>
+      <el-button class="add-btn" type="primary" @click="add">
+        <el-icon><PlusIcon /></el-icon> 添加
+      </el-button>
     </div>
     <el-table class="edit-table" :data="data.items" style="width: 100%" border>
       <el-table-column type="index" width="50" label="序号" align="center"> </el-table-column>
@@ -9,8 +11,12 @@
       </el-table-column>
       <el-table-column label="操作" align="center" width="120" class-name="small-padding">
         <template #default="scope">
-          <el-button type="primary" icon="el-icon-edit" circle @click="edit(scope.row)"></el-button>
-          <el-button type="danger" icon="el-icon-delete" circle @click="remove(scope.$index)"></el-button>
+          <el-button type="primary" circle @click="edit(scope.$index, scope.row)">
+            <el-icon><EditIcon /></el-icon>
+          </el-button>
+          <el-button type="danger" circle @click="remove(scope.$index)">
+            <el-icon><DeleteIcon /></el-icon>
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -22,8 +28,11 @@
 
 <script>
 import { reactive, ref, watch, onMounted, nextTick, inject, defineAsyncComponent } from 'vue'
-import { ElFormItem, ElButton, ElTable, ElTableColumn, ElDialog } from 'element-plus'
+import { ElFormItem, ElButton, ElTable, ElTableColumn, ElDialog, ElIcon } from 'element-plus'
 import { deepClone } from '@giantgo-render/utils'
+import PlusIcon from '../../../icons/plus.svg'
+import EditIcon from '../../../icons/edit.svg'
+import DeleteIcon from '../../../icons/delete.svg'
 
 export default {
   name: 'tableRender',
@@ -33,6 +42,10 @@ export default {
     ElTable,
     ElTableColumn,
     ElDialog,
+    ElIcon,
+    PlusIcon,
+    EditIcon,
+    DeleteIcon,
     FormRender: defineAsyncComponent(() => import('../../index.vue'))
   },
   props: {
@@ -59,29 +72,29 @@ export default {
     const formRender = ref(null)
     const formDialog = reactive({
       title: '',
-      isShow: false
+      isShow: false,
+      index: -1
     })
-
-    const setInternal = () => {
-      data.items = deepClone(props.modelValue)
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
 
     const add = () => {
       formDialog.title = '添加'
       formDialog.isShow = true
+      formDialog.index = -1
       nextTick(() => {
-        formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }))
+        setTimeout(() => {
+          formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }))
+        }, 20)
       })
     }
 
-    const edit = (item) => {
+    const edit = (index, item) => {
       formDialog.title = '编辑'
       formDialog.isShow = true
+      formDialog.index = index
       nextTick(() => {
-        formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }), item)
+        setTimeout(() => {
+          formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }), item)
+        }, 20)
       })
     }
 
@@ -91,10 +104,21 @@ export default {
     }
 
     const save = (result) => {
-      data.items.push(result)
+      if (formDialog.index > -1) {
+        data.items.splice(formDialog.index, 1, result)
+      } else {
+        data.items.push(result)
+      }
       formDialog.isShow = false
       emit('update:modelValue', data.items)
     }
+
+    const setInternal = () => {
+      data.items = deepClone(props.modelValue)
+    }
+
+    onMounted(setInternal)
+    watch(() => props.modelValue, setInternal)
 
     return {
       data,

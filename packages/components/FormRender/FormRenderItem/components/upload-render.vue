@@ -49,13 +49,6 @@ export default {
       fileList: []
     })
 
-    const setInternal = () => {
-      data.fileList = deepClone(props.modelValue)
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
-
     const beforeUpload = (file) => {
       const uploadSize = props.options.uploadSize
       const size = parseFloat(uploadSize)
@@ -88,6 +81,13 @@ export default {
     const handleError = () => {
       ElMessage.error(`上传失败!`)
     }
+
+    const setInternal = () => {
+      data.fileList = deepClone(props.modelValue)
+    }
+
+    onMounted(setInternal)
+    watch(() => props.modelValue, setInternal)
 
     return {
       data,

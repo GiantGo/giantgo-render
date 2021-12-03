@@ -32,7 +32,7 @@ import { ElRow, ElCol, ElFormItem } from 'element-plus'
 import { isPrimitive, validateInterpolation } from '@giantgo-render/utils'
 import { optionKeyLabels } from '../../config'
 import Interpolation from './interpolation.vue'
-import CodeIcon from '../../icons/code.svg'
+import CodeIcon from '../../../icons/code.svg'
 
 const components = {}
 Object.values(import.meta.globEager('./components/*.vue')).forEach(

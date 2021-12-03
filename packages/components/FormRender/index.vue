@@ -87,7 +87,7 @@ export default {
       formDesign.options.key = 'root'
       formDesign.options.defaultValue = {}
 
-      traverse([formDesign], formData, data)
+      traverse([formDesign], formData, { root: data })
 
       formRef.value && formRef.value.clearValidate()
     }

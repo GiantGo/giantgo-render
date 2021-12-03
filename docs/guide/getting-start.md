@@ -1,1 +1,0 @@
-# guide getting-start.md

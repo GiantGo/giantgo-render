@@ -8,7 +8,9 @@
         <el-input :model-value="item.value" @input="update(index, 'value', $event)" placeholder="值" />
       </el-col>
       <el-col :span="2" class="btn-del">
-        <i class="el-icon-delete" @click="removeOption(index)" />
+        <el-icon class="el-icon-delete" @click="removeOption(index)">
+          <DeleteIcon />
+        </el-icon>
       </el-col>
     </el-row>
     <el-button type="text" @click="addOption">增加选项</el-button>
@@ -28,14 +30,15 @@
 </template>
 
 <script>
-import { ElRow, ElCol, ElButton, ElDialog, ElInput, ElMessage } from 'element-plus'
+import { ElRow, ElCol, ElButton, ElDialog, ElInput, ElMessage, ElIcon } from 'element-plus'
+import DeleteIcon from '../../../../icons/delete.svg'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@giantgo-render/utils'
 import { CodeMirror } from '@giantgo-render/components'
 
 export default {
   name: 'optionsOption',
-  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, CodeMirror },
+  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, DeleteIcon, CodeMirror },
   props: {
     modelValue: Object
   },
