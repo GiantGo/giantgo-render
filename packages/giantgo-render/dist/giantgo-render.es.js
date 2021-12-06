@@ -25294,7 +25294,7 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
           default: withCtx(() => [
             createVNode(_component_el_table_column, {
               type: "index",
-              width: "50",
+              width: "80",
               label: "\u5E8F\u53F7",
               align: "center"
             }),
@@ -25368,7 +25368,7 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["title", "modelValue"])
   ], 64);
 }
-var tableRender = /* @__PURE__ */ _export_sfc(_sfc_main$1y, [["render", _sfc_render$1y], ["__scopeId", "data-v-5818c165"]]);
+var tableRender = /* @__PURE__ */ _export_sfc(_sfc_main$1y, [["render", _sfc_render$1y], ["__scopeId", "data-v-a681817c"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
@@ -29121,8 +29121,8 @@ const _sfc_main$1p = {
       groups,
       clone: (original) => {
         const item = deepClone(original);
-        const uuid$1 = item.uuid || item.component.replaceAll("-", "_") + "_" + uuid(8);
-        item.uuid = item.options.key = uuid$1;
+        item.uuid = item.uuid || item.component.replaceAll("-", "_") + "_" + uuid(8);
+        item.options.key = item.options.key || item.uuid;
         return item;
       }
     };
@@ -29306,11 +29306,11 @@ const _sfc_main$1o = {
   }
 };
 const _hoisted_1$k = { class: "form-operator" };
-const _hoisted_2$h = { class: "json-box" };
+const _hoisted_2$h = { class: "form-design-json-box" };
 const _hoisted_3$e = { class: "dialog-footer" };
 const _hoisted_4$a = /* @__PURE__ */ createTextVNode("\u53D6\u6D88");
 const _hoisted_5$5 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
-const _hoisted_6$3 = { class: "json-box" };
+const _hoisted_6$3 = { class: "form-design-json-box" };
 const _hoisted_7$2 = { class: "dialog-footer" };
 const _hoisted_8 = /* @__PURE__ */ createTextVNode("\u5173\u95ED");
 function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
@@ -29438,11 +29438,13 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
       title: $setup.jsonDialog.title,
       modelValue: $setup.jsonDialog.isShow,
       "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.jsonDialog.isShow = $event),
+      "append-to-body": "",
       width: "750px"
     }, {
       footer: withCtx(() => [
         createElementVNode("div", _hoisted_3$e, [
           createVNode(_component_el_button, {
+            size: "medium",
             onClick: _cache[2] || (_cache[2] = ($event) => $setup.jsonDialog.isShow = false)
           }, {
             default: withCtx(() => [
@@ -29451,6 +29453,7 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
             _: 1
           }),
           createVNode(_component_el_button, {
+            size: "medium",
             type: "primary",
             onClick: $setup.saveJson
           }, {
@@ -29475,11 +29478,13 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
       title: $setup.resultDialog.title,
       modelValue: $setup.resultDialog.isShow,
       "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $setup.resultDialog.isShow = $event),
+      "append-to-body": "",
       width: "750px"
     }, {
       footer: withCtx(() => [
         createElementVNode("div", _hoisted_7$2, [
           createVNode(_component_el_button, {
+            size: "medium",
             onClick: _cache[5] || (_cache[5] = ($event) => $setup.resultDialog.isShow = false)
           }, {
             default: withCtx(() => [
@@ -31889,7 +31894,7 @@ const _sfc_main$u = {
 };
 const _hoisted_1$c = /* @__PURE__ */ createTextVNode("\u589E\u52A0\u9009\u9879");
 const _hoisted_2$b = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9009\u9879");
-const _hoisted_3$a = { class: "json-box" };
+const _hoisted_3$a = { class: "form-design-json-box" };
 const _hoisted_4$8 = { class: "dialog-footer" };
 const _hoisted_5$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_6$1 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
@@ -32289,7 +32294,7 @@ const _sfc_main$o = {
 const _hoisted_1$a = /* @__PURE__ */ createTextVNode(" \u5FC5\u586B ");
 const _hoisted_2$9 = /* @__PURE__ */ createTextVNode("\u589E\u52A0\u9A8C\u8BC1");
 const _hoisted_3$8 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9A8C\u8BC1");
-const _hoisted_4$6 = { class: "json-box" };
+const _hoisted_4$6 = { class: "form-design-json-box" };
 const _hoisted_5$2 = { class: "dialog-footer" };
 const _hoisted_6 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_7 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
@@ -32900,7 +32905,7 @@ const _sfc_main$9 = {
     };
   }
 };
-const _hoisted_1$5 = { class: "json-box" };
+const _hoisted_1$5 = { class: "form-design-json-box" };
 const _hoisted_2$4 = { class: "dialog-footer" };
 const _hoisted_3$4 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_4$4 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
@@ -32996,7 +33001,7 @@ const _sfc_main$8 = {
     };
   }
 };
-const _hoisted_1$4 = { class: "json-box" };
+const _hoisted_1$4 = { class: "form-design-json-box" };
 const _hoisted_2$3 = { class: "dialog-footer" };
 const _hoisted_3$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_4$3 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
@@ -33519,7 +33524,7 @@ const _sfc_main = {
     const register = (name = "\u57FA\u7840\u7EC4\u4EF6", components2) => {
       const index2 = groups.value.findIndex((group) => group.name === name);
       if (index2 > -1) {
-        throw new Error("\u5206\u7EC4\u5DF2\u5B58\u5728");
+        groups.value[index2].components = components2;
       } else {
         groups.value.push({ name, components: components2 });
       }

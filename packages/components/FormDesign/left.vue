@@ -50,8 +50,8 @@ export default {
       groups,
       clone: (original) => {
         const item = deepClone(original)
-        const uuid = item.uuid || item.component.replaceAll('-', '_') + '_' + makeId(8)
-        item.uuid = item.options.key = uuid
+        item.uuid = item.uuid || item.component.replaceAll('-', '_') + '_' + makeId(8)
+        item.options.key = item.options.key || item.uuid
         return item
       }
     }

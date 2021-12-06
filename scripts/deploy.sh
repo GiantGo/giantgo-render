@@ -10,6 +10,9 @@ pnpm i
 
 # 构建
 pnpm run docs:build
+cd example
+npm i
+cd -
 pnpm run example:build
 
 mv docs/.vitepress/dist/ dist

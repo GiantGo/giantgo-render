@@ -83,12 +83,10 @@ importers:
   play:
     specifiers:
       '@vitejs/plugin-vue': ^1.9.3
-      element-plus: ^1.2.0-beta.5
       unplugin-vue-components: ^0.16.0
       vite: ^2.6.4
       vue: ^3.2.16
     dependencies:
-      element-plus: 1.2.0-beta.5_vue@3.2.19
       vue: 3.2.19
     devDependencies:
       '@vitejs/plugin-vue': 1.9.3_vite@2.6.7

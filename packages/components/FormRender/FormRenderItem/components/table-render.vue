@@ -6,7 +6,7 @@
       </el-button>
     </div>
     <el-table class="edit-table" :data="data.items" style="width: 100%" border>
-      <el-table-column type="index" width="50" label="序号" align="center"> </el-table-column>
+      <el-table-column type="index" width="80" label="序号" align="center"> </el-table-column>
       <el-table-column v-for="(item, index) in items" :key="index" :prop="item.options.key" :label="item.options.label">
       </el-table-column>
       <el-table-column label="操作" align="center" width="120" class-name="small-padding">
