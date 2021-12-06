@@ -16,7 +16,7 @@
     <el-button type="text" @click="addOption">增加选项</el-button>
     <el-button type="text" @click="editOptions">编辑选项</el-button>
     <el-dialog title="编辑选项" v-model="codeDialog" width="750px">
-      <div class="json-box">
+      <div class="form-design-json-box">
         <code-mirror v-model="code" />
       </div>
       <template #footer>

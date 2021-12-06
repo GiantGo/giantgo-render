@@ -25,7 +25,7 @@
     <el-button type="text" @click="addRule">增加验证</el-button>
     <el-button type="text" @click="editRules">编辑验证</el-button>
     <el-dialog title="编辑验证" v-model="codeDialog" width="750px">
-      <div class="json-box">
+      <div class="form-design-json-box">
         <code-mirror v-model="code" />
       </div>
       <template #footer>

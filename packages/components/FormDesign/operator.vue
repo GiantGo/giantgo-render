@@ -29,24 +29,24 @@
     <el-dialog title="预览" v-model="previewDialog" destroy-on-close append-to-body width="750px">
       <form-render ref="formRender" @submit="submit" />
     </el-dialog>
-    <el-dialog :title="jsonDialog.title" v-model="jsonDialog.isShow" width="750px">
-      <div class="json-box">
+    <el-dialog :title="jsonDialog.title" v-model="jsonDialog.isShow" append-to-body width="750px">
+      <div class="form-design-json-box">
         <code-mirror v-model="jsonDialog.code" />
       </div>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="jsonDialog.isShow = false">取消</el-button>
-          <el-button type="primary" @click="saveJson">确定</el-button>
+          <el-button size="medium" @click="jsonDialog.isShow = false">取消</el-button>
+          <el-button size="medium" type="primary" @click="saveJson">确定</el-button>
         </div>
       </template>
     </el-dialog>
-    <el-dialog :title="resultDialog.title" v-model="resultDialog.isShow" width="750px">
-      <div class="json-box">
+    <el-dialog :title="resultDialog.title" v-model="resultDialog.isShow" append-to-body width="750px">
+      <div class="form-design-json-box">
         <code-mirror v-model="resultDialog.code" />
       </div>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="resultDialog.isShow = false">关闭</el-button>
+          <el-button size="medium" @click="resultDialog.isShow = false">关闭</el-button>
         </div>
       </template>
     </el-dialog>

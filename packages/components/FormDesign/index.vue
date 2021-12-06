@@ -205,7 +205,7 @@ export default {
       const index = groups.value.findIndex((group) => group.name === name)
 
       if (index > -1) {
-        throw new Error('分组已存在')
+        groups.value[index].components = components
       } else {
         groups.value.push({ name, components })
       }

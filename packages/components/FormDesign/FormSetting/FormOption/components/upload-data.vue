@@ -1,6 +1,6 @@
 <template>
   <el-dialog title="编辑额外参数" v-model="codeDialog" width="750px">
-    <div class="json-box">
+    <div class="form-design-json-box">
       <code-mirror v-model="code" />
     </div>
     <template #footer>
