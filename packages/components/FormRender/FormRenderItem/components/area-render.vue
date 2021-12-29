@@ -4,7 +4,7 @@
       v-if="!options.hidden"
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
-      :options="options.options.items"
+      :options="region"
       :placeholder="options.placeholder"
       :disabled="options.disabled"
       :clearable="options.clearable"
@@ -17,9 +17,11 @@
 
 <script>
 import { ElFormItem, ElCascader } from 'element-plus'
+import { reactive } from 'vue'
+import { areaTree } from '@giantgo-render/utils'
 
 export default {
-  name: 'cascaderRender',
+  name: 'areaRender',
   components: { ElFormItem, ElCascader },
   props: {
     path: String,
@@ -31,7 +33,13 @@ export default {
       }
     }
   },
-  setup() {}
+  setup() {
+    const region = reactive(areaTree)
+
+    return {
+      region
+    }
+  }
 }
 </script>
 

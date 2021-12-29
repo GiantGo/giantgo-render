@@ -9,6 +9,7 @@ importers:
       '@vitejs/plugin-vue': ^1.9.3
       '@vue/compiler-sfc': ^3.2.16
       autoprefixer: ^10.3.6
+      china-area-data: ^5.0.1
       codemirror: ^5.63.3
       element-plus: ^1.2.0-beta.6
       giantgo-render: workspace:*
@@ -24,6 +25,7 @@ importers:
     dependencies:
       '@giantgo-render/components': link:packages/components
       '@giantgo-render/utils': link:packages/utils
+      china-area-data: 5.0.1
       codemirror: 5.63.3
       element-plus: 1.2.0-beta.6_vue@3.2.19
       giantgo-render: link:packages/giantgo-render
@@ -286,7 +288,7 @@ packages:
     peerDependencies:
       vite: ^2.5.10
     dependencies:
-      vite: 2.6.7_sass@1.32.13
+      vite: 2.6.7_sass@1.43.4
     dev: true
 
   /@vue/compiler-core/3.2.19:
@@ -496,6 +498,10 @@ packages:
     dependencies:
       nanocolors: 0.1.12
     dev: true
+
+  /china-area-data/5.0.1:
+    resolution: {integrity: sha512-BQDPpiv5Nn+018ekcJK2oSD9PAD+E1bvXB0wgabc//dFVS/KvRqCgg0QOEUt3vBkx9XzB5a9BmkJCEZDBxVjVw==}
+    dev: false
 
   /chokidar/3.5.2:
     resolution: {integrity: sha512-ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==}

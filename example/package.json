@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "element-plus": "^1.2.0-beta.6",
-    "giantgo-render": "^1.1.13",
+    "giantgo-render": "^1.1.14",
     "vue": "^3.2.20"
   },
   "devDependencies": {

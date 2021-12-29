@@ -384,6 +384,27 @@ export const complexs = [
       penColor: '#000000',
       backgroundColor: '#dddddd'
     }
+  },
+  {
+    name: '省市县',
+    component: 'area',
+    uuid: '',
+    options: {
+      label: '省市县',
+      key: '',
+      defaultValue: [],
+      rules: rules,
+      placeholder: '请选择',
+      width: '100%',
+      expandTrigger: 'click',
+      hidden: false,
+      clearable: false,
+      disabled: false,
+      filterable: false,
+      collapseTags: false,
+      multipleLimit: 0,
+      rules: rules
+    }
   }
 ]
 
