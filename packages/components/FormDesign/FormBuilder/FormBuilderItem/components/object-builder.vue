@@ -11,17 +11,19 @@
     ghost-class="ghost"
   >
     <template #item="{ element }">
-      <form-builder-item
-        :component="element.component"
-        :uuid="element.uuid"
-        :items="element.items"
-        :options="element.options"
-        :path="element.options.key ? path + '.' + element.options.key : path"
-        :style="{
-          'padding-left': options.gutter / 2 + 'px',
-          'padding-right': options.gutter / 2 + 'px'
-        }"
-      ></form-builder-item>
+      <div class="form-item-container">
+        <form-builder-item
+          :component="element.component"
+          :uuid="element.uuid"
+          :items="element.items"
+          :options="element.options"
+          :path="element.options.key ? path + '.' + element.options.key : path"
+          :style="{
+            'padding-left': options.gutter / 2 + 'px',
+            'padding-right': options.gutter / 2 + 'px'
+          }"
+        ></form-builder-item>
+      </div>
     </template>
   </draggable>
 </template>

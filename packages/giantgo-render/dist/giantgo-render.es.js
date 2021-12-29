@@ -11790,13 +11790,13 @@ const _sfc_main$1T = {
     }
   }
 };
-const _hoisted_1$B = { class: "vue-codemirror-wrap" };
+const _hoisted_1$C = { class: "vue-codemirror-wrap" };
 const _hoisted_2$t = /* @__PURE__ */ createElementVNode("textarea", null, null, -1);
 const _hoisted_3$o = [
   _hoisted_2$t
 ];
 function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$B, _hoisted_3$o);
+  return openBlock(), createElementBlock("div", _hoisted_1$C, _hoisted_3$o);
 }
 var CodeMirror = /* @__PURE__ */ _export_sfc(_sfc_main$1T, [["render", _sfc_render$1S]]);
 var quill_core = "";
@@ -23238,9 +23238,9 @@ const _sfc_main$1S = {
     return { editor };
   }
 };
-const _hoisted_1$A = { ref: "editor" };
+const _hoisted_1$B = { ref: "editor" };
 function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("section", _hoisted_1$A, null, 512);
+  return openBlock(), createElementBlock("section", _hoisted_1$B, null, 512);
 }
 var QuillEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1S, [["render", _sfc_render$1R]]);
 let callbacks = [];
@@ -23453,7 +23453,7 @@ const _sfc_main$1R = {
     };
   }
 };
-const _hoisted_1$z = ["id"];
+const _hoisted_1$A = ["id"];
 function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass([{ fullscreen: $setup.fullscreen }, "tinymce-container"]),
@@ -23462,7 +23462,7 @@ function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
     createElementVNode("textarea", {
       id: $setup.tinymceId,
       class: "tinymce-textarea"
-    }, null, 8, _hoisted_1$z)
+    }, null, 8, _hoisted_1$A)
   ], 6);
 }
 var TinymceEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1R, [["render", _sfc_render$1Q], ["__scopeId", "data-v-25e56352"]]);
@@ -24275,10 +24275,10 @@ const _sfc_main$1P = {
     };
   }
 };
-const _hoisted_1$y = { class: "form-item-list" };
+const _hoisted_1$z = { class: "form-item-list" };
 function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_render_item = resolveComponent("form-render-item");
-  return openBlock(), createElementBlock("div", _hoisted_1$y, [
+  return openBlock(), createElementBlock("div", _hoisted_1$z, [
     (openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item) => {
       return openBlock(), createBlock(_component_form_render_item, {
         key: item.uuid,
@@ -24324,7 +24324,7 @@ const _sfc_main$1O = {
   setup() {
   }
 };
-const _hoisted_1$x = { class: "card-header" };
+const _hoisted_1$y = { class: "card-header" };
 function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_render = resolveComponent("object-render");
   const _component_el_card = resolveComponent("el-card");
@@ -24334,7 +24334,7 @@ function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
     "body-style": { padding: $props.options.padding }
   }, {
     header: withCtx(() => [
-      createElementVNode("div", _hoisted_1$x, [
+      createElementVNode("div", _hoisted_1$y, [
         createElementVNode("span", null, toDisplayString($props.options.label), 1)
       ])
     ]),
@@ -24975,7 +24975,7 @@ const _sfc_main$1B = {
     };
   }
 };
-const _hoisted_1$w = { class: "btn-submit" };
+const _hoisted_1$x = { class: "btn-submit" };
 const _hoisted_2$s = /* @__PURE__ */ createTextVNode("\u64A4\u9500");
 function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Signature = resolveComponent("Signature");
@@ -24998,7 +24998,7 @@ function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
           endStroke: $setup.endStroke
         }
       }, null, 8, ["disabled", "width", "height", "options"]),
-      createElementVNode("div", _hoisted_1$w, [
+      createElementVNode("div", _hoisted_1$x, [
         createVNode(_component_el_button, {
           type: "primary",
           size: "small",
@@ -25110,7 +25110,7 @@ var __glob_0_16 = /* @__PURE__ */ Object.freeze({
   [Symbol.toStringTag]: "Module",
   "default": switchRender
 });
-const _hoisted_1$v = {
+const _hoisted_1$w = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -25122,9 +25122,9 @@ const _hoisted_3$n = [
   _hoisted_2$r
 ];
 function render$8(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$n);
+  return openBlock(), createElementBlock("svg", _hoisted_1$w, _hoisted_3$n);
 }
-const _hoisted_1$u = {
+const _hoisted_1$v = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -25136,9 +25136,9 @@ const _hoisted_3$m = [
   _hoisted_2$q
 ];
 function render$7(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_3$m);
+  return openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$m);
 }
-const _hoisted_1$t = {
+const _hoisted_1$u = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -25152,7 +25152,7 @@ const _hoisted_4$d = [
   _hoisted_3$l
 ];
 function render$6(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$t, _hoisted_4$d);
+  return openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_4$d);
 }
 var tableRender_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1y = {
@@ -25247,7 +25247,7 @@ const _sfc_main$1y = {
     };
   }
 };
-const _hoisted_1$s = { class: "tools" };
+const _hoisted_1$t = { class: "tools" };
 const _hoisted_2$o = /* @__PURE__ */ createTextVNode(" \u6DFB\u52A0 ");
 function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PlusIcon = resolveComponent("PlusIcon");
@@ -25267,7 +25267,7 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
       rules: $props.options.rules
     }, {
       default: withCtx(() => [
-        createElementVNode("div", _hoisted_1$s, [
+        createElementVNode("div", _hoisted_1$t, [
           createVNode(_component_el_button, {
             class: "add-btn",
             type: "primary",
@@ -25689,7 +25689,7 @@ const _sfc_main$1s = {
     };
   }
 };
-const _hoisted_1$r = { class: "el-upload__tip" };
+const _hoisted_1$s = { class: "el-upload__tip" };
 function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_upload = resolveComponent("el-upload");
@@ -25732,7 +25732,7 @@ function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
         $props.options.showToolTip ? {
           name: "tip",
           fn: withCtx(() => [
-            createElementVNode("div", _hoisted_1$r, toDisplayString($props.options.tip), 1)
+            createElementVNode("div", _hoisted_1$s, toDisplayString($props.options.tip), 1)
           ])
         } : void 0
       ]), 1032, ["action", "name", "multiple", "data", "headers", "show-file-list", "limit", "file-list", "disabled", "before-upload", "on-success", "on-remove", "before-remove", "on-error"])
@@ -25866,7 +25866,7 @@ const _sfc_main$1q = {
     };
   }
 };
-const _hoisted_1$q = { class: "btn-submit" };
+const _hoisted_1$r = { class: "btn-submit" };
 const _hoisted_2$n = /* @__PURE__ */ createTextVNode("\u63D0\u4EA4");
 const _hoisted_3$k = /* @__PURE__ */ createTextVNode("\u91CD\u7F6E");
 function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
@@ -25894,7 +25894,7 @@ function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
         options: $setup.formDesign.options,
         path: "root"
       }, null, 8, ["modelValue", "component", "items", "options"]),
-      createElementVNode("div", _hoisted_1$q, [
+      createElementVNode("div", _hoisted_1$r, [
         createVNode(_component_el_button, {
           type: "primary",
           onClick: $setup.submit
@@ -29128,13 +29128,13 @@ const _sfc_main$1p = {
     };
   }
 };
-const _hoisted_1$p = { class: "form-picker" };
+const _hoisted_1$q = { class: "form-picker" };
 const _hoisted_2$m = { class: "title" };
 const _hoisted_3$j = { class: "form-item-group" };
 const _hoisted_4$c = { class: "form-item-drop" };
 function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
-  return openBlock(), createElementBlock("div", _hoisted_1$p, [
+  return openBlock(), createElementBlock("div", _hoisted_1$q, [
     (openBlock(true), createElementBlock(Fragment, null, renderList($setup.groups, (group) => {
       return openBlock(), createElementBlock("div", {
         class: "form-item-section",
@@ -29166,7 +29166,7 @@ function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var left = /* @__PURE__ */ _export_sfc(_sfc_main$1p, [["render", _sfc_render$1p]]);
-const _hoisted_1$o = {
+const _hoisted_1$p = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -29181,9 +29181,9 @@ const _hoisted_3$i = [
   _hoisted_2$l
 ];
 function render$5(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$o, _hoisted_3$i);
+  return openBlock(), createElementBlock("svg", _hoisted_1$p, _hoisted_3$i);
 }
-const _hoisted_1$n = {
+const _hoisted_1$o = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -29197,9 +29197,9 @@ const _hoisted_4$b = [
   _hoisted_3$h
 ];
 function render$4(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_4$b);
+  return openBlock(), createElementBlock("svg", _hoisted_1$o, _hoisted_4$b);
 }
-const _hoisted_1$m = {
+const _hoisted_1$n = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -29211,9 +29211,9 @@ const _hoisted_3$g = [
   _hoisted_2$j
 ];
 function render$3(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$m, _hoisted_3$g);
+  return openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_3$g);
 }
-const _hoisted_1$l = {
+const _hoisted_1$m = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -29225,7 +29225,7 @@ const _hoisted_3$f = [
   _hoisted_2$i
 ];
 function render$2(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$l, _hoisted_3$f);
+  return openBlock(), createElementBlock("svg", _hoisted_1$m, _hoisted_3$f);
 }
 const _sfc_main$1o = {
   components: {
@@ -29305,7 +29305,7 @@ const _sfc_main$1o = {
     };
   }
 };
-const _hoisted_1$k = { class: "form-operator" };
+const _hoisted_1$l = { class: "form-operator" };
 const _hoisted_2$h = { class: "form-design-json-box" };
 const _hoisted_3$e = { class: "dialog-footer" };
 const _hoisted_4$a = /* @__PURE__ */ createTextVNode("\u53D6\u6D88");
@@ -29326,7 +29326,7 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_dialog = resolveComponent("el-dialog");
   const _component_code_mirror = resolveComponent("code-mirror");
   const _component_el_button = resolveComponent("el-button");
-  return openBlock(), createElementBlock("div", _hoisted_1$k, [
+  return openBlock(), createElementBlock("div", _hoisted_1$l, [
     createVNode(_component_el_tooltip, {
       effect: "dark",
       content: "\u9884\u89C8",
@@ -29538,6 +29538,7 @@ const _sfc_main$1n = {
     };
   }
 };
+const _hoisted_1$k = { class: "form-item-container" };
 function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_builder_item = resolveComponent("form-builder-item");
   const _component_draggable = resolveComponent("draggable");
@@ -29553,17 +29554,19 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
     "ghost-class": "ghost"
   }, {
     item: withCtx(({ element }) => [
-      createVNode(_component_form_builder_item, {
-        component: element.component,
-        uuid: element.uuid,
-        items: element.items,
-        options: element.options,
-        path: element.options.key ? $props.path + "." + element.options.key : $props.path,
-        style: normalizeStyle({
-          "padding-left": $props.options.gutter / 2 + "px",
-          "padding-right": $props.options.gutter / 2 + "px"
-        })
-      }, null, 8, ["component", "uuid", "items", "options", "path", "style"])
+      createElementVNode("div", _hoisted_1$k, [
+        createVNode(_component_form_builder_item, {
+          component: element.component,
+          uuid: element.uuid,
+          items: element.items,
+          options: element.options,
+          path: element.options.key ? $props.path + "." + element.options.key : $props.path,
+          style: normalizeStyle({
+            "padding-left": $props.options.gutter / 2 + "px",
+            "padding-right": $props.options.gutter / 2 + "px"
+          })
+        }, null, 8, ["component", "uuid", "items", "options", "path", "style"])
+      ])
     ]),
     _: 1
   }, 8, ["model-value", "onUpdate:modelValue", "onStart", "onAdd"]);
