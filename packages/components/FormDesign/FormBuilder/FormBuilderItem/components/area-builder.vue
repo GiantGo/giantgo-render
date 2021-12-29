@@ -2,9 +2,8 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-cascader
       v-if="!options.hidden"
-      :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
-      :options="options.options.items"
+      :model-value="options.defaultValue"
+      :options="region"
       :placeholder="options.placeholder"
       :disabled="options.disabled"
       :clearable="options.clearable"
@@ -17,13 +16,15 @@
 
 <script>
 import { ElFormItem, ElCascader } from 'element-plus'
+import { reactive } from 'vue'
+import { areaTree } from '@giantgo-render/utils'
 
 export default {
-  name: 'cascaderRender',
+  name: 'areaBuilder',
   components: { ElFormItem, ElCascader },
   props: {
     path: String,
-    modelValue: Array,
+    uuid: String,
     options: {
       type: Object,
       default() {
@@ -31,7 +32,13 @@ export default {
       }
     }
   },
-  setup() {}
+  setup() {
+    const region = reactive(areaTree)
+
+    return {
+      region
+    }
+  }
 }
 </script>
 

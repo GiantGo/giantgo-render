@@ -4,6 +4,7 @@
       v-if="!options.hidden"
       :model-value="options.defaultValue"
       :options="options.options.items"
+      :placeholder="options.placeholder"
       :disabled="options.disabled"
       :clearable="options.clearable"
       :props="{

@@ -21,6 +21,7 @@
   "dependencies": {
     "@giantgo-render/components": "workspace:*",
     "@giantgo-render/utils": "workspace:*",
+    "china-area-data": "^5.0.1",
     "codemirror": "^5.63.3",
     "element-plus": "^1.2.0-beta.6",
     "giantgo-render": "workspace:*",
