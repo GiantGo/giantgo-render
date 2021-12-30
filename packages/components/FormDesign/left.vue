@@ -1,6 +1,6 @@
 <template>
   <div class="form-picker">
-    <div class="form-item-section" v-for="group in groups" :key="group.name">
+    <div class="form-item-section" v-for="group in groups.sort((a, b) => a.order - b.order)" :key="group.name">
       <div class="title">{{ group.name }}</div>
       <div class="form-item-group">
         <template v-for="component in group.components" :key="component.name">
@@ -31,7 +31,7 @@
 import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
 import { uuid as makeId, deepClone } from '@giantgo-render/utils'
-import { inputs, pickers, complexs, layouts } from './config.js'
+import { inputs, pickers, complexs, assists, layouts } from './config.js'
 
 export default {
   components: { draggable },
@@ -40,10 +40,11 @@ export default {
     const groups = inject('groups')
     const register = inject('register')
 
-    register('输入组件', inputs)
-    register('选择组件', pickers)
-    register('复杂组件', complexs)
-    register('布局组件', layouts)
+    register('输入组件', inputs, 1)
+    register('选择组件', pickers, 2)
+    register('复杂组件', complexs, 3)
+    register('展示组件', assists, 4)
+    register('布局组件', layouts, 5)
 
     return {
       uuids,
