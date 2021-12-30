@@ -334,63 +334,6 @@ onMounted(() => {
     },
     items: [
       {
-        name: '文本框',
-        component: 'textarea',
-        uuid: 'textarea_c3XOOpeR',
-        options: {
-          label: '文本框',
-          key: 'textarea_c3XOOpeR',
-          defaultValue: '',
-          rules: [{ required: false, message: '必填项', trigger: 'blur' }],
-          width: '100%',
-          placeholder: '请输入内容',
-          rows: 4,
-          hidden: false,
-          disabled: false,
-          maxlength: 50,
-          showWordLimit: true
-        }
-      },
-      {
-        name: '输入框',
-        component: 'input',
-        uuid: 'input_jizNj89g',
-        options: {
-          label: '输入框',
-          key: 'input_jizNj89g',
-          defaultValue: '',
-          rules: [{ required: false, message: '必填项', trigger: 'blur' }],
-          width: '100%',
-          placeholder: '请输入',
-          prefixIcon: '',
-          suffixIcon: '',
-          hidden: false,
-          clearable: false,
-          disabled: false,
-          showPassword: false,
-          maxlength: 50,
-          showWordLimit: true
-        }
-      },
-      {
-        name: '文本框',
-        component: 'textarea',
-        uuid: 'textarea_Ye4FZseZ',
-        options: {
-          label: '文本框',
-          key: 'textarea_Ye4FZseZ',
-          defaultValue: '',
-          rules: [{ required: false, message: '必填项', trigger: 'blur' }],
-          width: '100%',
-          placeholder: '请输入内容',
-          rows: 4,
-          hidden: false,
-          disabled: false,
-          maxlength: 50,
-          showWordLimit: true
-        }
-      },
-      {
         name: '姓名',
         component: 'input',
         uuid: 'M24GLL8K',
@@ -689,27 +632,6 @@ onMounted(() => {
           ],
           width: '100%',
           placeholder: '请输入年龄',
-          prefixIcon: '',
-          suffixIcon: '',
-          hidden: false,
-          clearable: false,
-          disabled: false,
-          showPassword: false,
-          maxlength: 50,
-          showWordLimit: true
-        }
-      },
-      {
-        name: '输入框',
-        component: 'input',
-        uuid: 'input_jC74MRVF',
-        options: {
-          label: '输入框',
-          key: 'input_jC74MRVF',
-          defaultValue: '',
-          rules: [{ required: false, message: '必填项', trigger: 'blur' }],
-          width: '100%',
-          placeholder: '请输入',
           prefixIcon: '',
           suffixIcon: '',
           hidden: false,

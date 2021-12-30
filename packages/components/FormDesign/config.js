@@ -422,6 +422,19 @@ export const objectLayout = {
   items: []
 }
 
+export const assists = [
+  {
+    name: '文字',
+    component: 'label',
+    uuid: '',
+    options: {
+      content: '文字',
+      width: '100%',
+      lineHeight: '40px'
+    }
+  }
+]
+
 export const layouts = [
   objectLayout,
   {
@@ -540,5 +553,6 @@ export const optionKeyLabels = {
   width: '组件宽度',
   height: '组件高度',
   penColor: '笔颜色',
-  backgroundColor: '背景颜色'
+  backgroundColor: '背景颜色',
+  content: '内容'
 }

@@ -201,13 +201,13 @@ export default {
       addCache()
     }
 
-    const register = (name = '基础组件', components) => {
+    const register = (name = '基础组件', components, order = 0) => {
       const index = groups.value.findIndex((group) => group.name === name)
 
       if (index > -1) {
         groups.value[index].components = components
       } else {
-        groups.value.push({ name, components })
+        groups.value.push({ name, components, order })
       }
     }
 
