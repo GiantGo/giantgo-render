@@ -18,7 +18,7 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { openBlock, createElementBlock, createElementVNode, watch, ref, onBeforeUnmount, onMounted, onUnmounted, reactive, computed, nextTick, toRefs, normalizeClass, normalizeStyle, defineComponent, h, resolveComponent, createBlock, withCtx, createCommentVNode, defineAsyncComponent, Fragment, renderList, toDisplayString, createVNode, createTextVNode, inject, createSlots, resolveDynamicComponent, provide, toRaw, TransitionGroup, withModifiers } from "vue";
-import { ElMessage, ElFormItem, ElCascader, ElCard, ElCheckboxGroup, ElCheckbox, ElColorPicker, ElDatePicker, ElInput, ElSelect, ElOption, ElInputNumber, ElRadioGroup, ElRadio, ElRate, ElButton, ElSlider, ElSwitch, ElTable, ElTableColumn, ElDialog, ElIcon, ElTabs, ElTabPane, ElTimePicker, ElUpload, ElMessageBox, ElForm, ElTooltip, ElDivider, ElEmpty, ElRadioButton, ElRow, ElCol, ElAutocomplete } from "element-plus";
+import { ElMessage, ElFormItem, ElCascader, ElCard, ElCheckboxGroup, ElCheckbox, ElColorPicker, ElDatePicker, ElDivider, ElInput, ElSelect, ElOption, ElInputNumber, ElRadioGroup, ElRadio, ElRate, ElButton, ElSlider, ElSwitch, ElTable, ElTableColumn, ElDialog, ElIcon, ElTabs, ElTabPane, ElTimePicker, ElUpload, ElMessageBox, ElForm, ElTooltip, ElEmpty, ElRadioButton, ElRow, ElCol, ElAutocomplete } from "element-plus";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
@@ -79,7 +79,7 @@ var codemirror$1 = { exports: {} };
     function removeChildrenAndAdd(parent, e) {
       return removeChildren(parent).appendChild(e);
     }
-    function elt(tag, content, className, style) {
+    function elt(tag, content2, className, style) {
       var e = document.createElement(tag);
       if (className) {
         e.className = className;
@@ -87,17 +87,17 @@ var codemirror$1 = { exports: {} };
       if (style) {
         e.style.cssText = style;
       }
-      if (typeof content == "string") {
-        e.appendChild(document.createTextNode(content));
-      } else if (content) {
-        for (var i2 = 0; i2 < content.length; ++i2) {
-          e.appendChild(content[i2]);
+      if (typeof content2 == "string") {
+        e.appendChild(document.createTextNode(content2));
+      } else if (content2) {
+        for (var i2 = 0; i2 < content2.length; ++i2) {
+          e.appendChild(content2[i2]);
         }
       }
       return e;
     }
-    function eltP(tag, content, className, style) {
-      var e = elt(tag, content, className, style);
+    function eltP(tag, content2, className, style) {
+      var e = elt(tag, content2, className, style);
       e.setAttribute("role", "presentation");
       return e;
     }
@@ -1852,10 +1852,10 @@ var codemirror$1 = { exports: {} };
       return cache[style] || (cache[style] = style.replace(/\S+/g, "cm-$&"));
     }
     function buildLineContent(cm, lineView) {
-      var content = eltP("span", null, null, webkit ? "padding-right: .1px" : null);
+      var content2 = eltP("span", null, null, webkit ? "padding-right: .1px" : null);
       var builder = {
-        pre: eltP("pre", [content], "CodeMirror-line"),
-        content,
+        pre: eltP("pre", [content2], "CodeMirror-line"),
+        content: content2,
         col: 0,
         pos: 0,
         cm,
@@ -1916,17 +1916,17 @@ var codemirror$1 = { exports: {} };
       }
       var displayText = builder.splitSpaces ? splitSpaces(text, builder.trailingSpace) : text;
       var special = builder.cm.state.specialChars, mustWrap = false;
-      var content;
+      var content2;
       if (!special.test(text)) {
         builder.col += text.length;
-        content = document.createTextNode(displayText);
-        builder.map.push(builder.pos, builder.pos + text.length, content);
+        content2 = document.createTextNode(displayText);
+        builder.map.push(builder.pos, builder.pos + text.length, content2);
         if (ie && ie_version < 9) {
           mustWrap = true;
         }
         builder.pos += text.length;
       } else {
-        content = document.createDocumentFragment();
+        content2 = document.createDocumentFragment();
         var pos = 0;
         while (true) {
           special.lastIndex = pos;
@@ -1935,9 +1935,9 @@ var codemirror$1 = { exports: {} };
           if (skipped) {
             var txt = document.createTextNode(displayText.slice(pos, pos + skipped));
             if (ie && ie_version < 9) {
-              content.appendChild(elt("span", [txt]));
+              content2.appendChild(elt("span", [txt]));
             } else {
-              content.appendChild(txt);
+              content2.appendChild(txt);
             }
             builder.map.push(builder.pos, builder.pos + skipped, txt);
             builder.col += skipped;
@@ -1950,21 +1950,21 @@ var codemirror$1 = { exports: {} };
           var txt$1 = void 0;
           if (m[0] == "	") {
             var tabSize = builder.cm.options.tabSize, tabWidth = tabSize - builder.col % tabSize;
-            txt$1 = content.appendChild(elt("span", spaceStr(tabWidth), "cm-tab"));
+            txt$1 = content2.appendChild(elt("span", spaceStr(tabWidth), "cm-tab"));
             txt$1.setAttribute("role", "presentation");
             txt$1.setAttribute("cm-text", "	");
             builder.col += tabWidth;
           } else if (m[0] == "\r" || m[0] == "\n") {
-            txt$1 = content.appendChild(elt("span", m[0] == "\r" ? "\u240D" : "\u2424", "cm-invalidchar"));
+            txt$1 = content2.appendChild(elt("span", m[0] == "\r" ? "\u240D" : "\u2424", "cm-invalidchar"));
             txt$1.setAttribute("cm-text", m[0]);
             builder.col += 1;
           } else {
             txt$1 = builder.cm.options.specialCharPlaceholder(m[0]);
             txt$1.setAttribute("cm-text", m[0]);
             if (ie && ie_version < 9) {
-              content.appendChild(elt("span", [txt$1]));
+              content2.appendChild(elt("span", [txt$1]));
             } else {
-              content.appendChild(txt$1);
+              content2.appendChild(txt$1);
             }
             builder.col += 1;
           }
@@ -1981,7 +1981,7 @@ var codemirror$1 = { exports: {} };
         if (endStyle) {
           fullStyle += endStyle;
         }
-        var token = elt("span", [content], fullStyle, css2);
+        var token = elt("span", [content2], fullStyle, css2);
         if (attributes) {
           for (var attr in attributes) {
             if (attributes.hasOwnProperty(attr) && attr != "style" && attr != "class") {
@@ -1991,7 +1991,7 @@ var codemirror$1 = { exports: {} };
         }
         return builder.content.appendChild(token);
       }
-      builder.content.appendChild(content);
+      builder.content.appendChild(content2);
     }
     function splitSpaces(text, trailingBefore) {
       if (text.length > 1 && !/  /.test(text)) {
@@ -6778,12 +6778,12 @@ var codemirror$1 = { exports: {} };
             return markAsReadAndPasteIfAllFilesAreRead();
           };
           reader.onload = function() {
-            var content = reader.result;
-            if (/[\x00-\x08\x0e-\x1f]{2}/.test(content)) {
+            var content2 = reader.result;
+            if (/[\x00-\x08\x0e-\x1f]{2}/.test(content2)) {
               markAsReadAndPasteIfAllFilesAreRead();
               return;
             }
-            text[i3] = content;
+            text[i3] = content2;
             markAsReadAndPasteIfAllFilesAreRead();
           };
           reader.readAsText(file);
@@ -9526,9 +9526,9 @@ var codemirror$1 = { exports: {} };
         }
         if (e.clipboardData) {
           e.clipboardData.clearData();
-          var content = lastCopied.text.join("\n");
-          e.clipboardData.setData("Text", content);
-          if (e.clipboardData.getData("Text") == content) {
+          var content2 = lastCopied.text.join("\n");
+          e.clipboardData.setData("Text", content2);
+          if (e.clipboardData.getData("Text") == content2) {
             e.preventDefault();
             return;
           }
@@ -10173,13 +10173,13 @@ var codemirror$1 = { exports: {} };
       var cm = this.cm;
       if (cm.somethingSelected()) {
         this.prevInput = "";
-        var content = cm.getSelection();
-        this.textarea.value = content;
+        var content2 = cm.getSelection();
+        this.textarea.value = content2;
         if (cm.state.focused) {
           selectInput(this.textarea);
         }
         if (ie && ie_version >= 9) {
-          this.hasSelection = content;
+          this.hasSelection = content2;
         }
       } else if (!typing) {
         this.prevInput = this.textarea.value = "";
@@ -10605,10 +10605,10 @@ var codemirror = "";
           escaped = !escaped && next == "\\";
         }
       }
-      var type, content;
+      var type, content2;
       function ret(tp, style, cont2) {
         type = tp;
-        content = cont2;
+        content2 = cont2;
         return style;
       }
       function tokenBase(stream, state) {
@@ -10801,7 +10801,7 @@ var codemirror = "";
               return true;
         }
       }
-      function parseJS(state, style, type2, content2, stream) {
+      function parseJS(state, style, type2, content3, stream) {
         var cc = state.cc;
         cx.state = state;
         cx.stream = stream;
@@ -10811,12 +10811,12 @@ var codemirror = "";
           state.lexical.align = true;
         while (true) {
           var combinator = cc.length ? cc.pop() : jsonMode ? expression : statement;
-          if (combinator(type2, content2)) {
+          if (combinator(type2, content3)) {
             while (cc.length && cc[cc.length - 1].lex)
               cc.pop()();
             if (cx.marked)
               return cx.marked;
-            if (type2 == "variable" && inScope(state, content2))
+            if (type2 == "variable" && inScope(state, content3))
               return "variable-2";
             return style;
           }
@@ -11636,8 +11636,8 @@ var codemirror = "";
           var style = state.tokenize(stream, state);
           if (type == "comment")
             return style;
-          state.lastType = type == "operator" && (content == "++" || content == "--") ? "incdec" : type;
-          return parseJS(state, style, type, content, stream);
+          state.lastType = type == "operator" && (content2 == "++" || content2 == "--") ? "incdec" : type;
+          return parseJS(state, style, type, content2, stream);
         },
         indent: function(state, textAfter) {
           if (state.tokenize == tokenComment || state.tokenize == tokenQuasi)
@@ -11710,7 +11710,7 @@ var _export_sfc = (sfc, props2) => {
   }
   return sfc;
 };
-const _sfc_main$1V = {
+const _sfc_main$21 = {
   name: "code-mirror",
   props: {
     modelValue: {
@@ -11790,15 +11790,15 @@ const _sfc_main$1V = {
     }
   }
 };
-const _hoisted_1$C = { class: "vue-codemirror-wrap" };
+const _hoisted_1$E = { class: "vue-codemirror-wrap" };
 const _hoisted_2$t = /* @__PURE__ */ createElementVNode("textarea", null, null, -1);
 const _hoisted_3$o = [
   _hoisted_2$t
 ];
-function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$C, _hoisted_3$o);
+function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$E, _hoisted_3$o);
 }
-var CodeMirror = /* @__PURE__ */ _export_sfc(_sfc_main$1V, [["render", _sfc_render$1U]]);
+var CodeMirror = /* @__PURE__ */ _export_sfc(_sfc_main$21, [["render", _sfc_render$20]]);
 var quill_core = "";
 var quill_snow = "";
 var quill_bubble = "";
@@ -23130,7 +23130,7 @@ const defaultOptions = {
   placeholder: "Insert content here ...",
   readOnly: false
 };
-const _sfc_main$1U = {
+const _sfc_main$20 = {
   name: "quill-editor",
   props: {
     content: String,
@@ -23238,11 +23238,11 @@ const _sfc_main$1U = {
     return { editor };
   }
 };
-const _hoisted_1$B = { ref: "editor" };
-function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("section", _hoisted_1$B, null, 512);
+const _hoisted_1$D = { ref: "editor" };
+function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("section", _hoisted_1$D, null, 512);
 }
-var QuillEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1U, [["render", _sfc_render$1T]]);
+var QuillEditor = /* @__PURE__ */ _export_sfc(_sfc_main$20, [["render", _sfc_render$1$]]);
 let callbacks = [];
 function loadedTinymce() {
   return window.tinymce;
@@ -23302,7 +23302,7 @@ const toolbar = [
   "searchreplace bold italic underline strikethrough alignleft aligncenter alignright outdent indent  blockquote undo redo removeformat subscript superscript code codesample",
   "hr bullist numlist link image charmap preview anchor pagebreak insertdatetime media table emoticons forecolor backcolor fullscreen"
 ];
-const _sfc_main$1T = {
+const _sfc_main$1$ = {
   name: "tinymce-editor",
   components: {},
   props: {
@@ -23453,8 +23453,8 @@ const _sfc_main$1T = {
     };
   }
 };
-const _hoisted_1$A = ["id"];
-function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$C = ["id"];
+function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass([{ fullscreen: $setup.fullscreen }, "tinymce-container"]),
     style: normalizeStyle({ width: $setup.containerWidth })
@@ -23462,10 +23462,10 @@ function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
     createElementVNode("textarea", {
       id: $setup.tinymceId,
       class: "tinymce-textarea"
-    }, null, 8, _hoisted_1$A)
+    }, null, 8, _hoisted_1$C)
   ], 6);
 }
-var TinymceEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1T, [["render", _sfc_render$1S], ["__scopeId", "data-v-25e56352"]]);
+var TinymceEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1$, [["render", _sfc_render$1_], ["__scopeId", "data-v-25e56352"]]);
 /*!
  * Signature Pad v4.0.0 | https://github.com/szimek/signature_pad
  * (c) 2021 Szymon Nowak | Released under the MIT license
@@ -23990,7 +23990,7 @@ const DEFAULT_OPTIONS = {
   onEnd: () => {
   }
 };
-const _sfc_main$1S = defineComponent({
+const _sfc_main$1_ = defineComponent({
   name: "VueSignaturePad",
   props: {
     width: {
@@ -28841,7 +28841,7 @@ function mitt(n) {
     });
   } };
 }
-const _sfc_main$1R = {
+const _sfc_main$1Z = {
   name: "areaRender",
   components: { ElFormItem, ElCascader },
   props: {
@@ -28861,7 +28861,7 @@ const _sfc_main$1R = {
     };
   }
 };
-function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -28886,13 +28886,13 @@ function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var areaRender = /* @__PURE__ */ _export_sfc(_sfc_main$1R, [["render", _sfc_render$1R]]);
+var areaRender = /* @__PURE__ */ _export_sfc(_sfc_main$1Z, [["render", _sfc_render$1Z]]);
 var __glob_0_0 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": areaRender
 });
-const _sfc_main$1Q = {
+const _sfc_main$1Y = {
   name: "objectRender",
   components: { FormRenderItem: defineAsyncComponent(() => Promise.resolve().then(function() {
     return index$4;
@@ -28922,10 +28922,10 @@ const _sfc_main$1Q = {
     };
   }
 };
-const _hoisted_1$z = { class: "form-item-list" };
-function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$B = { class: "form-item-list" };
+function _sfc_render$1Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_render_item = resolveComponent("form-render-item");
-  return openBlock(), createElementBlock("div", _hoisted_1$z, [
+  return openBlock(), createElementBlock("div", _hoisted_1$B, [
     (openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item) => {
       return openBlock(), createBlock(_component_form_render_item, {
         key: item.uuid,
@@ -28943,13 +28943,13 @@ function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var objectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1Q, [["render", _sfc_render$1Q]]);
-var __glob_0_10 = /* @__PURE__ */ Object.freeze({
+var objectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1Y, [["render", _sfc_render$1Y]]);
+var __glob_0_13 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": objectRender
 });
-const _sfc_main$1P = {
+const _sfc_main$1X = {
   name: "cardRender",
   components: { ElCard, objectRender },
   props: {
@@ -28971,8 +28971,8 @@ const _sfc_main$1P = {
   setup() {
   }
 };
-const _hoisted_1$y = { class: "card-header" };
-function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$A = { class: "card-header" };
+function _sfc_render$1X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_render = resolveComponent("object-render");
   const _component_el_card = resolveComponent("el-card");
   return openBlock(), createBlock(_component_el_card, {
@@ -28981,7 +28981,7 @@ function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
     "body-style": { padding: $props.options.padding }
   }, {
     header: withCtx(() => [
-      createElementVNode("div", _hoisted_1$y, [
+      createElementVNode("div", _hoisted_1$A, [
         createElementVNode("span", null, toDisplayString($props.options.label), 1)
       ])
     ]),
@@ -28997,13 +28997,13 @@ function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["shadow", "body-style"]);
 }
-var cardRender = /* @__PURE__ */ _export_sfc(_sfc_main$1P, [["render", _sfc_render$1P]]);
+var cardRender = /* @__PURE__ */ _export_sfc(_sfc_main$1X, [["render", _sfc_render$1X]]);
 var __glob_0_1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": cardRender
 });
-const _sfc_main$1O = {
+const _sfc_main$1W = {
   name: "cascaderRender",
   components: { ElFormItem, ElCascader },
   props: {
@@ -29019,7 +29019,7 @@ const _sfc_main$1O = {
   setup() {
   }
 };
-function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29044,13 +29044,13 @@ function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var cascaderRender = /* @__PURE__ */ _export_sfc(_sfc_main$1O, [["render", _sfc_render$1O]]);
+var cascaderRender = /* @__PURE__ */ _export_sfc(_sfc_main$1W, [["render", _sfc_render$1W]]);
 var __glob_0_2 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": cascaderRender
 });
-const _sfc_main$1N = {
+const _sfc_main$1V = {
   name: "checkboxRender",
   components: { ElFormItem, ElCheckboxGroup, ElCheckbox },
   props: {
@@ -29066,7 +29066,7 @@ const _sfc_main$1N = {
   setup() {
   }
 };
-function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -29100,13 +29100,13 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var checkboxRender = /* @__PURE__ */ _export_sfc(_sfc_main$1N, [["render", _sfc_render$1N]]);
+var checkboxRender = /* @__PURE__ */ _export_sfc(_sfc_main$1V, [["render", _sfc_render$1V]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": checkboxRender
 });
-const _sfc_main$1M = {
+const _sfc_main$1U = {
   name: "colorPickerRender",
   components: { ElFormItem, ElColorPicker },
   props: {
@@ -29122,7 +29122,7 @@ const _sfc_main$1M = {
   setup() {
   }
 };
-function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29141,13 +29141,13 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var colorPickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1M, [["render", _sfc_render$1M]]);
+var colorPickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1U, [["render", _sfc_render$1U]]);
 var __glob_0_4 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": colorPickerRender
 });
-const _sfc_main$1L = {
+const _sfc_main$1T = {
   name: "datePickerRender",
   components: { ElFormItem, ElDatePicker },
   props: {
@@ -29163,7 +29163,7 @@ const _sfc_main$1L = {
   setup() {
   }
 };
-function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29185,13 +29185,13 @@ function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var datePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1L, [["render", _sfc_render$1L]]);
+var datePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1T, [["render", _sfc_render$1T]]);
 var __glob_0_5 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": datePickerRender
 });
-const _sfc_main$1K = {
+const _sfc_main$1S = {
   name: "dateRangePickerRender",
   components: { ElFormItem, ElDatePicker },
   props: {
@@ -29207,7 +29207,7 @@ const _sfc_main$1K = {
   setup() {
   }
 };
-function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29230,13 +29230,67 @@ function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var dateRangePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1K, [["render", _sfc_render$1K]]);
+var dateRangePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1S, [["render", _sfc_render$1S]]);
 var __glob_0_6 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": dateRangePickerRender
 });
-const _sfc_main$1J = {
+const _sfc_main$1R = {
+  name: "dividerRender",
+  components: { ElDivider },
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_divider = resolveComponent("el-divider");
+  return openBlock(), createBlock(_component_el_divider);
+}
+var dividerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1R, [["render", _sfc_render$1R]]);
+var __glob_0_7 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": dividerRender
+});
+const _sfc_main$1Q = {
+  name: "htmlRender",
+  components: {},
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+const _hoisted_1$z = ["innerHTML"];
+function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", {
+    innerHTML: $props.options.richContent
+  }, null, 8, _hoisted_1$z);
+}
+var htmlRender = /* @__PURE__ */ _export_sfc(_sfc_main$1Q, [["render", _sfc_render$1Q]]);
+var __glob_0_8 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": htmlRender
+});
+const _sfc_main$1P = {
   name: "inputRender",
   components: { ElFormItem, ElInput },
   props: {
@@ -29252,7 +29306,7 @@ const _sfc_main$1J = {
   setup() {
   }
 };
-function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29278,13 +29332,42 @@ function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var inputRender = /* @__PURE__ */ _export_sfc(_sfc_main$1J, [["render", _sfc_render$1J]]);
-var __glob_0_7 = /* @__PURE__ */ Object.freeze({
+var inputRender = /* @__PURE__ */ _export_sfc(_sfc_main$1P, [["render", _sfc_render$1P]]);
+var __glob_0_9 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": inputRender
 });
-const _sfc_main$1I = {
+const _sfc_main$1O = {
+  name: "labelRender",
+  components: { ElFormItem, ElInput },
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("label", {
+    style: normalizeStyle({
+      "line-height": $props.options.lineHeight
+    })
+  }, toDisplayString($props.options.content), 5);
+}
+var labelRender = /* @__PURE__ */ _export_sfc(_sfc_main$1O, [["render", _sfc_render$1O]]);
+var __glob_0_10 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": labelRender
+});
+const _sfc_main$1N = {
   name: "multiSelectRender",
   components: { ElFormItem, ElSelect, ElOption },
   props: {
@@ -29300,7 +29383,7 @@ const _sfc_main$1I = {
   setup() {
   }
 };
-function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -29338,13 +29421,13 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var multiSelectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1I, [["render", _sfc_render$1I]]);
-var __glob_0_8 = /* @__PURE__ */ Object.freeze({
+var multiSelectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1N, [["render", _sfc_render$1N]]);
+var __glob_0_11 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": multiSelectRender
 });
-const _sfc_main$1H = {
+const _sfc_main$1M = {
   name: "numberRender",
   components: { ElFormItem, ElInputNumber },
   props: {
@@ -29360,7 +29443,7 @@ const _sfc_main$1H = {
   setup() {
   }
 };
-function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29380,13 +29463,13 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var numberRender = /* @__PURE__ */ _export_sfc(_sfc_main$1H, [["render", _sfc_render$1H]]);
-var __glob_0_9 = /* @__PURE__ */ Object.freeze({
+var numberRender = /* @__PURE__ */ _export_sfc(_sfc_main$1M, [["render", _sfc_render$1M]]);
+var __glob_0_12 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": numberRender
 });
-const _sfc_main$1G = {
+const _sfc_main$1L = {
   name: "quillEditorRender",
   components: { ElFormItem, QuillEditor },
   props: {
@@ -29402,7 +29485,7 @@ const _sfc_main$1G = {
   setup() {
   }
 };
-function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_quill_editor = resolveComponent("quill-editor");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29422,13 +29505,13 @@ function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var quillEditorRender = /* @__PURE__ */ _export_sfc(_sfc_main$1G, [["render", _sfc_render$1G]]);
-var __glob_0_11 = /* @__PURE__ */ Object.freeze({
+var quillEditorRender = /* @__PURE__ */ _export_sfc(_sfc_main$1L, [["render", _sfc_render$1L]]);
+var __glob_0_14 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": quillEditorRender
 });
-const _sfc_main$1F = {
+const _sfc_main$1K = {
   name: "radioRender",
   components: { ElFormItem, ElRadioGroup, ElRadio },
   props: {
@@ -29444,7 +29527,7 @@ const _sfc_main$1F = {
   setup() {
   }
 };
-function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -29478,13 +29561,13 @@ function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var radioRender = /* @__PURE__ */ _export_sfc(_sfc_main$1F, [["render", _sfc_render$1F]]);
-var __glob_0_12 = /* @__PURE__ */ Object.freeze({
+var radioRender = /* @__PURE__ */ _export_sfc(_sfc_main$1K, [["render", _sfc_render$1K]]);
+var __glob_0_15 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": radioRender
 });
-const _sfc_main$1E = {
+const _sfc_main$1J = {
   name: "rateRender",
   components: { ElFormItem, ElRate },
   props: {
@@ -29500,7 +29583,7 @@ const _sfc_main$1E = {
   setup() {
   }
 };
-function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29521,13 +29604,13 @@ function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var rateRender = /* @__PURE__ */ _export_sfc(_sfc_main$1E, [["render", _sfc_render$1E]]);
-var __glob_0_13 = /* @__PURE__ */ Object.freeze({
+var rateRender = /* @__PURE__ */ _export_sfc(_sfc_main$1J, [["render", _sfc_render$1J]]);
+var __glob_0_16 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": rateRender
 });
-const _sfc_main$1D = {
+const _sfc_main$1I = {
   name: "selectRender",
   components: { ElFormItem, ElSelect, ElOption },
   props: {
@@ -29543,7 +29626,7 @@ const _sfc_main$1D = {
   setup() {
   }
 };
-function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -29578,15 +29661,15 @@ function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var selectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1D, [["render", _sfc_render$1D]]);
-var __glob_0_14 = /* @__PURE__ */ Object.freeze({
+var selectRender = /* @__PURE__ */ _export_sfc(_sfc_main$1I, [["render", _sfc_render$1I]]);
+var __glob_0_17 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": selectRender
 });
-const _sfc_main$1C = {
+const _sfc_main$1H = {
   name: "signatureRender",
-  components: { Signature: _sfc_main$1S, ElButton },
+  components: { Signature: _sfc_main$1_, ElButton },
   props: {
     path: String,
     modelValue: String,
@@ -29623,9 +29706,9 @@ const _sfc_main$1C = {
     };
   }
 };
-const _hoisted_1$x = { class: "btn-submit" };
+const _hoisted_1$y = { class: "btn-submit" };
 const _hoisted_2$s = /* @__PURE__ */ createTextVNode("\u64A4\u9500");
-function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Signature = resolveComponent("Signature");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -29646,7 +29729,7 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
           endStroke: $setup.endStroke
         }
       }, null, 8, ["disabled", "width", "height", "options"]),
-      createElementVNode("div", _hoisted_1$x, [
+      createElementVNode("div", _hoisted_1$y, [
         createVNode(_component_el_button, {
           type: "primary",
           size: "small",
@@ -29662,13 +29745,13 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var signatureRender = /* @__PURE__ */ _export_sfc(_sfc_main$1C, [["render", _sfc_render$1C]]);
-var __glob_0_15 = /* @__PURE__ */ Object.freeze({
+var signatureRender = /* @__PURE__ */ _export_sfc(_sfc_main$1H, [["render", _sfc_render$1H]]);
+var __glob_0_18 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": signatureRender
 });
-const _sfc_main$1B = {
+const _sfc_main$1G = {
   name: "sliderRender",
   components: { ElFormItem, ElSlider },
   props: {
@@ -29684,7 +29767,7 @@ const _sfc_main$1B = {
   setup() {
   }
 };
-function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29708,13 +29791,13 @@ function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var sliderRender = /* @__PURE__ */ _export_sfc(_sfc_main$1B, [["render", _sfc_render$1B]]);
-var __glob_0_16 = /* @__PURE__ */ Object.freeze({
+var sliderRender = /* @__PURE__ */ _export_sfc(_sfc_main$1G, [["render", _sfc_render$1G]]);
+var __glob_0_19 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": sliderRender
 });
-const _sfc_main$1A = {
+const _sfc_main$1F = {
   name: "switchRender",
   components: { ElFormItem, ElSwitch },
   props: {
@@ -29730,7 +29813,7 @@ const _sfc_main$1A = {
   setup() {
   }
 };
-function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -29752,13 +29835,13 @@ function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var switchRender = /* @__PURE__ */ _export_sfc(_sfc_main$1A, [["render", _sfc_render$1A]]);
-var __glob_0_17 = /* @__PURE__ */ Object.freeze({
+var switchRender = /* @__PURE__ */ _export_sfc(_sfc_main$1F, [["render", _sfc_render$1F]]);
+var __glob_0_20 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": switchRender
 });
-const _hoisted_1$w = {
+const _hoisted_1$x = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -29770,9 +29853,9 @@ const _hoisted_3$n = [
   _hoisted_2$r
 ];
 function render$8(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$w, _hoisted_3$n);
+  return openBlock(), createElementBlock("svg", _hoisted_1$x, _hoisted_3$n);
 }
-const _hoisted_1$v = {
+const _hoisted_1$w = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -29784,9 +29867,9 @@ const _hoisted_3$m = [
   _hoisted_2$q
 ];
 function render$7(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$m);
+  return openBlock(), createElementBlock("svg", _hoisted_1$w, _hoisted_3$m);
 }
-const _hoisted_1$u = {
+const _hoisted_1$v = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -29800,10 +29883,10 @@ const _hoisted_4$d = [
   _hoisted_3$l
 ];
 function render$6(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_4$d);
+  return openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_4$d);
 }
 var tableRender_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1z = {
+const _sfc_main$1E = {
   name: "tableRender",
   components: {
     ElFormItem,
@@ -29895,9 +29978,9 @@ const _sfc_main$1z = {
     };
   }
 };
-const _hoisted_1$t = { class: "tools" };
+const _hoisted_1$u = { class: "tools" };
 const _hoisted_2$o = /* @__PURE__ */ createTextVNode(" \u6DFB\u52A0 ");
-function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PlusIcon = resolveComponent("PlusIcon");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_el_button = resolveComponent("el-button");
@@ -29915,7 +29998,7 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
       rules: $props.options.rules
     }, {
       default: withCtx(() => [
-        createElementVNode("div", _hoisted_1$t, [
+        createElementVNode("div", _hoisted_1$u, [
           createVNode(_component_el_button, {
             class: "add-btn",
             type: "primary",
@@ -30016,13 +30099,13 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["title", "modelValue"])
   ], 64);
 }
-var tableRender = /* @__PURE__ */ _export_sfc(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-a681817c"]]);
-var __glob_0_18 = /* @__PURE__ */ Object.freeze({
+var tableRender = /* @__PURE__ */ _export_sfc(_sfc_main$1E, [["render", _sfc_render$1E], ["__scopeId", "data-v-a681817c"]]);
+var __glob_0_21 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tableRender
 });
-const _sfc_main$1y = {
+const _sfc_main$1D = {
   name: "tabsRender",
   components: { ElFormItem, ElTabs, ElTabPane, objectRender },
   props: {
@@ -30064,7 +30147,7 @@ const _sfc_main$1y = {
     };
   }
 };
-function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_render = resolveComponent("object-render");
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
@@ -30097,13 +30180,13 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "type", "tab-position"]);
 }
-var tabsRender = /* @__PURE__ */ _export_sfc(_sfc_main$1y, [["render", _sfc_render$1y]]);
-var __glob_0_19 = /* @__PURE__ */ Object.freeze({
+var tabsRender = /* @__PURE__ */ _export_sfc(_sfc_main$1D, [["render", _sfc_render$1D]]);
+var __glob_0_22 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tabsRender
 });
-const _sfc_main$1x = {
+const _sfc_main$1C = {
   name: "textareaRender",
   components: { ElFormItem, ElInput },
   props: {
@@ -30119,7 +30202,7 @@ const _sfc_main$1x = {
   setup() {
   }
 };
-function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -30142,13 +30225,13 @@ function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var textareaRender = /* @__PURE__ */ _export_sfc(_sfc_main$1x, [["render", _sfc_render$1x]]);
-var __glob_0_20 = /* @__PURE__ */ Object.freeze({
+var textareaRender = /* @__PURE__ */ _export_sfc(_sfc_main$1C, [["render", _sfc_render$1C]]);
+var __glob_0_23 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": textareaRender
 });
-const _sfc_main$1w = {
+const _sfc_main$1B = {
   name: "timePickerRender",
   components: { ElFormItem, ElTimePicker },
   props: {
@@ -30164,7 +30247,7 @@ const _sfc_main$1w = {
   setup() {
   }
 };
-function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -30186,13 +30269,13 @@ function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var timePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1w, [["render", _sfc_render$1w]]);
-var __glob_0_21 = /* @__PURE__ */ Object.freeze({
+var timePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1B, [["render", _sfc_render$1B]]);
+var __glob_0_24 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": timePickerRender
 });
-const _sfc_main$1v = {
+const _sfc_main$1A = {
   name: "timeRangePickerRender",
   components: { ElFormItem, ElTimePicker },
   props: {
@@ -30208,7 +30291,7 @@ const _sfc_main$1v = {
   setup() {
   }
 };
-function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -30231,13 +30314,13 @@ function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var timeRangePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1v, [["render", _sfc_render$1v]]);
-var __glob_0_22 = /* @__PURE__ */ Object.freeze({
+var timeRangePickerRender = /* @__PURE__ */ _export_sfc(_sfc_main$1A, [["render", _sfc_render$1A]]);
+var __glob_0_25 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": timeRangePickerRender
 });
-const _sfc_main$1u = {
+const _sfc_main$1z = {
   name: "tinymceEditorRender",
   components: { ElFormItem, TinymceEditor },
   props: {
@@ -30253,7 +30336,7 @@ const _sfc_main$1u = {
   setup(props2) {
   }
 };
-function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_tinymce_editor = resolveComponent("tinymce-editor");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -30274,13 +30357,13 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var tinymceEditorRender = /* @__PURE__ */ _export_sfc(_sfc_main$1u, [["render", _sfc_render$1u]]);
-var __glob_0_23 = /* @__PURE__ */ Object.freeze({
+var tinymceEditorRender = /* @__PURE__ */ _export_sfc(_sfc_main$1z, [["render", _sfc_render$1z]]);
+var __glob_0_26 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tinymceEditorRender
 });
-const _sfc_main$1t = {
+const _sfc_main$1y = {
   name: "uploadRender",
   components: { ElFormItem, ElUpload, ElButton },
   props: {
@@ -30337,8 +30420,8 @@ const _sfc_main$1t = {
     };
   }
 };
-const _hoisted_1$s = { class: "el-upload__tip" };
-function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$t = { class: "el-upload__tip" };
+function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -30380,7 +30463,7 @@ function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
         $props.options.showToolTip ? {
           name: "tip",
           fn: withCtx(() => [
-            createElementVNode("div", _hoisted_1$s, toDisplayString($props.options.tip), 1)
+            createElementVNode("div", _hoisted_1$t, toDisplayString($props.options.tip), 1)
           ])
         } : void 0
       ]), 1032, ["action", "name", "multiple", "data", "headers", "show-file-list", "limit", "file-list", "disabled", "before-upload", "on-success", "on-remove", "before-remove", "on-error"])
@@ -30388,15 +30471,15 @@ function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var uploadRender = /* @__PURE__ */ _export_sfc(_sfc_main$1t, [["render", _sfc_render$1t]]);
-var __glob_0_24 = /* @__PURE__ */ Object.freeze({
+var uploadRender = /* @__PURE__ */ _export_sfc(_sfc_main$1y, [["render", _sfc_render$1y]]);
+var __glob_0_27 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadRender
 });
 const components$2 = {};
-Object.values({ "./components/area-render.vue": __glob_0_0, "./components/card-render.vue": __glob_0_1, "./components/cascader-render.vue": __glob_0_2, "./components/checkbox-render.vue": __glob_0_3, "./components/color-picker-render.vue": __glob_0_4, "./components/date-picker-render.vue": __glob_0_5, "./components/date-range-picker-render.vue": __glob_0_6, "./components/input-render.vue": __glob_0_7, "./components/multi-select-render.vue": __glob_0_8, "./components/number-render.vue": __glob_0_9, "./components/object-render.vue": __glob_0_10, "./components/quill-editor-render.vue": __glob_0_11, "./components/radio-render.vue": __glob_0_12, "./components/rate-render.vue": __glob_0_13, "./components/select-render.vue": __glob_0_14, "./components/signature-render.vue": __glob_0_15, "./components/slider-render.vue": __glob_0_16, "./components/switch-render.vue": __glob_0_17, "./components/table-render.vue": __glob_0_18, "./components/tabs-render.vue": __glob_0_19, "./components/textarea-render.vue": __glob_0_20, "./components/time-picker-render.vue": __glob_0_21, "./components/time-range-picker-render.vue": __glob_0_22, "./components/tinymce-editor-render.vue": __glob_0_23, "./components/upload-render.vue": __glob_0_24 }).forEach(({ default: component }) => components$2[component.name] = component);
-const _sfc_main$1s = {
+Object.values({ "./components/area-render.vue": __glob_0_0, "./components/card-render.vue": __glob_0_1, "./components/cascader-render.vue": __glob_0_2, "./components/checkbox-render.vue": __glob_0_3, "./components/color-picker-render.vue": __glob_0_4, "./components/date-picker-render.vue": __glob_0_5, "./components/date-range-picker-render.vue": __glob_0_6, "./components/divider-render.vue": __glob_0_7, "./components/html-render.vue": __glob_0_8, "./components/input-render.vue": __glob_0_9, "./components/label-render.vue": __glob_0_10, "./components/multi-select-render.vue": __glob_0_11, "./components/number-render.vue": __glob_0_12, "./components/object-render.vue": __glob_0_13, "./components/quill-editor-render.vue": __glob_0_14, "./components/radio-render.vue": __glob_0_15, "./components/rate-render.vue": __glob_0_16, "./components/select-render.vue": __glob_0_17, "./components/signature-render.vue": __glob_0_18, "./components/slider-render.vue": __glob_0_19, "./components/switch-render.vue": __glob_0_20, "./components/table-render.vue": __glob_0_21, "./components/tabs-render.vue": __glob_0_22, "./components/textarea-render.vue": __glob_0_23, "./components/time-picker-render.vue": __glob_0_24, "./components/time-range-picker-render.vue": __glob_0_25, "./components/tinymce-editor-render.vue": __glob_0_26, "./components/upload-render.vue": __glob_0_27 }).forEach(({ default: component }) => components$2[component.name] = component);
+const _sfc_main$1x = {
   name: "formRenderItem",
   components: __spreadValues({}, components$2),
   props: {
@@ -30422,7 +30505,7 @@ const _sfc_main$1s = {
   setup() {
   }
 };
-function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
   return !$props.options.hidden ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "form-item",
@@ -30437,13 +30520,13 @@ function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["items", "options", "model-value", "path"]))
   ], 4)) : createCommentVNode("", true);
 }
-var FormRenderItem = /* @__PURE__ */ _export_sfc(_sfc_main$1s, [["render", _sfc_render$1s]]);
+var FormRenderItem = /* @__PURE__ */ _export_sfc(_sfc_main$1x, [["render", _sfc_render$1x]]);
 var index$4 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": FormRenderItem
 });
-const _sfc_main$1r = {
+const _sfc_main$1w = {
   name: "formRender",
   components: { ElForm, FormRenderItem, ElButton },
   props: {},
@@ -30514,10 +30597,10 @@ const _sfc_main$1r = {
     };
   }
 };
-const _hoisted_1$r = { class: "btn-submit" };
+const _hoisted_1$s = { class: "btn-submit" };
 const _hoisted_2$n = /* @__PURE__ */ createTextVNode("\u63D0\u4EA4");
 const _hoisted_3$k = /* @__PURE__ */ createTextVNode("\u91CD\u7F6E");
-function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_render_item = resolveComponent("form-render-item");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form = resolveComponent("el-form");
@@ -30542,7 +30625,7 @@ function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
         options: $setup.formDesign.options,
         path: "root"
       }, null, 8, ["modelValue", "component", "items", "options"]),
-      createElementVNode("div", _hoisted_1$r, [
+      createElementVNode("div", _hoisted_1$s, [
         createVNode(_component_el_button, {
           type: "primary",
           onClick: $setup.submit
@@ -30566,7 +30649,7 @@ function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label-width", "label-position", "hide-required-asterisk", "status-icon", "inline", "size", "model"]);
 }
-var FormRender = /* @__PURE__ */ _export_sfc(_sfc_main$1r, [["render", _sfc_render$1r]]);
+var FormRender = /* @__PURE__ */ _export_sfc(_sfc_main$1w, [["render", _sfc_render$1w]]);
 var index$3 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
@@ -33657,6 +33740,33 @@ const objectLayout = {
   },
   items: []
 };
+const assists = [
+  {
+    name: "\u6587\u5B57",
+    component: "label",
+    uuid: "",
+    options: {
+      content: "\u6587\u5B57",
+      width: "100%",
+      lineHeight: "40px"
+    }
+  },
+  {
+    name: "HTML",
+    component: "html",
+    uuid: "",
+    options: {
+      richContent: "<strong>HTML</strong>",
+      width: "100%"
+    }
+  },
+  {
+    name: "\u5206\u5272\u7EBF",
+    component: "divider",
+    uuid: "",
+    options: {}
+  }
+];
 const layouts = [
   objectLayout,
   {
@@ -33773,18 +33883,21 @@ const optionKeyLabels = {
   width: "\u7EC4\u4EF6\u5BBD\u5EA6",
   height: "\u7EC4\u4EF6\u9AD8\u5EA6",
   penColor: "\u7B14\u989C\u8272",
-  backgroundColor: "\u80CC\u666F\u989C\u8272"
+  backgroundColor: "\u80CC\u666F\u989C\u8272",
+  content: "\u5185\u5BB9",
+  richContent: "HTML"
 };
-const _sfc_main$1q = {
+const _sfc_main$1v = {
   components: { draggable: draggableComponent },
   setup() {
     const uuids = inject("uuids");
     const groups = inject("groups");
     const register = inject("register");
-    register("\u8F93\u5165\u7EC4\u4EF6", inputs);
-    register("\u9009\u62E9\u7EC4\u4EF6", pickers);
-    register("\u590D\u6742\u7EC4\u4EF6", complexs);
-    register("\u5E03\u5C40\u7EC4\u4EF6", layouts);
+    register("\u8F93\u5165\u7EC4\u4EF6", inputs, 1);
+    register("\u9009\u62E9\u7EC4\u4EF6", pickers, 2);
+    register("\u590D\u6742\u7EC4\u4EF6", complexs, 3);
+    register("\u5C55\u793A\u7EC4\u4EF6", assists, 4);
+    register("\u5E03\u5C40\u7EC4\u4EF6", layouts, 5);
     return {
       uuids,
       groups,
@@ -33797,14 +33910,14 @@ const _sfc_main$1q = {
     };
   }
 };
-const _hoisted_1$q = { class: "form-picker" };
+const _hoisted_1$r = { class: "form-picker" };
 const _hoisted_2$m = { class: "title" };
 const _hoisted_3$j = { class: "form-item-group" };
 const _hoisted_4$c = { class: "form-item-drop" };
-function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
-  return openBlock(), createElementBlock("div", _hoisted_1$q, [
-    (openBlock(true), createElementBlock(Fragment, null, renderList($setup.groups, (group) => {
+  return openBlock(), createElementBlock("div", _hoisted_1$r, [
+    (openBlock(true), createElementBlock(Fragment, null, renderList($setup.groups.sort((a, b) => a.order - b.order), (group) => {
       return openBlock(), createElementBlock("div", {
         class: "form-item-section",
         key: group.name
@@ -33834,8 +33947,8 @@ function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var left = /* @__PURE__ */ _export_sfc(_sfc_main$1q, [["render", _sfc_render$1q]]);
-const _hoisted_1$p = {
+var left = /* @__PURE__ */ _export_sfc(_sfc_main$1v, [["render", _sfc_render$1v]]);
+const _hoisted_1$q = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -33850,9 +33963,9 @@ const _hoisted_3$i = [
   _hoisted_2$l
 ];
 function render$5(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$p, _hoisted_3$i);
+  return openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_3$i);
 }
-const _hoisted_1$o = {
+const _hoisted_1$p = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -33866,9 +33979,9 @@ const _hoisted_4$b = [
   _hoisted_3$h
 ];
 function render$4(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$o, _hoisted_4$b);
+  return openBlock(), createElementBlock("svg", _hoisted_1$p, _hoisted_4$b);
 }
-const _hoisted_1$n = {
+const _hoisted_1$o = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -33880,9 +33993,9 @@ const _hoisted_3$g = [
   _hoisted_2$j
 ];
 function render$3(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_3$g);
+  return openBlock(), createElementBlock("svg", _hoisted_1$o, _hoisted_3$g);
 }
-const _hoisted_1$m = {
+const _hoisted_1$n = {
   class: "icon",
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg",
@@ -33894,9 +34007,9 @@ const _hoisted_3$f = [
   _hoisted_2$i
 ];
 function render$2(_ctx, _cache) {
-  return openBlock(), createElementBlock("svg", _hoisted_1$m, _hoisted_3$f);
+  return openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_3$f);
 }
-const _sfc_main$1p = {
+const _sfc_main$1u = {
   components: {
     ElTooltip,
     ElDialog,
@@ -33974,7 +34087,7 @@ const _sfc_main$1p = {
     };
   }
 };
-const _hoisted_1$l = { class: "form-operator" };
+const _hoisted_1$m = { class: "form-operator" };
 const _hoisted_2$h = { class: "form-design-json-box" };
 const _hoisted_3$e = { class: "dialog-footer" };
 const _hoisted_4$a = /* @__PURE__ */ createTextVNode("\u53D6\u6D88");
@@ -33982,7 +34095,7 @@ const _hoisted_5$5 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
 const _hoisted_6$3 = { class: "form-design-json-box" };
 const _hoisted_7$2 = { class: "dialog-footer" };
 const _hoisted_8 = /* @__PURE__ */ createTextVNode("\u5173\u95ED");
-function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PlayIcon = resolveComponent("PlayIcon");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -33995,7 +34108,7 @@ function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_dialog = resolveComponent("el-dialog");
   const _component_code_mirror = resolveComponent("code-mirror");
   const _component_el_button = resolveComponent("el-button");
-  return openBlock(), createElementBlock("div", _hoisted_1$l, [
+  return openBlock(), createElementBlock("div", _hoisted_1$m, [
     createVNode(_component_el_tooltip, {
       effect: "dark",
       content: "\u9884\u89C8",
@@ -34175,8 +34288,8 @@ function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["title", "modelValue"])
   ]);
 }
-var operator = /* @__PURE__ */ _export_sfc(_sfc_main$1p, [["render", _sfc_render$1p]]);
-const _sfc_main$1o = {
+var operator = /* @__PURE__ */ _export_sfc(_sfc_main$1u, [["render", _sfc_render$1u]]);
+const _sfc_main$1t = {
   name: "areaBuilder",
   components: { ElFormItem, ElCascader },
   props: {
@@ -34196,7 +34309,7 @@ const _sfc_main$1o = {
     };
   }
 };
-function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34220,13 +34333,13 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var areaBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1o, [["render", _sfc_render$1o]]);
+var areaBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1t, [["render", _sfc_render$1t]]);
 var __glob_4_0 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": areaBuilder
 });
-const _sfc_main$1n = {
+const _sfc_main$1s = {
   name: "objectBuilder",
   components: { draggable: draggableComponent, FormBuilderItem: defineAsyncComponent(() => Promise.resolve().then(function() {
     return index$1;
@@ -34257,8 +34370,8 @@ const _sfc_main$1n = {
     };
   }
 };
-const _hoisted_1$k = { class: "form-item-container" };
-function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$l = { class: "form-item-container" };
+function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_builder_item = resolveComponent("form-builder-item");
   const _component_draggable = resolveComponent("draggable");
   return openBlock(), createBlock(_component_draggable, {
@@ -34273,7 +34386,7 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
     "ghost-class": "ghost"
   }, {
     item: withCtx(({ element }) => [
-      createElementVNode("div", _hoisted_1$k, [
+      createElementVNode("div", _hoisted_1$l, [
         createVNode(_component_form_builder_item, {
           component: element.component,
           uuid: element.uuid,
@@ -34290,13 +34403,13 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["model-value", "onUpdate:modelValue", "onStart", "onAdd"]);
 }
-var objectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1n, [["render", _sfc_render$1n]]);
-var __glob_4_10 = /* @__PURE__ */ Object.freeze({
+var objectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1s, [["render", _sfc_render$1s]]);
+var __glob_4_13 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": objectBuilder
 });
-const _sfc_main$1m = {
+const _sfc_main$1r = {
   name: "cardBuilder",
   components: { ElCard, objectBuilder },
   props: {
@@ -34318,8 +34431,8 @@ const _sfc_main$1m = {
   setup() {
   }
 };
-const _hoisted_1$j = { class: "card-header" };
-function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$k = { class: "card-header" };
+function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_builder = resolveComponent("object-builder");
   const _component_el_card = resolveComponent("el-card");
   return openBlock(), createBlock(_component_el_card, {
@@ -34327,7 +34440,7 @@ function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
     "body-style": { padding: $props.options.padding }
   }, {
     header: withCtx(() => [
-      createElementVNode("div", _hoisted_1$j, [
+      createElementVNode("div", _hoisted_1$k, [
         createElementVNode("span", null, toDisplayString($props.options.label), 1)
       ])
     ]),
@@ -34342,13 +34455,13 @@ function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["shadow", "body-style"]);
 }
-var cardBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1m, [["render", _sfc_render$1m]]);
+var cardBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1r, [["render", _sfc_render$1r]]);
 var __glob_4_1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": cardBuilder
 });
-const _sfc_main$1l = {
+const _sfc_main$1q = {
   name: "cascaderBuilder",
   components: { ElFormItem, ElCascader },
   props: {
@@ -34364,7 +34477,7 @@ const _sfc_main$1l = {
   setup() {
   }
 };
-function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34388,13 +34501,13 @@ function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var cascadeBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1l, [["render", _sfc_render$1l]]);
+var cascadeBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1q, [["render", _sfc_render$1q]]);
 var __glob_4_2 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": cascadeBuilder
 });
-const _sfc_main$1k = {
+const _sfc_main$1p = {
   name: "checkboxBuilder",
   components: { ElFormItem, ElCheckboxGroup, ElCheckbox },
   props: {
@@ -34410,7 +34523,7 @@ const _sfc_main$1k = {
   setup() {
   }
 };
-function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -34444,13 +34557,13 @@ function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var checkboxBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1k, [["render", _sfc_render$1k]]);
+var checkboxBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1p, [["render", _sfc_render$1p]]);
 var __glob_4_3 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": checkboxBuilder
 });
-const _sfc_main$1j = {
+const _sfc_main$1o = {
   name: "colorPickerBuilder",
   components: { ElFormItem, ElColorPicker },
   props: {
@@ -34466,7 +34579,7 @@ const _sfc_main$1j = {
   setup() {
   }
 };
-function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34485,13 +34598,13 @@ function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var colorPickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1j, [["render", _sfc_render$1j]]);
+var colorPickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1o, [["render", _sfc_render$1o]]);
 var __glob_4_4 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": colorPickerBuilder
 });
-const _sfc_main$1i = {
+const _sfc_main$1n = {
   name: "datePickerBuilder",
   components: { ElFormItem, ElDatePicker },
   props: {
@@ -34507,7 +34620,7 @@ const _sfc_main$1i = {
   setup() {
   }
 };
-function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34529,13 +34642,13 @@ function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var datePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1i, [["render", _sfc_render$1i]]);
+var datePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1n, [["render", _sfc_render$1n]]);
 var __glob_4_5 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": datePickerBuilder
 });
-const _sfc_main$1h = {
+const _sfc_main$1m = {
   name: "dateRangePickerBuilder",
   components: { ElFormItem, ElDatePicker },
   props: {
@@ -34551,7 +34664,7 @@ const _sfc_main$1h = {
   setup() {
   }
 };
-function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34574,13 +34687,67 @@ function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var dateRangePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1h, [["render", _sfc_render$1h]]);
+var dateRangePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1m, [["render", _sfc_render$1m]]);
 var __glob_4_6 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": dateRangePickerBuilder
 });
-const _sfc_main$1g = {
+const _sfc_main$1l = {
+  name: "dividerBuilder",
+  components: { ElDivider },
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_divider = resolveComponent("el-divider");
+  return openBlock(), createBlock(_component_el_divider);
+}
+var dividerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1l, [["render", _sfc_render$1l]]);
+var __glob_4_7 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": dividerBuilder
+});
+const _sfc_main$1k = {
+  name: "htmlBuilder",
+  components: {},
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+const _hoisted_1$j = ["innerHTML"];
+function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", {
+    innerHTML: $props.options.richContent
+  }, null, 8, _hoisted_1$j);
+}
+var htmlBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1k, [["render", _sfc_render$1k]]);
+var __glob_4_8 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": htmlBuilder
+});
+const _sfc_main$1j = {
   name: "inputBuilder",
   components: { ElFormItem, ElInput },
   props: {
@@ -34596,7 +34763,7 @@ const _sfc_main$1g = {
   setup() {
   }
 };
-function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34622,13 +34789,38 @@ function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var inputBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1g, [["render", _sfc_render$1g]]);
-var __glob_4_7 = /* @__PURE__ */ Object.freeze({
+var inputBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1j, [["render", _sfc_render$1j]]);
+var __glob_4_9 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": inputBuilder
 });
-const _sfc_main$1f = {
+const _sfc_main$1i = {
+  name: "labelBuilder",
+  components: {},
+  props: {
+    path: String,
+    uuid: String,
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
+  },
+  setup() {
+  }
+};
+function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("label", null, toDisplayString($props.options.content), 1);
+}
+var labelBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1i, [["render", _sfc_render$1i]]);
+var __glob_4_10 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": labelBuilder
+});
+const _sfc_main$1h = {
   name: "multiSelectBuilder",
   components: { ElFormItem, ElSelect, ElOption },
   props: {
@@ -34644,7 +34836,7 @@ const _sfc_main$1f = {
   setup() {
   }
 };
-function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -34682,13 +34874,13 @@ function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var multiSelectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1f, [["render", _sfc_render$1f]]);
-var __glob_4_8 = /* @__PURE__ */ Object.freeze({
+var multiSelectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1h, [["render", _sfc_render$1h]]);
+var __glob_4_11 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": multiSelectBuilder
 });
-const _sfc_main$1e = {
+const _sfc_main$1g = {
   name: "numberBuilder",
   components: { ElFormItem, ElInputNumber },
   props: {
@@ -34704,7 +34896,7 @@ const _sfc_main$1e = {
   setup() {
   }
 };
-function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34723,13 +34915,13 @@ function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label"]);
 }
-var numberBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1e, [["render", _sfc_render$1e]]);
-var __glob_4_9 = /* @__PURE__ */ Object.freeze({
+var numberBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1g, [["render", _sfc_render$1g]]);
+var __glob_4_12 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": numberBuilder
 });
-const _sfc_main$1d = {
+const _sfc_main$1f = {
   name: "quillEditorBuilder",
   components: { ElFormItem, QuillEditor },
   props: {
@@ -34745,7 +34937,7 @@ const _sfc_main$1d = {
   setup() {
   }
 };
-function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_quill_editor = resolveComponent("quill-editor");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34764,13 +34956,13 @@ function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var quillEditorBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1d]]);
-var __glob_4_11 = /* @__PURE__ */ Object.freeze({
+var quillEditorBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1f, [["render", _sfc_render$1f]]);
+var __glob_4_14 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": quillEditorBuilder
 });
-const _sfc_main$1c = {
+const _sfc_main$1e = {
   name: "radioBuilder",
   components: { ElFormItem, ElRadioGroup, ElRadio },
   props: {
@@ -34786,7 +34978,7 @@ const _sfc_main$1c = {
   setup() {
   }
 };
-function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -34820,13 +35012,13 @@ function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var radioBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1c]]);
-var __glob_4_12 = /* @__PURE__ */ Object.freeze({
+var radioBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1e, [["render", _sfc_render$1e]]);
+var __glob_4_15 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": radioBuilder
 });
-const _sfc_main$1b = {
+const _sfc_main$1d = {
   name: "rateBuilder",
   components: { ElFormItem, ElRate },
   props: {
@@ -34842,7 +35034,7 @@ const _sfc_main$1b = {
   setup() {
   }
 };
-function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34863,13 +35055,13 @@ function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var rateBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1b]]);
-var __glob_4_13 = /* @__PURE__ */ Object.freeze({
+var rateBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1d]]);
+var __glob_4_16 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": rateBuilder
 });
-const _sfc_main$1a = {
+const _sfc_main$1c = {
   name: "selectBuilder",
   components: { ElFormItem, ElSelect, ElOption },
   props: {
@@ -34885,7 +35077,7 @@ const _sfc_main$1a = {
   setup() {
   }
 };
-function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -34920,15 +35112,15 @@ function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var selectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1a, [["render", _sfc_render$1a]]);
-var __glob_4_14 = /* @__PURE__ */ Object.freeze({
+var selectBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1c]]);
+var __glob_4_17 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": selectBuilder
 });
-const _sfc_main$19 = {
+const _sfc_main$1b = {
   name: "signatureBuilder",
-  components: { Signature: _sfc_main$1S },
+  components: { Signature: _sfc_main$1_ },
   props: {
     path: String,
     uuid: String,
@@ -34953,7 +35145,7 @@ const _sfc_main$19 = {
     };
   }
 };
-function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Signature = resolveComponent("Signature");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -34976,13 +35168,13 @@ function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var signatureBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$19, [["render", _sfc_render$19]]);
-var __glob_4_15 = /* @__PURE__ */ Object.freeze({
+var signatureBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1b]]);
+var __glob_4_18 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": signatureBuilder
 });
-const _sfc_main$18 = {
+const _sfc_main$1a = {
   name: "sliderBuilder",
   components: { ElFormItem, ElSlider },
   props: {
@@ -34998,7 +35190,7 @@ const _sfc_main$18 = {
   setup() {
   }
 };
-function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -35022,13 +35214,13 @@ function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var sliderBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$18, [["render", _sfc_render$18]]);
-var __glob_4_16 = /* @__PURE__ */ Object.freeze({
+var sliderBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$1a, [["render", _sfc_render$1a]]);
+var __glob_4_19 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": sliderBuilder
 });
-const _sfc_main$17 = {
+const _sfc_main$19 = {
   name: "switchBuilder",
   components: { ElFormItem, ElSwitch },
   props: {
@@ -35044,7 +35236,7 @@ const _sfc_main$17 = {
   setup() {
   }
 };
-function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -35066,13 +35258,13 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var switchBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$17, [["render", _sfc_render$17]]);
-var __glob_4_17 = /* @__PURE__ */ Object.freeze({
+var switchBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$19, [["render", _sfc_render$19]]);
+var __glob_4_20 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": switchBuilder
 });
-const _sfc_main$16 = {
+const _sfc_main$18 = {
   name: "tableBuilder",
   components: { ElFormItem, objectBuilder },
   props: {
@@ -35094,7 +35286,7 @@ const _sfc_main$16 = {
   setup() {
   }
 };
-function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_object_builder = resolveComponent("object-builder");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -35113,13 +35305,13 @@ function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var tableBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$16]]);
-var __glob_4_18 = /* @__PURE__ */ Object.freeze({
+var tableBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$18, [["render", _sfc_render$18]]);
+var __glob_4_21 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tableBuilder
 });
-const _sfc_main$15 = {
+const _sfc_main$17 = {
   name: "tabsBuilder",
   components: { ElForm, ElFormItem, ElTabs, ElTabPane, ElDialog, ElInput, ElButton, objectBuilder },
   props: {
@@ -35228,7 +35420,7 @@ const _hoisted_4$9 = /* @__PURE__ */ createTextVNode(" \u5220\u9664 ");
 const _hoisted_5$4 = { class: "dialog-footer" };
 const _hoisted_6$2 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_7$1 = /* @__PURE__ */ createTextVNode("\u786E \u5B9A");
-function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_object_builder = resolveComponent("object-builder");
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
@@ -35370,13 +35562,13 @@ function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["title", "modelValue"])
   ], 64);
 }
-var tabsBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$15, [["render", _sfc_render$15]]);
-var __glob_4_19 = /* @__PURE__ */ Object.freeze({
+var tabsBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$17, [["render", _sfc_render$17]]);
+var __glob_4_22 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tabsBuilder
 });
-const _sfc_main$14 = {
+const _sfc_main$16 = {
   name: "textareaBuilder",
   components: { ElFormItem, ElInput },
   props: {
@@ -35392,7 +35584,7 @@ const _sfc_main$14 = {
   setup() {
   }
 };
-function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -35415,13 +35607,13 @@ function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var textareaBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$14]]);
-var __glob_4_20 = /* @__PURE__ */ Object.freeze({
+var textareaBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$16]]);
+var __glob_4_23 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": textareaBuilder
 });
-const _sfc_main$13 = {
+const _sfc_main$15 = {
   name: "timePickerBuilder",
   components: { ElFormItem, ElTimePicker },
   props: {
@@ -35437,7 +35629,7 @@ const _sfc_main$13 = {
   setup() {
   }
 };
-function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -35459,13 +35651,13 @@ function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var timePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$13, [["render", _sfc_render$13]]);
-var __glob_4_21 = /* @__PURE__ */ Object.freeze({
+var timePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$15, [["render", _sfc_render$15]]);
+var __glob_4_24 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": timePickerBuilder
 });
-const _sfc_main$12 = {
+const _sfc_main$14 = {
   name: "timeRangePickerBuilder",
   components: { ElFormItem, ElTimePicker },
   props: {
@@ -35481,7 +35673,7 @@ const _sfc_main$12 = {
   setup() {
   }
 };
-function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -35504,13 +35696,13 @@ function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var timeRangePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$12, [["render", _sfc_render$12]]);
-var __glob_4_22 = /* @__PURE__ */ Object.freeze({
+var timeRangePickerBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$14]]);
+var __glob_4_25 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": timeRangePickerBuilder
 });
-const _sfc_main$11 = {
+const _sfc_main$13 = {
   name: "tinymceEditorBuilder",
   components: { ElFormItem, TinymceEditor },
   props: {
@@ -35533,7 +35725,7 @@ const _sfc_main$11 = {
     };
   }
 };
-function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_tinymce_editor = resolveComponent("tinymce-editor");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -35552,13 +35744,13 @@ function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var tinymceEditorBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["render", _sfc_render$11]]);
-var __glob_4_23 = /* @__PURE__ */ Object.freeze({
+var tinymceEditorBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$13, [["render", _sfc_render$13]]);
+var __glob_4_26 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tinymceEditorBuilder
 });
-const _sfc_main$10 = {
+const _sfc_main$12 = {
   name: "uploadBuilder",
   components: { ElFormItem, ElUpload, ElButton },
   props: {
@@ -35575,7 +35767,7 @@ const _sfc_main$10 = {
   }
 };
 const _hoisted_1$h = { class: "el-upload__tip" };
-function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -35619,8 +35811,8 @@ function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["prop", "label", "rules"]);
 }
-var uploadBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$10, [["render", _sfc_render$10]]);
-var __glob_4_24 = /* @__PURE__ */ Object.freeze({
+var uploadBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$12, [["render", _sfc_render$12]]);
+var __glob_4_27 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadBuilder
@@ -35640,8 +35832,8 @@ function render$1(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$g, _hoisted_3$c);
 }
 const components$1 = {};
-Object.values({ "./components/area-builder.vue": __glob_4_0, "./components/card-builder.vue": __glob_4_1, "./components/cascade-builder.vue": __glob_4_2, "./components/checkbox-builder.vue": __glob_4_3, "./components/color-picker-builder.vue": __glob_4_4, "./components/date-picker-builder.vue": __glob_4_5, "./components/date-range-picker-builder.vue": __glob_4_6, "./components/input-builder.vue": __glob_4_7, "./components/multi-select-builder.vue": __glob_4_8, "./components/number-builder.vue": __glob_4_9, "./components/object-builder.vue": __glob_4_10, "./components/quill-editor-builder.vue": __glob_4_11, "./components/radio-builder.vue": __glob_4_12, "./components/rate-builder.vue": __glob_4_13, "./components/select-builder.vue": __glob_4_14, "./components/signature-builder.vue": __glob_4_15, "./components/slider-builder.vue": __glob_4_16, "./components/switch-builder.vue": __glob_4_17, "./components/table-builder.vue": __glob_4_18, "./components/tabs-builder.vue": __glob_4_19, "./components/textarea-builder.vue": __glob_4_20, "./components/time-picker-builder.vue": __glob_4_21, "./components/time-range-picker-builder.vue": __glob_4_22, "./components/tinymce-editor-builder.vue": __glob_4_23, "./components/upload-builder.vue": __glob_4_24 }).forEach(({ default: component }) => components$1[component.name] = component);
-const _sfc_main$$ = {
+Object.values({ "./components/area-builder.vue": __glob_4_0, "./components/card-builder.vue": __glob_4_1, "./components/cascade-builder.vue": __glob_4_2, "./components/checkbox-builder.vue": __glob_4_3, "./components/color-picker-builder.vue": __glob_4_4, "./components/date-picker-builder.vue": __glob_4_5, "./components/date-range-picker-builder.vue": __glob_4_6, "./components/divider-builder.vue": __glob_4_7, "./components/html-builder.vue": __glob_4_8, "./components/input-builder.vue": __glob_4_9, "./components/label-builder.vue": __glob_4_10, "./components/multi-select-builder.vue": __glob_4_11, "./components/number-builder.vue": __glob_4_12, "./components/object-builder.vue": __glob_4_13, "./components/quill-editor-builder.vue": __glob_4_14, "./components/radio-builder.vue": __glob_4_15, "./components/rate-builder.vue": __glob_4_16, "./components/select-builder.vue": __glob_4_17, "./components/signature-builder.vue": __glob_4_18, "./components/slider-builder.vue": __glob_4_19, "./components/switch-builder.vue": __glob_4_20, "./components/table-builder.vue": __glob_4_21, "./components/tabs-builder.vue": __glob_4_22, "./components/textarea-builder.vue": __glob_4_23, "./components/time-picker-builder.vue": __glob_4_24, "./components/time-range-picker-builder.vue": __glob_4_25, "./components/tinymce-editor-builder.vue": __glob_4_26, "./components/upload-builder.vue": __glob_4_27 }).forEach(({ default: component }) => components$1[component.name] = component);
+const _sfc_main$11 = {
   name: "formBuilderItem",
   components: __spreadProps(__spreadValues({}, components$1), { ElIcon, DeleteIcon: render$6, CopyIcon: render$1 }),
   props: {
@@ -35677,7 +35869,7 @@ const _sfc_main$$ = {
 };
 const _hoisted_1$f = { class: "operator" };
 const _hoisted_2$e = { class: "info" };
-function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CopyIcon = resolveComponent("CopyIcon");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_DeleteIcon = resolveComponent("DeleteIcon");
@@ -35725,13 +35917,13 @@ function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)
   ], 4);
 }
-var FormBuilderItem = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["render", _sfc_render$$]]);
+var FormBuilderItem = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["render", _sfc_render$11]]);
 var index$1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": FormBuilderItem
 });
-const _sfc_main$_ = {
+const _sfc_main$10 = {
   name: "formBuilder",
   components: { ElEmpty, ElForm, FormBuilderItem },
   props: {},
@@ -35742,7 +35934,7 @@ const _sfc_main$_ = {
     };
   }
 };
-function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_empty = resolveComponent("el-empty");
   const _component_form_builder_item = resolveComponent("form-builder-item");
   const _component_el_form = resolveComponent("el-form");
@@ -35775,8 +35967,8 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label-width", "label-position", "hide-required-asterisk", "status-icon", "inline", "size"])
   ], 64);
 }
-var FormBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$_, [["render", _sfc_render$_]]);
-const _sfc_main$Z = {
+var FormBuilder = /* @__PURE__ */ _export_sfc(_sfc_main$10, [["render", _sfc_render$10]]);
+const _sfc_main$$ = {
   name: "activeColorOption",
   components: { ElColorPicker },
   props: {
@@ -35785,20 +35977,20 @@ const _sfc_main$Z = {
   setup() {
   }
 };
-function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   return openBlock(), createBlock(_component_el_color_picker, {
     "model-value": $props.modelValue,
     onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var activeColor = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["render", _sfc_render$Z]]);
+var activeColor = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["render", _sfc_render$$]]);
 var __glob_6_0 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": activeColor
 });
-const _sfc_main$Y = {
+const _sfc_main$_ = {
   name: "activeTextOption",
   components: { ElInput },
   props: {
@@ -35807,7 +35999,7 @@ const _sfc_main$Y = {
   setup() {
   }
 };
-function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createBlock(_component_el_input, {
     type: "text",
@@ -35815,13 +36007,13 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var activeText = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y]]);
+var activeText = /* @__PURE__ */ _export_sfc(_sfc_main$_, [["render", _sfc_render$_]]);
 var __glob_6_1 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": activeText
 });
-const _sfc_main$X = {
+const _sfc_main$Z = {
   name: "allowHalfOption",
   components: { ElCheckbox },
   props: {
@@ -35830,20 +36022,20 @@ const _sfc_main$X = {
   setup() {
   }
 };
-function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   return openBlock(), createBlock(_component_el_checkbox, {
     "model-value": $props.modelValue,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var allowHalf = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X]]);
+var allowHalf = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["render", _sfc_render$Z]]);
 var __glob_6_2 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": allowHalf
 });
-const _sfc_main$W = {
+const _sfc_main$Y = {
   name: "backgroundColorOption",
   components: { ElColorPicker },
   props: {
@@ -35852,20 +36044,20 @@ const _sfc_main$W = {
   setup() {
   }
 };
-function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   return openBlock(), createBlock(_component_el_color_picker, {
     "model-value": $props.modelValue,
     onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var backgroundColor = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$W]]);
+var backgroundColor = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y]]);
 var __glob_6_3 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": backgroundColor
 });
-const _sfc_main$V = {
+const _sfc_main$X = {
   name: "buttonTextOption",
   components: { ElInput },
   props: {
@@ -35874,7 +36066,7 @@ const _sfc_main$V = {
   setup() {
   }
 };
-function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createBlock(_component_el_input, {
     type: "text",
@@ -35882,13 +36074,13 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var buttonText = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$V]]);
+var buttonText = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X]]);
 var __glob_6_4 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": buttonText
 });
-const _sfc_main$U = {
+const _sfc_main$W = {
   name: "clearableOption",
   components: { ElCheckbox },
   props: {
@@ -35897,20 +36089,20 @@ const _sfc_main$U = {
   setup() {
   }
 };
-function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   return openBlock(), createBlock(_component_el_checkbox, {
     "model-value": $props.modelValue,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var clearable = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U]]);
+var clearable = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$W]]);
 var __glob_6_5 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": clearable
 });
-const _sfc_main$T = {
+const _sfc_main$V = {
   name: "collapseTagsOption",
   components: { ElCheckbox },
   props: {
@@ -35919,20 +36111,43 @@ const _sfc_main$T = {
   setup() {
   }
 };
-function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   return openBlock(), createBlock(_component_el_checkbox, {
     "model-value": $props.modelValue,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var collapseTags = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T]]);
+var collapseTags = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$V]]);
 var __glob_6_6 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": collapseTags
 });
-const _sfc_main$S = {
+const _sfc_main$U = {
+  name: "contentOption",
+  components: { ElInput },
+  props: {
+    modelValue: String
+  },
+  setup() {
+  }
+};
+function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_input = resolveComponent("el-input");
+  return openBlock(), createBlock(_component_el_input, {
+    type: "text",
+    "model-value": $props.modelValue,
+    onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
+  }, null, 8, ["model-value"]);
+}
+var content = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U]]);
+var __glob_6_7 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": content
+});
+const _sfc_main$T = {
   name: "defaultValueOption",
   components: { FormRenderItem },
   props: {
@@ -35951,7 +36166,7 @@ const _sfc_main$S = {
     };
   }
 };
-function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_render_item = resolveComponent("form-render-item");
   return openBlock(), createBlock(_component_form_render_item, {
     "model-value": $props.modelValue,
@@ -35961,13 +36176,13 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     options: $setup.options
   }, null, 8, ["model-value", "component", "items", "options"]);
 }
-var defaultValue = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$S]]);
-var __glob_6_7 = /* @__PURE__ */ Object.freeze({
+var defaultValue = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T]]);
+var __glob_6_8 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": defaultValue
 });
-const _sfc_main$R = {
+const _sfc_main$S = {
   name: "disabledOption",
   components: { ElCheckbox },
   props: {
@@ -35976,20 +36191,20 @@ const _sfc_main$R = {
   setup() {
   }
 };
-function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   return openBlock(), createBlock(_component_el_checkbox, {
     "model-value": $props.modelValue,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var disabled = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R]]);
-var __glob_6_8 = /* @__PURE__ */ Object.freeze({
+var disabled = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$S]]);
+var __glob_6_9 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": disabled
 });
-const _sfc_main$Q = {
+const _sfc_main$R = {
   name: "expandTriggerOption",
   components: { ElRadioGroup, ElRadioButton },
   props: {
@@ -36000,7 +36215,7 @@ const _sfc_main$Q = {
 };
 const _hoisted_1$e = /* @__PURE__ */ createTextVNode("\u70B9\u51FB");
 const _hoisted_2$d = /* @__PURE__ */ createTextVNode("\u60AC\u6D6E");
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   return openBlock(), createBlock(_component_el_radio_group, {
@@ -36025,13 +36240,13 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["model-value"]);
 }
-var expandTrigger = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$Q]]);
-var __glob_6_9 = /* @__PURE__ */ Object.freeze({
+var expandTrigger = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R]]);
+var __glob_6_10 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": expandTrigger
 });
-const _sfc_main$P = {
+const _sfc_main$Q = {
   name: "filterableOption",
   components: { ElCheckbox },
   props: {
@@ -36040,20 +36255,20 @@ const _sfc_main$P = {
   setup() {
   }
 };
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   return openBlock(), createBlock(_component_el_checkbox, {
     "model-value": $props.modelValue,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var filterable = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P]]);
-var __glob_6_10 = /* @__PURE__ */ Object.freeze({
+var filterable = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$Q]]);
+var __glob_6_11 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": filterable
 });
-const _sfc_main$O = {
+const _sfc_main$P = {
   name: "formatOption",
   components: { ElInput },
   props: {
@@ -36062,7 +36277,7 @@ const _sfc_main$O = {
   setup() {
   }
 };
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createBlock(_component_el_input, {
     type: "text",
@@ -36070,13 +36285,13 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var format = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$O]]);
-var __glob_6_11 = /* @__PURE__ */ Object.freeze({
+var format = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P]]);
+var __glob_6_12 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": format
 });
-const _sfc_main$N = {
+const _sfc_main$O = {
   name: "gutterOption",
   components: { ElSlider },
   props: {
@@ -36085,7 +36300,7 @@ const _sfc_main$N = {
   setup() {
   }
 };
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   return openBlock(), createBlock(_component_el_slider, {
     "model-value": $props.modelValue,
@@ -36095,13 +36310,13 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     max: 300
   }, null, 8, ["model-value"]);
 }
-var gutter = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$N]]);
-var __glob_6_12 = /* @__PURE__ */ Object.freeze({
+var gutter = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$O]]);
+var __glob_6_13 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": gutter
 });
-const _sfc_main$M = {
+const _sfc_main$N = {
   name: "heightOption",
   components: { ElSlider },
   props: {
@@ -36110,7 +36325,7 @@ const _sfc_main$M = {
   setup() {
   }
 };
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   return openBlock(), createBlock(_component_el_slider, {
     "model-value": parseInt($props.modelValue),
@@ -36123,14 +36338,36 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     }
   }, null, 8, ["model-value", "format-tooltip"]);
 }
-var height = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$M]]);
-var __glob_6_13 = /* @__PURE__ */ Object.freeze({
+var height = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$N]]);
+var __glob_6_14 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": height
 });
-const _sfc_main$L = {
+const _sfc_main$M = {
   name: "hiddenOption",
+  components: { ElCheckbox },
+  props: {
+    modelValue: Boolean
+  },
+  setup() {
+  }
+};
+function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_checkbox = resolveComponent("el-checkbox");
+  return openBlock(), createBlock(_component_el_checkbox, {
+    "model-value": $props.modelValue,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
+  }, null, 8, ["model-value"]);
+}
+var hidden = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$M]]);
+var __glob_6_15 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": hidden
+});
+const _sfc_main$L = {
+  name: "hideRequiredAsteriskOption",
   components: { ElCheckbox },
   props: {
     modelValue: Boolean
@@ -36145,35 +36382,13 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var hidden = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$L]]);
-var __glob_6_14 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": hidden
-});
-const _sfc_main$K = {
-  name: "hideRequiredAsteriskOption",
-  components: { ElCheckbox },
-  props: {
-    modelValue: Boolean
-  },
-  setup() {
-  }
-};
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_checkbox = resolveComponent("el-checkbox");
-  return openBlock(), createBlock(_component_el_checkbox, {
-    "model-value": $props.modelValue,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
-  }, null, 8, ["model-value"]);
-}
-var hideRequiredAsterisk = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$K]]);
-var __glob_6_15 = /* @__PURE__ */ Object.freeze({
+var hideRequiredAsterisk = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$L]]);
+var __glob_6_16 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": hideRequiredAsterisk
 });
-const _sfc_main$J = {
+const _sfc_main$K = {
   name: "inactiveColorOption",
   components: { ElColorPicker },
   props: {
@@ -36182,20 +36397,20 @@ const _sfc_main$J = {
   setup() {
   }
 };
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   return openBlock(), createBlock(_component_el_color_picker, {
     "model-value": $props.modelValue,
     onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var inactiveColor = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$J]]);
-var __glob_6_16 = /* @__PURE__ */ Object.freeze({
+var inactiveColor = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$K]]);
+var __glob_6_17 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": inactiveColor
 });
-const _sfc_main$I = {
+const _sfc_main$J = {
   name: "inactiveTextOption",
   components: { ElInput },
   props: {
@@ -36204,7 +36419,7 @@ const _sfc_main$I = {
   setup() {
   }
 };
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createBlock(_component_el_input, {
     type: "text",
@@ -36212,13 +36427,13 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var inactiveText = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$I]]);
-var __glob_6_17 = /* @__PURE__ */ Object.freeze({
+var inactiveText = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$J]]);
+var __glob_6_18 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": inactiveText
 });
-const _sfc_main$H = {
+const _sfc_main$I = {
   name: "inlineOption",
   components: { ElCheckbox },
   props: {
@@ -36227,20 +36442,20 @@ const _sfc_main$H = {
   setup() {
   }
 };
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   return openBlock(), createBlock(_component_el_checkbox, {
     "model-value": $props.modelValue,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var inline = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$H]]);
-var __glob_6_18 = /* @__PURE__ */ Object.freeze({
+var inline = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$I]]);
+var __glob_6_19 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": inline
 });
-const _sfc_main$G = {
+const _sfc_main$H = {
   name: "keyOption",
   components: { ElInput },
   props: {
@@ -36249,7 +36464,7 @@ const _sfc_main$G = {
   setup() {
   }
 };
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createBlock(_component_el_input, {
     type: "text",
@@ -36257,13 +36472,13 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var key = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$G]]);
-var __glob_6_19 = /* @__PURE__ */ Object.freeze({
+var key = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$H]]);
+var __glob_6_20 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": key
 });
-const _sfc_main$F = {
+const _sfc_main$G = {
   name: "labelPositionOption",
   components: { ElRadioGroup, ElRadioButton },
   props: {
@@ -36275,7 +36490,7 @@ const _sfc_main$F = {
 const _hoisted_1$d = /* @__PURE__ */ createTextVNode("\u5DE6");
 const _hoisted_2$c = /* @__PURE__ */ createTextVNode("\u53F3");
 const _hoisted_3$b = /* @__PURE__ */ createTextVNode("\u9876\u90E8");
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   return openBlock(), createBlock(_component_el_radio_group, {
@@ -36306,13 +36521,13 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["model-value"]);
 }
-var labelPosition = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$F]]);
-var __glob_6_20 = /* @__PURE__ */ Object.freeze({
+var labelPosition = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$G]]);
+var __glob_6_21 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": labelPosition
 });
-const _sfc_main$E = {
+const _sfc_main$F = {
   name: "labelWidthOption",
   components: { ElSlider },
   props: {
@@ -36321,7 +36536,7 @@ const _sfc_main$E = {
   setup() {
   }
 };
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   return openBlock(), createBlock(_component_el_slider, {
     "model-value": parseInt($props.modelValue),
@@ -36334,13 +36549,13 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     }
   }, null, 8, ["model-value", "format-tooltip"]);
 }
-var labelWidth = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$E]]);
-var __glob_6_21 = /* @__PURE__ */ Object.freeze({
+var labelWidth = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$F]]);
+var __glob_6_22 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": labelWidth
 });
-const _sfc_main$D = {
+const _sfc_main$E = {
   name: "labelOption",
   components: { ElInput },
   props: {
@@ -36349,7 +36564,7 @@ const _sfc_main$D = {
   setup() {
   }
 };
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createBlock(_component_el_input, {
     type: "text",
@@ -36357,14 +36572,37 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var label = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$D]]);
-var __glob_6_22 = /* @__PURE__ */ Object.freeze({
+var label = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$E]]);
+var __glob_6_23 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": label
 });
-const _sfc_main$C = {
+const _sfc_main$D = {
   name: "limitOption",
+  components: { ElInputNumber },
+  props: {
+    modelValue: Number
+  },
+  setup() {
+  }
+};
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_input_number = resolveComponent("el-input-number");
+  return openBlock(), createBlock(_component_el_input_number, {
+    "model-value": $props.modelValue,
+    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
+    size: "small"
+  }, null, 8, ["model-value"]);
+}
+var limit = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$D]]);
+var __glob_6_24 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": limit
+});
+const _sfc_main$C = {
+  name: "maxOption",
   components: { ElInputNumber },
   props: {
     modelValue: Number
@@ -36380,14 +36618,14 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     size: "small"
   }, null, 8, ["model-value"]);
 }
-var limit = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$C]]);
-var __glob_6_23 = /* @__PURE__ */ Object.freeze({
+var max = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$C]]);
+var __glob_6_25 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  "default": limit
+  "default": max
 });
 const _sfc_main$B = {
-  name: "maxOption",
+  name: "maxlengthOption",
   components: { ElInputNumber },
   props: {
     modelValue: Number
@@ -36399,18 +36637,18 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   return openBlock(), createBlock(_component_el_input_number, {
     "model-value": $props.modelValue,
-    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
+    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event ? $event : void 0)),
     size: "small"
   }, null, 8, ["model-value"]);
 }
-var max = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$B]]);
-var __glob_6_24 = /* @__PURE__ */ Object.freeze({
+var maxlength = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$B]]);
+var __glob_6_26 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  "default": max
+  "default": maxlength
 });
 const _sfc_main$A = {
-  name: "maxlengthOption",
+  name: "minOption",
   components: { ElInputNumber },
   props: {
     modelValue: Number
@@ -36422,18 +36660,18 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   return openBlock(), createBlock(_component_el_input_number, {
     "model-value": $props.modelValue,
-    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event ? $event : void 0)),
+    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
     size: "small"
   }, null, 8, ["model-value"]);
 }
-var maxlength = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$A]]);
-var __glob_6_25 = /* @__PURE__ */ Object.freeze({
+var min = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$A]]);
+var __glob_6_27 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  "default": maxlength
+  "default": min
 });
 const _sfc_main$z = {
-  name: "minOption",
+  name: "multipleLimitOption",
   components: { ElInputNumber },
   props: {
     modelValue: Number
@@ -36449,36 +36687,13 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     size: "small"
   }, null, 8, ["model-value"]);
 }
-var min = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$z]]);
-var __glob_6_26 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": min
-});
-const _sfc_main$y = {
-  name: "multipleLimitOption",
-  components: { ElInputNumber },
-  props: {
-    modelValue: Number
-  },
-  setup() {
-  }
-};
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_input_number = resolveComponent("el-input-number");
-  return openBlock(), createBlock(_component_el_input_number, {
-    "model-value": $props.modelValue,
-    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "small"
-  }, null, 8, ["model-value"]);
-}
-var multipleLimit = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$y]]);
-var __glob_6_27 = /* @__PURE__ */ Object.freeze({
+var multipleLimit = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$z]]);
+var __glob_6_28 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": multipleLimit
 });
-const _sfc_main$x = {
+const _sfc_main$y = {
   name: "multipleOption",
   components: { ElCheckbox },
   props: {
@@ -36487,21 +36702,44 @@ const _sfc_main$x = {
   setup() {
   }
 };
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox = resolveComponent("el-checkbox");
   return openBlock(), createBlock(_component_el_checkbox, {
     "model-value": $props.modelValue,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var multiple = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$x]]);
-var __glob_6_28 = /* @__PURE__ */ Object.freeze({
+var multiple = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$y]]);
+var __glob_6_29 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": multiple
 });
-const _sfc_main$w = {
+const _sfc_main$x = {
   name: "noDataTextOption",
+  components: { ElInput },
+  props: {
+    modelValue: String
+  },
+  setup() {
+  }
+};
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_input = resolveComponent("el-input");
+  return openBlock(), createBlock(_component_el_input, {
+    type: "text",
+    "model-value": $props.modelValue,
+    onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
+  }, null, 8, ["model-value"]);
+}
+var noDataText = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$x]]);
+var __glob_6_30 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": noDataText
+});
+const _sfc_main$w = {
+  name: "noMatchTextOption",
   components: { ElInput },
   props: {
     modelValue: String
@@ -36517,36 +36755,13 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var noDataText = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$w]]);
-var __glob_6_29 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  "default": noDataText
-});
-const _sfc_main$v = {
-  name: "noMatchTextOption",
-  components: { ElInput },
-  props: {
-    modelValue: String
-  },
-  setup() {
-  }
-};
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_input = resolveComponent("el-input");
-  return openBlock(), createBlock(_component_el_input, {
-    type: "text",
-    "model-value": $props.modelValue,
-    onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
-  }, null, 8, ["model-value"]);
-}
-var noMatchText = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$v]]);
-var __glob_6_30 = /* @__PURE__ */ Object.freeze({
+var noMatchText = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$w]]);
+var __glob_6_31 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": noMatchText
 });
-const _sfc_main$u = {
+const _sfc_main$v = {
   name: "optionsOption",
   components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, DeleteIcon: render$6, CodeMirror },
   props: {
@@ -36621,7 +36836,7 @@ const _hoisted_3$a = { class: "form-design-json-box" };
 const _hoisted_4$8 = { class: "dialog-footer" };
 const _hoisted_5$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_6$1 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_col = resolveComponent("el-col");
   const _component_DeleteIcon = resolveComponent("DeleteIcon");
@@ -36736,13 +36951,13 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["modelValue"])
   ]);
 }
-var options = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$u]]);
-var __glob_6_31 = /* @__PURE__ */ Object.freeze({
+var options = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$v]]);
+var __glob_6_32 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": options
 });
-const _sfc_main$t = {
+const _sfc_main$u = {
   name: "paddingOption",
   components: { ElRow, ElCol, ElInputNumber },
   props: {
@@ -36774,7 +36989,7 @@ const _hoisted_1$b = /* @__PURE__ */ createTextVNode(" \u4E0A\uFF1A");
 const _hoisted_2$a = /* @__PURE__ */ createTextVNode(" \u53F3\uFF1A");
 const _hoisted_3$9 = /* @__PURE__ */ createTextVNode(" \u4E0B\uFF1A");
 const _hoisted_4$7 = /* @__PURE__ */ createTextVNode(" \u5DE6\uFF1A");
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_col = resolveComponent("el-col");
   const _component_el_row = resolveComponent("el-row");
@@ -36849,13 +37064,13 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ], 64);
 }
-var padding = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$t]]);
-var __glob_6_32 = /* @__PURE__ */ Object.freeze({
+var padding = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$u]]);
+var __glob_6_33 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": padding
 });
-const _sfc_main$s = {
+const _sfc_main$t = {
   name: "penColorOption",
   components: { ElColorPicker },
   props: {
@@ -36864,21 +37079,44 @@ const _sfc_main$s = {
   setup() {
   }
 };
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   return openBlock(), createBlock(_component_el_color_picker, {
     "model-value": $props.modelValue,
     onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var penColor = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$s]]);
-var __glob_6_33 = /* @__PURE__ */ Object.freeze({
+var penColor = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$t]]);
+var __glob_6_34 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": penColor
 });
-const _sfc_main$r = {
+const _sfc_main$s = {
   name: "placeholderOption",
+  components: { ElInput },
+  props: {
+    modelValue: String
+  },
+  setup() {
+  }
+};
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_input = resolveComponent("el-input");
+  return openBlock(), createBlock(_component_el_input, {
+    type: "text",
+    "model-value": $props.modelValue,
+    onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
+  }, null, 8, ["model-value"]);
+}
+var placeholder = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$s]]);
+var __glob_6_35 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  "default": placeholder
+});
+const _sfc_main$r = {
+  name: "prefixIconOption",
   components: { ElInput },
   props: {
     modelValue: String
@@ -36894,14 +37132,14 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
-var placeholder = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$r]]);
-var __glob_6_34 = /* @__PURE__ */ Object.freeze({
+var prefixIcon = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$r]]);
+var __glob_6_36 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  "default": placeholder
+  "default": prefixIcon
 });
 const _sfc_main$q = {
-  name: "prefixIconOption",
+  name: "richContentOption",
   components: { ElInput },
   props: {
     modelValue: String
@@ -36912,16 +37150,17 @@ const _sfc_main$q = {
 function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createBlock(_component_el_input, {
-    type: "text",
+    type: "textarea",
     "model-value": $props.modelValue,
-    onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
+    onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
+    rows: 4
   }, null, 8, ["model-value"]);
 }
-var prefixIcon = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$q]]);
-var __glob_6_35 = /* @__PURE__ */ Object.freeze({
+var richContent = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$q]]);
+var __glob_6_37 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  "default": prefixIcon
+  "default": richContent
 });
 const _sfc_main$p = {
   name: "rowsOption",
@@ -36943,7 +37182,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var rows = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$p]]);
-var __glob_6_36 = /* @__PURE__ */ Object.freeze({
+var __glob_6_38 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": rows
@@ -37173,7 +37412,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var rules = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$o]]);
-var __glob_6_37 = /* @__PURE__ */ Object.freeze({
+var __glob_6_39 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": rules
@@ -37222,7 +37461,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["model-value"]);
 }
 var shadow = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$n]]);
-var __glob_6_38 = /* @__PURE__ */ Object.freeze({
+var __glob_6_40 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": shadow
@@ -37244,7 +37483,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var showAlpha = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$m]]);
-var __glob_6_39 = /* @__PURE__ */ Object.freeze({
+var __glob_6_41 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": showAlpha
@@ -37266,7 +37505,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var showFileList = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$l]]);
-var __glob_6_40 = /* @__PURE__ */ Object.freeze({
+var __glob_6_42 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": showFileList
@@ -37288,7 +37527,7 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var showInput = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$k]]);
-var __glob_6_41 = /* @__PURE__ */ Object.freeze({
+var __glob_6_43 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": showInput
@@ -37310,7 +37549,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var showPassword = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$j]]);
-var __glob_6_42 = /* @__PURE__ */ Object.freeze({
+var __glob_6_44 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": showPassword
@@ -37332,7 +37571,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var showStops = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$i]]);
-var __glob_6_43 = /* @__PURE__ */ Object.freeze({
+var __glob_6_45 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": showStops
@@ -37354,7 +37593,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var showTooltip = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$h]]);
-var __glob_6_44 = /* @__PURE__ */ Object.freeze({
+var __glob_6_46 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": showTooltip
@@ -37376,7 +37615,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var showWordLimit = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g]]);
-var __glob_6_45 = /* @__PURE__ */ Object.freeze({
+var __glob_6_47 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": showWordLimit
@@ -37425,7 +37664,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["model-value"]);
 }
 var size = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f]]);
-var __glob_6_46 = /* @__PURE__ */ Object.freeze({
+var __glob_6_48 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": size
@@ -37447,7 +37686,7 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var statusIcon = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e]]);
-var __glob_6_47 = /* @__PURE__ */ Object.freeze({
+var __glob_6_49 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": statusIcon
@@ -37470,7 +37709,7 @@ function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var suffixIcon = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d]]);
-var __glob_6_48 = /* @__PURE__ */ Object.freeze({
+var __glob_6_50 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": suffixIcon
@@ -37526,7 +37765,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["model-value"]);
 }
 var tabPosition = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
-var __glob_6_49 = /* @__PURE__ */ Object.freeze({
+var __glob_6_51 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tabPosition
@@ -37568,7 +37807,7 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["model-value"]);
 }
 var tabType = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
-var __glob_6_50 = /* @__PURE__ */ Object.freeze({
+var __glob_6_52 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tabType
@@ -37591,7 +37830,7 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var tip = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
-var __glob_6_51 = /* @__PURE__ */ Object.freeze({
+var __glob_6_53 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": tip
@@ -37687,7 +37926,7 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   ], 64);
 }
 var uploadData = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
-var __glob_6_52 = /* @__PURE__ */ Object.freeze({
+var __glob_6_54 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadData
@@ -37783,7 +38022,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   ], 64);
 }
 var uploadHeaders = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8]]);
-var __glob_6_53 = /* @__PURE__ */ Object.freeze({
+var __glob_6_55 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadHeaders
@@ -37806,7 +38045,7 @@ function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var uploadName = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7]]);
-var __glob_6_54 = /* @__PURE__ */ Object.freeze({
+var __glob_6_56 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadName
@@ -37875,7 +38114,7 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["modelValue", "onInput"]);
 }
 var uploadSize = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$6]]);
-var __glob_6_55 = /* @__PURE__ */ Object.freeze({
+var __glob_6_57 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadSize
@@ -37898,7 +38137,7 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var uploadUrl = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$5]]);
-var __glob_6_56 = /* @__PURE__ */ Object.freeze({
+var __glob_6_58 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": uploadUrl
@@ -37924,7 +38163,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8, ["model-value"]);
 }
 var width = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4]]);
-var __glob_6_57 = /* @__PURE__ */ Object.freeze({
+var __glob_6_59 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   "default": width
@@ -37994,7 +38233,7 @@ function render(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$2, _hoisted_4$1);
 }
 const components = {};
-Object.values({ "./components/active-color.vue": __glob_6_0, "./components/active-text.vue": __glob_6_1, "./components/allow-half.vue": __glob_6_2, "./components/background-color.vue": __glob_6_3, "./components/button-text.vue": __glob_6_4, "./components/clearable.vue": __glob_6_5, "./components/collapse-tags.vue": __glob_6_6, "./components/default-value.vue": __glob_6_7, "./components/disabled.vue": __glob_6_8, "./components/expand-trigger.vue": __glob_6_9, "./components/filterable.vue": __glob_6_10, "./components/format.vue": __glob_6_11, "./components/gutter.vue": __glob_6_12, "./components/height.vue": __glob_6_13, "./components/hidden.vue": __glob_6_14, "./components/hide-required-asterisk.vue": __glob_6_15, "./components/inactive-color.vue": __glob_6_16, "./components/inactive-text.vue": __glob_6_17, "./components/inline.vue": __glob_6_18, "./components/key.vue": __glob_6_19, "./components/label-position.vue": __glob_6_20, "./components/label-width.vue": __glob_6_21, "./components/label.vue": __glob_6_22, "./components/limit.vue": __glob_6_23, "./components/max.vue": __glob_6_24, "./components/maxlength.vue": __glob_6_25, "./components/min.vue": __glob_6_26, "./components/multiple-limit.vue": __glob_6_27, "./components/multiple.vue": __glob_6_28, "./components/no-data-text.vue": __glob_6_29, "./components/no-match-text.vue": __glob_6_30, "./components/options.vue": __glob_6_31, "./components/padding.vue": __glob_6_32, "./components/pen-color.vue": __glob_6_33, "./components/placeholder.vue": __glob_6_34, "./components/prefix-icon.vue": __glob_6_35, "./components/rows.vue": __glob_6_36, "./components/rules.vue": __glob_6_37, "./components/shadow.vue": __glob_6_38, "./components/show-alpha.vue": __glob_6_39, "./components/show-file-list.vue": __glob_6_40, "./components/show-input.vue": __glob_6_41, "./components/show-password.vue": __glob_6_42, "./components/show-stops.vue": __glob_6_43, "./components/show-tooltip.vue": __glob_6_44, "./components/show-word-limit.vue": __glob_6_45, "./components/size.vue": __glob_6_46, "./components/status-icon.vue": __glob_6_47, "./components/suffix-icon.vue": __glob_6_48, "./components/tab-position.vue": __glob_6_49, "./components/tab-type.vue": __glob_6_50, "./components/tip.vue": __glob_6_51, "./components/upload-data.vue": __glob_6_52, "./components/upload-headers.vue": __glob_6_53, "./components/upload-name.vue": __glob_6_54, "./components/upload-size.vue": __glob_6_55, "./components/upload-url.vue": __glob_6_56, "./components/width.vue": __glob_6_57 }).forEach(({ default: component }) => components[component.name] = component);
+Object.values({ "./components/active-color.vue": __glob_6_0, "./components/active-text.vue": __glob_6_1, "./components/allow-half.vue": __glob_6_2, "./components/background-color.vue": __glob_6_3, "./components/button-text.vue": __glob_6_4, "./components/clearable.vue": __glob_6_5, "./components/collapse-tags.vue": __glob_6_6, "./components/content.vue": __glob_6_7, "./components/default-value.vue": __glob_6_8, "./components/disabled.vue": __glob_6_9, "./components/expand-trigger.vue": __glob_6_10, "./components/filterable.vue": __glob_6_11, "./components/format.vue": __glob_6_12, "./components/gutter.vue": __glob_6_13, "./components/height.vue": __glob_6_14, "./components/hidden.vue": __glob_6_15, "./components/hide-required-asterisk.vue": __glob_6_16, "./components/inactive-color.vue": __glob_6_17, "./components/inactive-text.vue": __glob_6_18, "./components/inline.vue": __glob_6_19, "./components/key.vue": __glob_6_20, "./components/label-position.vue": __glob_6_21, "./components/label-width.vue": __glob_6_22, "./components/label.vue": __glob_6_23, "./components/limit.vue": __glob_6_24, "./components/max.vue": __glob_6_25, "./components/maxlength.vue": __glob_6_26, "./components/min.vue": __glob_6_27, "./components/multiple-limit.vue": __glob_6_28, "./components/multiple.vue": __glob_6_29, "./components/no-data-text.vue": __glob_6_30, "./components/no-match-text.vue": __glob_6_31, "./components/options.vue": __glob_6_32, "./components/padding.vue": __glob_6_33, "./components/pen-color.vue": __glob_6_34, "./components/placeholder.vue": __glob_6_35, "./components/prefix-icon.vue": __glob_6_36, "./components/rich-content.vue": __glob_6_37, "./components/rows.vue": __glob_6_38, "./components/rules.vue": __glob_6_39, "./components/shadow.vue": __glob_6_40, "./components/show-alpha.vue": __glob_6_41, "./components/show-file-list.vue": __glob_6_42, "./components/show-input.vue": __glob_6_43, "./components/show-password.vue": __glob_6_44, "./components/show-stops.vue": __glob_6_45, "./components/show-tooltip.vue": __glob_6_46, "./components/show-word-limit.vue": __glob_6_47, "./components/size.vue": __glob_6_48, "./components/status-icon.vue": __glob_6_49, "./components/suffix-icon.vue": __glob_6_50, "./components/tab-position.vue": __glob_6_51, "./components/tab-type.vue": __glob_6_52, "./components/tip.vue": __glob_6_53, "./components/upload-data.vue": __glob_6_54, "./components/upload-headers.vue": __glob_6_55, "./components/upload-name.vue": __glob_6_56, "./components/upload-size.vue": __glob_6_57, "./components/upload-url.vue": __glob_6_58, "./components/width.vue": __glob_6_59 }).forEach(({ default: component }) => components[component.name] = component);
 const _sfc_main$2 = {
   name: "formOption",
   components: __spreadValues({ ElRow, ElCol, ElFormItem, CodeIcon: render, Interpolation }, components),
@@ -38244,12 +38483,12 @@ const _sfc_main = {
       state.selected = query([state.formDesign], state.selected.uuid) || state.formDesign;
       addCache();
     };
-    const register = (name = "\u57FA\u7840\u7EC4\u4EF6", components2) => {
+    const register = (name = "\u57FA\u7840\u7EC4\u4EF6", components2, order = 0) => {
       const index2 = groups.value.findIndex((group) => group.name === name);
       if (index2 > -1) {
         groups.value[index2].components = components2;
       } else {
-        groups.value.push({ name, components: components2 });
+        groups.value.push({ name, components: components2, order });
       }
     };
     init();
