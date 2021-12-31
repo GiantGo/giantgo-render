@@ -502,7 +502,7 @@ export const form = {
   options: {
     labelWidth: '120px',
     labelPosition: 'right',
-    size: 'medium',
+    size: 'default',
     gutter: 0,
     hideRequiredAsterisk: false,
     statusIcon: false

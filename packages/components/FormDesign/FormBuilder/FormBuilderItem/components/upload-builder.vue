@@ -10,7 +10,7 @@
       :file-list="options.defaultValue"
       :disabled="options.disabled"
     >
-      <el-button size="small" type="primary">
+      <el-button type="primary">
         {{ options.buttonText }}
       </el-button>
       <template #tip v-if="options.showToolTip">

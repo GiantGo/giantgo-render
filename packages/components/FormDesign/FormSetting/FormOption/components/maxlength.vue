@@ -2,7 +2,6 @@
   <el-input-number
     :model-value="modelValue"
     @change="$emit('update:modelValue', $event ? $event : undefined)"
-    size="small"
   ></el-input-number>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <div style="margin-bottom: 20px">
-    <el-button type="primary" size="small" @click="addTab"> 添加 </el-button>
-    <el-button type="primary" size="small" @click="editTab"> 修改 </el-button>
-    <el-button type="danger" size="small" :disabled="items.length <= 0" @click="removeTab"> 删除 </el-button>
+    <el-button type="primary" @click="addTab"> 添加 </el-button>
+    <el-button type="primary" @click="editTab"> 修改 </el-button>
+    <el-button type="danger" :disabled="items.length <= 0" @click="removeTab"> 删除 </el-button>
   </div>
   <el-tabs v-model="tabsValue" :type="options.tabType" :tab-position="options.tabPosition">
     <el-tab-pane :key="item.name" v-for="item in items" :label="item.options.label" :name="item.uuid">
