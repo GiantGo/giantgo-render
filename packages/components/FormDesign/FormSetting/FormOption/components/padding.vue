@@ -1,15 +1,15 @@
 <template>
   <el-row class="option-row">
-    <el-col :span="24"> 上：<el-input-number v-model="data.top" @input="emitChange" size="small" /> </el-col>
+    <el-col :span="24"> 上：<el-input-number v-model="data.top" @input="emitChange" /> </el-col>
   </el-row>
   <el-row class="option-row">
-    <el-col :span="24"> 右：<el-input-number v-model="data.right" @input="emitChange" size="small" /> </el-col>
+    <el-col :span="24"> 右：<el-input-number v-model="data.right" @input="emitChange" /> </el-col>
   </el-row>
   <el-row class="option-row">
-    <el-col :span="24"> 下：<el-input-number v-model="data.down" @input="emitChange" size="small" /> </el-col>
+    <el-col :span="24"> 下：<el-input-number v-model="data.down" @input="emitChange" /> </el-col>
   </el-row>
   <el-row class="option-row">
-    <el-col :span="24"> 左：<el-input-number v-model="data.left" @input="emitChange" size="small" /> </el-col>
+    <el-col :span="24"> 左：<el-input-number v-model="data.left" @input="emitChange" /> </el-col>
   </el-row>
 </template>
 

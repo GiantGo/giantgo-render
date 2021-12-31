@@ -29732,7 +29732,6 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", _hoisted_1$y, [
         createVNode(_component_el_button, {
           type: "primary",
-          size: "small",
           onClick: $setup.undo
         }, {
           default: withCtx(() => [
@@ -30448,10 +30447,7 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
         "on-error": $setup.handleError
       }, createSlots({
         default: withCtx(() => [
-          createVNode(_component_el_button, {
-            size: "small",
-            type: "primary"
-          }, {
+          createVNode(_component_el_button, { type: "primary" }, {
             default: withCtx(() => [
               createTextVNode(toDisplayString($props.options.buttonText), 1)
             ]),
@@ -33818,7 +33814,7 @@ const form = {
   options: {
     labelWidth: "120px",
     labelPosition: "right",
-    size: "medium",
+    size: "default",
     gutter: 0,
     hideRequiredAsterisk: false,
     statusIcon: false
@@ -34226,7 +34222,6 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
       footer: withCtx(() => [
         createElementVNode("div", _hoisted_3$e, [
           createVNode(_component_el_button, {
-            size: "medium",
             onClick: _cache[2] || (_cache[2] = ($event) => $setup.jsonDialog.isShow = false)
           }, {
             default: withCtx(() => [
@@ -34235,7 +34230,6 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
             _: 1
           }),
           createVNode(_component_el_button, {
-            size: "medium",
             type: "primary",
             onClick: $setup.saveJson
           }, {
@@ -34266,7 +34260,6 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
       footer: withCtx(() => [
         createElementVNode("div", _hoisted_7$2, [
           createVNode(_component_el_button, {
-            size: "medium",
             onClick: _cache[5] || (_cache[5] = ($event) => $setup.resultDialog.isShow = false)
           }, {
             default: withCtx(() => [
@@ -35433,7 +35426,6 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
     createElementVNode("div", _hoisted_1$i, [
       createVNode(_component_el_button, {
         type: "primary",
-        size: "small",
         onClick: $setup.addTab
       }, {
         default: withCtx(() => [
@@ -35443,7 +35435,6 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
       }, 8, ["onClick"]),
       createVNode(_component_el_button, {
         type: "primary",
-        size: "small",
         onClick: $setup.editTab
       }, {
         default: withCtx(() => [
@@ -35453,7 +35444,6 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
       }, 8, ["onClick"]),
       createVNode(_component_el_button, {
         type: "danger",
-        size: "small",
         disabled: $props.items.length <= 0,
         onClick: $setup.removeTab
       }, {
@@ -35788,10 +35778,7 @@ function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
         disabled: $props.options.disabled
       }, createSlots({
         default: withCtx(() => [
-          createVNode(_component_el_button, {
-            size: "small",
-            type: "primary"
-          }, {
+          createVNode(_component_el_button, { type: "primary" }, {
             default: withCtx(() => [
               createTextVNode(toDisplayString($props.options.buttonText), 1)
             ]),
@@ -36220,8 +36207,7 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_group = resolveComponent("el-radio-group");
   return openBlock(), createBlock(_component_el_radio_group, {
     "model-value": $props.modelValue,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "mini"
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, {
     default: withCtx(() => [
       createVNode(_component_el_radio_button, { label: "click" }, {
@@ -36495,8 +36481,7 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_group = resolveComponent("el-radio-group");
   return openBlock(), createBlock(_component_el_radio_group, {
     "model-value": $props.modelValue,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "mini"
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, {
     default: withCtx(() => [
       createVNode(_component_el_radio_button, { label: "left" }, {
@@ -36591,8 +36576,7 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   return openBlock(), createBlock(_component_el_input_number, {
     "model-value": $props.modelValue,
-    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "small"
+    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
 var limit = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$D]]);
@@ -36614,8 +36598,7 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   return openBlock(), createBlock(_component_el_input_number, {
     "model-value": $props.modelValue,
-    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "small"
+    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
 var max = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$C]]);
@@ -36637,8 +36620,7 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   return openBlock(), createBlock(_component_el_input_number, {
     "model-value": $props.modelValue,
-    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event ? $event : void 0)),
-    size: "small"
+    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event ? $event : void 0))
   }, null, 8, ["model-value"]);
 }
 var maxlength = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$B]]);
@@ -36660,8 +36642,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   return openBlock(), createBlock(_component_el_input_number, {
     "model-value": $props.modelValue,
-    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "small"
+    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
 var min = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$A]]);
@@ -36683,8 +36664,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   return openBlock(), createBlock(_component_el_input_number, {
     "model-value": $props.modelValue,
-    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "small"
+    onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, null, 8, ["model-value"]);
 }
 var multipleLimit = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$z]]);
@@ -37002,8 +36982,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
             createVNode(_component_el_input_number, {
               modelValue: $setup.data.top,
               "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.data.top = $event),
-              onInput: $setup.emitChange,
-              size: "small"
+              onInput: $setup.emitChange
             }, null, 8, ["modelValue", "onInput"])
           ]),
           _: 1
@@ -37019,8 +36998,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
             createVNode(_component_el_input_number, {
               modelValue: $setup.data.right,
               "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.data.right = $event),
-              onInput: $setup.emitChange,
-              size: "small"
+              onInput: $setup.emitChange
             }, null, 8, ["modelValue", "onInput"])
           ]),
           _: 1
@@ -37036,8 +37014,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
             createVNode(_component_el_input_number, {
               modelValue: $setup.data.down,
               "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.data.down = $event),
-              onInput: $setup.emitChange,
-              size: "small"
+              onInput: $setup.emitChange
             }, null, 8, ["modelValue", "onInput"])
           ]),
           _: 1
@@ -37053,8 +37030,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
             createVNode(_component_el_input_number, {
               modelValue: $setup.data.left,
               "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.data.left = $event),
-              onInput: $setup.emitChange,
-              size: "small"
+              onInput: $setup.emitChange
             }, null, 8, ["modelValue", "onInput"])
           ]),
           _: 1
@@ -37434,8 +37410,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_group = resolveComponent("el-radio-group");
   return openBlock(), createBlock(_component_el_radio_group, {
     "model-value": $props.modelValue,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "mini"
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, {
     default: withCtx(() => [
       createVNode(_component_el_radio_button, { label: "always" }, {
@@ -37629,31 +37604,30 @@ const _sfc_main$f = {
   setup() {
   }
 };
-const _hoisted_1$8 = /* @__PURE__ */ createTextVNode("\u6B63\u5E38");
-const _hoisted_2$7 = /* @__PURE__ */ createTextVNode("\u5C0F\u53F7");
-const _hoisted_3$6 = /* @__PURE__ */ createTextVNode("\u8FF7\u4F60");
+const _hoisted_1$8 = /* @__PURE__ */ createTextVNode("\u5927\u53F7");
+const _hoisted_2$7 = /* @__PURE__ */ createTextVNode("\u6B63\u5E38");
+const _hoisted_3$6 = /* @__PURE__ */ createTextVNode("\u5C0F\u53F7");
 function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   return openBlock(), createBlock(_component_el_radio_group, {
     "model-value": $props.modelValue,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "mini"
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, {
     default: withCtx(() => [
-      createVNode(_component_el_radio_button, { label: "medium" }, {
+      createVNode(_component_el_radio_button, { label: "large" }, {
         default: withCtx(() => [
           _hoisted_1$8
         ]),
         _: 1
       }),
-      createVNode(_component_el_radio_button, { label: "small" }, {
+      createVNode(_component_el_radio_button, { label: "default" }, {
         default: withCtx(() => [
           _hoisted_2$7
         ]),
         _: 1
       }),
-      createVNode(_component_el_radio_button, { label: "mini" }, {
+      createVNode(_component_el_radio_button, { label: "small" }, {
         default: withCtx(() => [
           _hoisted_3$6
         ]),
@@ -37732,8 +37706,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_group = resolveComponent("el-radio-group");
   return openBlock(), createBlock(_component_el_radio_group, {
     "model-value": $props.modelValue,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "mini"
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, {
     default: withCtx(() => [
       createVNode(_component_el_radio_button, { label: "top" }, {
@@ -37786,8 +37759,7 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_group = resolveComponent("el-radio-group");
   return openBlock(), createBlock(_component_el_radio_group, {
     "model-value": $props.modelValue,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event)),
-    size: "mini"
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", $event))
   }, {
     default: withCtx(() => [
       createVNode(_component_el_radio_button, { label: "card" }, {

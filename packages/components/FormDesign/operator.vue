@@ -35,8 +35,8 @@
       </div>
       <template #footer>
         <div class="dialog-footer">
-          <el-button size="medium" @click="jsonDialog.isShow = false">取消</el-button>
-          <el-button size="medium" type="primary" @click="saveJson">确定</el-button>
+          <el-button @click="jsonDialog.isShow = false">取消</el-button>
+          <el-button type="primary" @click="saveJson">确定</el-button>
         </div>
       </template>
     </el-dialog>
@@ -46,7 +46,7 @@
       </div>
       <template #footer>
         <div class="dialog-footer">
-          <el-button size="medium" @click="resultDialog.isShow = false">关闭</el-button>
+          <el-button @click="resultDialog.isShow = false">关闭</el-button>
         </div>
       </template>
     </el-dialog>

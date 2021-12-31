@@ -12,7 +12,7 @@
       }"
     ></Signature>
     <div class="btn-submit">
-      <el-button type="primary" size="small" @click="undo">撤销</el-button>
+      <el-button type="primary" @click="undo">撤销</el-button>
     </div>
   </el-form-item>
 </template>

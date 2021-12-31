@@ -1,5 +1,5 @@
 <template>
-  <el-radio-group :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)" size="mini">
+  <el-radio-group :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)">
     <el-radio-button label="left">左</el-radio-button>
     <el-radio-button label="right">右</el-radio-button>
     <el-radio-button label="top">顶部</el-radio-button>

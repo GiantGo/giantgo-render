@@ -1,9 +1,5 @@
 <template>
-  <el-input-number
-    :model-value="modelValue"
-    @change="$emit('update:modelValue', $event)"
-    size="small"
-  ></el-input-number>
+  <el-input-number :model-value="modelValue" @change="$emit('update:modelValue', $event)"></el-input-number>
 </template>
 
 <script>
