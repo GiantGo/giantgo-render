@@ -1,11 +1,13 @@
 <template>
-  <label>{{ options.content }}</label>
+  <el-divider></el-divider>
 </template>
 
 <script>
+import { ElDivider } from 'element-plus'
+
 export default {
-  name: 'labelBuilder',
-  components: {},
+  name: 'dividerBuilder',
+  components: { ElDivider },
   props: {
     path: String,
     uuid: String,

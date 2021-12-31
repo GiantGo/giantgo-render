@@ -432,6 +432,21 @@ export const assists = [
       width: '100%',
       lineHeight: '40px'
     }
+  },
+  {
+    name: 'HTML',
+    component: 'html',
+    uuid: '',
+    options: {
+      richContent: '<strong>HTML</strong>',
+      width: '100%'
+    }
+  },
+  {
+    name: '分割线',
+    component: 'divider',
+    uuid: '',
+    options: {}
   }
 ]
 
@@ -554,5 +569,6 @@ export const optionKeyLabels = {
   height: '组件高度',
   penColor: '笔颜色',
   backgroundColor: '背景颜色',
-  content: '内容'
+  content: '内容',
+  richContent: 'HTML'
 }

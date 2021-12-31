@@ -1,10 +1,10 @@
 <template>
-  <label>{{ options.content }}</label>
+  <div v-html="options.richContent"></div>
 </template>
 
 <script>
 export default {
-  name: 'labelBuilder',
+  name: 'htmlBuilder',
   components: {},
   props: {
     path: String,
