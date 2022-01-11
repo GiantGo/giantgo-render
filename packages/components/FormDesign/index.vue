@@ -24,7 +24,15 @@ import { form } from './config.js'
 
 export default {
   components: { left, operator, FormBuilder, FormSetting },
-  setup() {
+  props: {
+    fields: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+  setup(props) {
     const state = reactive({
       formDesign: {},
       selected: {},
@@ -203,6 +211,10 @@ export default {
 
     const register = (name = '基础组件', components, order = 0) => {
       const index = groups.value.findIndex((group) => group.name === name)
+
+      if (props && props.fields && props.fields.length) {
+        components = components.filter((c) => props.fields.includes(c.component))
+      }
 
       if (index > -1) {
         groups.value[index].components = components

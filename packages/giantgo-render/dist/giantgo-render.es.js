@@ -38314,7 +38314,15 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
 var FormSetting = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render$1]]);
 const _sfc_main = {
   components: { left, operator, FormBuilder, FormSetting },
-  setup() {
+  props: {
+    fields: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
+  },
+  setup(props2) {
     const state = reactive({
       formDesign: {},
       selected: {},
@@ -38457,6 +38465,9 @@ const _sfc_main = {
     };
     const register = (name = "\u57FA\u7840\u7EC4\u4EF6", components2, order = 0) => {
       const index2 = groups.value.findIndex((group) => group.name === name);
+      if (props2 && props2.fields && props2.fields.length) {
+        components2 = components2.filter((c) => props2.fields.includes(c.component));
+      }
       if (index2 > -1) {
         groups.value[index2].components = components2;
       } else {
