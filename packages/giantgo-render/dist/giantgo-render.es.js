@@ -38463,10 +38463,13 @@ const _sfc_main = {
       state.selected = query([state.formDesign], state.selected.uuid) || state.formDesign;
       addCache();
     };
-    const register = (name = "\u57FA\u7840\u7EC4\u4EF6", components2, order = 0) => {
+    const register = (name = "\u57FA\u7840\u7EC4\u4EF6", components2 = [], order = 0) => {
       const index2 = groups.value.findIndex((group) => group.name === name);
       if (props2 && props2.fields && props2.fields.length) {
         components2 = components2.filter((c) => props2.fields.includes(c.component));
+      }
+      if (!components2.length) {
+        return;
       }
       if (index2 > -1) {
         groups.value[index2].components = components2;

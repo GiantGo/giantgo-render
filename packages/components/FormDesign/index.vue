@@ -209,11 +209,15 @@ export default {
       addCache()
     }
 
-    const register = (name = '基础组件', components, order = 0) => {
+    const register = (name = '基础组件', components = [], order = 0) => {
       const index = groups.value.findIndex((group) => group.name === name)
 
       if (props && props.fields && props.fields.length) {
         components = components.filter((c) => props.fields.includes(c.component))
+      }
+
+      if (!components.length) {
+        return
       }
 
       if (index > -1) {
