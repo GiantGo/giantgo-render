@@ -11,7 +11,7 @@ importers:
       autoprefixer: ^10.3.6
       china-area-data: ^5.0.1
       codemirror: ^5.63.3
-      element-plus: ^1.3.0-beta.3
+      element-plus: ^1.3.0-beta.4
       giantgo-render: workspace:*
       mitt: ^3.0.0
       quill: ^1.3.7
@@ -27,7 +27,7 @@ importers:
       '@giantgo-render/utils': link:packages/utils
       china-area-data: 5.0.1
       codemirror: 5.63.3
-      element-plus: 1.3.0-beta.3_vue@3.2.19
+      element-plus: 1.3.0-beta.4_vue@3.2.19
       giantgo-render: link:packages/giantgo-render
       mitt: 3.0.0
       quill: 1.3.7
@@ -639,8 +639,8 @@ packages:
     resolution: {integrity: sha512-ZzkDcdzePeF4dhoGZQT77V2CyJOpwfTZEOg4h0x6R/jQhGt/rIRpbRyVreWLtD7B/WsVxo91URm2WxMKR9JQZA==}
     dev: true
 
-  /element-plus/1.3.0-beta.3_vue@3.2.19:
-    resolution: {integrity: sha512-OeSAfuXpZJAdakC9hsQkcBrQEib+uVzzTZ52EiZZxQ1ArktxdfONkQyZ/KTR20pfr+3gla2guhWseg60md1sLA==}
+  /element-plus/1.3.0-beta.4_vue@3.2.19:
+    resolution: {integrity: sha512-iCJuNJBCWUQFiK6YVPkoxRkNppPqMTeFGajdHYVLWC+pbshmHaRIBriYOF8ytFW8fPyEC77b8JlSBG/tHiLsyQ==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
