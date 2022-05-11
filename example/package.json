@@ -7,8 +7,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "element-plus": "^2.1.6",
-    "giantgo-render": "^1.1.25",
+    "element-plus": "^2.2.0",
+    "giantgo-render": "^1.2.0",
     "vue": "^3.2.20"
   },
   "devDependencies": {

@@ -5,6 +5,15 @@
   overflow-x: hidden;
   overflow-y: auto;
 
+  .title {
+    margin: 0 0 10px 0;
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    padding-left: 5px;
+    color: var(--el-text-color-primary);
+  }
+
   .el-form-item__label {
     padding-right: 5px;
   }

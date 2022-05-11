@@ -1,5 +1,6 @@
 <template>
   <div class="form-setting">
+    <div class="title">{{ selected.uuid === 'root' ? '表单设置' : '字段设置' }}</div>
     <el-form label-position="left" label-width="120px" :key="selected.uuid">
       <div v-for="(value, key) in selected.options" :key="key">
         <form-option :option-key="key" :option-value="value" v-if="key !== 'defaultValue' || !selected.items">

@@ -28,7 +28,8 @@ export default {
         Object.assign({}, state.selected.options, {
           label: '',
           clearable: true,
-          disabled: false
+          disabled: false,
+          width: '100%'
         })
       )
     }

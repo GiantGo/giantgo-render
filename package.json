@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@6.30.0",
+  "packageManager": "pnpm@7.0.0",
   "workspaces": [
     "packages/*",
     "play",
@@ -23,7 +23,7 @@
     "@giantgo-render/utils": "workspace:*",
     "china-area-data": "^5.0.1",
     "codemirror": "^5.63.3",
-    "element-plus": "^2.1.6",
+    "element-plus": "^2.2.0",
     "giantgo-render": "workspace:*",
     "mitt": "^3.0.0",
     "quill": "^1.3.7",

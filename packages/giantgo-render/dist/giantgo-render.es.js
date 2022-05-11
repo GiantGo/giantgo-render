@@ -11791,9 +11791,9 @@ const _sfc_main$21 = {
   }
 };
 const _hoisted_1$E = { class: "vue-codemirror-wrap" };
-const _hoisted_2$t = /* @__PURE__ */ createElementVNode("textarea", null, null, -1);
+const _hoisted_2$u = /* @__PURE__ */ createElementVNode("textarea", null, null, -1);
 const _hoisted_3$o = [
-  _hoisted_2$t
+  _hoisted_2$u
 ];
 function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$E, _hoisted_3$o);
@@ -29707,7 +29707,7 @@ const _sfc_main$1H = {
   }
 };
 const _hoisted_1$y = { class: "btn-submit" };
-const _hoisted_2$s = /* @__PURE__ */ createTextVNode("\u64A4\u9500");
+const _hoisted_2$t = /* @__PURE__ */ createTextVNode("\u64A4\u9500");
 function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Signature = resolveComponent("Signature");
   const _component_el_button = resolveComponent("el-button");
@@ -29735,7 +29735,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: $setup.undo
         }, {
           default: withCtx(() => [
-            _hoisted_2$s
+            _hoisted_2$t
           ]),
           _: 1
         }, 8, ["onClick"])
@@ -29847,9 +29847,9 @@ const _hoisted_1$x = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$r = /* @__PURE__ */ createElementVNode("path", { d: "M896 448v64H512v384h-64V512H64v-64h384V64h64v384h384z" }, null, -1);
+const _hoisted_2$s = /* @__PURE__ */ createElementVNode("path", { d: "M896 448v64H512v384h-64V512H64v-64h384V64h64v384h384z" }, null, -1);
 const _hoisted_3$n = [
-  _hoisted_2$r
+  _hoisted_2$s
 ];
 function render$8(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$x, _hoisted_3$n);
@@ -29861,9 +29861,9 @@ const _hoisted_1$w = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$q = /* @__PURE__ */ createElementVNode("path", { d: "M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9c3.9-3.9 3.9-10.2 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2c-1.9 11.1 1.5 21.9 9.4 29.8 6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z" }, null, -1);
+const _hoisted_2$r = /* @__PURE__ */ createElementVNode("path", { d: "M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9c3.9-3.9 3.9-10.2 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2c-1.9 11.1 1.5 21.9 9.4 29.8 6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z" }, null, -1);
 const _hoisted_3$m = [
-  _hoisted_2$q
+  _hoisted_2$r
 ];
 function render$7(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$w, _hoisted_3$m);
@@ -29875,10 +29875,10 @@ const _hoisted_1$v = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$p = /* @__PURE__ */ createElementVNode("path", { d: "M608 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM416 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM928 224H768v-64c0-52.928-42.72-96-95.264-96H352c-52.928 0-96 43.072-96 96v64H96c-17.696 0-32 14.304-32 32s14.304 32 32 32h832c17.696 0 32-14.304 32-32s-14.304-32-32-32zm-608-64c0-17.632 14.368-32 32-32h320.736C690.272 128 704 142.048 704 160v64H320v-64z" }, null, -1);
+const _hoisted_2$q = /* @__PURE__ */ createElementVNode("path", { d: "M608 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM416 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM928 224H768v-64c0-52.928-42.72-96-95.264-96H352c-52.928 0-96 43.072-96 96v64H96c-17.696 0-32 14.304-32 32s14.304 32 32 32h832c17.696 0 32-14.304 32-32s-14.304-32-32-32zm-608-64c0-17.632 14.368-32 32-32h320.736C690.272 128 704 142.048 704 160v64H320v-64z" }, null, -1);
 const _hoisted_3$l = /* @__PURE__ */ createElementVNode("path", { d: "M736.128 960H288.064c-52.928 0-96-43.072-96-96V383.52c0-17.664 14.336-32 32-32s32 14.336 32 32V864c0 17.664 14.368 32 32 32h448.064c17.664 0 32-14.336 32-32V384.832c0-17.664 14.304-32 32-32s32 14.336 32 32V864c0 52.928-43.072 96-96 96z" }, null, -1);
 const _hoisted_4$d = [
-  _hoisted_2$p,
+  _hoisted_2$q,
   _hoisted_3$l
 ];
 function render$6(_ctx, _cache) {
@@ -29978,7 +29978,7 @@ const _sfc_main$1E = {
   }
 };
 const _hoisted_1$u = { class: "tools" };
-const _hoisted_2$o = /* @__PURE__ */ createTextVNode(" \u6DFB\u52A0 ");
+const _hoisted_2$p = /* @__PURE__ */ createTextVNode(" \u6DFB\u52A0 ");
 function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PlusIcon = resolveComponent("PlusIcon");
   const _component_el_icon = resolveComponent("el-icon");
@@ -30010,7 +30010,7 @@ function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
                 ]),
                 _: 1
               }),
-              _hoisted_2$o
+              _hoisted_2$p
             ]),
             _: 1
           }, 8, ["onClick"])
@@ -30594,7 +30594,7 @@ const _sfc_main$1w = {
   }
 };
 const _hoisted_1$s = { class: "btn-submit" };
-const _hoisted_2$n = /* @__PURE__ */ createTextVNode("\u63D0\u4EA4");
+const _hoisted_2$o = /* @__PURE__ */ createTextVNode("\u63D0\u4EA4");
 const _hoisted_3$k = /* @__PURE__ */ createTextVNode("\u91CD\u7F6E");
 function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_render_item = resolveComponent("form-render-item");
@@ -30627,7 +30627,7 @@ function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: $setup.submit
         }, {
           default: withCtx(() => [
-            _hoisted_2$n
+            _hoisted_2$o
           ]),
           _: 1
         }, 8, ["onClick"]),
@@ -33907,7 +33907,7 @@ const _sfc_main$1v = {
   }
 };
 const _hoisted_1$r = { class: "form-picker" };
-const _hoisted_2$m = { class: "title" };
+const _hoisted_2$n = { class: "title" };
 const _hoisted_3$j = { class: "form-item-group" };
 const _hoisted_4$c = { class: "form-item-drop" };
 function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
@@ -33918,7 +33918,7 @@ function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
         class: "form-item-section",
         key: group.name
       }, [
-        createElementVNode("div", _hoisted_2$m, toDisplayString(group.name), 1),
+        createElementVNode("div", _hoisted_2$n, toDisplayString(group.name), 1),
         createElementVNode("div", _hoisted_3$j, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(group.components, (component) => {
             return openBlock(), createBlock(_component_draggable, {
@@ -33951,12 +33951,12 @@ const _hoisted_1$q = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$l = /* @__PURE__ */ createElementVNode("path", {
+const _hoisted_2$m = /* @__PURE__ */ createElementVNode("path", {
   d: "M276.864 129.984h85.12v44.8H237.632v253.248c0 46.976-73.088 85.12-120.064 85.12 46.976 0 120.064 38.144 120.064 85.12v252.8h124.352v45.248h-85.12c-45.568-11.52-85.12-38.336-85.12-85.12V640.896a85.12 85.12 0 0 0-85.12-85.12H64v-85.248h42.56a85.12 85.12 0 0 0 85.12-85.12V215.104c0-47.04 38.144-85.12 85.184-85.12zm468.032 0a85.12 85.12 0 0 1 85.12 85.12v170.304a85.12 85.12 0 0 0 85.12 85.12h42.624v85.184H915.2a85.12 85.12 0 0 0-85.12 85.12v170.304a85.12 85.12 0 0 1-85.184 85.12h-85.12v-46.208H787.2V598.272c0-22.528 8.96-44.16 24.96-60.16s65.536-24.96 88.064-24.96c-22.528 0-72.128-8.96-88.064-24.96a85.12 85.12 0 0 1-24.96-60.16V173.12H659.648v-43.2h85.12zM500.288 640.896a32 32 0 1 1 0 64 32 32 0 0 1 0-64zm-106.24 0a32 32 0 1 1 0 64 32 32 0 0 1 0-64zm212.544 0a32 32 0 1 1 0 64 32 32 0 0 1 0-64z",
   fill: "#101317"
 }, null, -1);
 const _hoisted_3$i = [
-  _hoisted_2$l
+  _hoisted_2$m
 ];
 function render$5(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_3$i);
@@ -33968,10 +33968,10 @@ const _hoisted_1$p = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$k = /* @__PURE__ */ createElementVNode("path", { d: "M512 74.667C270.933 74.667 74.667 270.933 74.667 512S270.933 949.333 512 949.333 949.333 753.067 949.333 512 753.067 74.667 512 74.667zm0 810.666C307.2 885.333 138.667 716.8 138.667 512S307.2 138.667 512 138.667 885.333 307.2 885.333 512 716.8 885.333 512 885.333z" }, null, -1);
+const _hoisted_2$l = /* @__PURE__ */ createElementVNode("path", { d: "M512 74.667C270.933 74.667 74.667 270.933 74.667 512S270.933 949.333 512 949.333 949.333 753.067 949.333 512 753.067 74.667 512 74.667zm0 810.666C307.2 885.333 138.667 716.8 138.667 512S307.2 138.667 512 138.667 885.333 307.2 885.333 512 716.8 885.333 512 885.333z" }, null, -1);
 const _hoisted_3$h = /* @__PURE__ */ createElementVNode("path", { d: "M708.267 465.067 473.6 330.667c-8.533-4.267-17.067-6.4-25.6-6.4-29.867 0-53.333 23.466-53.333 53.333v268.8c0 8.533 2.133 19.2 6.4 25.6 10.666 17.067 27.733 27.733 46.933 27.733 8.533 0 17.067-2.133 25.6-6.4l234.667-134.4c8.533-4.266 14.933-10.666 19.2-19.2 6.4-12.8 8.533-27.733 4.266-40.533-2.133-14.933-10.666-25.6-23.466-34.133zM458.667 627.2V396.8L661.333 512 458.667 627.2z" }, null, -1);
 const _hoisted_4$b = [
-  _hoisted_2$k,
+  _hoisted_2$l,
   _hoisted_3$h
 ];
 function render$4(_ctx, _cache) {
@@ -33984,9 +33984,9 @@ const _hoisted_1$o = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$j = /* @__PURE__ */ createElementVNode("path", { d: "M270.336 290.76h95.232c9.557 0 17.408 3.072 23.552 9.216s9.216 13.824 9.216 23.04-3.072 16.896-9.216 23.04-13.995 9.557-23.552 10.24H212.992c-9.557-.683-17.408-4.096-23.552-10.24s-9.216-13.653-9.216-22.528V170.952c0-9.557 3.072-17.408 9.216-23.552s13.995-9.216 23.552-9.216 17.408 3.072 23.552 9.216 9.216 13.995 9.216 23.552v51.2c58.709-52.565 125.781-85.163 201.216-97.792 75.435-12.63 149.675-3.584 222.72 27.136 72.363 32.768 129.536 81.237 171.52 145.408s63.317 135.85 64 215.04c-2.731 111.275-41.131 203.947-115.2 278.016S623.275 902.429 512 905.16c-111.275-2.731-203.947-41.131-278.016-115.2s-112.469-166.741-115.2-278.016h65.536c2.048 92.843 33.963 170.155 95.744 231.936S419.157 837.576 512 839.624c92.843-2.048 169.984-33.963 231.424-95.744s93.525-139.093 96.256-231.936c-.683-68.95-19.797-130.56-57.344-184.832s-88.064-94.38-151.552-120.32c-64.171-23.893-128.512-28.501-193.024-13.824-64.512 14.677-120.32 47.275-167.424 97.792z" }, null, -1);
+const _hoisted_2$k = /* @__PURE__ */ createElementVNode("path", { d: "M270.336 290.76h95.232c9.557 0 17.408 3.072 23.552 9.216s9.216 13.824 9.216 23.04-3.072 16.896-9.216 23.04-13.995 9.557-23.552 10.24H212.992c-9.557-.683-17.408-4.096-23.552-10.24s-9.216-13.653-9.216-22.528V170.952c0-9.557 3.072-17.408 9.216-23.552s13.995-9.216 23.552-9.216 17.408 3.072 23.552 9.216 9.216 13.995 9.216 23.552v51.2c58.709-52.565 125.781-85.163 201.216-97.792 75.435-12.63 149.675-3.584 222.72 27.136 72.363 32.768 129.536 81.237 171.52 145.408s63.317 135.85 64 215.04c-2.731 111.275-41.131 203.947-115.2 278.016S623.275 902.429 512 905.16c-111.275-2.731-203.947-41.131-278.016-115.2s-112.469-166.741-115.2-278.016h65.536c2.048 92.843 33.963 170.155 95.744 231.936S419.157 837.576 512 839.624c92.843-2.048 169.984-33.963 231.424-95.744s93.525-139.093 96.256-231.936c-.683-68.95-19.797-130.56-57.344-184.832s-88.064-94.38-151.552-120.32c-64.171-23.893-128.512-28.501-193.024-13.824-64.512 14.677-120.32 47.275-167.424 97.792z" }, null, -1);
 const _hoisted_3$g = [
-  _hoisted_2$j
+  _hoisted_2$k
 ];
 function render$3(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$o, _hoisted_3$g);
@@ -33998,9 +33998,9 @@ const _hoisted_1$n = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$i = /* @__PURE__ */ createElementVNode("path", { d: "M784.992 230.016V180q0-14.016 8.992-23.008T816.48 148t22.496 8.992T848.992 180v148.992q-.992 12.992-10.016 22.016t-22.016 10.016H667.968q-14.016-.992-23.008-10.016t-8.992-22.496 8.992-22.496 23.008-8.992h92.992q-78.016-82.016-183.488-99.488T372.96 232.032q-98.016 54.016-140.992 152t-16.992 208q28.992 108 113.504 173.504t196.512 67.488q136-3.008 226.016-93.504t94.016-226.496h64q-4 163.008-112.512 271.488T525.024 897.024q-163.008-4-271.488-112.512T141.024 513.024q.992-116 62.016-210.016t167.008-140.992Q477.056 116 587.552 134.528t197.504 95.488z" }, null, -1);
+const _hoisted_2$j = /* @__PURE__ */ createElementVNode("path", { d: "M784.992 230.016V180q0-14.016 8.992-23.008T816.48 148t22.496 8.992T848.992 180v148.992q-.992 12.992-10.016 22.016t-22.016 10.016H667.968q-14.016-.992-23.008-10.016t-8.992-22.496 8.992-22.496 23.008-8.992h92.992q-78.016-82.016-183.488-99.488T372.96 232.032q-98.016 54.016-140.992 152t-16.992 208q28.992 108 113.504 173.504t196.512 67.488q136-3.008 226.016-93.504t94.016-226.496h64q-4 163.008-112.512 271.488T525.024 897.024q-163.008-4-271.488-112.512T141.024 513.024q.992-116 62.016-210.016t167.008-140.992Q477.056 116 587.552 134.528t197.504 95.488z" }, null, -1);
 const _hoisted_3$f = [
-  _hoisted_2$i
+  _hoisted_2$j
 ];
 function render$2(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_3$f);
@@ -34084,7 +34084,7 @@ const _sfc_main$1u = {
   }
 };
 const _hoisted_1$m = { class: "form-operator" };
-const _hoisted_2$h = { class: "form-design-json-box" };
+const _hoisted_2$i = { class: "form-design-json-box" };
 const _hoisted_3$e = { class: "dialog-footer" };
 const _hoisted_4$a = /* @__PURE__ */ createTextVNode("\u53D6\u6D88");
 const _hoisted_5$5 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
@@ -34241,7 +34241,7 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
         ])
       ]),
       default: withCtx(() => [
-        createElementVNode("div", _hoisted_2$h, [
+        createElementVNode("div", _hoisted_2$i, [
           createVNode(_component_code_mirror, {
             modelValue: $setup.jsonDialog.code,
             "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.jsonDialog.code = $event)
@@ -35407,7 +35407,7 @@ const _sfc_main$17 = {
   }
 };
 const _hoisted_1$i = { style: { "margin-bottom": "20px" } };
-const _hoisted_2$g = /* @__PURE__ */ createTextVNode(" \u6DFB\u52A0 ");
+const _hoisted_2$h = /* @__PURE__ */ createTextVNode(" \u6DFB\u52A0 ");
 const _hoisted_3$d = /* @__PURE__ */ createTextVNode(" \u4FEE\u6539 ");
 const _hoisted_4$9 = /* @__PURE__ */ createTextVNode(" \u5220\u9664 ");
 const _hoisted_5$4 = { class: "dialog-footer" };
@@ -35429,7 +35429,7 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: $setup.addTab
       }, {
         default: withCtx(() => [
-          _hoisted_2$g
+          _hoisted_2$h
         ]),
         _: 1
       }, 8, ["onClick"]),
@@ -35811,9 +35811,9 @@ const _hoisted_1$g = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$f = /* @__PURE__ */ createElementVNode("path", { d: "M682.667 42.667H85.333v682.666h85.334V128h512V42.667zM256 213.333l4.523 768H896v-768H256zM810.667 896H341.333V298.667h469.334V896z" }, null, -1);
+const _hoisted_2$g = /* @__PURE__ */ createElementVNode("path", { d: "M682.667 42.667H85.333v682.666h85.334V128h512V42.667zM256 213.333l4.523 768H896v-768H256zM810.667 896H341.333V298.667h469.334V896z" }, null, -1);
 const _hoisted_3$c = [
-  _hoisted_2$f
+  _hoisted_2$g
 ];
 function render$1(_ctx, _cache) {
   return openBlock(), createElementBlock("svg", _hoisted_1$g, _hoisted_3$c);
@@ -35855,7 +35855,7 @@ const _sfc_main$11 = {
   }
 };
 const _hoisted_1$f = { class: "operator" };
-const _hoisted_2$e = { class: "info" };
+const _hoisted_2$f = { class: "info" };
 function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CopyIcon = resolveComponent("CopyIcon");
   const _component_el_icon = resolveComponent("el-icon");
@@ -35894,7 +35894,7 @@ function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
           })
         ])
       ]),
-      createElementVNode("div", _hoisted_2$e, toDisplayString($props.options.key), 1),
+      createElementVNode("div", _hoisted_2$f, toDisplayString($props.options.key), 1),
       (openBlock(), createBlock(resolveDynamicComponent($props.component + "-builder"), {
         uuid: $props.uuid,
         items: $props.items,
@@ -36148,7 +36148,8 @@ const _sfc_main$T = {
       options: computed(() => Object.assign({}, state.selected.options, {
         label: "",
         clearable: true,
-        disabled: false
+        disabled: false,
+        width: "100%"
       }))
     };
   }
@@ -36201,7 +36202,7 @@ const _sfc_main$R = {
   }
 };
 const _hoisted_1$e = /* @__PURE__ */ createTextVNode("\u70B9\u51FB");
-const _hoisted_2$d = /* @__PURE__ */ createTextVNode("\u60AC\u6D6E");
+const _hoisted_2$e = /* @__PURE__ */ createTextVNode("\u60AC\u6D6E");
 function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -36218,7 +36219,7 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "hover" }, {
         default: withCtx(() => [
-          _hoisted_2$d
+          _hoisted_2$e
         ]),
         _: 1
       })
@@ -36474,7 +36475,7 @@ const _sfc_main$G = {
   }
 };
 const _hoisted_1$d = /* @__PURE__ */ createTextVNode("\u5DE6");
-const _hoisted_2$c = /* @__PURE__ */ createTextVNode("\u53F3");
+const _hoisted_2$d = /* @__PURE__ */ createTextVNode("\u53F3");
 const _hoisted_3$b = /* @__PURE__ */ createTextVNode("\u9876\u90E8");
 function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
@@ -36492,7 +36493,7 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "right" }, {
         default: withCtx(() => [
-          _hoisted_2$c
+          _hoisted_2$d
         ]),
         _: 1
       }),
@@ -36811,7 +36812,7 @@ const _sfc_main$v = {
   }
 };
 const _hoisted_1$c = /* @__PURE__ */ createTextVNode("\u589E\u52A0\u9009\u9879");
-const _hoisted_2$b = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9009\u9879");
+const _hoisted_2$c = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9009\u9879");
 const _hoisted_3$a = { class: "form-design-json-box" };
 const _hoisted_4$8 = { class: "dialog-footer" };
 const _hoisted_5$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
@@ -36875,7 +36876,8 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
       }, 1024);
     }), 128)),
     createVNode(_component_el_button, {
-      type: "text",
+      text: "",
+      type: "primary",
       onClick: $setup.addOption
     }, {
       default: withCtx(() => [
@@ -36884,11 +36886,12 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
       _: 1
     }, 8, ["onClick"]),
     createVNode(_component_el_button, {
-      type: "text",
+      text: "",
+      type: "primary",
       onClick: $setup.editOptions
     }, {
       default: withCtx(() => [
-        _hoisted_2$b
+        _hoisted_2$c
       ]),
       _: 1
     }, 8, ["onClick"]),
@@ -36966,7 +36969,7 @@ const _sfc_main$u = {
   }
 };
 const _hoisted_1$b = /* @__PURE__ */ createTextVNode(" \u4E0A\uFF1A");
-const _hoisted_2$a = /* @__PURE__ */ createTextVNode(" \u53F3\uFF1A");
+const _hoisted_2$b = /* @__PURE__ */ createTextVNode(" \u53F3\uFF1A");
 const _hoisted_3$9 = /* @__PURE__ */ createTextVNode(" \u4E0B\uFF1A");
 const _hoisted_4$7 = /* @__PURE__ */ createTextVNode(" \u5DE6\uFF1A");
 function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
@@ -36994,7 +36997,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
       default: withCtx(() => [
         createVNode(_component_el_col, { span: 24 }, {
           default: withCtx(() => [
-            _hoisted_2$a,
+            _hoisted_2$b,
             createVNode(_component_el_input_number, {
               modelValue: $setup.data.right,
               "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.data.right = $event),
@@ -37230,7 +37233,7 @@ const _sfc_main$o = {
   }
 };
 const _hoisted_1$a = /* @__PURE__ */ createTextVNode(" \u5FC5\u586B ");
-const _hoisted_2$9 = /* @__PURE__ */ createTextVNode("\u589E\u52A0\u9A8C\u8BC1");
+const _hoisted_2$a = /* @__PURE__ */ createTextVNode("\u589E\u52A0\u9A8C\u8BC1");
 const _hoisted_3$8 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u9A8C\u8BC1");
 const _hoisted_4$6 = { class: "form-design-json-box" };
 const _hoisted_5$2 = { class: "dialog-footer" };
@@ -37331,16 +37334,18 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
       }, 1024);
     }), 128)),
     createVNode(_component_el_button, {
-      type: "text",
+      text: "",
+      type: "primary",
       onClick: $setup.addRule
     }, {
       default: withCtx(() => [
-        _hoisted_2$9
+        _hoisted_2$a
       ]),
       _: 1
     }, 8, ["onClick"]),
     createVNode(_component_el_button, {
-      type: "text",
+      text: "",
+      type: "primary",
       onClick: $setup.editRules
     }, {
       default: withCtx(() => [
@@ -37403,7 +37408,7 @@ const _sfc_main$n = {
   }
 };
 const _hoisted_1$9 = /* @__PURE__ */ createTextVNode("\u603B\u662F");
-const _hoisted_2$8 = /* @__PURE__ */ createTextVNode("\u60AC\u6D6E");
+const _hoisted_2$9 = /* @__PURE__ */ createTextVNode("\u60AC\u6D6E");
 const _hoisted_3$7 = /* @__PURE__ */ createTextVNode("\u4ECE\u4E0D");
 function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
@@ -37421,7 +37426,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "hover" }, {
         default: withCtx(() => [
-          _hoisted_2$8
+          _hoisted_2$9
         ]),
         _: 1
       }),
@@ -37605,7 +37610,7 @@ const _sfc_main$f = {
   }
 };
 const _hoisted_1$8 = /* @__PURE__ */ createTextVNode("\u5927\u53F7");
-const _hoisted_2$7 = /* @__PURE__ */ createTextVNode("\u6B63\u5E38");
+const _hoisted_2$8 = /* @__PURE__ */ createTextVNode("\u6B63\u5E38");
 const _hoisted_3$6 = /* @__PURE__ */ createTextVNode("\u5C0F\u53F7");
 function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
@@ -37623,7 +37628,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "default" }, {
         default: withCtx(() => [
-          _hoisted_2$7
+          _hoisted_2$8
         ]),
         _: 1
       }),
@@ -37698,7 +37703,7 @@ const _sfc_main$c = {
   }
 };
 const _hoisted_1$7 = /* @__PURE__ */ createTextVNode("\u4E0A");
-const _hoisted_2$6 = /* @__PURE__ */ createTextVNode("\u53F3");
+const _hoisted_2$7 = /* @__PURE__ */ createTextVNode("\u53F3");
 const _hoisted_3$5 = /* @__PURE__ */ createTextVNode("\u4E0B");
 const _hoisted_4$5 = /* @__PURE__ */ createTextVNode("\u5DE6");
 function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
@@ -37717,7 +37722,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "right" }, {
         default: withCtx(() => [
-          _hoisted_2$6
+          _hoisted_2$7
         ]),
         _: 1
       }),
@@ -37753,7 +37758,7 @@ const _sfc_main$b = {
   }
 };
 const _hoisted_1$6 = /* @__PURE__ */ createTextVNode("\u9009\u9879\u5361");
-const _hoisted_2$5 = /* @__PURE__ */ createTextVNode("\u5361\u7247\u5316");
+const _hoisted_2$6 = /* @__PURE__ */ createTextVNode("\u5361\u7247\u5316");
 function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -37770,7 +37775,7 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       createVNode(_component_el_radio_button, { label: "border-card" }, {
         default: withCtx(() => [
-          _hoisted_2$5
+          _hoisted_2$6
         ]),
         _: 1
       })
@@ -37840,7 +37845,7 @@ const _sfc_main$9 = {
   }
 };
 const _hoisted_1$5 = { class: "form-design-json-box" };
-const _hoisted_2$4 = { class: "dialog-footer" };
+const _hoisted_2$5 = { class: "dialog-footer" };
 const _hoisted_3$4 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_4$4 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
 const _hoisted_5$1 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u6570\u636E");
@@ -37856,7 +37861,7 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
       width: "750px"
     }, {
       footer: withCtx(() => [
-        createElementVNode("div", _hoisted_2$4, [
+        createElementVNode("div", _hoisted_2$5, [
           createVNode(_component_el_button, {
             onClick: _cache[1] || (_cache[1] = ($event) => $setup.codeDialog = false)
           }, {
@@ -37887,7 +37892,8 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
       _: 1
     }, 8, ["modelValue"]),
     createVNode(_component_el_button, {
-      type: "text",
+      text: "",
+      type: "primary",
       onClick: $setup.editData
     }, {
       default: withCtx(() => [
@@ -37936,7 +37942,7 @@ const _sfc_main$8 = {
   }
 };
 const _hoisted_1$4 = { class: "form-design-json-box" };
-const _hoisted_2$3 = { class: "dialog-footer" };
+const _hoisted_2$4 = { class: "dialog-footer" };
 const _hoisted_3$3 = /* @__PURE__ */ createTextVNode("\u53D6 \u6D88");
 const _hoisted_4$3 = /* @__PURE__ */ createTextVNode("\u786E\u5B9A");
 const _hoisted_5 = /* @__PURE__ */ createTextVNode("\u7F16\u8F91\u6570\u636E");
@@ -37952,7 +37958,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
       width: "750px"
     }, {
       footer: withCtx(() => [
-        createElementVNode("div", _hoisted_2$3, [
+        createElementVNode("div", _hoisted_2$4, [
           createVNode(_component_el_button, {
             onClick: _cache[1] || (_cache[1] = ($event) => $setup.codeDialog = false)
           }, {
@@ -37983,7 +37989,8 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
       _: 1
     }, 8, ["modelValue"]),
     createVNode(_component_el_button, {
-      type: "text",
+      text: "",
+      type: "primary",
       onClick: $setup.editData
     }, {
       default: withCtx(() => [
@@ -38162,7 +38169,7 @@ const _sfc_main$3 = {
   }
 };
 const _hoisted_1$3 = { class: "value" };
-const _hoisted_2$2 = { class: "label" };
+const _hoisted_2$3 = { class: "label" };
 const _hoisted_3$2 = /* @__PURE__ */ createElementVNode("span", { innerHTML: "{{" }, null, -1);
 const _hoisted_4$2 = /* @__PURE__ */ createElementVNode("span", { innerHTML: "}}" }, null, -1);
 function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
@@ -38176,7 +38183,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     default: withCtx(({ item }) => [
       createElementVNode("div", _hoisted_1$3, toDisplayString(item.value), 1),
-      createElementVNode("span", _hoisted_2$2, toDisplayString(item.label), 1)
+      createElementVNode("span", _hoisted_2$3, toDisplayString(item.label), 1)
     ]),
     prefix: withCtx(() => [
       _hoisted_3$2
@@ -38195,10 +38202,10 @@ const _hoisted_1$2 = {
   width: "200",
   height: "200"
 };
-const _hoisted_2$1 = /* @__PURE__ */ createElementVNode("path", { d: "M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1 192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9c-5.2-4.4-13.1-.7-13.1 6.1v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2c-1.8 1.5-2.9 3.8-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1z" }, null, -1);
+const _hoisted_2$2 = /* @__PURE__ */ createElementVNode("path", { d: "M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1 192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9c-5.2-4.4-13.1-.7-13.1 6.1v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2c-1.8 1.5-2.9 3.8-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1z" }, null, -1);
 const _hoisted_3$1 = /* @__PURE__ */ createElementVNode("path", { d: "M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" }, null, -1);
 const _hoisted_4$1 = [
-  _hoisted_2$1,
+  _hoisted_2$2,
   _hoisted_3$1
 ];
 function render(_ctx, _cache) {
@@ -38287,10 +38294,12 @@ const _sfc_main$1 = {
   }
 };
 const _hoisted_1$1 = { class: "form-setting" };
+const _hoisted_2$1 = { class: "title" };
 function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_option = resolveComponent("form-option");
   const _component_el_form = resolveComponent("el-form");
   return openBlock(), createElementBlock("div", _hoisted_1$1, [
+    createElementVNode("div", _hoisted_2$1, toDisplayString($setup.selected.uuid === "root" ? "\u8868\u5355\u8BBE\u7F6E" : "\u5B57\u6BB5\u8BBE\u7F6E"), 1),
     createVNode(_component_el_form, {
       "label-position": "left",
       "label-width": "120px",
