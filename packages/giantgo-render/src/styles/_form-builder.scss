@@ -4,13 +4,18 @@
   height: calc(100% - 55px);
 
   .form-item-drop-list {
-    padding: 2.5px 5px;
+    padding: 2.5px;
     width: 100%;
     min-height: 80px;
     background: #ffffff;
     border: 1px dashed var(--el-border-color-base);
     overflow-x: hidden;
     overflow-y: auto;
+
+    .form-item-drop-item {
+      display: inline-block;
+      padding: 0 2.5px;
+    }
 
     .form-item-drop {
       height: 36px;

@@ -11,7 +11,12 @@
     ghost-class="ghost"
   >
     <template #item="{ element }">
-      <div class="form-item-container">
+      <div
+        class="form-item-drop-item"
+        :style="{
+          width: element.options.width
+        }"
+      >
         <form-builder-item
           :component="element.component"
           :uuid="element.uuid"

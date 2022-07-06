@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="form-item"
-    :style="{
-      width: options.width
-    }"
-  >
+  <div class="form-item">
     <div class="form-item-box" @click.stop="select" :class="{ 'is-selected': isSelected }">
       <div class="operator">
         <div class="copy" @click.stop="copy">
