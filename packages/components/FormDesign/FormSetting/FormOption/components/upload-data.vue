@@ -10,7 +10,7 @@
       </div>
     </template>
   </el-dialog>
-  <el-button text type="primary" @click="editData">编辑数据</el-button>
+  <el-button link type="primary" @click="editData">编辑数据</el-button>
 </template>
 
 <script>

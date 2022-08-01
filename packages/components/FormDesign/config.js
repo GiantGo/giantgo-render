@@ -319,9 +319,10 @@ export const pickers = [
       defaultValue: [],
       rules: rules,
       width: '100%',
-      uploadUrl: 'https://jsonplaceholder.typicode.com/posts/',
+      uploadUrl: 'http://httpbin.org/post',
       uploadName: 'file',
       buttonText: '上传文件',
+      uploadSuffix: ['jpg', 'jpeg', 'png', 'gif', 'doc', 'docx', 'xls', 'xlsx', 'rar', 'zip'],
       uploadSize: '500KB',
       tip: '',
       uploadData: {},
@@ -330,7 +331,7 @@ export const pickers = [
       hidden: false,
       disabled: false,
       showToolTip: false,
-      showFileList: false,
+      showFileList: true,
       multiple: false
     }
   }
@@ -446,7 +447,9 @@ export const assists = [
     name: '分割线',
     component: 'divider',
     uuid: '',
-    options: {}
+    options: {
+      width: '100%'
+    }
   }
 ]
 
@@ -564,6 +567,7 @@ export const optionKeyLabels = {
   uploadHeaders: '上传请求头部',
   uploadName: '文件字段名',
   uploadSize: '上传大小限制',
+  uploadSuffix: '上传文件类型',
   uploadUrl: '上传地址',
   width: '组件宽度',
   height: '组件高度',

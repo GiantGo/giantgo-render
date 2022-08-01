@@ -8,12 +8,11 @@
       :headers="options.uploadHeaders"
       :show-file-list="options.showFileList"
       :limit="options.limit"
-      :file-list="data.fileList"
+      v-model:file-list="data.fileList"
       :disabled="options.disabled"
       :before-upload="beforeUpload"
       :on-success="handleChange"
       :on-remove="handleChange"
-      :before-remove="beforeRemove"
       :on-error="handleError"
     >
       <el-button type="primary">
@@ -50,6 +49,7 @@ export default {
     })
 
     const beforeUpload = (file) => {
+      const uploadSuffix = props.options.uploadSuffix
       const uploadSize = props.options.uploadSize
       const size = parseFloat(uploadSize)
       const unitMap = { KB: 1024, MB: 1024 * 1024, GB: 1024 * 1024 * 1024 }
@@ -58,12 +58,17 @@ export default {
 
       if (!isOverLimit) {
         ElMessage.error(`上传文件大小不能超过 ${uploadSize}!`)
+        return false
+      } else if (uploadSuffix && uploadSuffix.length && !uploadSuffix.some((s) => file.type.indexOf(s) > -1)) {
+        ElMessage.error(`请上传 ${uploadSuffix.join('，')} 格式文件!`)
+        return false
       }
 
-      return isOverLimit
+      return true
     }
 
-    const handleChange = (file, fileList) => {
+    const handleChange = (res, file, fileList) => {
+      console.log(file, fileList)
       const files = []
       fileList.forEach((item) => {
         files.push({
@@ -72,10 +77,6 @@ export default {
         })
       })
       emit('update:modelValue', files)
-    }
-
-    const beforeRemove = (file, fileList) => {
-      return ElMessageBox.confirm(`确定移除 ${file.name}？`)
     }
 
     const handleError = () => {
@@ -93,7 +94,6 @@ export default {
       data,
       beforeUpload,
       handleChange,
-      beforeRemove,
       handleError
     }
   }
