@@ -1,6 +1,6 @@
 {
   "name": "giantgo-render",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A form generator and form render for Vue3 + ElementPlus",
   "main": "./src/main.js",
   "module": "./src/main.js",
@@ -41,6 +41,7 @@
     "@vitejs/plugin-vue": "^1.9.3",
     "@vue/compiler-sfc": "^3.2.37",
     "autoprefixer": "^10.3.6",
+    "postcss": "^8.1.0",
     "sass": "~1.32.13",
     "vite": "^2.6.4",
     "vite-svg-loader": "^2.2.0"

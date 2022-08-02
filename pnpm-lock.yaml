@@ -11,7 +11,7 @@ importers:
       autoprefixer: ^10.3.6
       china-area-data: ^5.0.1
       codemirror: ^5.63.3
-      element-plus: 2.2.10
+      element-plus: 2.2.12
       giantgo-render: workspace:*
       mitt: ^3.0.0
       postcss: ^8.1.0
@@ -28,7 +28,7 @@ importers:
       '@giantgo-render/utils': link:packages/utils
       china-area-data: 5.0.1
       codemirror: 5.63.3
-      element-plus: 2.2.10_vue@3.2.37
+      element-plus: 2.2.12_vue@3.2.37
       giantgo-render: link:packages/giantgo-render
       mitt: 3.0.0
       quill: 1.3.7
@@ -61,6 +61,7 @@ importers:
       autoprefixer: ^10.3.6
       codemirror: ^5.63.3
       mitt: ^3.0.0
+      postcss: ^8.1.0
       quill: ^1.3.7
       sass: ~1.32.13
       vite: ^2.6.4
@@ -76,7 +77,8 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue': 1.9.3_vite@2.6.7
       '@vue/compiler-sfc': 3.2.37
-      autoprefixer: 10.3.6
+      autoprefixer: 10.3.6_postcss@8.3.8
+      postcss: 8.3.8
       sass: 1.32.13
       vite: 2.6.7_sass@1.32.13
       vite-svg-loader: 2.2.0
@@ -571,21 +573,6 @@ packages:
     resolution: {integrity: sha512-7HhHjtERjqlNbZtqNqy2rckN/SpOOlmDliet+lP7k+eKZEjPk3DgyeU9lIXLdeLz0uBbbVp+9Qdow9wJWgwwfg==}
     dev: false
 
-  /autoprefixer/10.3.6:
-    resolution: {integrity: sha512-3bDjTfF0MfZntwVCSd18XAT2Zndufh3Mep+mafbzdIQEeWbncVRUVDjH8/EPANV9Hq40seJ24QcYAyhUsFz7gQ==}
-    engines: {node: ^10 || ^12 || >=14}
-    hasBin: true
-    peerDependencies:
-      postcss: ^8.1.0
-    dependencies:
-      browserslist: 4.17.1
-      caniuse-lite: 1.0.30001260
-      fraction.js: 4.1.1
-      nanocolors: 0.2.10
-      normalize-range: 0.1.2
-      postcss-value-parser: 4.1.0
-    dev: true
-
   /autoprefixer/10.3.6_postcss@8.3.8:
     resolution: {integrity: sha512-3bDjTfF0MfZntwVCSd18XAT2Zndufh3Mep+mafbzdIQEeWbncVRUVDjH8/EPANV9Hq40seJ24QcYAyhUsFz7gQ==}
     engines: {node: ^10 || ^12 || >=14}
@@ -795,8 +782,8 @@ packages:
     resolution: {integrity: sha512-ZzkDcdzePeF4dhoGZQT77V2CyJOpwfTZEOg4h0x6R/jQhGt/rIRpbRyVreWLtD7B/WsVxo91URm2WxMKR9JQZA==}
     dev: true
 
-  /element-plus/2.2.10_vue@3.2.37:
-    resolution: {integrity: sha512-hJ+LlbRN3POu4Idl1LXB+SHSWdi+wwmdsoDXdQT2ynGuwzZsMYiusOooYXyEsPlrizeLibdnNGNDx4TIjXQvUg==}
+  /element-plus/2.2.12_vue@3.2.37:
+    resolution: {integrity: sha512-g/hIHj3b+dND2R3YRvyvCJtJhQvR7lWvXqhJaoxaQmajjNWedoe4rttxG26fOSv9YCC2wN4iFDcJHs70YFNgrA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -814,7 +801,7 @@ packages:
       lodash-es: 4.17.21
       lodash-unified: 1.0.2_3ib2ivapxullxkx3xftsimdk7u
       memoize-one: 6.0.0
-      normalize-wheel-es: 1.1.2
+      normalize-wheel-es: 1.2.0
       vue: 3.2.37
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -1235,8 +1222,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /normalize-wheel-es/1.1.2:
-    resolution: {integrity: sha512-scX83plWJXYH1J4+BhAuIHadROzxX0UBF3+HuZNY2Ks8BciE7tSTQ+5JhTsvzjaO0/EJdm4JBGrfObKxFf3Png==}
+  /normalize-wheel-es/1.2.0:
+    resolution: {integrity: sha512-Wj7+EJQ8mSuXr2iWfnujrimU35R2W4FAErEyTmJoJ7ucwTn2hOUSsRehMb5RSYkxXGTM7Y9QpvPmp++w5ftoJw==}
     dev: false
 
   /nth-check/2.0.1:

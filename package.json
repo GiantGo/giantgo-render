@@ -23,7 +23,7 @@
     "@giantgo-render/utils": "workspace:*",
     "china-area-data": "^5.0.1",
     "codemirror": "^5.63.3",
-    "element-plus": "2.2.10",
+    "element-plus": "2.2.12",
     "giantgo-render": "workspace:*",
     "mitt": "^3.0.0",
     "quill": "^1.3.7",

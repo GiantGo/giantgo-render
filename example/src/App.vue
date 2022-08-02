@@ -336,7 +336,7 @@ onMounted(() => {
         options: {
           label: '姓名',
           key: 'name',
-          defaultValue: '',
+          defaultValue: 'test',
           rules: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
           width: '100%',
           placeholder: '请输入姓名',
@@ -357,7 +357,7 @@ onMounted(() => {
         options: {
           label: '手机',
           key: 'mobile',
-          defaultValue: '',
+          defaultValue: '15900000000',
           rules: [
             { required: true, message: '请输入手机', trigger: 'blur' },
             { pattern: '^\\d{11}$', message: '请输入正确的手机', trigger: 'blur' }
