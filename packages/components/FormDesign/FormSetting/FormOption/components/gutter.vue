@@ -2,7 +2,7 @@
   <el-slider
     :model-value="modelValue"
     @update:modelValue="modelValue = $event"
-    @change="$emit('update:modelValue', $event)"
+    @input="$emit('update:modelValue', $event)"
     :min="0"
     :max="300"
   ></el-slider>

@@ -43,7 +43,7 @@ export default {
     const groups = ref([])
 
     const allComponents = computed(() => {
-      return groups.value.reduce((pre, group) => pre.concat(group.components), [])
+      return groups.value.reduce((pre, group) => pre.concat(group.components), [form])
     })
 
     const uuids = computed(() => {

@@ -2,7 +2,7 @@
   <el-slider
     :model-value="parseInt(modelValue)"
     @update:modelValue="modelValue = $event + 'px'"
-    @change="$emit('update:modelValue', $event + 'px')"
+    @input="$emit('update:modelValue', $event + 'px')"
     :min="0"
     :max="300"
     :format-tooltip="
