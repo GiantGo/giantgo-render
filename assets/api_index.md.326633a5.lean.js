@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as t,a as r}from"./app.1fa192da.js";var d="/giantgo-render/assets/home.gif";const x='{"title":"api index.md","description":"","frontmatter":{},"relativePath":"api/index.md","lastUpdated":1646015212120}',i={},n=r('',3),o=[n];function s(_,c,p,h,m,l){return t(),a("div",null,o)}var g=e(i,[["render",s]]);export{x as __pageData,g as default};
