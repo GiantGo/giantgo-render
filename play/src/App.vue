@@ -330,7 +330,8 @@ onMounted(() => {
       size: 'default',
       gutter: 0,
       hideRequiredAsterisk: false,
-      statusIcon: false
+      statusIcon: false,
+      remotes: []
     },
     items: [
       {

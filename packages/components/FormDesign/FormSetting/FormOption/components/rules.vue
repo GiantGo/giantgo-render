@@ -30,7 +30,7 @@
       </div>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="codeDialog = false">取 消</el-button>
+          <el-button @click="codeDialog = false">取消</el-button>
           <el-button type="primary" @click="setRules">确定</el-button>
         </div>
       </template>

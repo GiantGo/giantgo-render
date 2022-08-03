@@ -21,7 +21,7 @@
       </div>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="codeDialog = false">取 消</el-button>
+          <el-button @click="codeDialog = false">取消</el-button>
           <el-button type="primary" @click="setOptions">确定</el-button>
         </div>
       </template>
@@ -49,14 +49,6 @@ export default {
     })
     const code = ref('')
     const codeDialog = ref(false)
-
-    const setInternal = () => {
-      data.remote = props.modelValue.remote
-      data.items = deepClone(props.modelValue.items)
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
 
     const emitChange = () => {
       emit('update:modelValue', {
@@ -100,6 +92,14 @@ export default {
       codeDialog.value = false
       emitChange()
     }
+
+    const setInternal = () => {
+      data.remote = props.modelValue.remote
+      data.items = deepClone(props.modelValue.items)
+    }
+
+    onMounted(setInternal)
+    watch(() => props.modelValue, setInternal)
 
     return {
       data,

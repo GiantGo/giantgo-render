@@ -532,7 +532,8 @@ export const form = {
     size: 'default',
     gutter: 0,
     hideRequiredAsterisk: false,
-    statusIcon: false
+    statusIcon: false,
+    remotes: []
   },
   items: []
 }
@@ -599,5 +600,6 @@ export const optionKeyLabels = {
   penColor: '笔颜色',
   backgroundColor: '背景颜色',
   content: '内容',
-  richContent: 'HTML'
+  richContent: 'HTML',
+  remotes: '数据源'
 }
