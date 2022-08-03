@@ -1,12 +1,12 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-upload
+      list-type="picture-card"
       :action="options.uploadUrl"
       :name="options.uploadName"
       :multiple="options.multiple"
       :data="options.uploadData"
       :headers="options.uploadHeaders"
-      :show-file-list="options.showFileList"
       :limit="options.limit"
       v-model:file-list="data.fileList"
       :disabled="options.disabled"
@@ -14,25 +14,28 @@
       :on-success="handleChange"
       :on-remove="handleChange"
       :on-error="handleError"
+      :on-preview="handlePreview"
     >
-      <el-button type="primary">
-        {{ options.buttonText }}
-      </el-button>
+      <el-icon><PlusIcon /></el-icon>
       <template #tip v-if="options.showToolTip">
         <div class="el-upload__tip">{{ options.tip }}</div>
       </template>
     </el-upload>
+    <el-dialog v-model="dialogVisible">
+      <img w-full :src="dialogImageUrl" alt="Preview Image" />
+    </el-dialog>
   </el-form-item>
 </template>
 
 <script>
-import { ElFormItem, ElUpload, ElButton, ElMessage, ElMessageBox } from 'element-plus'
-import { reactive, watch, onMounted } from 'vue'
+import { ElFormItem, ElUpload, ElMessage } from 'element-plus'
+import { ref, reactive, watch, onMounted } from 'vue'
 import { deepClone } from '@giantgo-render/utils'
+import PlusIcon from '../../../icons/plus.svg'
 
 export default {
-  name: 'uploadRender',
-  components: { ElFormItem, ElUpload, ElButton },
+  name: 'uploadImageRender',
+  components: { ElFormItem, ElUpload, PlusIcon },
   props: {
     path: String,
     modelValue: Array,
@@ -48,8 +51,11 @@ export default {
       fileList: []
     })
 
+    const dialogImageUrl = ref('')
+    const dialogVisible = ref(false)
+
     const beforeUpload = (file) => {
-      const uploadSuffix = props.options.uploadSuffix
+      const imageSuffix = props.options.imageSuffix
       const uploadSize = props.options.uploadSize
       const size = parseFloat(uploadSize)
       const unitMap = { KB: 1024, MB: 1024 * 1024, GB: 1024 * 1024 * 1024 }
@@ -57,10 +63,10 @@ export default {
       const isOverLimit = file.size / unit < size
 
       if (!isOverLimit) {
-        ElMessage.error(`上传文件大小不能超过 ${uploadSize}!`)
+        ElMessage.error(`上传图片大小不能超过 ${uploadSize}!`)
         return false
-      } else if (uploadSuffix && uploadSuffix.length && !uploadSuffix.some((s) => file.type.indexOf(s) > -1)) {
-        ElMessage.error(`请上传 ${uploadSuffix.join('，')} 格式文件!`)
+      } else if (imageSuffix && imageSuffix.length && !imageSuffix.some((s) => file.type.indexOf(s) > -1)) {
+        ElMessage.error(`请上传 ${imageSuffix.join('，')} 格式图片!`)
         return false
       }
 
@@ -68,19 +74,25 @@ export default {
     }
 
     const handleChange = (res, file, fileList) => {
-      console.log(file, fileList)
       const files = []
-      fileList.forEach((item) => {
-        files.push({
-          name: item.name,
-          ...item.response
+      if (fileList && fileList.length) {
+        fileList.forEach((item) => {
+          files.push({
+            name: item.name,
+            ...item.response
+          })
         })
-      })
+      }
       emit('update:modelValue', files)
     }
 
     const handleError = () => {
       ElMessage.error(`上传失败!`)
+    }
+
+    const handlePreview = (uploadFile) => {
+      dialogImageUrl.value = uploadFile.url
+      dialogVisible.value = true
     }
 
     const setInternal = () => {
@@ -92,9 +104,12 @@ export default {
 
     return {
       data,
+      dialogImageUrl,
+      dialogVisible,
       beforeUpload,
       handleChange,
-      handleError
+      handleError,
+      handlePreview
     }
   }
 }

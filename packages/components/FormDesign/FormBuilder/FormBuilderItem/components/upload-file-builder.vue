@@ -7,7 +7,7 @@
       :multiple="options.multiple"
       :show-file-list="options.showFileList"
       :limit="options.limit"
-      :file-list="options.defaultValue"
+      v-model:file-list="options.defaultValue"
       :disabled="options.disabled"
     >
       <el-button type="primary">
@@ -24,7 +24,7 @@
 import { ElFormItem, ElUpload, ElButton } from 'element-plus'
 
 export default {
-  name: 'uploadBuilder',
+  name: 'uploadFileBuilder',
   components: { ElFormItem, ElUpload, ElButton },
   props: {
     path: String,

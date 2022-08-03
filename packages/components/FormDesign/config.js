@@ -311,7 +311,7 @@ export const pickers = [
   },
   {
     name: '文件上传',
-    component: 'upload',
+    component: 'upload-file',
     uuid: '',
     options: {
       label: '文件上传',
@@ -322,7 +322,7 @@ export const pickers = [
       uploadUrl: 'http://httpbin.org/post',
       uploadName: 'file',
       buttonText: '上传文件',
-      uploadSuffix: ['jpg', 'jpeg', 'png', 'gif', 'doc', 'docx', 'xls', 'xlsx', 'rar', 'zip'],
+      fileSuffix: ['doc', 'docx', 'xls', 'xlsx', 'rar', 'zip'],
       uploadSize: '500KB',
       tip: '',
       uploadData: {},
@@ -332,6 +332,30 @@ export const pickers = [
       disabled: false,
       showToolTip: false,
       showFileList: true,
+      multiple: false
+    }
+  },
+  {
+    name: '图片上传',
+    component: 'upload-image',
+    uuid: '',
+    options: {
+      label: '图片上传',
+      key: '',
+      defaultValue: [],
+      rules: rules,
+      width: '100%',
+      uploadUrl: 'http://httpbin.org/post',
+      uploadName: 'file',
+      imageSuffix: ['jpg', 'jpeg', 'png', 'gif'],
+      uploadSize: '500KB',
+      tip: '',
+      uploadData: {},
+      uploadHeaders: {},
+      limit: 3,
+      hidden: false,
+      disabled: false,
+      showToolTip: false,
       multiple: false
     }
   }
@@ -410,11 +434,11 @@ export const complexs = [
 ]
 
 export const objectLayout = {
-  name: '对象布局',
+  name: '子表单',
   component: 'object',
   uuid: '',
   options: {
-    label: '对象布局',
+    label: '子表单',
     key: '',
     defaultValue: {},
     width: '100%',
@@ -567,7 +591,8 @@ export const optionKeyLabels = {
   uploadHeaders: '上传请求头部',
   uploadName: '文件字段名',
   uploadSize: '上传大小限制',
-  uploadSuffix: '上传文件类型',
+  fileSuffix: '上传文件类型',
+  imageSuffix: '上传图片类型',
   uploadUrl: '上传地址',
   width: '组件宽度',
   height: '组件高度',
