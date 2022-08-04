@@ -21,11 +21,16 @@
 }
 
 .form-design-json-box {
-  height: 500px;
   overflow: auto;
 
+  .codeMirror-tip {
+    min-height: 32px;
+    line-height: 32px;
+    background-color: var(--el-bg-color-page);
+  }
+
   .vue-codemirror-wrap {
-    height: 100%;
+    height: 300px;
 
     .CodeMirror-wrap {
       height: 100%;

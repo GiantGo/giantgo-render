@@ -108,17 +108,13 @@ export default {
     const submit = (result) => {
       resultDialog.title = '获取数据'
       resultDialog.isShow = true
-      nextTick(() => {
-        resultDialog.code = JSON.stringify(result, null, '\t')
-      })
+      resultDialog.code = JSON.stringify(result, null, '\t')
     }
 
     const editJson = () => {
       jsonDialog.title = '查看JSON'
       jsonDialog.isShow = true
-      nextTick(() => {
-        jsonDialog.code = JSON.stringify(state.formDesign, null, '\t')
-      })
+      jsonDialog.code = JSON.stringify(state.formDesign, null, '\t')
     }
 
     const saveJson = () => {

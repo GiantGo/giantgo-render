@@ -1,16 +1,16 @@
 <template>
   <el-button type="primary" plain @click="showRemote" style="width: 88%">设置</el-button>
-  <el-dialog title="数据源" v-model="remoteDialog" width="750px">
+  <el-dialog title="数据源" v-model="remoteDialog" width="750px" :show-close="false">
     <el-form ref="formRef" :model="form" label-width="0px">
-      <el-tabs v-model="tabsValue" type="card" editable @edit="handleEdit">
+      <el-tabs v-model="remoteTabsValue" type="card" editable @edit="editRemote">
         <el-tab-pane
-          v-for="(remote, index) in form.remotes"
+          v-for="(remote, remoteIndex) in form.remotes"
           :key="remote.uuid"
           :label="remote.title || '未命名'"
           :name="remote.uuid"
         >
           <el-form-item
-            :prop="'remotes.' + index + '.title'"
+            :prop="'remotes.' + remoteIndex + '.title'"
             :rules="{
               required: true,
               message: '请输入名称',
@@ -21,7 +21,7 @@
             <el-input v-model="remote.title" placeholder="请输入名称" />
           </el-form-item>
           <el-form-item
-            :prop="'remotes.' + index + '.url'"
+            :prop="'remotes.' + remoteIndex + '.url'"
             :rules="{
               required: true,
               message: '请输入地址',
@@ -43,6 +43,92 @@
               </template>
             </el-input>
           </el-form-item>
+          <el-tabs v-model="remote.tabsValue">
+            <el-tab-pane
+              :label="'请求头部Headers' + (remote.headers.length ? '（' + remote.headers.length + '）' : '')"
+              name="headers"
+            >
+              <el-row class="option-row" v-for="(header, headerIndex) in remote.headers" :key="headerIndex" :gutter="5">
+                <el-col :span="11">
+                  <el-input v-model="header.key" placeholder="Key" />
+                </el-col>
+                <el-col :span="11">
+                  <el-input v-model="header.value" placeholder="Value" />
+                </el-col>
+                <el-col :span="2" class="btn-del">
+                  <el-icon class="el-icon-delete" @click="removeKeyValue(remoteIndex, 'headers', headerIndex)">
+                    <DeleteIcon />
+                  </el-icon>
+                </el-col>
+              </el-row>
+              <el-button link type="primary" @click="addKeyValue(remoteIndex, 'headers')">增加头部</el-button>
+            </el-tab-pane>
+            <el-tab-pane
+              :label="'请求参数Params' + (remote.params.length ? '（' + remote.params.length + '）' : '')"
+              name="params"
+            >
+              <el-row class="option-row" v-for="(param, paramIndex) in remote.params" :key="paramIndex" :gutter="5">
+                <el-col :span="11">
+                  <el-input v-model="param.key" placeholder="Key" />
+                </el-col>
+                <el-col :span="11">
+                  <el-input v-model="param.value" placeholder="Value" />
+                </el-col>
+                <el-col :span="2" class="btn-del">
+                  <el-icon class="el-icon-delete" @click="removeKeyValue(remoteIndex, 'params', paramIndex)">
+                    <DeleteIcon />
+                  </el-icon>
+                </el-col>
+              </el-row>
+              <el-button link type="primary" @click="addKeyValue(remoteIndex, 'params')">增加参数</el-button>
+            </el-tab-pane>
+            <el-tab-pane
+              :label="'请求数据Data' + (remote.data.length ? '（' + remote.data.length + '）' : '')"
+              name="data"
+            >
+              <el-row class="option-row" v-for="(data, dataIndex) in remote.data" :key="dataIndex" :gutter="5">
+                <el-col :span="11">
+                  <el-input v-model="data.key" placeholder="Key" />
+                </el-col>
+                <el-col :span="11">
+                  <el-input v-model="data.value" placeholder="Value" />
+                </el-col>
+                <el-col :span="2" class="btn-del">
+                  <el-icon class="el-icon-delete" @click="removeKeyValue(remoteIndex, 'data', dataIndex)">
+                    <DeleteIcon />
+                  </el-icon>
+                </el-col>
+              </el-row>
+              <el-button link type="primary" @click="addKeyValue(remoteIndex, 'data')">增加数据</el-button>
+            </el-tab-pane>
+          </el-tabs>
+          <el-collapse v-model="remote.collapseValue" accordion>
+            <el-collapse-item title="处理请求数据" name="request">
+              <div class="form-design-json-box">
+                <div class="codeMirror-tip">(data, headers) => {</div>
+                <code-mirror v-model="remote.transformRequest" />
+                <div class="codeMirror-tip">}</div>
+              </div>
+            </el-collapse-item>
+            <el-collapse-item title="处理响应数据" name="response">
+              <div class="form-design-json-box">
+                <div class="codeMirror-tip">(data) => {</div>
+                <code-mirror v-model="remote.transformResponse" />
+                <div class="codeMirror-tip">}</div>
+              </div>
+            </el-collapse-item>
+            <el-collapse-item title="错误处理" name="error">
+              <div class="form-design-json-box">
+                <div class="codeMirror-tip">(error) => {</div>
+                <code-mirror v-model="remote.errorHandler" />
+                <div class="codeMirror-tip">}</div>
+              </div>
+            </el-collapse-item>
+          </el-collapse>
+          <div class="form-design-json-box">
+            <div class="codeMirror-tip">响应数据</div>
+            <code-mirror v-model="remote.result" />
+          </div>
         </el-tab-pane>
       </el-tabs>
     </el-form>
@@ -60,10 +146,12 @@ import { ref, reactive } from 'vue'
 import { ElDialog } from 'element-plus'
 import { CodeMirror } from '@giantgo-render/components'
 import { uuid, deepClone } from '@giantgo-render/utils'
+import DeleteIcon from '../../../../icons/delete.svg'
+import axios from 'axios'
 
 export default {
   name: 'remotesOption',
-  components: { ElDialog, CodeMirror },
+  components: { ElDialog, CodeMirror, DeleteIcon },
   props: {
     modelValue: Array
   },
@@ -72,39 +160,78 @@ export default {
       remotes: []
     })
     const formRef = ref(null)
-    const tabsValue = ref('')
+    const remoteTabsValue = ref('')
     const remoteDialog = ref(false)
 
     const showRemote = () => {
       remoteDialog.value = true
-      form.remotes = deepClone(props.modelValue)
+      form.remotes = deepClone(
+        props.modelValue.map((r) => {
+          return {
+            ...r,
+            tabsValue: 'headers',
+            collapseValue: '',
+            result: ''
+          }
+        })
+      )
       if (form.remotes && form.remotes.length) {
-        tabsValue.value = form.remotes[0].uuid
+        remoteTabsValue.value = form.remotes[0].uuid
       }
     }
 
     const setRemote = () => {
-      emit('update:modelValue', form.remotes)
-      remoteDialog.value = false
+      formRef.value.validate((valid, error) => {
+        if (valid) {
+          emit(
+            'update:modelValue',
+            form.remotes.map((r) => {
+              return {
+                uuid: r.uuid,
+                title: r.title,
+                url: r.url,
+                method: r.method,
+                headers: r.headers,
+                params: r.params,
+                data: r.data,
+                requestHandler: r.requestHandler,
+                responseHandler: r.responseHandler,
+                errorHandler: r.errorHandler
+              }
+            })
+          )
+          remoteDialog.value = false
+        } else {
+          console.log(error)
+        }
+      })
     }
 
-    const handleEdit = (target, action) => {
+    const editRemote = (target, action) => {
       if (action === 'add') {
         const newRemote = {
           uuid: 'remote_' + uuid(8),
           title: '',
           url: '',
           method: 'get',
-          config: '' + uuid(8)
+          headers: [],
+          params: [],
+          data: [],
+          transformRequest: 'return data;',
+          transformResponse: 'return data;',
+          errorHandler: 'return Promise.reject(error);',
+          tabsValue: 'headers',
+          collapseValue: '',
+          result: ''
         }
         form.remotes.push(newRemote)
-        tabsValue.value = newRemote.uuid
+        remoteTabsValue.value = newRemote.uuid
       } else if (action === 'remove') {
-        if (tabsValue.value === target) {
+        if (remoteTabsValue.value === target) {
           const index = form.remotes.findIndex((r) => r.uuid === target)
           const next = form.remotes[index + 1] || form.remotes[index - 1]
           if (next) {
-            tabsValue.value = next.uuid
+            remoteTabsValue.value = next.uuid
           }
         }
 
@@ -112,24 +239,63 @@ export default {
       }
     }
 
+    const addKeyValue = (remoteIndex, attr) => {
+      form.remotes[remoteIndex][attr].push({ key: '', value: '' })
+    }
+
+    const removeKeyValue = (remoteIndex, attr, targetIndex) => {
+      form.remotes[remoteIndex][attr].splice(targetIndex, 1)
+    }
+
     const testRequest = () => {
-      formRef.value.validate((valid, error) => {
-        if (valid) {
-          console.log(form.remotes)
-        } else {
-          console.log(error)
-        }
+      const index = form.remotes.findIndex((r) => r.uuid === remoteTabsValue.value)
+      const remote = form.remotes[index]
+
+      formRef.value.validateField('remotes.' + index + '.url').then(() => {
+        const headers = {}
+        const params = {}
+        const data = {}
+
+        remote.headers.forEach(({ key, value }) => {
+          if (key && value) {
+            headers[key] = value
+          }
+        })
+
+        remote.params.forEach(({ key, value }) => {
+          if (key && value) {
+            params[key] = value
+          }
+        })
+
+        remote.data.forEach(({ key, value }) => {
+          if (key && value) {
+            data[key] = value
+          }
+        })
+
+        axios({
+          method: remote.method,
+          url: remote.url,
+          headers,
+          params,
+          data,
+          transformRequest: [new Function('data', 'headers', remote.transformRequest)],
+          transformResponse: [new Function('data', remote.transformResponse)]
+        })
       })
     }
 
     return {
       form,
       formRef,
-      tabsValue,
+      remoteTabsValue,
       remoteDialog,
       showRemote,
       setRemote,
-      handleEdit,
+      editRemote,
+      addKeyValue,
+      removeKeyValue,
       testRequest
     }
   }

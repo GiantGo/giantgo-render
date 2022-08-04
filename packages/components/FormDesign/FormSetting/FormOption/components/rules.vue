@@ -84,9 +84,7 @@ export default {
 
     const editRules = () => {
       codeDialog.value = true
-      nextTick(() => {
-        code.value = JSON.stringify(data.patterns, null, '\t')
-      })
+      code.value = JSON.stringify(data.patterns, null, '\t')
     }
 
     const setRules = () => {

@@ -50,17 +50,19 @@ export default {
   },
   mounted: function () {
     var _this = this
-    this.editor = CodeMirror.fromTextArea(this.$el.querySelector('textarea'), this.options)
-    this.editor.setValue(this.modelValue)
-    this.editor.on('change', function (cm) {
-      if (_this.skipNextChangeEvent) {
-        _this.skipNextChangeEvent = false
-        return
-      }
-      if (!!_this.$emit) {
-        _this.$emit('update:modelValue', cm.getValue())
-        _this.$emit('input', cm.getValue())
-      }
+    this.$nextTick(() => {
+      this.editor = CodeMirror.fromTextArea(this.$el.querySelector('textarea'), this.options)
+      this.editor.setValue(this.modelValue)
+      this.editor.on('change', function (cm) {
+        if (_this.skipNextChangeEvent) {
+          _this.skipNextChangeEvent = false
+          return
+        }
+        if (!!_this.$emit) {
+          _this.$emit('update:modelValue', cm.getValue())
+          _this.$emit('input', cm.getValue())
+        }
+      })
     })
   },
   watch: {

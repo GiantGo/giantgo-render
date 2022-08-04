@@ -78,9 +78,7 @@ export default {
 
     const editOptions = () => {
       codeDialog.value = true
-      nextTick(() => {
-        code.value = JSON.stringify(data.items, null, '\t')
-      })
+      code.value = JSON.stringify(data.items, null, '\t')
     }
 
     const setOptions = () => {

@@ -17,6 +17,11 @@
     width: 100%;
     line-height: 0px;
     vertical-align: top;
+    margin-bottom: 18px;
+
+    .el-form-item {
+      margin: 0px;
+    }
   }
 
   .btn-submit {

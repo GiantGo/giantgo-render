@@ -9,6 +9,7 @@ importers:
       '@vitejs/plugin-vue': ^1.9.3
       '@vue/compiler-sfc': ^3.2.37
       autoprefixer: ^10.3.6
+      axios: ^0.23.0
       china-area-data: ^5.0.1
       codemirror: ^5.63.3
       element-plus: 2.2.12
@@ -26,6 +27,7 @@ importers:
     dependencies:
       '@giantgo-render/components': link:packages/components
       '@giantgo-render/utils': link:packages/utils
+      axios: 0.23.0
       china-area-data: 5.0.1
       codemirror: 5.63.3
       element-plus: 2.2.12_vue@3.2.37
@@ -589,6 +591,14 @@ packages:
       postcss-value-parser: 4.1.0
     dev: true
 
+  /axios/0.23.0:
+    resolution: {integrity: sha512-NmvAE4i0YAv5cKq8zlDoPd1VLKAqX5oLuZKs8xkJa4qi6RGn0uhCYFjWtHHC9EM/MwOwYWOs53W+V0aqEXq1sg==}
+    dependencies:
+      follow-redirects: 1.15.1
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
@@ -1009,6 +1019,16 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
     dev: true
+
+  /follow-redirects/1.15.1:
+    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /fraction.js/4.1.1:
     resolution: {integrity: sha512-MHOhvvxHTfRFpF1geTK9czMIZ6xclsEor2wkIGYYq+PxcQqT7vStJqjhe6S1TenZrMZzo+wlqOufBDVepUEgPg==}

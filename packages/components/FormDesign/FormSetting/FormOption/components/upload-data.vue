@@ -30,9 +30,7 @@ export default {
 
     const editData = () => {
       codeDialog.value = true
-      nextTick(() => {
-        code.value = JSON.stringify(props.modelValue, null, '\t')
-      })
+      code.value = JSON.stringify(props.modelValue, null, '\t')
     }
 
     const setData = () => {
