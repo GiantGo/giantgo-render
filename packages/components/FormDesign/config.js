@@ -533,7 +533,7 @@ export const form = {
     gutter: 0,
     hideRequiredAsterisk: false,
     statusIcon: false,
-    remotes: []
+    remotes: {}
   },
   items: []
 }
