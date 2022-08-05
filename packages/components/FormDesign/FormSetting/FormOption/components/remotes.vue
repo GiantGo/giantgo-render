@@ -1,6 +1,13 @@
 <template>
   <el-button type="primary" plain @click="showRemote" style="width: 88%">设置</el-button>
   <el-dialog title="数据源" v-model="remoteDialog" width="750px" :show-close="false">
+    <template #header>
+      设置数据源
+      <div style="float: right">
+        <el-button type="primary" @click="saveRemote">保存</el-button>
+        <el-button @click="remoteDialog = false">取消</el-button>
+      </div>
+    </template>
     <el-form ref="formRef" :model="form" label-width="0px">
       <el-tabs v-model="remoteTabsValue" type="card" editable @edit="editRemote">
         <el-tab-pane v-for="(value, uuid) in form.remotes" :key="uuid" :label="value.title || '未命名'" :name="uuid">
@@ -34,7 +41,7 @@
                 </el-select>
               </template>
               <template #append>
-                <el-button @click="testRequest">发送</el-button>
+                <el-button @click="testRequest" :loading="form.loading">测试请求</el-button>
               </template>
             </el-input>
           </el-form-item>
@@ -97,55 +104,49 @@
               <el-button link type="primary" @click="addKeyValue(uuid, 'data')">增加数据</el-button>
             </el-tab-pane>
           </el-tabs>
-          <el-collapse v-model="form.remoteCollapses[uuid]" accordion>
+          <div class="form-design-code-editor" v-loading="form.loading">
+            <div class="code-editor-tip">响应数据</div>
+            <code-editor v-model="form.remoteResults[uuid]" />
+          </div>
+          <el-collapse v-model="form.remoteCollapses[uuid]">
             <el-collapse-item title="处理请求数据" name="request">
-              <div class="form-design-json-box">
-                <div class="codeMirror-tip">(config) => {</div>
-                <code-mirror v-model="value.requestHandler" />
-                <div class="codeMirror-tip">}</div>
+              <div class="form-design-code-editor">
+                <div class="code-editor-tip">(config) => {</div>
+                <code-editor v-model="value.requestHandler" />
+                <div class="code-editor-tip">}</div>
               </div>
             </el-collapse-item>
             <el-collapse-item title="处理响应数据" name="response">
-              <div class="form-design-json-box">
-                <div class="codeMirror-tip">(response) => {</div>
-                <code-mirror v-model="value.responseHandler" />
-                <div class="codeMirror-tip">}</div>
+              <div class="form-design-code-editor">
+                <div class="code-editor-tip">(response) => {</div>
+                <code-editor v-model="value.responseHandler" />
+                <div class="code-editor-tip">}</div>
               </div>
             </el-collapse-item>
             <el-collapse-item title="错误处理" name="error">
-              <div class="form-design-json-box">
-                <div class="codeMirror-tip">(error) => {</div>
-                <code-mirror v-model="value.errorHandler" />
-                <div class="codeMirror-tip">}</div>
+              <div class="form-design-code-editor">
+                <div class="code-editor-tip">(error) => {</div>
+                <code-editor v-model="value.errorHandler" />
+                <div class="code-editor-tip">}</div>
               </div>
             </el-collapse-item>
           </el-collapse>
-          <div class="form-design-json-box">
-            <div class="codeMirror-tip">响应数据</div>
-            <code-mirror v-model="form.remoteResults[uuid]" />
-          </div>
         </el-tab-pane>
       </el-tabs>
     </el-form>
-    <template #footer>
-      <div class="dialog-footer">
-        <el-button @click="remoteDialog = false">取消</el-button>
-        <el-button type="primary" @click="saveRemote">保存</el-button>
-      </div>
-    </template>
   </el-dialog>
 </template>
 
 <script>
 import { ref, reactive, nextTick } from 'vue'
-import { ElDialog } from 'element-plus'
-import { CodeMirror } from '@giantgo-render/components'
+import { ElDialog, ElMessage } from 'element-plus'
+import { CodeEditor } from '@giantgo-render/components'
 import { uuid, deepClone, isEmptyObject, createRequest } from '@giantgo-render/utils'
 import DeleteIcon from '../../../../icons/delete.svg'
 
 export default {
   name: 'remotesOption',
-  components: { ElDialog, CodeMirror, DeleteIcon },
+  components: { ElDialog, CodeEditor, DeleteIcon },
   props: {
     modelValue: Object
   },
@@ -154,7 +155,8 @@ export default {
       remotes: {},
       remoteTabs: {},
       remoteCollapses: {},
-      remoteResults: {}
+      remoteResults: {},
+      loading: false
     })
     const formRef = ref(null)
     const remoteTabsValue = ref('')
@@ -162,21 +164,19 @@ export default {
 
     const showRemote = () => {
       remoteDialog.value = true
-      nextTick(() => {
-        form.remotes = deepClone(props.modelValue)
-        form.remoteTabs = {}
-        form.remoteCollapses = {}
-        form.remoteResults = {}
-        if (form.remotes && !isEmptyObject(form.remotes)) {
-          const uuids = Object.keys(form.remotes)
-          remoteTabsValue.value = uuids[0]
-          uuids.forEach((uuid) => {
-            form.remoteTabs[uuid] = 'headers'
-            form.remoteCollapses[uuid] = ''
-            form.remoteResults[uuid] = ''
-          })
-        }
-      })
+      form.remotes = deepClone(props.modelValue)
+      form.remoteTabs = {}
+      form.remoteCollapses = {}
+      form.remoteResults = {}
+      if (form.remotes && !isEmptyObject(form.remotes)) {
+        const uuids = Object.keys(form.remotes)
+        remoteTabsValue.value = uuids[0]
+        uuids.forEach((uuid) => {
+          form.remoteTabs[uuid] = 'headers'
+          form.remoteCollapses[uuid] = ['request', 'response', 'error']
+          form.remoteResults[uuid] = ''
+        })
+      }
     }
 
     const saveRemote = () => {
@@ -194,6 +194,7 @@ export default {
     const editRemote = (target, action) => {
       if (action === 'add') {
         const newUuid = 'remote_' + uuid(8)
+        remoteTabsValue.value = newUuid
         form.remotes[newUuid] = {
           title: '',
           url: '',
@@ -206,9 +207,8 @@ export default {
           errorHandler: 'return Promise.reject(error);'
         }
         form.remoteTabs[newUuid] = 'headers'
-        form.remoteCollapses[newUuid] = ''
+        form.remoteCollapses[newUuid] = ['request', 'response', 'error']
         form.remoteResults[newUuid] = ''
-        remoteTabsValue.value = newUuid
       } else if (action === 'remove') {
         if (remoteTabsValue.value === target) {
           const uuids = Object.keys(form.remotes)
@@ -236,9 +236,18 @@ export default {
 
     const testRequest = () => {
       formRef.value.validateField('remotes.' + remoteTabsValue.value + '.url').then(() => {
-        createRequest(form.remotes[remoteTabsValue.value]).then((data) => {
-          form.remoteResults[remoteTabsValue.value] = JSON.stringify(data, null, '\t')
-        })
+        form.loading = true
+        createRequest(form.remotes[remoteTabsValue.value])
+          .then((data) => {
+            form.remoteResults[remoteTabsValue.value] = JSON.stringify(data, null, '\t')
+            form.loading = false
+            ElMessage.success('请求成功')
+          })
+          .catch((error) => {
+            form.remoteResults[remoteTabsValue.value] = ''
+            form.loading = false
+            ElMessage.error(error.message)
+          })
       })
     }
 

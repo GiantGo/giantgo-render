@@ -52,3 +52,17 @@
     border-right: 1px solid var(--el-border-color-light);
   }
 }
+
+.form-design-code-editor {
+  overflow: auto;
+
+  .code-editor-tip {
+    min-height: 32px;
+    line-height: 32px;
+    background-color: var(--el-bg-color-page);
+  }
+
+  .code-editor-wrap {
+    height: 300px;
+  }
+}

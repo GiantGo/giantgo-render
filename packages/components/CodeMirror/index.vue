@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-codemirror-wrap">
+  <div class="code-editor-wrap">
     <textarea></textarea>
   </div>
 </template>
@@ -35,17 +35,19 @@ export default {
   },
   ready: function () {
     var _this = this
-    this.editor = CodeMirror.fromTextArea(this.$el.querySelector('textarea'), this.options)
-    this.editor.setValue(this.modelValue)
-    this.editor.on('change', function (cm) {
-      if (_this.skipNextChangeEvent) {
-        _this.skipNextChangeEvent = false
-        return
-      }
-      _this.modelValue = cm.getValue()
-      if (!!_this.$emit) {
-        _this.$emit('update:modelValue', cm.getValue())
-      }
+    this.$nextTick(() => {
+      this.editor = CodeMirror.fromTextArea(this.$el.querySelector('textarea'), this.options)
+      this.editor.setValue(this.modelValue)
+      this.editor.on('change', function (cm) {
+        if (_this.skipNextChangeEvent) {
+          _this.skipNextChangeEvent = false
+          return
+        }
+        _this.modelValue = cm.getValue()
+        if (!!_this.$emit) {
+          _this.$emit('update:modelValue', cm.getValue())
+        }
+      })
     })
   },
   mounted: function () {

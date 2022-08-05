@@ -18,10 +18,6 @@
     padding-right: 5px;
   }
 
-  .CodeMirror {
-    height: 100px;
-  }
-
   .code-switch {
     display: flex;
     align-items: center;
@@ -57,5 +53,20 @@
   .btn-submit {
     margin-top: 10px;
     text-align: center;
+  }
+}
+
+.form-setting-interpolation {
+  li {
+    .value {
+      float: left;
+      font-size: 12px;
+    }
+
+    .label {
+      float: right;
+      color: #6897f2;
+      font-size: 12px;
+    }
   }
 }

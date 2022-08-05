@@ -1,10 +1,10 @@
 <template>
   <el-dialog title="编辑额外参数" v-model="codeDialog" width="750px">
-    <div class="form-design-json-box">
-      <code-mirror v-model="code" />
+    <div class="form-design-code-editor">
+      <code-editor v-model="code" />
     </div>
     <template #footer>
-      <div class="dialog-footer">
+      <div>
         <el-button @click="codeDialog = false">取消</el-button>
         <el-button type="primary" @click="setData">确定</el-button>
       </div>
@@ -16,11 +16,11 @@
 <script>
 import { ElDialog, ElButton, ElMessage } from 'element-plus'
 import { ref, nextTick } from 'vue'
-import { CodeMirror } from '@giantgo-render/components'
+import { CodeEditor } from '@giantgo-render/components'
 
 export default {
   name: 'uploadDataOption',
-  components: { ElDialog, ElButton, CodeMirror },
+  components: { ElDialog, ElButton, CodeEditor },
   props: {
     modelValue: Object
   },

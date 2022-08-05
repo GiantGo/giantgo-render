@@ -25,11 +25,11 @@
     <el-button link type="primary" @click="addRule">增加验证</el-button>
     <el-button link type="primary" @click="editRules">编辑验证</el-button>
     <el-dialog title="编辑验证" v-model="codeDialog" width="750px">
-      <div class="form-design-json-box">
-        <code-mirror v-model="code" />
+      <div class="form-design-code-editor">
+        <code-editor v-model="code" />
       </div>
       <template #footer>
-        <div class="dialog-footer">
+        <div>
           <el-button @click="codeDialog = false">取消</el-button>
           <el-button type="primary" @click="setRules">确定</el-button>
         </div>
@@ -43,11 +43,11 @@ import { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElMessage, ElIco
 import DeleteIcon from '../../../../icons/delete.svg'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@giantgo-render/utils'
-import { CodeMirror } from '@giantgo-render/components'
+import { CodeEditor } from '@giantgo-render/components'
 
 export default {
   name: 'rulesOption',
-  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElIcon, DeleteIcon, CodeMirror },
+  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElIcon, DeleteIcon, CodeEditor },
   props: {
     modelValue: Array
   },

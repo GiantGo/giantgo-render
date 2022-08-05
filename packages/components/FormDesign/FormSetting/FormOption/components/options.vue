@@ -16,11 +16,11 @@
     <el-button link type="primary" @click="addOption">增加选项</el-button>
     <el-button link type="primary" @click="editOptions">编辑选项</el-button>
     <el-dialog title="编辑选项" v-model="codeDialog" width="750px">
-      <div class="form-design-json-box">
-        <code-mirror v-model="code" />
+      <div class="form-design-code-editor">
+        <code-editor v-model="code" />
       </div>
       <template #footer>
-        <div class="dialog-footer">
+        <div>
           <el-button @click="codeDialog = false">取消</el-button>
           <el-button type="primary" @click="setOptions">确定</el-button>
         </div>
@@ -34,11 +34,11 @@ import { ElRow, ElCol, ElButton, ElDialog, ElInput, ElMessage, ElIcon } from 'el
 import DeleteIcon from '../../../../icons/delete.svg'
 import { reactive, ref, watch, onMounted, nextTick } from 'vue'
 import { deepClone } from '@giantgo-render/utils'
-import { CodeMirror } from '@giantgo-render/components'
+import { CodeEditor } from '@giantgo-render/components'
 
 export default {
   name: 'optionsOption',
-  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, DeleteIcon, CodeMirror },
+  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, DeleteIcon, CodeEditor },
   props: {
     modelValue: Object
   },
