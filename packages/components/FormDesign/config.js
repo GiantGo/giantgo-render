@@ -363,32 +363,16 @@ export const pickers = [
 
 export const complexs = [
   {
-    name: 'Quill编辑器',
-    component: 'quill-editor',
+    name: '富文本',
+    component: 'rich-editor',
     uuid: '',
     options: {
-      label: 'Quill编辑器',
+      label: '富文本',
       key: '',
       defaultValue: '',
       rules: rules,
       width: '100%',
-      height: '100px',
-      placeholder: '请输入',
-      hidden: false,
-      disabled: false
-    }
-  },
-  {
-    name: 'Tinymce编辑器',
-    component: 'tinymce-editor',
-    uuid: '',
-    options: {
-      label: 'Tinymce编辑器',
-      key: '',
-      defaultValue: '',
-      rules: rules,
-      width: '100%',
-      height: '100px',
+      height: '300px',
       placeholder: '请输入',
       hidden: false,
       disabled: false

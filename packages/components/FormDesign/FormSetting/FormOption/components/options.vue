@@ -44,7 +44,7 @@ export default {
   },
   setup(props, { emit }) {
     const data = reactive({
-      remote: false,
+      remote: '',
       items: []
     })
     const code = ref('')

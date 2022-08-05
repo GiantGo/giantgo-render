@@ -103,7 +103,7 @@ onMounted(() => {
       options: {
         label: '单位地区',
         key: 'area',
-        options: { remote: false, items: [] },
+        options: { remote: '', items: [] },
         defaultValue: '',
         rules: [{ required: false, message: '请输入单位地区', trigger: 'blur' }],
         placeholder: '请选择单位地区',
@@ -172,7 +172,7 @@ onMounted(() => {
         label: '职称',
         key: 'title',
         options: {
-          remote: false,
+          remote: '',
           items: [
             { label: '初级', value: 'Wb4bJEaM' },
             { label: '中级', value: 'CKJrM20G' },
@@ -248,7 +248,7 @@ onMounted(() => {
         label: '性别',
         key: 'gender',
         options: {
-          remote: false,
+          remote: '',
           items: [
             { label: '男', value: 'qlU9Wd1K' },
             { label: '女', value: 'dbEIxK50' }
@@ -455,7 +455,7 @@ onMounted(() => {
         options: {
           label: '单位地区',
           key: 'area',
-          options: { remote: false, items: [] },
+          options: { remote: '', items: [] },
           defaultValue: '',
           rules: [{ required: false, message: '请输入单位地区', trigger: 'blur' }],
           placeholder: '请选择单位地区',
@@ -500,7 +500,7 @@ onMounted(() => {
           label: '职称',
           key: 'title',
           options: {
-            remote: false,
+            remote: '',
             items: [
               { label: '初级', value: 'Wb4bJEaM' },
               { label: '中级', value: 'CKJrM20G' },
@@ -600,7 +600,7 @@ onMounted(() => {
           label: '性别',
           key: 'gender',
           options: {
-            remote: false,
+            remote: '',
             items: [
               { label: '男', value: 'qlU9Wd1K' },
               { label: '女', value: 'dbEIxK50' }

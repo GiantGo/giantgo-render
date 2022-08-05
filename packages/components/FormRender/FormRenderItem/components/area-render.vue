@@ -1,7 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-cascader
-      v-if="!options.hidden"
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
       :options="region"
