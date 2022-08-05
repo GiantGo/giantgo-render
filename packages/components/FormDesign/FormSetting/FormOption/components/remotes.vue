@@ -106,27 +106,27 @@
           </el-tabs>
           <div class="form-design-code-editor" v-loading="form.loading">
             <div class="code-editor-tip">响应数据</div>
-            <code-editor v-model="form.remoteResults[uuid]" />
+            <code-editor v-model="form.remoteResults[uuid]" lang="json" />
           </div>
           <el-collapse v-model="form.remoteCollapses[uuid]">
             <el-collapse-item title="处理请求数据" name="request">
               <div class="form-design-code-editor">
                 <div class="code-editor-tip">(config) => {</div>
-                <code-editor v-model="value.requestHandler" />
+                <code-editor v-model="value.requestHandler" lang="javascript" />
                 <div class="code-editor-tip">}</div>
               </div>
             </el-collapse-item>
             <el-collapse-item title="处理响应数据" name="response">
               <div class="form-design-code-editor">
                 <div class="code-editor-tip">(response) => {</div>
-                <code-editor v-model="value.responseHandler" />
+                <code-editor v-model="value.responseHandler" lang="javascript" />
                 <div class="code-editor-tip">}</div>
               </div>
             </el-collapse-item>
             <el-collapse-item title="错误处理" name="error">
               <div class="form-design-code-editor">
                 <div class="code-editor-tip">(error) => {</div>
-                <code-editor v-model="value.errorHandler" />
+                <code-editor v-model="value.errorHandler" lang="javascript" />
                 <div class="code-editor-tip">}</div>
               </div>
             </el-collapse-item>
@@ -138,7 +138,7 @@
 </template>
 
 <script>
-import { ref, reactive, nextTick } from 'vue'
+import { ref, reactive } from 'vue'
 import { ElDialog, ElMessage } from 'element-plus'
 import { CodeEditor } from '@giantgo-render/components'
 import { uuid, deepClone, isEmptyObject, createRequest } from '@giantgo-render/utils'

@@ -1,4 +1,4 @@
-export { default as CodeEditor } from './CodeMirror/index.vue'
+export { default as CodeEditor } from './CodeEditor/index.vue'
 export { default as QuillEditor } from './QuillEditor/index.vue'
 export { default as TinymceEditor } from './TinymceEditor/index.vue'
 export { default as Signature } from './Signature/index.vue'

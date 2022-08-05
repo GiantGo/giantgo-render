@@ -26,7 +26,7 @@
     <el-button link type="primary" @click="editRules">编辑验证</el-button>
     <el-dialog title="编辑验证" v-model="codeDialog" width="750px">
       <div class="form-design-code-editor">
-        <code-editor v-model="code" />
+        <code-editor v-model="code" lang="json" />
       </div>
       <template #footer>
         <div>
@@ -41,7 +41,7 @@
 <script>
 import { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElMessage, ElIcon } from 'element-plus'
 import DeleteIcon from '../../../../icons/delete.svg'
-import { reactive, ref, watch, onMounted, nextTick } from 'vue'
+import { reactive, ref, watch, onMounted } from 'vue'
 import { deepClone } from '@giantgo-render/utils'
 import { CodeEditor } from '@giantgo-render/components'
 

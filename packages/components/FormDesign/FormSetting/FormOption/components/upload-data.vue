@@ -1,7 +1,7 @@
 <template>
   <el-dialog title="编辑额外参数" v-model="codeDialog" width="750px">
     <div class="form-design-code-editor">
-      <code-editor v-model="code" />
+      <code-editor v-model="code" lang="json" />
     </div>
     <template #footer>
       <div>
@@ -15,7 +15,7 @@
 
 <script>
 import { ElDialog, ElButton, ElMessage } from 'element-plus'
-import { ref, nextTick } from 'vue'
+import { ref } from 'vue'
 import { CodeEditor } from '@giantgo-render/components'
 
 export default {

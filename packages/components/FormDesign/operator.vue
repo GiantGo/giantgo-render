@@ -31,7 +31,7 @@
     </el-dialog>
     <el-dialog :title="jsonDialog.title" v-model="jsonDialog.isShow" append-to-body width="750px">
       <div class="form-design-code-editor">
-        <code-editor v-model="jsonDialog.code" />
+        <code-editor v-model="jsonDialog.code" lang="json"/>
       </div>
       <template #footer>
         <div>
@@ -42,7 +42,7 @@
     </el-dialog>
     <el-dialog :title="resultDialog.title" v-model="resultDialog.isShow" append-to-body width="750px">
       <div class="form-design-code-editor">
-        <code-editor v-model="resultDialog.code" />
+        <code-editor v-model="resultDialog.code"  lang="json"/>
       </div>
       <template #footer>
         <div>
