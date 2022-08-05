@@ -334,7 +334,7 @@ onMounted(() => {
       statusIcon: false,
       remotes: {
         remote_nXABYk61: {
-          title: '测试',
+          title: '获取选项',
           url: 'https://run.mocky.io/v3/787ef76d-79eb-42df-8469-d98e6ff00629',
           method: 'get',
           headers: [

@@ -329,7 +329,34 @@ onMounted(() => {
       gutter: 0,
       hideRequiredAsterisk: false,
       statusIcon: false,
-      remotes: {}
+      remotes: {
+        remote_nXABYk61: {
+          title: '获取选项',
+          url: 'https://run.mocky.io/v3/787ef76d-79eb-42df-8469-d98e6ff00629',
+          method: 'get',
+          headers: [
+            {
+              key: '1',
+              value: '2'
+            }
+          ],
+          params: [
+            {
+              key: '2',
+              value: '3'
+            }
+          ],
+          data: [
+            {
+              key: '3',
+              value: '4'
+            }
+          ],
+          requestHandler: 'return config;',
+          responseHandler: 'return response.data;',
+          errorHandler: 'return Promise.reject(error);'
+        }
+      }
     },
     items: [
       {
