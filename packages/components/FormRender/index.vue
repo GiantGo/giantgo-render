@@ -2,20 +2,20 @@
   <el-form
     class="form-render"
     ref="formRef"
-    :label-width="formDesign.options.labelWidth"
-    :label-position="formDesign.options.labelPosition"
-    :hide-required-asterisk="formDesign.options.hideRequiredAsterisk"
-    :status-icon="formDesign.options.statusIcon"
-    :inline="formDesign.options.inline"
-    :size="formDesign.options.size"
-    :model="formData"
+    :label-width="state.formDesign.options.labelWidth"
+    :label-position="state.formDesign.options.labelPosition"
+    :hide-required-asterisk="state.formDesign.options.hideRequiredAsterisk"
+    :status-icon="state.formDesign.options.statusIcon"
+    :inline="state.formDesign.options.inline"
+    :size="state.formDesign.options.size"
+    :model="state.formData"
   >
     <form-render-item
       class="root"
-      v-model="formData.root"
-      :component="formDesign.component"
-      :items="formDesign.items"
-      :options="formDesign.options"
+      v-model="state.formData.root"
+      :component="state.formDesign.component"
+      :items="state.formDesign.items"
+      :options="state.formDesign.options"
       path="root"
     ></form-render-item>
     <div class="btn-submit">
@@ -38,13 +38,14 @@ export default {
   props: {},
   setup(props, { emit }) {
     const formRef = ref(null)
-    const formDesign = reactive({
-      uuid: '',
-      items: [],
-      options: {}
-    })
-    const formData = reactive({
-      root: {}
+    const state = reactive({
+      formDesign: {
+        options: {
+          key: '',
+          defaultValue: {}
+        }
+      },
+      formData: {}
     })
     const emitter = mitt()
 
@@ -67,7 +68,7 @@ export default {
             )
             item.options[option] = computed({
               get() {
-                return functionBody(formData.root, item.options)
+                return functionBody(state.formData.root, item.options)
               }
             })
           }
@@ -80,14 +81,11 @@ export default {
     }
 
     const init = (config, data) => {
-      formDesign.component = config.component
-      formDesign.uuid = config.uuid
-      formDesign.items = config.items
-      formDesign.options = config.options
-      formDesign.options.key = 'root'
-      formDesign.options.defaultValue = {}
+      state.formDesign = config
+      state.formDesign.options.key = 'root'
+      state.formDesign.options.defaultValue = {}
 
-      traverse([formDesign], formData, { root: data })
+      traverse([state.formDesign], state.formData, { root: data })
 
       formRef.value && formRef.value.clearValidate()
     }
@@ -95,7 +93,7 @@ export default {
     const submit = () => {
       formRef.value.validate((valid, error) => {
         if (valid) {
-          emit('submit', toRaw(formData.root))
+          emit('submit', toRaw(state.formData.root))
         } else {
           emitter.emit('validateError', Object.keys(error)[0])
         }
@@ -107,11 +105,11 @@ export default {
     }
 
     provide('emitter', emitter)
+    provide('state', state)
 
     return {
       formRef,
-      formDesign,
-      formData,
+      state,
       init,
       submit,
       reset

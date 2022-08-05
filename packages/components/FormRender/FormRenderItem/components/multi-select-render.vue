@@ -13,14 +13,15 @@
       :no-data-text="options.noDataText"
       :no-match-text="options.noMatchText"
     >
-      <el-option v-for="item in options.options.items" :key="item.value" :label="item.label" :value="item.value">
-      </el-option>
+      <el-option v-for="item in items" :key="item.value" :label="item.label" :value="item.value"> </el-option>
     </el-select>
   </el-form-item>
 </template>
 
 <script>
 import { ElFormItem, ElSelect, ElOption } from 'element-plus'
+import { inject, watch } from 'vue'
+import { useOptions } from '@giantgo-render/hooks'
 
 export default {
   name: 'multiSelectRender',
@@ -35,7 +36,14 @@ export default {
       }
     }
   },
-  setup() {}
+  setup(props) {
+    const state = inject('state')
+    const { items } = useOptions(props, state.formDesign)
+
+    return {
+      items
+    }
+  }
 }
 </script>
 

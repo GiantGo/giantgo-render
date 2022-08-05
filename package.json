@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@giantgo-render/components": "workspace:*",
+    "@giantgo-render/hooks": "workspace:*",
     "@giantgo-render/utils": "workspace:*",
     "@wangeditor/editor": "^5.1.14",
     "@wangeditor/editor-for-vue": "^5.1.12",

@@ -3,7 +3,7 @@
     <el-cascader
       v-if="!options.hidden"
       :model-value="options.defaultValue"
-      :options="options.options.items"
+      :options="items"
       :placeholder="options.placeholder"
       :disabled="options.disabled"
       :clearable="options.clearable"
@@ -16,6 +16,8 @@
 
 <script>
 import { ElFormItem, ElCascader } from 'element-plus'
+import { inject } from 'vue'
+import { useOptions } from '@giantgo-render/hooks'
 
 export default {
   name: 'cascaderBuilder',
@@ -30,7 +32,14 @@ export default {
       }
     }
   },
-  setup() {}
+  setup(props) {
+    const state = inject('state')
+    const { items } = useOptions(props, state.formDesign)
+
+    return {
+      items
+    }
+  }
 }
 </script>
 

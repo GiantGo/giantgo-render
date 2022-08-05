@@ -209,6 +209,12 @@ export default {
       addCache()
     }
 
+    const clear = () => {
+      state.formDesign.items = []
+      state.selected = state.formDesign
+      addCache()
+    }
+
     const register = (name = '基础组件', components = [], order = 0) => {
       const index = groups.value.findIndex((group) => group.name === name)
 
@@ -231,7 +237,7 @@ export default {
 
     provide('state', state)
     provide('uuids', uuids)
-    provide('clear', init)
+    provide('clear', clear)
     provide('init', init)
     provide('setSelected', setSelected)
     provide('updateFormItem', updateFormItem)

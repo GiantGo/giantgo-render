@@ -5,7 +5,7 @@
       @update:modelValue="$emit('update:modelValue', $event)"
       :disabled="options.disabled"
     >
-      <el-checkbox v-for="item in options.options.items" :key="item.value" :label="item.value">
+      <el-checkbox v-for="item in items" :key="item.value" :label="item.value">
         {{ item.label }}
       </el-checkbox>
     </el-checkbox-group>
@@ -14,6 +14,8 @@
 
 <script>
 import { ElFormItem, ElCheckboxGroup, ElCheckbox } from 'element-plus'
+import { inject } from 'vue'
+import { useOptions } from '@giantgo-render/hooks'
 
 export default {
   name: 'checkboxRender',
@@ -28,7 +30,14 @@ export default {
       }
     }
   },
-  setup() {}
+  setup(props) {
+    const state = inject('state')
+    const { items } = useOptions(props, state.formDesign)
+
+    return {
+      items
+    }
+  }
 }
 </script>
 

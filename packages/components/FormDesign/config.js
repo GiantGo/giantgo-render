@@ -67,6 +67,7 @@ export const pickers = [
       label: '下拉单选',
       key: '',
       options: {
+        type: 'static',
         remote: '',
         items: []
       },
@@ -90,6 +91,7 @@ export const pickers = [
       label: '下拉多选',
       key: '',
       options: {
+        type: 'static',
         remote: '',
         items: []
       },
@@ -115,6 +117,7 @@ export const pickers = [
       label: '级联选择器',
       key: '',
       options: {
+        type: 'static',
         remote: '',
         items: []
       },
@@ -140,6 +143,7 @@ export const pickers = [
       label: '多选框',
       key: '',
       options: {
+        type: 'static',
         remote: '',
         items: []
       },
@@ -158,6 +162,7 @@ export const pickers = [
       label: '单选框',
       key: '',
       options: {
+        type: 'static',
         remote: '',
         items: []
       },
