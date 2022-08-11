@@ -28,7 +28,7 @@
 <script>
 import { ElFormItem, ElUpload, ElButton, ElMessage } from 'element-plus'
 import { reactive, watch, onMounted } from 'vue'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 
 export default {
   name: 'uploadFileRender',

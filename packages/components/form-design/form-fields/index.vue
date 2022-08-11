@@ -30,7 +30,7 @@
 <script>
 import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { uuid as makeId } from '@giantgo-render/utils'
 import { inputs, pickers, complexs, assists, layouts } from '../config.js'
 

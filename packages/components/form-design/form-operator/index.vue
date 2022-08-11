@@ -57,7 +57,7 @@
 import { ref, nextTick, inject, reactive, computed } from 'vue'
 import { ElTooltip, ElDialog, ElButton, ElDivider, ElMessage, ElIcon } from 'element-plus'
 import { CodeEditor, FormRender } from '@giantgo-render/components'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 
 export default {
   components: {

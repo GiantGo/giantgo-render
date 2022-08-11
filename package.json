@@ -30,9 +30,7 @@
     "china-area-data": "^5.0.1",
     "element-plus": "2.2.12",
     "giantgo-render": "workspace:*",
-    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "lodash-unified": "^1.0.2",
     "mitt": "^3.0.0",
     "signature_pad": "^4.0.0",
     "vue": "^3.2.37",
@@ -40,15 +38,14 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.1.89",
-    "@types/lodash": "^4.14.182",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.6.5",
     "@vitejs/plugin-vue": "^3.0.0",
     "@vue/compiler-sfc": "^3.2.37",
+    "rollup-plugin-visualizer": "^5.7.1",
     "sass": "^1.54.3",
     "unplugin-icons": "^0.14.8",
     "unplugin-vue-components": "^0.22.3",
-    "vite": "^3.0.0",
-    "vite-svg-loader": "^2.2.0"
+    "vite": "^3.0.0"
   }
 }

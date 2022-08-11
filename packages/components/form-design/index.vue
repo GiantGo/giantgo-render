@@ -15,7 +15,7 @@
 
 <script>
 import { ref, reactive, provide, computed } from 'vue'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { isEmptyObject, uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
 import FormFields from './form-fields/index.vue'
 import FormOperator from './form-operator/index.vue'

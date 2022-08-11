@@ -44,7 +44,7 @@ import { ref, inject, reactive, nextTick } from 'vue'
 import { ElForm, ElFormItem, ElTabs, ElTabPane, ElDialog, ElInput, ElButton } from 'element-plus'
 import objectBuilder from './object-builder.vue'
 import { objectLayout } from '../../../config.js'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { uuid } from '@giantgo-render/utils'
 
 export default {

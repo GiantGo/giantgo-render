@@ -41,7 +41,7 @@
 <script>
 import { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElMessage, ElIcon } from 'element-plus'
 import { reactive, ref, watch, onMounted } from 'vue'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { CodeEditor } from '@giantgo-render/components'
 
 export default {

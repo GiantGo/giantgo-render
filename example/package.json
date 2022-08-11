@@ -7,12 +7,17 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@wangeditor/editor": "^5.1.14",
+    "ace-builds": "^1.8.1",
+    "axios": "^0.23.0",
     "element-plus": "2.2.12",
-    "giantgo-render": "1.2.6",
-    "vue": "^3.2.20"
+    "giantgo-render": "1.2.7",
+    "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.9.3",
-    "vite": "^2.6.7"
+    "@vitejs/plugin-vue": "^3.0.0",
+    "unplugin-auto-import": "^0.11.1",
+    "unplugin-vue-components": "^0.22.4",
+    "vite": "^3.0.0"
   }
 }
