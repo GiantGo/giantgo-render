@@ -17,7 +17,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/main.ts'),
+      entry: path.resolve(__dirname, 'src/main.js'),
       name: 'giantgo-render',
       fileName: (format) => `giantgo-render.${format}.js`
     },

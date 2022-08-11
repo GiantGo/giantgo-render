@@ -30,7 +30,7 @@ import { ref, reactive, toRaw, computed, provide } from 'vue'
 import { ElForm, ElButton } from 'element-plus'
 import { getInterpolation, validateInterpolation } from '@giantgo-render/utils'
 import mitt from 'mitt'
-import FormRenderItem from './FormRenderItem/index.vue'
+import FormRenderItem from './form-render-item/index.vue'
 
 export default {
   name: 'formRender',

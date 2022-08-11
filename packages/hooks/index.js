@@ -1,1 +1,1 @@
-export { default as useOptions } from './useOptions'
+export * from './use-options'

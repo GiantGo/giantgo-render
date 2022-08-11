@@ -23,7 +23,7 @@
 <script>
 import { computed, inject } from 'vue'
 import { ElEmpty, ElForm } from 'element-plus'
-import FormBuilderItem from './FormBuilderItem/index.vue'
+import FormBuilderItem from './form-builder-item/index.vue'
 
 export default {
   name: 'formBuilder',

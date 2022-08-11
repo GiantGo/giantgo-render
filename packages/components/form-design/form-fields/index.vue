@@ -32,7 +32,7 @@ import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
 import { cloneDeep } from 'lodash'
 import { uuid as makeId } from '@giantgo-render/utils'
-import { inputs, pickers, complexs, assists, layouts } from './config.js'
+import { inputs, pickers, complexs, assists, layouts } from '../config.js'
 
 export default {
   components: { draggable },

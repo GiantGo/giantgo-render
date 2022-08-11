@@ -1,14 +1,14 @@
 <template>
   <div class="form-design">
     <div class="left-container">
-      <left></left>
+      <form-fields></form-fields>
     </div>
     <div class="center-container">
-      <operator></operator>
+      <form-operator></form-operator>
       <form-builder></form-builder>
     </div>
     <div class="right-container">
-      <form-setting></form-setting>
+      <form-options></form-options>
     </div>
   </div>
 </template>
@@ -17,14 +17,14 @@
 import { ref, reactive, provide, computed } from 'vue'
 import { cloneDeep } from 'lodash'
 import { isEmptyObject, uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
-import left from './left.vue'
-import operator from './operator.vue'
-import FormBuilder from './FormBuilder/index.vue'
-import FormSetting from './FormSetting/index.vue'
+import FormFields from './form-fields/index.vue'
+import FormOperator from './form-operator/index.vue'
+import FormBuilder from './form-builder/index.vue'
+import FormOptions from './form-options/index.vue'
 import { form } from './config.js'
 
 export default {
-  components: { left, operator, FormBuilder, FormSetting },
+  components: { FormFields, FormOperator, FormBuilder, FormOptions },
   props: {
     fields: {
       type: Array,

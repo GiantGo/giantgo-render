@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // create an axios instance
-export default function createRequest(remote) {
+export function createRequest(remote) {
   const headers = {}
   const params = {}
   const data = {}

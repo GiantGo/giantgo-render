@@ -1,7 +1,7 @@
 import { ref, watch, onMounted } from 'vue'
 import { createRequest, hasOwn } from '@giantgo-render/utils'
 
-export default function useOptions(props, formDesign) {
+export function useOptions(props, formDesign) {
   const items = ref([])
 
   const requestItems = (options) => {
