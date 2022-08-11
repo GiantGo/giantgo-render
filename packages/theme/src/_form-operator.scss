@@ -20,8 +20,8 @@
     }
   }
 
-  .disabled .icon {
-    color: var(--el-disabled-color-base);
+  .disabled.icon {
+    color: var(--el-disabled-text-color);
     cursor: not-allowed;
   }
 

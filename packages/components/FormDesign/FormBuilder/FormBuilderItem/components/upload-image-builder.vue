@@ -12,7 +12,7 @@
       :on-preview="handlePreview"
       :before-remove="beforeRemove"
     >
-      <el-icon><PlusIcon /></el-icon>
+      <el-icon><i-carbon-add /></el-icon>
       <template #tip v-if="options.showToolTip">
         <div class="el-upload__tip">{{ options.tip }}</div>
       </template>
@@ -26,11 +26,10 @@
 <script>
 import { ref } from 'vue'
 import { ElFormItem, ElUpload, ElMessage } from 'element-plus'
-import PlusIcon from '../../../../icons/plus.svg'
 
 export default {
   name: 'uploadImageBuilder',
-  components: { ElFormItem, ElUpload, PlusIcon },
+  components: { ElFormItem, ElUpload },
   props: {
     path: String,
     uuid: String,

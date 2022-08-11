@@ -16,7 +16,7 @@
       :on-error="handleError"
       :on-preview="handlePreview"
     >
-      <el-icon><PlusIcon /></el-icon>
+      <el-icon><i-carbon-add /></el-icon>
       <template #tip v-if="options.showToolTip">
         <div class="el-upload__tip">{{ options.tip }}</div>
       </template>
@@ -30,12 +30,11 @@
 <script>
 import { ElFormItem, ElUpload, ElMessage } from 'element-plus'
 import { ref, reactive, watch, onMounted } from 'vue'
-import { deepClone } from '@giantgo-render/utils'
-import PlusIcon from '../../../icons/plus.svg'
+import { cloneDeep } from 'lodash'
 
 export default {
   name: 'uploadImageRender',
-  components: { ElFormItem, ElUpload, PlusIcon },
+  components: { ElFormItem, ElUpload },
   props: {
     path: String,
     modelValue: Array,
@@ -96,7 +95,7 @@ export default {
     }
 
     const setInternal = () => {
-      data.fileList = deepClone(props.modelValue)
+      data.fileList = cloneDeep(props.modelValue)
     }
 
     onMounted(setInternal)

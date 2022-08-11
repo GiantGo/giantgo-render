@@ -11,7 +11,7 @@
           </el-col>
           <el-col :span="2" class="btn-del">
             <el-icon class="el-icon-delete" @click="removeOption(index)">
-              <DeleteIcon />
+              <i-carbon-trash-can />
             </el-icon>
           </el-col>
         </el-row>
@@ -51,14 +51,13 @@
 
 <script>
 import { ElRow, ElCol, ElButton, ElDialog, ElInput, ElMessage, ElIcon } from 'element-plus'
-import DeleteIcon from '../../../../icons/delete.svg'
 import { reactive, ref, watch, onMounted, inject } from 'vue'
-import { deepClone } from '@giantgo-render/utils'
+import { cloneDeep } from 'lodash'
 import { CodeEditor } from '@giantgo-render/components'
 
 export default {
   name: 'optionsOption',
-  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, DeleteIcon, CodeEditor },
+  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, CodeEditor },
   props: {
     modelValue: Object
   },
@@ -117,7 +116,7 @@ export default {
     const setInternal = () => {
       data.type = props.modelValue.type
       data.remote = props.modelValue.remote
-      data.items = deepClone(props.modelValue.items)
+      data.items = cloneDeep(props.modelValue.items)
     }
 
     onMounted(setInternal)

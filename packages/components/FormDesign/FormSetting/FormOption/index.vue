@@ -17,11 +17,11 @@
       </el-form-item>
     </el-col>
     <el-col :span="2" class="code-switch" v-if="isPrimitive(optionValue) && optionKey !== 'defaultValue'">
-      <CodeIcon
+      <i-ant-design-code-outlined
         class="svg-icon"
         :class-name="validateInterpolation(optionValue) ? 'highlight' : ''"
         @click="switchInterpolate(optionKey)"
-      ></CodeIcon>
+      ></i-ant-design-code-outlined>
     </el-col>
   </el-row>
 </template>
@@ -32,7 +32,6 @@ import { ElRow, ElCol, ElFormItem } from 'element-plus'
 import { isPrimitive, validateInterpolation } from '@giantgo-render/utils'
 import { optionKeyLabels } from '../../config'
 import Interpolation from './interpolation.vue'
-import CodeIcon from '../../../icons/code.svg'
 
 const components = {}
 Object.values(import.meta.globEager('./components/*.vue')).forEach(
@@ -41,7 +40,7 @@ Object.values(import.meta.globEager('./components/*.vue')).forEach(
 
 export default {
   name: 'formOption',
-  components: { ElRow, ElCol, ElFormItem, CodeIcon, Interpolation, ...components },
+  components: { ElRow, ElCol, ElFormItem, Interpolation, ...components },
   props: {
     optionKey: String,
     optionValue: [String, Number, Boolean, Date, Object, Array]

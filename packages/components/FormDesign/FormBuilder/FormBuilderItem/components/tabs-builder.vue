@@ -44,7 +44,8 @@ import { ref, inject, reactive, nextTick } from 'vue'
 import { ElForm, ElFormItem, ElTabs, ElTabPane, ElDialog, ElInput, ElButton } from 'element-plus'
 import objectBuilder from './object-builder.vue'
 import { objectLayout } from '../../../config.js'
-import { uuid, deepClone } from '@giantgo-render/utils'
+import { cloneDeep } from 'lodash'
+import { uuid } from '@giantgo-render/utils'
 
 export default {
   name: 'tabsBuilder',
@@ -125,7 +126,7 @@ export default {
       formRef.value.validate((valid) => {
         if (valid) {
           if (!tabForm.uuid) {
-            const item = deepClone(objectLayout)
+            const item = cloneDeep(objectLayout)
             item.uuid = item.component.replaceAll('-', '_') + '_' + uuid(8)
             item.options.label = tabForm.label
             item.options.key = tabForm.key

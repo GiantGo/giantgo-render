@@ -59,7 +59,7 @@
                 </el-col>
                 <el-col :span="2" class="btn-del">
                   <el-icon class="el-icon-delete" @click="removeKeyValue(uuid, 'headers', index)">
-                    <DeleteIcon />
+                    <i-carbon-trash-can />
                   </el-icon>
                 </el-col>
               </el-row>
@@ -78,7 +78,7 @@
                 </el-col>
                 <el-col :span="2" class="btn-del">
                   <el-icon class="el-icon-delete" @click="removeKeyValue(uuid, 'params', index)">
-                    <DeleteIcon />
+                    <i-carbon-trash-can />
                   </el-icon>
                 </el-col>
               </el-row>
@@ -97,7 +97,7 @@
                 </el-col>
                 <el-col :span="2" class="btn-del">
                   <el-icon class="el-icon-delete" @click="removeKeyValue(uuid, 'data', index)">
-                    <DeleteIcon />
+                    <i-carbon-trash-can />
                   </el-icon>
                 </el-col>
               </el-row>
@@ -141,12 +141,12 @@
 import { ref, reactive } from 'vue'
 import { ElDialog, ElMessage } from 'element-plus'
 import { CodeEditor } from '@giantgo-render/components'
-import { uuid, deepClone, isEmptyObject, createRequest } from '@giantgo-render/utils'
-import DeleteIcon from '../../../../icons/delete.svg'
+import { cloneDeep } from 'lodash'
+import { uuid, isEmptyObject, createRequest } from '@giantgo-render/utils'
 
 export default {
   name: 'remotesOption',
-  components: { ElDialog, CodeEditor, DeleteIcon },
+  components: { ElDialog, CodeEditor },
   props: {
     modelValue: Object
   },
@@ -164,7 +164,7 @@ export default {
 
     const showRemote = () => {
       remoteDialog.value = true
-      form.remotes = deepClone(props.modelValue)
+      form.remotes = cloneDeep(props.modelValue)
       form.remoteTabs = {}
       form.remoteCollapses = {}
       form.remoteResults = {}

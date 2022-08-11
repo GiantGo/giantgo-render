@@ -1,5 +1,3 @@
-export { default as debounce } from './debounce'
-export { default as deepClone } from './deepClone'
 export { default as createRequest } from './request'
 export { validateInterpolation, getInterpolation } from './interpolation'
 export { isString, isArray, isObject, isNumber, isDefined, isEmptyObject, isPrimitive, hasOwn } from './shared'

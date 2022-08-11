@@ -3,10 +3,10 @@
     <div class="form-item-box" @click.stop="select" :class="{ 'is-selected': isSelected }">
       <div class="operator">
         <div class="copy" @click.stop="copy">
-          <el-icon><CopyIcon /></el-icon>
+          <el-icon><i-carbon-copy-file /></el-icon>
         </div>
         <div class="remove" @click.stop="remove">
-          <el-icon><DeleteIcon /></el-icon>
+          <el-icon><i-carbon-trash-can /></el-icon>
         </div>
       </div>
       <div class="info">
@@ -20,8 +20,6 @@
 <script>
 import { computed, inject } from 'vue'
 import { ElIcon } from 'element-plus'
-import DeleteIcon from '../../../icons/delete.svg'
-import CopyIcon from '../../../icons/copy.svg'
 
 const components = {}
 Object.values(import.meta.globEager('./components/*.vue')).forEach(
@@ -30,7 +28,7 @@ Object.values(import.meta.globEager('./components/*.vue')).forEach(
 
 export default {
   name: 'formBuilderItem',
-  components: { ...components, ElIcon, DeleteIcon, CopyIcon },
+  components: { ...components, ElIcon },
   props: {
     path: String,
     component: String,

@@ -2,28 +2,28 @@
   <div class="form-operator">
     <el-tooltip effect="dark" content="预览" placement="bottom">
       <el-icon class="icon" @click="preview">
-        <PlayIcon />
+        <i-carbon-play-outline />
       </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="编辑JSON" placement="bottom">
       <el-icon class="icon" @click="editJson">
-        <JsonIcon />
+        <i-carbon-code />
       </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="清空" placement="bottom">
       <el-icon class="icon" @click="clear">
-        <DeleteIcon />
+        <i-carbon-trash-can />
       </el-icon>
     </el-tooltip>
     <el-divider direction="vertical"></el-divider>
     <el-tooltip effect="dark" content="后退" placement="bottom">
       <el-icon class="icon" :class="{ disabled: current <= 0 }" @click="revoke">
-        <RefreshLeftIcon />
+        <i-carbon-reset />
       </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="前进" placement="bottom">
       <el-icon class="icon" :class="{ disabled: current >= cached.length - 1 }" @click="forward">
-        <RefreshRightIcon />
+        <i-carbon-restart />
       </el-icon>
     </el-tooltip>
     <el-dialog title="预览" v-model="previewDialog" destroy-on-close append-to-body width="750px">
@@ -31,7 +31,7 @@
     </el-dialog>
     <el-dialog :title="jsonDialog.title" v-model="jsonDialog.isShow" append-to-body width="750px">
       <div class="form-design-code-editor">
-        <code-editor v-model="jsonDialog.code" lang="json"/>
+        <code-editor v-model="jsonDialog.code" lang="json" />
       </div>
       <template #footer>
         <div>
@@ -42,7 +42,7 @@
     </el-dialog>
     <el-dialog :title="resultDialog.title" v-model="resultDialog.isShow" append-to-body width="750px">
       <div class="form-design-code-editor">
-        <code-editor v-model="resultDialog.code"  lang="json"/>
+        <code-editor v-model="resultDialog.code" lang="json" />
       </div>
       <template #footer>
         <div>
@@ -57,12 +57,7 @@
 import { ref, nextTick, inject, reactive, computed } from 'vue'
 import { ElTooltip, ElDialog, ElButton, ElDivider, ElMessage, ElIcon } from 'element-plus'
 import { CodeEditor, FormRender } from '@giantgo-render/components'
-import { deepClone } from '@giantgo-render/utils'
-import JsonIcon from '../icons/json.svg'
-import DeleteIcon from '../icons/delete.svg'
-import PlayIcon from '../icons/play.svg'
-import RefreshLeftIcon from '../icons/refresh-left.svg'
-import RefreshRightIcon from '../icons/refresh-right.svg'
+import { cloneDeep } from 'lodash'
 
 export default {
   components: {
@@ -72,12 +67,7 @@ export default {
     ElDivider,
     ElIcon,
     CodeEditor,
-    FormRender,
-    JsonIcon,
-    DeleteIcon,
-    PlayIcon,
-    RefreshLeftIcon,
-    RefreshRightIcon
+    FormRender
   },
   setup() {
     const formRender = ref(null)
@@ -101,7 +91,7 @@ export default {
     const preview = () => {
       previewDialog.value = true
       nextTick(() => {
-        formRender.value && formRender.value.init(deepClone(state.formDesign))
+        formRender.value && formRender.value.init(cloneDeep(state.formDesign))
       })
     }
 

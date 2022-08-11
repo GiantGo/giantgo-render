@@ -18,7 +18,7 @@
       </el-col>
       <el-col :span="2" class="btn-del">
         <el-icon class="el-icon-delete" @click="removeRule(index)">
-          <DeleteIcon />
+          <i-carbon-trash-can />
         </el-icon>
       </el-col>
     </el-row>
@@ -40,14 +40,13 @@
 
 <script>
 import { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElMessage, ElIcon } from 'element-plus'
-import DeleteIcon from '../../../../icons/delete.svg'
 import { reactive, ref, watch, onMounted } from 'vue'
-import { deepClone } from '@giantgo-render/utils'
+import { cloneDeep } from 'lodash'
 import { CodeEditor } from '@giantgo-render/components'
 
 export default {
   name: 'rulesOption',
-  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElIcon, DeleteIcon, CodeEditor },
+  components: { ElRow, ElCol, ElCheckbox, ElInput, ElButton, ElDialog, ElIcon, CodeEditor },
   props: {
     modelValue: Array
   },
@@ -98,8 +97,8 @@ export default {
     }
 
     const setInternal = () => {
-      data.required = deepClone(props.modelValue[0])
-      data.patterns = deepClone(props.modelValue.slice(1))
+      data.required = cloneDeep(props.modelValue[0])
+      data.patterns = cloneDeep(props.modelValue.slice(1))
     }
 
     onMounted(setInternal)

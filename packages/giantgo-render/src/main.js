@@ -1,6 +1,5 @@
 import { FormDesign, FormRender } from '@giantgo-render/components'
-
-import './styles/index.scss'
+import '@giantgo-render/theme/src/index.scss'
 
 export default function install(app) {
   app.component('FormDesign', FormDesign)

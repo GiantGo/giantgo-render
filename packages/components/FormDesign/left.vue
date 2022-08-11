@@ -30,7 +30,8 @@
 <script>
 import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
-import { uuid as makeId, deepClone } from '@giantgo-render/utils'
+import { cloneDeep } from 'lodash'
+import { uuid as makeId } from '@giantgo-render/utils'
 import { inputs, pickers, complexs, assists, layouts } from './config.js'
 
 export default {
@@ -50,7 +51,7 @@ export default {
       uuids,
       groups,
       clone: (original) => {
-        const item = deepClone(original)
+        const item = cloneDeep(original)
         item.uuid = item.uuid || item.component.replaceAll('-', '_') + '_' + makeId(8)
         item.options.key = item.options.key || item.uuid
         return item

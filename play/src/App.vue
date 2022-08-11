@@ -3,7 +3,6 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import { ref, onMounted } from 'vue'
 import { FormDesign } from '@giantgo-render/components'
-import 'giantgo-render/src/styles/index.scss'
 
 const formDesignRef = ref(null)
 

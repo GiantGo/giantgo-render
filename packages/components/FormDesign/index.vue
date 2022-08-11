@@ -15,7 +15,8 @@
 
 <script>
 import { ref, reactive, provide, computed } from 'vue'
-import { isEmptyObject, deepClone, uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
+import { cloneDeep } from 'lodash'
+import { isEmptyObject, uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
 import left from './left.vue'
 import operator from './operator.vue'
 import FormBuilder from './FormBuilder/index.vue'
@@ -92,7 +93,7 @@ export default {
 
       for (let i = 0; i < items.length; i++) {
         if (items[i].uuid === uuid) {
-          let newItem = deepClone(items[i])
+          let newItem = cloneDeep(items[i])
           newItem.uuid = newItem.options.key = newItem.component.replaceAll('-', '_') + '_' + makeId(8)
           if (hasOwn(newItem, 'items')) {
             newItem.items = []
@@ -180,7 +181,7 @@ export default {
     const revoke = () => {
       if (state.cached.length && state.current > 0) {
         state.current--
-        state.formDesign = deepClone(state.cached[state.current])
+        state.formDesign = cloneDeep(state.cached[state.current])
         setSelected(state.selected.uuid)
       }
     }
@@ -188,7 +189,7 @@ export default {
     const forward = () => {
       if (state.cached.length && state.current < state.cached.length - 1) {
         state.current++
-        state.formDesign = deepClone(state.cached[state.current])
+        state.formDesign = cloneDeep(state.cached[state.current])
         setSelected(state.selected.uuid)
       }
     }
@@ -198,12 +199,12 @@ export default {
         state.cached.shift()
       }
 
-      state.cached.splice(state.current + 1, Infinity, deepClone(state.formDesign))
+      state.cached.splice(state.current + 1, Infinity, cloneDeep(state.formDesign))
       state.current = state.cached.length - 1
     }
 
     const init = (config) => {
-      state.formDesign = config || deepClone(form)
+      state.formDesign = config || cloneDeep(form)
       state.selected = query([state.formDesign], state.selected.uuid) || state.formDesign
 
       addCache()

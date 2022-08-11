@@ -2,7 +2,7 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <div class="tools">
       <el-button class="add-btn" type="primary" @click="add">
-        <el-icon><PlusIcon /></el-icon> 添加
+        <el-icon><i-carbon-add /></el-icon> 添加
       </el-button>
     </div>
     <el-table class="edit-table" :data="data.items" style="width: 100%" border>
@@ -12,10 +12,10 @@
       <el-table-column label="操作" align="center" width="120" class-name="small-padding">
         <template #default="scope">
           <el-button type="primary" circle @click="edit(scope.$index, scope.row)">
-            <el-icon><EditIcon /></el-icon>
+            <el-icon><i-carbon-edit /></el-icon>
           </el-button>
           <el-button type="danger" circle @click="remove(scope.$index)">
-            <el-icon><DeleteIcon /></el-icon>
+            <el-icon><i-carbon-trash-can /></el-icon>
           </el-button>
         </template>
       </el-table-column>
@@ -29,10 +29,7 @@
 <script>
 import { reactive, ref, watch, onMounted, nextTick, inject, defineAsyncComponent } from 'vue'
 import { ElFormItem, ElButton, ElTable, ElTableColumn, ElDialog, ElIcon } from 'element-plus'
-import { deepClone } from '@giantgo-render/utils'
-import PlusIcon from '../../../icons/plus.svg'
-import EditIcon from '../../../icons/edit.svg'
-import DeleteIcon from '../../../icons/delete.svg'
+import { cloneDeep } from 'lodash'
 
 export default {
   name: 'tableRender',
@@ -43,9 +40,6 @@ export default {
     ElTableColumn,
     ElDialog,
     ElIcon,
-    PlusIcon,
-    EditIcon,
-    DeleteIcon,
     FormRender: defineAsyncComponent(() => import('../../index.vue'))
   },
   props: {
@@ -114,7 +108,7 @@ export default {
     }
 
     const setInternal = () => {
-      data.items = deepClone(props.modelValue)
+      data.items = cloneDeep(props.modelValue)
     }
 
     onMounted(setInternal)

@@ -28,7 +28,7 @@
 <script>
 import { ElFormItem, ElUpload, ElButton, ElMessage } from 'element-plus'
 import { reactive, watch, onMounted } from 'vue'
-import { deepClone } from '@giantgo-render/utils'
+import { cloneDeep } from 'lodash'
 
 export default {
   name: 'uploadFileRender',
@@ -85,7 +85,7 @@ export default {
     }
 
     const setInternal = () => {
-      data.fileList = deepClone(props.modelValue)
+      data.fileList = cloneDeep(props.modelValue)
     }
 
     onMounted(setInternal)
