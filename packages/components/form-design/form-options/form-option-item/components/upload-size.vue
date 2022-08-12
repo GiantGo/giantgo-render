@@ -10,38 +10,30 @@
   </el-input>
 </template>
 
-<script>
+<script setup>
 import { ref, watch, onMounted } from 'vue'
 
-export default {
-  name: 'uploadSizeOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup(props, { emit }) {
-    const size = ref(0)
-    const unit = ref('KB')
+defineOptions({
+  name: 'uploadSizeOption'
+})
+const props = defineProps({
+  modelValue: String
+})
+const emit = defineEmits(['update:modelValue'])
+const size = ref(0)
+const unit = ref('KB')
 
-    const setInternal = () => {
-      size.value = parseFloat(props.modelValue)
-      unit.value = props.modelValue.substr(props.modelValue.length - 2)
-    }
-
-    watch(() => props.modelValue, setInternal)
-    onMounted(setInternal)
-
-    const update = () => {
-      emit('update:modelValue', size.value + unit.value)
-    }
-
-    return {
-      size,
-      unit,
-      update
-    }
-  }
+const setInternal = () => {
+  size.value = parseFloat(props.modelValue)
+  unit.value = props.modelValue.substr(props.modelValue.length - 2)
 }
+
+const update = () => {
+  emit('update:modelValue', size.value + unit.value)
+}
+
+watch(() => props.modelValue, setInternal)
+onMounted(setInternal)
 </script>
 
 <style lang="scss" scoped></style>

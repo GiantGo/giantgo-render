@@ -6,15 +6,13 @@
   </el-radio-group>
 </template>
 
-<script>
-export default {
-  name: 'shadowOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'shadowOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

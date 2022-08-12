@@ -11,41 +11,35 @@
       <span class="label">{{ item.label }}</span>
     </template>
     <template #prefix>
-      <span v-html="'{{'"></span>
+      <span>&#123;&#123;</span>
     </template>
     <template #suffix>
-      <span v-html="'}}'"></span>
+      <span>&#125;&#125;</span>
     </template>
   </el-autocomplete>
 </template>
 
-<script>
+<script setup>
 import { getInterpolation } from '@giantgo-render/utils'
 import { ref } from 'vue'
 
-export default {
-  name: 'interpolation',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {
-    const tips = ref([
-      { value: 'root', label: '整个表单的值' },
-      { value: 'options', label: '该组件的选项' }
-    ])
-    const querySearch = (queryString, cb) => {
-      const results = queryString
-        ? tips.value.filter((tip) => tip.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0)
-        : tips.value
-      cb(results)
-    }
+defineOptions({
+  name: 'interpolation'
+})
 
-    return {
-      getInterpolation,
-      querySearch
-    }
-  }
+defineProps({
+  modelValue: String
+})
+
+const tips = ref([
+  { value: 'root', label: '整个表单的值' },
+  { value: 'options', label: '该组件的选项' }
+])
+const querySearch = (queryString, cb) => {
+  const results = queryString
+    ? tips.value.filter((tip) => tip.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0)
+    : tips.value
+  cb(results)
 }
 </script>
 

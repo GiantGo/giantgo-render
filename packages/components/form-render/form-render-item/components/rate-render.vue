@@ -11,22 +11,20 @@
   </el-form-item>
 </template>
 
-<script>
-export default {
-  name: 'rateRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: Number,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'rateRender'
+})
+defineProps({
+  path: String,
+  modelValue: Number,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

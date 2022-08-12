@@ -5,15 +5,13 @@
   ></el-input-number>
 </template>
 
-<script>
-export default {
-  name: 'maxlengthOption',
-  components: {},
-  props: {
-    modelValue: Number
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'maxlengthOption'
+})
+defineProps({
+  modelValue: Number
+})
 </script>
 
 <style lang="scss" scoped></style>

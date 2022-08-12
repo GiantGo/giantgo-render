@@ -1,6 +1,6 @@
 {
   "name": "giantgo-render",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "A form generator and form render for Vue3 + ElementPlus",
   "main": "./src/main.js",
   "module": "./src/main.js",
@@ -36,7 +36,7 @@
     "ace-builds": "^1.8.1",
     "axios": "^0.23.0",
     "china-area-data": "^5.0.1",
-    "element-plus": "2.2.12",
+    "element-plus": "2.2.13",
     "giantgo-render": "workspace:*",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.0",

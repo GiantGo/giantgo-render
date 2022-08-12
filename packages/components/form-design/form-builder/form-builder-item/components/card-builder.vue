@@ -9,30 +9,26 @@
   </el-card>
 </template>
 
-<script>
-import objectBuilder from './object-builder.vue'
-
-export default {
-  name: 'cardBuilder',
-  components: { objectBuilder },
-  props: {
-    path: String,
-    uuid: String,
-    items: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'cardBuilder'
+})
+defineProps({
+  path: String,
+  uuid: String,
+  items: {
+    type: Array,
+    default() {
+      return []
     }
   },
-  setup() {}
-}
+  options: {
+    type: Object,
+    default() {
+      return {}
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

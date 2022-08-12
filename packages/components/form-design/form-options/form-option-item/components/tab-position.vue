@@ -7,15 +7,13 @@
   </el-radio-group>
 </template>
 
-<script>
-export default {
-  name: 'tabPositionOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'tabPositionOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

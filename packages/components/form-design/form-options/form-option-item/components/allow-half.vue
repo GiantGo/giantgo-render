@@ -2,15 +2,13 @@
   <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
 </template>
 
-<script>
-export default {
-  name: 'allowHalfOption',
-  components: {},
-  props: {
-    modelValue: Boolean
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'allowHalfOption'
+})
+defineProps({
+  modelValue: Boolean
+})
 </script>
 
 <style lang="scss" scoped></style>

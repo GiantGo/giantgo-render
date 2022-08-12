@@ -8,15 +8,13 @@
   ></el-slider>
 </template>
 
-<script>
-export default {
-  name: 'gutterOption',
-  components: {},
-  props: {
-    modelValue: Number
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'gutterOption'
+})
+defineProps({
+  modelValue: Number
+})
 </script>
 
 <style lang="scss" scoped></style>

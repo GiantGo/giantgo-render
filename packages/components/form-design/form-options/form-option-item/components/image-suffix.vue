@@ -17,15 +17,13 @@
   </el-select>
 </template>
 
-<script>
-export default {
-  name: 'imageSuffixOption',
-  components: {},
-  props: {
-    modelValue: Array
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'imageSuffixOption'
+})
+defineProps({
+  modelValue: Array
+})
 </script>
 
 <style lang="scss" scoped></style>

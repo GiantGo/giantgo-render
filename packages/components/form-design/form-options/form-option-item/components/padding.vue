@@ -13,41 +13,38 @@
   </el-row>
 </template>
 
-<script>
+<script setup>
 import { reactive, onMounted, watch } from 'vue'
 
-export default {
-  name: 'paddingOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup(props, { emit }) {
-    const data = reactive({
-      top: 0,
-      right: 0,
-      down: 0,
-      left: 0
-    })
+defineOptions({
+  name: 'paddingOption'
+})
+const props = defineProps({
+  modelValue: String
+})
+const emit = defineEmits(['update:modelValue'])
 
-    const emitChange = () => {
-      emit('update:modelValue', `${data.top || 0}px ${data.right || 0}px ${data.down || 0}px ${data.left || 0}px`)
-    }
+const data = reactive({
+  top: 0,
+  right: 0,
+  down: 0,
+  left: 0
+})
 
-    const setInternal = () => {
-      const [top, right, down, left] = props.modelValue.split(' ')
-      data.top = parseFloat(top)
-      data.right = parseFloat(right)
-      data.down = parseFloat(down)
-      data.left = parseFloat(left)
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
-
-    return { data, emitChange }
-  }
+const emitChange = () => {
+  emit('update:modelValue', `${data.top || 0}px ${data.right || 0}px ${data.down || 0}px ${data.left || 0}px`)
 }
+
+const setInternal = () => {
+  const [top, right, down, left] = props.modelValue.split(' ')
+  data.top = parseFloat(top)
+  data.right = parseFloat(right)
+  data.down = parseFloat(down)
+  data.left = parseFloat(left)
+}
+
+onMounted(setInternal)
+watch(() => props.modelValue, setInternal)
 </script>
 
 <style lang="scss" scoped></style>

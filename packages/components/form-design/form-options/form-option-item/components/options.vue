@@ -49,93 +49,80 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ElMessage } from 'element-plus'
 import { reactive, ref, watch, onMounted, inject } from 'vue'
 import { cloneDeep } from 'lodash-es'
-import { CodeEditor } from '@giantgo-render/components'
 
-export default {
-  name: 'optionsOption',
-  components: { CodeEditor },
-  props: {
-    modelValue: Object
-  },
-  setup(props, { emit }) {
-    const data = reactive({
-      type: 'static',
-      remote: '',
-      items: []
-    })
-    const code = ref('')
-    const codeDialog = ref(false)
-    const state = inject('state')
+defineOptions({
+  name: 'optionsOption'
+})
 
-    const emitChange = () => {
-      emit('update:modelValue', {
-        type: data.type,
-        remote: data.remote,
-        items: data.items
-      })
-    }
+const props = defineProps({
+  modelValue: Object
+})
 
-    const update = (index, key, value) => {
-      data.items[index][key] = value
-      emitChange()
-    }
+const emit = defineEmits(['update:modelValue'])
 
-    const addOption = () => {
-      const index = String(data.items.length + 1)
-      data.items.push({
-        label: '选项' + index,
-        value: index
-      })
-      emitChange()
-    }
+const data = reactive({
+  type: 'static',
+  remote: '',
+  items: []
+})
+const code = ref('')
+const codeDialog = ref(false)
+const state = inject('state')
 
-    const removeOption = (index) => {
-      data.items.splice(index, 1)
-      emitChange()
-    }
-
-    const editOptions = () => {
-      codeDialog.value = true
-      code.value = JSON.stringify(data.items, null, '\t')
-    }
-
-    const setOptions = () => {
-      try {
-        data.items = JSON.parse(code.value)
-      } catch (e) {
-        return ElMessage.error('数据格式不正确')
-      }
-      codeDialog.value = false
-      emitChange()
-    }
-
-    const setInternal = () => {
-      data.type = props.modelValue.type
-      data.remote = props.modelValue.remote
-      data.items = cloneDeep(props.modelValue.items)
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
-
-    return {
-      data,
-      code,
-      codeDialog,
-      state,
-      update,
-      emitChange,
-      addOption,
-      removeOption,
-      editOptions,
-      setOptions
-    }
-  }
+const emitChange = () => {
+  emit('update:modelValue', {
+    type: data.type,
+    remote: data.remote,
+    items: data.items
+  })
 }
+
+const update = (index, key, value) => {
+  data.items[index][key] = value
+  emitChange()
+}
+
+const addOption = () => {
+  const index = String(data.items.length + 1)
+  data.items.push({
+    label: '选项' + index,
+    value: index
+  })
+  emitChange()
+}
+
+const removeOption = (index) => {
+  data.items.splice(index, 1)
+  emitChange()
+}
+
+const editOptions = () => {
+  codeDialog.value = true
+  code.value = JSON.stringify(data.items, null, '\t')
+}
+
+const setOptions = () => {
+  try {
+    data.items = JSON.parse(code.value)
+  } catch (e) {
+    return ElMessage.error('数据格式不正确')
+  }
+  codeDialog.value = false
+  emitChange()
+}
+
+const setInternal = () => {
+  data.type = props.modelValue.type
+  data.remote = props.modelValue.remote
+  data.items = cloneDeep(props.modelValue.items)
+}
+
+onMounted(setInternal)
+watch(() => props.modelValue, setInternal)
 </script>
 
 <style lang="scss" scoped></style>

@@ -17,54 +17,47 @@
   </el-form-item>
 </template>
 
-<script>
+<script setup>
 import { ref, watch, onMounted } from 'vue'
-import { Signature } from '@giantgo-render/components'
 
-export default {
-  name: 'signatureRender',
-  components: { Signature },
-  props: {
-    path: String,
-    modelValue: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
-  setup(props, { emit }) {
-    const signatureRef = ref(null)
+defineOptions({
+  name: 'signatureRender'
+})
 
-    const endStroke = () => {
-      const { data } = signatureRef.value.saveSignature()
-      emit('update:modelValue', data)
-    }
-
-    const undo = () => {
-      signatureRef.value.undoSignature()
-      endStroke()
-    }
-
-    const setInternal = () => {
-      if (props.modelValue) {
-        signatureRef.value.fromDataURL(props.modelValue)
-      } else {
-        signatureRef.value.clearSignature()
-      }
-    }
-
-    watch(() => props.modelValue, setInternal)
-    onMounted(setInternal)
-
-    return {
-      signatureRef,
-      endStroke,
-      undo
+const props = defineProps({
+  path: String,
+  modelValue: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
+})
+
+const emit = defineEmits(['update:modelValue'])
+const signatureRef = ref(null)
+
+const endStroke = () => {
+  const { data } = signatureRef.value.saveSignature()
+  emit('update:modelValue', data)
 }
+
+const undo = () => {
+  signatureRef.value.undoSignature()
+  endStroke()
+}
+
+const setInternal = () => {
+  if (props.modelValue) {
+    signatureRef.value.fromDataURL(props.modelValue)
+  } else {
+    signatureRef.value.clearSignature()
+  }
+}
+
+watch(() => props.modelValue, setInternal)
+onMounted(setInternal)
 </script>
 
 <style lang="scss" scoped></style>

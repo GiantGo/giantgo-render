@@ -14,31 +14,26 @@
   </el-form-item>
 </template>
 
-<script>
+<script setup>
 import { reactive } from 'vue'
 import { areaTree } from '@giantgo-render/utils'
 
-export default {
-  name: 'areaBuilder',
-  components: {},
-  props: {
-    path: String,
-    uuid: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
-  setup() {
-    const region = reactive(areaTree)
+defineOptions({
+  name: 'areaBuilder'
+})
 
-    return {
-      region
+defineProps({
+  path: String,
+  uuid: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
-}
+})
+
+const region = reactive(areaTree)
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,5 +1,2 @@
-export { default as CodeEditor } from './code-editor/index.vue'
-export { default as Signature } from './signature/index.vue'
 export { default as FormRender } from './form-render/index.vue'
-export { default as FormRenderItem } from './form-render/form-render-item/index.vue'
 export { default as FormDesign } from './form-design/index.vue'

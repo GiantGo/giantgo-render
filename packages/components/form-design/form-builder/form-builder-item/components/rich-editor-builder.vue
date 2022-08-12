@@ -12,44 +12,37 @@
   </el-form-item>
 </template>
 
-<script>
+<script setup>
 import { onBeforeUnmount, shallowRef } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
-
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
-export default {
-  name: 'richEditorBuilder',
-  components: { Editor, Toolbar },
-  props: {
-    path: String,
-    uuid: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
-  setup() {
-    const editorRef = shallowRef()
+defineOptions({
+  name: 'richEditorBuilder'
+})
 
-    const handleCreated = (editor) => {
-      editorRef.value = editor
-    }
-
-    onBeforeUnmount(() => {
-      const editor = editorRef.value
-      if (editor == null) return
-      editor.destroy()
-    })
-
-    return {
-      editorRef,
-      handleCreated
+defineProps({
+  path: String,
+  uuid: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
+})
+
+const editorRef = shallowRef()
+
+const handleCreated = (editor) => {
+  editorRef.value = editor
 }
+
+onBeforeUnmount(() => {
+  const editor = editorRef.value
+  if (editor == null) return
+  editor.destroy()
+})
 </script>
 
 <style lang="scss" scoped></style>

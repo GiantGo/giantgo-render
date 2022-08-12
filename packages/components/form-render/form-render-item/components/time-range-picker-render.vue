@@ -14,22 +14,20 @@
   </el-form-item>
 </template>
 
-<script>
-export default {
-  name: 'timeRangePickerRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: Array,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'timeRangePickerRender'
+})
+defineProps({
+  path: String,
+  modelValue: Array,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

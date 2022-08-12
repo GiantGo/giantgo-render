@@ -27,7 +27,7 @@
       </el-icon>
     </el-tooltip>
     <el-dialog title="预览" v-model="previewDialog" destroy-on-close append-to-body width="750px">
-      <form-render ref="formRender" @submit="submit" />
+      <form-render ref="formRenderRef" @submit="submit" />
     </el-dialog>
     <el-dialog :title="jsonDialog.title" v-model="jsonDialog.isShow" append-to-body width="750px">
       <div class="form-design-code-editor">
@@ -53,80 +53,58 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
 import { ElMessage } from 'element-plus'
-import { CodeEditor, FormRender } from '@giantgo-render/components'
 import { cloneDeep } from 'lodash-es'
 
-export default {
-  components: {
-    CodeEditor,
-    FormRender
-  },
-  setup() {
-    const formRender = ref(null)
-    const previewDialog = ref(false)
-    const jsonDialog = reactive({
-      title: '',
-      isShow: false,
-      code: ''
-    })
-    const resultDialog = reactive({
-      title: '',
-      isShow: false,
-      code: ''
-    })
-    const state = inject('state')
-    const clear = inject('clear')
-    const revoke = inject('revoke')
-    const forward = inject('forward')
-    const init = inject('init')
+const formRenderRef = ref(null)
+const previewDialog = ref(false)
+const jsonDialog = reactive({
+  title: '',
+  isShow: false,
+  code: ''
+})
+const resultDialog = reactive({
+  title: '',
+  isShow: false,
+  code: ''
+})
+const state = inject('state')
+const clear = inject('clear')
+const revoke = inject('revoke')
+const forward = inject('forward')
+const init = inject('init')
 
-    const preview = () => {
-      previewDialog.value = true
-      nextTick(() => {
-        formRender.value && formRender.value.init(cloneDeep(state.formDesign))
-      })
-    }
+const cached = computed(() => state.cached)
+const current = computed(() => state.current)
 
-    const submit = (result) => {
-      resultDialog.title = '获取数据'
-      resultDialog.isShow = true
-      resultDialog.code = JSON.stringify(result, null, '\t')
-    }
+const preview = () => {
+  previewDialog.value = true
+  nextTick(() => {
+    formRenderRef.value && formRenderRef.value.init(cloneDeep(state.formDesign))
+  })
+}
 
-    const editJson = () => {
-      jsonDialog.title = '查看JSON'
-      jsonDialog.isShow = true
-      jsonDialog.code = JSON.stringify(state.formDesign, null, '\t')
-    }
+const submit = (result) => {
+  resultDialog.title = '获取数据'
+  resultDialog.isShow = true
+  resultDialog.code = JSON.stringify(result, null, '\t')
+}
 
-    const saveJson = () => {
-      try {
-        init(JSON.parse(jsonDialog.code))
-      } catch (e) {
-        return ElMessage.error('数据格式不正确')
-      }
-      jsonDialog.isShow = false
-    }
+const editJson = () => {
+  jsonDialog.title = '查看JSON'
+  jsonDialog.isShow = true
+  jsonDialog.code = JSON.stringify(state.formDesign, null, '\t')
+}
 
-    return {
-      previewDialog,
-      jsonDialog,
-      resultDialog,
-      clear: () => clear(),
-      revoke,
-      forward,
-      preview,
-      submit,
-      editJson,
-      saveJson,
-      formRender,
-      cached: computed(() => state.cached),
-      current: computed(() => state.current)
-    }
+const saveJson = () => {
+  try {
+    init(JSON.parse(jsonDialog.code))
+  } catch (e) {
+    return ElMessage.error('数据格式不正确')
   }
+  jsonDialog.isShow = false
 }
 </script>
 

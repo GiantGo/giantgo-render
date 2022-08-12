@@ -8,33 +8,28 @@
   ></form-render-item>
 </template>
 
-<script>
+<script setup>
 import { computed, inject } from 'vue'
-import { FormRenderItem } from '@giantgo-render/components'
 
-export default {
-  name: 'defaultValueOption',
-  components: { FormRenderItem },
-  props: {
-    modelValue: [String, Number, Boolean, Date, Object, Array]
-  },
-  setup() {
-    const state = inject('state')
+defineOptions({
+  name: 'defaultValueOption'
+})
 
-    return {
-      component: computed(() => state.selected.component),
-      items: computed(() => state.selected.items),
-      options: computed(() =>
-        Object.assign({}, state.selected.options, {
-          label: '',
-          clearable: true,
-          disabled: false,
-          width: '100%'
-        })
-      )
-    }
-  }
-}
+defineProps({
+  modelValue: [String, Number, Boolean, Date, Object, Array]
+})
+
+const state = inject('state')
+const component = computed(() => state.selected.component)
+const items = computed(() => state.selected.items)
+const options = computed(() =>
+  Object.assign({}, state.selected.options, {
+    label: '',
+    clearable: true,
+    disabled: false,
+    width: '100%'
+  })
+)
 </script>
 
 <style lang="scss" scoped></style>

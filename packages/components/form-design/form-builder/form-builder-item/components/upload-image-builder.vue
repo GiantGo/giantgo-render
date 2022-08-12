@@ -23,44 +23,36 @@
   </el-form-item>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 
-export default {
-  name: 'uploadImageBuilder',
-  components: {},
-  props: {
-    path: String,
-    uuid: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
-  setup() {
-    const dialogImageUrl = ref('')
-    const dialogVisible = ref(false)
+defineOptions({
+  name: 'uploadImageBuilder'
+})
 
-    const handlePreview = (uploadFile) => {
-      dialogImageUrl.value = uploadFile.url
-      dialogVisible.value = true
-    }
-
-    const beforeRemove = () => {
-      ElMessage.warning('请在字段设置的默认值移除！')
-      return false
-    }
-
-    return {
-      dialogImageUrl,
-      dialogVisible,
-      handlePreview,
-      beforeRemove
+defineProps({
+  path: String,
+  uuid: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
+})
+
+const dialogImageUrl = ref('')
+const dialogVisible = ref(false)
+
+const handlePreview = (uploadFile) => {
+  dialogImageUrl.value = uploadFile.url
+  dialogVisible.value = true
+}
+
+const beforeRemove = () => {
+  ElMessage.warning('请在字段设置的默认值移除！')
+  return false
 }
 </script>
 

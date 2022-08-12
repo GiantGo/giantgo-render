@@ -6,15 +6,13 @@
   </el-radio-group>
 </template>
 
-<script>
-export default {
-  name: 'labelPositionOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'labelPositionOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

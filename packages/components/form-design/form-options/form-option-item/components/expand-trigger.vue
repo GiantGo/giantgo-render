@@ -5,15 +5,13 @@
   </el-radio-group>
 </template>
 
-<script>
-export default {
-  name: 'expandTriggerOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'expandTriggerOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

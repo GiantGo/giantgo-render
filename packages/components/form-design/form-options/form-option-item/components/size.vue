@@ -6,15 +6,13 @@
   </el-radio-group>
 </template>
 
-<script>
-export default {
-  name: 'sizeOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'sizeOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

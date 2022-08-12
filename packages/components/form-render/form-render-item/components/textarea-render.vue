@@ -13,22 +13,20 @@
   </el-form-item>
 </template>
 
-<script>
-export default {
-  name: 'textareaRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'textareaRender'
+})
+defineProps({
+  path: String,
+  modelValue: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

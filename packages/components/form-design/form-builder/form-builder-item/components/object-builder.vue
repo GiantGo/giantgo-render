@@ -33,43 +33,36 @@
   </draggable>
 </template>
 
-<script>
+<script setup>
 import draggable from 'vuedraggable/src/vuedraggable'
-import { inject, defineAsyncComponent } from 'vue'
+import { inject } from 'vue'
 
-export default {
-  name: 'objectBuilder',
-  components: {
-    draggable,
-    FormBuilderItem: defineAsyncComponent(() => import('../index.vue'))
-  },
-  props: {
-    path: String,
-    uuid: String,
-    items: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+defineOptions({
+  name: 'objectBuilder'
+})
+
+const props = defineProps({
+  path: String,
+  uuid: String,
+  items: {
+    type: Array,
+    default() {
+      return []
     }
   },
-  setup(props) {
-    const setSelected = inject('setSelected')
-    const updateFormItem = inject('updateFormItem')
-
-    return {
-      add: (evt) => setSelected(props.items[evt.newIndex].uuid),
-      dragStart: (evt) => setSelected(props.items[evt.oldIndex].uuid),
-      updateItems: (items) => updateFormItem({ uuid: props.uuid, items })
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
-}
+})
+
+const setSelected = inject('setSelected')
+const updateFormItem = inject('updateFormItem')
+const add = (evt) => setSelected(props.items[evt.newIndex].uuid)
+const dragStart = (evt) => setSelected(props.items[evt.oldIndex].uuid)
+const updateItems = (items) => updateFormItem({ uuid: props.uuid, items })
 </script>
 
 <style lang="scss"></style>

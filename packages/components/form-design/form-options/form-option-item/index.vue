@@ -30,7 +30,6 @@
 import { inject } from 'vue'
 import { isPrimitive, validateInterpolation } from '@giantgo-render/utils'
 import { optionKeyLabels } from '../../config'
-import Interpolation from './interpolation.vue'
 
 const components = {}
 Object.values(import.meta.globEager('./components/*.vue')).forEach(
@@ -39,7 +38,7 @@ Object.values(import.meta.globEager('./components/*.vue')).forEach(
 
 export default {
   name: 'formOption',
-  components: { Interpolation, ...components },
+  components: { ...components },
   props: {
     optionKey: String,
     optionValue: [String, Number, Boolean, Date, Object, Array]

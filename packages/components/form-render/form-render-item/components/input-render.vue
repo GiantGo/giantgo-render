@@ -16,22 +16,20 @@
   </el-form-item>
 </template>
 
-<script>
-export default {
-  name: 'inputRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'inputRender'
+})
+defineProps({
+  path: String,
+  modelValue: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

@@ -2,15 +2,13 @@
   <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
 </template>
 
-<script>
-export default {
-  name: 'showFileListOption',
-  components: {},
-  props: {
-    modelValue: Boolean
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'showFileListOption'
+})
+defineProps({
+  modelValue: Boolean
+})
 </script>
 
 <style lang="scss" scoped></style>

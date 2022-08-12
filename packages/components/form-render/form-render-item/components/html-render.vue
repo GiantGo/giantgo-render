@@ -2,22 +2,20 @@
   <div v-html="options.richContent"></div>
 </template>
 
-<script>
-export default {
-  name: 'htmlRender',
-  components: {},
-  props: {
-    path: String,
-    uuid: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'htmlRender'
+})
+defineProps({
+  path: String,
+  uuid: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

@@ -13,43 +13,34 @@
   <el-button link type="primary" @click="editData">编辑数据</el-button>
 </template>
 
-<script>
+<script setup>
 import { ElMessage } from 'element-plus'
 import { ref } from 'vue'
-import { CodeEditor } from '@giantgo-render/components'
 
-export default {
-  name: 'uploadHeadersOption',
-  components: { CodeEditor },
-  props: {
-    modelValue: Object
-  },
-  setup(props, { emit }) {
-    const code = ref('')
-    const codeDialog = ref(false)
+defineOptions({
+  name: 'uploadHeadersOption'
+})
+const props = defineProps({
+  modelValue: Object
+})
+const emit = defineEmits(['update:modelValue'])
 
-    const editData = () => {
-      codeDialog.value = true
-      code.value = JSON.stringify(props.modelValue, null, '\t')
-    }
+const code = ref('')
+const codeDialog = ref(false)
 
-    const setData = () => {
-      try {
-        const modelValue = JSON.parse(code.value)
-        emit('update:modelValue', modelValue)
-      } catch (e) {
-        return ElMessage.error('数据格式不正确')
-      }
-      codeDialog.value = false
-    }
+const editData = () => {
+  codeDialog.value = true
+  code.value = JSON.stringify(props.modelValue, null, '\t')
+}
 
-    return {
-      code,
-      codeDialog,
-      editData,
-      setData
-    }
+const setData = () => {
+  try {
+    const modelValue = JSON.parse(code.value)
+    emit('update:modelValue', modelValue)
+  } catch (e) {
+    return ElMessage.error('数据格式不正确')
   }
+  codeDialog.value = false
 }
 </script>
 

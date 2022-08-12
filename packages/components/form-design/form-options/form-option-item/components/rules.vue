@@ -38,85 +38,70 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ElMessage } from 'element-plus'
 import { reactive, ref, watch, onMounted } from 'vue'
 import { cloneDeep } from 'lodash-es'
-import { CodeEditor } from '@giantgo-render/components'
 
-export default {
-  name: 'rulesOption',
-  components: { CodeEditor },
-  props: {
-    modelValue: Array
-  },
-  setup(props, { emit }) {
-    const data = reactive({
-      required: { required: false, message: '必填项', trigger: 'blur' },
-      patterns: []
-    })
-    const code = ref('')
-    const codeDialog = ref(false)
+defineOptions({
+  name: 'rulesOption'
+})
+const props = defineProps({
+  modelValue: Array
+})
+const emit = defineEmits(['update:modelValue'])
+const data = reactive({
+  required: { required: false, message: '必填项', trigger: 'blur' },
+  patterns: []
+})
+const code = ref('')
+const codeDialog = ref(false)
 
-    const emitChange = () => {
-      emit('update:modelValue', [data.required, ...data.patterns])
-    }
-
-    const update = (index, key, value) => {
-      data.patterns[index][key] = value
-      emitChange()
-    }
-
-    const addRule = () => {
-      data.patterns.push({
-        pattern: '',
-        message: '',
-        trigger: 'blur'
-      })
-      emitChange()
-    }
-
-    const removeRule = (index) => {
-      data.patterns.splice(index, 1)
-      emitChange()
-    }
-
-    const editRules = () => {
-      codeDialog.value = true
-      code.value = JSON.stringify(data.patterns, null, '\t')
-    }
-
-    const setRules = () => {
-      try {
-        data.patterns = JSON.parse(code.value)
-      } catch (e) {
-        return ElMessage.error('数据格式不正确')
-      }
-      codeDialog.value = false
-      emitChange()
-    }
-
-    const setInternal = () => {
-      data.required = cloneDeep(props.modelValue[0])
-      data.patterns = cloneDeep(props.modelValue.slice(1))
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
-
-    return {
-      data,
-      code,
-      codeDialog,
-      update,
-      emitChange,
-      addRule,
-      removeRule,
-      editRules,
-      setRules
-    }
-  }
+const emitChange = () => {
+  emit('update:modelValue', [data.required, ...data.patterns])
 }
+
+const update = (index, key, value) => {
+  data.patterns[index][key] = value
+  emitChange()
+}
+
+const addRule = () => {
+  data.patterns.push({
+    pattern: '',
+    message: '',
+    trigger: 'blur'
+  })
+  emitChange()
+}
+
+const removeRule = (index) => {
+  data.patterns.splice(index, 1)
+  emitChange()
+}
+
+const editRules = () => {
+  codeDialog.value = true
+  code.value = JSON.stringify(data.patterns, null, '\t')
+}
+
+const setRules = () => {
+  try {
+    data.patterns = JSON.parse(code.value)
+  } catch (e) {
+    return ElMessage.error('数据格式不正确')
+  }
+  codeDialog.value = false
+  emitChange()
+}
+
+const setInternal = () => {
+  data.required = cloneDeep(props.modelValue[0])
+  data.patterns = cloneDeep(props.modelValue.slice(1))
+}
+
+onMounted(setInternal)
+watch(() => props.modelValue, setInternal)
 </script>
 
 <style lang="scss" scoped></style>

@@ -9,22 +9,20 @@
   </el-form-item>
 </template>
 
-<script>
-export default {
-  name: 'colorPickerRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'colorPickerRender'
+})
+defineProps({
+  path: String,
+  modelValue: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

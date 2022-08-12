@@ -10,22 +10,14 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { inject, computed } from 'vue'
-import { ElForm } from 'element-plus'
-import FormOptionItem from './form-option-item/index.vue'
 
-export default {
-  name: 'formSetting',
-  components: { ElForm, FormOptionItem },
-  props: {},
-  setup() {
-    const state = inject('state')
-    return {
-      selected: computed(() => state.selected)
-    }
-  }
-}
+defineOptions({
+  name: 'formSetting'
+})
+const state = inject('state')
+const selected = computed(() => state.selected)
 </script>
 
 <style lang="scss"></style>

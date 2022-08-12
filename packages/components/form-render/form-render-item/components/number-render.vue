@@ -10,22 +10,20 @@
   </el-form-item>
 </template>
 
-<script>
-export default {
-  name: 'numberRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: Number,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'numberRender'
+})
+defineProps({
+  path: String,
+  modelValue: Number,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

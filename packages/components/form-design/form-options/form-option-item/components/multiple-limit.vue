@@ -2,15 +2,13 @@
   <el-input-number :model-value="modelValue" @change="$emit('update:modelValue', $event)"></el-input-number>
 </template>
 
-<script>
-export default {
-  name: 'multipleLimitOption',
-  components: {},
-  props: {
-    modelValue: Number
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'multipleLimitOption'
+})
+defineProps({
+  modelValue: Number
+})
 </script>
 
 <style lang="scss" scoped></style>

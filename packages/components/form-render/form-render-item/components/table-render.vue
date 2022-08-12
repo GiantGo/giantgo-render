@@ -22,102 +22,91 @@
     </el-table>
   </el-form-item>
   <el-dialog :title="formDialog.title" v-model="formDialog.isShow" :close-on-click-modal="false" width="750px">
-    <form-render ref="formRender" @submit="save" />
+    <form-render ref="formRenderRef" @submit="save" />
   </el-dialog>
 </template>
 
-<script>
-import { reactive, ref, watch, onMounted, nextTick, inject, defineAsyncComponent } from 'vue'
+<script setup>
+import { reactive, ref, watch, onMounted, nextTick, inject } from 'vue'
 import { cloneDeep } from 'lodash-es'
 
-export default {
-  name: 'tableRender',
-  components: {
-    FormRender: defineAsyncComponent(() => import('../../index.vue'))
-  },
-  props: {
-    path: String,
-    modelValue: Array,
-    items: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+defineOptions({
+  name: 'tableRender'
+})
+
+const props = defineProps({
+  path: String,
+  modelValue: Array,
+  items: {
+    type: Array,
+    default() {
+      return []
     }
   },
-  setup(props, { emit }) {
-    const state = inject('state')
-    const data = reactive({
-      items: []
-    })
-    const formRender = ref(null)
-    const formDialog = reactive({
-      title: '',
-      isShow: false,
-      index: -1
-    })
-
-    const add = () => {
-      formDialog.title = '添加'
-      formDialog.isShow = true
-      formDialog.index = -1
-      nextTick(() => {
-        setTimeout(() => {
-          formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }))
-        }, 20)
-      })
-    }
-
-    const edit = (index, item) => {
-      formDialog.title = '编辑'
-      formDialog.isShow = true
-      formDialog.index = index
-      nextTick(() => {
-        setTimeout(() => {
-          formRender.value && formRender.value.init(Object.assign({}, state.formDesign, { items: props.items }), item)
-        }, 20)
-      })
-    }
-
-    const remove = (index) => {
-      data.items.splice(index, 1)
-      emit('update:modelValue', data.items)
-    }
-
-    const save = (result) => {
-      if (formDialog.index > -1) {
-        data.items.splice(formDialog.index, 1, result)
-      } else {
-        data.items.push(result)
-      }
-      formDialog.isShow = false
-      emit('update:modelValue', data.items)
-    }
-
-    const setInternal = () => {
-      data.items = cloneDeep(props.modelValue)
-    }
-
-    onMounted(setInternal)
-    watch(() => props.modelValue, setInternal)
-
-    return {
-      data,
-      formRender,
-      formDialog,
-      add,
-      edit,
-      remove,
-      save
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+const state = inject('state')
+const data = reactive({
+  items: []
+})
+const formRenderRef = ref(null)
+const formDialog = reactive({
+  title: '',
+  isShow: false,
+  index: -1
+})
+
+const add = () => {
+  formDialog.title = '添加'
+  formDialog.isShow = true
+  formDialog.index = -1
+  nextTick(() => {
+    setTimeout(() => {
+      formRenderRef.value && formRenderRef.value.init(Object.assign({}, state.formDesign, { items: props.items }))
+    }, 20)
+  })
 }
+
+const edit = (index, item) => {
+  formDialog.title = '编辑'
+  formDialog.isShow = true
+  formDialog.index = index
+  nextTick(() => {
+    setTimeout(() => {
+      formRenderRef.value && formRenderRef.value.init(Object.assign({}, state.formDesign, { items: props.items }), item)
+    }, 20)
+  })
+}
+
+const remove = (index) => {
+  data.items.splice(index, 1)
+  emit('update:modelValue', data.items)
+}
+
+const save = (result) => {
+  if (formDialog.index > -1) {
+    data.items.splice(formDialog.index, 1, result)
+  } else {
+    data.items.push(result)
+  }
+  formDialog.isShow = false
+  emit('update:modelValue', data.items)
+}
+
+const setInternal = () => {
+  data.items = cloneDeep(props.modelValue)
+}
+
+onMounted(setInternal)
+watch(() => props.modelValue, setInternal)
 </script>
 
 <style lang="scss" scoped>

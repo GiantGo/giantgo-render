@@ -19,15 +19,13 @@
   </el-select>
 </template>
 
-<script>
-export default {
-  name: 'fileSuffixOption',
-  components: {},
-  props: {
-    modelValue: Array
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'fileSuffixOption'
+})
+defineProps({
+  modelValue: Array
+})
 </script>
 
 <style lang="scss" scoped></style>

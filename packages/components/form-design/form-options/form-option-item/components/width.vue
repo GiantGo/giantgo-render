@@ -9,15 +9,13 @@
   ></el-slider>
 </template>
 
-<script>
-export default {
-  name: 'widthOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'widthOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

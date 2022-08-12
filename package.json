@@ -28,7 +28,7 @@
     "ace-builds": "^1.8.1",
     "axios": "^0.23.0",
     "china-area-data": "^5.0.1",
-    "element-plus": "2.2.12",
+    "element-plus": "2.2.13",
     "giantgo-render": "workspace:*",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.0",
@@ -46,6 +46,7 @@
     "sass": "^1.54.3",
     "unplugin-icons": "^0.14.8",
     "unplugin-vue-components": "^0.22.3",
+    "unplugin-vue-define-options": "^0.8.0",
     "vite": "^3.0.0"
   }
 }

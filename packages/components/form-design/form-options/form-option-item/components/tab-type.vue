@@ -5,15 +5,13 @@
   </el-radio-group>
 </template>
 
-<script>
-export default {
-  name: 'tabTypeOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'tabTypeOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

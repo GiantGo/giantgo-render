@@ -2,15 +2,13 @@
   <el-input type="text" :model-value="modelValue" @input="$emit('update:modelValue', $event)"></el-input>
 </template>
 
-<script>
-export default {
-  name: 'formatOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'formatOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

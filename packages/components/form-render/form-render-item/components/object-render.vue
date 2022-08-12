@@ -17,38 +17,30 @@
   </div>
 </template>
 
-<script>
-import { defineAsyncComponent } from 'vue'
+<script setup>
+defineOptions({
+  name: 'objectRender'
+})
 
-export default {
-  name: 'objectRender',
-  components: {
-    FormRenderItem: defineAsyncComponent(() => import('../index.vue'))
-  },
-  props: {
-    path: String,
-    modelValue: Object,
-    items: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+const props = defineProps({
+  path: String,
+  modelValue: Object,
+  items: {
+    type: Array,
+    default() {
+      return []
     }
   },
-  setup(props, { emit }) {
-    const update = (key, value) => {
-      emit('update:modelValue', Object.assign({}, props.modelValue, { [key]: value }))
-    }
-    return {
-      update
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
+})
+const emit = defineEmits(['update:modelValue'])
+const update = (key, value) => {
+  emit('update:modelValue', Object.assign({}, props.modelValue, { [key]: value }))
 }
 </script>
 

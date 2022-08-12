@@ -13,42 +13,35 @@
   </el-form-item>
 </template>
 
-<script>
+<script setup>
 import { ref, watch } from 'vue'
-import { Signature } from '@giantgo-render/components'
 
-export default {
-  name: 'signatureBuilder',
-  components: { Signature },
-  props: {
-    path: String,
-    uuid: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
-  setup(props) {
-    const signatureRef = ref(null)
-
-    watch(
-      () => props.options.defaultValue,
-      (value) => {
-        if (value) {
-          signatureRef.value.fromDataURL(value)
-        } else {
-          signatureRef.value.clearSignature()
-        }
-      }
-    )
-
-    return {
-      signatureRef
+defineOptions({
+  name: 'signatureBuilder'
+})
+const props = defineProps({
+  path: String,
+  uuid: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
-}
+})
+
+const signatureRef = ref(null)
+
+watch(
+  () => props.options.defaultValue,
+  (value) => {
+    if (value) {
+      signatureRef.value.fromDataURL(value)
+    } else {
+      signatureRef.value.clearSignature()
+    }
+  }
+)
 </script>
 
 <style lang="scss" scoped></style>

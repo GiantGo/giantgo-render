@@ -13,15 +13,13 @@
   ></el-slider>
 </template>
 
-<script>
-export default {
-  name: 'labelWidthOption',
-  components: {},
-  props: {
-    modelValue: String
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'labelWidthOption'
+})
+defineProps({
+  modelValue: String
+})
 </script>
 
 <style lang="scss" scoped></style>

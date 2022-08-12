@@ -13,22 +13,20 @@
   </el-form-item>
 </template>
 
-<script>
-export default {
-  name: 'timePickerRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: Date,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'timePickerRender'
+})
+defineProps({
+  path: String,
+  modelValue: Date,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

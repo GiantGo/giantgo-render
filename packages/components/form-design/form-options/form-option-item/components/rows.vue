@@ -8,15 +8,13 @@
   ></el-slider>
 </template>
 
-<script>
-export default {
-  name: 'rowsOption',
-  components: {},
-  props: {
-    modelValue: Number
-  },
-  setup() {}
-}
+<script setup>
+defineOptions({
+  name: 'rowsOption'
+})
+defineProps({
+  modelValue: Number
+})
 </script>
 
 <style lang="scss" scoped></style>

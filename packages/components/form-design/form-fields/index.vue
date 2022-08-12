@@ -27,38 +27,33 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
 import { cloneDeep } from 'lodash-es'
 import { uuid as makeId } from '@giantgo-render/utils'
 import { inputs, pickers, complexs, assists, layouts } from '../config.js'
 
-export default {
-  components: { draggable },
-  setup() {
-    const uuids = inject('uuids')
-    const groups = inject('groups')
-    const register = inject('register')
+defineOptions({
+  name: 'formFields'
+})
 
-    register('输入组件', inputs, 1)
-    register('选择组件', pickers, 2)
-    register('复杂组件', complexs, 3)
-    register('展示组件', assists, 4)
-    register('布局组件', layouts, 5)
+const uuids = inject('uuids')
+const groups = inject('groups')
+const register = inject('register')
 
-    return {
-      uuids,
-      groups,
-      clone: (original) => {
-        const item = cloneDeep(original)
-        item.uuid = item.uuid || item.component.replaceAll('-', '_') + '_' + makeId(8)
-        item.options.key = item.options.key || item.uuid
-        return item
-      }
-    }
-  }
+const clone = (original) => {
+  const item = cloneDeep(original)
+  item.uuid = item.uuid || item.component.replaceAll('-', '_') + '_' + makeId(8)
+  item.options.key = item.options.key || item.uuid
+  return item
 }
+
+register('输入组件', inputs, 1)
+register('选择组件', pickers, 2)
+register('复杂组件', complexs, 3)
+register('展示组件', assists, 4)
+register('布局组件', layouts, 5)
 </script>
 
 <style lang="scss"></style>

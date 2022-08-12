@@ -15,30 +15,27 @@
   </el-card>
 </template>
 
-<script>
-import objectRender from './object-render.vue'
+<script setup>
+defineOptions({
+  name: 'cardRender'
+})
 
-export default {
-  name: 'cardRender',
-  components: { objectRender },
-  props: {
-    path: String,
-    modelValue: Object,
-    items: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+defineProps({
+  path: String,
+  modelValue: Object,
+  items: {
+    type: Array,
+    default() {
+      return []
     }
   },
-  setup() {}
-}
+  options: {
+    type: Object,
+    default() {
+      return {}
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

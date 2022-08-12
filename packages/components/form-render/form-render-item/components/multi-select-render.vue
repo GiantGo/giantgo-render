@@ -18,32 +18,27 @@
   </el-form-item>
 </template>
 
-<script>
+<script setup>
 import { inject } from 'vue'
 import { useOptions } from '@giantgo-render/hooks'
 
-export default {
-  name: 'multiSelectRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: Array,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
-  setup(props) {
-    const state = inject('state')
-    const { items } = useOptions(props, state.formDesign)
+defineOptions({
+  name: 'multiSelectRender'
+})
 
-    return {
-      items
+const props = defineProps({
+  path: String,
+  modelValue: Array,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
-}
+})
+
+const state = inject('state')
+const { items } = useOptions(props, state.formDesign)
 </script>
 
 <style lang="scss" scoped></style>

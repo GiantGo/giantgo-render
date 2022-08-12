@@ -20,22 +20,15 @@
   </el-form>
 </template>
 
-<script>
+<script setup>
 import { computed, inject } from 'vue'
-import FormBuilderItem from './form-builder-item/index.vue'
 
-export default {
-  name: 'formBuilder',
-  components: { FormBuilderItem },
-  props: {},
-  setup() {
-    const state = inject('state')
+defineOptions({
+  name: 'formBuilder'
+})
 
-    return {
-      formDesign: computed(() => state.formDesign)
-    }
-  }
-}
+const state = inject('state')
+const formDesign = computed(() => state.formDesign)
 </script>
 
 <style lang="scss"></style>

@@ -12,22 +12,20 @@
   </el-form-item>
 </template>
 
-<script>
-export default {
-  name: 'switchRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: Boolean,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+<script setup>
+defineOptions({
+  name: 'switchRender'
+})
+defineProps({
+  path: String,
+  modelValue: Boolean,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
-  },
-  setup() {}
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>

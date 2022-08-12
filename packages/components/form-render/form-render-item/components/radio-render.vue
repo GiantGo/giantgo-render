@@ -12,32 +12,26 @@
   </el-form-item>
 </template>
 
-<script>
+<script setup>
 import { inject } from 'vue'
 import { useOptions } from '@giantgo-render/hooks'
 
-export default {
-  name: 'radioRender',
-  components: {},
-  props: {
-    path: String,
-    modelValue: String,
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
-    }
-  },
-  setup(props) {
-    const state = inject('state')
-    const { items } = useOptions(props, state.formDesign)
+defineOptions({
+  name: 'radioRender'
+})
 
-    return {
-      items
+const props = defineProps({
+  path: String,
+  modelValue: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
-}
+})
+const state = inject('state')
+const { items } = useOptions(props, state.formDesign)
 </script>
 
 <style lang="scss" scoped></style>

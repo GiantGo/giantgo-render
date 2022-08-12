@@ -137,133 +137,118 @@
   </el-dialog>
 </template>
 
-<script>
+<script setup>
 import { ref, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
-import { CodeEditor } from '@giantgo-render/components'
 import { cloneDeep } from 'lodash-es'
 import { uuid, isEmptyObject, createRequest } from '@giantgo-render/utils'
 
-export default {
-  name: 'remotesOption',
-  components: { CodeEditor },
-  props: {
-    modelValue: Object
-  },
-  setup(props, { emit }) {
-    const form = reactive({
-      remotes: {},
-      remoteTabs: {},
-      remoteCollapses: {},
-      remoteResults: {},
-      loading: false
+defineOptions({
+  name: 'remotesOption'
+})
+const props = defineProps({
+  modelValue: Object
+})
+const emit = defineEmits('update:modelValue')
+
+const form = reactive({
+  remotes: {},
+  remoteTabs: {},
+  remoteCollapses: {},
+  remoteResults: {},
+  loading: false
+})
+const formRef = ref(null)
+const remoteTabsValue = ref('')
+const remoteDialog = ref(false)
+
+const showRemote = () => {
+  remoteDialog.value = true
+  form.remotes = cloneDeep(props.modelValue)
+  form.remoteTabs = {}
+  form.remoteCollapses = {}
+  form.remoteResults = {}
+  if (form.remotes && !isEmptyObject(form.remotes)) {
+    const uuids = Object.keys(form.remotes)
+    remoteTabsValue.value = uuids[0]
+    uuids.forEach((uuid) => {
+      form.remoteTabs[uuid] = 'headers'
+      form.remoteCollapses[uuid] = ['request', 'response', 'error']
+      form.remoteResults[uuid] = ''
     })
-    const formRef = ref(null)
-    const remoteTabsValue = ref('')
-    const remoteDialog = ref(false)
-
-    const showRemote = () => {
-      remoteDialog.value = true
-      form.remotes = cloneDeep(props.modelValue)
-      form.remoteTabs = {}
-      form.remoteCollapses = {}
-      form.remoteResults = {}
-      if (form.remotes && !isEmptyObject(form.remotes)) {
-        const uuids = Object.keys(form.remotes)
-        remoteTabsValue.value = uuids[0]
-        uuids.forEach((uuid) => {
-          form.remoteTabs[uuid] = 'headers'
-          form.remoteCollapses[uuid] = ['request', 'response', 'error']
-          form.remoteResults[uuid] = ''
-        })
-      }
-    }
-
-    const saveRemote = () => {
-      formRef.value.validate((valid, error) => {
-        if (valid) {
-          emit('update:modelValue', form.remotes)
-          remoteDialog.value = false
-        } else {
-          const firstError = Object.keys(error)[0]
-          remoteTabsValue.value = firstError.split('.')[1]
-        }
-      })
-    }
-
-    const editRemote = (target, action) => {
-      if (action === 'add') {
-        const newUuid = 'remote_' + uuid(8)
-        remoteTabsValue.value = newUuid
-        form.remotes[newUuid] = {
-          title: '',
-          url: '',
-          method: 'get',
-          headers: [],
-          params: [],
-          data: [],
-          requestHandler: 'return config;',
-          responseHandler: 'return response.data;',
-          errorHandler: 'return Promise.reject(error);'
-        }
-        form.remoteTabs[newUuid] = 'headers'
-        form.remoteCollapses[newUuid] = ['request', 'response', 'error']
-        form.remoteResults[newUuid] = ''
-      } else if (action === 'remove') {
-        if (remoteTabsValue.value === target) {
-          const uuids = Object.keys(form.remotes)
-          const index = uuids.findIndex((uuid) => uuid === target)
-          const next = uuids[index + 1] || uuids[index - 1]
-          if (next) {
-            remoteTabsValue.value = next
-          }
-        }
-
-        delete form.remotes[target]
-        delete form.remoteTabs[target]
-        delete form.remoteCollapses[target]
-        delete form.remoteResults[target]
-      }
-    }
-
-    const addKeyValue = (uuid, attr) => {
-      form.remotes[uuid][attr].push({ key: '', value: '' })
-    }
-
-    const removeKeyValue = (uuid, attr, targetIndex) => {
-      form.remotes[uuid][attr].splice(targetIndex, 1)
-    }
-
-    const testRequest = () => {
-      formRef.value.validateField('remotes.' + remoteTabsValue.value + '.url').then(() => {
-        form.loading = true
-        createRequest(form.remotes[remoteTabsValue.value])
-          .then((data) => {
-            form.remoteResults[remoteTabsValue.value] = JSON.stringify(data, null, '\t')
-            form.loading = false
-            ElMessage.success('请求成功')
-          })
-          .catch((error) => {
-            form.remoteResults[remoteTabsValue.value] = ''
-            form.loading = false
-            ElMessage.error(error.message)
-          })
-      })
-    }
-
-    return {
-      form,
-      formRef,
-      remoteTabsValue,
-      remoteDialog,
-      showRemote,
-      saveRemote,
-      editRemote,
-      addKeyValue,
-      removeKeyValue,
-      testRequest
-    }
   }
+}
+
+const saveRemote = () => {
+  formRef.value.validate((valid, error) => {
+    if (valid) {
+      emit('update:modelValue', form.remotes)
+      remoteDialog.value = false
+    } else {
+      const firstError = Object.keys(error)[0]
+      remoteTabsValue.value = firstError.split('.')[1]
+    }
+  })
+}
+
+const editRemote = (target, action) => {
+  if (action === 'add') {
+    const newUuid = 'remote_' + uuid(8)
+    remoteTabsValue.value = newUuid
+    form.remotes[newUuid] = {
+      title: '',
+      url: '',
+      method: 'get',
+      headers: [],
+      params: [],
+      data: [],
+      requestHandler: 'return config;',
+      responseHandler: 'return response.data;',
+      errorHandler: 'return Promise.reject(error);'
+    }
+    form.remoteTabs[newUuid] = 'headers'
+    form.remoteCollapses[newUuid] = ['request', 'response', 'error']
+    form.remoteResults[newUuid] = ''
+  } else if (action === 'remove') {
+    if (remoteTabsValue.value === target) {
+      const uuids = Object.keys(form.remotes)
+      const index = uuids.findIndex((uuid) => uuid === target)
+      const next = uuids[index + 1] || uuids[index - 1]
+      if (next) {
+        remoteTabsValue.value = next
+      }
+    }
+
+    delete form.remotes[target]
+    delete form.remoteTabs[target]
+    delete form.remoteCollapses[target]
+    delete form.remoteResults[target]
+  }
+}
+
+const addKeyValue = (uuid, attr) => {
+  form.remotes[uuid][attr].push({ key: '', value: '' })
+}
+
+const removeKeyValue = (uuid, attr, targetIndex) => {
+  form.remotes[uuid][attr].splice(targetIndex, 1)
+}
+
+const testRequest = () => {
+  formRef.value.validateField('remotes.' + remoteTabsValue.value + '.url').then(() => {
+    form.loading = true
+    createRequest(form.remotes[remoteTabsValue.value])
+      .then((data) => {
+        form.remoteResults[remoteTabsValue.value] = JSON.stringify(data, null, '\t')
+        form.loading = false
+        ElMessage.success('请求成功')
+      })
+      .catch((error) => {
+        form.remoteResults[remoteTabsValue.value] = ''
+        form.loading = false
+        ElMessage.error(error.message)
+      })
+  })
 }
 </script>
 

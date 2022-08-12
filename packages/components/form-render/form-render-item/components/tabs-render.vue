@@ -12,56 +12,47 @@
   </el-tabs>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted, inject } from 'vue'
-import objectRender from './object-render.vue'
-
-export default {
-  name: 'tabsRender',
-  components: { objectRender },
-  props: {
-    path: String,
-    modelValue: Object,
-    items: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
-    options: {
-      type: Object,
-      default() {
-        return {}
-      }
+defineOptions({
+  name: 'tabsRender'
+})
+const props = defineProps({
+  path: String,
+  modelValue: Object,
+  items: {
+    type: Array,
+    default() {
+      return []
     }
   },
-  setup(props, { emit }) {
-    const tabsValue = ref('')
-    const emitter = inject('emitter')
-
-    const update = (key, value) => {
-      emit('update:modelValue', Object.assign({}, props.modelValue, { [key]: value }))
-    }
-
-    onMounted(() => {
-      tabsValue.value = props.items.length ? props.items[0].options.key : ''
-
-      emitter.on('validateError', (path) => {
-        for (let i = 0; i < props.items.length; i++) {
-          const item = props.items[i]
-          if (path.indexOf(props.path + '.' + item.options.key) > -1) {
-            return (tabsValue.value = item.options.key)
-          }
-        }
-      })
-    })
-
-    return {
-      tabsValue,
-      update
+  options: {
+    type: Object,
+    default() {
+      return {}
     }
   }
+})
+const emit = defineEmits(['update:modelValue'])
+const tabsValue = ref('')
+const emitter = inject('emitter')
+
+const update = (key, value) => {
+  emit('update:modelValue', Object.assign({}, props.modelValue, { [key]: value }))
 }
+
+onMounted(() => {
+  tabsValue.value = props.items.length ? props.items[0].options.key : ''
+
+  emitter.on('validateError', (path) => {
+    for (let i = 0; i < props.items.length; i++) {
+      const item = props.items[i]
+      if (path.indexOf(props.path + '.' + item.options.key) > -1) {
+        return (tabsValue.value = item.options.key)
+      }
+    }
+  })
+})
 </script>
 
 <style lang="scss" scoped></style>
