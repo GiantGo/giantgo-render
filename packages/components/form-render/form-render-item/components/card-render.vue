@@ -16,12 +16,11 @@
 </template>
 
 <script>
-import { ElCard } from 'element-plus'
 import objectRender from './object-render.vue'
 
 export default {
   name: 'cardRender',
-  components: { ElCard, objectRender },
+  components: { objectRender },
   props: {
     path: String,
     modelValue: Object,

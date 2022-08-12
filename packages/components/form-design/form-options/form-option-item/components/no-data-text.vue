@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { ElInput } from 'element-plus'
-
 export default {
   name: 'noDataTextOption',
-  components: { ElInput },
+  components: {},
   props: {
     modelValue: String
   },

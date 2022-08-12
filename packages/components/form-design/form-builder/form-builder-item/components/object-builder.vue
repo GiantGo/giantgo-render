@@ -39,7 +39,10 @@ import { inject, defineAsyncComponent } from 'vue'
 
 export default {
   name: 'objectBuilder',
-  components: { draggable, FormBuilderItem: defineAsyncComponent(() => import('../index.vue')) },
+  components: {
+    draggable,
+    FormBuilderItem: defineAsyncComponent(() => import('../index.vue'))
+  },
   props: {
     path: String,
     uuid: String,

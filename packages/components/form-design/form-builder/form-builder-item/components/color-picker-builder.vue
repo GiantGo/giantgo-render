@@ -10,11 +10,9 @@
 </template>
 
 <script>
-import { ElFormItem, ElColorPicker } from 'element-plus'
-
 export default {
   name: 'colorPickerBuilder',
-  components: { ElFormItem, ElColorPicker },
+  components: {},
   props: {
     path: String,
     uuid: String,

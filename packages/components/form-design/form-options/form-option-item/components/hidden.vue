@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { ElCheckbox } from 'element-plus'
-
 export default {
   name: 'hiddenOption',
-  components: { ElCheckbox },
+  components: {},
   props: {
     modelValue: Boolean
   },

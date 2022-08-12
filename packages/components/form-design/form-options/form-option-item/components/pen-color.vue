@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { ElColorPicker } from 'element-plus'
-
 export default {
   name: 'penColorOption',
-  components: { ElColorPicker },
+  components: {},
   props: {
     modelValue: String
   },

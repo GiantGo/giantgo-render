@@ -15,11 +15,9 @@
 </template>
 
 <script>
-import { ElFormItem, ElSlider } from 'element-plus'
-
 export default {
   name: 'sliderBuilder',
-  components: { ElFormItem, ElSlider },
+  components: {},
   props: {
     path: String,
     uuid: String,

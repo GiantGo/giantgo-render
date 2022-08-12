@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { ElCheckbox } from 'element-plus'
-
 export default {
   name: 'showAlphaOption',
-  components: { ElCheckbox },
+  components: {},
   props: {
     modelValue: Boolean
   },

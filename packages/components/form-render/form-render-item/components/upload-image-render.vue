@@ -28,13 +28,13 @@
 </template>
 
 <script>
-import { ElFormItem, ElUpload, ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { ref, reactive, watch, onMounted } from 'vue'
 import { cloneDeep } from 'lodash-es'
 
 export default {
   name: 'uploadImageRender',
-  components: { ElFormItem, ElUpload },
+  components: {},
   props: {
     path: String,
     modelValue: Array,

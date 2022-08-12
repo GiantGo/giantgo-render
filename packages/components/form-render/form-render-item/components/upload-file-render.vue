@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import { ElFormItem, ElUpload, ElButton, ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { reactive, watch, onMounted } from 'vue'
 import { cloneDeep } from 'lodash-es'
 
 export default {
   name: 'uploadFileRender',
-  components: { ElFormItem, ElUpload, ElButton },
+  components: {},
   props: {
     path: String,
     modelValue: Array,

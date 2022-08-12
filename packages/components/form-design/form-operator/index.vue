@@ -18,12 +18,12 @@
     <el-divider direction="vertical"></el-divider>
     <el-tooltip effect="dark" content="后退" placement="bottom">
       <el-icon class="icon" :class="{ disabled: current <= 0 }" @click="revoke">
-        <i-carbon-reset />
+        <i-carbon-undo />
       </el-icon>
     </el-tooltip>
     <el-tooltip effect="dark" content="前进" placement="bottom">
       <el-icon class="icon" :class="{ disabled: current >= cached.length - 1 }" @click="forward">
-        <i-carbon-restart />
+        <i-carbon-redo />
       </el-icon>
     </el-tooltip>
     <el-dialog title="预览" v-model="previewDialog" destroy-on-close append-to-body width="750px">
@@ -55,17 +55,12 @@
 
 <script>
 import { ref, nextTick, inject, reactive, computed } from 'vue'
-import { ElTooltip, ElDialog, ElButton, ElDivider, ElMessage, ElIcon } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { CodeEditor, FormRender } from '@giantgo-render/components'
 import { cloneDeep } from 'lodash-es'
 
 export default {
   components: {
-    ElTooltip,
-    ElDialog,
-    ElButton,
-    ElDivider,
-    ElIcon,
     CodeEditor,
     FormRender
   },

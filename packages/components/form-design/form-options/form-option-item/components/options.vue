@@ -50,14 +50,14 @@
 </template>
 
 <script>
-import { ElRow, ElCol, ElButton, ElDialog, ElInput, ElMessage, ElIcon } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { reactive, ref, watch, onMounted, inject } from 'vue'
 import { cloneDeep } from 'lodash-es'
 import { CodeEditor } from '@giantgo-render/components'
 
 export default {
   name: 'optionsOption',
-  components: { ElRow, ElCol, ElButton, ElDialog, ElInput, ElIcon, CodeEditor },
+  components: { CodeEditor },
   props: {
     modelValue: Object
   },

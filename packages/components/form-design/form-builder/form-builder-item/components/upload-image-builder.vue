@@ -25,11 +25,11 @@
 
 <script>
 import { ref } from 'vue'
-import { ElFormItem, ElUpload, ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus'
 
 export default {
   name: 'uploadImageBuilder',
-  components: { ElFormItem, ElUpload },
+  components: {},
   props: {
     path: String,
     uuid: String,

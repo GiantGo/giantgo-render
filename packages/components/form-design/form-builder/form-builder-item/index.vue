@@ -19,7 +19,6 @@
 
 <script>
 import { computed, inject } from 'vue'
-import { ElIcon } from 'element-plus'
 
 const components = {}
 Object.values(import.meta.globEager('./components/*.vue')).forEach(
@@ -28,7 +27,7 @@ Object.values(import.meta.globEager('./components/*.vue')).forEach(
 
 export default {
   name: 'formBuilderItem',
-  components: { ...components, ElIcon },
+  components: { ...components },
   props: {
     path: String,
     component: String,

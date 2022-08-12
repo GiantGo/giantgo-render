@@ -9,11 +9,9 @@
 </template>
 
 <script>
-import { ElFormItem, ElInput } from 'element-plus'
-
 export default {
   name: 'labelRender',
-  components: { ElFormItem, ElInput },
+  components: {},
   props: {
     path: String,
     uuid: String,

@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import { ElDialog, ElButton, ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { ref } from 'vue'
 import { CodeEditor } from '@giantgo-render/components'
 
 export default {
   name: 'uploadDataOption',
-  components: { ElDialog, ElButton, CodeEditor },
+  components: { CodeEditor },
   props: {
     modelValue: Object
   },

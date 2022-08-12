@@ -6,11 +6,9 @@
 </template>
 
 <script>
-import { ElInputNumber } from 'element-plus'
-
 export default {
   name: 'maxlengthOption',
-  components: { ElInputNumber },
+  components: {},
   props: {
     modelValue: Number
   },

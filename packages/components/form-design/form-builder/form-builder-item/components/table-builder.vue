@@ -5,12 +5,11 @@
 </template>
 
 <script>
-import { ElFormItem } from 'element-plus'
 import objectBuilder from './object-builder.vue'
 
 export default {
   name: 'tableBuilder',
-  components: { ElFormItem, objectBuilder },
+  components: { objectBuilder },
   props: {
     path: String,
     uuid: String,

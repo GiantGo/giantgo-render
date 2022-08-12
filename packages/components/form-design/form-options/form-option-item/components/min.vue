@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { ElInputNumber } from 'element-plus'
-
 export default {
   name: 'minOption',
-  components: { ElInputNumber },
+  components: {},
   props: {
     modelValue: Number
   },

@@ -9,13 +9,12 @@
 </template>
 
 <script>
-import { ElFormItem, ElCheckboxGroup, ElCheckbox } from 'element-plus'
 import { inject } from 'vue'
 import { useOptions } from '@giantgo-render/hooks'
 
 export default {
   name: 'checkboxBuilder',
-  components: { ElFormItem, ElCheckboxGroup, ElCheckbox },
+  components: {},
   props: {
     path: String,
     uuid: String,

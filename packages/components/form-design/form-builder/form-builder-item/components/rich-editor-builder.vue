@@ -15,13 +15,12 @@
 <script>
 import { onBeforeUnmount, shallowRef } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
-import { ElFormItem } from 'element-plus'
 
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
 export default {
   name: 'richEditorBuilder',
-  components: { ElFormItem, Editor, Toolbar },
+  components: { Editor, Toolbar },
   props: {
     path: String,
     uuid: String,

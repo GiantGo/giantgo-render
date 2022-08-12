@@ -15,11 +15,10 @@
 
 <script>
 import { reactive, onMounted, watch } from 'vue'
-import { ElRow, ElCol, ElInputNumber } from 'element-plus'
 
 export default {
   name: 'paddingOption',
-  components: { ElRow, ElCol, ElInputNumber },
+  components: {},
   props: {
     modelValue: String
   },

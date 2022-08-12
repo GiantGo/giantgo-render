@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { ElInput } from 'element-plus'
-
 export default {
   name: 'contentOption',
-  components: { ElInput },
+  components: {},
   props: {
     modelValue: String
   },

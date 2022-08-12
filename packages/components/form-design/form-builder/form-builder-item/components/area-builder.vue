@@ -15,13 +15,12 @@
 </template>
 
 <script>
-import { ElFormItem, ElCascader } from 'element-plus'
 import { reactive } from 'vue'
 import { areaTree } from '@giantgo-render/utils'
 
 export default {
   name: 'areaBuilder',
-  components: { ElFormItem, ElCascader },
+  components: {},
   props: {
     path: String,
     uuid: String,

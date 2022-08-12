@@ -21,12 +21,11 @@
 
 <script>
 import { getInterpolation } from '@giantgo-render/utils'
-import { ElAutocomplete } from 'element-plus'
 import { ref } from 'vue'
 
 export default {
   name: 'interpolation',
-  components: { ElAutocomplete },
+  components: {},
   props: {
     modelValue: String
   },

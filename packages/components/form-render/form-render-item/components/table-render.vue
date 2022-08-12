@@ -28,18 +28,11 @@
 
 <script>
 import { reactive, ref, watch, onMounted, nextTick, inject, defineAsyncComponent } from 'vue'
-import { ElFormItem, ElButton, ElTable, ElTableColumn, ElDialog, ElIcon } from 'element-plus'
 import { cloneDeep } from 'lodash-es'
 
 export default {
   name: 'tableRender',
   components: {
-    ElFormItem,
-    ElButton,
-    ElTable,
-    ElTableColumn,
-    ElDialog,
-    ElIcon,
     FormRender: defineAsyncComponent(() => import('../../index.vue'))
   },
   props: {

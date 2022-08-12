@@ -20,11 +20,9 @@
 </template>
 
 <script>
-import { ElSelect } from 'element-plus'
-
 export default {
   name: 'fileSuffixOption',
-  components: { ElSelect },
+  components: {},
   props: {
     modelValue: Array
   },

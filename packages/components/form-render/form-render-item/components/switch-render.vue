@@ -13,11 +13,9 @@
 </template>
 
 <script>
-import { ElFormItem, ElSwitch } from 'element-plus'
-
 export default {
   name: 'switchRender',
-  components: { ElFormItem, ElSwitch },
+  components: {},
   props: {
     path: String,
     modelValue: Boolean,

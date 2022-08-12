@@ -22,12 +22,11 @@
 
 <script>
 import { computed, inject } from 'vue'
-import { ElEmpty, ElForm } from 'element-plus'
 import FormBuilderItem from './form-builder-item/index.vue'
 
 export default {
   name: 'formBuilder',
-  components: { ElEmpty, ElForm, FormBuilderItem },
+  components: { FormBuilderItem },
   props: {},
   setup() {
     const state = inject('state')

@@ -14,11 +14,9 @@
 </template>
 
 <script>
-import { ElSlider } from 'element-plus'
-
 export default {
   name: 'labelWidthOption',
-  components: { ElSlider },
+  components: {},
   props: {
     modelValue: String
   },

@@ -12,11 +12,10 @@
 
 <script>
 import { ref, watch, onMounted } from 'vue'
-import { ElInput, ElSelect, ElOption } from 'element-plus'
 
 export default {
   name: 'uploadSizeOption',
-  components: { ElInput, ElSelect, ElOption },
+  components: {},
   props: {
     modelValue: String
   },

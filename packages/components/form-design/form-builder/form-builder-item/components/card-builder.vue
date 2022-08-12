@@ -10,12 +10,11 @@
 </template>
 
 <script>
-import { ElCard } from 'element-plus'
 import objectBuilder from './object-builder.vue'
 
 export default {
   name: 'cardBuilder',
-  components: { ElCard, objectBuilder },
+  components: { objectBuilder },
   props: {
     path: String,
     uuid: String,

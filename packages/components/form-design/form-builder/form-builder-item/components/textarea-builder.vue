@@ -14,11 +14,9 @@
 </template>
 
 <script>
-import { ElFormItem, ElInput } from 'element-plus'
-
 export default {
   name: 'textareaBuilder',
-  components: { ElFormItem, ElInput },
+  components: {},
   props: {
     path: String,
     uuid: String,

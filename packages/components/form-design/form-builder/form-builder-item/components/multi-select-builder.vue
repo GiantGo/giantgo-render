@@ -19,13 +19,12 @@
 </template>
 
 <script>
-import { ElFormItem, ElSelect, ElOption } from 'element-plus'
 import { inject } from 'vue'
 import { useOptions } from '@giantgo-render/hooks'
 
 export default {
   name: 'multiSelectBuilder',
-  components: { ElFormItem, ElSelect, ElOption },
+  components: {},
   props: {
     path: String,
     uuid: String,

@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { ElInput } from 'element-plus'
-
 export default {
   name: 'suffixIconOption',
-  components: { ElInput },
+  components: {},
   props: {
     modelValue: String
   },

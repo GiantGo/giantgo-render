@@ -14,11 +14,9 @@
 </template>
 
 <script>
-import { ElFormItem, ElDatePicker } from 'element-plus'
-
 export default {
   name: 'datePickerBuilder',
-  components: { ElFormItem, ElDatePicker },
+  components: {},
   props: {
     path: String,
     uuid: String,

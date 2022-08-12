@@ -15,13 +15,12 @@
 </template>
 
 <script>
-import { ElFormItem, ElCascader } from 'element-plus'
 import { inject } from 'vue'
 import { useOptions } from '@giantgo-render/hooks'
 
 export default {
   name: 'cascaderBuilder',
-  components: { ElFormItem, ElCascader },
+  components: {},
   props: {
     path: String,
     uuid: String,

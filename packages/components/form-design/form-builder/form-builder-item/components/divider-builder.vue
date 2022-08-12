@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { ElDivider } from 'element-plus'
-
 export default {
   name: 'dividerBuilder',
-  components: { ElDivider },
+  components: {},
   props: {
     path: String,
     uuid: String,

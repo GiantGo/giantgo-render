@@ -20,11 +20,10 @@
 <script>
 import { ref, watch, onMounted } from 'vue'
 import { Signature } from '@giantgo-render/components'
-import { ElButton } from 'element-plus'
 
 export default {
   name: 'signatureRender',
-  components: { Signature, ElButton },
+  components: { Signature },
   props: {
     path: String,
     modelValue: String,

@@ -12,11 +12,9 @@
 </template>
 
 <script>
-import { ElFormItem, ElRate } from 'element-plus'
-
 export default {
   name: 'rateRender',
-  components: { ElFormItem, ElRate },
+  components: {},
   props: {
     path: String,
     modelValue: Number,

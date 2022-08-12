@@ -9,11 +9,9 @@
 </template>
 
 <script>
-import { ElSlider } from 'element-plus'
-
 export default {
   name: 'rowsOption',
-  components: { ElSlider },
+  components: {},
   props: {
     modelValue: Number
   },

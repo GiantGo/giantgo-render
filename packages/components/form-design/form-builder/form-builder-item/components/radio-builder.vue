@@ -9,13 +9,12 @@
 </template>
 
 <script>
-import { ElFormItem, ElRadioGroup, ElRadio } from 'element-plus'
 import { inject } from 'vue'
 import { useOptions } from '@giantgo-render/hooks'
 
 export default {
   name: 'radioBuilder',
-  components: { ElFormItem, ElRadioGroup, ElRadio },
+  components: {},
   props: {
     path: String,
     uuid: String,

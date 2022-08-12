@@ -17,12 +17,17 @@ export default defineConfig({
       compiler: 'vue3'
     }),
     Components({
+      // allow auto load markdown components under `./src/components/`
+      extensions: ['vue', 'md'],
+      // allow auto import and register components used in markdown
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [
         IconsResolver({}),
         ElementPlusResolver({
           importStyle: 'sass'
         })
-      ]
+      ],
+      dts: '../packages/giantgo-render/components.d.ts'
     })
   ]
 })

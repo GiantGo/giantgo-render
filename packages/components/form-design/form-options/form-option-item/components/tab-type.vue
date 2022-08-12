@@ -6,11 +6,9 @@
 </template>
 
 <script>
-import { ElRadioGroup, ElRadioButton } from 'element-plus'
-
 export default {
   name: 'tabTypeOption',
-  components: { ElRadioGroup, ElRadioButton },
+  components: {},
   props: {
     modelValue: String
   },

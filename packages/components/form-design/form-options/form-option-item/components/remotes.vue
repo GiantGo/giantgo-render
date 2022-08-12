@@ -139,14 +139,14 @@
 
 <script>
 import { ref, reactive } from 'vue'
-import { ElDialog, ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { CodeEditor } from '@giantgo-render/components'
 import { cloneDeep } from 'lodash-es'
 import { uuid, isEmptyObject, createRequest } from '@giantgo-render/utils'
 
 export default {
   name: 'remotesOption',
-  components: { ElDialog, CodeEditor },
+  components: { CodeEditor },
   props: {
     modelValue: Object
   },

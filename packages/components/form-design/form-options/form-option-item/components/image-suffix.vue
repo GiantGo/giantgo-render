@@ -18,11 +18,9 @@
 </template>
 
 <script>
-import { ElSelect } from 'element-plus'
-
 export default {
   name: 'imageSuffixOption',
-  components: { ElSelect },
+  components: {},
   props: {
     modelValue: Array
   },
