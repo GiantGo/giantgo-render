@@ -4,6 +4,12 @@
   "description": "A form generator and form render for Vue3 + ElementPlus",
   "main": "./src/main.js",
   "module": "./src/main.js",
+  "exports": {
+    ".": {
+      "import": "./dist/giantgo-render.es.js",
+      "require": "./dist/giantgo-render.umd.js"
+    }
+  },
   "publishConfig": {
     "main": "./dist/giantgo-render.umd.js",
     "module": "./dist/giantgo-render.es.js"

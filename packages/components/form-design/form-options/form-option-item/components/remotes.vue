@@ -140,8 +140,8 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
-import { cloneDeep } from 'lodash-es'
-import { uuid, isEmptyObject, createRequest } from '@giantgo-render/utils'
+import { cloneDeep, isEmpty } from 'lodash-es'
+import { uuid, createRequest } from '@giantgo-render/utils'
 
 defineOptions({
   name: 'remotesOption'
@@ -168,7 +168,7 @@ const showRemote = () => {
   form.remoteTabs = {}
   form.remoteCollapses = {}
   form.remoteResults = {}
-  if (form.remotes && !isEmptyObject(form.remotes)) {
+  if (form.remotes && !isEmpty(form.remotes)) {
     const uuids = Object.keys(form.remotes)
     remoteTabsValue.value = uuids[0]
     uuids.forEach((uuid) => {

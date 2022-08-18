@@ -15,8 +15,8 @@
 
 <script setup>
 import { ref, reactive, provide, computed } from 'vue'
-import { cloneDeep } from 'lodash-es'
-import { isEmptyObject, uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
+import { cloneDeep, isEmpty } from 'lodash-es'
+import { uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
 import { form } from './config.js'
 
 defineOptions({
@@ -75,7 +75,7 @@ const query = (items, uuid) => {
 
     if (items[i].items && items[i].items.length) {
       result = query(items[i].items, uuid)
-      if (!isEmptyObject(result)) {
+      if (!isEmpty(result)) {
         return result
       }
     }
