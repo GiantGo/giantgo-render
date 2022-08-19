@@ -1,10 +1,20 @@
 import region from 'china-area-data'
-import { hasOwn } from './shared'
+import { hasOwn } from './types'
 
-const areaTree = []
-const codeMap = {}
+interface AreaTreeNode {
+  value: string
+  label: string
+  children: Array<AreaTreeNode> | null
+}
 
-function assembleAreaTree(parentCode, areaTree) {
+interface AreaCodeMap {
+  [propName: string]: AreaTreeNode
+}
+
+const areaTree: Array<AreaTreeNode> = []
+const codeMap: AreaCodeMap = {}
+
+function assembleAreaTree(parentCode: string, areaTree: Array<AreaTreeNode>): Array<AreaTreeNode> | null {
   if (hasOwn(region, parentCode)) {
     const codes = Object.keys(region[parentCode])
 
@@ -23,6 +33,6 @@ function assembleAreaTree(parentCode, areaTree) {
   }
 }
 
-assembleAreaTree(86, areaTree)
+assembleAreaTree('86', areaTree)
 
 export { areaTree, codeMap }

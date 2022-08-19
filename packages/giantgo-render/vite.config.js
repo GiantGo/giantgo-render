@@ -6,6 +6,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import path from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   plugins: [
@@ -22,11 +23,15 @@ export default defineConfig({
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [IconsResolver({})],
       dts: './components.d.ts'
+    }),
+    dts({
+      insertTypesEntry: true,
+      outputDir: './dist'
     })
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/main.js'),
+      entry: path.resolve(__dirname, 'src/main.ts'),
       name: 'giantgo-render',
       fileName: (format) => `giantgo-render.${format}.js`
     },

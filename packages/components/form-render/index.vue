@@ -25,33 +25,47 @@
   </el-form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive, toRaw, computed, provide } from 'vue'
+import { ElForm, ElButton } from 'element-plus'
 import { getInterpolation, validateInterpolation } from '@giantgo-render/utils'
 import mitt from 'mitt'
+
+import type { FormDesign, FormDesignInterpolation, FormDesignOption } from '@giantgo-render/tokens'
+
+type FormData = {
+  [propName: string]: any
+}
 
 defineOptions({
   name: 'formRender'
 })
 
+const formRef = ref<InstanceType<typeof ElForm> | null>(null)
 const emit = defineEmits(['submit'])
-
-const formRef = ref(null)
-const state = reactive({
+const state = reactive<{
+  formDesign: FormDesignInterpolation
+  formData: { root: FormData }
+}>({
   formDesign: {
-    options: {
-      key: '',
-      defaultValue: {}
-    }
+    name: '',
+    uuid: '',
+    component: 'object',
+    options: {}
   },
-  formData: {}
+  formData: {
+    root: {}
+  }
 })
 const emitter = mitt()
 
-const traverse = (items, form, data = {}) => {
-  items.forEach((item) => {
-    const key = item.options.key
-    form[key] = data[key] || item.options.defaultValue
+const traverse = (items: Array<FormDesign>, form: FormData, data: FormData = { root: {} }) => {
+  items.forEach((item: FormDesign) => {
+    const key: keyof FormDesignOption = item.options.key || ''
+
+    if (key) {
+      form[key] = data[key] || item.options.defaultValue
+    }
 
     // 处理插值表达式
     for (let option in item.options) {
@@ -60,47 +74,48 @@ const traverse = (items, form, data = {}) => {
           'root',
           'options',
           `try {
-                return ${getInterpolation(item.options[option])}
-              } catch(e) {
-                console.log(e)
-              }`
+            return ${getInterpolation(item.options[option])}
+          } catch(e) {
+            console.log(e)
+          }`
         )
-        item.options[option] = computed({
+        item.options[option] = computed<any>({
           get() {
             return functionBody(state.formData.root, item.options)
-          }
+          },
+          set() {}
         })
       }
     }
 
-    if (item.items) {
+    if (item.items && key) {
       traverse(item.items, form[key], data[key])
     }
   })
+
+  return items
 }
 
-const init = (config, data) => {
+const init = (config: FormDesign, data: object = {}) => {
+  traverse([config], state.formData, { root: data })
   state.formDesign = config
   state.formDesign.options.key = 'root'
   state.formDesign.options.defaultValue = {}
-
-  traverse([state.formDesign], state.formData, { root: data })
-
   formRef.value && formRef.value.clearValidate()
 }
 
 const submit = () => {
-  formRef.value.validate((valid, error) => {
+  formRef.value!.validate((valid, error) => {
     if (valid) {
       emit('submit', toRaw(state.formData.root))
     } else {
-      emitter.emit('validateError', Object.keys(error)[0])
+      emitter.emit('validateError', Object.keys(error!)[0])
     }
   })
 }
 
 const reset = () => {
-  formRef.value.resetFields()
+  formRef.value && formRef.value.resetFields()
 }
 
 provide('emitter', emitter)

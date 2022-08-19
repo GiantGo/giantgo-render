@@ -13,11 +13,13 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive, provide, computed } from 'vue'
-import { cloneDeep, isEmpty } from 'lodash-es'
 import { uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
-import { form } from './config.js'
+import { isEmpty, cloneDeep } from 'lodash-es'
+import { form } from './config'
+
+import type { FormDesign, Group, FormDesignOption } from '@giantgo-render/tokens'
 
 defineOptions({
   name: 'formDesign'
@@ -32,28 +34,35 @@ const props = defineProps({
   }
 })
 
-const state = reactive({
-  formDesign: {},
-  selected: {},
+const state = reactive<{
+  formDesign: FormDesign
+  selected: FormDesign
+  cached: Array<FormDesign>
+  current: number
+}>({
+  formDesign: {
+    name: '',
+    uuid: '',
+    component: '',
+    options: {}
+  },
+  selected: {
+    name: '',
+    uuid: '',
+    component: '',
+    options: {}
+  },
   cached: [],
   current: -1
 })
 
-const groups = ref([])
+const groups = ref<Array<Group>>([])
 
-const allComponents = computed(() => {
-  return groups.value.reduce((pre, group) => pre.concat(group.components), [form])
-})
-
-const uuids = computed(() => {
-  return getUuid(state.formDesign.items, [])
-})
-
-const getUuid = (items, result) => {
+const getUuid = (items: Array<FormDesign> = [], result: Array<string>) => {
   for (let i = 0; i < items.length; i++) {
     result.push(items[i].uuid)
 
-    if (items[i].items && items[i].items.length) {
+    if (items[i].items && items[i].items!.length) {
       getUuid(items[i].items, result)
     }
   }
@@ -61,11 +70,19 @@ const getUuid = (items, result) => {
   return result
 }
 
-const query = (items, uuid) => {
-  let result = false
+const allComponents = computed(() => {
+  return groups.value.reduce((pre, group) => pre.concat(group.components || []), [form])
+})
+
+const uuids = computed(() => {
+  return getUuid(state.formDesign.items, [])
+})
+
+const query = (items: Array<FormDesign> = [], uuid: string): FormDesign | undefined => {
+  let result: any
 
   if (!uuid) {
-    return false
+    return
   }
 
   for (let i = 0; i < items.length; i++) {
@@ -73,7 +90,7 @@ const query = (items, uuid) => {
       return items[i]
     }
 
-    if (items[i].items && items[i].items.length) {
+    if (items[i].items && items[i].items!.length) {
       result = query(items[i].items, uuid)
       if (!isEmpty(result)) {
         return result
@@ -84,15 +101,15 @@ const query = (items, uuid) => {
   return result
 }
 
-const copy = (items, uuid) => {
+const copy = (items: Array<FormDesign> = [], uuid: string): FormDesign | undefined => {
   if (!uuid) {
-    return false
+    return
   }
 
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
-      let newItem = cloneDeep(items[i])
-      newItem.uuid = newItem.options.key = newItem.component.replaceAll('-', '_') + '_' + makeId(8)
+      let newItem: FormDesign = cloneDeep(items[i])
+      newItem.uuid = newItem.options.key = newItem.component.replace('/-/gi', '_') + '_' + makeId(8)
       if (hasOwn(newItem, 'items')) {
         newItem.items = []
       }
@@ -100,7 +117,7 @@ const copy = (items, uuid) => {
       return newItem
     }
 
-    if (items[i].items && items[i].items.length) {
+    if (items[i].items && items[i].items!.length) {
       const newItem = copy(items[i].items, uuid)
       if (newItem) {
         return newItem
@@ -108,10 +125,10 @@ const copy = (items, uuid) => {
     }
   }
 
-  return false
+  return
 }
 
-const remove = (items, uuid) => {
+const remove = (items: Array<FormDesign> = [], uuid: string): boolean => {
   if (!uuid) {
     return false
   }
@@ -122,19 +139,21 @@ const remove = (items, uuid) => {
       return true
     }
 
-    if (items[i].items && items[i].items.length) {
+    if (items[i].items && items[i].items!.length) {
       if (remove(items[i].items, uuid)) {
         return true
       }
     }
   }
+
+  return false
 }
 
-const setSelected = (uuid) => {
+const setSelected = (uuid: string) => {
   state.selected = query([state.formDesign], uuid) || state.formDesign
 }
 
-const updateFormItem = ({ uuid, items }) => {
+const updateFormItem = ({ uuid, items }: { uuid: string; items: Array<FormDesign> }) => {
   const target = query([state.formDesign], uuid)
 
   if (target) {
@@ -143,7 +162,7 @@ const updateFormItem = ({ uuid, items }) => {
   addCache()
 }
 
-const updateFormOption = ({ uuid, key, value }) => {
+const updateFormOption = ({ uuid, key, value }: { uuid: string; key: keyof FormDesignOption; value: any }) => {
   const item = query([state.formDesign], uuid)
 
   if (item) {
@@ -151,26 +170,28 @@ const updateFormOption = ({ uuid, key, value }) => {
   }
 }
 
-const updateSelectedFormOption = ({ key, value }) => {
+const updateSelectedFormOption = ({ key, value }: { key: keyof FormDesignOption; value: any }) => {
   state.selected.options[key] = value
   addCache()
 }
 
-const switchInterpolate = (key) => {
+const switchInterpolate = (key: keyof FormDesignOption) => {
   const option = state.selected.options[key]
   state.selected.options[key] = validateInterpolation(option)
-    ? allComponents.value.find((component) => component.name === state.selected.name).options[key]
+    ? allComponents.value.find((component) => component.name === state.selected.name)!.options[key]
     : '{{  }}'
   addCache()
 }
 
-const copyFormItem = (uuid) => {
+const copyFormItem = (uuid: string) => {
   const newItem = copy(state.formDesign.items, uuid)
-  state.selected = newItem
+  if (newItem) {
+    state.selected = newItem
+  }
   addCache()
 }
 
-const removeFormItem = (uuid) => {
+const removeFormItem = (uuid: string) => {
   remove(state.formDesign.items, uuid)
   state.selected = state.formDesign
   addCache()
@@ -201,7 +222,7 @@ const addCache = () => {
   state.current = state.cached.length - 1
 }
 
-const init = (config) => {
+const init = (config?: FormDesign) => {
   state.formDesign = config || cloneDeep(form)
   state.selected = query([state.formDesign], state.selected.uuid) || state.formDesign
 
@@ -214,7 +235,7 @@ const clear = () => {
   addCache()
 }
 
-const register = (name = '基础组件', components = [], order = 0) => {
+const register = (name: string = '基础组件', components: Array<FormDesign> = [], order = 0) => {
   const index = groups.value.findIndex((group) => group.name === name)
 
   if (props && props.fields && props.fields.length) {
@@ -261,4 +282,4 @@ defineExpose({
 })
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>

@@ -1,6 +1,7 @@
 {
   "name": "@giantgo-render/hooks",
-  "version": "1.0.0",
-  "main": "index.js",
-  "module": "index.js"
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts",
+  "module": "index.ts"
 }

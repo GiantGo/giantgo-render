@@ -1,6 +1,8 @@
-const rules = [{ required: false, message: '必填项', trigger: 'blur' }]
+import type { FormDesign, Rules } from '@giantgo-render/tokens'
 
-export const inputs = [
+const rules: Rules = [{ required: false, message: '必填项', trigger: 'blur' }]
+
+export const inputs: Array<FormDesign> = [
   {
     name: '输入框',
     component: 'input',
@@ -58,7 +60,7 @@ export const inputs = [
   }
 ]
 
-export const pickers = [
+export const pickers: Array<FormDesign> = [
   {
     name: '下拉单选',
     component: 'select',
@@ -131,8 +133,7 @@ export const pickers = [
       disabled: false,
       filterable: false,
       collapseTags: false,
-      multipleLimit: 0,
-      rules: rules
+      multipleLimit: 0
     }
   },
   {
@@ -366,7 +367,7 @@ export const pickers = [
   }
 ]
 
-export const complexs = [
+export const complexs: Array<FormDesign> = [
   {
     name: '富文本',
     component: 'rich-editor',
@@ -416,13 +417,12 @@ export const complexs = [
       disabled: false,
       filterable: false,
       collapseTags: false,
-      multipleLimit: 0,
-      rules: rules
+      multipleLimit: 0
     }
   }
 ]
 
-export const objectLayout = {
+export const objectLayout: FormDesign = {
   name: '子表单',
   component: 'object',
   uuid: '',
@@ -436,7 +436,7 @@ export const objectLayout = {
   items: []
 }
 
-export const assists = [
+export const assists: Array<FormDesign> = [
   {
     name: '文字',
     component: 'label',
@@ -466,7 +466,7 @@ export const assists = [
   }
 ]
 
-export const layouts = [
+export const layouts: Array<FormDesign> = [
   objectLayout,
   {
     name: '卡片布局',
@@ -511,7 +511,7 @@ export const layouts = [
   }
 ]
 
-export const form = {
+export const form: FormDesign = {
   name: '表单',
   component: 'object',
   uuid: 'root',
@@ -527,7 +527,7 @@ export const form = {
   items: []
 }
 
-export const optionKeyLabels = {
+export const optionKeyLabels: Record<string, string> = {
   activeColor: '打开时背景色',
   activeText: '打开时文字描述',
   allowHalf: '允许半选',

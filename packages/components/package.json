@@ -5,6 +5,6 @@
   "peerDependencies": {
     "vue": "^3.2.37"
   },
-  "main": "index.js",
-  "module": "index.js"
+  "main": "index.ts",
+  "module": "index.ts"
 }

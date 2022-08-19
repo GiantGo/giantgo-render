@@ -41,7 +41,7 @@
 
 <script setup>
 import { ref, inject, reactive, nextTick } from 'vue'
-import { objectLayout } from '../../../config.js'
+import { objectLayout } from '../../../config'
 import { cloneDeep } from 'lodash-es'
 import { uuid } from '@giantgo-render/utils'
 

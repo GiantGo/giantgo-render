@@ -1,7 +1,7 @@
-export function uuid(len, radix) {
-  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
-  var uuid = []
-  var i
+export function uuid(len: number, radix?: number) {
+  let chars: string[] = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
+  let uuid: Array<string> = []
+  let i: number
   radix = radix || chars.length
 
   if (len) {
@@ -9,7 +9,7 @@ export function uuid(len, radix) {
     for (i = 0; i < len; i++) uuid[i] = chars[0 | (Math.random() * radix)]
   } else {
     // rfc4122, version 4 form
-    var r
+    let r: number
 
     // rfc4122 requires these characters
     uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-'

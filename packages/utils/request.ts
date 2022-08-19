@@ -1,10 +1,13 @@
 import axios from 'axios'
 
+import type { AxiosInstance, AxiosRequestHeaders, AxiosPromise } from 'axios'
+import type { Remote } from '@giantgo-render/tokens'
+
 // create an axios instance
-export function createRequest(remote) {
-  const headers = {}
-  const params = {}
-  const data = {}
+export function createRequest(remote: Remote): AxiosPromise<unknown> {
+  const headers: AxiosRequestHeaders = {}
+  const params: Record<string, any> = {}
+  const data: Record<string, any> = {}
 
   remote.headers.forEach(({ key, value }) => {
     if (key && value) {
@@ -24,13 +27,13 @@ export function createRequest(remote) {
     }
   })
 
-  const service = axios.create({
+  const service: AxiosInstance = axios.create({
     timeout: 30000
   })
 
-  const requestFunction = new Function('config', remote.requestHandler)
-  const responseFunction = new Function('response', remote.responseHandler)
-  const errorFunction = new Function('error', remote.errorHandler)
+  const requestFunction: Function = new Function('config', remote.requestHandler)
+  const responseFunction: Function = new Function('response', remote.responseHandler)
+  const errorFunction: Function = new Function('error', remote.errorHandler)
 
   service.interceptors.request.use(
     function (config) {

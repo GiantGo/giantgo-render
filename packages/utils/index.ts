@@ -1,5 +1,5 @@
 export * from './request'
 export * from './interpolation'
-export * from './shared'
+export * from './types'
 export * from './uuid'
 export * from './area'
