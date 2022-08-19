@@ -1,38 +1,46 @@
-import region from 'china-area-data'
-import { hasOwn } from './types'
+import { areaList } from '@vant/area-data'
 
 interface AreaTreeNode {
   value: string
   label: string
-  children: Array<AreaTreeNode> | null
-}
-
-interface AreaCodeMap {
-  [propName: string]: AreaTreeNode
+  children?: Array<AreaTreeNode>
 }
 
 const areaTree: Array<AreaTreeNode> = []
-const codeMap: AreaCodeMap = {}
 
-function assembleAreaTree(parentCode: string, areaTree: Array<AreaTreeNode>): Array<AreaTreeNode> | null {
-  if (hasOwn(region, parentCode)) {
-    const codes = Object.keys(region[parentCode])
+Object.keys(areaList.province_list).forEach((provinceKey) => {
+  const province: AreaTreeNode = {
+    value: provinceKey,
+    label: areaList.province_list[provinceKey],
+    children: []
+  }
 
-    codes.forEach((code) => {
-      codeMap[code] = region[parentCode][code]
-      areaTree.push({
-        value: code,
-        label: region[parentCode][code],
-        children: assembleAreaTree(code, [])
-      })
+  const cities: Array<AreaTreeNode> = Object.keys(areaList.city_list)
+    .filter((cityKey) => cityKey.substring(0, 2) === provinceKey.substring(0, 2))
+    .map((cityKey) => {
+      return {
+        value: cityKey,
+        label: areaList.city_list[cityKey],
+        children: []
+      }
     })
 
-    return areaTree
-  } else {
-    return null
-  }
-}
+  cities.forEach((city) => {
+    const counties: Array<AreaTreeNode> = Object.keys(areaList.county_list)
+      .filter((countyKey) => countyKey.substring(0, 4) === city.value.substring(0, 4))
+      .map((countyKey) => {
+        return {
+          value: countyKey,
+          label: areaList.county_list[countyKey]
+        }
+      })
 
-assembleAreaTree('86', areaTree)
+    city.children!.push(...counties)
+  })
 
-export { areaTree, codeMap }
+  province.children!.push(...cities)
+
+  areaTree.push(province)
+})
+
+export { areaTree }

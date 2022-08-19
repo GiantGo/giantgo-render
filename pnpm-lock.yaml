@@ -12,6 +12,7 @@ importers:
       '@iconify/json': ^2.1.89
       '@types/lodash-es': ^4.17.6
       '@types/node': ^18.6.5
+      '@vant/area-data': ^1.3.1
       '@vitejs/plugin-vue': ^3.0.0
       '@vue/compiler-sfc': ^3.2.37
       '@vue/shared': ^3.2.37
@@ -20,7 +21,6 @@ importers:
       ace-builds: ^1.8.1
       autoprefixer: ^10.4.8
       axios: ^0.23.0
-      china-area-data: ^5.0.1
       element-plus: 2.2.13
       giantgo-render: workspace:*
       lodash-es: ^4.17.21
@@ -44,11 +44,11 @@ importers:
       '@giantgo-render/theme': link:packages/theme
       '@giantgo-render/tokens': link:packages/tokens
       '@giantgo-render/utils': link:packages/utils
+      '@vant/area-data': 1.3.1
       '@wangeditor/editor': 5.1.14
       '@wangeditor/editor-for-vue': 5.1.12_3czidxuhsdmk6jzpqgazshrppa
       ace-builds: 1.9.5
       axios: 0.23.0
-      china-area-data: 5.0.1
       element-plus: 2.2.13_vue@3.2.37
       giantgo-render: link:packages/giantgo-render
       lodash-es: 4.17.21
@@ -91,6 +91,7 @@ importers:
       '@types/node': ^18.6.5
       '@vitejs/plugin-vue': ^3.0.0
       '@vue/compiler-sfc': ^3.2.37
+      '@vue/shared': ^3.2.37
       '@wangeditor/editor': ^5.1.14
       '@wangeditor/editor-for-vue': ^5.1.12
       ace-builds: ^1.8.1
@@ -131,6 +132,7 @@ importers:
       '@types/node': 18.7.1
       '@vitejs/plugin-vue': 3.0.1_vite@3.0.5+vue@3.2.37
       '@vue/compiler-sfc': 3.2.37
+      '@vue/shared': 3.2.37
       autoprefixer: 10.4.8_postcss@8.4.16
       postcss: 8.4.16
       rollup-plugin-visualizer: 5.7.1
@@ -614,6 +616,10 @@ packages:
       '@uppy/core': 2.3.2
       '@uppy/utils': 4.1.0
       nanoid: 3.3.4
+    dev: false
+
+  /@vant/area-data/1.3.1:
+    resolution: {integrity: sha512-xji2kfVBXzFYmHAJNbhYjiRJ4GnN+enbTmtx6FnpTyxs9sUcFtS11BZ23hYCGuj4s02gXyrzUBTXGqhX5IKHIw==}
     dev: false
 
   /@vitejs/plugin-vue/2.3.3_vite@2.9.14+vue@3.2.37:
