@@ -26,7 +26,7 @@ defineOptions({
   name: 'multiSelectBuilder'
 })
 
-defineProps({
+const props = defineProps({
   path: String,
   uuid: String,
   options: {
