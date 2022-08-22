@@ -1,0 +1,19 @@
+@import 'form-design';
+@import 'form-picker';
+@import 'form-operator';
+@import 'form-builder';
+@import 'form-setting';
+@import 'form-render';
+
+.rich-editor-container {
+  z-index: 1;
+  border: 1px solid #ccc;
+
+  .rich-editor-toolbar {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .rich-editor {
+    overflow-y: hidden;
+  }
+}

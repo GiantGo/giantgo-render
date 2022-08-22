@@ -1,0 +1,27 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1,
+    "workspacePrefix": "/Users/shenpengxiang/Projects/GiantGo/giantgo-render"
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {},
+    "prefix": "/Users/shenpengxiang/Projects/GiantGo/giantgo-render"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/Users/shenpengxiang/.pnpm-store/v3",
+    "virtualStoreDir": "/Users/shenpengxiang/Projects/GiantGo/giantgo-render/node_modules/.pnpm"
+  },
+  "3 error pnpm": {
+    "errno": -2,
+    "code": "ENOENT",
+    "syscall": "open",
+    "path": "/Users/shenpengxiang/.pnpm-store/v3/files/e2/cafdbc7206d5f540f5d38d6a077386c23fe8ce668ecfea39edb150fd32066c2c4ecbb0899ab7f97bba0f776cc6cb857ad709802eb2750a025bc6fb7c324761-index.json",
+    "err": {
+      "name": "pnpm",
+      "message": "ENOENT: no such file or directory, open '/Users/shenpengxiang/.pnpm-store/v3/files/e2/cafdbc7206d5f540f5d38d6a077386c23fe8ce668ecfea39edb150fd32066c2c4ecbb0899ab7f97bba0f776cc6cb857ad709802eb2750a025bc6fb7c324761-index.json'",
+      "code": "ENOENT",
+      "stack": "pnpm: ENOENT: no such file or directory, open '/Users/shenpengxiang/.pnpm-store/v3/files/e2/cafdbc7206d5f540f5d38d6a077386c23fe8ce668ecfea39edb150fd32066c2c4ecbb0899ab7f97bba0f776cc6cb857ad709802eb2750a025bc6fb7c324761-index.json'"
+    }
+  }
+}

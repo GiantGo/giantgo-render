@@ -99,7 +99,7 @@ onMounted(() => {
       options: {
         label: '单位地区',
         key: 'area',
-        options: { remote: false, items: [] },
+        options: { type: 'static', remote: '', items: [] },
         defaultValue: '',
         rules: [{ required: false, message: '请输入单位地区', trigger: 'blur' }],
         placeholder: '请选择单位地区',
@@ -168,7 +168,8 @@ onMounted(() => {
         label: '职称',
         key: 'title',
         options: {
-          remote: false,
+          type: 'static',
+          remote: '',
           items: [
             { label: '初级', value: 'Wb4bJEaM' },
             { label: '中级', value: 'CKJrM20G' },
@@ -244,7 +245,8 @@ onMounted(() => {
         label: '性别',
         key: 'gender',
         options: {
-          remote: false,
+          type: 'static',
+          remote: '',
           items: [
             { label: '男', value: 'qlU9Wd1K' },
             { label: '女', value: 'dbEIxK50' }
@@ -326,7 +328,35 @@ onMounted(() => {
       size: 'default',
       gutter: 0,
       hideRequiredAsterisk: false,
-      statusIcon: false
+      statusIcon: false,
+      remotes: {
+        remote_nXABYk61: {
+          title: '获取选项',
+          url: 'https://run.mocky.io/v3/787ef76d-79eb-42df-8469-d98e6ff00629',
+          method: 'get',
+          headers: [
+            {
+              key: '1',
+              value: '2'
+            }
+          ],
+          params: [
+            {
+              key: '2',
+              value: '3'
+            }
+          ],
+          data: [
+            {
+              key: '3',
+              value: '4'
+            }
+          ],
+          requestHandler: 'return config;',
+          responseHandler: 'return response.data;',
+          errorHandler: 'return Promise.reject(error);'
+        }
+      }
     },
     items: [
       {
@@ -336,7 +366,7 @@ onMounted(() => {
         options: {
           label: '姓名',
           key: 'name',
-          defaultValue: '',
+          defaultValue: 'test',
           rules: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
           width: '100%',
           placeholder: '请输入姓名',
@@ -357,7 +387,7 @@ onMounted(() => {
         options: {
           label: '手机',
           key: 'mobile',
-          defaultValue: '',
+          defaultValue: '15900000000',
           rules: [
             { required: true, message: '请输入手机', trigger: 'blur' },
             { pattern: '^\\d{11}$', message: '请输入正确的手机', trigger: 'blur' }
@@ -423,7 +453,7 @@ onMounted(() => {
         options: {
           label: '单位地区',
           key: 'area',
-          options: { remote: false, items: [] },
+          options: { type: 'static', remote: '', items: [] },
           defaultValue: '',
           rules: [{ required: false, message: '请输入单位地区', trigger: 'blur' }],
           placeholder: '请选择单位地区',
@@ -468,7 +498,8 @@ onMounted(() => {
           label: '职称',
           key: 'title',
           options: {
-            remote: false,
+            type: 'static',
+            remote: '',
             items: [
               { label: '初级', value: 'Wb4bJEaM' },
               { label: '中级', value: 'CKJrM20G' },
@@ -568,7 +599,8 @@ onMounted(() => {
           label: '性别',
           key: 'gender',
           options: {
-            remote: false,
+            type: 'static',
+            remote: '',
             items: [
               { label: '男', value: 'qlU9Wd1K' },
               { label: '女', value: 'dbEIxK50' }

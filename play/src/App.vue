@@ -1,14 +1,11 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { FormDesign } from '@giantgo-render/components'
-import 'giantgo-render/src/styles/index.scss'
 
-const formDesignRef = ref(null)
+const formDesignRef = ref<InstanceType<typeof FormDesign> | null>(null)
 
 onMounted(() => {
-  formDesignRef.value.register('常用字段', [
+  formDesignRef!.value!.register('常用字段', [
     {
       name: '姓名',
       component: 'input',
@@ -103,7 +100,7 @@ onMounted(() => {
       options: {
         label: '单位地区',
         key: 'area',
-        options: { remote: false, items: [] },
+        options: { type: 'static', remote: '', items: [] },
         defaultValue: '',
         rules: [{ required: false, message: '请输入单位地区', trigger: 'blur' }],
         placeholder: '请选择单位地区',
@@ -172,7 +169,8 @@ onMounted(() => {
         label: '职称',
         key: 'title',
         options: {
-          remote: false,
+          type: 'static',
+          remote: '',
           items: [
             { label: '初级', value: 'Wb4bJEaM' },
             { label: '中级', value: 'CKJrM20G' },
@@ -248,7 +246,8 @@ onMounted(() => {
         label: '性别',
         key: 'gender',
         options: {
-          remote: false,
+          type: 'static',
+          remote: '',
           items: [
             { label: '男', value: 'qlU9Wd1K' },
             { label: '女', value: 'dbEIxK50' }
@@ -320,7 +319,7 @@ onMounted(() => {
     }
   ])
 
-  formDesignRef.value.init({
+  formDesignRef!.value!.init({
     name: '表单',
     component: 'object',
     uuid: 'root',
@@ -330,7 +329,35 @@ onMounted(() => {
       size: 'default',
       gutter: 0,
       hideRequiredAsterisk: false,
-      statusIcon: false
+      statusIcon: false,
+      remotes: {
+        remote_nXABYk61: {
+          title: '获取选项',
+          url: 'https://run.mocky.io/v3/787ef76d-79eb-42df-8469-d98e6ff00629',
+          method: 'get',
+          headers: [
+            {
+              key: '1',
+              value: '2'
+            }
+          ],
+          params: [
+            {
+              key: '2',
+              value: '3'
+            }
+          ],
+          data: [
+            {
+              key: '3',
+              value: '4'
+            }
+          ],
+          requestHandler: 'return config;',
+          responseHandler: 'return response.data;',
+          errorHandler: 'return Promise.reject(error);'
+        }
+      }
     },
     items: [
       {
@@ -340,7 +367,7 @@ onMounted(() => {
         options: {
           label: '姓名',
           key: 'name',
-          defaultValue: '',
+          defaultValue: 'test',
           rules: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
           width: '100%',
           placeholder: '请输入姓名',
@@ -361,7 +388,7 @@ onMounted(() => {
         options: {
           label: '手机',
           key: 'mobile',
-          defaultValue: '',
+          defaultValue: '13123456789',
           rules: [
             { required: true, message: '请输入手机', trigger: 'blur' },
             { pattern: '^\\d{11}$', message: '请输入正确的手机', trigger: 'blur' }
@@ -427,7 +454,7 @@ onMounted(() => {
         options: {
           label: '单位地区',
           key: 'area',
-          options: { remote: false, items: [] },
+          options: { type: 'static', remote: '', items: [] },
           defaultValue: '',
           rules: [{ required: false, message: '请输入单位地区', trigger: 'blur' }],
           placeholder: '请选择单位地区',
@@ -472,7 +499,8 @@ onMounted(() => {
           label: '职称',
           key: 'title',
           options: {
-            remote: false,
+            type: 'static',
+            remote: '',
             items: [
               { label: '初级', value: 'Wb4bJEaM' },
               { label: '中级', value: 'CKJrM20G' },
@@ -572,7 +600,8 @@ onMounted(() => {
           label: '性别',
           key: 'gender',
           options: {
-            remote: false,
+            type: 'static',
+            remote: '',
             items: [
               { label: '男', value: 'qlU9Wd1K' },
               { label: '女', value: 'dbEIxK50' }
@@ -651,107 +680,4 @@ onMounted(() => {
   <FormDesign ref="formDesignRef" />
 </template>
 
-<style>
-html {
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'SourceHanSansCN-Regular',
-    'SourceHanSansCN', Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.2;
-  box-sizing: border-box;
-}
-
-body {
-  min-width: 1020px;
-  word-wrap: break-word;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#app {
-  height: 100%;
-  width: 100%;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
-
-button,
-input,
-select,
-textarea {
-  margin: 0;
-  background-color: transparent;
-  border-style: none;
-  color: inherit;
-  font-size: 14px;
-}
-
-label {
-  font-size: 16px;
-}
-
-h1,
-h2 {
-  line-height: 1.3;
-}
-
-h1 {
-  font-size: 16px;
-  margin: 0 0 12px;
-}
-
-h2 {
-  font-size: 15px;
-  margin: 7.5px 15px;
-}
-
-p {
-  font-size: 16px;
-  margin: 2px 0;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-a:focus,
-a:active {
-  outline: none;
-}
-
-a,
-a:focus,
-a:hover {
-  cursor: pointer;
-  color: inherit;
-  text-decoration: none;
-}
-
-div:focus {
-  outline: none;
-}
-</style>
+<style scoped></style>

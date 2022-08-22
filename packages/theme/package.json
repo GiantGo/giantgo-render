@@ -1,0 +1,7 @@
+{
+  "name": "@giantgo-render/theme",
+  "private": true,
+  "license": "MIT",
+  "main": "index.css",
+  "module": "index.css"
+}

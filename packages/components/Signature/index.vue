@@ -26,7 +26,7 @@ const DEFAULT_OPTIONS = {
 }
 
 export default defineComponent({
-  name: 'VueSignaturePad',
+  name: 'signature',
   props: {
     width: {
       type: String,

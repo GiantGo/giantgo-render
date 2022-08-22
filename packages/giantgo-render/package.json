@@ -1,15 +1,21 @@
 {
   "name": "giantgo-render",
-  "version": "1.1.17",
+  "version": "1.2.8",
   "description": "A form generator and form render for Vue3 + ElementPlus",
-  "main": "./src/main.js",
-  "module": "./src/main.js",
+  "main": "./dist/main.umd.js",
+  "module": "./dist/main.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/giantgo-render.es.js",
+      "require": "./dist/giantgo-render.umd.js"
+    }
+  },
   "publishConfig": {
     "main": "./dist/giantgo-render.umd.js",
     "module": "./dist/giantgo-render.es.js"
   },
   "scripts": {
-    "build": "vite build"
+    "build": "vue-tsc --noEmit && vite build"
   },
   "repository": {
     "type": "git",
@@ -28,21 +34,38 @@
   },
   "homepage": "https://github.com/GiantGo/giantgo-render",
   "peerDependencies": {
-    "vue": "^3.2.16"
+    "vue": "^3.2.0"
   },
   "dependencies": {
-    "codemirror": "^5.63.3",
+    "@wangeditor/editor": "^5.1.14",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "ace-builds": "^1.8.1",
+    "axios": "^0.23.0",
+    "china-area-data": "^5.0.1",
+    "element-plus": "2.2.13",
+    "lodash-es": "^4.17.21",
     "mitt": "^3.0.0",
-    "quill": "^1.3.7",
-    "vue": "^3.2.16",
+    "signature_pad": "^4.0.0",
+    "vue": "^3.2.37",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.9.3",
-    "@vue/compiler-sfc": "^3.2.16",
-    "autoprefixer": "^10.3.6",
-    "sass": "~1.32.13",
-    "vite": "^2.6.4",
-    "vite-svg-loader": "^2.2.0"
+    "@iconify/json": "^2.1.89",
+    "@types/lodash-es": "^4.17.6",
+    "@types/node": "^18.6.5",
+    "@vitejs/plugin-vue": "^3.0.0",
+    "@vue/compiler-sfc": "^3.2.37",
+    "@vue/shared": "^3.2.37",
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.16",
+    "rollup-plugin-visualizer": "^5.7.1",
+    "sass": "^1.54.3",
+    "typescript": "^4.7.4",
+    "unplugin-icons": "^0.14.8",
+    "unplugin-vue-components": "^0.22.3",
+    "unplugin-vue-define-options": "^0.8.0",
+    "vite": "^3.0.0",
+    "vite-plugin-dts": "^1.4.1",
+    "vue-tsc": "^0.40.1"
   }
 }
