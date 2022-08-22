@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import DefineOptions from 'unplugin-vue-define-options/vite'
+import VueMacros from 'unplugin-vue-macros/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
@@ -13,8 +13,8 @@ export default defineConfig({
     }
   },
   plugins: [
+    VueMacros(),
     vue(),
-    DefineOptions(),
     Icons({
       compiler: 'vue3'
     }),

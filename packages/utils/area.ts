@@ -8,30 +8,34 @@ interface AreaTreeNode {
 
 const areaTree: Array<AreaTreeNode> = []
 
-Object.keys(areaList.province_list).forEach((provinceKey) => {
+const provinceList = areaList.province_list as Record<string, string>
+const cityList = areaList.city_list as Record<string, string>
+const countyList = areaList.county_list as Record<string, string>
+
+Object.keys(provinceList).forEach((provinceKey) => {
   const province: AreaTreeNode = {
     value: provinceKey,
-    label: areaList.province_list[provinceKey],
+    label: provinceList[provinceKey],
     children: []
   }
 
-  const cities: Array<AreaTreeNode> = Object.keys(areaList.city_list)
+  const cities: Array<AreaTreeNode> = Object.keys(cityList)
     .filter((cityKey) => cityKey.substring(0, 2) === provinceKey.substring(0, 2))
     .map((cityKey) => {
       return {
         value: cityKey,
-        label: areaList.city_list[cityKey],
+        label: cityList[cityKey],
         children: []
       }
     })
 
   cities.forEach((city) => {
-    const counties: Array<AreaTreeNode> = Object.keys(areaList.county_list)
+    const counties: Array<AreaTreeNode> = Object.keys(countyList)
       .filter((countyKey) => countyKey.substring(0, 4) === city.value.substring(0, 4))
       .map((countyKey) => {
         return {
           value: countyKey,
-          label: areaList.county_list[countyKey]
+          label: countyList[countyKey]
         }
       })
 

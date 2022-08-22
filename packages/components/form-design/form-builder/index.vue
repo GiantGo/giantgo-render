@@ -1,5 +1,5 @@
 <template>
-  <el-empty v-if="formDesign.items.length === 0" class="empty" description="从左侧选择控件添加"></el-empty>
+  <el-empty v-if="formDesign.items?.length === 0" class="empty" description="从左侧选择控件添加"></el-empty>
   <el-form
     class="form-builder"
     :label-width="formDesign.options.labelWidth"
@@ -20,14 +20,24 @@
   </el-form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, inject } from 'vue'
+import type { FormDesign } from '@giantgo-render/tokens'
 
 defineOptions({
   name: 'formBuilder'
 })
 
-const state = inject('state')
+const state: {
+  formDesign: FormDesign
+} = inject('state') || {
+  formDesign: {
+    name: '',
+    uuid: '',
+    component: '',
+    options: {}
+  }
+}
 const formDesign = computed(() => state.formDesign)
 </script>
 
