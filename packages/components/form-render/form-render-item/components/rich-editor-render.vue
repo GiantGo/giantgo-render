@@ -15,12 +15,23 @@
 </template>
 
 <script setup>
-import { onBeforeUnmount, shallowRef, watch } from 'vue'
+import { onBeforeUnmount, shallowRef } from 'vue'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import '@wangeditor/editor/dist/css/style.css'
 
 defineOptions({
   name: 'richEditorRender'
+})
+
+defineProps({
+  path: String,
+  modelValue: String,
+  options: {
+    type: Object,
+    default() {
+      return {}
+    }
+  }
 })
 
 const editorRef = shallowRef()
