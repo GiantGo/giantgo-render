@@ -2,18 +2,18 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-upload
       v-if="!options.hidden"
+      :file-list="options.defaultValue"
       list-type="picture-card"
       :action="options.uploadUrl"
       :name="options.uploadName"
       :multiple="options.multiple"
       :limit="options.limit"
-      v-model:file-list="options.defaultValue"
       :disabled="options.disabled"
       :on-preview="handlePreview"
       :before-remove="beforeRemove"
     >
       <el-icon><i-carbon-add /></el-icon>
-      <template #tip v-if="options.showToolTip">
+      <template v-if="options.showToolTip" #tip>
         <div class="el-upload__tip">{{ options.tip }}</div>
       </template>
     </el-upload>

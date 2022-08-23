@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { defineConfig } = require('eslint-define-config')
 
 module.exports = defineConfig({
@@ -75,6 +76,8 @@ module.exports = defineConfig({
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     '@typescript-eslint/consistent-type-imports': ['error', { disallowTypeAnnotations: false }],
     '@typescript-eslint/ban-ts-comment': ['off', { 'ts-ignore': false }],
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-var-requires': 'error',
 
     // vue
     'vue/no-v-html': 'off',
@@ -83,6 +86,7 @@ module.exports = defineConfig({
     'vue/multi-word-component-names': 'off',
     'vue/prefer-import-from-vue': 'off',
     'vue/no-v-text-v-html-on-component': 'off',
+    'vue/v-on-event-hyphenation': 'off',
     'vue/html-self-closing': [
       'error',
       {

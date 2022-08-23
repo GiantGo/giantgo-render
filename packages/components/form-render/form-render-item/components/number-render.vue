@@ -2,11 +2,11 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-input-number
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :min="options.min"
       :max="options.max"
       :disabled="options.disabled"
-    ></el-input-number>
+      @update:modelValue="$emit('update:modelValue', $event)"
+    />
   </el-form-item>
 </template>
 

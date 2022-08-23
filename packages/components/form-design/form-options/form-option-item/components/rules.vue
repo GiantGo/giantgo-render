@@ -5,16 +5,16 @@
         <el-checkbox v-model="data.required.required" @change="emitChange"> 必填 </el-checkbox>
       </el-col>
       <el-col :span="11">
-        <el-input v-model="data.required.message" @input="emitChange" placeholder="提示信息" />
+        <el-input v-model="data.required.message" placeholder="提示信息" @input="emitChange" />
       </el-col>
-      <el-col :span="2"> </el-col>
+      <el-col :span="2"/>
     </el-row>
-    <el-row class="option-row" v-for="(rule, index) in data.patterns" :key="index" :gutter="5">
+    <el-row v-for="(rule, index) in data.patterns" :key="index" class="option-row" :gutter="5">
       <el-col :span="11">
-        <el-input :model-value="rule.pattern" @input="update(index, 'pattern', $event)" placeholder="正则表达式" />
+        <el-input :model-value="rule.pattern" placeholder="正则表达式" @input="update(index, 'pattern', $event)" />
       </el-col>
       <el-col :span="11">
-        <el-input :model-value="rule.message" @input="update(index, 'message', $event)" placeholder="提示信息" />
+        <el-input :model-value="rule.message" placeholder="提示信息" @input="update(index, 'message', $event)" />
       </el-col>
       <el-col :span="2" class="btn-del">
         <el-icon class="el-icon-delete" @click="removeRule(index)">
@@ -24,7 +24,7 @@
     </el-row>
     <el-button link type="primary" @click="addRule">增加验证</el-button>
     <el-button link type="primary" @click="editRules">编辑验证</el-button>
-    <el-dialog title="编辑验证" v-model="codeDialog" width="750px">
+    <el-dialog v-model="codeDialog" title="编辑验证" width="750px">
       <div class="form-design-code-editor">
         <code-editor v-model="code" lang="json" />
       </div>
@@ -40,7 +40,7 @@
 
 <script setup>
 import { ElMessage } from 'element-plus'
-import { reactive, ref, watch, onMounted } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import { cloneDeep } from 'lodash-es'
 
 defineOptions({

@@ -2,12 +2,12 @@
   <div style="width: 100%">
     <el-tabs v-model="data.type" @tab-change="emitChange">
       <el-tab-pane label="静态数据" name="static">
-        <el-row class="option-row" v-for="(item, index) in data.items" :key="index" :gutter="5">
+        <el-row v-for="(item, index) in data.items" :key="index" class="option-row" :gutter="5">
           <el-col :span="11">
-            <el-input :model-value="item.label" @input="update(index, 'label', $event)" placeholder="名称" />
+            <el-input :model-value="item.label" placeholder="名称" @input="update(index, 'label', $event)" />
           </el-col>
           <el-col :span="11">
-            <el-input :model-value="item.value" @input="update(index, 'value', $event)" placeholder="值" />
+            <el-input :model-value="item.value" placeholder="值" @input="update(index, 'value', $event)" />
           </el-col>
           <el-col :span="2" class="btn-del">
             <el-icon class="el-icon-delete" @click="removeOption(index)">
@@ -17,7 +17,7 @@
         </el-row>
         <el-button link type="primary" @click="addOption">增加选项</el-button>
         <el-button link type="primary" @click="editOptions">编辑选项</el-button>
-        <el-dialog title="编辑选项" v-model="codeDialog" width="750px">
+        <el-dialog v-model="codeDialog" title="编辑选项" width="750px">
           <div class="form-design-code-editor">
             <code-editor v-model="code" lang="json" />
           </div>
@@ -31,11 +31,11 @@
       </el-tab-pane>
       <el-tab-pane label="数据源" name="remote">
         <el-select
+          v-model="data.remote"
           clearable
           placeholder="请选择数据源"
-          v-model="data.remote"
-          @change="emitChange"
           style="width: 88%; margin-bottom: 5px"
+          @change="emitChange"
         >
           <el-option
             v-for="(value, uuid) in state.formDesign.options.remotes"
@@ -51,7 +51,7 @@
 
 <script setup>
 import { ElMessage } from 'element-plus'
-import { reactive, ref, watch, onMounted, inject } from 'vue'
+import { inject, onMounted, reactive, ref, watch } from 'vue'
 import { cloneDeep } from 'lodash-es'
 
 defineOptions({
@@ -89,7 +89,7 @@ const update = (index, key, value) => {
 const addOption = () => {
   const index = String(data.items.length + 1)
   data.items.push({
-    label: '选项' + index,
+    label: `选项${index}`,
     value: index
   })
   emitChange()

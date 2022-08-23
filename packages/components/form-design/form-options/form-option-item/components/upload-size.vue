@@ -1,5 +1,5 @@
 <template>
-  <el-input type="text" v-model.number="size" @input="update">
+  <el-input v-model.number="size" type="text" @input="update">
     <template #append>
       <el-select v-model="unit" :style="{ width: '70px' }" @change="update">
         <el-option label="KB" value="KB" />
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 defineOptions({
   name: 'uploadSizeOption'

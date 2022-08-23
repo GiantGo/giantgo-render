@@ -1,5 +1,5 @@
 <template>
-  <el-empty v-if="formDesign.items?.length === 0" class="empty" description="从左侧选择控件添加"></el-empty>
+  <el-empty v-if="formDesign.items?.length === 0" class="empty" description="从左侧选择控件添加" />
   <el-form
     class="form-builder"
     :label-width="formDesign.options.labelWidth"
@@ -16,7 +16,7 @@
       :items="formDesign.items"
       :options="formDesign.options"
       path="root"
-    ></form-builder-item>
+    />
   </el-form>
 </template>
 

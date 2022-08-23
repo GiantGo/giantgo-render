@@ -2,7 +2,7 @@
   <el-input-number
     :model-value="modelValue"
     @change="$emit('update:modelValue', $event ? $event : undefined)"
-  ></el-input-number>
+  />
 </template>
 
 <script setup>

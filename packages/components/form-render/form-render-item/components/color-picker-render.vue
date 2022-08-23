@@ -2,10 +2,10 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-color-picker
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :disabled="options.disabled"
       :show-alpha="options.showAlpha"
-    ></el-color-picker>
+      @update:modelValue="$emit('update:modelValue', $event)"
+    />
   </el-form-item>
 </template>
 

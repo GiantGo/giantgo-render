@@ -1,12 +1,12 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <div class="rich-editor-container" v-if="!options.hidden">
+    <div v-if="!options.hidden" class="rich-editor-container">
       <Toolbar class="rich-editor-toolbar" :editor="editorRef" />
       <Editor
         class="rich-editor"
-        :defaultConfig="{ placeholder: options.placeholder, readOnly: true }"
-        @onCreated="handleCreated"
+        :default-config="{ placeholder: options.placeholder, readOnly: true }"
         :style="{ height: options.height, width: '100%' }"
+        @onCreated="handleCreated"
       />
     </div>
   </el-form-item>

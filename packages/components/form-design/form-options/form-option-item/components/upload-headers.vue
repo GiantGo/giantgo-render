@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="编辑请求头部" v-model="codeDialog" width="750px">
+  <el-dialog v-model="codeDialog" title="编辑请求头部" width="750px">
     <div class="form-design-code-editor">
       <code-editor v-model="code" lang="json" />
     </div>

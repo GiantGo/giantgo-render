@@ -51,12 +51,3 @@ function getGuideSidebar() {
     }
   ]
 }
-
-function getApiSidebar() {
-  return [
-    {
-      text: 'API',
-      children: [{ text: 'API', link: '/api/' }]
-    }
-  ]
-}

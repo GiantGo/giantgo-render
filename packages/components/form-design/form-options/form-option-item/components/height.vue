@@ -1,16 +1,15 @@
 <template>
   <el-slider
     :model-value="parseInt(modelValue)"
-    @update:modelValue="modelValue = $event + 'px'"
-    @input="$emit('update:modelValue', $event + 'px')"
-    :min="0"
-    :max="1000"
     :format-tooltip="
       (value) => {
         return value + 'px'
       }
     "
-  ></el-slider>
+    :min="0"
+    :max="1000"
+    @update:modelValue="update"
+  />
 </template>
 
 <script setup>
@@ -20,6 +19,11 @@ defineOptions({
 defineProps({
   modelValue: String
 })
+const emit = defineEmits(['update:modelValue'])
+
+const update = (val) => {
+  emit('update:modelValue', `${val}px`)
+}
 </script>
 
 <style lang="scss" scoped></style>

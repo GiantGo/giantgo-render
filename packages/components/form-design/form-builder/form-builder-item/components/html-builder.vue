@@ -1,5 +1,5 @@
 <template>
-  <div v-html="options.richContent"></div>
+  <div v-html="options.richContent" />
 </template>
 
 <script setup>

@@ -4,16 +4,16 @@
       v-for="item in items"
       :key="item.uuid"
       :model-value="modelValue[item.options.key]"
-      @update:modelValue="update(item.options.key, $event)"
-      :component="item.component"
       :items="item.items"
       :options="item.options"
+      :component="item.component"
       :path="item.options.key ? path + '.' + item.options.key : path"
       :style="{
         'padding-left': options.gutter / 2 + 'px',
         'padding-right': options.gutter / 2 + 'px'
       }"
-    ></form-render-item>
+      @update:modelValue="update(item.options.key, $event)"
+    />
   </div>
 </template>
 

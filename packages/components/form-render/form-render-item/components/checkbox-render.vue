@@ -2,8 +2,8 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-checkbox-group
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :disabled="options.disabled"
+      @update:modelValue="$emit('update:modelValue', $event)"
     >
       <el-checkbox v-for="item in items" :key="item.value" :label="item.value">
         {{ item.label }}

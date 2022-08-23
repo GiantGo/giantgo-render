@@ -1,25 +1,25 @@
 <template>
   <div class="form-design">
     <div class="left-container">
-      <form-fields></form-fields>
+      <form-fields/>
     </div>
     <div class="center-container">
-      <form-operators></form-operators>
-      <form-builder></form-builder>
+      <form-operators/>
+      <form-builder/>
     </div>
     <div class="right-container">
-      <form-options></form-options>
+      <form-options/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, provide, computed } from 'vue'
-import { uuid as makeId, hasOwn, validateInterpolation } from '@giantgo-render/utils'
-import { isEmpty, cloneDeep } from 'lodash-es'
+import { computed, provide, reactive, ref } from 'vue'
+import { hasOwn, uuid as makeId, validateInterpolation } from '@giantgo-render/utils'
+import { cloneDeep, isEmpty } from 'lodash-es'
 import { form } from './config'
 
-import type { FormDesign, Group, FormDesignOption } from '@giantgo-render/tokens'
+import type { FormDesign, FormDesignOption, Group } from '@giantgo-render/tokens'
 
 defineOptions({
   name: 'formDesign'
@@ -108,8 +108,8 @@ const copy = (items: Array<FormDesign> = [], uuid: string): FormDesign | undefin
 
   for (let i = 0; i < items.length; i++) {
     if (items[i].uuid === uuid) {
-      let newItem: FormDesign = cloneDeep(items[i])
-      newItem.uuid = newItem.options.key = newItem.component.replace('/-/gi', '_') + '_' + makeId(8)
+      const newItem: FormDesign = cloneDeep(items[i])
+      newItem.uuid = newItem.options.key = `${newItem.component.replace('/-/gi', '_')}_${makeId(8)}`
       if (hasOwn(newItem, 'items')) {
         newItem.items = []
       }
@@ -235,7 +235,7 @@ const clear = () => {
   addCache()
 }
 
-const register = (name: string = '基础组件', components: Array<FormDesign> = [], order = 0) => {
+const register = (name = '基础组件', components: Array<FormDesign> = [], order = 0) => {
   const index = groups.value.findIndex((group) => group.name === name)
 
   if (props && props.fields && props.fields.length) {

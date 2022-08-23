@@ -3,14 +3,13 @@
     <el-time-picker
       is-range
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :placeholder="options.placeholder"
       :clearable="options.clearable"
       :disabled="options.disabled"
       :format="options.format"
       :prefix-icon="options.prefixIcon"
-    >
-    </el-time-picker>
+      @update:modelValue="$emit('update:modelValue', $event)"
+    />
   </el-form-item>
 </template>
 

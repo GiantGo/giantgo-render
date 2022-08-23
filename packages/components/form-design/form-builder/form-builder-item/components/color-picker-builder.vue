@@ -5,7 +5,7 @@
       :model-value="options.defaultValue"
       :disabled="options.disabled"
       :show-alpha="options.showAlpha"
-    ></el-color-picker>
+    />
   </el-form-item>
 </template>
 

@@ -7,8 +7,8 @@
     default-first-option
     placeholder="请选择文件类型"
     :model-value="modelValue"
-    @change="$emit('update:modelValue', $event)"
     style="width: 88%"
+    @change="$emit('update:modelValue', $event)"
   >
     <el-option label="doc" value="doc" />
     <el-option label="docx" value="docx" />

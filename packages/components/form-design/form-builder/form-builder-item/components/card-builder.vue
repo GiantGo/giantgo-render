@@ -5,7 +5,7 @@
         <span>{{ options.label }}</span>
       </div>
     </template>
-    <object-builder :uuid="uuid" :items="items" :options="options" :path="path"></object-builder>
+    <object-builder :uuid="uuid" :items="items" :options="options" :path="path" />
   </el-card>
 </template>
 

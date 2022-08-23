@@ -7,8 +7,8 @@
     default-first-option
     placeholder="请选择图片类型"
     :model-value="modelValue"
-    @change="$emit('update:modelValue', $event)"
     style="width: 88%"
+    @change="$emit('update:modelValue', $event)"
   >
     <el-option label="jpg" value="jpg" />
     <el-option label="jpeg" value="jpeg" />

@@ -5,10 +5,10 @@
       <Editor
         class="rich-editor"
         :model-value="modelValue"
-        @update:modelValue="$emit('update:modelValue', $event)"
-        :defaultConfig="{ placeholder: options.placeholder, readOnly: options.disabled }"
-        @onCreated="handleCreated"
+        :default-config="{ placeholder: options.placeholder, readOnly: options.disabled }"
         :style="{ height: options.height, width: '100%' }"
+        @update:modelValue="$emit('update:modelValue', $event)"
+        @onCreated="handleCreated"
       />
     </div>
   </el-form-item>

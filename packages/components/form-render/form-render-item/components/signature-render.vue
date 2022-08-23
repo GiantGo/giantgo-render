@@ -10,7 +10,7 @@
         backgroundColor: options.backgroundColor,
         endStroke
       }"
-    ></Signature>
+    />
     <div class="btn-submit">
       <el-button type="primary" @click="undo">撤销</el-button>
     </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 defineOptions({
   name: 'signatureRender'

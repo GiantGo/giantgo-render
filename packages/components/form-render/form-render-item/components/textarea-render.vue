@@ -3,13 +3,13 @@
     <el-input
       type="textarea"
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :placeholder="options.placeholder"
       :rows="options.rows"
       :disabled="options.disabled"
       :maxlength="options.maxlength"
       :show-word-limit="options.showWordLimit"
-    ></el-input>
+      @update:modelValue="$emit('update:modelValue', $event)"
+    />
   </el-form-item>
 </template>
 

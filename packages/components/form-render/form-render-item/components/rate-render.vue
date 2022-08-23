@@ -3,11 +3,11 @@
     <el-rate
       class="form-rate"
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :disabled="options.disabled"
       :allow-half="options.allowHalf"
       :max="options.max"
-    ></el-rate>
+      @update:modelValue="$emit('update:modelValue', $event)"
+    />
   </el-form-item>
 </template>
 

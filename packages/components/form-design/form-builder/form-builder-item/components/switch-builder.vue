@@ -8,7 +8,7 @@
       :inactive-text="options.inactiveText"
       :active-color="options.activeColor"
       :inactive-color="options.inactiveColor"
-    ></el-switch>
+    />
   </el-form-item>
 </template>
 

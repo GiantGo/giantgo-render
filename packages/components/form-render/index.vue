@@ -1,7 +1,7 @@
 <template>
   <el-form
-    class="form-render"
     ref="formRef"
+    class="form-render"
     :label-width="state.formDesign.options.labelWidth"
     :label-position="state.formDesign.options.labelPosition"
     :hide-required-asterisk="state.formDesign.options.hideRequiredAsterisk"
@@ -11,13 +11,13 @@
     :model="state.formData"
   >
     <form-render-item
-      class="root"
       v-model="state.formData.root"
+      class="root"
       :component="state.formDesign.component"
       :items="state.formDesign.items"
       :options="state.formDesign.options"
       path="root"
-    ></form-render-item>
+    />
     <div class="btn-submit">
       <el-button type="primary" @click="submit">提交</el-button>
       <el-button type="default" @click="reset">重置</el-button>
@@ -26,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, toRaw, computed, provide } from 'vue'
-import { ElForm, ElButton } from 'element-plus'
+import { computed, provide, reactive, ref, toRaw } from 'vue'
+import { ElButton, ElForm } from 'element-plus'
 import { getInterpolation, validateInterpolation } from '@giantgo-render/utils'
 import mitt from 'mitt'
 
@@ -68,7 +68,7 @@ const traverse = (items: Array<FormDesign>, form: FormData, data: FormData = { r
     }
 
     // 处理插值表达式
-    for (let option in item.options) {
+    for (const option in item.options) {
       if (validateInterpolation(item.options[option])) {
         const functionBody = new Function(
           'root',

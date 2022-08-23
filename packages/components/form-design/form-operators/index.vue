@@ -15,7 +15,7 @@
         <i-carbon-trash-can />
       </el-icon>
     </el-tooltip>
-    <el-divider direction="vertical"></el-divider>
+    <el-divider direction="vertical"/>
     <el-tooltip effect="dark" content="后退" placement="bottom">
       <el-icon class="icon" :class="{ disabled: current <= 0 }" @click="revoke">
         <i-carbon-undo />
@@ -26,10 +26,10 @@
         <i-carbon-redo />
       </el-icon>
     </el-tooltip>
-    <el-dialog title="预览" v-model="previewDialog" destroy-on-close append-to-body width="750px">
+    <el-dialog v-model="previewDialog" title="预览" destroy-on-close append-to-body width="750px">
       <form-render ref="formRenderRef" @submit="submit" />
     </el-dialog>
-    <el-dialog :title="jsonDialog.title" v-model="jsonDialog.isShow" append-to-body width="750px">
+    <el-dialog v-model="jsonDialog.isShow" :title="jsonDialog.title" append-to-body width="750px">
       <div class="form-design-code-editor">
         <code-editor v-model="jsonDialog.code" lang="json" />
       </div>
@@ -40,7 +40,7 @@
         </div>
       </template>
     </el-dialog>
-    <el-dialog :title="resultDialog.title" v-model="resultDialog.isShow" append-to-body width="750px">
+    <el-dialog v-model="resultDialog.isShow" :title="resultDialog.title" append-to-body width="750px">
       <div class="form-design-code-editor">
         <code-editor v-model="resultDialog.code" lang="json" />
       </div>
@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick, inject, reactive, computed } from 'vue'
+import { computed, inject, nextTick, reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { cloneDeep } from 'lodash-es'
 

@@ -2,15 +2,15 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-select
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :clearable="options.clearable"
       :disabled="options.disabled"
       :filterable="options.filterable"
       :placeholder="options.placeholder"
       :no-data-text="options.noDataText"
       :no-match-text="options.noMatchText"
+      @update:modelValue="$emit('update:modelValue', $event)"
     >
-      <el-option v-for="item in items" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+      <el-option v-for="item in items" :key="item.value" :label="item.label" :value="item.value" />
     </el-select>
   </el-form-item>
 </template>

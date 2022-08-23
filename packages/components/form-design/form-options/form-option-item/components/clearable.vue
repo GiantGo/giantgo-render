@@ -1,5 +1,5 @@
 <template>
-  <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)"> </el-checkbox>
+  <el-checkbox :model-value="modelValue" @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 
 <script setup>

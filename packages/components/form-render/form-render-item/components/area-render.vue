@@ -2,7 +2,6 @@
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-cascader
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :options="region"
       :placeholder="options.placeholder"
       :disabled="options.disabled"
@@ -10,7 +9,8 @@
       :props="{
         expandTrigger: options.expandTrigger
       }"
-    ></el-cascader>
+      @update:modelValue="$emit('update:modelValue', $event)"
+    />
   </el-form-item>
 </template>
 

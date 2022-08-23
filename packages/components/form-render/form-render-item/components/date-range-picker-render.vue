@@ -3,14 +3,13 @@
     <el-date-picker
       type="daterange"
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :placeholder="options.placeholder"
       :clearable="options.clearable"
       :disabled="options.disabled"
       :format="options.format"
       :prefix-icon="options.prefixIcon"
-    >
-    </el-date-picker>
+      @update:modelValue="$emit('update:modelValue', $event)"
+    />
   </el-form-item>
 </template>
 

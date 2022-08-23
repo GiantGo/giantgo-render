@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { reactive, onMounted, watch } from 'vue'
+import { onMounted, reactive, watch } from 'vue'
 
 defineOptions({
   name: 'paddingOption'

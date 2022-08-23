@@ -12,7 +12,7 @@
       :suffix-icon="options.suffixIcon"
       :maxlength="options.maxlength"
       :show-word-limit="options.showWordLimit"
-    ></el-input>
+    />
   </el-form-item>
 </template>
 

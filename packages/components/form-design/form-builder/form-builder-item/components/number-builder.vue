@@ -6,7 +6,7 @@
       :min="options.min"
       :max="options.max"
       :disabled="options.disabled"
-    ></el-input-number>
+    />
   </el-form-item>
 </template>
 

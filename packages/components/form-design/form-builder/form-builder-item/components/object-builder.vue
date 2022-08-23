@@ -2,13 +2,13 @@
   <draggable
     class="form-item-drop-list"
     :model-value="items"
-    @update:modelValue="updateItems"
-    @start="dragStart"
-    @add="add"
     item-key="uuid"
     :animation="200"
     :group="{ name: 'form-draggable' }"
     ghost-class="ghost"
+    @update:modelValue="updateItems"
+    @start="dragStart"
+    @add="add"
   >
     <template #item="{ element }">
       <div
@@ -27,7 +27,7 @@
             'padding-left': options.gutter / 2 + 'px',
             'padding-right': options.gutter / 2 + 'px'
           }"
-        ></form-builder-item>
+        />
       </div>
     </template>
   </draggable>

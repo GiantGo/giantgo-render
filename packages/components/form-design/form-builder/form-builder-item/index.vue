@@ -1,6 +1,6 @@
 <template>
   <div class="form-item">
-    <div class="form-item-box" @click.stop="select" :class="{ 'is-selected': isSelected }">
+    <div class="form-item-box" :class="{ 'is-selected': isSelected }" @click.stop="select">
       <div class="operator">
         <div class="copy" @click.stop="copy">
           <el-icon><i-carbon-copy-file /></el-icon>
@@ -12,7 +12,7 @@
       <div class="info">
         {{ options.key }}
       </div>
-      <component :is="component + '-builder'" :uuid="uuid" :items="items" :options="options" :path="path"></component>
+      <component :is="component + '-builder'" :uuid="uuid" :items="items" :options="options" :path="path" />
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ Object.values(import.meta.globEager('./components/*.vue')).forEach(
 )
 
 export default {
-  name: 'formBuilderItem',
+  name: 'FormBuilderItem',
   components: { ...components },
   props: {
     path: String,

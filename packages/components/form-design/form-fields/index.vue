@@ -1,6 +1,6 @@
 <template>
   <div class="form-picker">
-    <div class="form-item-section" v-for="group in groups.sort((a, b) => a.order - b.order)" :key="group.name">
+    <div v-for="group in groups.sort((a, b) => a.order - b.order)" :key="group.name" class="form-item-section">
       <div class="title">{{ group.name }}</div>
       <div class="form-item-group">
         <template v-for="component in group.components" :key="component.name">
@@ -32,7 +32,7 @@ import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
 import { cloneDeep } from 'lodash-es'
 import { uuid as makeId } from '@giantgo-render/utils'
-import { inputs, pickers, complexs, assists, layouts } from '../config'
+import { assists, complexs, inputs, layouts, pickers } from '../config'
 
 defineOptions({
   name: 'formFields'
@@ -44,7 +44,7 @@ const register = inject('register')
 
 const clone = (original) => {
   const item = cloneDeep(original)
-  item.uuid = item.uuid || item.component.replaceAll('-', '_') + '_' + makeId(8)
+  item.uuid = item.uuid || `${item.component.replaceAll('-', '_')}_${makeId(8)}`
   item.options.key = item.options.key || item.uuid
   return item
 }

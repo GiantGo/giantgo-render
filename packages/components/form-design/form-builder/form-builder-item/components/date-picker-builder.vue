@@ -8,8 +8,7 @@
       :disabled="options.disabled"
       :format="options.format"
       :prefix-icon="options.prefixIcon"
-    >
-    </el-date-picker>
+    />
   </el-form-item>
 </template>
 

@@ -8,8 +8,7 @@
       :disabled="options.disabled"
       :format="options.format"
       :prefix-icon="options.prefixIcon"
-    >
-    </el-time-picker>
+    />
   </el-form-item>
 </template>
 

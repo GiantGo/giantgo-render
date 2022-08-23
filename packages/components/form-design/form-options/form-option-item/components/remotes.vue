@@ -1,6 +1,6 @@
 <template>
-  <el-button type="primary" plain @click="showRemote" style="width: 88%">设置</el-button>
-  <el-dialog title="数据源" v-model="remoteDialog" width="750px" :show-close="false">
+  <el-button type="primary" plain style="width: 88%" @click="showRemote">设置</el-button>
+  <el-dialog v-model="remoteDialog" title="数据源" width="750px" :show-close="false">
     <template #header>
       设置数据源
       <div style="float: right">
@@ -41,7 +41,7 @@
                 </el-select>
               </template>
               <template #append>
-                <el-button @click="testRequest" :loading="form.loading">测试请求</el-button>
+                <el-button :loading="form.loading" @click="testRequest">测试请求</el-button>
               </template>
             </el-input>
           </el-form-item>
@@ -50,7 +50,7 @@
               :label="'请求头部Headers' + (value.headers.length ? '（' + value.headers.length + '）' : '')"
               name="headers"
             >
-              <el-row class="option-row" v-for="(header, index) in value.headers" :key="index" :gutter="5">
+              <el-row v-for="(header, index) in value.headers" :key="index" class="option-row" :gutter="5">
                 <el-col :span="11">
                   <el-input v-model="header.key" placeholder="Key" />
                 </el-col>
@@ -69,7 +69,7 @@
               :label="'请求参数Params' + (value.params.length ? '（' + value.params.length + '）' : '')"
               name="params"
             >
-              <el-row class="option-row" v-for="(param, index) in value.params" :key="index" :gutter="5">
+              <el-row v-for="(param, index) in value.params" :key="index" class="option-row" :gutter="5">
                 <el-col :span="11">
                   <el-input v-model="param.key" placeholder="Key" />
                 </el-col>
@@ -88,7 +88,7 @@
               :label="'请求数据Data' + (value.data.length ? '（' + value.data.length + '）' : '')"
               name="data"
             >
-              <el-row class="option-row" v-for="(data, index) in value.data" :key="index" :gutter="5">
+              <el-row v-for="(data, index) in value.data" :key="index" class="option-row" :gutter="5">
                 <el-col :span="11">
                   <el-input v-model="data.key" placeholder="Key" />
                 </el-col>
@@ -104,7 +104,7 @@
               <el-button link type="primary" @click="addKeyValue(uuid, 'data')">增加数据</el-button>
             </el-tab-pane>
           </el-tabs>
-          <div class="form-design-code-editor" v-loading="form.loading">
+          <div v-loading="form.loading" class="form-design-code-editor">
             <div class="code-editor-tip">响应数据</div>
             <code-editor v-model="form.remoteResults[uuid]" lang="json" />
           </div>
@@ -138,10 +138,10 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { cloneDeep, isEmpty } from 'lodash-es'
-import { uuid, createRequest } from '@giantgo-render/utils'
+import { createRequest, uuid as makeId } from '@giantgo-render/utils'
 
 defineOptions({
   name: 'remotesOption'
@@ -193,7 +193,7 @@ const saveRemote = () => {
 
 const editRemote = (target, action) => {
   if (action === 'add') {
-    const newUuid = 'remote_' + uuid(8)
+    const newUuid = `remote_${makeId(8)}`
     remoteTabsValue.value = newUuid
     form.remotes[newUuid] = {
       title: '',
@@ -235,7 +235,7 @@ const removeKeyValue = (uuid, attr, targetIndex) => {
 }
 
 const testRequest = () => {
-  formRef.value.validateField('remotes.' + remoteTabsValue.value + '.url').then(() => {
+  formRef.value.validateField(`remotes.${remoteTabsValue.value}.url`).then(() => {
     form.loading = true
     createRequest(form.remotes[remoteTabsValue.value])
       .then((data) => {

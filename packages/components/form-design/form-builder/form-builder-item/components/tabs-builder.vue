@@ -5,16 +5,16 @@
     <el-button type="danger" :disabled="items.length <= 0" @click="removeTab"> 删除 </el-button>
   </div>
   <el-tabs v-model="tabsValue" :type="options.tabType" :tab-position="options.tabPosition">
-    <el-tab-pane :key="item.name" v-for="item in items" :label="item.options.label" :name="item.uuid">
+    <el-tab-pane v-for="item in items" :key="item.name" :label="item.options.label" :name="item.uuid">
       <object-builder
         :uuid="item.uuid"
         :items="item.items"
         :options="item.options"
         :path="path + '.' + item.options.key"
-      ></object-builder>
+      />
     </el-tab-pane>
   </el-tabs>
-  <el-dialog :title="tabDialog.title" v-model="tabDialog.isShow" width="750px">
+  <el-dialog v-model="tabDialog.isShow" :title="tabDialog.title" width="750px">
     <el-form
       ref="formRef"
       :model="tabForm"
@@ -24,10 +24,10 @@
       style="width: 400px; margin-left: 50px"
     >
       <el-form-item label="标签名称" prop="label">
-        <el-input v-model="tabForm.label" type="text"></el-input>
+        <el-input v-model="tabForm.label" type="text" />
       </el-form-item>
       <el-form-item label="ID (字段名称/英文)" prop="key" style="margin-top: 22px">
-        <el-input v-model="tabForm.key" type="text"></el-input>
+        <el-input v-model="tabForm.key" type="text" />
       </el-form-item>
     </el-form>
     <template #footer>
@@ -40,10 +40,10 @@
 </template>
 
 <script setup>
-import { ref, inject, reactive, nextTick } from 'vue'
+import { inject, nextTick, reactive, ref } from 'vue'
 import { objectLayout } from '../../../config'
 import { cloneDeep } from 'lodash-es'
-import { uuid } from '@giantgo-render/utils'
+import { uuid as makeId } from '@giantgo-render/utils'
 
 defineOptions({
   name: 'tabsBuilder'
@@ -85,8 +85,8 @@ const tabForm = reactive({
 
 const addTab = () => {
   tabForm.uuid = ''
-  tabForm.label = '标签' + (props.items.length + 1)
-  tabForm.key = 'tab_' + uuid(8)
+  tabForm.label = `标签${props.items.length + 1}`
+  tabForm.key = `tab_${makeId(8)}`
   tabDialog.isShow = true
   tabDialog.title = '添加'
   nextTick(() => {
@@ -125,7 +125,7 @@ const saveTab = () => {
     if (valid) {
       if (!tabForm.uuid) {
         const item = cloneDeep(objectLayout)
-        item.uuid = item.component.replaceAll('-', '_') + '_' + uuid(8)
+        item.uuid = `${item.component.replaceAll('-', '_')}_${makeId(8)}`
         item.options.label = tabForm.label
         item.options.key = tabForm.key
         tabsValue.value = item.uuid

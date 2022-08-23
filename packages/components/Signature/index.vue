@@ -1,7 +1,6 @@
 <script>
-import { h, defineComponent } from 'vue'
+import { defineComponent, h } from 'vue'
 import SignaturePad from 'signature_pad'
-// import mergeImages from 'merge-images'
 
 const IMAGE_TYPES = ['image/png', 'image/jpeg', 'image/svg+xml']
 const checkSaveType = (type) => IMAGE_TYPES.includes(type)
@@ -26,7 +25,7 @@ const DEFAULT_OPTIONS = {
 }
 
 export default defineComponent({
-  name: 'signature',
+  name: 'Signature',
   props: {
     width: {
       type: String,
@@ -63,7 +62,7 @@ export default defineComponent({
     }
   },
   watch: {
-    options: function (nextOptions) {
+    options(nextOptions) {
       Object.keys(nextOptions).forEach((option) => {
         if (this.signaturePad[option]) {
           this.signaturePad[option] = nextOptions[option]
@@ -187,8 +186,8 @@ export default defineComponent({
       [
         h('canvas', {
           style: {
-            width: width,
-            height: height
+            width,
+            height
           },
           ref: 'signaturePadCanvas'
         })

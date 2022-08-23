@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="编辑额外参数" v-model="codeDialog" width="750px">
+  <el-dialog v-model="codeDialog" title="编辑额外参数" width="750px">
     <div class="form-design-code-editor">
       <code-editor v-model="code" lang="json" />
     </div>

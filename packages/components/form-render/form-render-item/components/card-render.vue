@@ -11,7 +11,7 @@
       :path="path"
       :model-value="modelValue"
       @update:modelValue="$emit('update:modelValue', $event)"
-    ></object-render>
+    />
   </el-card>
 </template>
 

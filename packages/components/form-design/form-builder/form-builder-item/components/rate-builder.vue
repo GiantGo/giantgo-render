@@ -1,13 +1,13 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-rate
-      class="form-rate"
       v-if="!options.hidden"
+      class="form-rate"
       :model-value="options.defaultValue"
       :disabled="options.disabled"
       :allow-half="options.allowHalf"
       :max="options.max"
-    ></el-rate>
+    />
   </el-form-item>
 </template>
 

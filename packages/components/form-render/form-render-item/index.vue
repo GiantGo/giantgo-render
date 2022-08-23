@@ -1,13 +1,13 @@
 <template>
-  <div class="form-item" :style="{ width: options.width }" v-if="!options.hidden">
+  <div v-if="!options.hidden" class="form-item" :style="{ width: options.width }">
     <component
       :is="component + '-render'"
       :items="items"
       :options="options"
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
       :path="path"
-    ></component>
+      @update:modelValue="$emit('update:modelValue', $event)"
+    />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ Object.values(import.meta.globEager('./components/*.vue')).forEach(
 )
 
 export default {
-  name: 'formRenderItem',
+  name: 'FormRenderItem',
   components: { ...components },
   props: {
     path: {

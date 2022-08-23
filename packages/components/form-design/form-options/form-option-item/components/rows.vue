@@ -1,11 +1,5 @@
 <template>
-  <el-slider
-    :model-value="modelValue"
-    @update:modelValue="modelValue = $event"
-    @input="$emit('update:modelValue', $event)"
-    :min="2"
-    :max="10"
-  ></el-slider>
+  <el-slider :model-value="modelValue" :min="2" :max="10" @update:modelValue="update" />
 </template>
 
 <script setup>
@@ -15,6 +9,11 @@ defineOptions({
 defineProps({
   modelValue: Number
 })
+const emit = defineEmits(['update:modelValue'])
+
+const update = (val) => {
+  emit('update:modelValue', val)
+}
 </script>
 
 <style lang="scss" scoped></style>

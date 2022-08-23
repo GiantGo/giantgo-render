@@ -1,6 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <object-builder :uuid="uuid" :items="items" :options="options" :path="path"></object-builder>
+    <object-builder :uuid="uuid" :items="items" :options="options" :path="path" />
   </el-form-item>
 </template>
 

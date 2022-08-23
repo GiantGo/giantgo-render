@@ -10,7 +10,7 @@
       :show-stops="options.showStops"
       :show-input="options.showInput"
       :show-tooltip="options.showToolTip"
-    ></el-slider>
+    />
   </el-form-item>
 </template>
 

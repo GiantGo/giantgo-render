@@ -2,9 +2,9 @@
   <el-autocomplete
     popper-class="form-setting-interpolation"
     :model-value="getInterpolation(modelValue).trim()"
-    @input="$emit('update:modelValue', $event.trim() ? `{{${$event.trim()}}}` : '{{  }}')"
     :fetch-suggestions="querySearch"
     placeholder="请输入JS表达式"
+    @input="$emit('update:modelValue', $event.trim() ? `{{${$event.trim()}}}` : '{{  }}')"
   >
     <template #default="{ item }">
       <div class="value">{{ item.value }}</div>

@@ -1,11 +1,11 @@
 <template>
   <form-render-item
     :model-value="modelValue"
-    @update:modelValue="$emit('update:modelValue', $event)"
     :component="component"
     :items="items"
     :options="options"
-  ></form-render-item>
+    @update:modelValue="$emit('update:modelValue', $event)"
+  />
 </template>
 
 <script setup>

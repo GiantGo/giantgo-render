@@ -9,7 +9,7 @@
       :disabled="options.disabled"
       :maxlength="options.maxlength"
       :show-word-limit="options.showWordLimit"
-    ></el-input>
+    />
   </el-form-item>
 </template>
 

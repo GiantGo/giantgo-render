@@ -10,7 +10,7 @@
       :props="{
         expandTrigger: options.expandTrigger
       }"
-    ></el-cascader>
+    />
   </el-form-item>
 </template>
 

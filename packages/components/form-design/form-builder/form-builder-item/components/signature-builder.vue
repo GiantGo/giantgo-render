@@ -9,7 +9,7 @@
         penColor: options.penColor,
         backgroundColor: options.backgroundColor
       }"
-    ></Signature>
+    />
   </el-form-item>
 </template>
 

@@ -1,17 +1,16 @@
 <template>
   <div class="form-setting">
     <div class="title">{{ selected.uuid === 'root' ? '表单设置' : '字段设置' }}</div>
-    <el-form label-position="left" label-width="120px" :key="selected.uuid">
+    <el-form :key="selected.uuid" label-position="left" label-width="120px">
       <div v-for="(value, key) in selected.options" :key="key">
-        <form-option-item :option-key="key" :option-value="value" v-if="key !== 'defaultValue' || !selected.items">
-        </form-option-item>
+        <form-option-item v-if="key !== 'defaultValue' || !selected.items" :option-key="key" :option-value="value"/>
       </div>
     </el-form>
   </div>
 </template>
 
 <script setup>
-import { inject, computed } from 'vue'
+import { computed, inject } from 'vue'
 
 defineOptions({
   name: 'formSetting'

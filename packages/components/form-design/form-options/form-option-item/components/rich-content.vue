@@ -1,5 +1,5 @@
 <template>
-  <el-input type="textarea" :model-value="modelValue" @input="$emit('update:modelValue', $event)" :rows="4"></el-input>
+  <el-input type="textarea" :model-value="modelValue" :rows="4" @input="$emit('update:modelValue', $event)" />
 </template>
 
 <script setup>

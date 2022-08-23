@@ -1,5 +1,5 @@
 <template>
-  <div class="code-editor-wrap"></div>
+  <div class="code-editor-wrap" />
 </template>
 
 <script>
@@ -37,53 +37,6 @@ export default defineComponent({
     maxLines: Number
   },
   emits: ['update:modelValue', 'init', ...Events],
-  mounted() {
-    const editor = (this._editor = markRaw(
-      ace.edit(this.$el, {
-        placeholder: this.placeholder,
-        readOnly: this.readonly,
-        value: this.modelValue,
-        mode: 'ace/mode/' + this.lang,
-        theme: 'ace/theme/' + this.theme,
-        wrap: this.wrap,
-        printMargin: this.printMargin,
-        useWorker: false,
-        minLines: this.minLines,
-        maxLines: this.maxLines,
-        ...this.options
-      })
-    ))
-    this._contentBackup = this.modelValue
-    this._isSettingContent = false
-    editor.on('change', () => {
-      if (this._isSettingContent) return
-      const content = editor.getValue()
-      this._contentBackup = content
-      this.$emit('update:modelValue', content)
-    })
-    Events.forEach((x) => {
-      const eventName = 'on' + capitalize(x)
-      if (typeof this.$.vnode.props[eventName] === 'function') {
-        editor.on(x, this.$emit.bind(this, x))
-      }
-    })
-    this.$emit('init', editor)
-  },
-  beforeUnmount() {
-    var _b
-    ;(_b = this._editor) === null || _b === void 0 ? void 0 : _b.destroy()
-  },
-  methods: {
-    focus() {
-      this._editor.focus()
-    },
-    blur() {
-      this._editor.blur()
-    },
-    selectAll() {
-      this._editor.selectAll()
-    }
-  },
   watch: {
     modelValue(val) {
       if (this._contentBackup !== val) {
@@ -97,7 +50,7 @@ export default defineComponent({
       }
     },
     theme(val) {
-      this._editor.setTheme('ace/theme/' + val)
+      this._editor.setTheme(`ace/theme/${val}`)
     },
     options(val) {
       this._editor.setOptions(val)
@@ -115,13 +68,61 @@ export default defineComponent({
       this._editor.setOption('printMargin', val)
     },
     lang(val) {
-      this._editor.setOption('mode', 'ace/mode/' + val)
+      this._editor.setOption('mode', `ace/mode/${val}`)
     },
     minLines(val) {
       this._editor.setOption('minLines', val)
     },
     maxLines(val) {
       this._editor.setOption('maxLines', val)
+    }
+  },
+  mounted() {
+    const editor = (this._editor = markRaw(
+      ace.edit(this.$el, {
+        placeholder: this.placeholder,
+        readOnly: this.readonly,
+        value: this.modelValue,
+        mode: `ace/mode/${this.lang}`,
+        theme: `ace/theme/${this.theme}`,
+        wrap: this.wrap,
+        printMargin: this.printMargin,
+        useWorker: false,
+        minLines: this.minLines,
+        maxLines: this.maxLines,
+        ...this.options
+      })
+    ))
+    this._contentBackup = this.modelValue
+    this._isSettingContent = false
+    editor.on('change', () => {
+      if (this._isSettingContent) return
+      const content = editor.getValue()
+      this._contentBackup = content
+      this.$emit('update:modelValue', content)
+    })
+    Events.forEach((x) => {
+      const eventName = `on${capitalize(x)}`
+      if (typeof this.$.vnode.props[eventName] === 'function') {
+        editor.on(x, this.$emit.bind(this, x))
+      }
+    })
+    this.$emit('init', editor)
+  },
+  beforeUnmount() {
+    let _b
+      // eslint-disable-next-line no-void
+    ;(_b = this._editor) === null || _b === void 0 ? void 0 : _b.destroy()
+  },
+  methods: {
+    focus() {
+      this._editor.focus()
+    },
+    blur() {
+      this._editor.blur()
+    },
+    selectAll() {
+      this._editor.selectAll()
     }
   }
 })

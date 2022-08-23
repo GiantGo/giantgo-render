@@ -1,6 +1,7 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-upload
+      v-model:file-list="data.fileList"
       :action="options.uploadUrl"
       :name="options.uploadName"
       :multiple="options.multiple"
@@ -8,7 +9,6 @@
       :headers="options.uploadHeaders"
       :show-file-list="options.showFileList"
       :limit="options.limit"
-      v-model:file-list="data.fileList"
       :disabled="options.disabled"
       :before-upload="beforeUpload"
       :on-success="handleChange"
@@ -18,7 +18,7 @@
       <el-button type="primary">
         {{ options.buttonText }}
       </el-button>
-      <template #tip v-if="options.showToolTip">
+      <template v-if="options.showToolTip" #tip>
         <div class="el-upload__tip">{{ options.tip }}</div>
       </template>
     </el-upload>
@@ -27,7 +27,7 @@
 
 <script setup>
 import { ElMessage } from 'element-plus'
-import { reactive, watch, onMounted } from 'vue'
+import { onMounted, reactive, watch } from 'vue'
 import { cloneDeep } from 'lodash-es'
 
 defineOptions({

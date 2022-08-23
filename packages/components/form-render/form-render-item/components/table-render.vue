@@ -6,9 +6,8 @@
       </el-button>
     </div>
     <el-table class="edit-table" :data="data.items" style="width: 100%" border>
-      <el-table-column type="index" width="80" label="序号" align="center"> </el-table-column>
-      <el-table-column v-for="(item, index) in items" :key="index" :prop="item.options.key" :label="item.options.label">
-      </el-table-column>
+      <el-table-column type="index" width="80" label="序号" align="center"/>
+      <el-table-column v-for="(item, index) in items" :key="index" :prop="item.options.key" :label="item.options.label"/>
       <el-table-column label="操作" align="center" width="120" class-name="small-padding">
         <template #default="scope">
           <el-button type="primary" circle @click="edit(scope.$index, scope.row)">
@@ -21,13 +20,13 @@
       </el-table-column>
     </el-table>
   </el-form-item>
-  <el-dialog :title="formDialog.title" v-model="formDialog.isShow" :close-on-click-modal="false" width="750px">
+  <el-dialog v-model="formDialog.isShow" :title="formDialog.title" :close-on-click-modal="false" width="750px">
     <form-render ref="formRenderRef" @submit="save" />
   </el-dialog>
 </template>
 
 <script setup>
-import { reactive, ref, watch, onMounted, nextTick, inject } from 'vue'
+import { inject, nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { cloneDeep } from 'lodash-es'
 
 defineOptions({
