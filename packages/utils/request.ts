@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import type { AxiosInstance, AxiosRequestHeaders, AxiosPromise } from 'axios'
+import type { AxiosInstance, AxiosPromise, AxiosRequestHeaders } from 'axios'
 import type { Remote } from '@giantgo-render/tokens'
 
 // create an axios instance
@@ -31,24 +31,24 @@ export function createRequest(remote: Remote): AxiosPromise<unknown> {
     timeout: 30000
   })
 
-  const requestFunction: Function = new Function('config', remote.requestHandler)
-  const responseFunction: Function = new Function('response', remote.responseHandler)
-  const errorFunction: Function = new Function('error', remote.errorHandler)
+  const requestFunction = new Function('config', remote.requestHandler)
+  const responseFunction = new Function('response', remote.responseHandler)
+  const errorFunction = new Function('error', remote.errorHandler)
 
   service.interceptors.request.use(
-    function (config) {
+    (config) => {
       return requestFunction(config)
     },
-    function (error) {
+    (error) => {
       return Promise.reject(error)
     }
   )
 
   service.interceptors.response.use(
-    function (response) {
+    (response) => {
       return responseFunction(response)
     },
-    function (error) {
+    (error) => {
       return errorFunction(error)
     }
   )

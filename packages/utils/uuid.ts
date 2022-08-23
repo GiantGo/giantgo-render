@@ -1,6 +1,6 @@
 export function uuid(len: number, radix?: number) {
-  let chars: string[] = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
-  let uuid: Array<string> = []
+  const chars: string[] = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
+  const uuid: Array<string> = []
   let i: number
   radix = radix || chars.length
 

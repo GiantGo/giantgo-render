@@ -1,7 +1,7 @@
 import { ref, watch } from 'vue'
 import { createRequest, hasOwn } from '@giantgo-render/utils'
 
-import type { FormDesign, Options, Option } from '@giantgo-render/tokens'
+import type { FormDesign, Option, Options } from '@giantgo-render/tokens'
 
 export function useOptions(props: any, formDesign: FormDesign) {
   const items = ref<Array<Option>>([])
