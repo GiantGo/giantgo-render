@@ -3,14 +3,19 @@ declare namespace _sfc_main {
     namespace props {
         const modelValue: StringConstructor;
     }
-    function setup(__props: any, { expose }: {
+    const emits: string[];
+    function setup(__props: any, { expose, emit }: {
         expose: any;
+        emit: any;
     }): {
-        readonly __isScriptSetup: boolean;
+        emit: any;
+        update: (val: any) => void;
     };
-    function setup(__props: any, { expose }: {
+    function setup(__props: any, { expose, emit }: {
         expose: any;
+        emit: any;
     }): {
-        readonly __isScriptSetup: boolean;
+        emit: any;
+        update: (val: any) => void;
     };
 }

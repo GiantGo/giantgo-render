@@ -39,12 +39,12 @@ declare namespace _sfc_main {
         remove: (index: any) => void;
         save: (result: any) => void;
         setInternal: () => void;
+        inject: typeof inject;
+        nextTick: typeof nextTick;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
-        nextTick: typeof nextTick;
-        inject: typeof inject;
         cloneDeep: <T>(value: T) => T;
     };
     function setup(__props: any, { expose, emit }: {
@@ -68,17 +68,17 @@ declare namespace _sfc_main {
         remove: (index: any) => void;
         save: (result: any) => void;
         setInternal: () => void;
+        inject: typeof inject;
+        nextTick: typeof nextTick;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
-        nextTick: typeof nextTick;
-        inject: typeof inject;
         cloneDeep: <T>(value: T) => T;
     };
 }
+import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
+import { nextTick } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { watch } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { nextTick } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

@@ -23,7 +23,7 @@ importers:
       ace-builds: ^1.8.1
       autoprefixer: ^10.4.8
       axios: ^0.23.0
-      element-plus: 2.2.13
+      element-plus: 2.2.14
       eslint: ^8.22.0
       eslint-config-prettier: ^8.5.0
       eslint-define-config: ^1.6.0
@@ -57,7 +57,7 @@ importers:
       '@wangeditor/editor-for-vue': 5.1.12_3czidxuhsdmk6jzpqgazshrppa
       ace-builds: 1.9.5
       axios: 0.23.0
-      element-plus: 2.2.13_vue@3.2.37
+      element-plus: 2.2.14_vue@3.2.37
       giantgo-render: link:packages/giantgo-render
       lodash-es: 4.17.21
       mitt: 3.0.0
@@ -114,7 +114,7 @@ importers:
       autoprefixer: ^10.4.8
       axios: ^0.23.0
       china-area-data: ^5.0.1
-      element-plus: 2.2.13
+      element-plus: 2.2.14
       lodash-es: ^4.17.21
       mitt: ^3.0.0
       postcss: ^8.4.16
@@ -136,7 +136,7 @@ importers:
       ace-builds: 1.9.5
       axios: 0.23.0
       china-area-data: 5.0.1
-      element-plus: 2.2.13_vue@3.2.37
+      element-plus: 2.2.14_vue@3.2.37
       lodash-es: 4.17.21
       mitt: 3.0.0
       signature_pad: 4.0.7
@@ -629,8 +629,8 @@ packages:
     resolution: {integrity: sha512-GKX1Qnqxo4S+Z/+Z8KKPLpH282LD7jLHWJcVryOflnsnH+BtSDfieR6ObwBMwpnNws0bUK8GI7z0unQf9bARNQ==}
     dev: true
 
-  /@types/web-bluetooth/0.0.14:
-    resolution: {integrity: sha512-5d2RhCard1nQUC3aHcq/gHzWYO6K0WJmAbjO7mQJgCQKtZpgXxv1rOM6O/dBDhDYYVutk1sciOgNSe+5YyfM8A==}
+  /@types/web-bluetooth/0.0.15:
+    resolution: {integrity: sha512-w7hEHXnPMEZ+4nGKl/KDRVpxkwYxYExuHOYXyzIzCDzEZ9ZCGMAewulr9IqJu2LR4N37fcnb1XVeuZ09qgOxhA==}
     dev: false
 
   /@typescript-eslint/eslint-plugin/5.34.0_euudt5oqhhodkyae5tf6wjmsda:
@@ -977,41 +977,29 @@ packages:
   /@vue/shared/3.2.37:
     resolution: {integrity: sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==}
 
-  /@vueuse/core/8.7.5_vue@3.2.37:
-    resolution: {integrity: sha512-tqgzeZGoZcXzoit4kOGLWJibDMLp0vdm6ZO41SSUQhkhtrPhAg6dbIEPiahhUu6sZAmSYvVrZgEr5aKD51nrLA==}
-    peerDependencies:
-      '@vue/composition-api': ^1.1.0
-      vue: ^2.6.0 || ^3.2.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-      vue:
-        optional: true
+  /@vueuse/core/9.1.1_vue@3.2.37:
+    resolution: {integrity: sha512-QfuaNWRDMQcCUwXylCyYhPC3ScS9Tiiz4J0chdwr3vOemBwRToSywq8MP+ZegKYFnbETzRY8G/5zC+ca30wrRQ==}
     dependencies:
-      '@types/web-bluetooth': 0.0.14
-      '@vueuse/metadata': 8.7.5
-      '@vueuse/shared': 8.7.5_vue@3.2.37
-      vue: 3.2.37
+      '@types/web-bluetooth': 0.0.15
+      '@vueuse/metadata': 9.1.1
+      '@vueuse/shared': 9.1.1_vue@3.2.37
       vue-demi: 0.11.4_vue@3.2.37
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
-  /@vueuse/metadata/8.7.5:
-    resolution: {integrity: sha512-emJZKRQSaEnVqmlu39NpNp8iaW+bPC2kWykWoWOZMSlO/0QVEmO/rt8A5VhOEJTKLX3vwTevqbiRy9WJRwVOQg==}
+  /@vueuse/metadata/9.1.1:
+    resolution: {integrity: sha512-XZ2KtSW+85LLHB/IdGILPAtbIVHasPsAW7aqz3BRMzJdAQWRiM/FGa1OKBwLbXtUw/AmjKYFlZJo7eOFIBXRog==}
     dev: false
 
-  /@vueuse/shared/8.7.5_vue@3.2.37:
-    resolution: {integrity: sha512-THXPvMBFmg6Gf6AwRn/EdTh2mhqwjGsB2Yfp374LNQSQVKRHtnJ0I42bsZTn7nuEliBxqUrGQm/lN6qUHmhJLw==}
-    peerDependencies:
-      '@vue/composition-api': ^1.1.0
-      vue: ^2.6.0 || ^3.2.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-      vue:
-        optional: true
+  /@vueuse/shared/9.1.1_vue@3.2.37:
+    resolution: {integrity: sha512-c+IfcOYmHiHqoEa3ED1Tbpue5GHmoUmTp8PtO4YbczthtY155Rt6DmWhjxMLXBF1Bcidagxljmp/7xtAzEHXLw==}
     dependencies:
-      vue: 3.2.37
       vue-demi: 0.11.4_vue@3.2.37
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
   /@wangeditor/basic-modules/1.1.3_lepvrz7c3g52rclow7kgtt6l7q:
@@ -1513,8 +1501,8 @@ packages:
     resolution: {integrity: sha512-vqZxT8C5mlDZ//hQFhneHmOLnj1LhbzxV0+I1yqHV8SB1Oo4Y5Ne9+qQhwHl7O1s9s9cRuo2l5CoLEHdhMTwZg==}
     dev: true
 
-  /element-plus/2.2.13_vue@3.2.37:
-    resolution: {integrity: sha512-dKQ7BPZC8deUPhv+6s4GgOL0GyGj3KpUarywxm6s1nWnHjH6FqeZlUcxPqBvJd7W/d81POayx3B13GP+rfkG9g==}
+  /element-plus/2.2.14_vue@3.2.37:
+    resolution: {integrity: sha512-V5Pis0OHhePg1RgVogZrcefaVl8vjVn4Pn9Qsh/t2CbFgjg9kKOYFqf/tuP3ObSXGm3X89hpe0W+nLVAsaFnpw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -1524,7 +1512,7 @@ packages:
       '@popperjs/core': /@sxzz/popperjs-es/2.11.7
       '@types/lodash': 4.14.182
       '@types/lodash-es': 4.17.6
-      '@vueuse/core': 8.7.5_vue@3.2.37
+      '@vueuse/core': 9.1.1_vue@3.2.37
       async-validator: 4.2.5
       dayjs: 1.11.3
       escape-html: 1.0.3

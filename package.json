@@ -30,7 +30,7 @@
     "@wangeditor/editor-for-vue": "^5.1.12",
     "ace-builds": "^1.8.1",
     "axios": "^0.23.0",
-    "element-plus": "2.2.13",
+    "element-plus": "2.2.14",
     "giantgo-render": "workspace:*",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.0",

@@ -26,13 +26,13 @@ declare namespace _sfc_main {
         addKeyValue: (uuid: any, attr: any) => void;
         removeKeyValue: (uuid: any, attr: any, targetIndex: any) => void;
         testRequest: () => void;
-        ref: typeof ref;
         reactive: typeof reactive;
+        ref: typeof ref;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
         cloneDeep: <T>(value: T) => T;
         isEmpty: (value?: any) => boolean;
-        uuid: typeof uuid;
         createRequest: typeof createRequest;
+        makeId: typeof makeId;
     };
     function setup(__props: any, { expose, emit }: {
         expose: any;
@@ -56,16 +56,16 @@ declare namespace _sfc_main {
         addKeyValue: (uuid: any, attr: any) => void;
         removeKeyValue: (uuid: any, attr: any, targetIndex: any) => void;
         testRequest: () => void;
-        ref: typeof ref;
         reactive: typeof reactive;
+        ref: typeof ref;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
         cloneDeep: <T>(value: T) => T;
         isEmpty: (value?: any) => boolean;
-        uuid: typeof uuid;
         createRequest: typeof createRequest;
+        makeId: typeof makeId;
     };
 }
-import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { uuid } from "@giantgo-render/utils/uuid";
+import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { createRequest } from "@giantgo-render/utils/request";
+import { uuid as makeId } from "@giantgo-render/utils/uuid";

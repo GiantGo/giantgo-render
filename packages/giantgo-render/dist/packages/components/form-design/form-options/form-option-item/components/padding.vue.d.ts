@@ -18,8 +18,8 @@ declare namespace _sfc_main {
         };
         emitChange: () => void;
         setInternal: () => void;
-        reactive: typeof reactive;
         onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        reactive: typeof reactive;
         watch: typeof watch;
     };
     function setup(__props: any, { expose, emit }: {
@@ -36,8 +36,8 @@ declare namespace _sfc_main {
         };
         emitChange: () => void;
         setInternal: () => void;
-        reactive: typeof reactive;
         onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        reactive: typeof reactive;
         watch: typeof watch;
     };
 }

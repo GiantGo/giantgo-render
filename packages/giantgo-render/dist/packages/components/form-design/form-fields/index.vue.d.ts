@@ -83,11 +83,11 @@ declare namespace _sfc_main {
         }>;
         cloneDeep: <T>(value: T) => T;
         makeId: typeof makeId;
-        inputs: import("@giantgo-render/tokens").FormDesign[];
-        pickers: import("@giantgo-render/tokens").FormDesign[];
-        complexs: import("@giantgo-render/tokens").FormDesign[];
         assists: import("@giantgo-render/tokens").FormDesign[];
+        complexs: import("@giantgo-render/tokens").FormDesign[];
+        inputs: import("@giantgo-render/tokens").FormDesign[];
         layouts: import("@giantgo-render/tokens").FormDesign[];
+        pickers: import("@giantgo-render/tokens").FormDesign[];
     };
     function setup(__props: any, { expose }: {
         expose: any;
@@ -172,11 +172,11 @@ declare namespace _sfc_main {
         }>;
         cloneDeep: <T>(value: T) => T;
         makeId: typeof makeId;
-        inputs: import("@giantgo-render/tokens").FormDesign[];
-        pickers: import("@giantgo-render/tokens").FormDesign[];
-        complexs: import("@giantgo-render/tokens").FormDesign[];
         assists: import("@giantgo-render/tokens").FormDesign[];
+        complexs: import("@giantgo-render/tokens").FormDesign[];
+        inputs: import("@giantgo-render/tokens").FormDesign[];
         layouts: import("@giantgo-render/tokens").FormDesign[];
+        pickers: import("@giantgo-render/tokens").FormDesign[];
     };
 }
 import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

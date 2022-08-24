@@ -50,13 +50,13 @@ declare namespace _sfc_main {
         editTab: () => void;
         removeTab: () => void;
         saveTab: () => void;
-        ref: typeof ref;
         inject: typeof inject;
-        reactive: typeof reactive;
         nextTick: typeof nextTick;
+        reactive: typeof reactive;
+        ref: typeof ref;
         objectLayout: import("@giantgo-render/tokens").FormDesign;
         cloneDeep: <T>(value: T) => T;
-        uuid: typeof uuid;
+        makeId: typeof makeId;
     };
     function setup(__props: any, { expose }: {
         expose: any;
@@ -91,17 +91,17 @@ declare namespace _sfc_main {
         editTab: () => void;
         removeTab: () => void;
         saveTab: () => void;
-        ref: typeof ref;
         inject: typeof inject;
-        reactive: typeof reactive;
         nextTick: typeof nextTick;
+        reactive: typeof reactive;
+        ref: typeof ref;
         objectLayout: import("@giantgo-render/tokens").FormDesign;
         cloneDeep: <T>(value: T) => T;
-        uuid: typeof uuid;
+        makeId: typeof makeId;
     };
 }
-import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { nextTick } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { uuid as uuid_1 } from "@giantgo-render/utils/uuid";
+import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
+import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
+import { uuid as makeId } from "@giantgo-render/utils/uuid";

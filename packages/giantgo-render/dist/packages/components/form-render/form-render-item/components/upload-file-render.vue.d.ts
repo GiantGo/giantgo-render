@@ -25,9 +25,9 @@ declare namespace _sfc_main {
         handleError: () => void;
         setInternal: () => void;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         cloneDeep: <T>(value: T) => T;
     };
     function setup(__props: any, { expose, emit }: {
@@ -44,9 +44,9 @@ declare namespace _sfc_main {
         handleError: () => void;
         setInternal: () => void;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         cloneDeep: <T>(value: T) => T;
     };
 }

@@ -21,9 +21,9 @@ declare namespace _sfc_main {
         endStroke: () => void;
         undo: () => void;
         setInternal: () => void;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
         watch: typeof watch;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
     };
     function setup(__props: any, { expose, emit }: {
         expose: any;
@@ -35,9 +35,9 @@ declare namespace _sfc_main {
         endStroke: () => void;
         undo: () => void;
         setInternal: () => void;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
         watch: typeof watch;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
     };
 }
 import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

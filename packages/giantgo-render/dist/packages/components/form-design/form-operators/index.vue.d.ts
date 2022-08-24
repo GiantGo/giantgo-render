@@ -26,11 +26,11 @@ declare namespace _sfc_main {
         submit: (result: any) => void;
         editJson: () => void;
         saveJson: () => import("element-plus").MessageHandler | undefined;
-        ref: typeof ref;
-        nextTick: typeof nextTick;
-        inject: typeof inject;
-        reactive: typeof reactive;
         computed: typeof import("@vue/reactivity").computed;
+        inject: typeof inject;
+        nextTick: typeof nextTick;
+        reactive: typeof reactive;
+        ref: typeof ref;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
         cloneDeep: <T>(value: T) => T;
     };
@@ -60,16 +60,16 @@ declare namespace _sfc_main {
         submit: (result: any) => void;
         editJson: () => void;
         saveJson: () => import("element-plus").MessageHandler | undefined;
-        ref: typeof ref;
-        nextTick: typeof nextTick;
-        inject: typeof inject;
-        reactive: typeof reactive;
         computed: typeof import("@vue/reactivity").computed;
+        inject: typeof inject;
+        nextTick: typeof nextTick;
+        reactive: typeof reactive;
+        ref: typeof ref;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
         cloneDeep: <T>(value: T) => T;
     };
 }
-import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { nextTick } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
+import { nextTick } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
+import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
