@@ -8,8 +8,8 @@
       :clearable="options.clearable"
       :disabled="options.disabled"
       :show-password="options.showPassword"
-      :prefix-icon="options.prefixIcon"
-      :suffix-icon="options.suffixIcon"
+      :prefix-icon="ElementPlusIconsVue[options.prefixIcon]"
+      :suffix-icon="ElementPlusIconsVue[options.suffixIcon]"
       :maxlength="options.maxlength"
       :show-word-limit="options.showWordLimit"
     />
@@ -17,6 +17,8 @@
 </template>
 
 <script setup>
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 defineOptions({
   name: 'inputBuilder'
 })

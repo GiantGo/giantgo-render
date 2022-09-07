@@ -3,14 +3,27 @@ declare namespace _sfc_main {
     namespace props {
         const modelValue: StringConstructor;
     }
-    function setup(__props: any, { expose }: {
+    const emits: string[];
+    function setup(__props: any, { expose, emit }: {
         expose: any;
+        emit: any;
     }): {
-        readonly __isScriptSetup: boolean;
+        emit: any;
+        drawer: import("vue").Ref<boolean>;
+        pickIcon: (icon: any) => void;
+        ElementPlusIconsVue: typeof ElementPlusIconsVue;
+        ref: typeof ref;
     };
-    function setup(__props: any, { expose }: {
+    function setup(__props: any, { expose, emit }: {
         expose: any;
+        emit: any;
     }): {
-        readonly __isScriptSetup: boolean;
+        emit: any;
+        drawer: import("vue").Ref<boolean>;
+        pickIcon: (icon: any) => void;
+        ElementPlusIconsVue: typeof ElementPlusIconsVue;
+        ref: typeof ref;
     };
 }
+import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

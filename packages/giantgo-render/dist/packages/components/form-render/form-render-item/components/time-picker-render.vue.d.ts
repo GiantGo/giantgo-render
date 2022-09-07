@@ -13,11 +13,12 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        readonly __isScriptSetup: boolean;
+        ElementPlusIconsVue: typeof ElementPlusIconsVue;
     };
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        readonly __isScriptSetup: boolean;
+        ElementPlusIconsVue: typeof ElementPlusIconsVue;
     };
 }
+import * as ElementPlusIconsVue from "@element-plus/icons-vue";

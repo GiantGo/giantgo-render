@@ -7,12 +7,14 @@
       :clearable="options.clearable"
       :disabled="options.disabled"
       :format="options.format"
-      :prefix-icon="options.prefixIcon"
+      :prefix-icon="ElementPlusIconsVue[options.prefixIcon]"
     />
   </el-form-item>
 </template>
 
 <script setup>
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 defineOptions({
   name: 'timePickerBuilder'
 })

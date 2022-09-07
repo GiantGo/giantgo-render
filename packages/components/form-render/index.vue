@@ -96,11 +96,11 @@ const traverse = (items: Array<FormDesign>, form: FormData, data: FormData = { r
   return items
 }
 
-const init = (config: FormDesign, data: object = {}) => {
-  state.formDesign = config
+const init = (formDesign: FormDesign, data: object = {}) => {
+  state.formDesign = formDesign
   state.formDesign.options.key = 'root'
   state.formDesign.options.defaultValue = {}
-  traverse([config], state.formData, { root: data })
+  traverse([formDesign], state.formData, { root: data })
   formRef.value && formRef.value.clearValidate()
 }
 
