@@ -24,7 +24,7 @@ importers:
       ace-builds: ^1.8.1
       autoprefixer: ^10.4.8
       axios: ^0.23.0
-      element-plus: 2.2.26
+      element-plus: 2.3.0
       eslint: ^8.22.0
       eslint-config-prettier: ^8.5.0
       eslint-define-config: ^1.6.0
@@ -59,7 +59,7 @@ importers:
       '@wangeditor/editor-for-vue': 5.1.12_3czidxuhsdmk6jzpqgazshrppa
       ace-builds: 1.9.5
       axios: 0.23.0
-      element-plus: 2.2.26_vue@3.2.37
+      element-plus: 2.3.0_vue@3.2.37
       giantgo-render: link:packages/giantgo-render
       lodash-es: 4.17.21
       mitt: 3.0.0
@@ -117,7 +117,7 @@ importers:
       autoprefixer: ^10.4.8
       axios: ^0.23.0
       china-area-data: ^5.0.1
-      element-plus: 2.2.26
+      element-plus: 2.3.0
       lodash-es: ^4.17.21
       mitt: ^3.0.0
       postcss: ^8.4.16
@@ -140,7 +140,7 @@ importers:
       ace-builds: 1.9.5
       axios: 0.23.0
       china-area-data: 5.0.1
-      element-plus: 2.2.26_vue@3.2.37
+      element-plus: 2.3.0_vue@3.2.37
       lodash-es: 4.17.21
       mitt: 3.0.0
       signature_pad: 4.0.7
@@ -1505,8 +1505,8 @@ packages:
     resolution: {integrity: sha512-vqZxT8C5mlDZ//hQFhneHmOLnj1LhbzxV0+I1yqHV8SB1Oo4Y5Ne9+qQhwHl7O1s9s9cRuo2l5CoLEHdhMTwZg==}
     dev: true
 
-  /element-plus/2.2.26_vue@3.2.37:
-    resolution: {integrity: sha512-O/rdY5m9DkclpVg8r3GynyqCunm7MxSR142xSsjrZA77bi7bcwA3SIy6SPEDqHi5R4KqgkGYgKSp4Q4e3irbYg==}
+  /element-plus/2.3.0_vue@3.2.37:
+    resolution: {integrity: sha512-3s3JO4+LHLi61tFwF2emIHx6nxwKKdj5YWcj3GUBoXKhbuRjhq6xqaxWpBlPk7jySr/8Eci5++T2THbvrpGn7A==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
