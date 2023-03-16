@@ -18,16 +18,12 @@
       :options="state.formDesign.options"
       path="root"
     />
-    <div class="btn-submit">
-      <el-button type="primary" @click="submit">提交</el-button>
-      <el-button type="default" @click="reset">重置</el-button>
-    </div>
   </el-form>
 </template>
 
 <script setup lang="ts">
 import { computed, provide, reactive, ref, toRaw } from 'vue'
-import { ElButton, ElForm } from 'element-plus'
+import { ElForm } from 'element-plus'
 import { getInterpolation, validateInterpolation } from '@giantgo-render/utils'
 import mitt from 'mitt'
 
@@ -42,7 +38,6 @@ defineOptions({
 })
 
 const formRef = ref<InstanceType<typeof ElForm> | null>(null)
-const emit = defineEmits(['submit'])
 const state = reactive<{
   formDesign: FormDesignInterpolation
   formData: { root: FormData }
@@ -105,12 +100,15 @@ const init = (formDesign: FormDesign, data: object = {}) => {
 }
 
 const submit = () => {
-  formRef.value!.validate((valid, error) => {
-    if (valid) {
-      emit('submit', toRaw(state.formData.root))
-    } else {
-      emitter.emit('validateError', Object.keys(error!)[0])
-    }
+  return new Promise((resolve, reject) => {
+    formRef.value!.validate((valid, error) => {
+      if (valid) {
+        resolve(toRaw(state.formData.root))
+      } else {
+        emitter.emit('validateError', Object.keys(error!)[0])
+        reject(error)
+      }
+    })
   })
 }
 
