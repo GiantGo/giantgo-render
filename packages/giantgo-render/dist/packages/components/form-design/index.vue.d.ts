@@ -18,6 +18,7 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
                 activeText?: string | undefined;
                 allowHalf?: boolean | undefined;
                 backgroundColor?: string | undefined;
+                border?: boolean | undefined;
                 buttonText?: string | undefined;
                 clearable?: boolean | undefined;
                 collapseTags?: boolean | undefined;
@@ -107,6 +108,7 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
                 activeText?: string | undefined;
                 allowHalf?: boolean | undefined;
                 backgroundColor?: string | undefined;
+                border?: boolean | undefined;
                 buttonText?: string | undefined;
                 clearable?: boolean | undefined;
                 collapseTags?: boolean | undefined;
@@ -196,6 +198,7 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
                 activeText?: string | undefined;
                 allowHalf?: boolean | undefined;
                 backgroundColor?: string | undefined;
+                border?: boolean | undefined;
                 buttonText?: string | undefined;
                 clearable?: boolean | undefined;
                 collapseTags?: boolean | undefined;
@@ -289,6 +292,7 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
                 activeText?: string | undefined;
                 allowHalf?: boolean | undefined;
                 backgroundColor?: string | undefined;
+                border?: boolean | undefined;
                 buttonText?: string | undefined;
                 clearable?: boolean | undefined;
                 collapseTags?: boolean | undefined;
@@ -409,6 +413,7 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
             activeText?: string | undefined;
             allowHalf?: boolean | undefined;
             backgroundColor?: string | undefined;
+            border?: boolean | undefined;
             buttonText?: string | undefined;
             clearable?: boolean | undefined;
             collapseTags?: boolean | undefined;

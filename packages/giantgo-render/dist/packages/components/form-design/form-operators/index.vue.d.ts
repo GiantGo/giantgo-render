@@ -23,7 +23,12 @@ declare namespace _sfc_main {
         cached: import("vue").ComputedRef<any>;
         current: import("vue").ComputedRef<any>;
         preview: () => void;
-        submit: (result: any) => void;
+        submit: () => void;
+        reset: () => void;
+        fieldChange: ({ key, value }: {
+            key: any;
+            value: any;
+        }) => void;
         editJson: () => void;
         saveJson: () => import("element-plus").MessageHandler | undefined;
         computed: typeof import("@vue/reactivity").computed;
@@ -57,7 +62,12 @@ declare namespace _sfc_main {
         cached: import("vue").ComputedRef<any>;
         current: import("vue").ComputedRef<any>;
         preview: () => void;
-        submit: (result: any) => void;
+        submit: () => void;
+        reset: () => void;
+        fieldChange: ({ key, value }: {
+            key: any;
+            value: any;
+        }) => void;
         editJson: () => void;
         saveJson: () => import("element-plus").MessageHandler | undefined;
         computed: typeof import("@vue/reactivity").computed;
