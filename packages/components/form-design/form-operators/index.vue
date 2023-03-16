@@ -27,7 +27,7 @@
       </el-icon>
     </el-tooltip>
     <el-dialog v-model="previewDialog" title="预览" destroy-on-close append-to-body width="750px">
-      <form-render ref="formRenderRef" @submit="submit" />
+      <form-render ref="formRenderRef" @field-change="fieldChange" />
       <template #footer>
         <span class="dialog-footer">
           <el-button type="primary" @click="submit"> 获取数据 </el-button>
@@ -103,6 +103,11 @@ const submit = () => {
 
 const reset = () => {
   formRenderRef.value.reset()
+}
+
+const fieldChange = ({ key, value }) => {
+  // eslint-disable-next-line no-console
+  console.log(key, value)
 }
 
 const editJson = () => {

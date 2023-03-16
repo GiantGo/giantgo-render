@@ -24,13 +24,18 @@
 <script setup lang="ts">
 import { computed, provide, reactive, ref, toRaw } from 'vue'
 import { ElForm } from 'element-plus'
-import { getInterpolation, validateInterpolation } from '@giantgo-render/utils'
+import { getInterpolation, isObject, validateInterpolation } from '@giantgo-render/utils'
 import mitt from 'mitt'
 
 import type { FormDesign, FormDesignInterpolation, FormDesignOption } from '@giantgo-render/tokens'
 
 type FormData = {
   [propName: string]: any
+}
+
+type Events = {
+  fieldChange: any
+  validateError: any
 }
 
 defineOptions({
@@ -52,7 +57,13 @@ const state = reactive<{
     root: {}
   }
 })
-const emitter = mitt()
+
+const emit = defineEmits(['field-change'])
+const emitter = mitt<Events>()
+
+emitter.on('fieldChange', ({ key, value }): void => {
+  emit('field-change', { key, value })
+})
 
 const traverse = (items: Array<FormDesign>, form: FormData, data: FormData = { root: {} }) => {
   items.forEach((item: FormDesign) => {
@@ -116,13 +127,32 @@ const reset = () => {
   formRef.value && formRef.value.resetFields()
 }
 
+const setFormData = (data: FormData, key: string, value: any) => {
+  for (const k in data) {
+    if (isObject(data[k])) {
+      setFormData(data[k], key, value)
+    } else if (k === key) {
+      data[key] = value
+      return
+    }
+  }
+}
+
+const setData = (key: string, value: any) => {
+  setFormData(state.formData.root, key, value)
+}
+
 provide('emitter', emitter)
 provide('state', state)
 
 defineExpose({
   init,
   submit,
-  reset
+  reset,
+  getData() {
+    return state.formData.root
+  },
+  setData
 })
 </script>
 
