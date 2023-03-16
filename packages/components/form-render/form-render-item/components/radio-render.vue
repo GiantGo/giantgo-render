@@ -5,7 +5,7 @@
       :disabled="options.disabled"
       @update:modelValue="$emit('update:modelValue', $event)"
     >
-      <el-radio v-for="item in items" :key="item.value" :label="item.value">
+      <el-radio v-for="item in items" :key="item.value" :label="item.value" :border="options.border">
         {{ item.label }}
       </el-radio>
     </el-radio-group>

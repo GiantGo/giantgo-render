@@ -32,7 +32,7 @@
         <span class="dialog-footer">
           <el-button type="primary" @click="submit"> 获取数据 </el-button>
           <el-button @click="reset">重置表单</el-button>
-          <el-button @click="resultDialog.isShow = false">关闭</el-button>
+          <el-button @click="previewDialog = false">关闭</el-button>
         </span>
       </template>
     </el-dialog>

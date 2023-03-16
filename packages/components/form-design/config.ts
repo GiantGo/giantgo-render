@@ -171,7 +171,8 @@ export const pickers: Array<FormDesign> = [
       rules,
       width: '100%',
       hidden: false,
-      disabled: false
+      disabled: false,
+      border: false
     }
   },
   {
@@ -532,6 +533,7 @@ export const optionKeyLabels: Record<string, string> = {
   activeText: '打开时文字描述',
   allowHalf: '允许半选',
   backgroundColor: '背景颜色',
+  border: '边框',
   buttonText: '按钮文字',
   clearable: '可清除',
   collapseTags: '多选合并显示',
