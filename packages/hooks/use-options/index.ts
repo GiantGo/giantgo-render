@@ -3,7 +3,7 @@ import { createRequest, hasOwn } from '@giantgo-render/utils'
 
 import type { FormDesign, Option, Options } from '@giantgo-render/tokens'
 
-export function useOptions(props: any, formDesign: FormDesign) {
+export function useOptions(props: any, key: string, formDesign: FormDesign) {
   const items = ref<Array<Option>>([])
 
   const requestItems = (options: Options) => {
@@ -23,13 +23,13 @@ export function useOptions(props: any, formDesign: FormDesign) {
   }
 
   watch(
-    () => props.options.options,
+    () => props.options[key],
     (val) => {
       requestItems(val)
     }
   )
 
-  requestItems(props.options.options)
+  requestItems(props.options[key])
 
   return {
     items,

@@ -3,11 +3,8 @@
     <el-tabs v-model="data.type" @tab-change="emitChange">
       <el-tab-pane label="静态数据" name="static">
         <el-row v-for="(item, index) in data.items" :key="index" class="option-row" :gutter="5">
-          <el-col :span="11">
+          <el-col :span="22">
             <el-input :model-value="item.label" placeholder="标题" @input="update(index, 'label', $event)" />
-          </el-col>
-          <el-col :span="11">
-            <el-input :model-value="item.value" placeholder="值" @input="update(index, 'value', $event)" />
           </el-col>
           <el-col :span="2" class="btn-del">
             <el-icon class="el-icon-delete" @click="removeOption(index)">
@@ -15,9 +12,9 @@
             </el-icon>
           </el-col>
         </el-row>
-        <el-button link type="primary" @click="addOption">增加选项</el-button>
-        <el-button link type="primary" @click="editOptions">编辑选项</el-button>
-        <el-dialog v-model="codeDialog" title="编辑选项" width="750px">
+        <el-button link type="primary" @click="addOption">增加行</el-button>
+        <el-button link type="primary" @click="editOptions">编辑行</el-button>
+        <el-dialog v-model="codeDialog" title="编辑行" width="750px">
           <div class="form-design-code-editor">
             <code-editor v-model="code" lang="json" />
           </div>
@@ -55,7 +52,7 @@ import { inject, onMounted, reactive, ref, watch } from 'vue'
 import { cloneDeep } from 'lodash-es'
 
 defineOptions({
-  name: 'optionsOption'
+  name: 'rowOptionsOption'
 })
 
 const props = defineProps({
@@ -89,8 +86,7 @@ const update = (index, key, value) => {
 const addOption = () => {
   const index = String(data.items.length + 1)
   data.items.push({
-    label: `选项${index}`,
-    value: index
+    label: `行${index}`
   })
   emitChange()
 }

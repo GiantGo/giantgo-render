@@ -32,7 +32,7 @@ import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
 import { cloneDeep } from 'lodash-es'
 import { uuid as makeId } from '@giantgo-render/utils'
-import { assists, complexs, inputs, layouts, pickers } from '../config'
+import { assists, complexs, inputs, layouts, matrixs, pickers } from '../config'
 
 defineOptions({
   name: 'formFields'
@@ -52,6 +52,7 @@ const clone = (original) => {
 register('输入组件', inputs, 1)
 register('选择组件', pickers, 2)
 register('复杂组件', complexs, 3)
+register('矩阵组件', matrixs, 4)
 register('展示组件', assists, 4)
 register('布局组件', layouts, 5)
 </script>

@@ -17,3 +17,27 @@
     overflow-y: hidden;
   }
 }
+
+.matrix-table-wrapper {
+  padding: 0 10px;
+  overflow-x: auto;
+  flex: 1;
+  width: 500px;
+
+  .matrix-table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    tr {
+      border-bottom: 1px solid var(--el-border-color);
+    }
+
+    th,
+    td {
+      min-width: 80px;
+      text-align: center;
+    }
+  }
+}
