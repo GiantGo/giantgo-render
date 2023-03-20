@@ -20,7 +20,7 @@ defineOptions({
 })
 defineProps({
   path: String,
-  modelValue: Date,
+  modelValue: [Date, Number, String],
   options: {
     type: Object,
     default() {

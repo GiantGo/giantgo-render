@@ -25,7 +25,7 @@ defineOptions({
 
 const props = defineProps({
   path: String,
-  modelValue: String,
+  modelValue: [String, Number],
   options: {
     type: Object,
     default() {
