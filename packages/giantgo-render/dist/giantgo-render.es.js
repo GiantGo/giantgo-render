@@ -19745,5 +19745,6 @@ function RN(e) {
 }
 export {
   EN as FormDesign,
+  q2 as FormRender,
   RN as default
 };
