@@ -2,7 +2,7 @@ export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
         const path: StringConstructor;
-        const modelValue: DateConstructor;
+        const modelValue: (DateConstructor | StringConstructor | NumberConstructor)[];
         namespace options {
             export const type: ObjectConstructor;
             function _default(): {};

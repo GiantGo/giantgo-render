@@ -23,9 +23,11 @@
 
 <script setup lang="ts">
 import { computed, provide, reactive, ref, toRaw } from 'vue'
+import { cloneDeep } from 'lodash-es'
 import { ElForm } from 'element-plus'
 import { getInterpolation, isObject, validateInterpolation } from '@giantgo-render/utils'
 import mitt from 'mitt'
+import { form } from '../form-design/config'
 
 import type { FormDesign, FormDesignInterpolation, FormDesignOption } from '@giantgo-render/tokens'
 
@@ -102,11 +104,11 @@ const traverse = (items: Array<FormDesign>, form: FormData, data: FormData = { r
   return items
 }
 
-const init = (formDesign: FormDesign, data: object = {}) => {
-  state.formDesign = formDesign
+const init = (formDesign?: FormDesign, data: object = {}) => {
+  state.formDesign = formDesign || cloneDeep(form)
   state.formDesign.options.key = 'root'
   state.formDesign.options.defaultValue = {}
-  traverse([formDesign], state.formData, { root: data })
+  traverse([state.formDesign], state.formData, { root: data })
   formRef.value && formRef.value.clearValidate()
 }
 
