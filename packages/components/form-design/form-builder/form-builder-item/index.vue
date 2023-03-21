@@ -1,6 +1,6 @@
 <template>
-  <div class="form-item">
-    <div class="form-item-box" :class="{ 'is-selected': isSelected }" @click.stop="select">
+  <div class="form-item" @mouseenter="mouseenter" @mouseleave="mouseleave">
+    <div class="form-item-box" :class="{ 'is-selected': isSelected, 'is-hover': isHover }" @click.stop="select">
       <div class="operator">
         <div class="copy" @click.stop="copy">
           <el-icon><i-carbon-copy-file /></el-icon>
@@ -49,14 +49,19 @@ export default {
   setup(props) {
     const state = inject('state')
     const setSelected = inject('setSelected')
+    const mouseEnter = inject('mouseEnter')
+    const mouseLeave = inject('mouseLeave')
     const copyFormItem = inject('copyFormItem')
     const removeFormItem = inject('removeFormItem')
 
     return {
       select: () => setSelected(props.uuid),
+      mouseenter: () => mouseEnter(props.uuid),
+      mouseleave: () => mouseLeave(props.uuid),
       copy: () => copyFormItem(props.uuid),
       remove: () => removeFormItem(props.uuid),
-      isSelected: computed(() => state.selected.uuid === props.uuid)
+      isSelected: computed(() => state.selected.uuid === props.uuid),
+      isHover: computed(() => state.hover === props.uuid)
     }
   }
 }

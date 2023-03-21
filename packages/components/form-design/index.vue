@@ -37,6 +37,7 @@ const props = defineProps({
 const state = reactive<{
   formDesign: FormDesign
   selected: FormDesign
+  hover: string
   cached: Array<FormDesign>
   current: number
 }>({
@@ -52,6 +53,7 @@ const state = reactive<{
     component: '',
     options: {}
   },
+  hover: '',
   cached: [],
   current: -1
 })
@@ -153,6 +155,14 @@ const setSelected = (uuid: string) => {
   state.selected = query([state.formDesign], uuid) || state.formDesign
 }
 
+const mouseEnter = (uuid: string) => {
+  state.hover = uuid
+}
+
+const mouseLeave = (uuid: string) => {
+  state.hover = uuid === 'root' ? '' : 'root'
+}
+
 const updateFormItem = ({ uuid, items }: { uuid: string; items: Array<FormDesign> }) => {
   const target = query([state.formDesign], uuid)
 
@@ -193,7 +203,9 @@ const copyFormItem = (uuid: string) => {
 
 const removeFormItem = (uuid: string) => {
   remove(state.formDesign.items, uuid)
-  state.selected = state.formDesign
+  if (state.selected && state.selected.uuid === uuid) {
+    state.selected = state.formDesign
+  }
   addCache()
 }
 
@@ -264,6 +276,8 @@ provide('uuids', uuids)
 provide('clear', clear)
 provide('init', init)
 provide('setSelected', setSelected)
+provide('mouseEnter', mouseEnter)
+provide('mouseLeave', mouseLeave)
 provide('updateFormItem', updateFormItem)
 provide('updateFormOption', updateFormOption)
 provide('updateSelectedFormOption', updateSelectedFormOption)

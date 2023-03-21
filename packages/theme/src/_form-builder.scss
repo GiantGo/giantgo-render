@@ -84,12 +84,13 @@
         color: var(--el-text-color-primary);
       }
 
-      &.is-selected {
+      &.is-selected,
+      &.is-hover {
         border: 2px solid var(--el-color-primary);
+      }
 
-        & > .operator {
-          display: block;
-        }
+      &.is-hover > .operator {
+        display: block;
       }
 
       .el-form-item {
@@ -100,7 +101,7 @@
 
   .form-item,
   .form-item-drop {
-    margin: 2.5px 0;
+    padding: 2.5px 0;
   }
 
   .root {
@@ -116,7 +117,7 @@
         height: 100%;
       }
 
-      &.is-selected > .operator {
+      &.is-hover > .operator {
         display: none;
       }
     }

@@ -23,14 +23,20 @@ declare namespace _sfc_main {
     }
     function setup(props: any): {
         select: () => any;
+        mouseenter: () => any;
+        mouseleave: () => any;
         copy: () => any;
         remove: () => any;
         isSelected: import("vue").ComputedRef<boolean>;
+        isHover: import("vue").ComputedRef<boolean>;
     };
     function setup(props: any): {
         select: () => any;
+        mouseenter: () => any;
+        mouseleave: () => any;
         copy: () => any;
         remove: () => any;
         isSelected: import("vue").ComputedRef<boolean>;
+        isHover: import("vue").ComputedRef<boolean>;
     };
 }

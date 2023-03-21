@@ -188,6 +188,7 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
             };
             items?: any[] | undefined;
         };
+        hover: string;
         cached: {
             name: string;
             component: string;
@@ -381,6 +382,8 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
     copy: (items: FormDesign[] | undefined, uuid: string) => FormDesign | undefined;
     remove: (items: FormDesign[] | undefined, uuid: string) => boolean;
     setSelected: (uuid: string) => void;
+    mouseEnter: (uuid: string) => void;
+    mouseLeave: (uuid: string) => void;
     updateFormItem: ({ uuid, items }: {
         uuid: string;
         items: Array<FormDesign>;
