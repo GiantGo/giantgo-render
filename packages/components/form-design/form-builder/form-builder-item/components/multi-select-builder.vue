@@ -38,7 +38,7 @@ const props = defineProps({
 })
 
 const state = inject('state')
-const { items } = useOptions(props, state.formDesign)
+const { items } = useOptions(props, 'options', state.formDesign)
 </script>
 
 <style lang="scss" scoped></style>

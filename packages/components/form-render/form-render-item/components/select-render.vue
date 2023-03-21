@@ -25,7 +25,7 @@ defineOptions({
 
 const props = defineProps({
   path: String,
-  modelValue: String,
+  modelValue: [String, Number],
   options: {
     type: Object,
     default() {
@@ -34,7 +34,7 @@ const props = defineProps({
   }
 })
 const state = inject('state')
-const { items } = useOptions(props, state.formDesign)
+const { items } = useOptions(props, 'options', state.formDesign)
 </script>
 
 <style lang="scss" scoped></style>

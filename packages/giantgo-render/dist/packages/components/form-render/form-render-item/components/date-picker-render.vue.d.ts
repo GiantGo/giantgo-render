@@ -2,7 +2,7 @@ export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
         const path: StringConstructor;
-        const modelValue: DateConstructor;
+        const modelValue: (DateConstructor | StringConstructor | NumberConstructor)[];
         namespace options {
             export const type: ObjectConstructor;
             function _default(): {};
@@ -13,11 +13,12 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        readonly __isScriptSetup: boolean;
+        ElementPlusIconsVue: typeof ElementPlusIconsVue;
     };
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        readonly __isScriptSetup: boolean;
+        ElementPlusIconsVue: typeof ElementPlusIconsVue;
     };
 }
+import * as ElementPlusIconsVue from "@element-plus/icons-vue";

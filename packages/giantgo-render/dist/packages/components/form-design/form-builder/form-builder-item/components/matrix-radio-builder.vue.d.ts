@@ -2,7 +2,7 @@ export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
         const path: StringConstructor;
-        const modelValue: (StringConstructor | NumberConstructor)[];
+        const uuid: StringConstructor;
         namespace options {
             export const type: ObjectConstructor;
             function _default(): {};
@@ -15,7 +15,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         state: any;
-        items: import("vue").Ref<{
+        rows: import("vue").Ref<{
+            label: string;
+            value: string;
+        }[]>;
+        columns: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
@@ -27,7 +31,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         state: any;
-        items: import("vue").Ref<{
+        rows: import("vue").Ref<{
+            label: string;
+            value: string;
+        }[]>;
+        columns: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;

@@ -171,7 +171,8 @@ export const pickers: Array<FormDesign> = [
       rules,
       width: '100%',
       hidden: false,
-      disabled: false
+      disabled: false,
+      border: false
     }
   },
   {
@@ -422,6 +423,57 @@ export const complexs: Array<FormDesign> = [
   }
 ]
 
+export const matrixs: Array<FormDesign> = [
+  {
+    name: '矩阵单选',
+    component: 'matrix-radio',
+    uuid: '',
+    options: {
+      label: '矩阵单选',
+      key: '',
+      options: {
+        type: 'static',
+        remote: '',
+        items: []
+      },
+      rowOptions: {
+        type: 'static',
+        remote: '',
+        items: []
+      },
+      defaultValue: [],
+      rules,
+      width: '100%',
+      hidden: false,
+      disabled: false
+    }
+  },
+  {
+    name: '矩阵多选',
+    component: 'matrix-checkbox',
+    uuid: '',
+    options: {
+      label: '矩阵多选',
+      key: '',
+      options: {
+        type: 'static',
+        remote: '',
+        items: []
+      },
+      rowOptions: {
+        type: 'static',
+        remote: '',
+        items: []
+      },
+      defaultValue: [],
+      rules,
+      width: '100%',
+      hidden: false,
+      disabled: false
+    }
+  }
+]
+
 export const objectLayout: FormDesign = {
   name: '子表单',
   component: 'object',
@@ -532,6 +584,7 @@ export const optionKeyLabels: Record<string, string> = {
   activeText: '打开时文字描述',
   allowHalf: '允许半选',
   backgroundColor: '背景颜色',
+  border: '边框',
   buttonText: '按钮文字',
   clearable: '可清除',
   collapseTags: '多选合并显示',
@@ -571,6 +624,7 @@ export const optionKeyLabels: Record<string, string> = {
   remotes: '数据源',
   richContent: 'HTML',
   rows: '文本域高度',
+  rowOptions: '行',
   rules: '验证',
   shadow: '阴影显示',
   showAlpha: '透明度选择',

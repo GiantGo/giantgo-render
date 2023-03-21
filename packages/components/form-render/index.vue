@@ -18,18 +18,16 @@
       :options="state.formDesign.options"
       path="root"
     />
-    <div class="btn-submit">
-      <el-button type="primary" @click="submit">提交</el-button>
-      <el-button type="default" @click="reset">重置</el-button>
-    </div>
   </el-form>
 </template>
 
 <script setup lang="ts">
 import { computed, provide, reactive, ref, toRaw } from 'vue'
-import { ElButton, ElForm } from 'element-plus'
-import { getInterpolation, validateInterpolation } from '@giantgo-render/utils'
+import { cloneDeep } from 'lodash-es'
+import { ElForm } from 'element-plus'
+import { getInterpolation, isObject, validateInterpolation } from '@giantgo-render/utils'
 import mitt from 'mitt'
+import { form } from '../form-design/config'
 
 import type { FormDesign, FormDesignInterpolation, FormDesignOption } from '@giantgo-render/tokens'
 
@@ -37,12 +35,16 @@ type FormData = {
   [propName: string]: any
 }
 
+type Events = {
+  fieldChange: any
+  validateError: any
+}
+
 defineOptions({
   name: 'formRender'
 })
 
 const formRef = ref<InstanceType<typeof ElForm> | null>(null)
-const emit = defineEmits(['submit'])
 const state = reactive<{
   formDesign: FormDesignInterpolation
   formData: { root: FormData }
@@ -57,7 +59,13 @@ const state = reactive<{
     root: {}
   }
 })
-const emitter = mitt()
+
+const emit = defineEmits(['field-change'])
+const emitter = mitt<Events>()
+
+emitter.on('fieldChange', ({ key, value }): void => {
+  emit('field-change', { key, value })
+})
 
 const traverse = (items: Array<FormDesign>, form: FormData, data: FormData = { root: {} }) => {
   items.forEach((item: FormDesign) => {
@@ -96,26 +104,44 @@ const traverse = (items: Array<FormDesign>, form: FormData, data: FormData = { r
   return items
 }
 
-const init = (config: FormDesign, data: object = {}) => {
-  state.formDesign = config
+const init = (formDesign?: FormDesign, data: object = {}) => {
+  state.formDesign = formDesign || cloneDeep(form)
   state.formDesign.options.key = 'root'
   state.formDesign.options.defaultValue = {}
-  traverse([config], state.formData, { root: data })
+  traverse([state.formDesign], state.formData, { root: data })
   formRef.value && formRef.value.clearValidate()
 }
 
 const submit = () => {
-  formRef.value!.validate((valid, error) => {
-    if (valid) {
-      emit('submit', toRaw(state.formData.root))
-    } else {
-      emitter.emit('validateError', Object.keys(error!)[0])
-    }
+  return new Promise((resolve, reject) => {
+    formRef.value!.validate((valid, error) => {
+      if (valid) {
+        resolve(toRaw(state.formData.root))
+      } else {
+        emitter.emit('validateError', Object.keys(error!)[0])
+        reject(error)
+      }
+    })
   })
 }
 
 const reset = () => {
   formRef.value && formRef.value.resetFields()
+}
+
+const setFormData = (data: FormData, key: string, value: any) => {
+  for (const k in data) {
+    if (isObject(data[k])) {
+      setFormData(data[k], key, value)
+    } else if (k === key) {
+      data[key] = value
+      return
+    }
+  }
+}
+
+const setData = (key: string, value: any) => {
+  setFormData(state.formData.root, key, value)
 }
 
 provide('emitter', emitter)
@@ -124,7 +150,11 @@ provide('state', state)
 defineExpose({
   init,
   submit,
-  reset
+  reset,
+  getData() {
+    return state.formData.root
+  },
+  setData
 })
 </script>
 

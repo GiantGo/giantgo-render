@@ -10,8 +10,8 @@
     "@wangeditor/editor": "^5.1.14",
     "ace-builds": "^1.8.1",
     "axios": "^0.23.0",
-    "element-plus": "2.2.14",
-    "giantgo-render": "1.3.0",
+    "element-plus": "2.3.0",
+    "giantgo-render": "1.3.13",
     "vue": "^3.2.37"
   },
   "devDependencies": {

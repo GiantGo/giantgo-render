@@ -18,6 +18,8 @@
 </template>
 
 <script setup>
+import { inject } from 'vue'
+
 defineOptions({
   name: 'objectRender'
 })
@@ -38,8 +40,10 @@ const props = defineProps({
     }
   }
 })
+const emitter = inject('emitter')
 const emit = defineEmits(['update:modelValue'])
 const update = (key, value) => {
+  emitter.emit('fieldChange', { key, value })
   emit('update:modelValue', Object.assign({}, props.modelValue, { [key]: value }))
 }
 </script>

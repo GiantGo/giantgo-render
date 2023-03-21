@@ -87,6 +87,7 @@ declare namespace _sfc_main {
         complexs: import("@giantgo-render/tokens").FormDesign[];
         inputs: import("@giantgo-render/tokens").FormDesign[];
         layouts: import("@giantgo-render/tokens").FormDesign[];
+        matrixs: import("@giantgo-render/tokens").FormDesign[];
         pickers: import("@giantgo-render/tokens").FormDesign[];
     };
     function setup(__props: any, { expose }: {
@@ -176,6 +177,7 @@ declare namespace _sfc_main {
         complexs: import("@giantgo-render/tokens").FormDesign[];
         inputs: import("@giantgo-render/tokens").FormDesign[];
         layouts: import("@giantgo-render/tokens").FormDesign[];
+        matrixs: import("@giantgo-render/tokens").FormDesign[];
         pickers: import("@giantgo-render/tokens").FormDesign[];
     };
 }

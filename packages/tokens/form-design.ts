@@ -53,6 +53,7 @@ export interface FormDesignOption {
   activeText?: string
   allowHalf?: boolean
   backgroundColor?: string
+  border?: boolean
   buttonText?: string
   clearable?: boolean
   collapseTags?: boolean

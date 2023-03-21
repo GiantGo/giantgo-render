@@ -15,7 +15,7 @@
         <i-carbon-trash-can />
       </el-icon>
     </el-tooltip>
-    <el-divider direction="vertical"/>
+    <el-divider direction="vertical" />
     <el-tooltip effect="dark" content="后退" placement="bottom">
       <el-icon class="icon" :class="{ disabled: current <= 0 }" @click="revoke">
         <i-carbon-undo />
@@ -27,7 +27,14 @@
       </el-icon>
     </el-tooltip>
     <el-dialog v-model="previewDialog" title="预览" destroy-on-close append-to-body width="750px">
-      <form-render ref="formRenderRef" @submit="submit" />
+      <form-render ref="formRenderRef" @field-change="fieldChange" />
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button type="primary" @click="submit"> 获取数据 </el-button>
+          <el-button @click="reset">重置表单</el-button>
+          <el-button @click="previewDialog = false">关闭</el-button>
+        </span>
+      </template>
     </el-dialog>
     <el-dialog v-model="jsonDialog.isShow" :title="jsonDialog.title" append-to-body width="750px">
       <div class="form-design-code-editor">
@@ -86,10 +93,21 @@ const preview = () => {
   })
 }
 
-const submit = (result) => {
-  resultDialog.title = '获取数据'
-  resultDialog.isShow = true
-  resultDialog.code = JSON.stringify(result, null, '\t')
+const submit = () => {
+  formRenderRef.value.submit().then((result) => {
+    resultDialog.title = '获取数据'
+    resultDialog.isShow = true
+    resultDialog.code = JSON.stringify(result, null, '\t')
+  })
+}
+
+const reset = () => {
+  formRenderRef.value.reset()
+}
+
+const fieldChange = ({ key, value }) => {
+  // eslint-disable-next-line no-console
+  console.log(key, value)
 }
 
 const editJson = () => {

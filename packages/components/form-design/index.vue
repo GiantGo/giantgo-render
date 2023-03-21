@@ -1,14 +1,14 @@
 <template>
   <div class="form-design">
     <div class="left-container">
-      <form-fields/>
+      <form-fields />
     </div>
     <div class="center-container">
-      <form-operators/>
-      <form-builder/>
+      <form-operators />
+      <form-builder />
     </div>
     <div class="right-container">
-      <form-options/>
+      <form-options />
     </div>
   </div>
 </template>

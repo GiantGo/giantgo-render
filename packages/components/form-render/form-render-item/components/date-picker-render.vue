@@ -6,19 +6,21 @@
       :clearable="options.clearable"
       :disabled="options.disabled"
       :format="options.format"
-      :prefix-icon="options.prefixIcon"
+      :prefix-icon="ElementPlusIconsVue[options.prefixIcon]"
       @update:modelValue="$emit('update:modelValue', $event)"
     />
   </el-form-item>
 </template>
 
 <script setup>
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 defineOptions({
   name: 'datePickerRender'
 })
 defineProps({
   path: String,
-  modelValue: Date,
+  modelValue: [Date, Number, String],
   options: {
     type: Object,
     default() {

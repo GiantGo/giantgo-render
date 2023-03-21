@@ -23,15 +23,20 @@ declare namespace _sfc_main {
         emit: any;
     }): {
         props: any;
+        emitter: any;
         emit: any;
         update: (key: any, value: any) => void;
+        inject: typeof inject;
     };
     function setup(__props: any, { expose, emit }: {
         expose: any;
         emit: any;
     }): {
         props: any;
+        emitter: any;
         emit: any;
         update: (key: any, value: any) => void;
+        inject: typeof inject;
     };
 }
+import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

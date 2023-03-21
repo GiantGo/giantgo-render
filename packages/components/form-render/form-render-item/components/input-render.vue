@@ -7,8 +7,8 @@
       :clearable="options.clearable"
       :disabled="options.disabled"
       :show-password="options.showPassword"
-      :prefix-icon="options.prefixIcon"
-      :suffix-icon="options.suffixIcon"
+      :prefix-icon="ElementPlusIconsVue[options.prefixIcon]"
+      :suffix-icon="ElementPlusIconsVue[options.suffixIcon]"
       :maxlength="options.maxlength"
       :show-word-limit="options.showWordLimit"
       @update:modelValue="$emit('update:modelValue', $event)"
@@ -17,6 +17,8 @@
 </template>
 
 <script setup>
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 defineOptions({
   name: 'inputRender'
 })
