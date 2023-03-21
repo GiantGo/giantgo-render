@@ -447,6 +447,30 @@ export const matrixs: Array<FormDesign> = [
       hidden: false,
       disabled: false
     }
+  },
+  {
+    name: '矩阵多选',
+    component: 'matrix-checkbox',
+    uuid: '',
+    options: {
+      label: '矩阵多选',
+      key: '',
+      options: {
+        type: 'static',
+        remote: '',
+        items: []
+      },
+      rowOptions: {
+        type: 'static',
+        remote: '',
+        items: []
+      },
+      defaultValue: [],
+      rules,
+      width: '100%',
+      hidden: false,
+      disabled: false
+    }
   }
 ]
 
