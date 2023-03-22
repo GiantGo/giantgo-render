@@ -159,8 +159,8 @@ const mouseEnter = (uuid: string) => {
   state.hover = uuid
 }
 
-const mouseLeave = (uuid: string) => {
-  state.hover = uuid === 'root' ? '' : 'root'
+const mouseLeave = (pUuid: string) => {
+  state.hover = pUuid
 }
 
 const updateFormItem = ({ uuid, items }: { uuid: string; items: Array<FormDesign> }) => {

@@ -383,7 +383,7 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
     remove: (items: FormDesign[] | undefined, uuid: string) => boolean;
     setSelected: (uuid: string) => void;
     mouseEnter: (uuid: string) => void;
-    mouseLeave: (uuid: string) => void;
+    mouseLeave: (pUuid: string) => void;
     updateFormItem: ({ uuid, items }: {
         uuid: string;
         items: Array<FormDesign>;

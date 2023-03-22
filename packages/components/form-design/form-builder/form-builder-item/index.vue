@@ -9,9 +9,7 @@
           <el-icon><i-carbon-trash-can /></el-icon>
         </div>
       </div>
-      <div class="info">
-        {{ options.key }}
-      </div>
+      <div class="info">{{ options.key }}</div>
       <component :is="component + '-builder'" :uuid="uuid" :items="items" :options="options" :path="path" />
     </div>
   </div>
@@ -31,6 +29,7 @@ export default {
   props: {
     path: String,
     component: String,
+    pUuid: String,
     uuid: String,
     defaultValue: [String, Number, Boolean, Date, Object, Array],
     items: {
@@ -57,7 +56,7 @@ export default {
     return {
       select: () => setSelected(props.uuid),
       mouseenter: () => mouseEnter(props.uuid),
-      mouseleave: () => mouseLeave(props.uuid),
+      mouseleave: () => mouseLeave(props.pUuid),
       copy: () => copyFormItem(props.uuid),
       remove: () => removeFormItem(props.uuid),
       isSelected: computed(() => state.selected.uuid === props.uuid),

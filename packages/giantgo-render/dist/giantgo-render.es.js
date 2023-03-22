@@ -17898,6 +17898,7 @@ const tU = {
 }), a2 = /* @__PURE__ */ Object.assign(nU, {
   props: {
     path: String,
+    pUuid: String,
     uuid: String,
     items: {
       type: Array,
@@ -17936,6 +17937,7 @@ const tU = {
           }, [
             v(s, {
               component: p.component,
+              "p-uuid": e.uuid,
               uuid: p.uuid,
               items: p.items,
               options: p.options,
@@ -17944,7 +17946,7 @@ const tU = {
                 "padding-left": e.options.gutter / 2 + "px",
                 "padding-right": e.options.gutter / 2 + "px"
               })
-            }, null, 8, ["component", "uuid", "items", "options", "path", "style"])
+            }, null, 8, ["component", "p-uuid", "uuid", "items", "options", "path", "style"])
           ], 4)
         ]),
         _: 1
@@ -19340,6 +19342,7 @@ const Qq = {
   props: {
     path: String,
     component: String,
+    pUuid: String,
     uuid: String,
     defaultValue: [String, Number, Boolean, Date, Object, Array],
     items: {
@@ -19360,7 +19363,7 @@ const Qq = {
     return {
       select: () => o(e.uuid),
       mouseenter: () => n(e.uuid),
-      mouseleave: () => a(e.uuid),
+      mouseleave: () => a(e.pUuid),
       copy: () => l(e.uuid),
       remove: () => c(e.uuid),
       isSelected: ke(() => t.selected.uuid === e.uuid),
@@ -19869,7 +19872,7 @@ const VN = { name: "carbon-play-outline", render: zN }, CN = { class: "form-oper
     }, $ = (k) => {
       n.hover = k;
     }, w = (k) => {
-      n.hover = k === "root" ? "" : "root";
+      n.hover = k;
     }, g = ({ uuid: k, items: j }) => {
       const O = u([n.formDesign], k);
       O && (O.items = j), G();

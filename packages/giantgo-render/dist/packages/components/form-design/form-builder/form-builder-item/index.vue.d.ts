@@ -5,6 +5,7 @@ declare namespace _sfc_main {
     namespace props {
         const path: StringConstructor;
         const component: StringConstructor;
+        const pUuid: StringConstructor;
         const uuid: StringConstructor;
         const defaultValue: (ObjectConstructor | ArrayConstructor | BooleanConstructor | DateConstructor | StringConstructor | NumberConstructor)[];
         namespace items {

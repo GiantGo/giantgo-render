@@ -2,6 +2,7 @@ export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
         const path: StringConstructor;
+        const pUuid: StringConstructor;
         const uuid: StringConstructor;
         namespace items {
             export const type: ArrayConstructor;
