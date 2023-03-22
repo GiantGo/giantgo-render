@@ -2,8 +2,10 @@
   "name": "giantgo-render",
   "version": "1.4.1",
   "description": "A form generator and form render for Vue3 + ElementPlus",
-  "main": "./dist/main.umd.js",
-  "module": "./dist/main.es.js",
+  "files": ["dist"],
+  "main": "./dist/giantgo-render.umd.js",
+  "module": "./dist/giantgo-render.es.js",
+  "types": "./dist/giantgo-render.es.d.ts",
   "exports": {
     ".": {
       "import": "./dist/giantgo-render.es.js",
