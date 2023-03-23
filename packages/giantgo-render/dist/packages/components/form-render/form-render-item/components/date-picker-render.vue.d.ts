@@ -2,14 +2,14 @@ import type { DefineComponent, ComponentOptionsMixin, VNodeProps, AllowedCompone
 export default _sfc_main;
 declare const _sfc_main: DefineComponent<{
     path: StringConstructor;
-    modelValue: (DateConstructor | StringConstructor | NumberConstructor)[];
+    modelValue: (StringConstructor | NumberConstructor | DateConstructor)[];
     options: {
         type: ObjectConstructor;
         default(): {};
     };
 }, {}, any, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
     path: StringConstructor;
-    modelValue: (DateConstructor | StringConstructor | NumberConstructor)[];
+    modelValue: (StringConstructor | NumberConstructor | DateConstructor)[];
     options: {
         type: ObjectConstructor;
         default(): {};

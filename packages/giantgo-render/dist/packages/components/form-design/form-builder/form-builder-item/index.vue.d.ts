@@ -8,7 +8,7 @@ declare namespace _sfc_main {
         const component: StringConstructor;
         const pUuid: StringConstructor;
         const uuid: StringConstructor;
-        const defaultValue: (ObjectConstructor | ArrayConstructor | BooleanConstructor | DateConstructor | StringConstructor | NumberConstructor)[];
+        const defaultValue: (ObjectConstructor | StringConstructor | BooleanConstructor | NumberConstructor | DateConstructor | ArrayConstructor)[];
         namespace items {
             export const type: ArrayConstructor;
             function _default(): never[];

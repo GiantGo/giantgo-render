@@ -4,7 +4,7 @@ declare namespace _sfc_main {
     const components: undefined;
     namespace props {
         const optionKey: StringConstructor;
-        const optionValue: (ObjectConstructor | ArrayConstructor | BooleanConstructor | DateConstructor | StringConstructor | NumberConstructor)[];
+        const optionValue: (ObjectConstructor | StringConstructor | BooleanConstructor | NumberConstructor | DateConstructor | ArrayConstructor)[];
     }
     function setup(): {
         isPrimitive: typeof isPrimitive;

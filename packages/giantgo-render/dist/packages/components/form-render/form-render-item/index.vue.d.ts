@@ -9,7 +9,7 @@ declare namespace _sfc_main {
             export { _default as default };
         }
         const component: StringConstructor;
-        const modelValue: (ObjectConstructor | ArrayConstructor | BooleanConstructor | DateConstructor | StringConstructor | NumberConstructor)[];
+        const modelValue: (ObjectConstructor | StringConstructor | BooleanConstructor | NumberConstructor | DateConstructor | ArrayConstructor)[];
         namespace items {
             const type_1: ArrayConstructor;
             export { type_1 as type };

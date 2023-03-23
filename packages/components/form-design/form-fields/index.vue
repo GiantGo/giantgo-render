@@ -27,34 +27,37 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { inject } from 'vue'
 import draggable from 'vuedraggable/src/vuedraggable'
 import { cloneDeep } from 'lodash-es'
 import { uuid as makeId } from '@giantgo-render/utils'
 import { assists, complexs, inputs, layouts, matrixs, pickers } from '../config'
+import type { FormDesign, FormDesignRegister, Group } from '@giantgo-render/tokens'
 
 defineOptions({
   name: 'formFields'
 })
 
-const uuids = inject('uuids')
-const groups = inject('groups')
-const register = inject('register')
+const uuids = inject<string>('uuids', '')
+const groups = inject<Array<Group>>('groups', [])
+const register = inject<FormDesignRegister>('register')
 
-const clone = (original) => {
+const clone = (original: FormDesign) => {
   const item = cloneDeep(original)
   item.uuid = item.uuid || `${item.component.replaceAll('-', '_')}_${makeId(8)}`
   item.options.key = item.options.key || item.uuid
   return item
 }
 
-register('输入组件', inputs, 1)
-register('选择组件', pickers, 2)
-register('复杂组件', complexs, 3)
-register('矩阵组件', matrixs, 4)
-register('展示组件', assists, 4)
-register('布局组件', layouts, 5)
+if (register) {
+  register('输入组件', inputs, 1)
+  register('选择组件', pickers, 2)
+  register('复杂组件', complexs, 3)
+  register('矩阵组件', matrixs, 4)
+  register('展示组件', assists, 4)
+  register('布局组件', layouts, 5)
+}
 </script>
 
 <style lang="scss"></style>

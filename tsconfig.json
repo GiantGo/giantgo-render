@@ -29,6 +29,7 @@
     "packages/components/**/*.vue",
     "packages/hooks/**/*.ts",
     "packages/tokens/**/*.ts",
-    "packages/utils/**/*.ts"
+    "packages/utils/**/*.ts",
+    "*.d.ts"
   ]
 }

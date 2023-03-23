@@ -138,3 +138,5 @@ export interface Group {
   components: Array<FormDesign>
   order: number
 }
+
+export type FormDesignRegister = (name?: string, components?: Array<FormDesign>, order?: number) => void
