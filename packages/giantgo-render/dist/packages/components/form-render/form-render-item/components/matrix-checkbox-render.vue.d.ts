@@ -21,18 +21,18 @@ declare namespace _sfc_main {
             items: never[];
         };
         state: any;
-        rows: import("@vue/reactivity").Ref<{
+        rows: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: import("@vue/reactivity").Ref<{
+        columns: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
         change: (rIndex: any, cIndex: any, value: any) => void;
         setInternal: () => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
         useOptions: typeof useOptions;
@@ -49,18 +49,18 @@ declare namespace _sfc_main {
             items: never[];
         };
         state: any;
-        rows: import("@vue/reactivity").Ref<{
+        rows: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: import("@vue/reactivity").Ref<{
+        columns: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
         change: (rIndex: any, cIndex: any, value: any) => void;
         setInternal: () => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
         useOptions: typeof useOptions;
@@ -71,5 +71,5 @@ declare namespace _sfc_main {
 import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { watch } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { useOptions } from '../../../../hooks/use-options';
-import { isArray } from '../../../../utils/types';
+import { useOptions } from "../../../../hooks/use-options";
+import { isArray } from "../../../../utils/types";

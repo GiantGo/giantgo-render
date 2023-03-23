@@ -17,9 +17,9 @@ declare namespace _sfc_main {
             remoteResults: {};
             loading: boolean;
         };
-        formRef: import("@vue/reactivity").Ref<null>;
-        remoteTabsValue: import("@vue/reactivity").Ref<string>;
-        remoteDialog: import("@vue/reactivity").Ref<boolean>;
+        formRef: import("vue").Ref<null>;
+        remoteTabsValue: import("vue").Ref<string>;
+        remoteDialog: import("vue").Ref<boolean>;
         showRemote: () => void;
         saveRemote: () => void;
         editRemote: (target: any, action: any) => void;
@@ -47,9 +47,9 @@ declare namespace _sfc_main {
             remoteResults: {};
             loading: boolean;
         };
-        formRef: import("@vue/reactivity").Ref<null>;
-        remoteTabsValue: import("@vue/reactivity").Ref<string>;
-        remoteDialog: import("@vue/reactivity").Ref<boolean>;
+        formRef: import("vue").Ref<null>;
+        remoteTabsValue: import("vue").Ref<string>;
+        remoteDialog: import("vue").Ref<boolean>;
         showRemote: () => void;
         saveRemote: () => void;
         editRemote: (target: any, action: any) => void;
@@ -67,5 +67,5 @@ declare namespace _sfc_main {
 }
 import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { createRequest } from '../../../../../utils/request';
-import { uuid as makeId } from '../../../../../utils/uuid';
+import { createRequest } from "../../../../../utils/request";
+import { uuid as makeId } from "../../../../../utils/uuid";

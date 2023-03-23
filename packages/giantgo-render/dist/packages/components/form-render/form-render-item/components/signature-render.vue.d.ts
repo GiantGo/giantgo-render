@@ -17,11 +17,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        signatureRef: import("@vue/reactivity").Ref<null>;
+        signatureRef: import("vue").Ref<null>;
         endStroke: () => void;
         undo: () => void;
         setInternal: () => void;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
         watch: typeof watch;
     };
@@ -31,11 +31,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        signatureRef: import("@vue/reactivity").Ref<null>;
+        signatureRef: import("vue").Ref<null>;
         endStroke: () => void;
         undo: () => void;
         setInternal: () => void;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
         watch: typeof watch;
     };

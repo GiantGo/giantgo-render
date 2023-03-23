@@ -20,15 +20,15 @@ declare namespace _sfc_main {
         data: {
             fileList: never[];
         };
-        dialogImageUrl: import("@vue/reactivity").Ref<string>;
-        dialogVisible: import("@vue/reactivity").Ref<boolean>;
+        dialogImageUrl: import("vue").Ref<string>;
+        dialogVisible: import("vue").Ref<boolean>;
         beforeUpload: (file: any) => boolean;
         handleChange: (res: any, file: any, fileList: any) => void;
         handleError: () => void;
         handlePreview: (uploadFile: any) => void;
         setInternal: () => void;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;
@@ -43,15 +43,15 @@ declare namespace _sfc_main {
         data: {
             fileList: never[];
         };
-        dialogImageUrl: import("@vue/reactivity").Ref<string>;
-        dialogVisible: import("@vue/reactivity").Ref<boolean>;
+        dialogImageUrl: import("vue").Ref<string>;
+        dialogVisible: import("vue").Ref<boolean>;
         beforeUpload: (file: any) => boolean;
         handleChange: (res: any, file: any, fileList: any) => void;
         handleError: () => void;
         handlePreview: (uploadFile: any) => void;
         setInternal: () => void;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;

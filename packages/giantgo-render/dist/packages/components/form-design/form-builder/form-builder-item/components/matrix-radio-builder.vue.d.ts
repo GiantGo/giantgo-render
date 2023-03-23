@@ -15,11 +15,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         state: any;
-        rows: import("@vue/reactivity").Ref<{
+        rows: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: import("@vue/reactivity").Ref<{
+        columns: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
@@ -31,11 +31,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         state: any;
-        rows: import("@vue/reactivity").Ref<{
+        rows: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: import("@vue/reactivity").Ref<{
+        columns: import("vue").Ref<{
             label: string;
             value: string;
         }[]>;
@@ -44,4 +44,4 @@ declare namespace _sfc_main {
     };
 }
 import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { useOptions } from '../../../../../hooks/use-options';
+import { useOptions } from "../../../../../hooks/use-options";

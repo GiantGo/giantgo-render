@@ -21,5 +21,5 @@ declare namespace _sfc_main {
         switchInterpolate: (key: any) => any;
     };
 }
-import { isPrimitive } from '../../../../utils/types';
-import { validateInterpolation } from '../../../../utils/interpolation';
+import { isPrimitive } from "../../../../utils/types";
+import { validateInterpolation } from "../../../../utils/interpolation";

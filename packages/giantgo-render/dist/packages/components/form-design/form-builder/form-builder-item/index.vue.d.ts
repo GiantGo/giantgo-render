@@ -28,8 +28,8 @@ declare namespace _sfc_main {
         mouseleave: () => any;
         copy: () => any;
         remove: () => any;
-        isSelected: import("@vue/reactivity").ComputedRef<boolean>;
-        isHover: import("@vue/reactivity").ComputedRef<boolean>;
+        isSelected: import("vue").ComputedRef<boolean>;
+        isHover: import("vue").ComputedRef<boolean>;
     };
     function setup(props: any): {
         select: () => any;
@@ -37,7 +37,7 @@ declare namespace _sfc_main {
         mouseleave: () => any;
         copy: () => any;
         remove: () => any;
-        isSelected: import("@vue/reactivity").ComputedRef<boolean>;
-        isHover: import("@vue/reactivity").ComputedRef<boolean>;
+        isSelected: import("vue").ComputedRef<boolean>;
+        isHover: import("vue").ComputedRef<boolean>;
     };
 }

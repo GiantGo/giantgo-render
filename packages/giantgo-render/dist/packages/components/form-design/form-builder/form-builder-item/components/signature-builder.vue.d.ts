@@ -14,7 +14,7 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         props: any;
-        signatureRef: import("@vue/reactivity").Ref<null>;
+        signatureRef: import("vue").Ref<null>;
         ref: typeof ref;
         watch: typeof watch;
     };
@@ -22,7 +22,7 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         props: any;
-        signatureRef: import("@vue/reactivity").Ref<null>;
+        signatureRef: import("vue").Ref<null>;
         ref: typeof ref;
         watch: typeof watch;
     };

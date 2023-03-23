@@ -24,11 +24,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        tabsValue: import("@vue/reactivity").Ref<string>;
+        tabsValue: import("vue").Ref<string>;
         emitter: any;
         update: (key: any, value: any) => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
     };
     function setup(__props: any, { expose, emit }: {
@@ -37,11 +37,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        tabsValue: import("@vue/reactivity").Ref<string>;
+        tabsValue: import("vue").Ref<string>;
         emitter: any;
         update: (key: any, value: any) => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
     };
 }

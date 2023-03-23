@@ -23,12 +23,12 @@ declare namespace _sfc_main {
         props: any;
         updateFormItem: any;
         updateFormOption: any;
-        tabsValue: import("@vue/reactivity").Ref<string>;
+        tabsValue: import("vue").Ref<string>;
         tabDialog: {
             title: string;
             isShow: boolean;
         };
-        formRef: import("@vue/reactivity").Ref<null>;
+        formRef: import("vue").Ref<null>;
         rules: {
             label: {
                 required: boolean;
@@ -54,7 +54,7 @@ declare namespace _sfc_main {
         nextTick: typeof nextTick;
         reactive: typeof reactive;
         ref: typeof ref;
-        objectLayout: import('../../../../../tokens').FormDesign;
+        objectLayout: import("../../../../../tokens").FormDesign;
         cloneDeep: <T>(value: T) => T;
         makeId: typeof makeId;
     };
@@ -64,12 +64,12 @@ declare namespace _sfc_main {
         props: any;
         updateFormItem: any;
         updateFormOption: any;
-        tabsValue: import("@vue/reactivity").Ref<string>;
+        tabsValue: import("vue").Ref<string>;
         tabDialog: {
             title: string;
             isShow: boolean;
         };
-        formRef: import("@vue/reactivity").Ref<null>;
+        formRef: import("vue").Ref<null>;
         rules: {
             label: {
                 required: boolean;
@@ -95,7 +95,7 @@ declare namespace _sfc_main {
         nextTick: typeof nextTick;
         reactive: typeof reactive;
         ref: typeof ref;
-        objectLayout: import('../../../../../tokens').FormDesign;
+        objectLayout: import("../../../../../tokens").FormDesign;
         cloneDeep: <T>(value: T) => T;
         makeId: typeof makeId;
     };
@@ -104,4 +104,4 @@ import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime
 import { nextTick } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { uuid as makeId } from '../../../../../utils/uuid';
+import { uuid as makeId } from "../../../../../utils/uuid";

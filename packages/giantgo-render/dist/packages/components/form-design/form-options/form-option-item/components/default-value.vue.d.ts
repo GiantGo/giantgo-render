@@ -7,9 +7,9 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         state: any;
-        component: import("@vue/reactivity").ComputedRef<any>;
-        items: import("@vue/reactivity").ComputedRef<any>;
-        options: import("@vue/reactivity").ComputedRef<any>;
+        component: import("vue").ComputedRef<any>;
+        items: import("vue").ComputedRef<any>;
+        options: import("vue").ComputedRef<any>;
         computed: typeof import("@vue/reactivity").computed;
         inject: typeof inject;
     };
@@ -17,9 +17,9 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         state: any;
-        component: import("@vue/reactivity").ComputedRef<any>;
-        items: import("@vue/reactivity").ComputedRef<any>;
-        options: import("@vue/reactivity").ComputedRef<any>;
+        component: import("vue").ComputedRef<any>;
+        items: import("vue").ComputedRef<any>;
+        options: import("vue").ComputedRef<any>;
         computed: typeof import("@vue/reactivity").computed;
         inject: typeof inject;
     };

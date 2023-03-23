@@ -28,7 +28,7 @@ declare namespace _sfc_main {
         data: {
             items: never[];
         };
-        formRenderRef: import("@vue/reactivity").Ref<null>;
+        formRenderRef: import("vue").Ref<null>;
         formDialog: {
             title: string;
             isShow: boolean;
@@ -41,7 +41,7 @@ declare namespace _sfc_main {
         setInternal: () => void;
         inject: typeof inject;
         nextTick: typeof nextTick;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;
@@ -57,7 +57,7 @@ declare namespace _sfc_main {
         data: {
             items: never[];
         };
-        formRenderRef: import("@vue/reactivity").Ref<null>;
+        formRenderRef: import("vue").Ref<null>;
         formDialog: {
             title: string;
             isShow: boolean;
@@ -70,7 +70,7 @@ declare namespace _sfc_main {
         setInternal: () => void;
         inject: typeof inject;
         nextTick: typeof nextTick;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;

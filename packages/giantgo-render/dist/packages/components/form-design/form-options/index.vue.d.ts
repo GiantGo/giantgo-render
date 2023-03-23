@@ -4,7 +4,7 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         state: any;
-        selected: import("@vue/reactivity").ComputedRef<any>;
+        selected: import("vue").ComputedRef<any>;
         computed: typeof import("@vue/reactivity").computed;
         inject: typeof inject;
     };
@@ -12,7 +12,7 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         state: any;
-        selected: import("@vue/reactivity").ComputedRef<any>;
+        selected: import("vue").ComputedRef<any>;
         computed: typeof import("@vue/reactivity").computed;
         inject: typeof inject;
     };

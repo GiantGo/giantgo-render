@@ -10,11 +10,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        size: import("@vue/reactivity").Ref<number>;
-        unit: import("@vue/reactivity").Ref<string>;
+        size: import("vue").Ref<number>;
+        unit: import("vue").Ref<string>;
         setInternal: () => void;
         update: () => void;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
         watch: typeof watch;
     };
@@ -24,11 +24,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        size: import("@vue/reactivity").Ref<number>;
-        unit: import("@vue/reactivity").Ref<string>;
+        size: import("vue").Ref<number>;
+        unit: import("vue").Ref<string>;
         setInternal: () => void;
         update: () => void;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
         watch: typeof watch;
     };

@@ -1,4 +1,4 @@
-import { defineComponent as V, reactive as ue, resolveComponent as b, openBlock as r, createBlock as z, withCtx as f, createVNode as v, inject as R, createElementBlock as d, Fragment as F, renderList as Y, normalizeStyle as Ye, createElementVNode as i, toDisplayString as Z, ref as X, watch as xe, unref as A, createTextVNode as H, createStaticVNode as G0, onMounted as Se, createCommentVNode as ee, shallowRef as O2, watchEffect as Y0, toRaw as Fo, onBeforeUnmount as Po, h as Rt, nextTick as Xe, createSlots as Kt, resolveDynamicComponent as Vt, provide as _e, computed as ke, markRaw as X0, capitalize as K0, resolveDirective as J0, withDirectives as Z0, normalizeClass as xt, TransitionGroup as Q0, withModifiers as l2 } from "vue";
+import { defineComponent as V, reactive as ue, resolveComponent as b, openBlock as r, createBlock as z, withCtx as f, createVNode as v, inject as R, createElementBlock as d, Fragment as F, renderList as Y, normalizeStyle as Ye, createElementVNode as i, toDisplayString as Z, ref as X, watch as xe, unref as A, createTextVNode as H, createStaticVNode as G0, onMounted as Se, createCommentVNode as ee, shallowRef as k2, watchEffect as Y0, toRaw as Fo, onBeforeUnmount as Po, h as Rt, nextTick as Xe, createSlots as Kt, resolveDynamicComponent as Vt, provide as de, computed as ke, markRaw as X0, capitalize as K0, resolveDirective as J0, withDirectives as Z0, normalizeClass as xt, TransitionGroup as Q0, withModifiers as l2 } from "vue";
 import en from "axios";
 import { createEditor as tn, DomEditor as on, createToolbar as nn } from "@wangeditor/editor";
 import { ElMessage as we, ElForm as an } from "element-plus";
@@ -23,7 +23,7 @@ function Io(e) {
     (u) => _(u)
   ), a({ url: e.url, method: e.method, headers: t, params: o, data: n });
 }
-function H2(e) {
+function O2(e) {
   return /\{\{((?:.|\n)+?)\}\}/g.test(e);
 }
 function Ro(e) {
@@ -55,7 +55,7 @@ function $t(e, t) {
   }
   return n.join("");
 }
-var j2 = {
+var H2 = {
   province_list: {
     11e4: "\u5317\u4EAC\u5E02",
     12e4: "\u5929\u6D25\u5E02",
@@ -3943,24 +3943,24 @@ var j2 = {
     820204: "\u5723\u65B9\u6D4E\u5404\u5802\u533A"
   }
 };
-const A2 = [], K2 = j2.province_list, J2 = j2.city_list, Z2 = j2.county_list;
-Object.keys(K2).forEach((e) => {
+const j2 = [], X2 = H2.province_list, K2 = H2.city_list, J2 = H2.county_list;
+Object.keys(X2).forEach((e) => {
   const t = {
     value: e,
-    label: K2[e],
+    label: X2[e],
     children: []
-  }, o = Object.keys(J2).filter((n) => n.substring(0, 2) === e.substring(0, 2)).map((n) => ({
+  }, o = Object.keys(K2).filter((n) => n.substring(0, 2) === e.substring(0, 2)).map((n) => ({
     value: n,
-    label: J2[n],
+    label: K2[n],
     children: []
   }));
   o.forEach((n) => {
-    const a = Object.keys(Z2).filter((l) => l.substring(0, 4) === n.value.substring(0, 4)).map((l) => ({
+    const a = Object.keys(J2).filter((l) => l.substring(0, 4) === n.value.substring(0, 4)).map((l) => ({
       value: l,
-      label: Z2[l]
+      label: J2[l]
     }));
     n.children.push(...a);
-  }), t.children.push(...o), A2.push(t);
+  }), t.children.push(...o), j2.push(t);
 });
 const cn = V({
   name: "areaRender"
@@ -3976,7 +3976,7 @@ const cn = V({
     }
   },
   setup(e) {
-    const t = ue(A2);
+    const t = ue(j2);
     return (o, n) => {
       const a = b("el-cascader"), l = b("el-form-item");
       return r(), z(l, {
@@ -4006,7 +4006,7 @@ const cn = V({
   default: dn
 }, Symbol.toStringTag, { value: "Module" })), pn = { class: "form-item-list" }, mn = V({
   name: "objectRender"
-}), B2 = /* @__PURE__ */ Object.assign(mn, {
+}), A2 = /* @__PURE__ */ Object.assign(mn, {
   props: {
     path: String,
     modelValue: Object,
@@ -4029,7 +4029,7 @@ const cn = V({
       n.emit("fieldChange", { key: l, value: c }), t("update:modelValue", Object.assign({}, o.modelValue, { [l]: c }));
     };
     return (l, c) => {
-      const _ = q2;
+      const _ = U2;
       return r(), d("div", pn, [
         (r(!0), d(F, null, Y(e.items, (u) => (r(), z(_, {
           key: u.uuid,
@@ -4049,7 +4049,7 @@ const cn = V({
   }
 }), hn = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: B2
+  default: A2
 }, Symbol.toStringTag, { value: "Module" })), fn = { class: "card-header" }, vn = V({
   name: "cardRender"
 }), gn = /* @__PURE__ */ Object.assign(vn, {
@@ -4071,7 +4071,7 @@ const cn = V({
   },
   setup(e) {
     return (t, o) => {
-      const n = B2, a = b("el-card");
+      const n = A2, a = b("el-card");
       return r(), z(a, {
         class: "form-card",
         shadow: e.options.shadow,
@@ -9337,9 +9337,9 @@ var EO = Object.prototype, LO = EO.toString;
 function DO(e) {
   return LO.call(e);
 }
-var FO = "[object Null]", PO = "[object Undefined]", Q2 = rt ? rt.toStringTag : void 0;
+var FO = "[object Null]", PO = "[object Undefined]", Z2 = rt ? rt.toStringTag : void 0;
 function Ct(e) {
-  return e == null ? e === void 0 ? PO : FO : Q2 && Q2 in Object(e) ? TO(e) : DO(e);
+  return e == null ? e === void 0 ? PO : FO : Z2 && Z2 in Object(e) ? TO(e) : DO(e);
 }
 function St(e) {
   return e != null && typeof e == "object";
@@ -9359,12 +9359,12 @@ function Go(e) {
 }
 var WO = Te["__core-js_shared__"];
 const r2 = WO;
-var eo = function() {
+var Q2 = function() {
   var e = /[^.]+$/.exec(r2 && r2.keys && r2.keys.IE_PROTO || "");
   return e ? "Symbol(src)_1." + e : "";
 }();
 function GO(e) {
-  return !!eo && eo in e;
+  return !!Q2 && Q2 in e;
 }
 var YO = Function.prototype, XO = YO.toString;
 function Je(e) {
@@ -9398,14 +9398,14 @@ function Ze(e, t) {
 }
 var lH = Ze(Te, "WeakMap");
 const b2 = lH;
-var to = Object.create, rH = function() {
+var eo = Object.create, rH = function() {
   function e() {
   }
   return function(t) {
     if (!Mt(t))
       return {};
-    if (to)
-      return to(t);
+    if (eo)
+      return eo(t);
     e.prototype = t;
     var o = new e();
     return e.prototype = void 0, o;
@@ -9425,7 +9425,7 @@ var uH = function() {
   } catch {
   }
 }();
-const oo = uH;
+const to = uH;
 function cH(e, t) {
   for (var o = -1, n = e == null ? 0 : e.length; ++o < n && t(e[o], o, e) !== !1; )
     ;
@@ -9437,7 +9437,7 @@ function pH(e, t) {
   return t = t == null ? dH : t, !!t && (o == "number" || o != "symbol" && _H.test(e)) && e > -1 && e % 1 == 0 && e < t;
 }
 function Yo(e, t, o) {
-  t == "__proto__" && oo ? oo(e, t, {
+  t == "__proto__" && to ? to(e, t, {
     configurable: !0,
     enumerable: !0,
     value: o,
@@ -9465,7 +9465,7 @@ var fH = 9007199254740991;
 function Jo(e) {
   return typeof e == "number" && e > -1 && e % 1 == 0 && e <= fH;
 }
-function T2(e) {
+function B2(e) {
   return e != null && Jo(e.length) && !Go(e);
 }
 var vH = Object.prototype;
@@ -9479,27 +9479,27 @@ function gH(e, t) {
   return n;
 }
 var bH = "[object Arguments]";
-function no(e) {
+function oo(e) {
   return St(e) && Ct(e) == bH;
 }
-var Zo = Object.prototype, wH = Zo.hasOwnProperty, xH = Zo.propertyIsEnumerable, $H = no(function() {
+var Zo = Object.prototype, wH = Zo.hasOwnProperty, xH = Zo.propertyIsEnumerable, $H = oo(function() {
   return arguments;
-}()) ? no : function(e) {
+}()) ? oo : function(e) {
   return St(e) && wH.call(e, "callee") && !xH.call(e, "callee");
 };
 const Qo = $H;
 function yH() {
   return !1;
 }
-var e0 = typeof exports == "object" && exports && !exports.nodeType && exports, ao = e0 && typeof module == "object" && module && !module.nodeType && module, zH = ao && ao.exports === e0, lo = zH ? Te.Buffer : void 0, VH = lo ? lo.isBuffer : void 0, CH = VH || yH;
-const E2 = CH;
+var e0 = typeof exports == "object" && exports && !exports.nodeType && exports, no = e0 && typeof module == "object" && module && !module.nodeType && module, zH = no && no.exports === e0, ao = zH ? Te.Buffer : void 0, VH = ao ? ao.isBuffer : void 0, CH = VH || yH;
+const T2 = CH;
 var SH = "[object Arguments]", MH = "[object Array]", kH = "[object Boolean]", OH = "[object Date]", HH = "[object Error]", jH = "[object Function]", AH = "[object Map]", BH = "[object Number]", TH = "[object Object]", EH = "[object RegExp]", LH = "[object Set]", DH = "[object String]", FH = "[object WeakMap]", PH = "[object ArrayBuffer]", IH = "[object DataView]", RH = "[object Float32Array]", UH = "[object Float64Array]", qH = "[object Int8Array]", NH = "[object Int16Array]", WH = "[object Int32Array]", GH = "[object Uint8Array]", YH = "[object Uint8ClampedArray]", XH = "[object Uint16Array]", KH = "[object Uint32Array]", oe = {};
 oe[RH] = oe[UH] = oe[qH] = oe[NH] = oe[WH] = oe[GH] = oe[YH] = oe[XH] = oe[KH] = !0;
 oe[SH] = oe[MH] = oe[PH] = oe[kH] = oe[IH] = oe[OH] = oe[HH] = oe[jH] = oe[AH] = oe[BH] = oe[TH] = oe[EH] = oe[LH] = oe[DH] = oe[FH] = !1;
 function JH(e) {
   return St(e) && Jo(e.length) && !!oe[Ct(e)];
 }
-function L2(e) {
+function E2(e) {
   return function(t) {
     return e(t);
   };
@@ -9512,11 +9512,11 @@ var t0 = typeof exports == "object" && exports && !exports.nodeType && exports, 
   }
 }();
 const it = QH;
-var ro = it && it.isTypedArray, ej = ro ? L2(ro) : JH;
+var lo = it && it.isTypedArray, ej = lo ? E2(lo) : JH;
 const o0 = ej;
 var tj = Object.prototype, oj = tj.hasOwnProperty;
 function n0(e, t) {
-  var o = Jt(e), n = !o && Qo(e), a = !o && !n && E2(e), l = !o && !n && !a && o0(e), c = o || n || a || l, _ = c ? gH(e.length, String) : [], u = _.length;
+  var o = Jt(e), n = !o && Qo(e), a = !o && !n && T2(e), l = !o && !n && !a && o0(e), c = o || n || a || l, _ = c ? gH(e.length, String) : [], u = _.length;
   for (var s in e)
     (t || oj.call(e, s)) && !(c && (s == "length" || a && (s == "offset" || s == "parent") || l && (s == "buffer" || s == "byteLength" || s == "byteOffset") || pH(s, u))) && _.push(s);
   return _;
@@ -9537,8 +9537,8 @@ function l0(e) {
     rj.call(e, o) && o != "constructor" && t.push(o);
   return t;
 }
-function D2(e) {
-  return T2(e) ? n0(e) : l0(e);
+function L2(e) {
+  return B2(e) ? n0(e) : l0(e);
 }
 function ij(e) {
   var t = [];
@@ -9556,8 +9556,8 @@ function cj(e) {
     n == "constructor" && (t || !uj.call(e, n)) || o.push(n);
   return o;
 }
-function F2(e) {
-  return T2(e) ? n0(e, !0) : cj(e);
+function D2(e) {
+  return B2(e) ? n0(e, !0) : cj(e);
 }
 var dj = Ze(Object, "create");
 const yt = dj;
@@ -9723,16 +9723,16 @@ ct.prototype.get = Pj;
 ct.prototype.has = Ij;
 ct.prototype.set = Uj;
 function qj(e, t) {
-  return e && Zt(t, D2(t), e);
+  return e && Zt(t, L2(t), e);
 }
 function Nj(e, t) {
-  return e && Zt(t, F2(t), e);
+  return e && Zt(t, D2(t), e);
 }
-var s0 = typeof exports == "object" && exports && !exports.nodeType && exports, io = s0 && typeof module == "object" && module && !module.nodeType && module, Wj = io && io.exports === s0, so = Wj ? Te.Buffer : void 0, uo = so ? so.allocUnsafe : void 0;
+var s0 = typeof exports == "object" && exports && !exports.nodeType && exports, ro = s0 && typeof module == "object" && module && !module.nodeType && module, Wj = ro && ro.exports === s0, io = Wj ? Te.Buffer : void 0, so = io ? io.allocUnsafe : void 0;
 function Gj(e, t) {
   if (t)
     return e.slice();
-  var o = e.length, n = uo ? uo(o) : new e.constructor(o);
+  var o = e.length, n = so ? so(o) : new e.constructor(o);
   return e.copy(n), n;
 }
 function Yj(e, t) {
@@ -9745,18 +9745,18 @@ function Yj(e, t) {
 function u0() {
   return [];
 }
-var Xj = Object.prototype, Kj = Xj.propertyIsEnumerable, co = Object.getOwnPropertySymbols, Jj = co ? function(e) {
-  return e == null ? [] : (e = Object(e), Yj(co(e), function(t) {
+var Xj = Object.prototype, Kj = Xj.propertyIsEnumerable, uo = Object.getOwnPropertySymbols, Jj = uo ? function(e) {
+  return e == null ? [] : (e = Object(e), Yj(uo(e), function(t) {
     return Kj.call(e, t);
   }));
 } : u0;
-const P2 = Jj;
+const F2 = Jj;
 function Zj(e, t) {
-  return Zt(e, P2(e), t);
+  return Zt(e, F2(e), t);
 }
 var Qj = Object.getOwnPropertySymbols, eA = Qj ? function(e) {
   for (var t = []; e; )
-    r0(t, P2(e)), e = i0(e);
+    r0(t, F2(e)), e = i0(e);
   return t;
 } : u0;
 const c0 = eA;
@@ -9768,10 +9768,10 @@ function d0(e, t, o) {
   return Jt(e) ? n : r0(n, o(e));
 }
 function oA(e) {
-  return d0(e, D2, P2);
+  return d0(e, L2, F2);
 }
 function nA(e) {
-  return d0(e, F2, c0);
+  return d0(e, D2, c0);
 }
 var aA = Ze(Te, "DataView");
 const w2 = aA;
@@ -9779,21 +9779,21 @@ var lA = Ze(Te, "Promise");
 const x2 = lA;
 var rA = Ze(Te, "Set");
 const $2 = rA;
-var _o = "[object Map]", iA = "[object Object]", po = "[object Promise]", mo = "[object Set]", ho = "[object WeakMap]", fo = "[object DataView]", sA = Je(w2), uA = Je(zt), cA = Je(x2), dA = Je($2), _A = Je(b2), We = Ct;
-(w2 && We(new w2(new ArrayBuffer(1))) != fo || zt && We(new zt()) != _o || x2 && We(x2.resolve()) != po || $2 && We(new $2()) != mo || b2 && We(new b2()) != ho) && (We = function(e) {
+var co = "[object Map]", iA = "[object Object]", _o = "[object Promise]", po = "[object Set]", mo = "[object WeakMap]", ho = "[object DataView]", sA = Je(w2), uA = Je(zt), cA = Je(x2), dA = Je($2), _A = Je(b2), We = Ct;
+(w2 && We(new w2(new ArrayBuffer(1))) != ho || zt && We(new zt()) != co || x2 && We(x2.resolve()) != _o || $2 && We(new $2()) != po || b2 && We(new b2()) != mo) && (We = function(e) {
   var t = Ct(e), o = t == iA ? e.constructor : void 0, n = o ? Je(o) : "";
   if (n)
     switch (n) {
       case sA:
-        return fo;
-      case uA:
-        return _o;
-      case cA:
-        return po;
-      case dA:
-        return mo;
-      case _A:
         return ho;
+      case uA:
+        return co;
+      case cA:
+        return _o;
+      case dA:
+        return po;
+      case _A:
+        return mo;
     }
   return t;
 });
@@ -9804,13 +9804,13 @@ function hA(e) {
   return t && typeof e[0] == "string" && mA.call(e, "index") && (o.index = e.index, o.input = e.input), o;
 }
 var fA = Te.Uint8Array;
-const vo = fA;
-function I2(e) {
+const fo = fA;
+function P2(e) {
   var t = new e.constructor(e.byteLength);
-  return new vo(t).set(new vo(e)), t;
+  return new fo(t).set(new fo(e)), t;
 }
 function vA(e, t) {
-  var o = t ? I2(e.buffer) : e.buffer;
+  var o = t ? P2(e.buffer) : e.buffer;
   return new e.constructor(o, e.byteOffset, e.byteLength);
 }
 var gA = /\w*$/;
@@ -9818,12 +9818,12 @@ function bA(e) {
   var t = new e.constructor(e.source, gA.exec(e));
   return t.lastIndex = e.lastIndex, t;
 }
-var go = rt ? rt.prototype : void 0, bo = go ? go.valueOf : void 0;
+var vo = rt ? rt.prototype : void 0, go = vo ? vo.valueOf : void 0;
 function wA(e) {
-  return bo ? Object(bo.call(e)) : {};
+  return go ? Object(go.call(e)) : {};
 }
 function xA(e, t) {
-  var o = t ? I2(e.buffer) : e.buffer;
+  var o = t ? P2(e.buffer) : e.buffer;
   return new e.constructor(o, e.byteOffset, e.length);
 }
 var $A = "[object Boolean]", yA = "[object Date]", zA = "[object Map]", VA = "[object Number]", CA = "[object RegExp]", SA = "[object Set]", MA = "[object String]", kA = "[object Symbol]", OA = "[object ArrayBuffer]", HA = "[object DataView]", jA = "[object Float32Array]", AA = "[object Float64Array]", BA = "[object Int8Array]", TA = "[object Int16Array]", EA = "[object Int32Array]", LA = "[object Uint8Array]", DA = "[object Uint8ClampedArray]", FA = "[object Uint16Array]", PA = "[object Uint32Array]";
@@ -9831,7 +9831,7 @@ function IA(e, t, o) {
   var n = e.constructor;
   switch (t) {
     case OA:
-      return I2(e);
+      return P2(e);
     case $A:
     case yA:
       return new n(+e);
@@ -9867,13 +9867,13 @@ var UA = "[object Map]";
 function qA(e) {
   return St(e) && o2(e) == UA;
 }
-var wo = it && it.isMap, NA = wo ? L2(wo) : qA;
+var bo = it && it.isMap, NA = bo ? E2(bo) : qA;
 const WA = NA;
 var GA = "[object Set]";
 function YA(e) {
   return St(e) && o2(e) == GA;
 }
-var xo = it && it.isSet, XA = xo ? L2(xo) : YA;
+var wo = it && it.isSet, XA = wo ? E2(wo) : YA;
 const KA = XA;
 var JA = 1, ZA = 2, QA = 4, _0 = "[object Arguments]", eB = "[object Array]", tB = "[object Boolean]", oB = "[object Date]", nB = "[object Error]", p0 = "[object Function]", aB = "[object GeneratorFunction]", lB = "[object Map]", rB = "[object Number]", m0 = "[object Object]", iB = "[object RegExp]", sB = "[object Set]", uB = "[object String]", cB = "[object Symbol]", dB = "[object WeakMap]", _B = "[object ArrayBuffer]", pB = "[object DataView]", mB = "[object Float32Array]", hB = "[object Float64Array]", fB = "[object Int8Array]", vB = "[object Int16Array]", gB = "[object Int32Array]", bB = "[object Uint8Array]", wB = "[object Uint8ClampedArray]", xB = "[object Uint16Array]", $B = "[object Uint32Array]", te = {};
 te[_0] = te[eB] = te[_B] = te[pB] = te[tB] = te[oB] = te[mB] = te[hB] = te[fB] = te[vB] = te[gB] = te[lB] = te[rB] = te[m0] = te[iB] = te[sB] = te[uB] = te[cB] = te[bB] = te[wB] = te[xB] = te[$B] = !0;
@@ -9890,7 +9890,7 @@ function Et(e, t, o, n, a, l) {
       return sH(e, c);
   } else {
     var m = o2(e), $ = m == p0 || m == aB;
-    if (E2(e))
+    if (T2(e))
       return Gj(e, _);
     if (m == m0 || m == _0 || $ && !a) {
       if (c = u || $ ? {} : RA(e), !_)
@@ -9910,20 +9910,20 @@ function Et(e, t, o, n, a, l) {
   }) : WA(e) && e.forEach(function(y, C) {
     c.set(C, Et(y, t, o, C, e, l));
   });
-  var g = s ? u ? nA : oA : u ? F2 : D2, x = p ? void 0 : g(e);
+  var g = s ? u ? nA : oA : u ? D2 : L2, x = p ? void 0 : g(e);
   return cH(x || e, function(y, C) {
     x && (C = y, y = e[C]), Ko(c, C, Et(y, t, o, C, e, l));
   }), c;
 }
 var yB = 1, zB = 4;
-function de(e) {
+function pe(e) {
   return Et(e, yB | zB);
 }
 var VB = "[object Map]", CB = "[object Set]", SB = Object.prototype, MB = SB.hasOwnProperty;
 function h0(e) {
   if (e == null)
     return !0;
-  if (T2(e) && (Jt(e) || typeof e == "string" || typeof e.splice == "function" || E2(e) || o0(e) || Qo(e)))
+  if (B2(e) && (Jt(e) || typeof e == "string" || typeof e.splice == "function" || T2(e) || o0(e) || Qo(e)))
     return !e.length;
   var t = o2(e);
   if (t == VB || t == CB)
@@ -9958,7 +9958,7 @@ const kB = {
     }), a = R("state"), { items: l } = me(o, "rowOptions", a.formDesign), { items: c } = me(o, "options", a.formDesign), _ = (s, p, m) => {
       n.items[s][p] = m, t("update:modelValue", n.items);
     }, u = () => {
-      const s = [], p = de(o.modelValue) || [];
+      const s = [], p = pe(o.modelValue) || [];
       for (let m = 0; m < l.value.length; m++)
         qo(p[m]) ? s[m] = p[m] : s[m] = Array(c.value.length).fill(!1);
       n.items = s;
@@ -10031,7 +10031,7 @@ const kB = {
     }), a = R("state"), { items: l } = me(o, "rowOptions", a.formDesign), { items: c } = me(o, "options", a.formDesign), _ = (s, p) => {
       n.items[s] = p, t("update:modelValue", n.items);
     }, u = () => {
-      n.items = de(o.modelValue);
+      n.items = pe(o.modelValue);
     };
     return Se(u), xe(() => o.modelValue, u), (s, p) => {
       const m = b("el-radio"), $ = b("el-form-item");
@@ -10258,12 +10258,12 @@ const kB = {
   __proto__: null,
   default: JB
 }, Symbol.toStringTag, { value: "Module" }));
-var QB = Object.defineProperty, eT = Object.defineProperties, tT = Object.getOwnPropertyDescriptors, $o = Object.getOwnPropertySymbols, oT = Object.prototype.hasOwnProperty, nT = Object.prototype.propertyIsEnumerable, yo = (e, t, o) => t in e ? QB(e, t, { enumerable: !0, configurable: !0, writable: !0, value: o }) : e[t] = o, aT = (e, t) => {
+var QB = Object.defineProperty, eT = Object.defineProperties, tT = Object.getOwnPropertyDescriptors, xo = Object.getOwnPropertySymbols, oT = Object.prototype.hasOwnProperty, nT = Object.prototype.propertyIsEnumerable, $o = (e, t, o) => t in e ? QB(e, t, { enumerable: !0, configurable: !0, writable: !0, value: o }) : e[t] = o, aT = (e, t) => {
   for (var o in t || (t = {}))
-    oT.call(t, o) && yo(e, o, t[o]);
-  if ($o)
-    for (var o of $o(t))
-      nT.call(t, o) && yo(e, o, t[o]);
+    oT.call(t, o) && $o(e, o, t[o]);
+  if (xo)
+    for (var o of xo(t))
+      nT.call(t, o) && $o(e, o, t[o]);
   return e;
 }, lT = (e, t) => eT(e, tT(t));
 function Pe(e) {
@@ -10300,7 +10300,7 @@ const rT = V({
     }
   },
   setup(e, t) {
-    const o = X(null), n = O2(null), a = X(""), l = () => {
+    const o = X(null), n = k2(null), a = X(""), l = () => {
       if (!o.value)
         return;
       const _ = Fo(e.defaultContent);
@@ -10439,7 +10439,7 @@ const _T = { class: "rich-editor-container" }, pT = V({
     }
   },
   setup(e) {
-    const t = O2(), o = (n) => {
+    const t = k2(), o = (n) => {
       t.value = n;
     };
     return Po(() => {
@@ -10546,13 +10546,13 @@ class Ut {
     return this.time !== t.time ? this.distanceTo(t) / (this.time - t.time) : 0;
   }
 }
-class R2 {
+class I2 {
   constructor(t, o, n, a, l, c) {
     this.startPoint = t, this.control2 = o, this.control1 = n, this.endPoint = a, this.startWidth = l, this.endWidth = c;
   }
   static fromPoints(t, o) {
     const n = this.calculateControlPoints(t[0], t[1], t[2]).c2, a = this.calculateControlPoints(t[1], t[2], t[3]).c1;
-    return new R2(t[1], n, a, t[2], o.start, o.end);
+    return new I2(t[1], n, a, t[2], o.start, o.end);
   }
   static calculateControlPoints(t, o, n) {
     const a = t.x - o.x, l = t.y - o.y, c = o.x - n.x, _ = o.y - n.y, u = { x: (t.x + o.x) / 2, y: (t.y + o.y) / 2 }, s = { x: (o.x + n.x) / 2, y: (o.y + n.y) / 2 }, p = Math.sqrt(a * a + l * l), m = Math.sqrt(c * c + _ * _), $ = u.x - s.x, w = u.y - s.y, g = m / (p + m), x = { x: s.x + $ * g, y: s.y + w * g }, y = o.x - x.x, C = o.y - x.y;
@@ -10737,7 +10737,7 @@ class qt extends bT {
     const { _lastPoints: o } = this;
     if (o.push(t), o.length > 2) {
       o.length === 3 && o.unshift(o[0]);
-      const n = this._calculateCurveWidths(o[1], o[2]), a = R2.fromPoints(o, n);
+      const n = this._calculateCurveWidths(o[1], o[2]), a = I2.fromPoints(o, n);
       return o.shift(), a;
     }
     return null;
@@ -10823,7 +10823,7 @@ class qt extends bT {
     return u + btoa($);
   }
 }
-const y2 = ["image/png", "image/jpeg", "image/svg+xml"], xT = (e) => y2.includes(e), zo = (e) => JSON.parse(JSON.stringify(e)), Vo = {
+const y2 = ["image/png", "image/jpeg", "image/svg+xml"], xT = (e) => y2.includes(e), yo = (e) => JSON.parse(JSON.stringify(e)), zo = {
   src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=",
   x: 0,
   y: 0
@@ -10867,12 +10867,12 @@ const y2 = ["image/png", "image/jpeg", "image/svg+xml"], xT = (e) => y2.includes
   data: () => ({
     signaturePad: {},
     cacheImages: [],
-    signatureData: Vo,
+    signatureData: zo,
     onResizeHandler: null
   }),
   computed: {
     propsImagesAndCustomImages() {
-      const e = zo(this.images), t = zo(this.cacheImages);
+      const e = yo(this.images), t = yo(this.cacheImages);
       return [...e, ...t];
     }
   },
@@ -10896,7 +10896,7 @@ const y2 = ["image/png", "image/jpeg", "image/svg+xml"], xT = (e) => y2.includes
   methods: {
     resizeCanvas() {
       const e = this.$refs.signaturePadCanvas, t = this.signaturePad.toData(), o = Math.max(window.devicePixelRatio || 1, 1);
-      e.width = e.offsetWidth * o, e.height = e.offsetHeight * o, e.getContext("2d").scale(o, o), this.signaturePad.clear(), this.signatureData = Vo, this.signaturePad.fromData(t);
+      e.width = e.offsetWidth * o, e.height = e.offsetHeight * o, e.getContext("2d").scale(o, o), this.signaturePad.clear(), this.signatureData = zo, this.signaturePad.fromData(t);
     },
     saveSignature(e = y2[0], t) {
       const { signaturePad: o } = this, n = { isEmpty: !1, data: void 0 };
@@ -11155,7 +11155,7 @@ const UT = { name: "carbon-edit", render: RT }, qT = {
 function GT(e, t) {
   return r(), d("svg", qT, WT);
 }
-const U2 = { name: "carbon-add", render: GT };
+const R2 = { name: "carbon-add", render: GT };
 const kt = (e, t) => {
   const o = e.__vccOpts || e;
   for (const [n, a] of t)
@@ -11205,10 +11205,10 @@ const kt = (e, t) => {
     }, p = ($) => {
       c.index > -1 ? a.items.splice(c.index, 1, $) : a.items.push($), c.isShow = !1, t("update:modelValue", a.items);
     }, m = () => {
-      a.items = de(o.modelValue);
+      a.items = pe(o.modelValue);
     };
     return Se(m), xe(() => o.modelValue, m), ($, w) => {
-      const g = U2, x = b("el-icon"), y = b("el-button"), C = b("el-table-column"), S = UT, B = Qe, N = b("el-table"), W = b("el-form-item"), G = N2, P = b("el-dialog");
+      const g = R2, x = b("el-icon"), y = b("el-button"), C = b("el-table-column"), S = UT, B = Qe, N = b("el-table"), W = b("el-form-item"), G = q2, P = b("el-dialog");
       return r(), d(F, null, [
         v(W, {
           prop: e.path,
@@ -11317,7 +11317,7 @@ const kt = (e, t) => {
       ], 64);
     };
   }
-}), ZT = /* @__PURE__ */ kt(JT, [["__scopeId", "data-v-1ba5a5c0"]]), QT = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}), ZT = /* @__PURE__ */ kt(JT, [["__scopeId", "data-v-99cf9ae3"]]), QT = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ZT
 }, Symbol.toStringTag, { value: "Module" })), eE = V({
@@ -11353,7 +11353,7 @@ const kt = (e, t) => {
         }
       });
     }), (c, _) => {
-      const u = B2, s = b("el-tab-pane"), p = b("el-tabs");
+      const u = A2, s = b("el-tab-pane"), p = b("el-tabs");
       return r(), z(p, {
         modelValue: n.value,
         "onUpdate:modelValue": _[0] || (_[0] = (m) => n.value = m),
@@ -11540,7 +11540,7 @@ const kt = (e, t) => {
     }, c = () => {
       we.error("\u4E0A\u4F20\u5931\u8D25!");
     }, _ = () => {
-      n.fileList = de(o.modelValue);
+      n.fileList = pe(o.modelValue);
     };
     return Se(_), xe(() => o.modelValue, _), (u, s) => {
       const p = b("el-button"), m = b("el-upload"), $ = b("el-form-item");
@@ -11629,10 +11629,10 @@ const kt = (e, t) => {
     }, s = (m) => {
       a.value = m.url, l.value = !0;
     }, p = () => {
-      n.fileList = de(o.modelValue);
+      n.fileList = pe(o.modelValue);
     };
     return Se(p), xe(() => o.modelValue, p), (m, $) => {
-      const w = U2, g = b("el-icon"), x = b("el-upload"), y = b("el-dialog"), C = b("el-form-item");
+      const w = R2, g = b("el-icon"), x = b("el-upload"), y = b("el-dialog"), C = b("el-form-item");
       return r(), z(C, {
         prop: e.path,
         label: e.options.label,
@@ -11739,7 +11739,7 @@ function $E(e, t, o, n, a, l) {
     }, null, 8, ["items", "options", "model-value", "path"]))
   ], 4));
 }
-const q2 = /* @__PURE__ */ kt(xE, [["render", $E]]);
+const U2 = /* @__PURE__ */ kt(xE, [["render", $E]]);
 function yE(e) {
   return { all: e = e || /* @__PURE__ */ new Map(), on: function(t, o) {
     var n = e.get(t);
@@ -11756,7 +11756,3657 @@ function yE(e) {
     });
   } };
 }
-const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], zE = [
+const zE = V({
+  name: "formRender"
+}), q2 = /* @__PURE__ */ V({
+  ...zE,
+  emits: ["field-change"],
+  setup(e, { expose: t, emit: o }) {
+    const n = X(null), a = ue({
+      formDesign: {
+        name: "",
+        uuid: "",
+        component: "object",
+        options: {}
+      },
+      formData: {
+        root: {}
+      }
+    }), l = yE();
+    l.on("fieldChange", ({ key: $, value: w }) => {
+      o("field-change", { key: $, value: w });
+    });
+    const c = ($, w, g = { root: {} }) => ($.forEach((x) => {
+      const y = x.options.key || "";
+      y && (w[y] = g[y] || x.options.defaultValue);
+      for (const C in x.options)
+        if (O2(x.options[C])) {
+          const S = new Function(
+            "root",
+            "options",
+            `try {
+            return ${Ro(x.options[C])}
+          } catch(e) {
+            console.log(e)
+          }`
+          );
+          x.options[C] = ke({
+            get() {
+              return S(a.formData.root, x.options);
+            },
+            set() {
+            }
+          });
+        }
+      x.items && y && c(x.items, w[y], g[y]);
+    }), $), _ = ($, w = {}) => {
+      a.formDesign = $, a.formDesign.options.key = "root", a.formDesign.options.defaultValue = {}, c([a.formDesign], a.formData, { root: w }), n.value && n.value.clearValidate();
+    }, u = () => new Promise(($, w) => {
+      n.value.validate((g, x) => {
+        g ? $(Fo(a.formData.root)) : (l.emit("validateError", Object.keys(x)[0]), w(x));
+      });
+    }), s = () => {
+      n.value && n.value.resetFields();
+    }, p = ($, w, g) => {
+      for (const x in $)
+        if (un($[x]))
+          p($[x], w, g);
+        else if (x === w) {
+          $[w] = g;
+          return;
+        }
+    }, m = ($, w) => {
+      p(a.formData.root, $, w);
+    };
+    return de("emitter", l), de("state", a), t({
+      init: _,
+      submit: u,
+      reset: s,
+      getData() {
+        return a.formData.root;
+      },
+      setData: m
+    }), ($, w) => {
+      const g = U2;
+      return r(), z(A(an), {
+        ref_key: "formRef",
+        ref: n,
+        class: "form-render",
+        "label-width": a.formDesign.options.labelWidth,
+        "label-position": a.formDesign.options.labelPosition,
+        "hide-required-asterisk": a.formDesign.options.hideRequiredAsterisk,
+        "status-icon": a.formDesign.options.statusIcon,
+        inline: a.formDesign.options.inline,
+        size: a.formDesign.options.size,
+        model: a.formData
+      }, {
+        default: f(() => [
+          v(g, {
+            modelValue: a.formData.root,
+            "onUpdate:modelValue": w[0] || (w[0] = (x) => a.formData.root = x),
+            class: "root",
+            component: a.formDesign.component,
+            items: a.formDesign.items,
+            options: a.formDesign.options,
+            path: "root"
+          }, null, 8, ["modelValue", "component", "items", "options"])
+        ]),
+        _: 1
+      }, 8, ["label-width", "label-position", "hide-required-asterisk", "status-icon", "inline", "size", "model"]);
+    };
+  }
+}), VE = {
+  preserveAspectRatio: "xMidYMid meet",
+  viewBox: "0 0 1024 1024",
+  width: "1.2em",
+  height: "1.2em"
+}, CE = /* @__PURE__ */ i("path", {
+  fill: "currentColor",
+  d: "M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1l192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9A7.95 7.95 0 0 0 308 351v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2a8.1 8.1 0 0 0-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1zM880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+}, null, -1), SE = [
+  CE
+];
+function ME(e, t) {
+  return r(), d("svg", VE, SE);
+}
+const kE = { name: "ant-design-code-outlined", render: ME }, OE = { class: "value" }, HE = { class: "label" }, jE = /* @__PURE__ */ i("span", null, "{{", -1), AE = /* @__PURE__ */ i("span", null, "}}", -1), BE = V({
+  name: "interpolation"
+}), TE = /* @__PURE__ */ Object.assign(BE, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    const t = X([
+      { value: "root", label: "\u6574\u4E2A\u8868\u5355\u7684\u503C" },
+      { value: "options", label: "\u8BE5\u7EC4\u4EF6\u7684\u9009\u9879" }
+    ]), o = (n, a) => {
+      const l = n ? t.value.filter((c) => c.value.toLowerCase().indexOf(n.toLowerCase()) === 0) : t.value;
+      a(l);
+    };
+    return (n, a) => {
+      const l = b("el-autocomplete");
+      return r(), z(l, {
+        "popper-class": "form-setting-interpolation",
+        "model-value": A(Ro)(e.modelValue).trim(),
+        "fetch-suggestions": o,
+        placeholder: "\u8BF7\u8F93\u5165JS\u8868\u8FBE\u5F0F",
+        onInput: a[0] || (a[0] = (c) => n.$emit("update:modelValue", c.trim() ? `{{${c.trim()}}}` : "{{  }}"))
+      }, {
+        default: f(({ item: c }) => [
+          i("div", OE, Z(c.value), 1),
+          i("span", HE, Z(c.label), 1)
+        ]),
+        prefix: f(() => [
+          jE
+        ]),
+        suffix: f(() => [
+          AE
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), EE = V({
+  name: "activeColorOption"
+}), LE = /* @__PURE__ */ Object.assign(EE, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-color-picker");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), DE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: LE
+}, Symbol.toStringTag, { value: "Module" })), FE = V({
+  name: "activeTextOption"
+}), PE = /* @__PURE__ */ Object.assign(FE, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), IE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: PE
+}, Symbol.toStringTag, { value: "Module" })), RE = V({
+  name: "allowHalfOption"
+}), UE = /* @__PURE__ */ Object.assign(RE, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), qE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: UE
+}, Symbol.toStringTag, { value: "Module" })), NE = V({
+  name: "backgroundColorOption"
+}), WE = /* @__PURE__ */ Object.assign(NE, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-color-picker");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), GE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: WE
+}, Symbol.toStringTag, { value: "Module" })), YE = V({
+  name: "borderOption"
+}), XE = /* @__PURE__ */ Object.assign(YE, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), KE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: XE
+}, Symbol.toStringTag, { value: "Module" })), JE = V({
+  name: "buttonTextOption"
+}), ZE = /* @__PURE__ */ Object.assign(JE, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), QE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: ZE
+}, Symbol.toStringTag, { value: "Module" })), eL = V({
+  name: "clearableOption"
+}), tL = /* @__PURE__ */ Object.assign(eL, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), oL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: tL
+}, Symbol.toStringTag, { value: "Module" })), nL = V({
+  name: "collapseTagsOption"
+}), aL = /* @__PURE__ */ Object.assign(nL, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), lL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: aL
+}, Symbol.toStringTag, { value: "Module" })), rL = V({
+  name: "contentOption"
+}), iL = /* @__PURE__ */ Object.assign(rL, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), sL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: iL
+}, Symbol.toStringTag, { value: "Module" })), uL = V({
+  name: "defaultValueOption"
+}), cL = /* @__PURE__ */ Object.assign(uL, {
+  props: {
+    modelValue: [String, Number, Boolean, Date, Object, Array]
+  },
+  setup(e) {
+    const t = R("state"), o = ke(() => t.selected.component), n = ke(() => t.selected.items), a = ke(
+      () => Object.assign({}, t.selected.options, {
+        label: "",
+        clearable: !0,
+        disabled: !1,
+        width: "100%"
+      })
+    );
+    return (l, c) => {
+      const _ = U2;
+      return r(), z(_, {
+        "model-value": e.modelValue,
+        component: A(o),
+        items: A(n),
+        options: A(a),
+        "onUpdate:modelValue": c[0] || (c[0] = (u) => l.$emit("update:modelValue", u))
+      }, null, 8, ["model-value", "component", "items", "options"]);
+    };
+  }
+}), dL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: cL
+}, Symbol.toStringTag, { value: "Module" })), _L = V({
+  name: "disabledOption"
+}), pL = /* @__PURE__ */ Object.assign(_L, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), mL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: pL
+}, Symbol.toStringTag, { value: "Module" })), hL = /* @__PURE__ */ H("\u70B9\u51FB"), fL = /* @__PURE__ */ H("\u60AC\u6D6E"), vL = V({
+  name: "expandTriggerOption"
+}), gL = /* @__PURE__ */ Object.assign(vL, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-radio-button"), a = b("el-radio-group");
+      return r(), z(a, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
+      }, {
+        default: f(() => [
+          v(n, { label: "click" }, {
+            default: f(() => [
+              hL
+            ]),
+            _: 1
+          }),
+          v(n, { label: "hover" }, {
+            default: f(() => [
+              fL
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), bL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: gL
+}, Symbol.toStringTag, { value: "Module" })), wL = V({
+  name: "fileSuffixOption"
+}), xL = /* @__PURE__ */ Object.assign(wL, {
+  props: {
+    modelValue: Array
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-option"), a = b("el-select");
+      return r(), z(a, {
+        multiple: "",
+        clearable: "",
+        filterable: "",
+        "allow-create": "",
+        "default-first-option": "",
+        placeholder: "\u8BF7\u9009\u62E9\u6587\u4EF6\u7C7B\u578B",
+        "model-value": e.modelValue,
+        style: { width: "88%" },
+        onChange: o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
+      }, {
+        default: f(() => [
+          v(n, {
+            label: "doc",
+            value: "doc"
+          }),
+          v(n, {
+            label: "docx",
+            value: "docx"
+          }),
+          v(n, {
+            label: "xls",
+            value: "xls"
+          }),
+          v(n, {
+            label: "xlsx",
+            value: "xlsx"
+          }),
+          v(n, {
+            label: "rar",
+            value: "rar"
+          }),
+          v(n, {
+            label: "zip",
+            value: "zip"
+          })
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), $L = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: xL
+}, Symbol.toStringTag, { value: "Module" })), yL = V({
+  name: "filterableOption"
+}), zL = /* @__PURE__ */ Object.assign(yL, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), VL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: zL
+}, Symbol.toStringTag, { value: "Module" })), CL = V({
+  name: "formatOption"
+}), SL = /* @__PURE__ */ Object.assign(CL, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), ML = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: SL
+}, Symbol.toStringTag, { value: "Module" })), kL = V({
+  name: "gutterOption"
+}), OL = /* @__PURE__ */ Object.assign(kL, {
+  props: {
+    modelValue: Number
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = (n) => {
+      t("update:modelValue", n);
+    };
+    return (n, a) => {
+      const l = b("el-slider");
+      return r(), z(l, {
+        "model-value": e.modelValue,
+        min: 0,
+        max: 300,
+        "onUpdate:modelValue": o
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), HL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: OL
+}, Symbol.toStringTag, { value: "Module" })), jL = V({
+  name: "heightOption"
+}), AL = /* @__PURE__ */ Object.assign(jL, {
+  props: {
+    modelValue: String
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = (n) => {
+      t("update:modelValue", `${n}px`);
+    };
+    return (n, a) => {
+      const l = b("el-slider");
+      return r(), z(l, {
+        "model-value": parseInt(e.modelValue),
+        "format-tooltip": (c) => c + "px",
+        min: 0,
+        max: 1e3,
+        "onUpdate:modelValue": o
+      }, null, 8, ["model-value", "format-tooltip"]);
+    };
+  }
+}), BL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: AL
+}, Symbol.toStringTag, { value: "Module" })), TL = V({
+  name: "hiddenOption"
+}), EL = /* @__PURE__ */ Object.assign(TL, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), LL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: EL
+}, Symbol.toStringTag, { value: "Module" })), DL = V({
+  name: "hideRequiredAsteriskOption"
+}), FL = /* @__PURE__ */ Object.assign(DL, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), PL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: FL
+}, Symbol.toStringTag, { value: "Module" })), IL = V({
+  name: "imageSuffixOption"
+}), RL = /* @__PURE__ */ Object.assign(IL, {
+  props: {
+    modelValue: Array
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-option"), a = b("el-select");
+      return r(), z(a, {
+        multiple: "",
+        clearable: "",
+        filterable: "",
+        "allow-create": "",
+        "default-first-option": "",
+        placeholder: "\u8BF7\u9009\u62E9\u56FE\u7247\u7C7B\u578B",
+        "model-value": e.modelValue,
+        style: { width: "88%" },
+        onChange: o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
+      }, {
+        default: f(() => [
+          v(n, {
+            label: "jpg",
+            value: "jpg"
+          }),
+          v(n, {
+            label: "jpeg",
+            value: "jpeg"
+          }),
+          v(n, {
+            label: "png",
+            value: "png"
+          }),
+          v(n, {
+            label: "gif",
+            value: "gif"
+          })
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), UL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: RL
+}, Symbol.toStringTag, { value: "Module" })), qL = V({
+  name: "inactiveColorOption"
+}), NL = /* @__PURE__ */ Object.assign(qL, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-color-picker");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), WL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: NL
+}, Symbol.toStringTag, { value: "Module" })), GL = V({
+  name: "inactiveTextOption"
+}), YL = /* @__PURE__ */ Object.assign(GL, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), XL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: YL
+}, Symbol.toStringTag, { value: "Module" })), KL = V({
+  name: "inlineOption"
+}), JL = /* @__PURE__ */ Object.assign(KL, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), ZL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: JL
+}, Symbol.toStringTag, { value: "Module" })), QL = V({
+  name: "keyOption"
+}), eD = /* @__PURE__ */ Object.assign(QL, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), tD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: eD
+}, Symbol.toStringTag, { value: "Module" })), oD = /* @__PURE__ */ H("\u5DE6"), nD = /* @__PURE__ */ H("\u53F3"), aD = /* @__PURE__ */ H("\u9876\u90E8"), lD = V({
+  name: "labelPositionOption"
+}), rD = /* @__PURE__ */ Object.assign(lD, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-radio-button"), a = b("el-radio-group");
+      return r(), z(a, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
+      }, {
+        default: f(() => [
+          v(n, { label: "left" }, {
+            default: f(() => [
+              oD
+            ]),
+            _: 1
+          }),
+          v(n, { label: "right" }, {
+            default: f(() => [
+              nD
+            ]),
+            _: 1
+          }),
+          v(n, { label: "top" }, {
+            default: f(() => [
+              aD
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), iD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: rD
+}, Symbol.toStringTag, { value: "Module" })), sD = V({
+  name: "labelWidthOption"
+}), uD = /* @__PURE__ */ Object.assign(sD, {
+  props: {
+    modelValue: String
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = (n) => {
+      t("update:modelValue", `${n}px`);
+    };
+    return (n, a) => {
+      const l = b("el-slider");
+      return r(), z(l, {
+        "model-value": parseInt(e.modelValue),
+        min: 0,
+        max: 300,
+        "format-tooltip": (c) => c + "px",
+        "onUpdate:modelValue": o
+      }, null, 8, ["model-value", "format-tooltip"]);
+    };
+  }
+}), cD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: uD
+}, Symbol.toStringTag, { value: "Module" })), dD = V({
+  name: "labelOption"
+}), _D = /* @__PURE__ */ Object.assign(dD, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), pD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: _D
+}, Symbol.toStringTag, { value: "Module" })), mD = V({
+  name: "limitOption"
+}), hD = /* @__PURE__ */ Object.assign(mD, {
+  props: {
+    modelValue: Number
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input-number");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), fD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: hD
+}, Symbol.toStringTag, { value: "Module" })), vD = V({
+  name: "lineHeightOption"
+}), gD = /* @__PURE__ */ Object.assign(vD, {
+  props: {
+    modelValue: String
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = (n) => {
+      t("update:modelValue", `${n}px`);
+    };
+    return (n, a) => {
+      const l = b("el-slider");
+      return r(), z(l, {
+        "model-value": parseInt(e.modelValue),
+        min: 12,
+        max: 200,
+        "format-tooltip": (c) => c + "px",
+        "onUpdate:modelValue": o
+      }, null, 8, ["model-value", "format-tooltip"]);
+    };
+  }
+}), bD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: gD
+}, Symbol.toStringTag, { value: "Module" })), wD = V({
+  name: "maxOption"
+}), xD = /* @__PURE__ */ Object.assign(wD, {
+  props: {
+    modelValue: Number
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input-number");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), $D = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: xD
+}, Symbol.toStringTag, { value: "Module" })), yD = V({
+  name: "maxlengthOption"
+}), zD = /* @__PURE__ */ Object.assign(yD, {
+  props: {
+    modelValue: Number
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input-number");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a || void 0))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), VD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: zD
+}, Symbol.toStringTag, { value: "Module" })), CD = V({
+  name: "minOption"
+}), SD = /* @__PURE__ */ Object.assign(CD, {
+  props: {
+    modelValue: Number
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input-number");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), MD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: SD
+}, Symbol.toStringTag, { value: "Module" })), kD = V({
+  name: "multipleLimitOption"
+}), OD = /* @__PURE__ */ Object.assign(kD, {
+  props: {
+    modelValue: Number
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input-number");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), HD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: OD
+}, Symbol.toStringTag, { value: "Module" })), jD = V({
+  name: "multipleOption"
+}), AD = /* @__PURE__ */ Object.assign(jD, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), BD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: AD
+}, Symbol.toStringTag, { value: "Module" })), TD = V({
+  name: "noDataTextOption"
+}), ED = /* @__PURE__ */ Object.assign(TD, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), LD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: ED
+}, Symbol.toStringTag, { value: "Module" })), DD = V({
+  name: "noMatchTextOption"
+}), FD = /* @__PURE__ */ Object.assign(DD, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), PD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: FD
+}, Symbol.toStringTag, { value: "Module" }));
+var ID = { exports: {} };
+(function(e, t) {
+  ace.define("ace/theme/chrome.css", ["require", "exports", "module"], function(o, n, a) {
+    a.exports = `.ace-chrome .ace_gutter {
+  background: #ebebeb;
+  color: #333;
+  overflow : hidden;
+}
+
+.ace-chrome .ace_print-margin {
+  width: 1px;
+  background: #e8e8e8;
+}
+
+.ace-chrome {
+  background-color: #FFFFFF;
+  color: black;
+}
+
+.ace-chrome .ace_cursor {
+  color: black;
+}
+
+.ace-chrome .ace_invisible {
+  color: rgb(191, 191, 191);
+}
+
+.ace-chrome .ace_constant.ace_buildin {
+  color: rgb(88, 72, 246);
+}
+
+.ace-chrome .ace_constant.ace_language {
+  color: rgb(88, 92, 246);
+}
+
+.ace-chrome .ace_constant.ace_library {
+  color: rgb(6, 150, 14);
+}
+
+.ace-chrome .ace_invalid {
+  background-color: rgb(153, 0, 0);
+  color: white;
+}
+
+.ace-chrome .ace_fold {
+}
+
+.ace-chrome .ace_support.ace_function {
+  color: rgb(60, 76, 114);
+}
+
+.ace-chrome .ace_support.ace_constant {
+  color: rgb(6, 150, 14);
+}
+
+.ace-chrome .ace_support.ace_type,
+.ace-chrome .ace_support.ace_class
+.ace-chrome .ace_support.ace_other {
+  color: rgb(109, 121, 222);
+}
+
+.ace-chrome .ace_variable.ace_parameter {
+  font-style:italic;
+  color:#FD971F;
+}
+.ace-chrome .ace_keyword.ace_operator {
+  color: rgb(104, 118, 135);
+}
+
+.ace-chrome .ace_comment {
+  color: #236e24;
+}
+
+.ace-chrome .ace_comment.ace_doc {
+  color: #236e24;
+}
+
+.ace-chrome .ace_comment.ace_doc.ace_tag {
+  color: #236e24;
+}
+
+.ace-chrome .ace_constant.ace_numeric {
+  color: rgb(0, 0, 205);
+}
+
+.ace-chrome .ace_variable {
+  color: rgb(49, 132, 149);
+}
+
+.ace-chrome .ace_xml-pe {
+  color: rgb(104, 104, 91);
+}
+
+.ace-chrome .ace_entity.ace_name.ace_function {
+  color: #0000A2;
+}
+
+
+.ace-chrome .ace_heading {
+  color: rgb(12, 7, 255);
+}
+
+.ace-chrome .ace_list {
+  color:rgb(185, 6, 144);
+}
+
+.ace-chrome .ace_marker-layer .ace_selection {
+  background: rgb(181, 213, 255);
+}
+
+.ace-chrome .ace_marker-layer .ace_step {
+  background: rgb(252, 255, 0);
+}
+
+.ace-chrome .ace_marker-layer .ace_stack {
+  background: rgb(164, 229, 101);
+}
+
+.ace-chrome .ace_marker-layer .ace_bracket {
+  margin: -1px 0 0 -1px;
+  border: 1px solid rgb(192, 192, 192);
+}
+
+.ace-chrome .ace_marker-layer .ace_active-line {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.ace-chrome .ace_gutter-active-line {
+    background-color : #dcdcdc;
+}
+
+.ace-chrome .ace_marker-layer .ace_selected-word {
+  background: rgb(250, 250, 255);
+  border: 1px solid rgb(200, 200, 250);
+}
+
+.ace-chrome .ace_storage,
+.ace-chrome .ace_keyword,
+.ace-chrome .ace_meta.ace_tag {
+  color: rgb(147, 15, 128);
+}
+
+.ace-chrome .ace_string.ace_regex {
+  color: rgb(255, 0, 0)
+}
+
+.ace-chrome .ace_string {
+  color: #1A1AA6;
+}
+
+.ace-chrome .ace_entity.ace_other.ace_attribute-name {
+  color: #994409;
+}
+
+.ace-chrome .ace_indent-guide {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;
+}`;
+  }), ace.define("ace/theme/chrome", ["require", "exports", "module", "ace/theme/chrome.css", "ace/lib/dom"], function(o, n, a) {
+    n.isDark = !1, n.cssClass = "ace-chrome", n.cssText = o("./chrome.css");
+    var l = o("../lib/dom");
+    l.importCssString(n.cssText, n.cssClass, !1);
+  }), function() {
+    ace.require(["ace/theme/chrome"], function(o) {
+      e && (e.exports = o);
+    });
+  }();
+})(ID);
+var RD = { exports: {} };
+(function(e, t) {
+  ace.define("ace/mode/doc_comment_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text_highlight_rules"], function(o, n, a) {
+    var l = o("../lib/oop"), c = o("./text_highlight_rules").TextHighlightRules, _ = function() {
+      this.$rules = { start: [{ token: "comment.doc.tag", regex: "@[\\w\\d_]+" }, _.getTagRule(), { defaultToken: "comment.doc", caseInsensitive: !0 }] };
+    };
+    l.inherits(_, c), _.getTagRule = function(u) {
+      return { token: "comment.doc.tag.storage.type", regex: "\\b(?:TODO|FIXME|XXX|HACK)\\b" };
+    }, _.getStartRule = function(u) {
+      return { token: "comment.doc", regex: "\\/\\*(?=\\*)", next: u };
+    }, _.getEndRule = function(u) {
+      return { token: "comment.doc", regex: "\\*\\/", next: u };
+    }, n.DocCommentHighlightRules = _;
+  }), ace.define("ace/mode/javascript_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/doc_comment_highlight_rules", "ace/mode/text_highlight_rules"], function(o, n, a) {
+    function l() {
+      var $ = p.replace("\\d", "\\d\\-"), w = { onMatch: function(x, y, C) {
+        var S = x.charAt(1) == "/" ? 2 : 1;
+        return S == 1 ? (y != this.nextState ? C.unshift(this.next, this.nextState, 0) : C.unshift(this.next), C[2]++) : S == 2 && y == this.nextState && (C[1]--, (!C[1] || C[1] < 0) && (C.shift(), C.shift())), [{ type: "meta.tag.punctuation." + (S == 1 ? "" : "end-") + "tag-open.xml", value: x.slice(0, S) }, { type: "meta.tag.tag-name.xml", value: x.substr(S) }];
+      }, regex: "</?" + $, next: "jsxAttributes", nextState: "jsx" };
+      this.$rules.start.unshift(w);
+      var g = { regex: "{", token: "paren.quasi.start", push: "start" };
+      this.$rules.jsx = [g, w, { include: "reference" }, { defaultToken: "string" }], this.$rules.jsxAttributes = [{ token: "meta.tag.punctuation.tag-close.xml", regex: "/?>", onMatch: function(x, y, C) {
+        return y == C[0] && C.shift(), x.length == 2 && (C[0] == this.nextState && C[1]--, (!C[1] || C[1] < 0) && C.splice(0, 2)), this.next = C[0] || "start", [{ type: this.token, value: x }];
+      }, nextState: "jsx" }, g, c("jsxAttributes"), { token: "entity.other.attribute-name.xml", regex: $ }, { token: "keyword.operator.attribute-equals.xml", regex: "=" }, { token: "text.tag-whitespace.xml", regex: "\\s+" }, { token: "string.attribute-value.xml", regex: "'", stateName: "jsx_attr_q", push: [{ token: "string.attribute-value.xml", regex: "'", next: "pop" }, { include: "reference" }, { defaultToken: "string.attribute-value.xml" }] }, { token: "string.attribute-value.xml", regex: '"', stateName: "jsx_attr_qq", push: [{ token: "string.attribute-value.xml", regex: '"', next: "pop" }, { include: "reference" }, { defaultToken: "string.attribute-value.xml" }] }, w], this.$rules.reference = [{ token: "constant.language.escape.reference.xml", regex: "(?:&#[0-9]+;)|(?:&#x[0-9a-fA-F]+;)|(?:&[a-zA-Z0-9_:\\.-]+;)" }];
+    }
+    function c($) {
+      return [{ token: "comment", regex: /\/\*/, next: [u.getTagRule(), { token: "comment", regex: "\\*\\/", next: $ || "pop" }, { defaultToken: "comment", caseInsensitive: !0 }] }, { token: "comment", regex: "\\/\\/", next: [u.getTagRule(), { token: "comment", regex: "$|^", next: $ || "pop" }, { defaultToken: "comment", caseInsensitive: !0 }] }];
+    }
+    var _ = o("../lib/oop"), u = o("./doc_comment_highlight_rules").DocCommentHighlightRules, s = o("./text_highlight_rules").TextHighlightRules, p = "[a-zA-Z\\$_\xA1-\uFFFF][a-zA-Z\\d\\$_\xA1-\uFFFF]*", m = function($) {
+      var w = this.createKeywordMapper({ "variable.language": "Array|Boolean|Date|Function|Iterator|Number|Object|RegExp|String|Proxy|Namespace|QName|XML|XMLList|ArrayBuffer|Float32Array|Float64Array|Int16Array|Int32Array|Int8Array|Uint16Array|Uint32Array|Uint8Array|Uint8ClampedArray|Error|EvalError|InternalError|RangeError|ReferenceError|StopIteration|SyntaxError|TypeError|URIError|decodeURI|decodeURIComponent|encodeURI|encodeURIComponent|eval|isFinite|isNaN|parseFloat|parseInt|JSON|Math|this|arguments|prototype|window|document", keyword: "const|yield|import|get|set|async|await|break|case|catch|continue|default|delete|do|else|finally|for|function|if|in|of|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|debugger|__parent__|__count__|escape|unescape|with|__proto__|class|enum|extends|super|export|implements|private|public|interface|package|protected|static", "storage.type": "const|let|var|function", "constant.language": "null|Infinity|NaN|undefined", "support.function": "alert", "constant.language.boolean": "true|false" }, "identifier"), g = "case|do|else|finally|in|instanceof|return|throw|try|typeof|yield|void", x = "\\\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|u{[0-9a-fA-F]{1,6}}|[0-2][0-7]{0,2}|3[0-7][0-7]?|[4-7][0-7]?|.)";
+      this.$rules = { no_regex: [u.getStartRule("doc-start"), c("no_regex"), { token: "string", regex: "'(?=.)", next: "qstring" }, { token: "string", regex: '"(?=.)', next: "qqstring" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: ["storage.type", "punctuation.operator", "support.function", "punctuation.operator", "entity.name.function", "text", "keyword.operator"], regex: "(" + p + ")(\\.)(prototype)(\\.)(" + p + ")(\\s*)(=)", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + p + ")(\\.)(" + p + ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + p + ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + p + ")(\\.)(" + p + ")(\\s*)(=)(\\s*)(function)(\\s+)(\\w+)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(function)(\\s+)(" + p + ")(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "punctuation.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + p + ")(\\s*)(:)(\\s*)(function)(\\s*)(\\()", next: "function_arguments" }, { token: ["text", "text", "storage.type", "text", "paren.lparen"], regex: "(:)(\\s*)(function)(\\s*)(\\()", next: "function_arguments" }, { token: "keyword", regex: `from(?=\\s*('|"))` }, { token: "keyword", regex: "(?:" + g + ")\\b", next: "start" }, { token: ["support.constant"], regex: /that\b/ }, { token: ["storage.type", "punctuation.operator", "support.function.firebug"], regex: /(console)(\.)(warn|info|log|error|time|trace|timeEnd|assert)\b/ }, { token: w, regex: p }, { token: "punctuation.operator", regex: /[.](?![.])/, next: "property" }, { token: "storage.type", regex: /=>/, next: "start" }, { token: "keyword.operator", regex: /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/, next: "start" }, { token: "punctuation.operator", regex: /[?:,;.]/, next: "start" }, { token: "paren.lparen", regex: /[\[({]/, next: "start" }, { token: "paren.rparen", regex: /[\])}]/ }, { token: "comment", regex: /^#!.*$/ }], property: [{ token: "text", regex: "\\s+" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + p + ")(\\.)(" + p + ")(\\s*)(=)(\\s*)(function)(?:(\\s+)(\\w+))?(\\s*)(\\()", next: "function_arguments" }, { token: "punctuation.operator", regex: /[.](?![.])/ }, { token: "support.function", regex: /(s(?:h(?:ift|ow(?:Mod(?:elessDialog|alDialog)|Help))|croll(?:X|By(?:Pages|Lines)?|Y|To)?|t(?:op|rike)|i(?:n|zeToContent|debar|gnText)|ort|u(?:p|b(?:str(?:ing)?)?)|pli(?:ce|t)|e(?:nd|t(?:Re(?:sizable|questHeader)|M(?:i(?:nutes|lliseconds)|onth)|Seconds|Ho(?:tKeys|urs)|Year|Cursor|Time(?:out)?|Interval|ZOptions|Date|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Date|FullYear)|FullYear|Active)|arch)|qrt|lice|avePreferences|mall)|h(?:ome|andleEvent)|navigate|c(?:har(?:CodeAt|At)|o(?:s|n(?:cat|textual|firm)|mpile)|eil|lear(?:Timeout|Interval)?|a(?:ptureEvents|ll)|reate(?:StyleSheet|Popup|EventObject))|t(?:o(?:GMTString|S(?:tring|ource)|U(?:TCString|pperCase)|Lo(?:caleString|werCase))|est|a(?:n|int(?:Enabled)?))|i(?:s(?:NaN|Finite)|ndexOf|talics)|d(?:isableExternalCapture|ump|etachEvent)|u(?:n(?:shift|taint|escape|watch)|pdateCommands)|j(?:oin|avaEnabled)|p(?:o(?:p|w)|ush|lugins.refresh|a(?:ddings|rse(?:Int|Float)?)|r(?:int|ompt|eference))|e(?:scape|nableExternalCapture|val|lementFromPoint|x(?:p|ec(?:Script|Command)?))|valueOf|UTC|queryCommand(?:State|Indeterm|Enabled|Value)|f(?:i(?:nd|le(?:ModifiedDate|Size|CreatedDate|UpdatedDate)|xed)|o(?:nt(?:size|color)|rward)|loor|romCharCode)|watch|l(?:ink|o(?:ad|g)|astIndexOf)|a(?:sin|nchor|cos|t(?:tachEvent|ob|an(?:2)?)|pply|lert|b(?:s|ort))|r(?:ou(?:nd|teEvents)|e(?:size(?:By|To)|calc|turnValue|place|verse|l(?:oad|ease(?:Capture|Events)))|andom)|g(?:o|et(?:ResponseHeader|M(?:i(?:nutes|lliseconds)|onth)|Se(?:conds|lection)|Hours|Year|Time(?:zoneOffset)?|Da(?:y|te)|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Da(?:y|te)|FullYear)|FullYear|A(?:ttention|llResponseHeaders)))|m(?:in|ove(?:B(?:y|elow)|To(?:Absolute)?|Above)|ergeAttributes|a(?:tch|rgins|x))|b(?:toa|ig|o(?:ld|rderWidths)|link|ack))\b(?=\()/ }, { token: "support.function.dom", regex: /(s(?:ub(?:stringData|mit)|plitText|e(?:t(?:NamedItem|Attribute(?:Node)?)|lect))|has(?:ChildNodes|Feature)|namedItem|c(?:l(?:ick|o(?:se|neNode))|reate(?:C(?:omment|DATASection|aption)|T(?:Head|extNode|Foot)|DocumentFragment|ProcessingInstruction|E(?:ntityReference|lement)|Attribute))|tabIndex|i(?:nsert(?:Row|Before|Cell|Data)|tem)|open|delete(?:Row|C(?:ell|aption)|T(?:Head|Foot)|Data)|focus|write(?:ln)?|a(?:dd|ppend(?:Child|Data))|re(?:set|place(?:Child|Data)|move(?:NamedItem|Child|Attribute(?:Node)?)?)|get(?:NamedItem|Element(?:sBy(?:Name|TagName|ClassName)|ById)|Attribute(?:Node)?)|blur)\b(?=\()/ }, { token: "support.constant", regex: /(s(?:ystemLanguage|cr(?:ipts|ollbars|een(?:X|Y|Top|Left))|t(?:yle(?:Sheets)?|atus(?:Text|bar)?)|ibling(?:Below|Above)|ource|uffixes|e(?:curity(?:Policy)?|l(?:ection|f)))|h(?:istory|ost(?:name)?|as(?:h|Focus))|y|X(?:MLDocument|SLDocument)|n(?:ext|ame(?:space(?:s|URI)|Prop))|M(?:IN_VALUE|AX_VALUE)|c(?:haracterSet|o(?:n(?:structor|trollers)|okieEnabled|lorDepth|mp(?:onents|lete))|urrent|puClass|l(?:i(?:p(?:boardData)?|entInformation)|osed|asses)|alle(?:e|r)|rypto)|t(?:o(?:olbar|p)|ext(?:Transform|Indent|Decoration|Align)|ags)|SQRT(?:1_2|2)|i(?:n(?:ner(?:Height|Width)|put)|ds|gnoreCase)|zIndex|o(?:scpu|n(?:readystatechange|Line)|uter(?:Height|Width)|p(?:sProfile|ener)|ffscreenBuffering)|NEGATIVE_INFINITY|d(?:i(?:splay|alog(?:Height|Top|Width|Left|Arguments)|rectories)|e(?:scription|fault(?:Status|Ch(?:ecked|arset)|View)))|u(?:ser(?:Profile|Language|Agent)|n(?:iqueID|defined)|pdateInterval)|_content|p(?:ixelDepth|ort|ersonalbar|kcs11|l(?:ugins|atform)|a(?:thname|dding(?:Right|Bottom|Top|Left)|rent(?:Window|Layer)?|ge(?:X(?:Offset)?|Y(?:Offset)?))|r(?:o(?:to(?:col|type)|duct(?:Sub)?|mpter)|e(?:vious|fix)))|e(?:n(?:coding|abledPlugin)|x(?:ternal|pando)|mbeds)|v(?:isibility|endor(?:Sub)?|Linkcolor)|URLUnencoded|P(?:I|OSITIVE_INFINITY)|f(?:ilename|o(?:nt(?:Size|Family|Weight)|rmName)|rame(?:s|Element)|gColor)|E|whiteSpace|l(?:i(?:stStyleType|n(?:eHeight|kColor))|o(?:ca(?:tion(?:bar)?|lName)|wsrc)|e(?:ngth|ft(?:Context)?)|a(?:st(?:M(?:odified|atch)|Index|Paren)|yer(?:s|X)|nguage))|a(?:pp(?:MinorVersion|Name|Co(?:deName|re)|Version)|vail(?:Height|Top|Width|Left)|ll|r(?:ity|guments)|Linkcolor|bove)|r(?:ight(?:Context)?|e(?:sponse(?:XML|Text)|adyState))|global|x|m(?:imeTypes|ultiline|enubar|argin(?:Right|Bottom|Top|Left))|L(?:N(?:10|2)|OG(?:10E|2E))|b(?:o(?:ttom|rder(?:Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth))|ufferDepth|elow|ackground(?:Color|Image)))\b/ }, { token: "identifier", regex: p }, { regex: "", token: "empty", next: "no_regex" }], start: [u.getStartRule("doc-start"), c("start"), { token: "string.regexp", regex: "\\/", next: "regex" }, { token: "text", regex: "\\s+|^$", next: "start" }, { token: "empty", regex: "", next: "no_regex" }], regex: [{ token: "regexp.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "string.regexp", regex: "/[sxngimy]*", next: "no_regex" }, { token: "invalid", regex: /\{\d+\b,?\d*\}[+*]|[+*$^?][+*]|[$^][?]|\?{3,}/ }, { token: "constant.language.escape", regex: /\(\?[:=!]|\)|\{\d+\b,?\d*\}|[+*]\?|[()$^+*?.]/ }, { token: "constant.language.delimiter", regex: /\|/ }, { token: "constant.language.escape", regex: /\[\^?/, next: "regex_character_class" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp" }], regex_character_class: [{ token: "regexp.charclass.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "constant.language.escape", regex: "]", next: "regex" }, { token: "constant.language.escape", regex: "-" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp.charachterclass" }], function_arguments: [{ token: "variable.parameter", regex: p }, { token: "punctuation.operator", regex: "[, ]+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], qqstring: [{ token: "constant.language.escape", regex: x }, { token: "string", regex: "\\\\$", consumeLineEnd: !0 }, { token: "string", regex: '"|$', next: "no_regex" }, { defaultToken: "string" }], qstring: [{ token: "constant.language.escape", regex: x }, { token: "string", regex: "\\\\$", consumeLineEnd: !0 }, { token: "string", regex: "'|$", next: "no_regex" }, { defaultToken: "string" }] }, (!$ || !$.noES6) && (this.$rules.no_regex.unshift({ regex: "[{}]", onMatch: function(y, C, S) {
+        if (this.next = y == "{" ? this.nextState : "", y == "{" && S.length)
+          S.unshift("start", C);
+        else if (y == "}" && S.length && (S.shift(), this.next = S.shift(), this.next.indexOf("string") != -1 || this.next.indexOf("jsx") != -1))
+          return "paren.quasi.end";
+        return y == "{" ? "paren.lparen" : "paren.rparen";
+      }, nextState: "start" }, { token: "string.quasi.start", regex: /`/, push: [{ token: "constant.language.escape", regex: x }, { token: "paren.quasi.start", regex: /\${/, push: "start" }, { token: "string.quasi.end", regex: /`/, next: "pop" }, { defaultToken: "string.quasi" }] }), (!$ || $.jsx != 0) && l.call(this)), this.embedRules(u, "doc-", [u.getEndRule("no_regex")]), this.normalizeRules();
+    };
+    _.inherits(m, s), n.JavaScriptHighlightRules = m;
+  }), ace.define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"], function(o, n, a) {
+    var l = o("../range").Range, c = function() {
+    };
+    (function() {
+      this.checkOutdent = function(_, u) {
+        return /^\s+$/.test(_) ? /^\s*\}/.test(u) : !1;
+      }, this.autoOutdent = function(_, u) {
+        var s = _.getLine(u), p = s.match(/^(\s*\})/);
+        if (!p)
+          return 0;
+        var m = p[1].length, $ = _.findMatchingBracket({ row: u, column: m });
+        if (!$ || $.row == u)
+          return 0;
+        var w = this.$getIndent(_.getLine($.row));
+        _.replace(new l(u, 0, u, m - 1), w);
+      }, this.$getIndent = function(_) {
+        return _.match(/^\s*/)[0];
+      };
+    }).call(c.prototype), n.MatchingBraceOutdent = c;
+  }), ace.define("ace/mode/folding/cstyle", ["require", "exports", "module", "ace/lib/oop", "ace/range", "ace/mode/folding/fold_mode"], function(o, n, a) {
+    var l = o("../../lib/oop"), c = o("../../range").Range, _ = o("./fold_mode").FoldMode, u = n.FoldMode = function(s) {
+      s && (this.foldingStartMarker = new RegExp(this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + s.start)), this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + s.end)));
+    };
+    l.inherits(u, _), function() {
+      this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/, this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/, this.singleLineBlockCommentRe = /^\s*(\/\*).*\*\/\s*$/, this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/, this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/, this._getFoldWidgetBase = this.getFoldWidget, this.getFoldWidget = function(s, p, m) {
+        var $ = s.getLine(m);
+        if (this.singleLineBlockCommentRe.test($) && !this.startRegionRe.test($) && !this.tripleStarBlockCommentRe.test($))
+          return "";
+        var w = this._getFoldWidgetBase(s, p, m);
+        return !w && this.startRegionRe.test($) ? "start" : w;
+      }, this.getFoldWidgetRange = function(s, p, m, $) {
+        var w = s.getLine(m);
+        if (this.startRegionRe.test(w))
+          return this.getCommentRegionBlock(s, w, m);
+        var y = w.match(this.foldingStartMarker);
+        if (y) {
+          var g = y.index;
+          if (y[1])
+            return this.openingBracketBlock(s, y[1], m, g);
+          var x = s.getCommentFoldRange(m, g + y[0].length, 1);
+          return x && !x.isMultiLine() && ($ ? x = this.getSectionRange(s, m) : p != "all" && (x = null)), x;
+        }
+        if (p !== "markbegin") {
+          var y = w.match(this.foldingStopMarker);
+          if (y) {
+            var g = y.index + y[0].length;
+            return y[1] ? this.closingBracketBlock(s, y[1], m, g) : s.getCommentFoldRange(m, g, -1);
+          }
+        }
+      }, this.getSectionRange = function(s, p) {
+        var m = s.getLine(p), $ = m.search(/\S/), w = p, g = m.length;
+        p += 1;
+        for (var x = p, y = s.getLength(); ++p < y; ) {
+          m = s.getLine(p);
+          var C = m.search(/\S/);
+          if (C !== -1) {
+            if ($ > C)
+              break;
+            var S = this.getFoldWidgetRange(s, "all", p);
+            if (S) {
+              if (S.start.row <= w)
+                break;
+              if (S.isMultiLine())
+                p = S.end.row;
+              else if ($ == C)
+                break;
+            }
+            x = p;
+          }
+        }
+        return new c(w, g, x, s.getLine(x).length);
+      }, this.getCommentRegionBlock = function(s, p, m) {
+        for (var $ = p.search(/\s*$/), w = s.getLength(), g = m, x = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/, y = 1; ++m < w; ) {
+          p = s.getLine(m);
+          var C = x.exec(p);
+          if (!!C && (C[1] ? y-- : y++, !y))
+            break;
+        }
+        var S = m;
+        if (S > g)
+          return new c(g, $, S, p.length);
+      };
+    }.call(u.prototype);
+  }), ace.define("ace/mode/javascript", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/javascript_highlight_rules", "ace/mode/matching_brace_outdent", "ace/worker/worker_client", "ace/mode/behaviour/cstyle", "ace/mode/folding/cstyle"], function(o, n, a) {
+    var l = o("../lib/oop"), c = o("./text").Mode, _ = o("./javascript_highlight_rules").JavaScriptHighlightRules, u = o("./matching_brace_outdent").MatchingBraceOutdent, s = o("../worker/worker_client").WorkerClient, p = o("./behaviour/cstyle").CstyleBehaviour, m = o("./folding/cstyle").FoldMode, $ = function() {
+      this.HighlightRules = _, this.$outdent = new u(), this.$behaviour = new p(), this.foldingRules = new m();
+    };
+    l.inherits($, c), function() {
+      this.lineCommentStart = "//", this.blockComment = { start: "/*", end: "*/" }, this.$quotes = { '"': '"', "'": "'", "`": "`" }, this.getNextLineIndent = function(w, g, x) {
+        var y = this.$getIndent(g), C = this.getTokenizer().getLineTokens(g, w), S = C.tokens, B = C.state;
+        if (S.length && S[S.length - 1].type == "comment")
+          return y;
+        if (w == "start" || w == "no_regex") {
+          var N = g.match(/^.*(?:\bcase\b.*:|[\{\(\[])\s*$/);
+          N && (y += x);
+        } else if (w == "doc-start") {
+          if (B == "start" || B == "no_regex")
+            return "";
+          var N = g.match(/^\s*(\/?)\*/);
+          N && (N[1] && (y += " "), y += "* ");
+        }
+        return y;
+      }, this.checkOutdent = function(w, g, x) {
+        return this.$outdent.checkOutdent(g, x);
+      }, this.autoOutdent = function(w, g, x) {
+        this.$outdent.autoOutdent(g, x);
+      }, this.createWorker = function(w) {
+        var g = new s(["ace"], "ace/mode/javascript_worker", "JavaScriptWorker");
+        return g.attachToDocument(w.getDocument()), g.on("annotate", function(x) {
+          w.setAnnotations(x.data);
+        }), g.on("terminate", function() {
+          w.clearAnnotations();
+        }), g;
+      }, this.$id = "ace/mode/javascript", this.snippetFileId = "ace/snippets/javascript";
+    }.call($.prototype), n.Mode = $;
+  }), function() {
+    ace.require(["ace/mode/javascript"], function(o) {
+      e && (e.exports = o);
+    });
+  }();
+})(RD);
+var UD = { exports: {} };
+(function(e, t) {
+  ace.define("ace/mode/json_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text_highlight_rules"], function(o, n, a) {
+    var l = o("../lib/oop"), c = o("./text_highlight_rules").TextHighlightRules, _ = function() {
+      this.$rules = { start: [{ token: "variable", regex: '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]\\s*(?=:)' }, { token: "string", regex: '"', next: "string" }, { token: "constant.numeric", regex: "0[xX][0-9a-fA-F]+\\b" }, { token: "constant.numeric", regex: "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b" }, { token: "constant.language.boolean", regex: "(?:true|false)\\b" }, { token: "text", regex: "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']" }, { token: "comment", regex: "\\/\\/.*$" }, { token: "comment.start", regex: "\\/\\*", next: "comment" }, { token: "paren.lparen", regex: "[[({]" }, { token: "paren.rparen", regex: "[\\])}]" }, { token: "punctuation.operator", regex: /[,]/ }, { token: "text", regex: "\\s+" }], string: [{ token: "constant.language.escape", regex: /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|["\\\/bfnrt])/ }, { token: "string", regex: '"|$', next: "start" }, { defaultToken: "string" }], comment: [{ token: "comment.end", regex: "\\*\\/", next: "start" }, { defaultToken: "comment" }] };
+    };
+    l.inherits(_, c), n.JsonHighlightRules = _;
+  }), ace.define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"], function(o, n, a) {
+    var l = o("../range").Range, c = function() {
+    };
+    (function() {
+      this.checkOutdent = function(_, u) {
+        return /^\s+$/.test(_) ? /^\s*\}/.test(u) : !1;
+      }, this.autoOutdent = function(_, u) {
+        var s = _.getLine(u), p = s.match(/^(\s*\})/);
+        if (!p)
+          return 0;
+        var m = p[1].length, $ = _.findMatchingBracket({ row: u, column: m });
+        if (!$ || $.row == u)
+          return 0;
+        var w = this.$getIndent(_.getLine($.row));
+        _.replace(new l(u, 0, u, m - 1), w);
+      }, this.$getIndent = function(_) {
+        return _.match(/^\s*/)[0];
+      };
+    }).call(c.prototype), n.MatchingBraceOutdent = c;
+  }), ace.define("ace/mode/folding/cstyle", ["require", "exports", "module", "ace/lib/oop", "ace/range", "ace/mode/folding/fold_mode"], function(o, n, a) {
+    var l = o("../../lib/oop"), c = o("../../range").Range, _ = o("./fold_mode").FoldMode, u = n.FoldMode = function(s) {
+      s && (this.foldingStartMarker = new RegExp(this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + s.start)), this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + s.end)));
+    };
+    l.inherits(u, _), function() {
+      this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/, this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/, this.singleLineBlockCommentRe = /^\s*(\/\*).*\*\/\s*$/, this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/, this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/, this._getFoldWidgetBase = this.getFoldWidget, this.getFoldWidget = function(s, p, m) {
+        var $ = s.getLine(m);
+        if (this.singleLineBlockCommentRe.test($) && !this.startRegionRe.test($) && !this.tripleStarBlockCommentRe.test($))
+          return "";
+        var w = this._getFoldWidgetBase(s, p, m);
+        return !w && this.startRegionRe.test($) ? "start" : w;
+      }, this.getFoldWidgetRange = function(s, p, m, $) {
+        var w = s.getLine(m);
+        if (this.startRegionRe.test(w))
+          return this.getCommentRegionBlock(s, w, m);
+        var y = w.match(this.foldingStartMarker);
+        if (y) {
+          var g = y.index;
+          if (y[1])
+            return this.openingBracketBlock(s, y[1], m, g);
+          var x = s.getCommentFoldRange(m, g + y[0].length, 1);
+          return x && !x.isMultiLine() && ($ ? x = this.getSectionRange(s, m) : p != "all" && (x = null)), x;
+        }
+        if (p !== "markbegin") {
+          var y = w.match(this.foldingStopMarker);
+          if (y) {
+            var g = y.index + y[0].length;
+            return y[1] ? this.closingBracketBlock(s, y[1], m, g) : s.getCommentFoldRange(m, g, -1);
+          }
+        }
+      }, this.getSectionRange = function(s, p) {
+        var m = s.getLine(p), $ = m.search(/\S/), w = p, g = m.length;
+        p += 1;
+        for (var x = p, y = s.getLength(); ++p < y; ) {
+          m = s.getLine(p);
+          var C = m.search(/\S/);
+          if (C !== -1) {
+            if ($ > C)
+              break;
+            var S = this.getFoldWidgetRange(s, "all", p);
+            if (S) {
+              if (S.start.row <= w)
+                break;
+              if (S.isMultiLine())
+                p = S.end.row;
+              else if ($ == C)
+                break;
+            }
+            x = p;
+          }
+        }
+        return new c(w, g, x, s.getLine(x).length);
+      }, this.getCommentRegionBlock = function(s, p, m) {
+        for (var $ = p.search(/\s*$/), w = s.getLength(), g = m, x = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/, y = 1; ++m < w; ) {
+          p = s.getLine(m);
+          var C = x.exec(p);
+          if (!!C && (C[1] ? y-- : y++, !y))
+            break;
+        }
+        var S = m;
+        if (S > g)
+          return new c(g, $, S, p.length);
+      };
+    }.call(u.prototype);
+  }), ace.define("ace/mode/json", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/json_highlight_rules", "ace/mode/matching_brace_outdent", "ace/mode/behaviour/cstyle", "ace/mode/folding/cstyle", "ace/worker/worker_client"], function(o, n, a) {
+    var l = o("../lib/oop"), c = o("./text").Mode, _ = o("./json_highlight_rules").JsonHighlightRules, u = o("./matching_brace_outdent").MatchingBraceOutdent, s = o("./behaviour/cstyle").CstyleBehaviour, p = o("./folding/cstyle").FoldMode, m = o("../worker/worker_client").WorkerClient, $ = function() {
+      this.HighlightRules = _, this.$outdent = new u(), this.$behaviour = new s(), this.foldingRules = new p();
+    };
+    l.inherits($, c), function() {
+      this.lineCommentStart = "//", this.blockComment = { start: "/*", end: "*/" }, this.getNextLineIndent = function(w, g, x) {
+        var y = this.$getIndent(g);
+        if (w == "start") {
+          var C = g.match(/^.*[\{\(\[]\s*$/);
+          C && (y += x);
+        }
+        return y;
+      }, this.checkOutdent = function(w, g, x) {
+        return this.$outdent.checkOutdent(g, x);
+      }, this.autoOutdent = function(w, g, x) {
+        this.$outdent.autoOutdent(g, x);
+      }, this.createWorker = function(w) {
+        var g = new m(["ace"], "ace/mode/json_worker", "JsonWorker");
+        return g.attachToDocument(w.getDocument()), g.on("annotate", function(x) {
+          w.setAnnotations(x.data);
+        }), g.on("terminate", function() {
+          w.clearAnnotations();
+        }), g;
+      }, this.$id = "ace/mode/json";
+    }.call($.prototype), n.Mode = $;
+  }), function() {
+    ace.require(["ace/mode/json"], function(o) {
+      e && (e.exports = o);
+    });
+  }();
+})(UD);
+var qD = { exports: {} };
+(function(e, t) {
+  ace.define("ace/mode/css_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/lib/lang", "ace/mode/text_highlight_rules"], function(o, n, a) {
+    var l = o("../lib/oop");
+    o("../lib/lang");
+    var c = o("./text_highlight_rules").TextHighlightRules, _ = n.supportType = "align-content|align-items|align-self|all|animation|animation-delay|animation-direction|animation-duration|animation-fill-mode|animation-iteration-count|animation-name|animation-play-state|animation-timing-function|backface-visibility|background|background-attachment|background-blend-mode|background-clip|background-color|background-image|background-origin|background-position|background-repeat|background-size|border|border-bottom|border-bottom-color|border-bottom-left-radius|border-bottom-right-radius|border-bottom-style|border-bottom-width|border-collapse|border-color|border-image|border-image-outset|border-image-repeat|border-image-slice|border-image-source|border-image-width|border-left|border-left-color|border-left-style|border-left-width|border-radius|border-right|border-right-color|border-right-style|border-right-width|border-spacing|border-style|border-top|border-top-color|border-top-left-radius|border-top-right-radius|border-top-style|border-top-width|border-width|bottom|box-shadow|box-sizing|caption-side|clear|clip|color|column-count|column-fill|column-gap|column-rule|column-rule-color|column-rule-style|column-rule-width|column-span|column-width|columns|content|counter-increment|counter-reset|cursor|direction|display|empty-cells|filter|flex|flex-basis|flex-direction|flex-flow|flex-grow|flex-shrink|flex-wrap|float|font|font-family|font-size|font-size-adjust|font-stretch|font-style|font-variant|font-weight|hanging-punctuation|height|justify-content|left|letter-spacing|line-height|list-style|list-style-image|list-style-position|list-style-type|margin|margin-bottom|margin-left|margin-right|margin-top|max-height|max-width|max-zoom|min-height|min-width|min-zoom|nav-down|nav-index|nav-left|nav-right|nav-up|opacity|order|outline|outline-color|outline-offset|outline-style|outline-width|overflow|overflow-x|overflow-y|padding|padding-bottom|padding-left|padding-right|padding-top|page-break-after|page-break-before|page-break-inside|perspective|perspective-origin|position|quotes|resize|right|tab-size|table-layout|text-align|text-align-last|text-decoration|text-decoration-color|text-decoration-line|text-decoration-style|text-indent|text-justify|text-overflow|text-shadow|text-transform|top|transform|transform-origin|transform-style|transition|transition-delay|transition-duration|transition-property|transition-timing-function|unicode-bidi|user-select|user-zoom|vertical-align|visibility|white-space|width|word-break|word-spacing|word-wrap|z-index", u = n.supportFunction = "rgb|rgba|url|attr|counter|counters", s = n.supportConstant = "absolute|after-edge|after|all-scroll|all|alphabetic|always|antialiased|armenian|auto|avoid-column|avoid-page|avoid|balance|baseline|before-edge|before|below|bidi-override|block-line-height|block|bold|bolder|border-box|both|bottom|box|break-all|break-word|capitalize|caps-height|caption|center|central|char|circle|cjk-ideographic|clone|close-quote|col-resize|collapse|column|consider-shifts|contain|content-box|cover|crosshair|cubic-bezier|dashed|decimal-leading-zero|decimal|default|disabled|disc|disregard-shifts|distribute-all-lines|distribute-letter|distribute-space|distribute|dotted|double|e-resize|ease-in|ease-in-out|ease-out|ease|ellipsis|end|exclude-ruby|fill|fixed|georgian|glyphs|grid-height|groove|hand|hanging|hebrew|help|hidden|hiragana-iroha|hiragana|horizontal|icon|ideograph-alpha|ideograph-numeric|ideograph-parenthesis|ideograph-space|ideographic|inactive|include-ruby|inherit|initial|inline-block|inline-box|inline-line-height|inline-table|inline|inset|inside|inter-ideograph|inter-word|invert|italic|justify|katakana-iroha|katakana|keep-all|last|left|lighter|line-edge|line-through|line|linear|list-item|local|loose|lower-alpha|lower-greek|lower-latin|lower-roman|lowercase|lr-tb|ltr|mathematical|max-height|max-size|medium|menu|message-box|middle|move|n-resize|ne-resize|newspaper|no-change|no-close-quote|no-drop|no-open-quote|no-repeat|none|normal|not-allowed|nowrap|nw-resize|oblique|open-quote|outset|outside|overline|padding-box|page|pointer|pre-line|pre-wrap|pre|preserve-3d|progress|relative|repeat-x|repeat-y|repeat|replaced|reset-size|ridge|right|round|row-resize|rtl|s-resize|scroll|se-resize|separate|slice|small-caps|small-caption|solid|space|square|start|static|status-bar|step-end|step-start|steps|stretch|strict|sub|super|sw-resize|table-caption|table-cell|table-column-group|table-column|table-footer-group|table-header-group|table-row-group|table-row|table|tb-rl|text-after-edge|text-before-edge|text-bottom|text-size|text-top|text|thick|thin|transparent|underline|upper-alpha|upper-latin|upper-roman|uppercase|use-script|vertical-ideographic|vertical-text|visible|w-resize|wait|whitespace|z-index|zero|zoom", p = n.supportConstantColor = "aliceblue|antiquewhite|aqua|aquamarine|azure|beige|bisque|black|blanchedalmond|blue|blueviolet|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|cyan|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|fuchsia|gainsboro|ghostwhite|gold|goldenrod|gray|green|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavender|lavenderblush|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|lime|limegreen|linen|magenta|maroon|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|navy|oldlace|olive|olivedrab|orange|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|purple|rebeccapurple|red|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|silver|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|tan|teal|thistle|tomato|turquoise|violet|wheat|white|whitesmoke|yellow|yellowgreen", m = n.supportConstantFonts = "arial|century|comic|courier|cursive|fantasy|garamond|georgia|helvetica|impact|lucida|symbol|system|tahoma|times|trebuchet|utopia|verdana|webdings|sans-serif|serif|monospace", $ = n.numRe = "\\-?(?:(?:[0-9]+(?:\\.[0-9]+)?)|(?:\\.[0-9]+))", w = n.pseudoElements = "(\\:+)\\b(after|before|first-letter|first-line|moz-selection|selection)\\b", g = n.pseudoClasses = "(:)\\b(active|checked|disabled|empty|enabled|first-child|first-of-type|focus|hover|indeterminate|invalid|last-child|last-of-type|link|not|nth-child|nth-last-child|nth-last-of-type|nth-of-type|only-child|only-of-type|required|root|target|valid|visited)\\b", x = function() {
+      var y = this.createKeywordMapper({ "support.function": u, "support.constant": s, "support.type": _, "support.constant.color": p, "support.constant.fonts": m }, "text", !0);
+      this.$rules = { start: [{ include: ["strings", "url", "comments"] }, { token: "paren.lparen", regex: "\\{", next: "ruleset" }, { token: "paren.rparen", regex: "\\}" }, { token: "string", regex: "@(?!viewport)", next: "media" }, { token: "keyword", regex: "#[a-z0-9-_]+" }, { token: "keyword", regex: "%" }, { token: "variable", regex: "\\.[a-z0-9-_]+" }, { token: "string", regex: ":[a-z0-9-_]+" }, { token: "constant.numeric", regex: $ }, { token: "constant", regex: "[a-z0-9-_]+" }, { caseInsensitive: !0 }], media: [{ include: ["strings", "url", "comments"] }, { token: "paren.lparen", regex: "\\{", next: "start" }, { token: "paren.rparen", regex: "\\}", next: "start" }, { token: "string", regex: ";", next: "start" }, { token: "keyword", regex: "(?:media|supports|document|charset|import|namespace|media|supports|document|page|font|keyframes|viewport|counter-style|font-feature-values|swash|ornaments|annotation|stylistic|styleset|character-variant)" }], comments: [{ token: "comment", regex: "\\/\\*", push: [{ token: "comment", regex: "\\*\\/", next: "pop" }, { defaultToken: "comment" }] }], ruleset: [{ regex: "-(webkit|ms|moz|o)-", token: "text" }, { token: "punctuation.operator", regex: "[:;]" }, { token: "paren.rparen", regex: "\\}", next: "start" }, { include: ["strings", "url", "comments"] }, { token: ["constant.numeric", "keyword"], regex: "(" + $ + ")(ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vmax|vmin|vm|vw|%)" }, { token: "constant.numeric", regex: $ }, { token: "constant.numeric", regex: "#[a-f0-9]{6}" }, { token: "constant.numeric", regex: "#[a-f0-9]{3}" }, { token: ["punctuation", "entity.other.attribute-name.pseudo-element.css"], regex: w }, { token: ["punctuation", "entity.other.attribute-name.pseudo-class.css"], regex: g }, { include: "url" }, { token: y, regex: "\\-?[a-zA-Z_][a-zA-Z0-9_\\-]*" }, { caseInsensitive: !0 }], url: [{ token: "support.function", regex: "(?:url(:?-prefix)?|domain|regexp)\\(", push: [{ token: "support.function", regex: "\\)", next: "pop" }, { defaultToken: "string" }] }], strings: [{ token: "string.start", regex: "'", push: [{ token: "string.end", regex: "'|$", next: "pop" }, { include: "escapes" }, { token: "constant.language.escape", regex: /\\$/, consumeLineEnd: !0 }, { defaultToken: "string" }] }, { token: "string.start", regex: '"', push: [{ token: "string.end", regex: '"|$', next: "pop" }, { include: "escapes" }, { token: "constant.language.escape", regex: /\\$/, consumeLineEnd: !0 }, { defaultToken: "string" }] }], escapes: [{ token: "constant.language.escape", regex: /\\([a-fA-F\d]{1,6}|[^a-fA-F\d])/ }] }, this.normalizeRules();
+    };
+    l.inherits(x, c), n.CssHighlightRules = x;
+  }), ace.define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"], function(o, n, a) {
+    var l = o("../range").Range, c = function() {
+    };
+    (function() {
+      this.checkOutdent = function(_, u) {
+        return /^\s+$/.test(_) ? /^\s*\}/.test(u) : !1;
+      }, this.autoOutdent = function(_, u) {
+        var s = _.getLine(u), p = s.match(/^(\s*\})/);
+        if (!p)
+          return 0;
+        var m = p[1].length, $ = _.findMatchingBracket({ row: u, column: m });
+        if (!$ || $.row == u)
+          return 0;
+        var w = this.$getIndent(_.getLine($.row));
+        _.replace(new l(u, 0, u, m - 1), w);
+      }, this.$getIndent = function(_) {
+        return _.match(/^\s*/)[0];
+      };
+    }).call(c.prototype), n.MatchingBraceOutdent = c;
+  }), ace.define("ace/mode/css_completions", ["require", "exports", "module"], function(o, n, a) {
+    var l = { background: { "#$0": 1 }, "background-color": { "#$0": 1, transparent: 1, fixed: 1 }, "background-image": { "url('/$0')": 1 }, "background-repeat": { repeat: 1, "repeat-x": 1, "repeat-y": 1, "no-repeat": 1, inherit: 1 }, "background-position": { bottom: 2, center: 2, left: 2, right: 2, top: 2, inherit: 2 }, "background-attachment": { scroll: 1, fixed: 1 }, "background-size": { cover: 1, contain: 1 }, "background-clip": { "border-box": 1, "padding-box": 1, "content-box": 1 }, "background-origin": { "border-box": 1, "padding-box": 1, "content-box": 1 }, border: { "solid $0": 1, "dashed $0": 1, "dotted $0": 1, "#$0": 1 }, "border-color": { "#$0": 1 }, "border-style": { solid: 2, dashed: 2, dotted: 2, double: 2, groove: 2, hidden: 2, inherit: 2, inset: 2, none: 2, outset: 2, ridged: 2 }, "border-collapse": { collapse: 1, separate: 1 }, bottom: { px: 1, em: 1, "%": 1 }, clear: { left: 1, right: 1, both: 1, none: 1 }, color: { "#$0": 1, "rgb(#$00,0,0)": 1 }, cursor: { default: 1, pointer: 1, move: 1, text: 1, wait: 1, help: 1, progress: 1, "n-resize": 1, "ne-resize": 1, "e-resize": 1, "se-resize": 1, "s-resize": 1, "sw-resize": 1, "w-resize": 1, "nw-resize": 1 }, display: { none: 1, block: 1, inline: 1, "inline-block": 1, "table-cell": 1 }, "empty-cells": { show: 1, hide: 1 }, float: { left: 1, right: 1, none: 1 }, "font-family": { Arial: 2, "Comic Sans MS": 2, Consolas: 2, "Courier New": 2, Courier: 2, Georgia: 2, Monospace: 2, "Sans-Serif": 2, "Segoe UI": 2, Tahoma: 2, "Times New Roman": 2, "Trebuchet MS": 2, Verdana: 1 }, "font-size": { px: 1, em: 1, "%": 1 }, "font-weight": { bold: 1, normal: 1 }, "font-style": { italic: 1, normal: 1 }, "font-variant": { normal: 1, "small-caps": 1 }, height: { px: 1, em: 1, "%": 1 }, left: { px: 1, em: 1, "%": 1 }, "letter-spacing": { normal: 1 }, "line-height": { normal: 1 }, "list-style-type": { none: 1, disc: 1, circle: 1, square: 1, decimal: 1, "decimal-leading-zero": 1, "lower-roman": 1, "upper-roman": 1, "lower-greek": 1, "lower-latin": 1, "upper-latin": 1, georgian: 1, "lower-alpha": 1, "upper-alpha": 1 }, margin: { px: 1, em: 1, "%": 1 }, "margin-right": { px: 1, em: 1, "%": 1 }, "margin-left": { px: 1, em: 1, "%": 1 }, "margin-top": { px: 1, em: 1, "%": 1 }, "margin-bottom": { px: 1, em: 1, "%": 1 }, "max-height": { px: 1, em: 1, "%": 1 }, "max-width": { px: 1, em: 1, "%": 1 }, "min-height": { px: 1, em: 1, "%": 1 }, "min-width": { px: 1, em: 1, "%": 1 }, overflow: { hidden: 1, visible: 1, auto: 1, scroll: 1 }, "overflow-x": { hidden: 1, visible: 1, auto: 1, scroll: 1 }, "overflow-y": { hidden: 1, visible: 1, auto: 1, scroll: 1 }, padding: { px: 1, em: 1, "%": 1 }, "padding-top": { px: 1, em: 1, "%": 1 }, "padding-right": { px: 1, em: 1, "%": 1 }, "padding-bottom": { px: 1, em: 1, "%": 1 }, "padding-left": { px: 1, em: 1, "%": 1 }, "page-break-after": { auto: 1, always: 1, avoid: 1, left: 1, right: 1 }, "page-break-before": { auto: 1, always: 1, avoid: 1, left: 1, right: 1 }, position: { absolute: 1, relative: 1, fixed: 1, static: 1 }, right: { px: 1, em: 1, "%": 1 }, "table-layout": { fixed: 1, auto: 1 }, "text-decoration": { none: 1, underline: 1, "line-through": 1, blink: 1 }, "text-align": { left: 1, right: 1, center: 1, justify: 1 }, "text-transform": { capitalize: 1, uppercase: 1, lowercase: 1, none: 1 }, top: { px: 1, em: 1, "%": 1 }, "vertical-align": { top: 1, bottom: 1 }, visibility: { hidden: 1, visible: 1 }, "white-space": { nowrap: 1, normal: 1, pre: 1, "pre-line": 1, "pre-wrap": 1 }, width: { px: 1, em: 1, "%": 1 }, "word-spacing": { normal: 1 }, filter: { "alpha(opacity=$0100)": 1 }, "text-shadow": { "$02px 2px 2px #777": 1 }, "text-overflow": { "ellipsis-word": 1, clip: 1, ellipsis: 1 }, "-moz-border-radius": 1, "-moz-border-radius-topright": 1, "-moz-border-radius-bottomright": 1, "-moz-border-radius-topleft": 1, "-moz-border-radius-bottomleft": 1, "-webkit-border-radius": 1, "-webkit-border-top-right-radius": 1, "-webkit-border-top-left-radius": 1, "-webkit-border-bottom-right-radius": 1, "-webkit-border-bottom-left-radius": 1, "-moz-box-shadow": 1, "-webkit-box-shadow": 1, transform: { "rotate($00deg)": 1, "skew($00deg)": 1 }, "-moz-transform": { "rotate($00deg)": 1, "skew($00deg)": 1 }, "-webkit-transform": { "rotate($00deg)": 1, "skew($00deg)": 1 } }, c = function() {
+    };
+    (function() {
+      this.completionsDefined = !1, this.defineCompletions = function() {
+        if (document) {
+          var _ = document.createElement("c").style;
+          for (var u in _)
+            if (typeof _[u] == "string") {
+              var s = u.replace(/[A-Z]/g, function(p) {
+                return "-" + p.toLowerCase();
+              });
+              l.hasOwnProperty(s) || (l[s] = 1);
+            }
+        }
+        this.completionsDefined = !0;
+      }, this.getCompletions = function(_, u, s, p) {
+        if (this.completionsDefined || this.defineCompletions(), _ === "ruleset" || u.$mode.$id == "ace/mode/scss") {
+          var m = u.getLine(s.row).substr(0, s.column);
+          return /:[^;]+$/.test(m) ? (/([\w\-]+):[^:]*$/.test(m), this.getPropertyValueCompletions(_, u, s, p)) : this.getPropertyCompletions(_, u, s, p);
+        }
+        return [];
+      }, this.getPropertyCompletions = function(_, u, s, p) {
+        var m = Object.keys(l);
+        return m.map(function($) {
+          return { caption: $, snippet: $ + ": $0;", meta: "property", score: 1e6 };
+        });
+      }, this.getPropertyValueCompletions = function(_, u, s, p) {
+        var m = u.getLine(s.row).substr(0, s.column), $ = (/([\w\-]+):[^:]*$/.exec(m) || {})[1];
+        if (!$)
+          return [];
+        var w = [];
+        return $ in l && typeof l[$] == "object" && (w = Object.keys(l[$])), w.map(function(g) {
+          return { caption: g, snippet: g, meta: "property value", score: 1e6 };
+        });
+      };
+    }).call(c.prototype), n.CssCompletions = c;
+  }), ace.define("ace/mode/behaviour/css", ["require", "exports", "module", "ace/lib/oop", "ace/mode/behaviour", "ace/mode/behaviour/cstyle", "ace/token_iterator"], function(o, n, a) {
+    var l = o("../../lib/oop");
+    o("../behaviour").Behaviour;
+    var c = o("./cstyle").CstyleBehaviour, _ = o("../../token_iterator").TokenIterator, u = function() {
+      this.inherit(c), this.add("colon", "insertion", function(s, p, m, $, w) {
+        if (w === ":" && m.selection.isEmpty()) {
+          var g = m.getCursorPosition(), x = new _($, g.row, g.column), y = x.getCurrentToken();
+          if (y && y.value.match(/\s+/) && (y = x.stepBackward()), y && y.type === "support.type") {
+            var C = $.doc.getLine(g.row), S = C.substring(g.column, g.column + 1);
+            if (S === ":")
+              return { text: "", selection: [1, 1] };
+            if (/^(\s+[^;]|\s*$)/.test(C.substring(g.column)))
+              return { text: ":;", selection: [1, 1] };
+          }
+        }
+      }), this.add("colon", "deletion", function(s, p, m, $, w) {
+        var g = $.doc.getTextRange(w);
+        if (!w.isMultiLine() && g === ":") {
+          var x = m.getCursorPosition(), y = new _($, x.row, x.column), C = y.getCurrentToken();
+          if (C && C.value.match(/\s+/) && (C = y.stepBackward()), C && C.type === "support.type") {
+            var S = $.doc.getLine(w.start.row), B = S.substring(w.end.column, w.end.column + 1);
+            if (B === ";")
+              return w.end.column++, w;
+          }
+        }
+      }), this.add("semicolon", "insertion", function(s, p, m, $, w) {
+        if (w === ";" && m.selection.isEmpty()) {
+          var g = m.getCursorPosition(), x = $.doc.getLine(g.row), y = x.substring(g.column, g.column + 1);
+          if (y === ";")
+            return { text: "", selection: [1, 1] };
+        }
+      }), this.add("!important", "insertion", function(s, p, m, $, w) {
+        if (w === "!" && m.selection.isEmpty()) {
+          var g = m.getCursorPosition(), x = $.doc.getLine(g.row);
+          if (/^\s*(;|}|$)/.test(x.substring(g.column)))
+            return { text: "!important", selection: [10, 10] };
+        }
+      });
+    };
+    l.inherits(u, c), n.CssBehaviour = u;
+  }), ace.define("ace/mode/folding/cstyle", ["require", "exports", "module", "ace/lib/oop", "ace/range", "ace/mode/folding/fold_mode"], function(o, n, a) {
+    var l = o("../../lib/oop"), c = o("../../range").Range, _ = o("./fold_mode").FoldMode, u = n.FoldMode = function(s) {
+      s && (this.foldingStartMarker = new RegExp(this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + s.start)), this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + s.end)));
+    };
+    l.inherits(u, _), function() {
+      this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/, this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/, this.singleLineBlockCommentRe = /^\s*(\/\*).*\*\/\s*$/, this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/, this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/, this._getFoldWidgetBase = this.getFoldWidget, this.getFoldWidget = function(s, p, m) {
+        var $ = s.getLine(m);
+        if (this.singleLineBlockCommentRe.test($) && !this.startRegionRe.test($) && !this.tripleStarBlockCommentRe.test($))
+          return "";
+        var w = this._getFoldWidgetBase(s, p, m);
+        return !w && this.startRegionRe.test($) ? "start" : w;
+      }, this.getFoldWidgetRange = function(s, p, m, $) {
+        var w = s.getLine(m);
+        if (this.startRegionRe.test(w))
+          return this.getCommentRegionBlock(s, w, m);
+        var y = w.match(this.foldingStartMarker);
+        if (y) {
+          var g = y.index;
+          if (y[1])
+            return this.openingBracketBlock(s, y[1], m, g);
+          var x = s.getCommentFoldRange(m, g + y[0].length, 1);
+          return x && !x.isMultiLine() && ($ ? x = this.getSectionRange(s, m) : p != "all" && (x = null)), x;
+        }
+        if (p !== "markbegin") {
+          var y = w.match(this.foldingStopMarker);
+          if (y) {
+            var g = y.index + y[0].length;
+            return y[1] ? this.closingBracketBlock(s, y[1], m, g) : s.getCommentFoldRange(m, g, -1);
+          }
+        }
+      }, this.getSectionRange = function(s, p) {
+        var m = s.getLine(p), $ = m.search(/\S/), w = p, g = m.length;
+        p += 1;
+        for (var x = p, y = s.getLength(); ++p < y; ) {
+          m = s.getLine(p);
+          var C = m.search(/\S/);
+          if (C !== -1) {
+            if ($ > C)
+              break;
+            var S = this.getFoldWidgetRange(s, "all", p);
+            if (S) {
+              if (S.start.row <= w)
+                break;
+              if (S.isMultiLine())
+                p = S.end.row;
+              else if ($ == C)
+                break;
+            }
+            x = p;
+          }
+        }
+        return new c(w, g, x, s.getLine(x).length);
+      }, this.getCommentRegionBlock = function(s, p, m) {
+        for (var $ = p.search(/\s*$/), w = s.getLength(), g = m, x = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/, y = 1; ++m < w; ) {
+          p = s.getLine(m);
+          var C = x.exec(p);
+          if (!!C && (C[1] ? y-- : y++, !y))
+            break;
+        }
+        var S = m;
+        if (S > g)
+          return new c(g, $, S, p.length);
+      };
+    }.call(u.prototype);
+  }), ace.define("ace/mode/css", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/css_highlight_rules", "ace/mode/matching_brace_outdent", "ace/worker/worker_client", "ace/mode/css_completions", "ace/mode/behaviour/css", "ace/mode/folding/cstyle"], function(o, n, a) {
+    var l = o("../lib/oop"), c = o("./text").Mode, _ = o("./css_highlight_rules").CssHighlightRules, u = o("./matching_brace_outdent").MatchingBraceOutdent, s = o("../worker/worker_client").WorkerClient, p = o("./css_completions").CssCompletions, m = o("./behaviour/css").CssBehaviour, $ = o("./folding/cstyle").FoldMode, w = function() {
+      this.HighlightRules = _, this.$outdent = new u(), this.$behaviour = new m(), this.$completer = new p(), this.foldingRules = new $();
+    };
+    l.inherits(w, c), function() {
+      this.foldingRules = "cStyle", this.blockComment = { start: "/*", end: "*/" }, this.getNextLineIndent = function(g, x, y) {
+        var C = this.$getIndent(x), S = this.getTokenizer().getLineTokens(x, g).tokens;
+        if (S.length && S[S.length - 1].type == "comment")
+          return C;
+        var B = x.match(/^.*\{\s*$/);
+        return B && (C += y), C;
+      }, this.checkOutdent = function(g, x, y) {
+        return this.$outdent.checkOutdent(x, y);
+      }, this.autoOutdent = function(g, x, y) {
+        this.$outdent.autoOutdent(x, y);
+      }, this.getCompletions = function(g, x, y, C) {
+        return this.$completer.getCompletions(g, x, y, C);
+      }, this.createWorker = function(g) {
+        var x = new s(["ace"], "ace/mode/css_worker", "Worker");
+        return x.attachToDocument(g.getDocument()), x.on("annotate", function(y) {
+          g.setAnnotations(y.data);
+        }), x.on("terminate", function() {
+          g.clearAnnotations();
+        }), x;
+      }, this.$id = "ace/mode/css", this.snippetFileId = "ace/snippets/css";
+    }.call(w.prototype), n.Mode = w;
+  }), function() {
+    ace.require(["ace/mode/css"], function(o) {
+      e && (e.exports = o);
+    });
+  }();
+})(qD);
+const Vo = ["blur", "input", "change", "changeSelectionStyle", "changeSession", "copy", "focus", "paste"], ND = V({
+  props: {
+    modelValue: {
+      type: String,
+      required: !0
+    },
+    lang: {
+      type: String,
+      default: "text"
+    },
+    theme: {
+      type: String,
+      default: "chrome"
+    },
+    options: Object,
+    placeholder: String,
+    readonly: Boolean,
+    wrap: Boolean,
+    printMargin: {
+      type: [Boolean, Number],
+      default: !0
+    },
+    minLines: Number,
+    maxLines: Number
+  },
+  emits: ["update:modelValue", "init", ...Vo],
+  watch: {
+    modelValue(e) {
+      if (this._contentBackup !== e) {
+        try {
+          this._isSettingContent = !0, this._editor.setValue(e, 1);
+        } finally {
+          this._isSettingContent = !1;
+        }
+        this._contentBackup = e;
+      }
+    },
+    theme(e) {
+      this._editor.setTheme(`ace/theme/${e}`);
+    },
+    options(e) {
+      this._editor.setOptions(e);
+    },
+    readonly(e) {
+      this._editor.setReadOnly(e);
+    },
+    placeholder(e) {
+      this._editor.setOption("placeholder", e);
+    },
+    wrap(e) {
+      this._editor.setWrapBehavioursEnabled(e);
+    },
+    printMargin(e) {
+      this._editor.setOption("printMargin", e);
+    },
+    lang(e) {
+      this._editor.setOption("mode", `ace/mode/${e}`);
+    },
+    minLines(e) {
+      this._editor.setOption("minLines", e);
+    },
+    maxLines(e) {
+      this._editor.setOption("maxLines", e);
+    }
+  },
+  mounted() {
+    const e = this._editor = X0(
+      ln.edit(this.$el, {
+        placeholder: this.placeholder,
+        readOnly: this.readonly,
+        value: this.modelValue,
+        mode: `ace/mode/${this.lang}`,
+        theme: `ace/theme/${this.theme}`,
+        wrap: this.wrap,
+        printMargin: this.printMargin,
+        useWorker: !1,
+        minLines: this.minLines,
+        maxLines: this.maxLines,
+        ...this.options
+      })
+    );
+    this._contentBackup = this.modelValue, this._isSettingContent = !1, e.on("change", () => {
+      if (this._isSettingContent)
+        return;
+      const t = e.getValue();
+      this._contentBackup = t, this.$emit("update:modelValue", t);
+    }), Vo.forEach((t) => {
+      const o = `on${K0(t)}`;
+      typeof this.$.vnode.props[o] == "function" && e.on(t, this.$emit.bind(this, t));
+    }), this.$emit("init", e);
+  },
+  beforeUnmount() {
+    let e;
+    (e = this._editor) === null || e === void 0 || e.destroy();
+  },
+  methods: {
+    focus() {
+      this._editor.focus();
+    },
+    blur() {
+      this._editor.blur();
+    },
+    selectAll() {
+      this._editor.selectAll();
+    }
+  }
+}), WD = { class: "code-editor-wrap" };
+function GD(e, t, o, n, a, l) {
+  return r(), d("div", WD);
+}
+const et = /* @__PURE__ */ kt(ND, [["render", GD]]), YD = { style: { width: "100%" } }, XD = /* @__PURE__ */ H("\u589E\u52A0\u9009\u9879"), KD = /* @__PURE__ */ H("\u7F16\u8F91\u9009\u9879"), JD = { class: "form-design-code-editor" }, ZD = /* @__PURE__ */ H("\u53D6\u6D88"), QD = /* @__PURE__ */ H("\u786E\u5B9A"), eF = V({
+  name: "optionsOption"
+}), tF = /* @__PURE__ */ Object.assign(eF, {
+  props: {
+    modelValue: Object
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = e, n = ue({
+      type: "static",
+      remote: "",
+      items: []
+    }), a = X(""), l = X(!1), c = R("state"), _ = () => {
+      t("update:modelValue", {
+        type: n.type,
+        remote: n.remote,
+        items: n.items
+      });
+    }, u = (g, x, y) => {
+      n.items[g][x] = y, _();
+    }, s = () => {
+      const g = String(n.items.length + 1);
+      n.items.push({
+        label: `\u9009\u9879${g}`,
+        value: g
+      }), _();
+    }, p = (g) => {
+      n.items.splice(g, 1), _();
+    }, m = () => {
+      l.value = !0, a.value = JSON.stringify(n.items, null, "	");
+    }, $ = () => {
+      try {
+        n.items = JSON.parse(a.value);
+      } catch {
+        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
+      }
+      l.value = !1, _();
+    }, w = () => {
+      n.type = o.modelValue.type, n.remote = o.modelValue.remote, n.items = pe(o.modelValue.items);
+    };
+    return Se(w), xe(() => o.modelValue, w), (g, x) => {
+      const y = b("el-input"), C = b("el-col"), S = Qe, B = b("el-icon"), N = b("el-row"), W = b("el-button"), G = et, P = b("el-dialog"), U = b("el-tab-pane"), K = b("el-option"), ae = b("el-select"), k = b("el-tabs");
+      return r(), d("div", YD, [
+        v(k, {
+          modelValue: n.type,
+          "onUpdate:modelValue": x[4] || (x[4] = (j) => n.type = j),
+          onTabChange: _
+        }, {
+          default: f(() => [
+            v(U, {
+              label: "\u9759\u6001\u6570\u636E",
+              name: "static"
+            }, {
+              default: f(() => [
+                (r(!0), d(F, null, Y(n.items, (j, O) => (r(), z(N, {
+                  key: O,
+                  class: "option-row",
+                  gutter: 5
+                }, {
+                  default: f(() => [
+                    v(C, { span: 11 }, {
+                      default: f(() => [
+                        v(y, {
+                          "model-value": j.label,
+                          placeholder: "\u6807\u9898",
+                          onInput: (E) => u(O, "label", E)
+                        }, null, 8, ["model-value", "onInput"])
+                      ]),
+                      _: 2
+                    }, 1024),
+                    v(C, { span: 11 }, {
+                      default: f(() => [
+                        v(y, {
+                          "model-value": j.value,
+                          placeholder: "\u503C",
+                          onInput: (E) => u(O, "value", E)
+                        }, null, 8, ["model-value", "onInput"])
+                      ]),
+                      _: 2
+                    }, 1024),
+                    v(C, {
+                      span: 2,
+                      class: "btn-del"
+                    }, {
+                      default: f(() => [
+                        v(B, {
+                          class: "el-icon-delete",
+                          onClick: (E) => p(O)
+                        }, {
+                          default: f(() => [
+                            v(S)
+                          ]),
+                          _: 2
+                        }, 1032, ["onClick"])
+                      ]),
+                      _: 2
+                    }, 1024)
+                  ]),
+                  _: 2
+                }, 1024))), 128)),
+                v(W, {
+                  link: "",
+                  type: "primary",
+                  onClick: s
+                }, {
+                  default: f(() => [
+                    XD
+                  ]),
+                  _: 1
+                }),
+                v(W, {
+                  link: "",
+                  type: "primary",
+                  onClick: m
+                }, {
+                  default: f(() => [
+                    KD
+                  ]),
+                  _: 1
+                }),
+                v(P, {
+                  modelValue: l.value,
+                  "onUpdate:modelValue": x[2] || (x[2] = (j) => l.value = j),
+                  title: "\u7F16\u8F91\u9009\u9879",
+                  width: "750px"
+                }, {
+                  footer: f(() => [
+                    i("div", null, [
+                      v(W, {
+                        onClick: x[1] || (x[1] = (j) => l.value = !1)
+                      }, {
+                        default: f(() => [
+                          ZD
+                        ]),
+                        _: 1
+                      }),
+                      v(W, {
+                        type: "primary",
+                        onClick: $
+                      }, {
+                        default: f(() => [
+                          QD
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  default: f(() => [
+                    i("div", JD, [
+                      v(G, {
+                        modelValue: a.value,
+                        "onUpdate:modelValue": x[0] || (x[0] = (j) => a.value = j),
+                        lang: "json"
+                      }, null, 8, ["modelValue"])
+                    ])
+                  ]),
+                  _: 1
+                }, 8, ["modelValue"])
+              ]),
+              _: 1
+            }),
+            v(U, {
+              label: "\u6570\u636E\u6E90",
+              name: "remote"
+            }, {
+              default: f(() => [
+                v(ae, {
+                  modelValue: n.remote,
+                  "onUpdate:modelValue": x[3] || (x[3] = (j) => n.remote = j),
+                  clearable: "",
+                  placeholder: "\u8BF7\u9009\u62E9\u6570\u636E\u6E90",
+                  style: { width: "88%", "margin-bottom": "5px" },
+                  onChange: _
+                }, {
+                  default: f(() => [
+                    (r(!0), d(F, null, Y(A(c).formDesign.options.remotes, (j, O) => (r(), z(K, {
+                      key: O,
+                      label: j.title,
+                      value: O
+                    }, null, 8, ["label", "value"]))), 128))
+                  ]),
+                  _: 1
+                }, 8, ["modelValue"])
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }, 8, ["modelValue"])
+      ]);
+    };
+  }
+}), oF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: tF
+}, Symbol.toStringTag, { value: "Module" })), nF = /* @__PURE__ */ H(" \u4E0A\uFF1A"), aF = /* @__PURE__ */ H(" \u53F3\uFF1A"), lF = /* @__PURE__ */ H(" \u4E0B\uFF1A"), rF = /* @__PURE__ */ H(" \u5DE6\uFF1A"), iF = V({
+  name: "paddingOption"
+}), sF = /* @__PURE__ */ Object.assign(iF, {
+  props: {
+    modelValue: String
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = e, n = ue({
+      top: 0,
+      right: 0,
+      down: 0,
+      left: 0
+    }), a = () => {
+      t("update:modelValue", `${n.top || 0}px ${n.right || 0}px ${n.down || 0}px ${n.left || 0}px`);
+    }, l = () => {
+      const [c, _, u, s] = o.modelValue.split(" ");
+      n.top = parseFloat(c), n.right = parseFloat(_), n.down = parseFloat(u), n.left = parseFloat(s);
+    };
+    return Se(l), xe(() => o.modelValue, l), (c, _) => {
+      const u = b("el-input-number"), s = b("el-col"), p = b("el-row");
+      return r(), d(F, null, [
+        v(p, { class: "option-row" }, {
+          default: f(() => [
+            v(s, { span: 24 }, {
+              default: f(() => [
+                nF,
+                v(u, {
+                  modelValue: n.top,
+                  "onUpdate:modelValue": _[0] || (_[0] = (m) => n.top = m),
+                  onInput: a
+                }, null, 8, ["modelValue"])
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }),
+        v(p, { class: "option-row" }, {
+          default: f(() => [
+            v(s, { span: 24 }, {
+              default: f(() => [
+                aF,
+                v(u, {
+                  modelValue: n.right,
+                  "onUpdate:modelValue": _[1] || (_[1] = (m) => n.right = m),
+                  onInput: a
+                }, null, 8, ["modelValue"])
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }),
+        v(p, { class: "option-row" }, {
+          default: f(() => [
+            v(s, { span: 24 }, {
+              default: f(() => [
+                lF,
+                v(u, {
+                  modelValue: n.down,
+                  "onUpdate:modelValue": _[2] || (_[2] = (m) => n.down = m),
+                  onInput: a
+                }, null, 8, ["modelValue"])
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }),
+        v(p, { class: "option-row" }, {
+          default: f(() => [
+            v(s, { span: 24 }, {
+              default: f(() => [
+                rF,
+                v(u, {
+                  modelValue: n.left,
+                  "onUpdate:modelValue": _[3] || (_[3] = (m) => n.left = m),
+                  onInput: a
+                }, null, 8, ["modelValue"])
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        })
+      ], 64);
+    };
+  }
+}), uF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: sF
+}, Symbol.toStringTag, { value: "Module" })), cF = V({
+  name: "penColorOption"
+}), dF = /* @__PURE__ */ Object.assign(cF, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-color-picker");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), _F = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: dF
+}, Symbol.toStringTag, { value: "Module" })), pF = V({
+  name: "placeholderOption"
+}), mF = /* @__PURE__ */ Object.assign(pF, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), hF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: mF
+}, Symbol.toStringTag, { value: "Module" })), fF = /* @__PURE__ */ H("\u9009\u62E9"), vF = V({
+  name: "prefixIconOption"
+}), gF = /* @__PURE__ */ Object.assign(vF, {
+  props: {
+    modelValue: String
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = X(!1), n = (a) => {
+      t("update:modelValue", a), o.value = !1;
+    };
+    return (a, l) => {
+      const c = b("el-button"), _ = b("el-input"), u = b("el-tooltip"), s = b("el-drawer");
+      return r(), d(F, null, [
+        v(_, {
+          type: "text",
+          "model-value": e.modelValue,
+          onInput: l[1] || (l[1] = (p) => a.$emit("update:modelValue", p))
+        }, {
+          append: f(() => [
+            v(c, {
+              onClick: l[0] || (l[0] = (p) => o.value = !o.value)
+            }, {
+              default: f(() => [
+                fF
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }, 8, ["model-value"]),
+        v(s, {
+          modelValue: o.value,
+          "onUpdate:modelValue": l[2] || (l[2] = (p) => o.value = p),
+          direction: "rtl",
+          "show-close": !1,
+          "with-header": !1,
+          size: "380px"
+        }, {
+          default: f(() => [
+            (r(), d(F, null, Y(ye, (p, m) => v(u, {
+              key: m,
+              effect: "dark",
+              content: m,
+              placement: "top"
+            }, {
+              default: f(() => [
+                (r(), z(Vt(p), {
+                  style: { width: "24px", cursor: "pointer" },
+                  onClick: ($) => n(m)
+                }, null, 8, ["onClick"]))
+              ]),
+              _: 2
+            }, 1032, ["content"])), 64))
+          ]),
+          _: 1
+        }, 8, ["modelValue"])
+      ], 64);
+    };
+  }
+}), bF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: gF
+}, Symbol.toStringTag, { value: "Module" })), wF = /* @__PURE__ */ H("\u8BBE\u7F6E"), xF = /* @__PURE__ */ H(" \u8BBE\u7F6E\u6570\u636E\u6E90 "), $F = { style: { float: "right" } }, yF = /* @__PURE__ */ H("\u4FDD\u5B58"), zF = /* @__PURE__ */ H("\u53D6\u6D88"), VF = /* @__PURE__ */ H("\u6D4B\u8BD5\u8BF7\u6C42"), CF = /* @__PURE__ */ H("\u589E\u52A0\u5934\u90E8"), SF = /* @__PURE__ */ H("\u589E\u52A0\u53C2\u6570"), MF = /* @__PURE__ */ H("\u589E\u52A0\u6570\u636E"), kF = { class: "form-design-code-editor" }, OF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "\u54CD\u5E94\u6570\u636E", -1), HF = { class: "form-design-code-editor" }, jF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "(config) => {", -1), AF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "}", -1), BF = { class: "form-design-code-editor" }, TF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "(response) => {", -1), EF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "}", -1), LF = { class: "form-design-code-editor" }, DF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "(error) => {", -1), FF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "}", -1), PF = V({
+  name: "remotesOption"
+}), IF = /* @__PURE__ */ Object.assign(PF, {
+  props: {
+    modelValue: Object
+  },
+  emits: "update:modelValue",
+  setup(e, { emit: t }) {
+    const o = e, n = ue({
+      remotes: {},
+      remoteTabs: {},
+      remoteCollapses: {},
+      remoteResults: {},
+      loading: !1
+    }), a = X(null), l = X(""), c = X(!1), _ = () => {
+      if (c.value = !0, n.remotes = pe(o.modelValue), n.remoteTabs = {}, n.remoteCollapses = {}, n.remoteResults = {}, n.remotes && !h0(n.remotes)) {
+        const w = Object.keys(n.remotes);
+        l.value = w[0], w.forEach((g) => {
+          n.remoteTabs[g] = "headers", n.remoteCollapses[g] = ["request", "response", "error"], n.remoteResults[g] = "";
+        });
+      }
+    }, u = () => {
+      a.value.validate((w, g) => {
+        if (w)
+          t("update:modelValue", n.remotes), c.value = !1;
+        else {
+          const x = Object.keys(g)[0];
+          l.value = x.split(".")[1];
+        }
+      });
+    }, s = (w, g) => {
+      if (g === "add") {
+        const x = `remote_${$t(8)}`;
+        l.value = x, n.remotes[x] = {
+          title: "",
+          url: "",
+          method: "get",
+          headers: [],
+          params: [],
+          data: [],
+          requestHandler: "return config;",
+          responseHandler: "return response.data;",
+          errorHandler: "return Promise.reject(error);"
+        }, n.remoteTabs[x] = "headers", n.remoteCollapses[x] = ["request", "response", "error"], n.remoteResults[x] = "";
+      } else if (g === "remove") {
+        if (l.value === w) {
+          const x = Object.keys(n.remotes), y = x.findIndex((S) => S === w), C = x[y + 1] || x[y - 1];
+          C && (l.value = C);
+        }
+        delete n.remotes[w], delete n.remoteTabs[w], delete n.remoteCollapses[w], delete n.remoteResults[w];
+      }
+    }, p = (w, g) => {
+      n.remotes[w][g].push({ key: "", value: "" });
+    }, m = (w, g, x) => {
+      n.remotes[w][g].splice(x, 1);
+    }, $ = () => {
+      a.value.validateField(`remotes.${l.value}.url`).then(() => {
+        n.loading = !0, Io(n.remotes[l.value]).then((w) => {
+          n.remoteResults[l.value] = JSON.stringify(w, null, "	"), n.loading = !1, we.success("\u8BF7\u6C42\u6210\u529F");
+        }).catch((w) => {
+          n.remoteResults[l.value] = "", n.loading = !1, we.error(w.message);
+        });
+      });
+    };
+    return (w, g) => {
+      const x = b("el-button"), y = b("el-input"), C = b("el-form-item"), S = b("el-option"), B = b("el-select"), N = b("el-col"), W = Qe, G = b("el-icon"), P = b("el-row"), U = b("el-tab-pane"), K = b("el-tabs"), ae = et, k = b("el-collapse-item"), j = b("el-collapse"), O = b("el-form"), E = b("el-dialog"), fe = J0("loading");
+      return r(), d(F, null, [
+        v(x, {
+          type: "primary",
+          plain: "",
+          style: { width: "88%" },
+          onClick: _
+        }, {
+          default: f(() => [
+            wF
+          ]),
+          _: 1
+        }),
+        v(E, {
+          modelValue: c.value,
+          "onUpdate:modelValue": g[2] || (g[2] = (T) => c.value = T),
+          title: "\u6570\u636E\u6E90",
+          width: "750px",
+          "show-close": !1
+        }, {
+          header: f(() => [
+            xF,
+            i("div", $F, [
+              v(x, {
+                type: "primary",
+                onClick: u
+              }, {
+                default: f(() => [
+                  yF
+                ]),
+                _: 1
+              }),
+              v(x, {
+                onClick: g[0] || (g[0] = (T) => c.value = !1)
+              }, {
+                default: f(() => [
+                  zF
+                ]),
+                _: 1
+              })
+            ])
+          ]),
+          default: f(() => [
+            v(O, {
+              ref_key: "formRef",
+              ref: a,
+              model: n,
+              "label-width": "0px"
+            }, {
+              default: f(() => [
+                v(K, {
+                  modelValue: l.value,
+                  "onUpdate:modelValue": g[1] || (g[1] = (T) => l.value = T),
+                  type: "card",
+                  editable: "",
+                  onEdit: s
+                }, {
+                  default: f(() => [
+                    (r(!0), d(F, null, Y(n.remotes, (T, se) => (r(), z(U, {
+                      key: se,
+                      label: T.title || "\u672A\u547D\u540D",
+                      name: se
+                    }, {
+                      default: f(() => [
+                        v(C, {
+                          prop: "remotes." + se + ".title",
+                          rules: {
+                            required: !0,
+                            message: "\u8BF7\u8F93\u5165\u540D\u79F0",
+                            trigger: "blur"
+                          },
+                          style: { "margin-bottom": "18px" }
+                        }, {
+                          default: f(() => [
+                            v(y, {
+                              modelValue: T.title,
+                              "onUpdate:modelValue": (q) => T.title = q,
+                              placeholder: "\u8BF7\u8F93\u5165\u540D\u79F0"
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          _: 2
+                        }, 1032, ["prop"]),
+                        v(C, {
+                          prop: "remotes." + se + ".url",
+                          rules: {
+                            required: !0,
+                            message: "\u8BF7\u8F93\u5165\u5730\u5740",
+                            trigger: "blur"
+                          },
+                          style: { "margin-bottom": "18px" }
+                        }, {
+                          default: f(() => [
+                            v(y, {
+                              modelValue: T.url,
+                              "onUpdate:modelValue": (q) => T.url = q,
+                              placeholder: "\u8BF7\u8F93\u5165\u5730\u5740"
+                            }, {
+                              prepend: f(() => [
+                                v(B, {
+                                  modelValue: T.method,
+                                  "onUpdate:modelValue": (q) => T.method = q,
+                                  style: { width: "100px" }
+                                }, {
+                                  default: f(() => [
+                                    v(S, {
+                                      label: "GET",
+                                      value: "get"
+                                    }),
+                                    v(S, {
+                                      label: "POST",
+                                      value: "post"
+                                    }),
+                                    v(S, {
+                                      label: "PUT",
+                                      value: "put"
+                                    }),
+                                    v(S, {
+                                      label: "DELETE",
+                                      value: "delete"
+                                    })
+                                  ]),
+                                  _: 2
+                                }, 1032, ["modelValue", "onUpdate:modelValue"])
+                              ]),
+                              append: f(() => [
+                                v(x, {
+                                  loading: n.loading,
+                                  onClick: $
+                                }, {
+                                  default: f(() => [
+                                    VF
+                                  ]),
+                                  _: 1
+                                }, 8, ["loading"])
+                              ]),
+                              _: 2
+                            }, 1032, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          _: 2
+                        }, 1032, ["prop"]),
+                        v(K, {
+                          modelValue: n.remoteTabs[se],
+                          "onUpdate:modelValue": (q) => n.remoteTabs[se] = q
+                        }, {
+                          default: f(() => [
+                            v(U, {
+                              label: "\u8BF7\u6C42\u5934\u90E8Headers" + (T.headers.length ? "\uFF08" + T.headers.length + "\uFF09" : ""),
+                              name: "headers"
+                            }, {
+                              default: f(() => [
+                                (r(!0), d(F, null, Y(T.headers, (q, He) => (r(), z(P, {
+                                  key: He,
+                                  class: "option-row",
+                                  gutter: 5
+                                }, {
+                                  default: f(() => [
+                                    v(N, { span: 11 }, {
+                                      default: f(() => [
+                                        v(y, {
+                                          modelValue: q.key,
+                                          "onUpdate:modelValue": (ge) => q.key = ge,
+                                          placeholder: "Key"
+                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                                      ]),
+                                      _: 2
+                                    }, 1024),
+                                    v(N, { span: 11 }, {
+                                      default: f(() => [
+                                        v(y, {
+                                          modelValue: q.value,
+                                          "onUpdate:modelValue": (ge) => q.value = ge,
+                                          placeholder: "Value"
+                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                                      ]),
+                                      _: 2
+                                    }, 1024),
+                                    v(N, {
+                                      span: 2,
+                                      class: "btn-del"
+                                    }, {
+                                      default: f(() => [
+                                        v(G, {
+                                          class: "el-icon-delete",
+                                          onClick: (ge) => m(se, "headers", He)
+                                        }, {
+                                          default: f(() => [
+                                            v(W)
+                                          ]),
+                                          _: 2
+                                        }, 1032, ["onClick"])
+                                      ]),
+                                      _: 2
+                                    }, 1024)
+                                  ]),
+                                  _: 2
+                                }, 1024))), 128)),
+                                v(x, {
+                                  link: "",
+                                  type: "primary",
+                                  onClick: (q) => p(se, "headers")
+                                }, {
+                                  default: f(() => [
+                                    CF
+                                  ]),
+                                  _: 2
+                                }, 1032, ["onClick"])
+                              ]),
+                              _: 2
+                            }, 1032, ["label"]),
+                            v(U, {
+                              label: "\u8BF7\u6C42\u53C2\u6570Params" + (T.params.length ? "\uFF08" + T.params.length + "\uFF09" : ""),
+                              name: "params"
+                            }, {
+                              default: f(() => [
+                                (r(!0), d(F, null, Y(T.params, (q, He) => (r(), z(P, {
+                                  key: He,
+                                  class: "option-row",
+                                  gutter: 5
+                                }, {
+                                  default: f(() => [
+                                    v(N, { span: 11 }, {
+                                      default: f(() => [
+                                        v(y, {
+                                          modelValue: q.key,
+                                          "onUpdate:modelValue": (ge) => q.key = ge,
+                                          placeholder: "Key"
+                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                                      ]),
+                                      _: 2
+                                    }, 1024),
+                                    v(N, { span: 11 }, {
+                                      default: f(() => [
+                                        v(y, {
+                                          modelValue: q.value,
+                                          "onUpdate:modelValue": (ge) => q.value = ge,
+                                          placeholder: "Value"
+                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                                      ]),
+                                      _: 2
+                                    }, 1024),
+                                    v(N, {
+                                      span: 2,
+                                      class: "btn-del"
+                                    }, {
+                                      default: f(() => [
+                                        v(G, {
+                                          class: "el-icon-delete",
+                                          onClick: (ge) => m(se, "params", He)
+                                        }, {
+                                          default: f(() => [
+                                            v(W)
+                                          ]),
+                                          _: 2
+                                        }, 1032, ["onClick"])
+                                      ]),
+                                      _: 2
+                                    }, 1024)
+                                  ]),
+                                  _: 2
+                                }, 1024))), 128)),
+                                v(x, {
+                                  link: "",
+                                  type: "primary",
+                                  onClick: (q) => p(se, "params")
+                                }, {
+                                  default: f(() => [
+                                    SF
+                                  ]),
+                                  _: 2
+                                }, 1032, ["onClick"])
+                              ]),
+                              _: 2
+                            }, 1032, ["label"]),
+                            v(U, {
+                              label: "\u8BF7\u6C42\u6570\u636EData" + (T.data.length ? "\uFF08" + T.data.length + "\uFF09" : ""),
+                              name: "data"
+                            }, {
+                              default: f(() => [
+                                (r(!0), d(F, null, Y(T.data, (q, He) => (r(), z(P, {
+                                  key: He,
+                                  class: "option-row",
+                                  gutter: 5
+                                }, {
+                                  default: f(() => [
+                                    v(N, { span: 11 }, {
+                                      default: f(() => [
+                                        v(y, {
+                                          modelValue: q.key,
+                                          "onUpdate:modelValue": (ge) => q.key = ge,
+                                          placeholder: "Key"
+                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                                      ]),
+                                      _: 2
+                                    }, 1024),
+                                    v(N, { span: 11 }, {
+                                      default: f(() => [
+                                        v(y, {
+                                          modelValue: q.value,
+                                          "onUpdate:modelValue": (ge) => q.value = ge,
+                                          placeholder: "Value"
+                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                                      ]),
+                                      _: 2
+                                    }, 1024),
+                                    v(N, {
+                                      span: 2,
+                                      class: "btn-del"
+                                    }, {
+                                      default: f(() => [
+                                        v(G, {
+                                          class: "el-icon-delete",
+                                          onClick: (ge) => m(se, "data", He)
+                                        }, {
+                                          default: f(() => [
+                                            v(W)
+                                          ]),
+                                          _: 2
+                                        }, 1032, ["onClick"])
+                                      ]),
+                                      _: 2
+                                    }, 1024)
+                                  ]),
+                                  _: 2
+                                }, 1024))), 128)),
+                                v(x, {
+                                  link: "",
+                                  type: "primary",
+                                  onClick: (q) => p(se, "data")
+                                }, {
+                                  default: f(() => [
+                                    MF
+                                  ]),
+                                  _: 2
+                                }, 1032, ["onClick"])
+                              ]),
+                              _: 2
+                            }, 1032, ["label"])
+                          ]),
+                          _: 2
+                        }, 1032, ["modelValue", "onUpdate:modelValue"]),
+                        Z0((r(), d("div", kF, [
+                          OF,
+                          v(ae, {
+                            modelValue: n.remoteResults[se],
+                            "onUpdate:modelValue": (q) => n.remoteResults[se] = q,
+                            lang: "json"
+                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                        ])), [
+                          [fe, n.loading]
+                        ]),
+                        v(j, {
+                          modelValue: n.remoteCollapses[se],
+                          "onUpdate:modelValue": (q) => n.remoteCollapses[se] = q
+                        }, {
+                          default: f(() => [
+                            v(k, {
+                              title: "\u5904\u7406\u8BF7\u6C42\u6570\u636E",
+                              name: "request"
+                            }, {
+                              default: f(() => [
+                                i("div", HF, [
+                                  jF,
+                                  v(ae, {
+                                    modelValue: T.requestHandler,
+                                    "onUpdate:modelValue": (q) => T.requestHandler = q,
+                                    lang: "javascript"
+                                  }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                                  AF
+                                ])
+                              ]),
+                              _: 2
+                            }, 1024),
+                            v(k, {
+                              title: "\u5904\u7406\u54CD\u5E94\u6570\u636E",
+                              name: "response"
+                            }, {
+                              default: f(() => [
+                                i("div", BF, [
+                                  TF,
+                                  v(ae, {
+                                    modelValue: T.responseHandler,
+                                    "onUpdate:modelValue": (q) => T.responseHandler = q,
+                                    lang: "javascript"
+                                  }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                                  EF
+                                ])
+                              ]),
+                              _: 2
+                            }, 1024),
+                            v(k, {
+                              title: "\u9519\u8BEF\u5904\u7406",
+                              name: "error"
+                            }, {
+                              default: f(() => [
+                                i("div", LF, [
+                                  DF,
+                                  v(ae, {
+                                    modelValue: T.errorHandler,
+                                    "onUpdate:modelValue": (q) => T.errorHandler = q,
+                                    lang: "javascript"
+                                  }, null, 8, ["modelValue", "onUpdate:modelValue"]),
+                                  FF
+                                ])
+                              ]),
+                              _: 2
+                            }, 1024)
+                          ]),
+                          _: 2
+                        }, 1032, ["modelValue", "onUpdate:modelValue"])
+                      ]),
+                      _: 2
+                    }, 1032, ["label", "name"]))), 128))
+                  ]),
+                  _: 1
+                }, 8, ["modelValue"])
+              ]),
+              _: 1
+            }, 8, ["model"])
+          ]),
+          _: 1
+        }, 8, ["modelValue"])
+      ], 64);
+    };
+  }
+}), RF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: IF
+}, Symbol.toStringTag, { value: "Module" })), UF = V({
+  name: "richContentOption"
+}), qF = /* @__PURE__ */ Object.assign(UF, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "textarea",
+        "model-value": e.modelValue,
+        rows: 4,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), NF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: qF
+}, Symbol.toStringTag, { value: "Module" })), WF = { style: { width: "100%" } }, GF = /* @__PURE__ */ H("\u589E\u52A0\u884C"), YF = /* @__PURE__ */ H("\u7F16\u8F91\u884C"), XF = { class: "form-design-code-editor" }, KF = /* @__PURE__ */ H("\u53D6\u6D88"), JF = /* @__PURE__ */ H("\u786E\u5B9A"), ZF = V({
+  name: "rowOptionsOption"
+}), QF = /* @__PURE__ */ Object.assign(ZF, {
+  props: {
+    modelValue: Object
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = e, n = ue({
+      type: "static",
+      remote: "",
+      items: []
+    }), a = X(""), l = X(!1), c = R("state"), _ = () => {
+      t("update:modelValue", {
+        type: n.type,
+        remote: n.remote,
+        items: n.items
+      });
+    }, u = (g, x, y) => {
+      n.items[g][x] = y, _();
+    }, s = () => {
+      const g = String(n.items.length + 1);
+      n.items.push({
+        label: `\u884C${g}`
+      }), _();
+    }, p = (g) => {
+      n.items.splice(g, 1), _();
+    }, m = () => {
+      l.value = !0, a.value = JSON.stringify(n.items, null, "	");
+    }, $ = () => {
+      try {
+        n.items = JSON.parse(a.value);
+      } catch {
+        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
+      }
+      l.value = !1, _();
+    }, w = () => {
+      n.type = o.modelValue.type, n.remote = o.modelValue.remote, n.items = pe(o.modelValue.items);
+    };
+    return Se(w), xe(() => o.modelValue, w), (g, x) => {
+      const y = b("el-input"), C = b("el-col"), S = Qe, B = b("el-icon"), N = b("el-row"), W = b("el-button"), G = et, P = b("el-dialog"), U = b("el-tab-pane"), K = b("el-option"), ae = b("el-select"), k = b("el-tabs");
+      return r(), d("div", WF, [
+        v(k, {
+          modelValue: n.type,
+          "onUpdate:modelValue": x[4] || (x[4] = (j) => n.type = j),
+          onTabChange: _
+        }, {
+          default: f(() => [
+            v(U, {
+              label: "\u9759\u6001\u6570\u636E",
+              name: "static"
+            }, {
+              default: f(() => [
+                (r(!0), d(F, null, Y(n.items, (j, O) => (r(), z(N, {
+                  key: O,
+                  class: "option-row",
+                  gutter: 5
+                }, {
+                  default: f(() => [
+                    v(C, { span: 22 }, {
+                      default: f(() => [
+                        v(y, {
+                          "model-value": j.label,
+                          placeholder: "\u6807\u9898",
+                          onInput: (E) => u(O, "label", E)
+                        }, null, 8, ["model-value", "onInput"])
+                      ]),
+                      _: 2
+                    }, 1024),
+                    v(C, {
+                      span: 2,
+                      class: "btn-del"
+                    }, {
+                      default: f(() => [
+                        v(B, {
+                          class: "el-icon-delete",
+                          onClick: (E) => p(O)
+                        }, {
+                          default: f(() => [
+                            v(S)
+                          ]),
+                          _: 2
+                        }, 1032, ["onClick"])
+                      ]),
+                      _: 2
+                    }, 1024)
+                  ]),
+                  _: 2
+                }, 1024))), 128)),
+                v(W, {
+                  link: "",
+                  type: "primary",
+                  onClick: s
+                }, {
+                  default: f(() => [
+                    GF
+                  ]),
+                  _: 1
+                }),
+                v(W, {
+                  link: "",
+                  type: "primary",
+                  onClick: m
+                }, {
+                  default: f(() => [
+                    YF
+                  ]),
+                  _: 1
+                }),
+                v(P, {
+                  modelValue: l.value,
+                  "onUpdate:modelValue": x[2] || (x[2] = (j) => l.value = j),
+                  title: "\u7F16\u8F91\u884C",
+                  width: "750px"
+                }, {
+                  footer: f(() => [
+                    i("div", null, [
+                      v(W, {
+                        onClick: x[1] || (x[1] = (j) => l.value = !1)
+                      }, {
+                        default: f(() => [
+                          KF
+                        ]),
+                        _: 1
+                      }),
+                      v(W, {
+                        type: "primary",
+                        onClick: $
+                      }, {
+                        default: f(() => [
+                          JF
+                        ]),
+                        _: 1
+                      })
+                    ])
+                  ]),
+                  default: f(() => [
+                    i("div", XF, [
+                      v(G, {
+                        modelValue: a.value,
+                        "onUpdate:modelValue": x[0] || (x[0] = (j) => a.value = j),
+                        lang: "json"
+                      }, null, 8, ["modelValue"])
+                    ])
+                  ]),
+                  _: 1
+                }, 8, ["modelValue"])
+              ]),
+              _: 1
+            }),
+            v(U, {
+              label: "\u6570\u636E\u6E90",
+              name: "remote"
+            }, {
+              default: f(() => [
+                v(ae, {
+                  modelValue: n.remote,
+                  "onUpdate:modelValue": x[3] || (x[3] = (j) => n.remote = j),
+                  clearable: "",
+                  placeholder: "\u8BF7\u9009\u62E9\u6570\u636E\u6E90",
+                  style: { width: "88%", "margin-bottom": "5px" },
+                  onChange: _
+                }, {
+                  default: f(() => [
+                    (r(!0), d(F, null, Y(A(c).formDesign.options.remotes, (j, O) => (r(), z(K, {
+                      key: O,
+                      label: j.title,
+                      value: O
+                    }, null, 8, ["label", "value"]))), 128))
+                  ]),
+                  _: 1
+                }, 8, ["modelValue"])
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }, 8, ["modelValue"])
+      ]);
+    };
+  }
+}), eP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: QF
+}, Symbol.toStringTag, { value: "Module" })), tP = V({
+  name: "rowsOption"
+}), oP = /* @__PURE__ */ Object.assign(tP, {
+  props: {
+    modelValue: Number
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = (n) => {
+      t("update:modelValue", n);
+    };
+    return (n, a) => {
+      const l = b("el-slider");
+      return r(), z(l, {
+        "model-value": e.modelValue,
+        min: 2,
+        max: 10,
+        "onUpdate:modelValue": o
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), nP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: oP
+}, Symbol.toStringTag, { value: "Module" })), aP = /* @__PURE__ */ H(" \u5FC5\u586B "), lP = /* @__PURE__ */ H("\u589E\u52A0\u9A8C\u8BC1"), rP = /* @__PURE__ */ H("\u7F16\u8F91\u9A8C\u8BC1"), iP = { class: "form-design-code-editor" }, sP = /* @__PURE__ */ H("\u53D6\u6D88"), uP = /* @__PURE__ */ H("\u786E\u5B9A"), cP = V({
+  name: "rulesOption"
+}), dP = /* @__PURE__ */ Object.assign(cP, {
+  props: {
+    modelValue: Array
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = e, n = ue({
+      required: { required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" },
+      patterns: []
+    }), a = X(""), l = X(!1), c = () => {
+      t("update:modelValue", [n.required, ...n.patterns]);
+    }, _ = (w, g, x) => {
+      n.patterns[w][g] = x, c();
+    }, u = () => {
+      n.patterns.push({
+        pattern: "",
+        message: "",
+        trigger: "blur"
+      }), c();
+    }, s = (w) => {
+      n.patterns.splice(w, 1), c();
+    }, p = () => {
+      l.value = !0, a.value = JSON.stringify(n.patterns, null, "	");
+    }, m = () => {
+      try {
+        n.patterns = JSON.parse(a.value);
+      } catch {
+        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
+      }
+      l.value = !1, c();
+    }, $ = () => {
+      n.required = pe(o.modelValue[0]), n.patterns = pe(o.modelValue.slice(1));
+    };
+    return Se($), xe(() => o.modelValue, $), (w, g) => {
+      const x = b("el-checkbox"), y = b("el-col"), C = b("el-input"), S = b("el-row"), B = Qe, N = b("el-icon"), W = b("el-button"), G = et, P = b("el-dialog");
+      return r(), d("div", null, [
+        v(S, {
+          class: "option-row",
+          gutter: 5
+        }, {
+          default: f(() => [
+            v(y, { span: 11 }, {
+              default: f(() => [
+                v(x, {
+                  modelValue: n.required.required,
+                  "onUpdate:modelValue": g[0] || (g[0] = (U) => n.required.required = U),
+                  onChange: c
+                }, {
+                  default: f(() => [
+                    aP
+                  ]),
+                  _: 1
+                }, 8, ["modelValue"])
+              ]),
+              _: 1
+            }),
+            v(y, { span: 11 }, {
+              default: f(() => [
+                v(C, {
+                  modelValue: n.required.message,
+                  "onUpdate:modelValue": g[1] || (g[1] = (U) => n.required.message = U),
+                  placeholder: "\u63D0\u793A\u4FE1\u606F",
+                  onInput: c
+                }, null, 8, ["modelValue"])
+              ]),
+              _: 1
+            }),
+            v(y, { span: 2 })
+          ]),
+          _: 1
+        }),
+        (r(!0), d(F, null, Y(n.patterns, (U, K) => (r(), z(S, {
+          key: K,
+          class: "option-row",
+          gutter: 5
+        }, {
+          default: f(() => [
+            v(y, { span: 11 }, {
+              default: f(() => [
+                v(C, {
+                  "model-value": U.pattern,
+                  placeholder: "\u6B63\u5219\u8868\u8FBE\u5F0F",
+                  onInput: (ae) => _(K, "pattern", ae)
+                }, null, 8, ["model-value", "onInput"])
+              ]),
+              _: 2
+            }, 1024),
+            v(y, { span: 11 }, {
+              default: f(() => [
+                v(C, {
+                  "model-value": U.message,
+                  placeholder: "\u63D0\u793A\u4FE1\u606F",
+                  onInput: (ae) => _(K, "message", ae)
+                }, null, 8, ["model-value", "onInput"])
+              ]),
+              _: 2
+            }, 1024),
+            v(y, {
+              span: 2,
+              class: "btn-del"
+            }, {
+              default: f(() => [
+                v(N, {
+                  class: "el-icon-delete",
+                  onClick: (ae) => s(K)
+                }, {
+                  default: f(() => [
+                    v(B)
+                  ]),
+                  _: 2
+                }, 1032, ["onClick"])
+              ]),
+              _: 2
+            }, 1024)
+          ]),
+          _: 2
+        }, 1024))), 128)),
+        v(W, {
+          link: "",
+          type: "primary",
+          onClick: u
+        }, {
+          default: f(() => [
+            lP
+          ]),
+          _: 1
+        }),
+        v(W, {
+          link: "",
+          type: "primary",
+          onClick: p
+        }, {
+          default: f(() => [
+            rP
+          ]),
+          _: 1
+        }),
+        v(P, {
+          modelValue: l.value,
+          "onUpdate:modelValue": g[4] || (g[4] = (U) => l.value = U),
+          title: "\u7F16\u8F91\u9A8C\u8BC1",
+          width: "750px"
+        }, {
+          footer: f(() => [
+            i("div", null, [
+              v(W, {
+                onClick: g[3] || (g[3] = (U) => l.value = !1)
+              }, {
+                default: f(() => [
+                  sP
+                ]),
+                _: 1
+              }),
+              v(W, {
+                type: "primary",
+                onClick: m
+              }, {
+                default: f(() => [
+                  uP
+                ]),
+                _: 1
+              })
+            ])
+          ]),
+          default: f(() => [
+            i("div", iP, [
+              v(G, {
+                modelValue: a.value,
+                "onUpdate:modelValue": g[2] || (g[2] = (U) => a.value = U),
+                lang: "json"
+              }, null, 8, ["modelValue"])
+            ])
+          ]),
+          _: 1
+        }, 8, ["modelValue"])
+      ]);
+    };
+  }
+}), _P = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: dP
+}, Symbol.toStringTag, { value: "Module" })), pP = /* @__PURE__ */ H("\u603B\u662F"), mP = /* @__PURE__ */ H("\u60AC\u6D6E"), hP = /* @__PURE__ */ H("\u4ECE\u4E0D"), fP = V({
+  name: "shadowOption"
+}), vP = /* @__PURE__ */ Object.assign(fP, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-radio-button"), a = b("el-radio-group");
+      return r(), z(a, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
+      }, {
+        default: f(() => [
+          v(n, { label: "always" }, {
+            default: f(() => [
+              pP
+            ]),
+            _: 1
+          }),
+          v(n, { label: "hover" }, {
+            default: f(() => [
+              mP
+            ]),
+            _: 1
+          }),
+          v(n, { label: "never" }, {
+            default: f(() => [
+              hP
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), gP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: vP
+}, Symbol.toStringTag, { value: "Module" })), bP = V({
+  name: "showAlphaOption"
+}), wP = /* @__PURE__ */ Object.assign(bP, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), xP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: wP
+}, Symbol.toStringTag, { value: "Module" })), $P = V({
+  name: "showFileListOption"
+}), yP = /* @__PURE__ */ Object.assign($P, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), zP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: yP
+}, Symbol.toStringTag, { value: "Module" })), VP = V({
+  name: "showInputOption"
+}), CP = /* @__PURE__ */ Object.assign(VP, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), SP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: CP
+}, Symbol.toStringTag, { value: "Module" })), MP = V({
+  name: "showPasswordOption"
+}), kP = /* @__PURE__ */ Object.assign(MP, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), OP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: kP
+}, Symbol.toStringTag, { value: "Module" })), HP = V({
+  name: "showStopsOption"
+}), jP = /* @__PURE__ */ Object.assign(HP, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), AP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: jP
+}, Symbol.toStringTag, { value: "Module" })), BP = V({
+  name: "showToolTipOption"
+}), TP = /* @__PURE__ */ Object.assign(BP, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), EP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: TP
+}, Symbol.toStringTag, { value: "Module" })), LP = V({
+  name: "showWordLimitOption"
+}), DP = /* @__PURE__ */ Object.assign(LP, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), FP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: DP
+}, Symbol.toStringTag, { value: "Module" })), PP = /* @__PURE__ */ H("\u5927\u53F7"), IP = /* @__PURE__ */ H("\u6B63\u5E38"), RP = /* @__PURE__ */ H("\u5C0F\u53F7"), UP = V({
+  name: "sizeOption"
+}), qP = /* @__PURE__ */ Object.assign(UP, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-radio-button"), a = b("el-radio-group");
+      return r(), z(a, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
+      }, {
+        default: f(() => [
+          v(n, { label: "large" }, {
+            default: f(() => [
+              PP
+            ]),
+            _: 1
+          }),
+          v(n, { label: "default" }, {
+            default: f(() => [
+              IP
+            ]),
+            _: 1
+          }),
+          v(n, { label: "small" }, {
+            default: f(() => [
+              RP
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), NP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: qP
+}, Symbol.toStringTag, { value: "Module" })), WP = V({
+  name: "statusIconOption"
+}), GP = /* @__PURE__ */ Object.assign(WP, {
+  props: {
+    modelValue: Boolean
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-checkbox");
+      return r(), z(n, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), YP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: GP
+}, Symbol.toStringTag, { value: "Module" })), XP = /* @__PURE__ */ H("\u9009\u62E9"), KP = V({
+  name: "suffixIconOption"
+}), JP = /* @__PURE__ */ Object.assign(KP, {
+  props: {
+    modelValue: String
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = X(!1), n = (a) => {
+      t("update:modelValue", a), o.value = !1;
+    };
+    return (a, l) => {
+      const c = b("el-button"), _ = b("el-input"), u = b("el-tooltip"), s = b("el-drawer");
+      return r(), d(F, null, [
+        v(_, {
+          type: "text",
+          "model-value": e.modelValue,
+          onInput: l[1] || (l[1] = (p) => a.$emit("update:modelValue", p))
+        }, {
+          append: f(() => [
+            v(c, {
+              onClick: l[0] || (l[0] = (p) => o.value = !o.value)
+            }, {
+              default: f(() => [
+                XP
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }, 8, ["model-value"]),
+        v(s, {
+          modelValue: o.value,
+          "onUpdate:modelValue": l[2] || (l[2] = (p) => o.value = p),
+          direction: "rtl",
+          "show-close": !1,
+          "with-header": !1,
+          size: "380px"
+        }, {
+          default: f(() => [
+            (r(), d(F, null, Y(ye, (p, m) => v(u, {
+              key: m,
+              effect: "dark",
+              content: m,
+              placement: "top"
+            }, {
+              default: f(() => [
+                (r(), z(Vt(p), {
+                  style: { width: "24px", cursor: "pointer" },
+                  onClick: ($) => n(m)
+                }, null, 8, ["onClick"]))
+              ]),
+              _: 2
+            }, 1032, ["content"])), 64))
+          ]),
+          _: 1
+        }, 8, ["modelValue"])
+      ], 64);
+    };
+  }
+}), ZP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: JP
+}, Symbol.toStringTag, { value: "Module" })), QP = /* @__PURE__ */ H("\u4E0A"), eI = /* @__PURE__ */ H("\u53F3"), tI = /* @__PURE__ */ H("\u4E0B"), oI = /* @__PURE__ */ H("\u5DE6"), nI = V({
+  name: "tabPositionOption"
+}), aI = /* @__PURE__ */ Object.assign(nI, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-radio-button"), a = b("el-radio-group");
+      return r(), z(a, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
+      }, {
+        default: f(() => [
+          v(n, { label: "top" }, {
+            default: f(() => [
+              QP
+            ]),
+            _: 1
+          }),
+          v(n, { label: "right" }, {
+            default: f(() => [
+              eI
+            ]),
+            _: 1
+          }),
+          v(n, { label: "bottom" }, {
+            default: f(() => [
+              tI
+            ]),
+            _: 1
+          }),
+          v(n, { label: "left" }, {
+            default: f(() => [
+              oI
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), lI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: aI
+}, Symbol.toStringTag, { value: "Module" })), rI = /* @__PURE__ */ H("\u9009\u9879\u5361"), iI = /* @__PURE__ */ H("\u5361\u7247\u5316"), sI = V({
+  name: "tabTypeOption"
+}), uI = /* @__PURE__ */ Object.assign(sI, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-radio-button"), a = b("el-radio-group");
+      return r(), z(a, {
+        "model-value": e.modelValue,
+        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
+      }, {
+        default: f(() => [
+          v(n, { label: "card" }, {
+            default: f(() => [
+              rI
+            ]),
+            _: 1
+          }),
+          v(n, { label: "border-card" }, {
+            default: f(() => [
+              iI
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      }, 8, ["model-value"]);
+    };
+  }
+}), cI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: uI
+}, Symbol.toStringTag, { value: "Module" })), dI = V({
+  name: "tipOption"
+}), _I = /* @__PURE__ */ Object.assign(dI, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), pI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: _I
+}, Symbol.toStringTag, { value: "Module" })), mI = { class: "form-design-code-editor" }, hI = /* @__PURE__ */ H("\u53D6\u6D88"), fI = /* @__PURE__ */ H("\u786E\u5B9A"), vI = /* @__PURE__ */ H("\u7F16\u8F91\u6570\u636E"), gI = V({
+  name: "uploadDataOption"
+}), bI = /* @__PURE__ */ Object.assign(gI, {
+  props: {
+    modelValue: Object
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = e, n = X(""), a = X(!1), l = () => {
+      a.value = !0, n.value = JSON.stringify(o.modelValue, null, "	");
+    }, c = () => {
+      try {
+        const _ = JSON.parse(n.value);
+        t("update:modelValue", _);
+      } catch {
+        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
+      }
+      a.value = !1;
+    };
+    return (_, u) => {
+      const s = et, p = b("el-button"), m = b("el-dialog");
+      return r(), d(F, null, [
+        v(m, {
+          modelValue: a.value,
+          "onUpdate:modelValue": u[2] || (u[2] = ($) => a.value = $),
+          title: "\u7F16\u8F91\u989D\u5916\u53C2\u6570",
+          width: "750px"
+        }, {
+          footer: f(() => [
+            i("div", null, [
+              v(p, {
+                onClick: u[1] || (u[1] = ($) => a.value = !1)
+              }, {
+                default: f(() => [
+                  hI
+                ]),
+                _: 1
+              }),
+              v(p, {
+                type: "primary",
+                onClick: c
+              }, {
+                default: f(() => [
+                  fI
+                ]),
+                _: 1
+              })
+            ])
+          ]),
+          default: f(() => [
+            i("div", mI, [
+              v(s, {
+                modelValue: n.value,
+                "onUpdate:modelValue": u[0] || (u[0] = ($) => n.value = $),
+                lang: "json"
+              }, null, 8, ["modelValue"])
+            ])
+          ]),
+          _: 1
+        }, 8, ["modelValue"]),
+        v(p, {
+          link: "",
+          type: "primary",
+          onClick: l
+        }, {
+          default: f(() => [
+            vI
+          ]),
+          _: 1
+        })
+      ], 64);
+    };
+  }
+}), wI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: bI
+}, Symbol.toStringTag, { value: "Module" })), xI = { class: "form-design-code-editor" }, $I = /* @__PURE__ */ H("\u53D6\u6D88"), yI = /* @__PURE__ */ H("\u786E\u5B9A"), zI = /* @__PURE__ */ H("\u7F16\u8F91\u6570\u636E"), VI = V({
+  name: "uploadHeadersOption"
+}), CI = /* @__PURE__ */ Object.assign(VI, {
+  props: {
+    modelValue: Object
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = e, n = X(""), a = X(!1), l = () => {
+      a.value = !0, n.value = JSON.stringify(o.modelValue, null, "	");
+    }, c = () => {
+      try {
+        const _ = JSON.parse(n.value);
+        t("update:modelValue", _);
+      } catch {
+        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
+      }
+      a.value = !1;
+    };
+    return (_, u) => {
+      const s = et, p = b("el-button"), m = b("el-dialog");
+      return r(), d(F, null, [
+        v(m, {
+          modelValue: a.value,
+          "onUpdate:modelValue": u[2] || (u[2] = ($) => a.value = $),
+          title: "\u7F16\u8F91\u8BF7\u6C42\u5934\u90E8",
+          width: "750px"
+        }, {
+          footer: f(() => [
+            i("div", null, [
+              v(p, {
+                onClick: u[1] || (u[1] = ($) => a.value = !1)
+              }, {
+                default: f(() => [
+                  $I
+                ]),
+                _: 1
+              }),
+              v(p, {
+                type: "primary",
+                onClick: c
+              }, {
+                default: f(() => [
+                  yI
+                ]),
+                _: 1
+              })
+            ])
+          ]),
+          default: f(() => [
+            i("div", xI, [
+              v(s, {
+                modelValue: n.value,
+                "onUpdate:modelValue": u[0] || (u[0] = ($) => n.value = $),
+                lang: "json"
+              }, null, 8, ["modelValue"])
+            ])
+          ]),
+          _: 1
+        }, 8, ["modelValue"]),
+        v(p, {
+          link: "",
+          type: "primary",
+          onClick: l
+        }, {
+          default: f(() => [
+            zI
+          ]),
+          _: 1
+        })
+      ], 64);
+    };
+  }
+}), SI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: CI
+}, Symbol.toStringTag, { value: "Module" })), MI = V({
+  name: "uploadNameOption"
+}), kI = /* @__PURE__ */ Object.assign(MI, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), OI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: kI
+}, Symbol.toStringTag, { value: "Module" })), HI = V({
+  name: "uploadSizeOption"
+}), jI = /* @__PURE__ */ Object.assign(HI, {
+  props: {
+    modelValue: String
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = e, n = X(0), a = X("KB"), l = () => {
+      n.value = parseFloat(o.modelValue), a.value = o.modelValue.substr(o.modelValue.length - 2);
+    }, c = () => {
+      t("update:modelValue", n.value + a.value);
+    };
+    return xe(() => o.modelValue, l), Se(l), (_, u) => {
+      const s = b("el-option"), p = b("el-select"), m = b("el-input");
+      return r(), z(m, {
+        modelValue: n.value,
+        "onUpdate:modelValue": u[1] || (u[1] = ($) => n.value = $),
+        modelModifiers: { number: !0 },
+        type: "text",
+        onInput: c
+      }, {
+        append: f(() => [
+          v(p, {
+            modelValue: a.value,
+            "onUpdate:modelValue": u[0] || (u[0] = ($) => a.value = $),
+            style: { width: "70px" },
+            onChange: c
+          }, {
+            default: f(() => [
+              v(s, {
+                label: "KB",
+                value: "KB"
+              }),
+              v(s, {
+                label: "MB",
+                value: "MB"
+              }),
+              v(s, {
+                label: "GB",
+                value: "GB"
+              })
+            ]),
+            _: 1
+          }, 8, ["modelValue"])
+        ]),
+        _: 1
+      }, 8, ["modelValue"]);
+    };
+  }
+}), AI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: jI
+}, Symbol.toStringTag, { value: "Module" })), BI = V({
+  name: "uploadUrlOption"
+}), TI = /* @__PURE__ */ Object.assign(BI, {
+  props: {
+    modelValue: String
+  },
+  setup(e) {
+    return (t, o) => {
+      const n = b("el-input");
+      return r(), z(n, {
+        type: "text",
+        "model-value": e.modelValue,
+        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), EI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: TI
+}, Symbol.toStringTag, { value: "Module" })), LI = V({
+  name: "widthOption"
+}), DI = /* @__PURE__ */ Object.assign(LI, {
+  props: {
+    modelValue: String
+  },
+  emits: ["update:modelValue"],
+  setup(e, { emit: t }) {
+    const o = (n) => {
+      t("update:modelValue", `${n}%`);
+    };
+    return (n, a) => {
+      const l = b("el-slider");
+      return r(), z(l, {
+        "model-value": parseInt(e.modelValue),
+        min: 0,
+        max: 100,
+        marks: { 33: "1/3", 50: "1/2", 66: "2/3" },
+        "onUpdate:modelValue": o
+      }, null, 8, ["model-value"]);
+    };
+  }
+}), FI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: DI
+}, Symbol.toStringTag, { value: "Module" })), le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], PI = [
   {
     name: "\u8F93\u5165\u6846",
     component: "input",
@@ -11812,7 +15462,7 @@ const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], z
       disabled: !1
     }
   }
-], VE = [
+], II = [
   {
     name: "\u4E0B\u62C9\u5355\u9009",
     component: "select",
@@ -12118,7 +15768,7 @@ const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], z
       multiple: !1
     }
   }
-], CE = [
+], RI = [
   {
     name: "\u5BCC\u6587\u672C",
     component: "rich-editor",
@@ -12171,7 +15821,7 @@ const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], z
       multipleLimit: 0
     }
   }
-], SE = [
+], UI = [
   {
     name: "\u77E9\u9635\u5355\u9009",
     component: "matrix-radio",
@@ -12232,7 +15882,7 @@ const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], z
     gutter: 0
   },
   items: []
-}, ME = [
+}, qI = [
   {
     name: "\u6587\u5B57",
     component: "label",
@@ -12260,7 +15910,7 @@ const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], z
       width: "100%"
     }
   }
-], kE = [
+], NI = [
   x0,
   {
     name: "\u5361\u7247\u5E03\u5C40",
@@ -12303,7 +15953,7 @@ const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], z
     },
     items: []
   }
-], z2 = {
+], Co = {
   name: "\u8868\u5355",
   component: "object",
   uuid: "root",
@@ -12317,7 +15967,7 @@ const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], z
     remotes: {}
   },
   items: []
-}, OE = {
+}, WI = {
   activeColor: "\u6253\u5F00\u65F6\u80CC\u666F\u8272",
   activeText: "\u6253\u5F00\u65F6\u6587\u5B57\u63CF\u8FF0",
   allowHalf: "\u5141\u8BB8\u534A\u9009",
@@ -12384,3658 +16034,8 @@ const le = [{ required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" }], z
   uploadSize: "\u4E0A\u4F20\u5927\u5C0F\u9650\u5236",
   uploadUrl: "\u4E0A\u4F20\u5730\u5740",
   width: "\u7EC4\u4EF6\u5BBD\u5EA6"
-}, HE = V({
-  name: "formRender"
-}), N2 = /* @__PURE__ */ V({
-  ...HE,
-  emits: ["field-change"],
-  setup(e, { expose: t, emit: o }) {
-    const n = X(null), a = ue({
-      formDesign: {
-        name: "",
-        uuid: "",
-        component: "object",
-        options: {}
-      },
-      formData: {
-        root: {}
-      }
-    }), l = yE();
-    l.on("fieldChange", ({ key: $, value: w }) => {
-      o("field-change", { key: $, value: w });
-    });
-    const c = ($, w, g = { root: {} }) => ($.forEach((x) => {
-      const y = x.options.key || "";
-      y && (w[y] = g[y] || x.options.defaultValue);
-      for (const C in x.options)
-        if (H2(x.options[C])) {
-          const S = new Function(
-            "root",
-            "options",
-            `try {
-            return ${Ro(x.options[C])}
-          } catch(e) {
-            console.log(e)
-          }`
-          );
-          x.options[C] = ke({
-            get() {
-              return S(a.formData.root, x.options);
-            },
-            set() {
-            }
-          });
-        }
-      x.items && y && c(x.items, w[y], g[y]);
-    }), $), _ = ($, w = {}) => {
-      a.formDesign = $ || de(z2), a.formDesign.options.key = "root", a.formDesign.options.defaultValue = {}, c([a.formDesign], a.formData, { root: w }), n.value && n.value.clearValidate();
-    }, u = () => new Promise(($, w) => {
-      n.value.validate((g, x) => {
-        g ? $(Fo(a.formData.root)) : (l.emit("validateError", Object.keys(x)[0]), w(x));
-      });
-    }), s = () => {
-      n.value && n.value.resetFields();
-    }, p = ($, w, g) => {
-      for (const x in $)
-        if (un($[x]))
-          p($[x], w, g);
-        else if (x === w) {
-          $[w] = g;
-          return;
-        }
-    }, m = ($, w) => {
-      p(a.formData.root, $, w);
-    };
-    return _e("emitter", l), _e("state", a), t({
-      init: _,
-      submit: u,
-      reset: s,
-      getData() {
-        return a.formData.root;
-      },
-      setData: m
-    }), ($, w) => {
-      const g = q2;
-      return r(), z(A(an), {
-        ref_key: "formRef",
-        ref: n,
-        class: "form-render",
-        "label-width": a.formDesign.options.labelWidth,
-        "label-position": a.formDesign.options.labelPosition,
-        "hide-required-asterisk": a.formDesign.options.hideRequiredAsterisk,
-        "status-icon": a.formDesign.options.statusIcon,
-        inline: a.formDesign.options.inline,
-        size: a.formDesign.options.size,
-        model: a.formData
-      }, {
-        default: f(() => [
-          v(g, {
-            modelValue: a.formData.root,
-            "onUpdate:modelValue": w[0] || (w[0] = (x) => a.formData.root = x),
-            class: "root",
-            component: a.formDesign.component,
-            items: a.formDesign.items,
-            options: a.formDesign.options,
-            path: "root"
-          }, null, 8, ["modelValue", "component", "items", "options"])
-        ]),
-        _: 1
-      }, 8, ["label-width", "label-position", "hide-required-asterisk", "status-icon", "inline", "size", "model"]);
-    };
-  }
-}), jE = {
-  preserveAspectRatio: "xMidYMid meet",
-  viewBox: "0 0 1024 1024",
-  width: "1.2em",
-  height: "1.2em"
-}, AE = /* @__PURE__ */ i("path", {
-  fill: "currentColor",
-  d: "M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1l192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9A7.95 7.95 0 0 0 308 351v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2a8.1 8.1 0 0 0-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1zM880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-}, null, -1), BE = [
-  AE
-];
-function TE(e, t) {
-  return r(), d("svg", jE, BE);
-}
-const EE = { name: "ant-design-code-outlined", render: TE }, LE = { class: "value" }, DE = { class: "label" }, FE = /* @__PURE__ */ i("span", null, "{{", -1), PE = /* @__PURE__ */ i("span", null, "}}", -1), IE = V({
-  name: "interpolation"
-}), RE = /* @__PURE__ */ Object.assign(IE, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    const t = X([
-      { value: "root", label: "\u6574\u4E2A\u8868\u5355\u7684\u503C" },
-      { value: "options", label: "\u8BE5\u7EC4\u4EF6\u7684\u9009\u9879" }
-    ]), o = (n, a) => {
-      const l = n ? t.value.filter((c) => c.value.toLowerCase().indexOf(n.toLowerCase()) === 0) : t.value;
-      a(l);
-    };
-    return (n, a) => {
-      const l = b("el-autocomplete");
-      return r(), z(l, {
-        "popper-class": "form-setting-interpolation",
-        "model-value": A(Ro)(e.modelValue).trim(),
-        "fetch-suggestions": o,
-        placeholder: "\u8BF7\u8F93\u5165JS\u8868\u8FBE\u5F0F",
-        onInput: a[0] || (a[0] = (c) => n.$emit("update:modelValue", c.trim() ? `{{${c.trim()}}}` : "{{  }}"))
-      }, {
-        default: f(({ item: c }) => [
-          i("div", LE, Z(c.value), 1),
-          i("span", DE, Z(c.label), 1)
-        ]),
-        prefix: f(() => [
-          FE
-        ]),
-        suffix: f(() => [
-          PE
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), UE = V({
-  name: "activeColorOption"
-}), qE = /* @__PURE__ */ Object.assign(UE, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-color-picker");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), NE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: qE
-}, Symbol.toStringTag, { value: "Module" })), WE = V({
-  name: "activeTextOption"
-}), GE = /* @__PURE__ */ Object.assign(WE, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), YE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: GE
-}, Symbol.toStringTag, { value: "Module" })), XE = V({
-  name: "allowHalfOption"
-}), KE = /* @__PURE__ */ Object.assign(XE, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), JE = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: KE
-}, Symbol.toStringTag, { value: "Module" })), ZE = V({
-  name: "backgroundColorOption"
-}), QE = /* @__PURE__ */ Object.assign(ZE, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-color-picker");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), eL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: QE
-}, Symbol.toStringTag, { value: "Module" })), tL = V({
-  name: "borderOption"
-}), oL = /* @__PURE__ */ Object.assign(tL, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), nL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: oL
-}, Symbol.toStringTag, { value: "Module" })), aL = V({
-  name: "buttonTextOption"
-}), lL = /* @__PURE__ */ Object.assign(aL, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), rL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: lL
-}, Symbol.toStringTag, { value: "Module" })), iL = V({
-  name: "clearableOption"
-}), sL = /* @__PURE__ */ Object.assign(iL, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), uL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: sL
-}, Symbol.toStringTag, { value: "Module" })), cL = V({
-  name: "collapseTagsOption"
-}), dL = /* @__PURE__ */ Object.assign(cL, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), _L = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: dL
-}, Symbol.toStringTag, { value: "Module" })), pL = V({
-  name: "contentOption"
-}), mL = /* @__PURE__ */ Object.assign(pL, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), hL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: mL
-}, Symbol.toStringTag, { value: "Module" })), fL = V({
-  name: "defaultValueOption"
-}), vL = /* @__PURE__ */ Object.assign(fL, {
-  props: {
-    modelValue: [String, Number, Boolean, Date, Object, Array]
-  },
-  setup(e) {
-    const t = R("state"), o = ke(() => t.selected.component), n = ke(() => t.selected.items), a = ke(
-      () => Object.assign({}, t.selected.options, {
-        label: "",
-        clearable: !0,
-        disabled: !1,
-        width: "100%"
-      })
-    );
-    return (l, c) => {
-      const _ = q2;
-      return r(), z(_, {
-        "model-value": e.modelValue,
-        component: A(o),
-        items: A(n),
-        options: A(a),
-        "onUpdate:modelValue": c[0] || (c[0] = (u) => l.$emit("update:modelValue", u))
-      }, null, 8, ["model-value", "component", "items", "options"]);
-    };
-  }
-}), gL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: vL
-}, Symbol.toStringTag, { value: "Module" })), bL = V({
-  name: "disabledOption"
-}), wL = /* @__PURE__ */ Object.assign(bL, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), xL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: wL
-}, Symbol.toStringTag, { value: "Module" })), $L = /* @__PURE__ */ H("\u70B9\u51FB"), yL = /* @__PURE__ */ H("\u60AC\u6D6E"), zL = V({
-  name: "expandTriggerOption"
-}), VL = /* @__PURE__ */ Object.assign(zL, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-radio-button"), a = b("el-radio-group");
-      return r(), z(a, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
-      }, {
-        default: f(() => [
-          v(n, { label: "click" }, {
-            default: f(() => [
-              $L
-            ]),
-            _: 1
-          }),
-          v(n, { label: "hover" }, {
-            default: f(() => [
-              yL
-            ]),
-            _: 1
-          })
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), CL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: VL
-}, Symbol.toStringTag, { value: "Module" })), SL = V({
-  name: "fileSuffixOption"
-}), ML = /* @__PURE__ */ Object.assign(SL, {
-  props: {
-    modelValue: Array
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-option"), a = b("el-select");
-      return r(), z(a, {
-        multiple: "",
-        clearable: "",
-        filterable: "",
-        "allow-create": "",
-        "default-first-option": "",
-        placeholder: "\u8BF7\u9009\u62E9\u6587\u4EF6\u7C7B\u578B",
-        "model-value": e.modelValue,
-        style: { width: "88%" },
-        onChange: o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
-      }, {
-        default: f(() => [
-          v(n, {
-            label: "doc",
-            value: "doc"
-          }),
-          v(n, {
-            label: "docx",
-            value: "docx"
-          }),
-          v(n, {
-            label: "xls",
-            value: "xls"
-          }),
-          v(n, {
-            label: "xlsx",
-            value: "xlsx"
-          }),
-          v(n, {
-            label: "rar",
-            value: "rar"
-          }),
-          v(n, {
-            label: "zip",
-            value: "zip"
-          })
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), kL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: ML
-}, Symbol.toStringTag, { value: "Module" })), OL = V({
-  name: "filterableOption"
-}), HL = /* @__PURE__ */ Object.assign(OL, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), jL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: HL
-}, Symbol.toStringTag, { value: "Module" })), AL = V({
-  name: "formatOption"
-}), BL = /* @__PURE__ */ Object.assign(AL, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), TL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: BL
-}, Symbol.toStringTag, { value: "Module" })), EL = V({
-  name: "gutterOption"
-}), LL = /* @__PURE__ */ Object.assign(EL, {
-  props: {
-    modelValue: Number
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = (n) => {
-      t("update:modelValue", n);
-    };
-    return (n, a) => {
-      const l = b("el-slider");
-      return r(), z(l, {
-        "model-value": e.modelValue,
-        min: 0,
-        max: 300,
-        "onUpdate:modelValue": o
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), DL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: LL
-}, Symbol.toStringTag, { value: "Module" })), FL = V({
-  name: "heightOption"
-}), PL = /* @__PURE__ */ Object.assign(FL, {
-  props: {
-    modelValue: String
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = (n) => {
-      t("update:modelValue", `${n}px`);
-    };
-    return (n, a) => {
-      const l = b("el-slider");
-      return r(), z(l, {
-        "model-value": parseInt(e.modelValue),
-        "format-tooltip": (c) => c + "px",
-        min: 0,
-        max: 1e3,
-        "onUpdate:modelValue": o
-      }, null, 8, ["model-value", "format-tooltip"]);
-    };
-  }
-}), IL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: PL
-}, Symbol.toStringTag, { value: "Module" })), RL = V({
-  name: "hiddenOption"
-}), UL = /* @__PURE__ */ Object.assign(RL, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), qL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: UL
-}, Symbol.toStringTag, { value: "Module" })), NL = V({
-  name: "hideRequiredAsteriskOption"
-}), WL = /* @__PURE__ */ Object.assign(NL, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), GL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: WL
-}, Symbol.toStringTag, { value: "Module" })), YL = V({
-  name: "imageSuffixOption"
-}), XL = /* @__PURE__ */ Object.assign(YL, {
-  props: {
-    modelValue: Array
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-option"), a = b("el-select");
-      return r(), z(a, {
-        multiple: "",
-        clearable: "",
-        filterable: "",
-        "allow-create": "",
-        "default-first-option": "",
-        placeholder: "\u8BF7\u9009\u62E9\u56FE\u7247\u7C7B\u578B",
-        "model-value": e.modelValue,
-        style: { width: "88%" },
-        onChange: o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
-      }, {
-        default: f(() => [
-          v(n, {
-            label: "jpg",
-            value: "jpg"
-          }),
-          v(n, {
-            label: "jpeg",
-            value: "jpeg"
-          }),
-          v(n, {
-            label: "png",
-            value: "png"
-          }),
-          v(n, {
-            label: "gif",
-            value: "gif"
-          })
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), KL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: XL
-}, Symbol.toStringTag, { value: "Module" })), JL = V({
-  name: "inactiveColorOption"
-}), ZL = /* @__PURE__ */ Object.assign(JL, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-color-picker");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), QL = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: ZL
-}, Symbol.toStringTag, { value: "Module" })), eD = V({
-  name: "inactiveTextOption"
-}), tD = /* @__PURE__ */ Object.assign(eD, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), oD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: tD
-}, Symbol.toStringTag, { value: "Module" })), nD = V({
-  name: "inlineOption"
-}), aD = /* @__PURE__ */ Object.assign(nD, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), lD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: aD
-}, Symbol.toStringTag, { value: "Module" })), rD = V({
-  name: "keyOption"
-}), iD = /* @__PURE__ */ Object.assign(rD, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), sD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: iD
-}, Symbol.toStringTag, { value: "Module" })), uD = /* @__PURE__ */ H("\u5DE6"), cD = /* @__PURE__ */ H("\u53F3"), dD = /* @__PURE__ */ H("\u9876\u90E8"), _D = V({
-  name: "labelPositionOption"
-}), pD = /* @__PURE__ */ Object.assign(_D, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-radio-button"), a = b("el-radio-group");
-      return r(), z(a, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
-      }, {
-        default: f(() => [
-          v(n, { label: "left" }, {
-            default: f(() => [
-              uD
-            ]),
-            _: 1
-          }),
-          v(n, { label: "right" }, {
-            default: f(() => [
-              cD
-            ]),
-            _: 1
-          }),
-          v(n, { label: "top" }, {
-            default: f(() => [
-              dD
-            ]),
-            _: 1
-          })
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), mD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: pD
-}, Symbol.toStringTag, { value: "Module" })), hD = V({
-  name: "labelWidthOption"
-}), fD = /* @__PURE__ */ Object.assign(hD, {
-  props: {
-    modelValue: String
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = (n) => {
-      t("update:modelValue", `${n}px`);
-    };
-    return (n, a) => {
-      const l = b("el-slider");
-      return r(), z(l, {
-        "model-value": parseInt(e.modelValue),
-        min: 0,
-        max: 300,
-        "format-tooltip": (c) => c + "px",
-        "onUpdate:modelValue": o
-      }, null, 8, ["model-value", "format-tooltip"]);
-    };
-  }
-}), vD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: fD
-}, Symbol.toStringTag, { value: "Module" })), gD = V({
-  name: "labelOption"
-}), bD = /* @__PURE__ */ Object.assign(gD, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), wD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: bD
-}, Symbol.toStringTag, { value: "Module" })), xD = V({
-  name: "limitOption"
-}), $D = /* @__PURE__ */ Object.assign(xD, {
-  props: {
-    modelValue: Number
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input-number");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), yD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: $D
-}, Symbol.toStringTag, { value: "Module" })), zD = V({
-  name: "lineHeightOption"
-}), VD = /* @__PURE__ */ Object.assign(zD, {
-  props: {
-    modelValue: String
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = (n) => {
-      t("update:modelValue", `${n}px`);
-    };
-    return (n, a) => {
-      const l = b("el-slider");
-      return r(), z(l, {
-        "model-value": parseInt(e.modelValue),
-        min: 12,
-        max: 200,
-        "format-tooltip": (c) => c + "px",
-        "onUpdate:modelValue": o
-      }, null, 8, ["model-value", "format-tooltip"]);
-    };
-  }
-}), CD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: VD
-}, Symbol.toStringTag, { value: "Module" })), SD = V({
-  name: "maxOption"
-}), MD = /* @__PURE__ */ Object.assign(SD, {
-  props: {
-    modelValue: Number
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input-number");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), kD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: MD
-}, Symbol.toStringTag, { value: "Module" })), OD = V({
-  name: "maxlengthOption"
-}), HD = /* @__PURE__ */ Object.assign(OD, {
-  props: {
-    modelValue: Number
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input-number");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a || void 0))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), jD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: HD
-}, Symbol.toStringTag, { value: "Module" })), AD = V({
-  name: "minOption"
-}), BD = /* @__PURE__ */ Object.assign(AD, {
-  props: {
-    modelValue: Number
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input-number");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), TD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: BD
-}, Symbol.toStringTag, { value: "Module" })), ED = V({
-  name: "multipleLimitOption"
-}), LD = /* @__PURE__ */ Object.assign(ED, {
-  props: {
-    modelValue: Number
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input-number");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), DD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: LD
-}, Symbol.toStringTag, { value: "Module" })), FD = V({
-  name: "multipleOption"
-}), PD = /* @__PURE__ */ Object.assign(FD, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), ID = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: PD
-}, Symbol.toStringTag, { value: "Module" })), RD = V({
-  name: "noDataTextOption"
-}), UD = /* @__PURE__ */ Object.assign(RD, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), qD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: UD
-}, Symbol.toStringTag, { value: "Module" })), ND = V({
-  name: "noMatchTextOption"
-}), WD = /* @__PURE__ */ Object.assign(ND, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), GD = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: WD
-}, Symbol.toStringTag, { value: "Module" }));
-var YD = { exports: {} };
-(function(e, t) {
-  ace.define("ace/theme/chrome.css", ["require", "exports", "module"], function(o, n, a) {
-    a.exports = `.ace-chrome .ace_gutter {
-  background: #ebebeb;
-  color: #333;
-  overflow : hidden;
-}
-
-.ace-chrome .ace_print-margin {
-  width: 1px;
-  background: #e8e8e8;
-}
-
-.ace-chrome {
-  background-color: #FFFFFF;
-  color: black;
-}
-
-.ace-chrome .ace_cursor {
-  color: black;
-}
-
-.ace-chrome .ace_invisible {
-  color: rgb(191, 191, 191);
-}
-
-.ace-chrome .ace_constant.ace_buildin {
-  color: rgb(88, 72, 246);
-}
-
-.ace-chrome .ace_constant.ace_language {
-  color: rgb(88, 92, 246);
-}
-
-.ace-chrome .ace_constant.ace_library {
-  color: rgb(6, 150, 14);
-}
-
-.ace-chrome .ace_invalid {
-  background-color: rgb(153, 0, 0);
-  color: white;
-}
-
-.ace-chrome .ace_fold {
-}
-
-.ace-chrome .ace_support.ace_function {
-  color: rgb(60, 76, 114);
-}
-
-.ace-chrome .ace_support.ace_constant {
-  color: rgb(6, 150, 14);
-}
-
-.ace-chrome .ace_support.ace_type,
-.ace-chrome .ace_support.ace_class
-.ace-chrome .ace_support.ace_other {
-  color: rgb(109, 121, 222);
-}
-
-.ace-chrome .ace_variable.ace_parameter {
-  font-style:italic;
-  color:#FD971F;
-}
-.ace-chrome .ace_keyword.ace_operator {
-  color: rgb(104, 118, 135);
-}
-
-.ace-chrome .ace_comment {
-  color: #236e24;
-}
-
-.ace-chrome .ace_comment.ace_doc {
-  color: #236e24;
-}
-
-.ace-chrome .ace_comment.ace_doc.ace_tag {
-  color: #236e24;
-}
-
-.ace-chrome .ace_constant.ace_numeric {
-  color: rgb(0, 0, 205);
-}
-
-.ace-chrome .ace_variable {
-  color: rgb(49, 132, 149);
-}
-
-.ace-chrome .ace_xml-pe {
-  color: rgb(104, 104, 91);
-}
-
-.ace-chrome .ace_entity.ace_name.ace_function {
-  color: #0000A2;
-}
-
-
-.ace-chrome .ace_heading {
-  color: rgb(12, 7, 255);
-}
-
-.ace-chrome .ace_list {
-  color:rgb(185, 6, 144);
-}
-
-.ace-chrome .ace_marker-layer .ace_selection {
-  background: rgb(181, 213, 255);
-}
-
-.ace-chrome .ace_marker-layer .ace_step {
-  background: rgb(252, 255, 0);
-}
-
-.ace-chrome .ace_marker-layer .ace_stack {
-  background: rgb(164, 229, 101);
-}
-
-.ace-chrome .ace_marker-layer .ace_bracket {
-  margin: -1px 0 0 -1px;
-  border: 1px solid rgb(192, 192, 192);
-}
-
-.ace-chrome .ace_marker-layer .ace_active-line {
-  background: rgba(0, 0, 0, 0.07);
-}
-
-.ace-chrome .ace_gutter-active-line {
-    background-color : #dcdcdc;
-}
-
-.ace-chrome .ace_marker-layer .ace_selected-word {
-  background: rgb(250, 250, 255);
-  border: 1px solid rgb(200, 200, 250);
-}
-
-.ace-chrome .ace_storage,
-.ace-chrome .ace_keyword,
-.ace-chrome .ace_meta.ace_tag {
-  color: rgb(147, 15, 128);
-}
-
-.ace-chrome .ace_string.ace_regex {
-  color: rgb(255, 0, 0)
-}
-
-.ace-chrome .ace_string {
-  color: #1A1AA6;
-}
-
-.ace-chrome .ace_entity.ace_other.ace_attribute-name {
-  color: #994409;
-}
-
-.ace-chrome .ace_indent-guide {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;
-}`;
-  }), ace.define("ace/theme/chrome", ["require", "exports", "module", "ace/theme/chrome.css", "ace/lib/dom"], function(o, n, a) {
-    n.isDark = !1, n.cssClass = "ace-chrome", n.cssText = o("./chrome.css");
-    var l = o("../lib/dom");
-    l.importCssString(n.cssText, n.cssClass, !1);
-  }), function() {
-    ace.require(["ace/theme/chrome"], function(o) {
-      e && (e.exports = o);
-    });
-  }();
-})(YD);
-var XD = { exports: {} };
-(function(e, t) {
-  ace.define("ace/mode/doc_comment_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text_highlight_rules"], function(o, n, a) {
-    var l = o("../lib/oop"), c = o("./text_highlight_rules").TextHighlightRules, _ = function() {
-      this.$rules = { start: [{ token: "comment.doc.tag", regex: "@[\\w\\d_]+" }, _.getTagRule(), { defaultToken: "comment.doc", caseInsensitive: !0 }] };
-    };
-    l.inherits(_, c), _.getTagRule = function(u) {
-      return { token: "comment.doc.tag.storage.type", regex: "\\b(?:TODO|FIXME|XXX|HACK)\\b" };
-    }, _.getStartRule = function(u) {
-      return { token: "comment.doc", regex: "\\/\\*(?=\\*)", next: u };
-    }, _.getEndRule = function(u) {
-      return { token: "comment.doc", regex: "\\*\\/", next: u };
-    }, n.DocCommentHighlightRules = _;
-  }), ace.define("ace/mode/javascript_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/doc_comment_highlight_rules", "ace/mode/text_highlight_rules"], function(o, n, a) {
-    function l() {
-      var $ = p.replace("\\d", "\\d\\-"), w = { onMatch: function(x, y, C) {
-        var S = x.charAt(1) == "/" ? 2 : 1;
-        return S == 1 ? (y != this.nextState ? C.unshift(this.next, this.nextState, 0) : C.unshift(this.next), C[2]++) : S == 2 && y == this.nextState && (C[1]--, (!C[1] || C[1] < 0) && (C.shift(), C.shift())), [{ type: "meta.tag.punctuation." + (S == 1 ? "" : "end-") + "tag-open.xml", value: x.slice(0, S) }, { type: "meta.tag.tag-name.xml", value: x.substr(S) }];
-      }, regex: "</?" + $, next: "jsxAttributes", nextState: "jsx" };
-      this.$rules.start.unshift(w);
-      var g = { regex: "{", token: "paren.quasi.start", push: "start" };
-      this.$rules.jsx = [g, w, { include: "reference" }, { defaultToken: "string" }], this.$rules.jsxAttributes = [{ token: "meta.tag.punctuation.tag-close.xml", regex: "/?>", onMatch: function(x, y, C) {
-        return y == C[0] && C.shift(), x.length == 2 && (C[0] == this.nextState && C[1]--, (!C[1] || C[1] < 0) && C.splice(0, 2)), this.next = C[0] || "start", [{ type: this.token, value: x }];
-      }, nextState: "jsx" }, g, c("jsxAttributes"), { token: "entity.other.attribute-name.xml", regex: $ }, { token: "keyword.operator.attribute-equals.xml", regex: "=" }, { token: "text.tag-whitespace.xml", regex: "\\s+" }, { token: "string.attribute-value.xml", regex: "'", stateName: "jsx_attr_q", push: [{ token: "string.attribute-value.xml", regex: "'", next: "pop" }, { include: "reference" }, { defaultToken: "string.attribute-value.xml" }] }, { token: "string.attribute-value.xml", regex: '"', stateName: "jsx_attr_qq", push: [{ token: "string.attribute-value.xml", regex: '"', next: "pop" }, { include: "reference" }, { defaultToken: "string.attribute-value.xml" }] }, w], this.$rules.reference = [{ token: "constant.language.escape.reference.xml", regex: "(?:&#[0-9]+;)|(?:&#x[0-9a-fA-F]+;)|(?:&[a-zA-Z0-9_:\\.-]+;)" }];
-    }
-    function c($) {
-      return [{ token: "comment", regex: /\/\*/, next: [u.getTagRule(), { token: "comment", regex: "\\*\\/", next: $ || "pop" }, { defaultToken: "comment", caseInsensitive: !0 }] }, { token: "comment", regex: "\\/\\/", next: [u.getTagRule(), { token: "comment", regex: "$|^", next: $ || "pop" }, { defaultToken: "comment", caseInsensitive: !0 }] }];
-    }
-    var _ = o("../lib/oop"), u = o("./doc_comment_highlight_rules").DocCommentHighlightRules, s = o("./text_highlight_rules").TextHighlightRules, p = "[a-zA-Z\\$_\xA1-\uFFFF][a-zA-Z\\d\\$_\xA1-\uFFFF]*", m = function($) {
-      var w = this.createKeywordMapper({ "variable.language": "Array|Boolean|Date|Function|Iterator|Number|Object|RegExp|String|Proxy|Namespace|QName|XML|XMLList|ArrayBuffer|Float32Array|Float64Array|Int16Array|Int32Array|Int8Array|Uint16Array|Uint32Array|Uint8Array|Uint8ClampedArray|Error|EvalError|InternalError|RangeError|ReferenceError|StopIteration|SyntaxError|TypeError|URIError|decodeURI|decodeURIComponent|encodeURI|encodeURIComponent|eval|isFinite|isNaN|parseFloat|parseInt|JSON|Math|this|arguments|prototype|window|document", keyword: "const|yield|import|get|set|async|await|break|case|catch|continue|default|delete|do|else|finally|for|function|if|in|of|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|debugger|__parent__|__count__|escape|unescape|with|__proto__|class|enum|extends|super|export|implements|private|public|interface|package|protected|static", "storage.type": "const|let|var|function", "constant.language": "null|Infinity|NaN|undefined", "support.function": "alert", "constant.language.boolean": "true|false" }, "identifier"), g = "case|do|else|finally|in|instanceof|return|throw|try|typeof|yield|void", x = "\\\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|u{[0-9a-fA-F]{1,6}}|[0-2][0-7]{0,2}|3[0-7][0-7]?|[4-7][0-7]?|.)";
-      this.$rules = { no_regex: [u.getStartRule("doc-start"), c("no_regex"), { token: "string", regex: "'(?=.)", next: "qstring" }, { token: "string", regex: '"(?=.)', next: "qqstring" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: ["storage.type", "punctuation.operator", "support.function", "punctuation.operator", "entity.name.function", "text", "keyword.operator"], regex: "(" + p + ")(\\.)(prototype)(\\.)(" + p + ")(\\s*)(=)", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + p + ")(\\.)(" + p + ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + p + ")(\\s*)(=)(\\s*)(function)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + p + ")(\\.)(" + p + ")(\\s*)(=)(\\s*)(function)(\\s+)(\\w+)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(function)(\\s+)(" + p + ")(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "punctuation.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + p + ")(\\s*)(:)(\\s*)(function)(\\s*)(\\()", next: "function_arguments" }, { token: ["text", "text", "storage.type", "text", "paren.lparen"], regex: "(:)(\\s*)(function)(\\s*)(\\()", next: "function_arguments" }, { token: "keyword", regex: `from(?=\\s*('|"))` }, { token: "keyword", regex: "(?:" + g + ")\\b", next: "start" }, { token: ["support.constant"], regex: /that\b/ }, { token: ["storage.type", "punctuation.operator", "support.function.firebug"], regex: /(console)(\.)(warn|info|log|error|time|trace|timeEnd|assert)\b/ }, { token: w, regex: p }, { token: "punctuation.operator", regex: /[.](?![.])/, next: "property" }, { token: "storage.type", regex: /=>/, next: "start" }, { token: "keyword.operator", regex: /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/, next: "start" }, { token: "punctuation.operator", regex: /[?:,;.]/, next: "start" }, { token: "paren.lparen", regex: /[\[({]/, next: "start" }, { token: "paren.rparen", regex: /[\])}]/ }, { token: "comment", regex: /^#!.*$/ }], property: [{ token: "text", regex: "\\s+" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + p + ")(\\.)(" + p + ")(\\s*)(=)(\\s*)(function)(?:(\\s+)(\\w+))?(\\s*)(\\()", next: "function_arguments" }, { token: "punctuation.operator", regex: /[.](?![.])/ }, { token: "support.function", regex: /(s(?:h(?:ift|ow(?:Mod(?:elessDialog|alDialog)|Help))|croll(?:X|By(?:Pages|Lines)?|Y|To)?|t(?:op|rike)|i(?:n|zeToContent|debar|gnText)|ort|u(?:p|b(?:str(?:ing)?)?)|pli(?:ce|t)|e(?:nd|t(?:Re(?:sizable|questHeader)|M(?:i(?:nutes|lliseconds)|onth)|Seconds|Ho(?:tKeys|urs)|Year|Cursor|Time(?:out)?|Interval|ZOptions|Date|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Date|FullYear)|FullYear|Active)|arch)|qrt|lice|avePreferences|mall)|h(?:ome|andleEvent)|navigate|c(?:har(?:CodeAt|At)|o(?:s|n(?:cat|textual|firm)|mpile)|eil|lear(?:Timeout|Interval)?|a(?:ptureEvents|ll)|reate(?:StyleSheet|Popup|EventObject))|t(?:o(?:GMTString|S(?:tring|ource)|U(?:TCString|pperCase)|Lo(?:caleString|werCase))|est|a(?:n|int(?:Enabled)?))|i(?:s(?:NaN|Finite)|ndexOf|talics)|d(?:isableExternalCapture|ump|etachEvent)|u(?:n(?:shift|taint|escape|watch)|pdateCommands)|j(?:oin|avaEnabled)|p(?:o(?:p|w)|ush|lugins.refresh|a(?:ddings|rse(?:Int|Float)?)|r(?:int|ompt|eference))|e(?:scape|nableExternalCapture|val|lementFromPoint|x(?:p|ec(?:Script|Command)?))|valueOf|UTC|queryCommand(?:State|Indeterm|Enabled|Value)|f(?:i(?:nd|le(?:ModifiedDate|Size|CreatedDate|UpdatedDate)|xed)|o(?:nt(?:size|color)|rward)|loor|romCharCode)|watch|l(?:ink|o(?:ad|g)|astIndexOf)|a(?:sin|nchor|cos|t(?:tachEvent|ob|an(?:2)?)|pply|lert|b(?:s|ort))|r(?:ou(?:nd|teEvents)|e(?:size(?:By|To)|calc|turnValue|place|verse|l(?:oad|ease(?:Capture|Events)))|andom)|g(?:o|et(?:ResponseHeader|M(?:i(?:nutes|lliseconds)|onth)|Se(?:conds|lection)|Hours|Year|Time(?:zoneOffset)?|Da(?:y|te)|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Da(?:y|te)|FullYear)|FullYear|A(?:ttention|llResponseHeaders)))|m(?:in|ove(?:B(?:y|elow)|To(?:Absolute)?|Above)|ergeAttributes|a(?:tch|rgins|x))|b(?:toa|ig|o(?:ld|rderWidths)|link|ack))\b(?=\()/ }, { token: "support.function.dom", regex: /(s(?:ub(?:stringData|mit)|plitText|e(?:t(?:NamedItem|Attribute(?:Node)?)|lect))|has(?:ChildNodes|Feature)|namedItem|c(?:l(?:ick|o(?:se|neNode))|reate(?:C(?:omment|DATASection|aption)|T(?:Head|extNode|Foot)|DocumentFragment|ProcessingInstruction|E(?:ntityReference|lement)|Attribute))|tabIndex|i(?:nsert(?:Row|Before|Cell|Data)|tem)|open|delete(?:Row|C(?:ell|aption)|T(?:Head|Foot)|Data)|focus|write(?:ln)?|a(?:dd|ppend(?:Child|Data))|re(?:set|place(?:Child|Data)|move(?:NamedItem|Child|Attribute(?:Node)?)?)|get(?:NamedItem|Element(?:sBy(?:Name|TagName|ClassName)|ById)|Attribute(?:Node)?)|blur)\b(?=\()/ }, { token: "support.constant", regex: /(s(?:ystemLanguage|cr(?:ipts|ollbars|een(?:X|Y|Top|Left))|t(?:yle(?:Sheets)?|atus(?:Text|bar)?)|ibling(?:Below|Above)|ource|uffixes|e(?:curity(?:Policy)?|l(?:ection|f)))|h(?:istory|ost(?:name)?|as(?:h|Focus))|y|X(?:MLDocument|SLDocument)|n(?:ext|ame(?:space(?:s|URI)|Prop))|M(?:IN_VALUE|AX_VALUE)|c(?:haracterSet|o(?:n(?:structor|trollers)|okieEnabled|lorDepth|mp(?:onents|lete))|urrent|puClass|l(?:i(?:p(?:boardData)?|entInformation)|osed|asses)|alle(?:e|r)|rypto)|t(?:o(?:olbar|p)|ext(?:Transform|Indent|Decoration|Align)|ags)|SQRT(?:1_2|2)|i(?:n(?:ner(?:Height|Width)|put)|ds|gnoreCase)|zIndex|o(?:scpu|n(?:readystatechange|Line)|uter(?:Height|Width)|p(?:sProfile|ener)|ffscreenBuffering)|NEGATIVE_INFINITY|d(?:i(?:splay|alog(?:Height|Top|Width|Left|Arguments)|rectories)|e(?:scription|fault(?:Status|Ch(?:ecked|arset)|View)))|u(?:ser(?:Profile|Language|Agent)|n(?:iqueID|defined)|pdateInterval)|_content|p(?:ixelDepth|ort|ersonalbar|kcs11|l(?:ugins|atform)|a(?:thname|dding(?:Right|Bottom|Top|Left)|rent(?:Window|Layer)?|ge(?:X(?:Offset)?|Y(?:Offset)?))|r(?:o(?:to(?:col|type)|duct(?:Sub)?|mpter)|e(?:vious|fix)))|e(?:n(?:coding|abledPlugin)|x(?:ternal|pando)|mbeds)|v(?:isibility|endor(?:Sub)?|Linkcolor)|URLUnencoded|P(?:I|OSITIVE_INFINITY)|f(?:ilename|o(?:nt(?:Size|Family|Weight)|rmName)|rame(?:s|Element)|gColor)|E|whiteSpace|l(?:i(?:stStyleType|n(?:eHeight|kColor))|o(?:ca(?:tion(?:bar)?|lName)|wsrc)|e(?:ngth|ft(?:Context)?)|a(?:st(?:M(?:odified|atch)|Index|Paren)|yer(?:s|X)|nguage))|a(?:pp(?:MinorVersion|Name|Co(?:deName|re)|Version)|vail(?:Height|Top|Width|Left)|ll|r(?:ity|guments)|Linkcolor|bove)|r(?:ight(?:Context)?|e(?:sponse(?:XML|Text)|adyState))|global|x|m(?:imeTypes|ultiline|enubar|argin(?:Right|Bottom|Top|Left))|L(?:N(?:10|2)|OG(?:10E|2E))|b(?:o(?:ttom|rder(?:Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth))|ufferDepth|elow|ackground(?:Color|Image)))\b/ }, { token: "identifier", regex: p }, { regex: "", token: "empty", next: "no_regex" }], start: [u.getStartRule("doc-start"), c("start"), { token: "string.regexp", regex: "\\/", next: "regex" }, { token: "text", regex: "\\s+|^$", next: "start" }, { token: "empty", regex: "", next: "no_regex" }], regex: [{ token: "regexp.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "string.regexp", regex: "/[sxngimy]*", next: "no_regex" }, { token: "invalid", regex: /\{\d+\b,?\d*\}[+*]|[+*$^?][+*]|[$^][?]|\?{3,}/ }, { token: "constant.language.escape", regex: /\(\?[:=!]|\)|\{\d+\b,?\d*\}|[+*]\?|[()$^+*?.]/ }, { token: "constant.language.delimiter", regex: /\|/ }, { token: "constant.language.escape", regex: /\[\^?/, next: "regex_character_class" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp" }], regex_character_class: [{ token: "regexp.charclass.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "constant.language.escape", regex: "]", next: "regex" }, { token: "constant.language.escape", regex: "-" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp.charachterclass" }], function_arguments: [{ token: "variable.parameter", regex: p }, { token: "punctuation.operator", regex: "[, ]+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], qqstring: [{ token: "constant.language.escape", regex: x }, { token: "string", regex: "\\\\$", consumeLineEnd: !0 }, { token: "string", regex: '"|$', next: "no_regex" }, { defaultToken: "string" }], qstring: [{ token: "constant.language.escape", regex: x }, { token: "string", regex: "\\\\$", consumeLineEnd: !0 }, { token: "string", regex: "'|$", next: "no_regex" }, { defaultToken: "string" }] }, (!$ || !$.noES6) && (this.$rules.no_regex.unshift({ regex: "[{}]", onMatch: function(y, C, S) {
-        if (this.next = y == "{" ? this.nextState : "", y == "{" && S.length)
-          S.unshift("start", C);
-        else if (y == "}" && S.length && (S.shift(), this.next = S.shift(), this.next.indexOf("string") != -1 || this.next.indexOf("jsx") != -1))
-          return "paren.quasi.end";
-        return y == "{" ? "paren.lparen" : "paren.rparen";
-      }, nextState: "start" }, { token: "string.quasi.start", regex: /`/, push: [{ token: "constant.language.escape", regex: x }, { token: "paren.quasi.start", regex: /\${/, push: "start" }, { token: "string.quasi.end", regex: /`/, next: "pop" }, { defaultToken: "string.quasi" }] }), (!$ || $.jsx != 0) && l.call(this)), this.embedRules(u, "doc-", [u.getEndRule("no_regex")]), this.normalizeRules();
-    };
-    _.inherits(m, s), n.JavaScriptHighlightRules = m;
-  }), ace.define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"], function(o, n, a) {
-    var l = o("../range").Range, c = function() {
-    };
-    (function() {
-      this.checkOutdent = function(_, u) {
-        return /^\s+$/.test(_) ? /^\s*\}/.test(u) : !1;
-      }, this.autoOutdent = function(_, u) {
-        var s = _.getLine(u), p = s.match(/^(\s*\})/);
-        if (!p)
-          return 0;
-        var m = p[1].length, $ = _.findMatchingBracket({ row: u, column: m });
-        if (!$ || $.row == u)
-          return 0;
-        var w = this.$getIndent(_.getLine($.row));
-        _.replace(new l(u, 0, u, m - 1), w);
-      }, this.$getIndent = function(_) {
-        return _.match(/^\s*/)[0];
-      };
-    }).call(c.prototype), n.MatchingBraceOutdent = c;
-  }), ace.define("ace/mode/folding/cstyle", ["require", "exports", "module", "ace/lib/oop", "ace/range", "ace/mode/folding/fold_mode"], function(o, n, a) {
-    var l = o("../../lib/oop"), c = o("../../range").Range, _ = o("./fold_mode").FoldMode, u = n.FoldMode = function(s) {
-      s && (this.foldingStartMarker = new RegExp(this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + s.start)), this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + s.end)));
-    };
-    l.inherits(u, _), function() {
-      this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/, this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/, this.singleLineBlockCommentRe = /^\s*(\/\*).*\*\/\s*$/, this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/, this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/, this._getFoldWidgetBase = this.getFoldWidget, this.getFoldWidget = function(s, p, m) {
-        var $ = s.getLine(m);
-        if (this.singleLineBlockCommentRe.test($) && !this.startRegionRe.test($) && !this.tripleStarBlockCommentRe.test($))
-          return "";
-        var w = this._getFoldWidgetBase(s, p, m);
-        return !w && this.startRegionRe.test($) ? "start" : w;
-      }, this.getFoldWidgetRange = function(s, p, m, $) {
-        var w = s.getLine(m);
-        if (this.startRegionRe.test(w))
-          return this.getCommentRegionBlock(s, w, m);
-        var y = w.match(this.foldingStartMarker);
-        if (y) {
-          var g = y.index;
-          if (y[1])
-            return this.openingBracketBlock(s, y[1], m, g);
-          var x = s.getCommentFoldRange(m, g + y[0].length, 1);
-          return x && !x.isMultiLine() && ($ ? x = this.getSectionRange(s, m) : p != "all" && (x = null)), x;
-        }
-        if (p !== "markbegin") {
-          var y = w.match(this.foldingStopMarker);
-          if (y) {
-            var g = y.index + y[0].length;
-            return y[1] ? this.closingBracketBlock(s, y[1], m, g) : s.getCommentFoldRange(m, g, -1);
-          }
-        }
-      }, this.getSectionRange = function(s, p) {
-        var m = s.getLine(p), $ = m.search(/\S/), w = p, g = m.length;
-        p += 1;
-        for (var x = p, y = s.getLength(); ++p < y; ) {
-          m = s.getLine(p);
-          var C = m.search(/\S/);
-          if (C !== -1) {
-            if ($ > C)
-              break;
-            var S = this.getFoldWidgetRange(s, "all", p);
-            if (S) {
-              if (S.start.row <= w)
-                break;
-              if (S.isMultiLine())
-                p = S.end.row;
-              else if ($ == C)
-                break;
-            }
-            x = p;
-          }
-        }
-        return new c(w, g, x, s.getLine(x).length);
-      }, this.getCommentRegionBlock = function(s, p, m) {
-        for (var $ = p.search(/\s*$/), w = s.getLength(), g = m, x = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/, y = 1; ++m < w; ) {
-          p = s.getLine(m);
-          var C = x.exec(p);
-          if (!!C && (C[1] ? y-- : y++, !y))
-            break;
-        }
-        var S = m;
-        if (S > g)
-          return new c(g, $, S, p.length);
-      };
-    }.call(u.prototype);
-  }), ace.define("ace/mode/javascript", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/javascript_highlight_rules", "ace/mode/matching_brace_outdent", "ace/worker/worker_client", "ace/mode/behaviour/cstyle", "ace/mode/folding/cstyle"], function(o, n, a) {
-    var l = o("../lib/oop"), c = o("./text").Mode, _ = o("./javascript_highlight_rules").JavaScriptHighlightRules, u = o("./matching_brace_outdent").MatchingBraceOutdent, s = o("../worker/worker_client").WorkerClient, p = o("./behaviour/cstyle").CstyleBehaviour, m = o("./folding/cstyle").FoldMode, $ = function() {
-      this.HighlightRules = _, this.$outdent = new u(), this.$behaviour = new p(), this.foldingRules = new m();
-    };
-    l.inherits($, c), function() {
-      this.lineCommentStart = "//", this.blockComment = { start: "/*", end: "*/" }, this.$quotes = { '"': '"', "'": "'", "`": "`" }, this.getNextLineIndent = function(w, g, x) {
-        var y = this.$getIndent(g), C = this.getTokenizer().getLineTokens(g, w), S = C.tokens, B = C.state;
-        if (S.length && S[S.length - 1].type == "comment")
-          return y;
-        if (w == "start" || w == "no_regex") {
-          var N = g.match(/^.*(?:\bcase\b.*:|[\{\(\[])\s*$/);
-          N && (y += x);
-        } else if (w == "doc-start") {
-          if (B == "start" || B == "no_regex")
-            return "";
-          var N = g.match(/^\s*(\/?)\*/);
-          N && (N[1] && (y += " "), y += "* ");
-        }
-        return y;
-      }, this.checkOutdent = function(w, g, x) {
-        return this.$outdent.checkOutdent(g, x);
-      }, this.autoOutdent = function(w, g, x) {
-        this.$outdent.autoOutdent(g, x);
-      }, this.createWorker = function(w) {
-        var g = new s(["ace"], "ace/mode/javascript_worker", "JavaScriptWorker");
-        return g.attachToDocument(w.getDocument()), g.on("annotate", function(x) {
-          w.setAnnotations(x.data);
-        }), g.on("terminate", function() {
-          w.clearAnnotations();
-        }), g;
-      }, this.$id = "ace/mode/javascript", this.snippetFileId = "ace/snippets/javascript";
-    }.call($.prototype), n.Mode = $;
-  }), function() {
-    ace.require(["ace/mode/javascript"], function(o) {
-      e && (e.exports = o);
-    });
-  }();
-})(XD);
-var KD = { exports: {} };
-(function(e, t) {
-  ace.define("ace/mode/json_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text_highlight_rules"], function(o, n, a) {
-    var l = o("../lib/oop"), c = o("./text_highlight_rules").TextHighlightRules, _ = function() {
-      this.$rules = { start: [{ token: "variable", regex: '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]\\s*(?=:)' }, { token: "string", regex: '"', next: "string" }, { token: "constant.numeric", regex: "0[xX][0-9a-fA-F]+\\b" }, { token: "constant.numeric", regex: "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b" }, { token: "constant.language.boolean", regex: "(?:true|false)\\b" }, { token: "text", regex: "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']" }, { token: "comment", regex: "\\/\\/.*$" }, { token: "comment.start", regex: "\\/\\*", next: "comment" }, { token: "paren.lparen", regex: "[[({]" }, { token: "paren.rparen", regex: "[\\])}]" }, { token: "punctuation.operator", regex: /[,]/ }, { token: "text", regex: "\\s+" }], string: [{ token: "constant.language.escape", regex: /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|["\\\/bfnrt])/ }, { token: "string", regex: '"|$', next: "start" }, { defaultToken: "string" }], comment: [{ token: "comment.end", regex: "\\*\\/", next: "start" }, { defaultToken: "comment" }] };
-    };
-    l.inherits(_, c), n.JsonHighlightRules = _;
-  }), ace.define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"], function(o, n, a) {
-    var l = o("../range").Range, c = function() {
-    };
-    (function() {
-      this.checkOutdent = function(_, u) {
-        return /^\s+$/.test(_) ? /^\s*\}/.test(u) : !1;
-      }, this.autoOutdent = function(_, u) {
-        var s = _.getLine(u), p = s.match(/^(\s*\})/);
-        if (!p)
-          return 0;
-        var m = p[1].length, $ = _.findMatchingBracket({ row: u, column: m });
-        if (!$ || $.row == u)
-          return 0;
-        var w = this.$getIndent(_.getLine($.row));
-        _.replace(new l(u, 0, u, m - 1), w);
-      }, this.$getIndent = function(_) {
-        return _.match(/^\s*/)[0];
-      };
-    }).call(c.prototype), n.MatchingBraceOutdent = c;
-  }), ace.define("ace/mode/folding/cstyle", ["require", "exports", "module", "ace/lib/oop", "ace/range", "ace/mode/folding/fold_mode"], function(o, n, a) {
-    var l = o("../../lib/oop"), c = o("../../range").Range, _ = o("./fold_mode").FoldMode, u = n.FoldMode = function(s) {
-      s && (this.foldingStartMarker = new RegExp(this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + s.start)), this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + s.end)));
-    };
-    l.inherits(u, _), function() {
-      this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/, this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/, this.singleLineBlockCommentRe = /^\s*(\/\*).*\*\/\s*$/, this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/, this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/, this._getFoldWidgetBase = this.getFoldWidget, this.getFoldWidget = function(s, p, m) {
-        var $ = s.getLine(m);
-        if (this.singleLineBlockCommentRe.test($) && !this.startRegionRe.test($) && !this.tripleStarBlockCommentRe.test($))
-          return "";
-        var w = this._getFoldWidgetBase(s, p, m);
-        return !w && this.startRegionRe.test($) ? "start" : w;
-      }, this.getFoldWidgetRange = function(s, p, m, $) {
-        var w = s.getLine(m);
-        if (this.startRegionRe.test(w))
-          return this.getCommentRegionBlock(s, w, m);
-        var y = w.match(this.foldingStartMarker);
-        if (y) {
-          var g = y.index;
-          if (y[1])
-            return this.openingBracketBlock(s, y[1], m, g);
-          var x = s.getCommentFoldRange(m, g + y[0].length, 1);
-          return x && !x.isMultiLine() && ($ ? x = this.getSectionRange(s, m) : p != "all" && (x = null)), x;
-        }
-        if (p !== "markbegin") {
-          var y = w.match(this.foldingStopMarker);
-          if (y) {
-            var g = y.index + y[0].length;
-            return y[1] ? this.closingBracketBlock(s, y[1], m, g) : s.getCommentFoldRange(m, g, -1);
-          }
-        }
-      }, this.getSectionRange = function(s, p) {
-        var m = s.getLine(p), $ = m.search(/\S/), w = p, g = m.length;
-        p += 1;
-        for (var x = p, y = s.getLength(); ++p < y; ) {
-          m = s.getLine(p);
-          var C = m.search(/\S/);
-          if (C !== -1) {
-            if ($ > C)
-              break;
-            var S = this.getFoldWidgetRange(s, "all", p);
-            if (S) {
-              if (S.start.row <= w)
-                break;
-              if (S.isMultiLine())
-                p = S.end.row;
-              else if ($ == C)
-                break;
-            }
-            x = p;
-          }
-        }
-        return new c(w, g, x, s.getLine(x).length);
-      }, this.getCommentRegionBlock = function(s, p, m) {
-        for (var $ = p.search(/\s*$/), w = s.getLength(), g = m, x = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/, y = 1; ++m < w; ) {
-          p = s.getLine(m);
-          var C = x.exec(p);
-          if (!!C && (C[1] ? y-- : y++, !y))
-            break;
-        }
-        var S = m;
-        if (S > g)
-          return new c(g, $, S, p.length);
-      };
-    }.call(u.prototype);
-  }), ace.define("ace/mode/json", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/json_highlight_rules", "ace/mode/matching_brace_outdent", "ace/mode/behaviour/cstyle", "ace/mode/folding/cstyle", "ace/worker/worker_client"], function(o, n, a) {
-    var l = o("../lib/oop"), c = o("./text").Mode, _ = o("./json_highlight_rules").JsonHighlightRules, u = o("./matching_brace_outdent").MatchingBraceOutdent, s = o("./behaviour/cstyle").CstyleBehaviour, p = o("./folding/cstyle").FoldMode, m = o("../worker/worker_client").WorkerClient, $ = function() {
-      this.HighlightRules = _, this.$outdent = new u(), this.$behaviour = new s(), this.foldingRules = new p();
-    };
-    l.inherits($, c), function() {
-      this.lineCommentStart = "//", this.blockComment = { start: "/*", end: "*/" }, this.getNextLineIndent = function(w, g, x) {
-        var y = this.$getIndent(g);
-        if (w == "start") {
-          var C = g.match(/^.*[\{\(\[]\s*$/);
-          C && (y += x);
-        }
-        return y;
-      }, this.checkOutdent = function(w, g, x) {
-        return this.$outdent.checkOutdent(g, x);
-      }, this.autoOutdent = function(w, g, x) {
-        this.$outdent.autoOutdent(g, x);
-      }, this.createWorker = function(w) {
-        var g = new m(["ace"], "ace/mode/json_worker", "JsonWorker");
-        return g.attachToDocument(w.getDocument()), g.on("annotate", function(x) {
-          w.setAnnotations(x.data);
-        }), g.on("terminate", function() {
-          w.clearAnnotations();
-        }), g;
-      }, this.$id = "ace/mode/json";
-    }.call($.prototype), n.Mode = $;
-  }), function() {
-    ace.require(["ace/mode/json"], function(o) {
-      e && (e.exports = o);
-    });
-  }();
-})(KD);
-var JD = { exports: {} };
-(function(e, t) {
-  ace.define("ace/mode/css_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/lib/lang", "ace/mode/text_highlight_rules"], function(o, n, a) {
-    var l = o("../lib/oop");
-    o("../lib/lang");
-    var c = o("./text_highlight_rules").TextHighlightRules, _ = n.supportType = "align-content|align-items|align-self|all|animation|animation-delay|animation-direction|animation-duration|animation-fill-mode|animation-iteration-count|animation-name|animation-play-state|animation-timing-function|backface-visibility|background|background-attachment|background-blend-mode|background-clip|background-color|background-image|background-origin|background-position|background-repeat|background-size|border|border-bottom|border-bottom-color|border-bottom-left-radius|border-bottom-right-radius|border-bottom-style|border-bottom-width|border-collapse|border-color|border-image|border-image-outset|border-image-repeat|border-image-slice|border-image-source|border-image-width|border-left|border-left-color|border-left-style|border-left-width|border-radius|border-right|border-right-color|border-right-style|border-right-width|border-spacing|border-style|border-top|border-top-color|border-top-left-radius|border-top-right-radius|border-top-style|border-top-width|border-width|bottom|box-shadow|box-sizing|caption-side|clear|clip|color|column-count|column-fill|column-gap|column-rule|column-rule-color|column-rule-style|column-rule-width|column-span|column-width|columns|content|counter-increment|counter-reset|cursor|direction|display|empty-cells|filter|flex|flex-basis|flex-direction|flex-flow|flex-grow|flex-shrink|flex-wrap|float|font|font-family|font-size|font-size-adjust|font-stretch|font-style|font-variant|font-weight|hanging-punctuation|height|justify-content|left|letter-spacing|line-height|list-style|list-style-image|list-style-position|list-style-type|margin|margin-bottom|margin-left|margin-right|margin-top|max-height|max-width|max-zoom|min-height|min-width|min-zoom|nav-down|nav-index|nav-left|nav-right|nav-up|opacity|order|outline|outline-color|outline-offset|outline-style|outline-width|overflow|overflow-x|overflow-y|padding|padding-bottom|padding-left|padding-right|padding-top|page-break-after|page-break-before|page-break-inside|perspective|perspective-origin|position|quotes|resize|right|tab-size|table-layout|text-align|text-align-last|text-decoration|text-decoration-color|text-decoration-line|text-decoration-style|text-indent|text-justify|text-overflow|text-shadow|text-transform|top|transform|transform-origin|transform-style|transition|transition-delay|transition-duration|transition-property|transition-timing-function|unicode-bidi|user-select|user-zoom|vertical-align|visibility|white-space|width|word-break|word-spacing|word-wrap|z-index", u = n.supportFunction = "rgb|rgba|url|attr|counter|counters", s = n.supportConstant = "absolute|after-edge|after|all-scroll|all|alphabetic|always|antialiased|armenian|auto|avoid-column|avoid-page|avoid|balance|baseline|before-edge|before|below|bidi-override|block-line-height|block|bold|bolder|border-box|both|bottom|box|break-all|break-word|capitalize|caps-height|caption|center|central|char|circle|cjk-ideographic|clone|close-quote|col-resize|collapse|column|consider-shifts|contain|content-box|cover|crosshair|cubic-bezier|dashed|decimal-leading-zero|decimal|default|disabled|disc|disregard-shifts|distribute-all-lines|distribute-letter|distribute-space|distribute|dotted|double|e-resize|ease-in|ease-in-out|ease-out|ease|ellipsis|end|exclude-ruby|fill|fixed|georgian|glyphs|grid-height|groove|hand|hanging|hebrew|help|hidden|hiragana-iroha|hiragana|horizontal|icon|ideograph-alpha|ideograph-numeric|ideograph-parenthesis|ideograph-space|ideographic|inactive|include-ruby|inherit|initial|inline-block|inline-box|inline-line-height|inline-table|inline|inset|inside|inter-ideograph|inter-word|invert|italic|justify|katakana-iroha|katakana|keep-all|last|left|lighter|line-edge|line-through|line|linear|list-item|local|loose|lower-alpha|lower-greek|lower-latin|lower-roman|lowercase|lr-tb|ltr|mathematical|max-height|max-size|medium|menu|message-box|middle|move|n-resize|ne-resize|newspaper|no-change|no-close-quote|no-drop|no-open-quote|no-repeat|none|normal|not-allowed|nowrap|nw-resize|oblique|open-quote|outset|outside|overline|padding-box|page|pointer|pre-line|pre-wrap|pre|preserve-3d|progress|relative|repeat-x|repeat-y|repeat|replaced|reset-size|ridge|right|round|row-resize|rtl|s-resize|scroll|se-resize|separate|slice|small-caps|small-caption|solid|space|square|start|static|status-bar|step-end|step-start|steps|stretch|strict|sub|super|sw-resize|table-caption|table-cell|table-column-group|table-column|table-footer-group|table-header-group|table-row-group|table-row|table|tb-rl|text-after-edge|text-before-edge|text-bottom|text-size|text-top|text|thick|thin|transparent|underline|upper-alpha|upper-latin|upper-roman|uppercase|use-script|vertical-ideographic|vertical-text|visible|w-resize|wait|whitespace|z-index|zero|zoom", p = n.supportConstantColor = "aliceblue|antiquewhite|aqua|aquamarine|azure|beige|bisque|black|blanchedalmond|blue|blueviolet|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|cyan|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|fuchsia|gainsboro|ghostwhite|gold|goldenrod|gray|green|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavender|lavenderblush|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|lime|limegreen|linen|magenta|maroon|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|navy|oldlace|olive|olivedrab|orange|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|purple|rebeccapurple|red|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|silver|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|tan|teal|thistle|tomato|turquoise|violet|wheat|white|whitesmoke|yellow|yellowgreen", m = n.supportConstantFonts = "arial|century|comic|courier|cursive|fantasy|garamond|georgia|helvetica|impact|lucida|symbol|system|tahoma|times|trebuchet|utopia|verdana|webdings|sans-serif|serif|monospace", $ = n.numRe = "\\-?(?:(?:[0-9]+(?:\\.[0-9]+)?)|(?:\\.[0-9]+))", w = n.pseudoElements = "(\\:+)\\b(after|before|first-letter|first-line|moz-selection|selection)\\b", g = n.pseudoClasses = "(:)\\b(active|checked|disabled|empty|enabled|first-child|first-of-type|focus|hover|indeterminate|invalid|last-child|last-of-type|link|not|nth-child|nth-last-child|nth-last-of-type|nth-of-type|only-child|only-of-type|required|root|target|valid|visited)\\b", x = function() {
-      var y = this.createKeywordMapper({ "support.function": u, "support.constant": s, "support.type": _, "support.constant.color": p, "support.constant.fonts": m }, "text", !0);
-      this.$rules = { start: [{ include: ["strings", "url", "comments"] }, { token: "paren.lparen", regex: "\\{", next: "ruleset" }, { token: "paren.rparen", regex: "\\}" }, { token: "string", regex: "@(?!viewport)", next: "media" }, { token: "keyword", regex: "#[a-z0-9-_]+" }, { token: "keyword", regex: "%" }, { token: "variable", regex: "\\.[a-z0-9-_]+" }, { token: "string", regex: ":[a-z0-9-_]+" }, { token: "constant.numeric", regex: $ }, { token: "constant", regex: "[a-z0-9-_]+" }, { caseInsensitive: !0 }], media: [{ include: ["strings", "url", "comments"] }, { token: "paren.lparen", regex: "\\{", next: "start" }, { token: "paren.rparen", regex: "\\}", next: "start" }, { token: "string", regex: ";", next: "start" }, { token: "keyword", regex: "(?:media|supports|document|charset|import|namespace|media|supports|document|page|font|keyframes|viewport|counter-style|font-feature-values|swash|ornaments|annotation|stylistic|styleset|character-variant)" }], comments: [{ token: "comment", regex: "\\/\\*", push: [{ token: "comment", regex: "\\*\\/", next: "pop" }, { defaultToken: "comment" }] }], ruleset: [{ regex: "-(webkit|ms|moz|o)-", token: "text" }, { token: "punctuation.operator", regex: "[:;]" }, { token: "paren.rparen", regex: "\\}", next: "start" }, { include: ["strings", "url", "comments"] }, { token: ["constant.numeric", "keyword"], regex: "(" + $ + ")(ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vmax|vmin|vm|vw|%)" }, { token: "constant.numeric", regex: $ }, { token: "constant.numeric", regex: "#[a-f0-9]{6}" }, { token: "constant.numeric", regex: "#[a-f0-9]{3}" }, { token: ["punctuation", "entity.other.attribute-name.pseudo-element.css"], regex: w }, { token: ["punctuation", "entity.other.attribute-name.pseudo-class.css"], regex: g }, { include: "url" }, { token: y, regex: "\\-?[a-zA-Z_][a-zA-Z0-9_\\-]*" }, { caseInsensitive: !0 }], url: [{ token: "support.function", regex: "(?:url(:?-prefix)?|domain|regexp)\\(", push: [{ token: "support.function", regex: "\\)", next: "pop" }, { defaultToken: "string" }] }], strings: [{ token: "string.start", regex: "'", push: [{ token: "string.end", regex: "'|$", next: "pop" }, { include: "escapes" }, { token: "constant.language.escape", regex: /\\$/, consumeLineEnd: !0 }, { defaultToken: "string" }] }, { token: "string.start", regex: '"', push: [{ token: "string.end", regex: '"|$', next: "pop" }, { include: "escapes" }, { token: "constant.language.escape", regex: /\\$/, consumeLineEnd: !0 }, { defaultToken: "string" }] }], escapes: [{ token: "constant.language.escape", regex: /\\([a-fA-F\d]{1,6}|[^a-fA-F\d])/ }] }, this.normalizeRules();
-    };
-    l.inherits(x, c), n.CssHighlightRules = x;
-  }), ace.define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"], function(o, n, a) {
-    var l = o("../range").Range, c = function() {
-    };
-    (function() {
-      this.checkOutdent = function(_, u) {
-        return /^\s+$/.test(_) ? /^\s*\}/.test(u) : !1;
-      }, this.autoOutdent = function(_, u) {
-        var s = _.getLine(u), p = s.match(/^(\s*\})/);
-        if (!p)
-          return 0;
-        var m = p[1].length, $ = _.findMatchingBracket({ row: u, column: m });
-        if (!$ || $.row == u)
-          return 0;
-        var w = this.$getIndent(_.getLine($.row));
-        _.replace(new l(u, 0, u, m - 1), w);
-      }, this.$getIndent = function(_) {
-        return _.match(/^\s*/)[0];
-      };
-    }).call(c.prototype), n.MatchingBraceOutdent = c;
-  }), ace.define("ace/mode/css_completions", ["require", "exports", "module"], function(o, n, a) {
-    var l = { background: { "#$0": 1 }, "background-color": { "#$0": 1, transparent: 1, fixed: 1 }, "background-image": { "url('/$0')": 1 }, "background-repeat": { repeat: 1, "repeat-x": 1, "repeat-y": 1, "no-repeat": 1, inherit: 1 }, "background-position": { bottom: 2, center: 2, left: 2, right: 2, top: 2, inherit: 2 }, "background-attachment": { scroll: 1, fixed: 1 }, "background-size": { cover: 1, contain: 1 }, "background-clip": { "border-box": 1, "padding-box": 1, "content-box": 1 }, "background-origin": { "border-box": 1, "padding-box": 1, "content-box": 1 }, border: { "solid $0": 1, "dashed $0": 1, "dotted $0": 1, "#$0": 1 }, "border-color": { "#$0": 1 }, "border-style": { solid: 2, dashed: 2, dotted: 2, double: 2, groove: 2, hidden: 2, inherit: 2, inset: 2, none: 2, outset: 2, ridged: 2 }, "border-collapse": { collapse: 1, separate: 1 }, bottom: { px: 1, em: 1, "%": 1 }, clear: { left: 1, right: 1, both: 1, none: 1 }, color: { "#$0": 1, "rgb(#$00,0,0)": 1 }, cursor: { default: 1, pointer: 1, move: 1, text: 1, wait: 1, help: 1, progress: 1, "n-resize": 1, "ne-resize": 1, "e-resize": 1, "se-resize": 1, "s-resize": 1, "sw-resize": 1, "w-resize": 1, "nw-resize": 1 }, display: { none: 1, block: 1, inline: 1, "inline-block": 1, "table-cell": 1 }, "empty-cells": { show: 1, hide: 1 }, float: { left: 1, right: 1, none: 1 }, "font-family": { Arial: 2, "Comic Sans MS": 2, Consolas: 2, "Courier New": 2, Courier: 2, Georgia: 2, Monospace: 2, "Sans-Serif": 2, "Segoe UI": 2, Tahoma: 2, "Times New Roman": 2, "Trebuchet MS": 2, Verdana: 1 }, "font-size": { px: 1, em: 1, "%": 1 }, "font-weight": { bold: 1, normal: 1 }, "font-style": { italic: 1, normal: 1 }, "font-variant": { normal: 1, "small-caps": 1 }, height: { px: 1, em: 1, "%": 1 }, left: { px: 1, em: 1, "%": 1 }, "letter-spacing": { normal: 1 }, "line-height": { normal: 1 }, "list-style-type": { none: 1, disc: 1, circle: 1, square: 1, decimal: 1, "decimal-leading-zero": 1, "lower-roman": 1, "upper-roman": 1, "lower-greek": 1, "lower-latin": 1, "upper-latin": 1, georgian: 1, "lower-alpha": 1, "upper-alpha": 1 }, margin: { px: 1, em: 1, "%": 1 }, "margin-right": { px: 1, em: 1, "%": 1 }, "margin-left": { px: 1, em: 1, "%": 1 }, "margin-top": { px: 1, em: 1, "%": 1 }, "margin-bottom": { px: 1, em: 1, "%": 1 }, "max-height": { px: 1, em: 1, "%": 1 }, "max-width": { px: 1, em: 1, "%": 1 }, "min-height": { px: 1, em: 1, "%": 1 }, "min-width": { px: 1, em: 1, "%": 1 }, overflow: { hidden: 1, visible: 1, auto: 1, scroll: 1 }, "overflow-x": { hidden: 1, visible: 1, auto: 1, scroll: 1 }, "overflow-y": { hidden: 1, visible: 1, auto: 1, scroll: 1 }, padding: { px: 1, em: 1, "%": 1 }, "padding-top": { px: 1, em: 1, "%": 1 }, "padding-right": { px: 1, em: 1, "%": 1 }, "padding-bottom": { px: 1, em: 1, "%": 1 }, "padding-left": { px: 1, em: 1, "%": 1 }, "page-break-after": { auto: 1, always: 1, avoid: 1, left: 1, right: 1 }, "page-break-before": { auto: 1, always: 1, avoid: 1, left: 1, right: 1 }, position: { absolute: 1, relative: 1, fixed: 1, static: 1 }, right: { px: 1, em: 1, "%": 1 }, "table-layout": { fixed: 1, auto: 1 }, "text-decoration": { none: 1, underline: 1, "line-through": 1, blink: 1 }, "text-align": { left: 1, right: 1, center: 1, justify: 1 }, "text-transform": { capitalize: 1, uppercase: 1, lowercase: 1, none: 1 }, top: { px: 1, em: 1, "%": 1 }, "vertical-align": { top: 1, bottom: 1 }, visibility: { hidden: 1, visible: 1 }, "white-space": { nowrap: 1, normal: 1, pre: 1, "pre-line": 1, "pre-wrap": 1 }, width: { px: 1, em: 1, "%": 1 }, "word-spacing": { normal: 1 }, filter: { "alpha(opacity=$0100)": 1 }, "text-shadow": { "$02px 2px 2px #777": 1 }, "text-overflow": { "ellipsis-word": 1, clip: 1, ellipsis: 1 }, "-moz-border-radius": 1, "-moz-border-radius-topright": 1, "-moz-border-radius-bottomright": 1, "-moz-border-radius-topleft": 1, "-moz-border-radius-bottomleft": 1, "-webkit-border-radius": 1, "-webkit-border-top-right-radius": 1, "-webkit-border-top-left-radius": 1, "-webkit-border-bottom-right-radius": 1, "-webkit-border-bottom-left-radius": 1, "-moz-box-shadow": 1, "-webkit-box-shadow": 1, transform: { "rotate($00deg)": 1, "skew($00deg)": 1 }, "-moz-transform": { "rotate($00deg)": 1, "skew($00deg)": 1 }, "-webkit-transform": { "rotate($00deg)": 1, "skew($00deg)": 1 } }, c = function() {
-    };
-    (function() {
-      this.completionsDefined = !1, this.defineCompletions = function() {
-        if (document) {
-          var _ = document.createElement("c").style;
-          for (var u in _)
-            if (typeof _[u] == "string") {
-              var s = u.replace(/[A-Z]/g, function(p) {
-                return "-" + p.toLowerCase();
-              });
-              l.hasOwnProperty(s) || (l[s] = 1);
-            }
-        }
-        this.completionsDefined = !0;
-      }, this.getCompletions = function(_, u, s, p) {
-        if (this.completionsDefined || this.defineCompletions(), _ === "ruleset" || u.$mode.$id == "ace/mode/scss") {
-          var m = u.getLine(s.row).substr(0, s.column);
-          return /:[^;]+$/.test(m) ? (/([\w\-]+):[^:]*$/.test(m), this.getPropertyValueCompletions(_, u, s, p)) : this.getPropertyCompletions(_, u, s, p);
-        }
-        return [];
-      }, this.getPropertyCompletions = function(_, u, s, p) {
-        var m = Object.keys(l);
-        return m.map(function($) {
-          return { caption: $, snippet: $ + ": $0;", meta: "property", score: 1e6 };
-        });
-      }, this.getPropertyValueCompletions = function(_, u, s, p) {
-        var m = u.getLine(s.row).substr(0, s.column), $ = (/([\w\-]+):[^:]*$/.exec(m) || {})[1];
-        if (!$)
-          return [];
-        var w = [];
-        return $ in l && typeof l[$] == "object" && (w = Object.keys(l[$])), w.map(function(g) {
-          return { caption: g, snippet: g, meta: "property value", score: 1e6 };
-        });
-      };
-    }).call(c.prototype), n.CssCompletions = c;
-  }), ace.define("ace/mode/behaviour/css", ["require", "exports", "module", "ace/lib/oop", "ace/mode/behaviour", "ace/mode/behaviour/cstyle", "ace/token_iterator"], function(o, n, a) {
-    var l = o("../../lib/oop");
-    o("../behaviour").Behaviour;
-    var c = o("./cstyle").CstyleBehaviour, _ = o("../../token_iterator").TokenIterator, u = function() {
-      this.inherit(c), this.add("colon", "insertion", function(s, p, m, $, w) {
-        if (w === ":" && m.selection.isEmpty()) {
-          var g = m.getCursorPosition(), x = new _($, g.row, g.column), y = x.getCurrentToken();
-          if (y && y.value.match(/\s+/) && (y = x.stepBackward()), y && y.type === "support.type") {
-            var C = $.doc.getLine(g.row), S = C.substring(g.column, g.column + 1);
-            if (S === ":")
-              return { text: "", selection: [1, 1] };
-            if (/^(\s+[^;]|\s*$)/.test(C.substring(g.column)))
-              return { text: ":;", selection: [1, 1] };
-          }
-        }
-      }), this.add("colon", "deletion", function(s, p, m, $, w) {
-        var g = $.doc.getTextRange(w);
-        if (!w.isMultiLine() && g === ":") {
-          var x = m.getCursorPosition(), y = new _($, x.row, x.column), C = y.getCurrentToken();
-          if (C && C.value.match(/\s+/) && (C = y.stepBackward()), C && C.type === "support.type") {
-            var S = $.doc.getLine(w.start.row), B = S.substring(w.end.column, w.end.column + 1);
-            if (B === ";")
-              return w.end.column++, w;
-          }
-        }
-      }), this.add("semicolon", "insertion", function(s, p, m, $, w) {
-        if (w === ";" && m.selection.isEmpty()) {
-          var g = m.getCursorPosition(), x = $.doc.getLine(g.row), y = x.substring(g.column, g.column + 1);
-          if (y === ";")
-            return { text: "", selection: [1, 1] };
-        }
-      }), this.add("!important", "insertion", function(s, p, m, $, w) {
-        if (w === "!" && m.selection.isEmpty()) {
-          var g = m.getCursorPosition(), x = $.doc.getLine(g.row);
-          if (/^\s*(;|}|$)/.test(x.substring(g.column)))
-            return { text: "!important", selection: [10, 10] };
-        }
-      });
-    };
-    l.inherits(u, c), n.CssBehaviour = u;
-  }), ace.define("ace/mode/folding/cstyle", ["require", "exports", "module", "ace/lib/oop", "ace/range", "ace/mode/folding/fold_mode"], function(o, n, a) {
-    var l = o("../../lib/oop"), c = o("../../range").Range, _ = o("./fold_mode").FoldMode, u = n.FoldMode = function(s) {
-      s && (this.foldingStartMarker = new RegExp(this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + s.start)), this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + s.end)));
-    };
-    l.inherits(u, _), function() {
-      this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/, this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/, this.singleLineBlockCommentRe = /^\s*(\/\*).*\*\/\s*$/, this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/, this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/, this._getFoldWidgetBase = this.getFoldWidget, this.getFoldWidget = function(s, p, m) {
-        var $ = s.getLine(m);
-        if (this.singleLineBlockCommentRe.test($) && !this.startRegionRe.test($) && !this.tripleStarBlockCommentRe.test($))
-          return "";
-        var w = this._getFoldWidgetBase(s, p, m);
-        return !w && this.startRegionRe.test($) ? "start" : w;
-      }, this.getFoldWidgetRange = function(s, p, m, $) {
-        var w = s.getLine(m);
-        if (this.startRegionRe.test(w))
-          return this.getCommentRegionBlock(s, w, m);
-        var y = w.match(this.foldingStartMarker);
-        if (y) {
-          var g = y.index;
-          if (y[1])
-            return this.openingBracketBlock(s, y[1], m, g);
-          var x = s.getCommentFoldRange(m, g + y[0].length, 1);
-          return x && !x.isMultiLine() && ($ ? x = this.getSectionRange(s, m) : p != "all" && (x = null)), x;
-        }
-        if (p !== "markbegin") {
-          var y = w.match(this.foldingStopMarker);
-          if (y) {
-            var g = y.index + y[0].length;
-            return y[1] ? this.closingBracketBlock(s, y[1], m, g) : s.getCommentFoldRange(m, g, -1);
-          }
-        }
-      }, this.getSectionRange = function(s, p) {
-        var m = s.getLine(p), $ = m.search(/\S/), w = p, g = m.length;
-        p += 1;
-        for (var x = p, y = s.getLength(); ++p < y; ) {
-          m = s.getLine(p);
-          var C = m.search(/\S/);
-          if (C !== -1) {
-            if ($ > C)
-              break;
-            var S = this.getFoldWidgetRange(s, "all", p);
-            if (S) {
-              if (S.start.row <= w)
-                break;
-              if (S.isMultiLine())
-                p = S.end.row;
-              else if ($ == C)
-                break;
-            }
-            x = p;
-          }
-        }
-        return new c(w, g, x, s.getLine(x).length);
-      }, this.getCommentRegionBlock = function(s, p, m) {
-        for (var $ = p.search(/\s*$/), w = s.getLength(), g = m, x = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/, y = 1; ++m < w; ) {
-          p = s.getLine(m);
-          var C = x.exec(p);
-          if (!!C && (C[1] ? y-- : y++, !y))
-            break;
-        }
-        var S = m;
-        if (S > g)
-          return new c(g, $, S, p.length);
-      };
-    }.call(u.prototype);
-  }), ace.define("ace/mode/css", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/css_highlight_rules", "ace/mode/matching_brace_outdent", "ace/worker/worker_client", "ace/mode/css_completions", "ace/mode/behaviour/css", "ace/mode/folding/cstyle"], function(o, n, a) {
-    var l = o("../lib/oop"), c = o("./text").Mode, _ = o("./css_highlight_rules").CssHighlightRules, u = o("./matching_brace_outdent").MatchingBraceOutdent, s = o("../worker/worker_client").WorkerClient, p = o("./css_completions").CssCompletions, m = o("./behaviour/css").CssBehaviour, $ = o("./folding/cstyle").FoldMode, w = function() {
-      this.HighlightRules = _, this.$outdent = new u(), this.$behaviour = new m(), this.$completer = new p(), this.foldingRules = new $();
-    };
-    l.inherits(w, c), function() {
-      this.foldingRules = "cStyle", this.blockComment = { start: "/*", end: "*/" }, this.getNextLineIndent = function(g, x, y) {
-        var C = this.$getIndent(x), S = this.getTokenizer().getLineTokens(x, g).tokens;
-        if (S.length && S[S.length - 1].type == "comment")
-          return C;
-        var B = x.match(/^.*\{\s*$/);
-        return B && (C += y), C;
-      }, this.checkOutdent = function(g, x, y) {
-        return this.$outdent.checkOutdent(x, y);
-      }, this.autoOutdent = function(g, x, y) {
-        this.$outdent.autoOutdent(x, y);
-      }, this.getCompletions = function(g, x, y, C) {
-        return this.$completer.getCompletions(g, x, y, C);
-      }, this.createWorker = function(g) {
-        var x = new s(["ace"], "ace/mode/css_worker", "Worker");
-        return x.attachToDocument(g.getDocument()), x.on("annotate", function(y) {
-          g.setAnnotations(y.data);
-        }), x.on("terminate", function() {
-          g.clearAnnotations();
-        }), x;
-      }, this.$id = "ace/mode/css", this.snippetFileId = "ace/snippets/css";
-    }.call(w.prototype), n.Mode = w;
-  }), function() {
-    ace.require(["ace/mode/css"], function(o) {
-      e && (e.exports = o);
-    });
-  }();
-})(JD);
-const Co = ["blur", "input", "change", "changeSelectionStyle", "changeSession", "copy", "focus", "paste"], ZD = V({
-  props: {
-    modelValue: {
-      type: String,
-      required: !0
-    },
-    lang: {
-      type: String,
-      default: "text"
-    },
-    theme: {
-      type: String,
-      default: "chrome"
-    },
-    options: Object,
-    placeholder: String,
-    readonly: Boolean,
-    wrap: Boolean,
-    printMargin: {
-      type: [Boolean, Number],
-      default: !0
-    },
-    minLines: Number,
-    maxLines: Number
-  },
-  emits: ["update:modelValue", "init", ...Co],
-  watch: {
-    modelValue(e) {
-      if (this._contentBackup !== e) {
-        try {
-          this._isSettingContent = !0, this._editor.setValue(e, 1);
-        } finally {
-          this._isSettingContent = !1;
-        }
-        this._contentBackup = e;
-      }
-    },
-    theme(e) {
-      this._editor.setTheme(`ace/theme/${e}`);
-    },
-    options(e) {
-      this._editor.setOptions(e);
-    },
-    readonly(e) {
-      this._editor.setReadOnly(e);
-    },
-    placeholder(e) {
-      this._editor.setOption("placeholder", e);
-    },
-    wrap(e) {
-      this._editor.setWrapBehavioursEnabled(e);
-    },
-    printMargin(e) {
-      this._editor.setOption("printMargin", e);
-    },
-    lang(e) {
-      this._editor.setOption("mode", `ace/mode/${e}`);
-    },
-    minLines(e) {
-      this._editor.setOption("minLines", e);
-    },
-    maxLines(e) {
-      this._editor.setOption("maxLines", e);
-    }
-  },
-  mounted() {
-    const e = this._editor = X0(
-      ln.edit(this.$el, {
-        placeholder: this.placeholder,
-        readOnly: this.readonly,
-        value: this.modelValue,
-        mode: `ace/mode/${this.lang}`,
-        theme: `ace/theme/${this.theme}`,
-        wrap: this.wrap,
-        printMargin: this.printMargin,
-        useWorker: !1,
-        minLines: this.minLines,
-        maxLines: this.maxLines,
-        ...this.options
-      })
-    );
-    this._contentBackup = this.modelValue, this._isSettingContent = !1, e.on("change", () => {
-      if (this._isSettingContent)
-        return;
-      const t = e.getValue();
-      this._contentBackup = t, this.$emit("update:modelValue", t);
-    }), Co.forEach((t) => {
-      const o = `on${K0(t)}`;
-      typeof this.$.vnode.props[o] == "function" && e.on(t, this.$emit.bind(this, t));
-    }), this.$emit("init", e);
-  },
-  beforeUnmount() {
-    let e;
-    (e = this._editor) === null || e === void 0 || e.destroy();
-  },
-  methods: {
-    focus() {
-      this._editor.focus();
-    },
-    blur() {
-      this._editor.blur();
-    },
-    selectAll() {
-      this._editor.selectAll();
-    }
-  }
-}), QD = { class: "code-editor-wrap" };
-function eF(e, t, o, n, a, l) {
-  return r(), d("div", QD);
-}
-const et = /* @__PURE__ */ kt(ZD, [["render", eF]]), tF = { style: { width: "100%" } }, oF = /* @__PURE__ */ H("\u589E\u52A0\u9009\u9879"), nF = /* @__PURE__ */ H("\u7F16\u8F91\u9009\u9879"), aF = { class: "form-design-code-editor" }, lF = /* @__PURE__ */ H("\u53D6\u6D88"), rF = /* @__PURE__ */ H("\u786E\u5B9A"), iF = V({
-  name: "optionsOption"
-}), sF = /* @__PURE__ */ Object.assign(iF, {
-  props: {
-    modelValue: Object
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = e, n = ue({
-      type: "static",
-      remote: "",
-      items: []
-    }), a = X(""), l = X(!1), c = R("state"), _ = () => {
-      t("update:modelValue", {
-        type: n.type,
-        remote: n.remote,
-        items: n.items
-      });
-    }, u = (g, x, y) => {
-      n.items[g][x] = y, _();
-    }, s = () => {
-      const g = String(n.items.length + 1);
-      n.items.push({
-        label: `\u9009\u9879${g}`,
-        value: g
-      }), _();
-    }, p = (g) => {
-      n.items.splice(g, 1), _();
-    }, m = () => {
-      l.value = !0, a.value = JSON.stringify(n.items, null, "	");
-    }, $ = () => {
-      try {
-        n.items = JSON.parse(a.value);
-      } catch {
-        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
-      }
-      l.value = !1, _();
-    }, w = () => {
-      n.type = o.modelValue.type, n.remote = o.modelValue.remote, n.items = de(o.modelValue.items);
-    };
-    return Se(w), xe(() => o.modelValue, w), (g, x) => {
-      const y = b("el-input"), C = b("el-col"), S = Qe, B = b("el-icon"), N = b("el-row"), W = b("el-button"), G = et, P = b("el-dialog"), U = b("el-tab-pane"), K = b("el-option"), ae = b("el-select"), k = b("el-tabs");
-      return r(), d("div", tF, [
-        v(k, {
-          modelValue: n.type,
-          "onUpdate:modelValue": x[4] || (x[4] = (j) => n.type = j),
-          onTabChange: _
-        }, {
-          default: f(() => [
-            v(U, {
-              label: "\u9759\u6001\u6570\u636E",
-              name: "static"
-            }, {
-              default: f(() => [
-                (r(!0), d(F, null, Y(n.items, (j, O) => (r(), z(N, {
-                  key: O,
-                  class: "option-row",
-                  gutter: 5
-                }, {
-                  default: f(() => [
-                    v(C, { span: 11 }, {
-                      default: f(() => [
-                        v(y, {
-                          "model-value": j.label,
-                          placeholder: "\u6807\u9898",
-                          onInput: (E) => u(O, "label", E)
-                        }, null, 8, ["model-value", "onInput"])
-                      ]),
-                      _: 2
-                    }, 1024),
-                    v(C, { span: 11 }, {
-                      default: f(() => [
-                        v(y, {
-                          "model-value": j.value,
-                          placeholder: "\u503C",
-                          onInput: (E) => u(O, "value", E)
-                        }, null, 8, ["model-value", "onInput"])
-                      ]),
-                      _: 2
-                    }, 1024),
-                    v(C, {
-                      span: 2,
-                      class: "btn-del"
-                    }, {
-                      default: f(() => [
-                        v(B, {
-                          class: "el-icon-delete",
-                          onClick: (E) => p(O)
-                        }, {
-                          default: f(() => [
-                            v(S)
-                          ]),
-                          _: 2
-                        }, 1032, ["onClick"])
-                      ]),
-                      _: 2
-                    }, 1024)
-                  ]),
-                  _: 2
-                }, 1024))), 128)),
-                v(W, {
-                  link: "",
-                  type: "primary",
-                  onClick: s
-                }, {
-                  default: f(() => [
-                    oF
-                  ]),
-                  _: 1
-                }),
-                v(W, {
-                  link: "",
-                  type: "primary",
-                  onClick: m
-                }, {
-                  default: f(() => [
-                    nF
-                  ]),
-                  _: 1
-                }),
-                v(P, {
-                  modelValue: l.value,
-                  "onUpdate:modelValue": x[2] || (x[2] = (j) => l.value = j),
-                  title: "\u7F16\u8F91\u9009\u9879",
-                  width: "750px"
-                }, {
-                  footer: f(() => [
-                    i("div", null, [
-                      v(W, {
-                        onClick: x[1] || (x[1] = (j) => l.value = !1)
-                      }, {
-                        default: f(() => [
-                          lF
-                        ]),
-                        _: 1
-                      }),
-                      v(W, {
-                        type: "primary",
-                        onClick: $
-                      }, {
-                        default: f(() => [
-                          rF
-                        ]),
-                        _: 1
-                      })
-                    ])
-                  ]),
-                  default: f(() => [
-                    i("div", aF, [
-                      v(G, {
-                        modelValue: a.value,
-                        "onUpdate:modelValue": x[0] || (x[0] = (j) => a.value = j),
-                        lang: "json"
-                      }, null, 8, ["modelValue"])
-                    ])
-                  ]),
-                  _: 1
-                }, 8, ["modelValue"])
-              ]),
-              _: 1
-            }),
-            v(U, {
-              label: "\u6570\u636E\u6E90",
-              name: "remote"
-            }, {
-              default: f(() => [
-                v(ae, {
-                  modelValue: n.remote,
-                  "onUpdate:modelValue": x[3] || (x[3] = (j) => n.remote = j),
-                  clearable: "",
-                  placeholder: "\u8BF7\u9009\u62E9\u6570\u636E\u6E90",
-                  style: { width: "88%", "margin-bottom": "5px" },
-                  onChange: _
-                }, {
-                  default: f(() => [
-                    (r(!0), d(F, null, Y(A(c).formDesign.options.remotes, (j, O) => (r(), z(K, {
-                      key: O,
-                      label: j.title,
-                      value: O
-                    }, null, 8, ["label", "value"]))), 128))
-                  ]),
-                  _: 1
-                }, 8, ["modelValue"])
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        }, 8, ["modelValue"])
-      ]);
-    };
-  }
-}), uF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: sF
-}, Symbol.toStringTag, { value: "Module" })), cF = /* @__PURE__ */ H(" \u4E0A\uFF1A"), dF = /* @__PURE__ */ H(" \u53F3\uFF1A"), _F = /* @__PURE__ */ H(" \u4E0B\uFF1A"), pF = /* @__PURE__ */ H(" \u5DE6\uFF1A"), mF = V({
-  name: "paddingOption"
-}), hF = /* @__PURE__ */ Object.assign(mF, {
-  props: {
-    modelValue: String
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = e, n = ue({
-      top: 0,
-      right: 0,
-      down: 0,
-      left: 0
-    }), a = () => {
-      t("update:modelValue", `${n.top || 0}px ${n.right || 0}px ${n.down || 0}px ${n.left || 0}px`);
-    }, l = () => {
-      const [c, _, u, s] = o.modelValue.split(" ");
-      n.top = parseFloat(c), n.right = parseFloat(_), n.down = parseFloat(u), n.left = parseFloat(s);
-    };
-    return Se(l), xe(() => o.modelValue, l), (c, _) => {
-      const u = b("el-input-number"), s = b("el-col"), p = b("el-row");
-      return r(), d(F, null, [
-        v(p, { class: "option-row" }, {
-          default: f(() => [
-            v(s, { span: 24 }, {
-              default: f(() => [
-                cF,
-                v(u, {
-                  modelValue: n.top,
-                  "onUpdate:modelValue": _[0] || (_[0] = (m) => n.top = m),
-                  onInput: a
-                }, null, 8, ["modelValue"])
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        }),
-        v(p, { class: "option-row" }, {
-          default: f(() => [
-            v(s, { span: 24 }, {
-              default: f(() => [
-                dF,
-                v(u, {
-                  modelValue: n.right,
-                  "onUpdate:modelValue": _[1] || (_[1] = (m) => n.right = m),
-                  onInput: a
-                }, null, 8, ["modelValue"])
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        }),
-        v(p, { class: "option-row" }, {
-          default: f(() => [
-            v(s, { span: 24 }, {
-              default: f(() => [
-                _F,
-                v(u, {
-                  modelValue: n.down,
-                  "onUpdate:modelValue": _[2] || (_[2] = (m) => n.down = m),
-                  onInput: a
-                }, null, 8, ["modelValue"])
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        }),
-        v(p, { class: "option-row" }, {
-          default: f(() => [
-            v(s, { span: 24 }, {
-              default: f(() => [
-                pF,
-                v(u, {
-                  modelValue: n.left,
-                  "onUpdate:modelValue": _[3] || (_[3] = (m) => n.left = m),
-                  onInput: a
-                }, null, 8, ["modelValue"])
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        })
-      ], 64);
-    };
-  }
-}), fF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: hF
-}, Symbol.toStringTag, { value: "Module" })), vF = V({
-  name: "penColorOption"
-}), gF = /* @__PURE__ */ Object.assign(vF, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-color-picker");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        onChange: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), bF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: gF
-}, Symbol.toStringTag, { value: "Module" })), wF = V({
-  name: "placeholderOption"
-}), xF = /* @__PURE__ */ Object.assign(wF, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), $F = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: xF
-}, Symbol.toStringTag, { value: "Module" })), yF = /* @__PURE__ */ H("\u9009\u62E9"), zF = V({
-  name: "prefixIconOption"
-}), VF = /* @__PURE__ */ Object.assign(zF, {
-  props: {
-    modelValue: String
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = X(!1), n = (a) => {
-      t("update:modelValue", a), o.value = !1;
-    };
-    return (a, l) => {
-      const c = b("el-button"), _ = b("el-input"), u = b("el-tooltip"), s = b("el-drawer");
-      return r(), d(F, null, [
-        v(_, {
-          type: "text",
-          "model-value": e.modelValue,
-          onInput: l[1] || (l[1] = (p) => a.$emit("update:modelValue", p))
-        }, {
-          append: f(() => [
-            v(c, {
-              onClick: l[0] || (l[0] = (p) => o.value = !o.value)
-            }, {
-              default: f(() => [
-                yF
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        }, 8, ["model-value"]),
-        v(s, {
-          modelValue: o.value,
-          "onUpdate:modelValue": l[2] || (l[2] = (p) => o.value = p),
-          direction: "rtl",
-          "show-close": !1,
-          "with-header": !1,
-          size: "380px"
-        }, {
-          default: f(() => [
-            (r(), d(F, null, Y(ye, (p, m) => v(u, {
-              key: m,
-              effect: "dark",
-              content: m,
-              placement: "top"
-            }, {
-              default: f(() => [
-                (r(), z(Vt(p), {
-                  style: { width: "24px", cursor: "pointer" },
-                  onClick: ($) => n(m)
-                }, null, 8, ["onClick"]))
-              ]),
-              _: 2
-            }, 1032, ["content"])), 64))
-          ]),
-          _: 1
-        }, 8, ["modelValue"])
-      ], 64);
-    };
-  }
-}), CF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: VF
-}, Symbol.toStringTag, { value: "Module" })), SF = /* @__PURE__ */ H("\u8BBE\u7F6E"), MF = /* @__PURE__ */ H(" \u8BBE\u7F6E\u6570\u636E\u6E90 "), kF = { style: { float: "right" } }, OF = /* @__PURE__ */ H("\u4FDD\u5B58"), HF = /* @__PURE__ */ H("\u53D6\u6D88"), jF = /* @__PURE__ */ H("\u6D4B\u8BD5\u8BF7\u6C42"), AF = /* @__PURE__ */ H("\u589E\u52A0\u5934\u90E8"), BF = /* @__PURE__ */ H("\u589E\u52A0\u53C2\u6570"), TF = /* @__PURE__ */ H("\u589E\u52A0\u6570\u636E"), EF = { class: "form-design-code-editor" }, LF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "\u54CD\u5E94\u6570\u636E", -1), DF = { class: "form-design-code-editor" }, FF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "(config) => {", -1), PF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "}", -1), IF = { class: "form-design-code-editor" }, RF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "(response) => {", -1), UF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "}", -1), qF = { class: "form-design-code-editor" }, NF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "(error) => {", -1), WF = /* @__PURE__ */ i("div", { class: "code-editor-tip" }, "}", -1), GF = V({
-  name: "remotesOption"
-}), YF = /* @__PURE__ */ Object.assign(GF, {
-  props: {
-    modelValue: Object
-  },
-  emits: "update:modelValue",
-  setup(e, { emit: t }) {
-    const o = e, n = ue({
-      remotes: {},
-      remoteTabs: {},
-      remoteCollapses: {},
-      remoteResults: {},
-      loading: !1
-    }), a = X(null), l = X(""), c = X(!1), _ = () => {
-      if (c.value = !0, n.remotes = de(o.modelValue), n.remoteTabs = {}, n.remoteCollapses = {}, n.remoteResults = {}, n.remotes && !h0(n.remotes)) {
-        const w = Object.keys(n.remotes);
-        l.value = w[0], w.forEach((g) => {
-          n.remoteTabs[g] = "headers", n.remoteCollapses[g] = ["request", "response", "error"], n.remoteResults[g] = "";
-        });
-      }
-    }, u = () => {
-      a.value.validate((w, g) => {
-        if (w)
-          t("update:modelValue", n.remotes), c.value = !1;
-        else {
-          const x = Object.keys(g)[0];
-          l.value = x.split(".")[1];
-        }
-      });
-    }, s = (w, g) => {
-      if (g === "add") {
-        const x = `remote_${$t(8)}`;
-        l.value = x, n.remotes[x] = {
-          title: "",
-          url: "",
-          method: "get",
-          headers: [],
-          params: [],
-          data: [],
-          requestHandler: "return config;",
-          responseHandler: "return response.data;",
-          errorHandler: "return Promise.reject(error);"
-        }, n.remoteTabs[x] = "headers", n.remoteCollapses[x] = ["request", "response", "error"], n.remoteResults[x] = "";
-      } else if (g === "remove") {
-        if (l.value === w) {
-          const x = Object.keys(n.remotes), y = x.findIndex((S) => S === w), C = x[y + 1] || x[y - 1];
-          C && (l.value = C);
-        }
-        delete n.remotes[w], delete n.remoteTabs[w], delete n.remoteCollapses[w], delete n.remoteResults[w];
-      }
-    }, p = (w, g) => {
-      n.remotes[w][g].push({ key: "", value: "" });
-    }, m = (w, g, x) => {
-      n.remotes[w][g].splice(x, 1);
-    }, $ = () => {
-      a.value.validateField(`remotes.${l.value}.url`).then(() => {
-        n.loading = !0, Io(n.remotes[l.value]).then((w) => {
-          n.remoteResults[l.value] = JSON.stringify(w, null, "	"), n.loading = !1, we.success("\u8BF7\u6C42\u6210\u529F");
-        }).catch((w) => {
-          n.remoteResults[l.value] = "", n.loading = !1, we.error(w.message);
-        });
-      });
-    };
-    return (w, g) => {
-      const x = b("el-button"), y = b("el-input"), C = b("el-form-item"), S = b("el-option"), B = b("el-select"), N = b("el-col"), W = Qe, G = b("el-icon"), P = b("el-row"), U = b("el-tab-pane"), K = b("el-tabs"), ae = et, k = b("el-collapse-item"), j = b("el-collapse"), O = b("el-form"), E = b("el-dialog"), fe = J0("loading");
-      return r(), d(F, null, [
-        v(x, {
-          type: "primary",
-          plain: "",
-          style: { width: "88%" },
-          onClick: _
-        }, {
-          default: f(() => [
-            SF
-          ]),
-          _: 1
-        }),
-        v(E, {
-          modelValue: c.value,
-          "onUpdate:modelValue": g[2] || (g[2] = (T) => c.value = T),
-          title: "\u6570\u636E\u6E90",
-          width: "750px",
-          "show-close": !1
-        }, {
-          header: f(() => [
-            MF,
-            i("div", kF, [
-              v(x, {
-                type: "primary",
-                onClick: u
-              }, {
-                default: f(() => [
-                  OF
-                ]),
-                _: 1
-              }),
-              v(x, {
-                onClick: g[0] || (g[0] = (T) => c.value = !1)
-              }, {
-                default: f(() => [
-                  HF
-                ]),
-                _: 1
-              })
-            ])
-          ]),
-          default: f(() => [
-            v(O, {
-              ref_key: "formRef",
-              ref: a,
-              model: n,
-              "label-width": "0px"
-            }, {
-              default: f(() => [
-                v(K, {
-                  modelValue: l.value,
-                  "onUpdate:modelValue": g[1] || (g[1] = (T) => l.value = T),
-                  type: "card",
-                  editable: "",
-                  onEdit: s
-                }, {
-                  default: f(() => [
-                    (r(!0), d(F, null, Y(n.remotes, (T, se) => (r(), z(U, {
-                      key: se,
-                      label: T.title || "\u672A\u547D\u540D",
-                      name: se
-                    }, {
-                      default: f(() => [
-                        v(C, {
-                          prop: "remotes." + se + ".title",
-                          rules: {
-                            required: !0,
-                            message: "\u8BF7\u8F93\u5165\u540D\u79F0",
-                            trigger: "blur"
-                          },
-                          style: { "margin-bottom": "18px" }
-                        }, {
-                          default: f(() => [
-                            v(y, {
-                              modelValue: T.title,
-                              "onUpdate:modelValue": (q) => T.title = q,
-                              placeholder: "\u8BF7\u8F93\u5165\u540D\u79F0"
-                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                          ]),
-                          _: 2
-                        }, 1032, ["prop"]),
-                        v(C, {
-                          prop: "remotes." + se + ".url",
-                          rules: {
-                            required: !0,
-                            message: "\u8BF7\u8F93\u5165\u5730\u5740",
-                            trigger: "blur"
-                          },
-                          style: { "margin-bottom": "18px" }
-                        }, {
-                          default: f(() => [
-                            v(y, {
-                              modelValue: T.url,
-                              "onUpdate:modelValue": (q) => T.url = q,
-                              placeholder: "\u8BF7\u8F93\u5165\u5730\u5740"
-                            }, {
-                              prepend: f(() => [
-                                v(B, {
-                                  modelValue: T.method,
-                                  "onUpdate:modelValue": (q) => T.method = q,
-                                  style: { width: "100px" }
-                                }, {
-                                  default: f(() => [
-                                    v(S, {
-                                      label: "GET",
-                                      value: "get"
-                                    }),
-                                    v(S, {
-                                      label: "POST",
-                                      value: "post"
-                                    }),
-                                    v(S, {
-                                      label: "PUT",
-                                      value: "put"
-                                    }),
-                                    v(S, {
-                                      label: "DELETE",
-                                      value: "delete"
-                                    })
-                                  ]),
-                                  _: 2
-                                }, 1032, ["modelValue", "onUpdate:modelValue"])
-                              ]),
-                              append: f(() => [
-                                v(x, {
-                                  loading: n.loading,
-                                  onClick: $
-                                }, {
-                                  default: f(() => [
-                                    jF
-                                  ]),
-                                  _: 1
-                                }, 8, ["loading"])
-                              ]),
-                              _: 2
-                            }, 1032, ["modelValue", "onUpdate:modelValue"])
-                          ]),
-                          _: 2
-                        }, 1032, ["prop"]),
-                        v(K, {
-                          modelValue: n.remoteTabs[se],
-                          "onUpdate:modelValue": (q) => n.remoteTabs[se] = q
-                        }, {
-                          default: f(() => [
-                            v(U, {
-                              label: "\u8BF7\u6C42\u5934\u90E8Headers" + (T.headers.length ? "\uFF08" + T.headers.length + "\uFF09" : ""),
-                              name: "headers"
-                            }, {
-                              default: f(() => [
-                                (r(!0), d(F, null, Y(T.headers, (q, He) => (r(), z(P, {
-                                  key: He,
-                                  class: "option-row",
-                                  gutter: 5
-                                }, {
-                                  default: f(() => [
-                                    v(N, { span: 11 }, {
-                                      default: f(() => [
-                                        v(y, {
-                                          modelValue: q.key,
-                                          "onUpdate:modelValue": (ge) => q.key = ge,
-                                          placeholder: "Key"
-                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                                      ]),
-                                      _: 2
-                                    }, 1024),
-                                    v(N, { span: 11 }, {
-                                      default: f(() => [
-                                        v(y, {
-                                          modelValue: q.value,
-                                          "onUpdate:modelValue": (ge) => q.value = ge,
-                                          placeholder: "Value"
-                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                                      ]),
-                                      _: 2
-                                    }, 1024),
-                                    v(N, {
-                                      span: 2,
-                                      class: "btn-del"
-                                    }, {
-                                      default: f(() => [
-                                        v(G, {
-                                          class: "el-icon-delete",
-                                          onClick: (ge) => m(se, "headers", He)
-                                        }, {
-                                          default: f(() => [
-                                            v(W)
-                                          ]),
-                                          _: 2
-                                        }, 1032, ["onClick"])
-                                      ]),
-                                      _: 2
-                                    }, 1024)
-                                  ]),
-                                  _: 2
-                                }, 1024))), 128)),
-                                v(x, {
-                                  link: "",
-                                  type: "primary",
-                                  onClick: (q) => p(se, "headers")
-                                }, {
-                                  default: f(() => [
-                                    AF
-                                  ]),
-                                  _: 2
-                                }, 1032, ["onClick"])
-                              ]),
-                              _: 2
-                            }, 1032, ["label"]),
-                            v(U, {
-                              label: "\u8BF7\u6C42\u53C2\u6570Params" + (T.params.length ? "\uFF08" + T.params.length + "\uFF09" : ""),
-                              name: "params"
-                            }, {
-                              default: f(() => [
-                                (r(!0), d(F, null, Y(T.params, (q, He) => (r(), z(P, {
-                                  key: He,
-                                  class: "option-row",
-                                  gutter: 5
-                                }, {
-                                  default: f(() => [
-                                    v(N, { span: 11 }, {
-                                      default: f(() => [
-                                        v(y, {
-                                          modelValue: q.key,
-                                          "onUpdate:modelValue": (ge) => q.key = ge,
-                                          placeholder: "Key"
-                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                                      ]),
-                                      _: 2
-                                    }, 1024),
-                                    v(N, { span: 11 }, {
-                                      default: f(() => [
-                                        v(y, {
-                                          modelValue: q.value,
-                                          "onUpdate:modelValue": (ge) => q.value = ge,
-                                          placeholder: "Value"
-                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                                      ]),
-                                      _: 2
-                                    }, 1024),
-                                    v(N, {
-                                      span: 2,
-                                      class: "btn-del"
-                                    }, {
-                                      default: f(() => [
-                                        v(G, {
-                                          class: "el-icon-delete",
-                                          onClick: (ge) => m(se, "params", He)
-                                        }, {
-                                          default: f(() => [
-                                            v(W)
-                                          ]),
-                                          _: 2
-                                        }, 1032, ["onClick"])
-                                      ]),
-                                      _: 2
-                                    }, 1024)
-                                  ]),
-                                  _: 2
-                                }, 1024))), 128)),
-                                v(x, {
-                                  link: "",
-                                  type: "primary",
-                                  onClick: (q) => p(se, "params")
-                                }, {
-                                  default: f(() => [
-                                    BF
-                                  ]),
-                                  _: 2
-                                }, 1032, ["onClick"])
-                              ]),
-                              _: 2
-                            }, 1032, ["label"]),
-                            v(U, {
-                              label: "\u8BF7\u6C42\u6570\u636EData" + (T.data.length ? "\uFF08" + T.data.length + "\uFF09" : ""),
-                              name: "data"
-                            }, {
-                              default: f(() => [
-                                (r(!0), d(F, null, Y(T.data, (q, He) => (r(), z(P, {
-                                  key: He,
-                                  class: "option-row",
-                                  gutter: 5
-                                }, {
-                                  default: f(() => [
-                                    v(N, { span: 11 }, {
-                                      default: f(() => [
-                                        v(y, {
-                                          modelValue: q.key,
-                                          "onUpdate:modelValue": (ge) => q.key = ge,
-                                          placeholder: "Key"
-                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                                      ]),
-                                      _: 2
-                                    }, 1024),
-                                    v(N, { span: 11 }, {
-                                      default: f(() => [
-                                        v(y, {
-                                          modelValue: q.value,
-                                          "onUpdate:modelValue": (ge) => q.value = ge,
-                                          placeholder: "Value"
-                                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                                      ]),
-                                      _: 2
-                                    }, 1024),
-                                    v(N, {
-                                      span: 2,
-                                      class: "btn-del"
-                                    }, {
-                                      default: f(() => [
-                                        v(G, {
-                                          class: "el-icon-delete",
-                                          onClick: (ge) => m(se, "data", He)
-                                        }, {
-                                          default: f(() => [
-                                            v(W)
-                                          ]),
-                                          _: 2
-                                        }, 1032, ["onClick"])
-                                      ]),
-                                      _: 2
-                                    }, 1024)
-                                  ]),
-                                  _: 2
-                                }, 1024))), 128)),
-                                v(x, {
-                                  link: "",
-                                  type: "primary",
-                                  onClick: (q) => p(se, "data")
-                                }, {
-                                  default: f(() => [
-                                    TF
-                                  ]),
-                                  _: 2
-                                }, 1032, ["onClick"])
-                              ]),
-                              _: 2
-                            }, 1032, ["label"])
-                          ]),
-                          _: 2
-                        }, 1032, ["modelValue", "onUpdate:modelValue"]),
-                        Z0((r(), d("div", EF, [
-                          LF,
-                          v(ae, {
-                            modelValue: n.remoteResults[se],
-                            "onUpdate:modelValue": (q) => n.remoteResults[se] = q,
-                            lang: "json"
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ])), [
-                          [fe, n.loading]
-                        ]),
-                        v(j, {
-                          modelValue: n.remoteCollapses[se],
-                          "onUpdate:modelValue": (q) => n.remoteCollapses[se] = q
-                        }, {
-                          default: f(() => [
-                            v(k, {
-                              title: "\u5904\u7406\u8BF7\u6C42\u6570\u636E",
-                              name: "request"
-                            }, {
-                              default: f(() => [
-                                i("div", DF, [
-                                  FF,
-                                  v(ae, {
-                                    modelValue: T.requestHandler,
-                                    "onUpdate:modelValue": (q) => T.requestHandler = q,
-                                    lang: "javascript"
-                                  }, null, 8, ["modelValue", "onUpdate:modelValue"]),
-                                  PF
-                                ])
-                              ]),
-                              _: 2
-                            }, 1024),
-                            v(k, {
-                              title: "\u5904\u7406\u54CD\u5E94\u6570\u636E",
-                              name: "response"
-                            }, {
-                              default: f(() => [
-                                i("div", IF, [
-                                  RF,
-                                  v(ae, {
-                                    modelValue: T.responseHandler,
-                                    "onUpdate:modelValue": (q) => T.responseHandler = q,
-                                    lang: "javascript"
-                                  }, null, 8, ["modelValue", "onUpdate:modelValue"]),
-                                  UF
-                                ])
-                              ]),
-                              _: 2
-                            }, 1024),
-                            v(k, {
-                              title: "\u9519\u8BEF\u5904\u7406",
-                              name: "error"
-                            }, {
-                              default: f(() => [
-                                i("div", qF, [
-                                  NF,
-                                  v(ae, {
-                                    modelValue: T.errorHandler,
-                                    "onUpdate:modelValue": (q) => T.errorHandler = q,
-                                    lang: "javascript"
-                                  }, null, 8, ["modelValue", "onUpdate:modelValue"]),
-                                  WF
-                                ])
-                              ]),
-                              _: 2
-                            }, 1024)
-                          ]),
-                          _: 2
-                        }, 1032, ["modelValue", "onUpdate:modelValue"])
-                      ]),
-                      _: 2
-                    }, 1032, ["label", "name"]))), 128))
-                  ]),
-                  _: 1
-                }, 8, ["modelValue"])
-              ]),
-              _: 1
-            }, 8, ["model"])
-          ]),
-          _: 1
-        }, 8, ["modelValue"])
-      ], 64);
-    };
-  }
-}), XF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: YF
-}, Symbol.toStringTag, { value: "Module" })), KF = V({
-  name: "richContentOption"
-}), JF = /* @__PURE__ */ Object.assign(KF, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "textarea",
-        "model-value": e.modelValue,
-        rows: 4,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), ZF = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: JF
-}, Symbol.toStringTag, { value: "Module" })), QF = { style: { width: "100%" } }, eP = /* @__PURE__ */ H("\u589E\u52A0\u884C"), tP = /* @__PURE__ */ H("\u7F16\u8F91\u884C"), oP = { class: "form-design-code-editor" }, nP = /* @__PURE__ */ H("\u53D6\u6D88"), aP = /* @__PURE__ */ H("\u786E\u5B9A"), lP = V({
-  name: "rowOptionsOption"
-}), rP = /* @__PURE__ */ Object.assign(lP, {
-  props: {
-    modelValue: Object
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = e, n = ue({
-      type: "static",
-      remote: "",
-      items: []
-    }), a = X(""), l = X(!1), c = R("state"), _ = () => {
-      t("update:modelValue", {
-        type: n.type,
-        remote: n.remote,
-        items: n.items
-      });
-    }, u = (g, x, y) => {
-      n.items[g][x] = y, _();
-    }, s = () => {
-      const g = String(n.items.length + 1);
-      n.items.push({
-        label: `\u884C${g}`
-      }), _();
-    }, p = (g) => {
-      n.items.splice(g, 1), _();
-    }, m = () => {
-      l.value = !0, a.value = JSON.stringify(n.items, null, "	");
-    }, $ = () => {
-      try {
-        n.items = JSON.parse(a.value);
-      } catch {
-        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
-      }
-      l.value = !1, _();
-    }, w = () => {
-      n.type = o.modelValue.type, n.remote = o.modelValue.remote, n.items = de(o.modelValue.items);
-    };
-    return Se(w), xe(() => o.modelValue, w), (g, x) => {
-      const y = b("el-input"), C = b("el-col"), S = Qe, B = b("el-icon"), N = b("el-row"), W = b("el-button"), G = et, P = b("el-dialog"), U = b("el-tab-pane"), K = b("el-option"), ae = b("el-select"), k = b("el-tabs");
-      return r(), d("div", QF, [
-        v(k, {
-          modelValue: n.type,
-          "onUpdate:modelValue": x[4] || (x[4] = (j) => n.type = j),
-          onTabChange: _
-        }, {
-          default: f(() => [
-            v(U, {
-              label: "\u9759\u6001\u6570\u636E",
-              name: "static"
-            }, {
-              default: f(() => [
-                (r(!0), d(F, null, Y(n.items, (j, O) => (r(), z(N, {
-                  key: O,
-                  class: "option-row",
-                  gutter: 5
-                }, {
-                  default: f(() => [
-                    v(C, { span: 22 }, {
-                      default: f(() => [
-                        v(y, {
-                          "model-value": j.label,
-                          placeholder: "\u6807\u9898",
-                          onInput: (E) => u(O, "label", E)
-                        }, null, 8, ["model-value", "onInput"])
-                      ]),
-                      _: 2
-                    }, 1024),
-                    v(C, {
-                      span: 2,
-                      class: "btn-del"
-                    }, {
-                      default: f(() => [
-                        v(B, {
-                          class: "el-icon-delete",
-                          onClick: (E) => p(O)
-                        }, {
-                          default: f(() => [
-                            v(S)
-                          ]),
-                          _: 2
-                        }, 1032, ["onClick"])
-                      ]),
-                      _: 2
-                    }, 1024)
-                  ]),
-                  _: 2
-                }, 1024))), 128)),
-                v(W, {
-                  link: "",
-                  type: "primary",
-                  onClick: s
-                }, {
-                  default: f(() => [
-                    eP
-                  ]),
-                  _: 1
-                }),
-                v(W, {
-                  link: "",
-                  type: "primary",
-                  onClick: m
-                }, {
-                  default: f(() => [
-                    tP
-                  ]),
-                  _: 1
-                }),
-                v(P, {
-                  modelValue: l.value,
-                  "onUpdate:modelValue": x[2] || (x[2] = (j) => l.value = j),
-                  title: "\u7F16\u8F91\u884C",
-                  width: "750px"
-                }, {
-                  footer: f(() => [
-                    i("div", null, [
-                      v(W, {
-                        onClick: x[1] || (x[1] = (j) => l.value = !1)
-                      }, {
-                        default: f(() => [
-                          nP
-                        ]),
-                        _: 1
-                      }),
-                      v(W, {
-                        type: "primary",
-                        onClick: $
-                      }, {
-                        default: f(() => [
-                          aP
-                        ]),
-                        _: 1
-                      })
-                    ])
-                  ]),
-                  default: f(() => [
-                    i("div", oP, [
-                      v(G, {
-                        modelValue: a.value,
-                        "onUpdate:modelValue": x[0] || (x[0] = (j) => a.value = j),
-                        lang: "json"
-                      }, null, 8, ["modelValue"])
-                    ])
-                  ]),
-                  _: 1
-                }, 8, ["modelValue"])
-              ]),
-              _: 1
-            }),
-            v(U, {
-              label: "\u6570\u636E\u6E90",
-              name: "remote"
-            }, {
-              default: f(() => [
-                v(ae, {
-                  modelValue: n.remote,
-                  "onUpdate:modelValue": x[3] || (x[3] = (j) => n.remote = j),
-                  clearable: "",
-                  placeholder: "\u8BF7\u9009\u62E9\u6570\u636E\u6E90",
-                  style: { width: "88%", "margin-bottom": "5px" },
-                  onChange: _
-                }, {
-                  default: f(() => [
-                    (r(!0), d(F, null, Y(A(c).formDesign.options.remotes, (j, O) => (r(), z(K, {
-                      key: O,
-                      label: j.title,
-                      value: O
-                    }, null, 8, ["label", "value"]))), 128))
-                  ]),
-                  _: 1
-                }, 8, ["modelValue"])
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        }, 8, ["modelValue"])
-      ]);
-    };
-  }
-}), iP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: rP
-}, Symbol.toStringTag, { value: "Module" })), sP = V({
-  name: "rowsOption"
-}), uP = /* @__PURE__ */ Object.assign(sP, {
-  props: {
-    modelValue: Number
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = (n) => {
-      t("update:modelValue", n);
-    };
-    return (n, a) => {
-      const l = b("el-slider");
-      return r(), z(l, {
-        "model-value": e.modelValue,
-        min: 2,
-        max: 10,
-        "onUpdate:modelValue": o
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), cP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: uP
-}, Symbol.toStringTag, { value: "Module" })), dP = /* @__PURE__ */ H(" \u5FC5\u586B "), _P = /* @__PURE__ */ H("\u589E\u52A0\u9A8C\u8BC1"), pP = /* @__PURE__ */ H("\u7F16\u8F91\u9A8C\u8BC1"), mP = { class: "form-design-code-editor" }, hP = /* @__PURE__ */ H("\u53D6\u6D88"), fP = /* @__PURE__ */ H("\u786E\u5B9A"), vP = V({
-  name: "rulesOption"
-}), gP = /* @__PURE__ */ Object.assign(vP, {
-  props: {
-    modelValue: Array
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = e, n = ue({
-      required: { required: !1, message: "\u5FC5\u586B\u9879", trigger: "blur" },
-      patterns: []
-    }), a = X(""), l = X(!1), c = () => {
-      t("update:modelValue", [n.required, ...n.patterns]);
-    }, _ = (w, g, x) => {
-      n.patterns[w][g] = x, c();
-    }, u = () => {
-      n.patterns.push({
-        pattern: "",
-        message: "",
-        trigger: "blur"
-      }), c();
-    }, s = (w) => {
-      n.patterns.splice(w, 1), c();
-    }, p = () => {
-      l.value = !0, a.value = JSON.stringify(n.patterns, null, "	");
-    }, m = () => {
-      try {
-        n.patterns = JSON.parse(a.value);
-      } catch {
-        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
-      }
-      l.value = !1, c();
-    }, $ = () => {
-      n.required = de(o.modelValue[0]), n.patterns = de(o.modelValue.slice(1));
-    };
-    return Se($), xe(() => o.modelValue, $), (w, g) => {
-      const x = b("el-checkbox"), y = b("el-col"), C = b("el-input"), S = b("el-row"), B = Qe, N = b("el-icon"), W = b("el-button"), G = et, P = b("el-dialog");
-      return r(), d("div", null, [
-        v(S, {
-          class: "option-row",
-          gutter: 5
-        }, {
-          default: f(() => [
-            v(y, { span: 11 }, {
-              default: f(() => [
-                v(x, {
-                  modelValue: n.required.required,
-                  "onUpdate:modelValue": g[0] || (g[0] = (U) => n.required.required = U),
-                  onChange: c
-                }, {
-                  default: f(() => [
-                    dP
-                  ]),
-                  _: 1
-                }, 8, ["modelValue"])
-              ]),
-              _: 1
-            }),
-            v(y, { span: 11 }, {
-              default: f(() => [
-                v(C, {
-                  modelValue: n.required.message,
-                  "onUpdate:modelValue": g[1] || (g[1] = (U) => n.required.message = U),
-                  placeholder: "\u63D0\u793A\u4FE1\u606F",
-                  onInput: c
-                }, null, 8, ["modelValue"])
-              ]),
-              _: 1
-            }),
-            v(y, { span: 2 })
-          ]),
-          _: 1
-        }),
-        (r(!0), d(F, null, Y(n.patterns, (U, K) => (r(), z(S, {
-          key: K,
-          class: "option-row",
-          gutter: 5
-        }, {
-          default: f(() => [
-            v(y, { span: 11 }, {
-              default: f(() => [
-                v(C, {
-                  "model-value": U.pattern,
-                  placeholder: "\u6B63\u5219\u8868\u8FBE\u5F0F",
-                  onInput: (ae) => _(K, "pattern", ae)
-                }, null, 8, ["model-value", "onInput"])
-              ]),
-              _: 2
-            }, 1024),
-            v(y, { span: 11 }, {
-              default: f(() => [
-                v(C, {
-                  "model-value": U.message,
-                  placeholder: "\u63D0\u793A\u4FE1\u606F",
-                  onInput: (ae) => _(K, "message", ae)
-                }, null, 8, ["model-value", "onInput"])
-              ]),
-              _: 2
-            }, 1024),
-            v(y, {
-              span: 2,
-              class: "btn-del"
-            }, {
-              default: f(() => [
-                v(N, {
-                  class: "el-icon-delete",
-                  onClick: (ae) => s(K)
-                }, {
-                  default: f(() => [
-                    v(B)
-                  ]),
-                  _: 2
-                }, 1032, ["onClick"])
-              ]),
-              _: 2
-            }, 1024)
-          ]),
-          _: 2
-        }, 1024))), 128)),
-        v(W, {
-          link: "",
-          type: "primary",
-          onClick: u
-        }, {
-          default: f(() => [
-            _P
-          ]),
-          _: 1
-        }),
-        v(W, {
-          link: "",
-          type: "primary",
-          onClick: p
-        }, {
-          default: f(() => [
-            pP
-          ]),
-          _: 1
-        }),
-        v(P, {
-          modelValue: l.value,
-          "onUpdate:modelValue": g[4] || (g[4] = (U) => l.value = U),
-          title: "\u7F16\u8F91\u9A8C\u8BC1",
-          width: "750px"
-        }, {
-          footer: f(() => [
-            i("div", null, [
-              v(W, {
-                onClick: g[3] || (g[3] = (U) => l.value = !1)
-              }, {
-                default: f(() => [
-                  hP
-                ]),
-                _: 1
-              }),
-              v(W, {
-                type: "primary",
-                onClick: m
-              }, {
-                default: f(() => [
-                  fP
-                ]),
-                _: 1
-              })
-            ])
-          ]),
-          default: f(() => [
-            i("div", mP, [
-              v(G, {
-                modelValue: a.value,
-                "onUpdate:modelValue": g[2] || (g[2] = (U) => a.value = U),
-                lang: "json"
-              }, null, 8, ["modelValue"])
-            ])
-          ]),
-          _: 1
-        }, 8, ["modelValue"])
-      ]);
-    };
-  }
-}), bP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: gP
-}, Symbol.toStringTag, { value: "Module" })), wP = /* @__PURE__ */ H("\u603B\u662F"), xP = /* @__PURE__ */ H("\u60AC\u6D6E"), $P = /* @__PURE__ */ H("\u4ECE\u4E0D"), yP = V({
-  name: "shadowOption"
-}), zP = /* @__PURE__ */ Object.assign(yP, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-radio-button"), a = b("el-radio-group");
-      return r(), z(a, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
-      }, {
-        default: f(() => [
-          v(n, { label: "always" }, {
-            default: f(() => [
-              wP
-            ]),
-            _: 1
-          }),
-          v(n, { label: "hover" }, {
-            default: f(() => [
-              xP
-            ]),
-            _: 1
-          }),
-          v(n, { label: "never" }, {
-            default: f(() => [
-              $P
-            ]),
-            _: 1
-          })
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), VP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: zP
-}, Symbol.toStringTag, { value: "Module" })), CP = V({
-  name: "showAlphaOption"
-}), SP = /* @__PURE__ */ Object.assign(CP, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), MP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: SP
-}, Symbol.toStringTag, { value: "Module" })), kP = V({
-  name: "showFileListOption"
-}), OP = /* @__PURE__ */ Object.assign(kP, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), HP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: OP
-}, Symbol.toStringTag, { value: "Module" })), jP = V({
-  name: "showInputOption"
-}), AP = /* @__PURE__ */ Object.assign(jP, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), BP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: AP
-}, Symbol.toStringTag, { value: "Module" })), TP = V({
-  name: "showPasswordOption"
-}), EP = /* @__PURE__ */ Object.assign(TP, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), LP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: EP
-}, Symbol.toStringTag, { value: "Module" })), DP = V({
-  name: "showStopsOption"
-}), FP = /* @__PURE__ */ Object.assign(DP, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), PP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: FP
-}, Symbol.toStringTag, { value: "Module" })), IP = V({
-  name: "showToolTipOption"
-}), RP = /* @__PURE__ */ Object.assign(IP, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), UP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: RP
-}, Symbol.toStringTag, { value: "Module" })), qP = V({
-  name: "showWordLimitOption"
-}), NP = /* @__PURE__ */ Object.assign(qP, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), WP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: NP
-}, Symbol.toStringTag, { value: "Module" })), GP = /* @__PURE__ */ H("\u5927\u53F7"), YP = /* @__PURE__ */ H("\u6B63\u5E38"), XP = /* @__PURE__ */ H("\u5C0F\u53F7"), KP = V({
-  name: "sizeOption"
-}), JP = /* @__PURE__ */ Object.assign(KP, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-radio-button"), a = b("el-radio-group");
-      return r(), z(a, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
-      }, {
-        default: f(() => [
-          v(n, { label: "large" }, {
-            default: f(() => [
-              GP
-            ]),
-            _: 1
-          }),
-          v(n, { label: "default" }, {
-            default: f(() => [
-              YP
-            ]),
-            _: 1
-          }),
-          v(n, { label: "small" }, {
-            default: f(() => [
-              XP
-            ]),
-            _: 1
-          })
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), ZP = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: JP
-}, Symbol.toStringTag, { value: "Module" })), QP = V({
-  name: "statusIconOption"
-}), eI = /* @__PURE__ */ Object.assign(QP, {
-  props: {
-    modelValue: Boolean
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-checkbox");
-      return r(), z(n, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), tI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: eI
-}, Symbol.toStringTag, { value: "Module" })), oI = /* @__PURE__ */ H("\u9009\u62E9"), nI = V({
-  name: "suffixIconOption"
-}), aI = /* @__PURE__ */ Object.assign(nI, {
-  props: {
-    modelValue: String
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = X(!1), n = (a) => {
-      t("update:modelValue", a), o.value = !1;
-    };
-    return (a, l) => {
-      const c = b("el-button"), _ = b("el-input"), u = b("el-tooltip"), s = b("el-drawer");
-      return r(), d(F, null, [
-        v(_, {
-          type: "text",
-          "model-value": e.modelValue,
-          onInput: l[1] || (l[1] = (p) => a.$emit("update:modelValue", p))
-        }, {
-          append: f(() => [
-            v(c, {
-              onClick: l[0] || (l[0] = (p) => o.value = !o.value)
-            }, {
-              default: f(() => [
-                oI
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        }, 8, ["model-value"]),
-        v(s, {
-          modelValue: o.value,
-          "onUpdate:modelValue": l[2] || (l[2] = (p) => o.value = p),
-          direction: "rtl",
-          "show-close": !1,
-          "with-header": !1,
-          size: "380px"
-        }, {
-          default: f(() => [
-            (r(), d(F, null, Y(ye, (p, m) => v(u, {
-              key: m,
-              effect: "dark",
-              content: m,
-              placement: "top"
-            }, {
-              default: f(() => [
-                (r(), z(Vt(p), {
-                  style: { width: "24px", cursor: "pointer" },
-                  onClick: ($) => n(m)
-                }, null, 8, ["onClick"]))
-              ]),
-              _: 2
-            }, 1032, ["content"])), 64))
-          ]),
-          _: 1
-        }, 8, ["modelValue"])
-      ], 64);
-    };
-  }
-}), lI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: aI
-}, Symbol.toStringTag, { value: "Module" })), rI = /* @__PURE__ */ H("\u4E0A"), iI = /* @__PURE__ */ H("\u53F3"), sI = /* @__PURE__ */ H("\u4E0B"), uI = /* @__PURE__ */ H("\u5DE6"), cI = V({
-  name: "tabPositionOption"
-}), dI = /* @__PURE__ */ Object.assign(cI, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-radio-button"), a = b("el-radio-group");
-      return r(), z(a, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
-      }, {
-        default: f(() => [
-          v(n, { label: "top" }, {
-            default: f(() => [
-              rI
-            ]),
-            _: 1
-          }),
-          v(n, { label: "right" }, {
-            default: f(() => [
-              iI
-            ]),
-            _: 1
-          }),
-          v(n, { label: "bottom" }, {
-            default: f(() => [
-              sI
-            ]),
-            _: 1
-          }),
-          v(n, { label: "left" }, {
-            default: f(() => [
-              uI
-            ]),
-            _: 1
-          })
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), _I = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: dI
-}, Symbol.toStringTag, { value: "Module" })), pI = /* @__PURE__ */ H("\u9009\u9879\u5361"), mI = /* @__PURE__ */ H("\u5361\u7247\u5316"), hI = V({
-  name: "tabTypeOption"
-}), fI = /* @__PURE__ */ Object.assign(hI, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-radio-button"), a = b("el-radio-group");
-      return r(), z(a, {
-        "model-value": e.modelValue,
-        "onUpdate:modelValue": o[0] || (o[0] = (l) => t.$emit("update:modelValue", l))
-      }, {
-        default: f(() => [
-          v(n, { label: "card" }, {
-            default: f(() => [
-              pI
-            ]),
-            _: 1
-          }),
-          v(n, { label: "border-card" }, {
-            default: f(() => [
-              mI
-            ]),
-            _: 1
-          })
-        ]),
-        _: 1
-      }, 8, ["model-value"]);
-    };
-  }
-}), vI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: fI
-}, Symbol.toStringTag, { value: "Module" })), gI = V({
-  name: "tipOption"
-}), bI = /* @__PURE__ */ Object.assign(gI, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), wI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: bI
-}, Symbol.toStringTag, { value: "Module" })), xI = { class: "form-design-code-editor" }, $I = /* @__PURE__ */ H("\u53D6\u6D88"), yI = /* @__PURE__ */ H("\u786E\u5B9A"), zI = /* @__PURE__ */ H("\u7F16\u8F91\u6570\u636E"), VI = V({
-  name: "uploadDataOption"
-}), CI = /* @__PURE__ */ Object.assign(VI, {
-  props: {
-    modelValue: Object
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = e, n = X(""), a = X(!1), l = () => {
-      a.value = !0, n.value = JSON.stringify(o.modelValue, null, "	");
-    }, c = () => {
-      try {
-        const _ = JSON.parse(n.value);
-        t("update:modelValue", _);
-      } catch {
-        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
-      }
-      a.value = !1;
-    };
-    return (_, u) => {
-      const s = et, p = b("el-button"), m = b("el-dialog");
-      return r(), d(F, null, [
-        v(m, {
-          modelValue: a.value,
-          "onUpdate:modelValue": u[2] || (u[2] = ($) => a.value = $),
-          title: "\u7F16\u8F91\u989D\u5916\u53C2\u6570",
-          width: "750px"
-        }, {
-          footer: f(() => [
-            i("div", null, [
-              v(p, {
-                onClick: u[1] || (u[1] = ($) => a.value = !1)
-              }, {
-                default: f(() => [
-                  $I
-                ]),
-                _: 1
-              }),
-              v(p, {
-                type: "primary",
-                onClick: c
-              }, {
-                default: f(() => [
-                  yI
-                ]),
-                _: 1
-              })
-            ])
-          ]),
-          default: f(() => [
-            i("div", xI, [
-              v(s, {
-                modelValue: n.value,
-                "onUpdate:modelValue": u[0] || (u[0] = ($) => n.value = $),
-                lang: "json"
-              }, null, 8, ["modelValue"])
-            ])
-          ]),
-          _: 1
-        }, 8, ["modelValue"]),
-        v(p, {
-          link: "",
-          type: "primary",
-          onClick: l
-        }, {
-          default: f(() => [
-            zI
-          ]),
-          _: 1
-        })
-      ], 64);
-    };
-  }
-}), SI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: CI
-}, Symbol.toStringTag, { value: "Module" })), MI = { class: "form-design-code-editor" }, kI = /* @__PURE__ */ H("\u53D6\u6D88"), OI = /* @__PURE__ */ H("\u786E\u5B9A"), HI = /* @__PURE__ */ H("\u7F16\u8F91\u6570\u636E"), jI = V({
-  name: "uploadHeadersOption"
-}), AI = /* @__PURE__ */ Object.assign(jI, {
-  props: {
-    modelValue: Object
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = e, n = X(""), a = X(!1), l = () => {
-      a.value = !0, n.value = JSON.stringify(o.modelValue, null, "	");
-    }, c = () => {
-      try {
-        const _ = JSON.parse(n.value);
-        t("update:modelValue", _);
-      } catch {
-        return we.error("\u6570\u636E\u683C\u5F0F\u4E0D\u6B63\u786E");
-      }
-      a.value = !1;
-    };
-    return (_, u) => {
-      const s = et, p = b("el-button"), m = b("el-dialog");
-      return r(), d(F, null, [
-        v(m, {
-          modelValue: a.value,
-          "onUpdate:modelValue": u[2] || (u[2] = ($) => a.value = $),
-          title: "\u7F16\u8F91\u8BF7\u6C42\u5934\u90E8",
-          width: "750px"
-        }, {
-          footer: f(() => [
-            i("div", null, [
-              v(p, {
-                onClick: u[1] || (u[1] = ($) => a.value = !1)
-              }, {
-                default: f(() => [
-                  kI
-                ]),
-                _: 1
-              }),
-              v(p, {
-                type: "primary",
-                onClick: c
-              }, {
-                default: f(() => [
-                  OI
-                ]),
-                _: 1
-              })
-            ])
-          ]),
-          default: f(() => [
-            i("div", MI, [
-              v(s, {
-                modelValue: n.value,
-                "onUpdate:modelValue": u[0] || (u[0] = ($) => n.value = $),
-                lang: "json"
-              }, null, 8, ["modelValue"])
-            ])
-          ]),
-          _: 1
-        }, 8, ["modelValue"]),
-        v(p, {
-          link: "",
-          type: "primary",
-          onClick: l
-        }, {
-          default: f(() => [
-            HI
-          ]),
-          _: 1
-        })
-      ], 64);
-    };
-  }
-}), BI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: AI
-}, Symbol.toStringTag, { value: "Module" })), TI = V({
-  name: "uploadNameOption"
-}), EI = /* @__PURE__ */ Object.assign(TI, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), LI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: EI
-}, Symbol.toStringTag, { value: "Module" })), DI = V({
-  name: "uploadSizeOption"
-}), FI = /* @__PURE__ */ Object.assign(DI, {
-  props: {
-    modelValue: String
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = e, n = X(0), a = X("KB"), l = () => {
-      n.value = parseFloat(o.modelValue), a.value = o.modelValue.substr(o.modelValue.length - 2);
-    }, c = () => {
-      t("update:modelValue", n.value + a.value);
-    };
-    return xe(() => o.modelValue, l), Se(l), (_, u) => {
-      const s = b("el-option"), p = b("el-select"), m = b("el-input");
-      return r(), z(m, {
-        modelValue: n.value,
-        "onUpdate:modelValue": u[1] || (u[1] = ($) => n.value = $),
-        modelModifiers: { number: !0 },
-        type: "text",
-        onInput: c
-      }, {
-        append: f(() => [
-          v(p, {
-            modelValue: a.value,
-            "onUpdate:modelValue": u[0] || (u[0] = ($) => a.value = $),
-            style: { width: "70px" },
-            onChange: c
-          }, {
-            default: f(() => [
-              v(s, {
-                label: "KB",
-                value: "KB"
-              }),
-              v(s, {
-                label: "MB",
-                value: "MB"
-              }),
-              v(s, {
-                label: "GB",
-                value: "GB"
-              })
-            ]),
-            _: 1
-          }, 8, ["modelValue"])
-        ]),
-        _: 1
-      }, 8, ["modelValue"]);
-    };
-  }
-}), PI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: FI
-}, Symbol.toStringTag, { value: "Module" })), II = V({
-  name: "uploadUrlOption"
-}), RI = /* @__PURE__ */ Object.assign(II, {
-  props: {
-    modelValue: String
-  },
-  setup(e) {
-    return (t, o) => {
-      const n = b("el-input");
-      return r(), z(n, {
-        type: "text",
-        "model-value": e.modelValue,
-        onInput: o[0] || (o[0] = (a) => t.$emit("update:modelValue", a))
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), UI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: RI
-}, Symbol.toStringTag, { value: "Module" })), qI = V({
-  name: "widthOption"
-}), NI = /* @__PURE__ */ Object.assign(qI, {
-  props: {
-    modelValue: String
-  },
-  emits: ["update:modelValue"],
-  setup(e, { emit: t }) {
-    const o = (n) => {
-      t("update:modelValue", `${n}%`);
-    };
-    return (n, a) => {
-      const l = b("el-slider");
-      return r(), z(l, {
-        "model-value": parseInt(e.modelValue),
-        min: 0,
-        max: 100,
-        marks: { 33: "1/3", 50: "1/2", 66: "2/3" },
-        "onUpdate:modelValue": o
-      }, null, 8, ["model-value"]);
-    };
-  }
-}), WI = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  default: NI
-}, Symbol.toStringTag, { value: "Module" })), $0 = {};
-Object.values(/* @__PURE__ */ Object.assign({ "./components/active-color.vue": NE, "./components/active-text.vue": YE, "./components/allow-half.vue": JE, "./components/background-color.vue": eL, "./components/border.vue": nL, "./components/button-text.vue": rL, "./components/clearable.vue": uL, "./components/collapse-tags.vue": _L, "./components/content.vue": hL, "./components/default-value.vue": gL, "./components/disabled.vue": xL, "./components/expand-trigger.vue": CL, "./components/file-suffix.vue": kL, "./components/filterable.vue": jL, "./components/format.vue": TL, "./components/gutter.vue": DL, "./components/height.vue": IL, "./components/hidden.vue": qL, "./components/hide-required-asterisk.vue": GL, "./components/image-suffix.vue": KL, "./components/inactive-color.vue": QL, "./components/inactive-text.vue": oD, "./components/inline.vue": lD, "./components/key.vue": sD, "./components/label-position.vue": mD, "./components/label-width.vue": vD, "./components/label.vue": wD, "./components/limit.vue": yD, "./components/line-height.vue": CD, "./components/max.vue": kD, "./components/maxlength.vue": jD, "./components/min.vue": TD, "./components/multiple-limit.vue": DD, "./components/multiple.vue": ID, "./components/no-data-text.vue": qD, "./components/no-match-text.vue": GD, "./components/options.vue": uF, "./components/padding.vue": fF, "./components/pen-color.vue": bF, "./components/placeholder.vue": $F, "./components/prefix-icon.vue": CF, "./components/remotes.vue": XF, "./components/rich-content.vue": ZF, "./components/row-options.vue": iP, "./components/rows.vue": cP, "./components/rules.vue": bP, "./components/shadow.vue": VP, "./components/show-alpha.vue": MP, "./components/show-file-list.vue": HP, "./components/show-input.vue": BP, "./components/show-password.vue": LP, "./components/show-stops.vue": PP, "./components/show-tooltip.vue": UP, "./components/show-word-limit.vue": WP, "./components/size.vue": ZP, "./components/status-icon.vue": tI, "./components/suffix-icon.vue": lI, "./components/tab-position.vue": _I, "./components/tab-type.vue": vI, "./components/tip.vue": wI, "./components/upload-data.vue": SI, "./components/upload-headers.vue": BI, "./components/upload-name.vue": LI, "./components/upload-size.vue": PI, "./components/upload-url.vue": UI, "./components/width.vue": WI })).forEach(
+}, $0 = {};
+Object.values(/* @__PURE__ */ Object.assign({ "./components/active-color.vue": DE, "./components/active-text.vue": IE, "./components/allow-half.vue": qE, "./components/background-color.vue": GE, "./components/border.vue": KE, "./components/button-text.vue": QE, "./components/clearable.vue": oL, "./components/collapse-tags.vue": lL, "./components/content.vue": sL, "./components/default-value.vue": dL, "./components/disabled.vue": mL, "./components/expand-trigger.vue": bL, "./components/file-suffix.vue": $L, "./components/filterable.vue": VL, "./components/format.vue": ML, "./components/gutter.vue": HL, "./components/height.vue": BL, "./components/hidden.vue": LL, "./components/hide-required-asterisk.vue": PL, "./components/image-suffix.vue": UL, "./components/inactive-color.vue": WL, "./components/inactive-text.vue": XL, "./components/inline.vue": ZL, "./components/key.vue": tD, "./components/label-position.vue": iD, "./components/label-width.vue": cD, "./components/label.vue": pD, "./components/limit.vue": fD, "./components/line-height.vue": bD, "./components/max.vue": $D, "./components/maxlength.vue": VD, "./components/min.vue": MD, "./components/multiple-limit.vue": HD, "./components/multiple.vue": BD, "./components/no-data-text.vue": LD, "./components/no-match-text.vue": PD, "./components/options.vue": oF, "./components/padding.vue": uF, "./components/pen-color.vue": _F, "./components/placeholder.vue": hF, "./components/prefix-icon.vue": bF, "./components/remotes.vue": RF, "./components/rich-content.vue": NF, "./components/row-options.vue": eP, "./components/rows.vue": nP, "./components/rules.vue": _P, "./components/shadow.vue": gP, "./components/show-alpha.vue": xP, "./components/show-file-list.vue": zP, "./components/show-input.vue": SP, "./components/show-password.vue": OP, "./components/show-stops.vue": AP, "./components/show-tooltip.vue": EP, "./components/show-word-limit.vue": FP, "./components/size.vue": NP, "./components/status-icon.vue": YP, "./components/suffix-icon.vue": ZP, "./components/tab-position.vue": lI, "./components/tab-type.vue": cI, "./components/tip.vue": pI, "./components/upload-data.vue": wI, "./components/upload-headers.vue": SI, "./components/upload-name.vue": OI, "./components/upload-size.vue": AI, "./components/upload-url.vue": EI, "./components/width.vue": FI })).forEach(
   ({ default: e }) => $0[e.name] = e
 );
 const GI = {
@@ -16049,15 +16049,15 @@ const GI = {
     const e = R("updateSelectedFormOption"), t = R("switchInterpolate");
     return {
       isPrimitive: sn,
-      validateInterpolation: H2,
-      optionKeyLabels: OE,
+      validateInterpolation: O2,
+      optionKeyLabels: WI,
       updateOption: (o, n) => e({ key: o, value: n }),
       switchInterpolate: (o) => t(o)
     };
   }
 };
 function YI(e, t, o, n, a, l) {
-  const c = RE, _ = b("el-form-item"), u = b("el-col"), s = EE, p = b("el-row");
+  const c = TE, _ = b("el-form-item"), u = b("el-col"), s = kE, p = b("el-row");
   return r(), z(p, null, {
     default: f(() => [
       v(u, {
@@ -16160,7 +16160,7 @@ const lR = { name: "carbon-copy-file", render: aR }, rR = V({
     }
   },
   setup(e) {
-    const t = ue(A2);
+    const t = ue(j2);
     return (o, n) => {
       const a = b("el-cascader"), l = b("el-form-item");
       return r(), z(l, {
@@ -16350,7 +16350,7 @@ function Ae() {
   var e = document.scrollingElement;
   return e || document.documentElement;
 }
-function pe(e, t, o, n, a) {
+function _e(e, t, o, n, a) {
   if (!(!e.getBoundingClientRect && e !== window)) {
     var l, c, _, u, s, p, m;
     if (e !== window && e.parentNode && e !== Ae() ? (l = e.getBoundingClientRect(), c = l.top, _ = l.left, u = l.bottom, s = l.right, p = l.height, m = l.width) : (c = 0, _ = 0, u = window.innerHeight, s = window.innerWidth, p = window.innerHeight, m = window.innerWidth), (t || o) && e !== window && (a = a || e.parentNode, !Fe))
@@ -16376,8 +16376,8 @@ function pe(e, t, o, n, a) {
   }
 }
 function Oo(e, t, o) {
-  for (var n = Ue(e, !0), a = pe(e)[t]; n; ) {
-    var l = pe(n)[o], c = void 0;
+  for (var n = Ue(e, !0), a = _e(e)[t]; n; ) {
+    var l = _e(n)[o], c = void 0;
     if (o === "top" || o === "left" ? c = a >= l : c = a <= l, !c)
       return n;
     if (n === Ae())
@@ -16397,7 +16397,7 @@ function st(e, t, o, n) {
   }
   return null;
 }
-function W2(e, t) {
+function N2(e, t) {
   for (var o = e.lastElementChild; o && (o === D.ghost || L(o, "display") === "none" || t && !Nt(o, t)); )
     o = o.previousElementSibling;
   return o || null;
@@ -16487,7 +16487,7 @@ function gR() {
           if (!(L(a, "display") === "none" || a === D.ghost)) {
             e.push({
               target: a,
-              rect: pe(a)
+              rect: _e(a)
             });
             var l = Be({}, e[e.length - 1].rect);
             if (a.thisAnimationDuration) {
@@ -16515,7 +16515,7 @@ function gR() {
       }
       var l = !1, c = 0;
       e.forEach(function(_) {
-        var u = 0, s = _.target, p = s.fromRect, m = pe(s), $ = s.prevFromRect, w = s.prevToRect, g = _.rect, x = lt(s, !0);
+        var u = 0, s = _.target, p = s.fromRect, m = _e(s), $ = s.prevFromRect, w = s.prevToRect, g = _.rect, x = lt(s, !0);
         x && (m.top -= x.f, m.left -= x.e), s.toRect = m, s.thisAnimationDuration && s2($, m) && !s2(p, m) && (g.top - m.top) / (g.left - m.left) === (p.top - m.top) / (p.left - m.left) && (u = wR(g, $, w, a.options)), s2(m, p) || (s.prevFromRect = p, s.prevToRect = m, u || (u = a.options.animation), a.animate(s, g, m, u)), u && (l = !0, c = Math.max(c, u), clearTimeout(s.animationResetTimer), s.animationResetTimer = setTimeout(function() {
           s.animationTime = 0, s.prevFromRect = null, s.fromRect = null, s.prevToRect = null, s.thisAnimationDuration = null;
         }, u), s.thisAnimationDuration = u);
@@ -16654,7 +16654,7 @@ function be(e) {
     newDraggableIndex: Ie
   }, e));
 }
-var M, re, I, ne, Ge, Dt, ie, Re, at, Ve, gt, Ie, jt, he, nt = !1, Wt = !1, Gt = [], qe, Oe, c2, d2, jo, Ao, _t, ot, bt, wt = !1, At = !1, Ft, ve, _2 = [], V2 = !1, Yt = [], n2 = typeof document < "u", Bt = y0, Bo = Ot || Fe ? "cssFloat" : "float", yR = n2 && !pR && !y0 && "draggable" in document.createElement("div"), k0 = function() {
+var M, re, I, ne, Ge, Dt, ie, Re, at, Ve, gt, Ie, jt, he, nt = !1, Wt = !1, Gt = [], qe, Oe, c2, d2, jo, Ao, _t, ot, bt, wt = !1, At = !1, Ft, ve, _2 = [], z2 = !1, Yt = [], n2 = typeof document < "u", Bt = y0, Bo = Ot || Fe ? "cssFloat" : "float", yR = n2 && !pR && !y0 && "draggable" in document.createElement("div"), k0 = function() {
   if (!!n2) {
     if (Fe)
       return !1;
@@ -16662,7 +16662,7 @@ var M, re, I, ne, Ge, Dt, ie, Re, at, Ve, gt, Ie, jt, he, nt = !1, Wt = !1, Gt =
     return e.style.cssText = "pointer-events:auto", e.style.pointerEvents === "auto";
   }
 }(), O0 = function(t, o) {
-  var n = L(t), a = parseInt(n.width) - parseInt(n.paddingLeft) - parseInt(n.paddingRight) - parseInt(n.borderLeftWidth) - parseInt(n.borderRightWidth), l = st(t, 0, o), c = st(t, 1, o), _ = l && L(l), u = c && L(c), s = _ && parseInt(_.marginLeft) + parseInt(_.marginRight) + pe(l).width, p = u && parseInt(u.marginLeft) + parseInt(u.marginRight) + pe(c).width;
+  var n = L(t), a = parseInt(n.width) - parseInt(n.paddingLeft) - parseInt(n.paddingRight) - parseInt(n.borderLeftWidth) - parseInt(n.borderRightWidth), l = st(t, 0, o), c = st(t, 1, o), _ = l && L(l), u = c && L(c), s = _ && parseInt(_.marginLeft) + parseInt(_.marginRight) + _e(l).width, p = u && parseInt(u.marginLeft) + parseInt(u.marginRight) + _e(c).width;
   if (n.display === "flex")
     return n.flexDirection === "column" || n.flexDirection === "column-reverse" ? "vertical" : "horizontal";
   if (n.display === "grid")
@@ -16679,8 +16679,8 @@ var M, re, I, ne, Ge, Dt, ie, Re, at, Ve, gt, Ie, jt, he, nt = !1, Wt = !1, Gt =
   var n;
   return Gt.some(function(a) {
     var l = a[Ce].options.emptyInsertThreshold;
-    if (!(!l || W2(a))) {
-      var c = pe(a), _ = t >= c.left - l && t <= c.right + l, u = o >= c.top - l && o <= c.bottom + l;
+    if (!(!l || N2(a))) {
+      var c = _e(a), _ = t >= c.left - l && t <= c.right + l, u = o >= c.top - l && o <= c.bottom + l;
       if (_ && u)
         return n = a;
     }
@@ -16831,7 +16831,7 @@ D.prototype = {
   _prepareDragStart: function(t, o, n) {
     var a = this, l = a.el, c = a.options, _ = l.ownerDocument, u;
     if (n && !M && n.parentNode === l) {
-      var s = pe(n);
+      var s = _e(n);
       if (ne = l, M = n, re = M.parentNode, Ge = M.nextSibling, Dt = n, jt = c.group, D.dragged = M, qe = {
         target: M,
         clientX: (o || t).clientX,
@@ -16943,7 +16943,7 @@ D.prototype = {
   },
   _appendGhost: function() {
     if (!I) {
-      var t = this.options.fallbackOnBody ? document.body : ne, o = pe(M, !0, Bt, !0, t), n = this.options;
+      var t = this.options.fallbackOnBody ? document.body : ne, o = _e(M, !0, Bt, !0, t), n = this.options;
       if (Bt) {
         for (ve = t; L(ve, "position") === "static" && L(ve, "transform") === "none" && ve !== document; )
           ve = ve.parentNode;
@@ -16969,7 +16969,7 @@ D.prototype = {
   },
   _onDragOver: function(t) {
     var o = this.el, n = t.target, a, l, c, _ = this.options, u = _.group, s = D.active, p = jt === u, m = _.sort, $ = he || s, w, g = this, x = !1;
-    if (V2)
+    if (z2)
       return;
     function y(q, He) {
       $e(q, g, Be({
@@ -16983,8 +16983,8 @@ D.prototype = {
         fromSortable: $,
         target: n,
         completed: S,
-        onMove: function(X2, W0) {
-          return Tt(ne, o, M, a, X2, pe(X2), t, W0);
+        onMove: function(Y2, W0) {
+          return Tt(ne, o, M, a, Y2, _e(Y2), t, W0);
         },
         changed: B
       }, He));
@@ -17014,24 +17014,24 @@ D.prototype = {
     if (M.contains(t.target) || n.animated && n.animatingX && n.animatingY || g._ignoreWhileAnimating === n)
       return S(!1);
     if (Wt = !1, s && !_.disabled && (p ? m || (c = re !== ne) : he === this || (this.lastPutMode = jt.checkPull(this, s, M, t)) && u.checkPut(this, s, M, t))) {
-      if (w = this._getDirection(t, n) === "vertical", a = pe(M), y("dragOverValid"), D.eventCanceled)
+      if (w = this._getDirection(t, n) === "vertical", a = _e(M), y("dragOverValid"), D.eventCanceled)
         return x;
       if (c)
         return re = ne, C(), this._hideClone(), y("revert"), D.eventCanceled || (Ge ? ne.insertBefore(M, Ge) : ne.appendChild(M)), S(!0);
-      var N = W2(o, _.draggable);
+      var N = N2(o, _.draggable);
       if (!N || OR(t, w, this) && !N.animated) {
         if (N === M)
           return S(!1);
-        if (N && o === t.target && (n = N), n && (l = pe(n)), Tt(ne, o, M, a, n, l, t, !!n) !== !1)
+        if (N && o === t.target && (n = N), n && (l = _e(n)), Tt(ne, o, M, a, n, l, t, !!n) !== !1)
           return C(), o.appendChild(M), re = o, B(), S(!0);
       } else if (N && kR(t, w, this)) {
         var W = st(o, 0, _, !0);
         if (W === M)
           return S(!1);
-        if (n = W, l = pe(n), Tt(ne, o, M, a, n, l, t, !1) !== !1)
+        if (n = W, l = _e(n), Tt(ne, o, M, a, n, l, t, !1) !== !1)
           return C(), o.insertBefore(M, W), re = o, B(), S(!0);
       } else if (n.parentNode === o) {
-        l = pe(n);
+        l = _e(n);
         var G = 0, P, U = M.parentNode !== o, K = !zR(M.animated && M.toRect || a, n.animated && n.toRect || l, w), ae = w ? "top" : "left", k = Oo(n, "top", "top") || Oo(M, "top", "top"), j = k ? k.scrollTop : void 0;
         ot !== n && (P = l[ae], wt = !1, At = !K && _.invertSwap || U), G = HR(t, n, l, w, K ? 1 : _.swapThreshold, _.invertedSwapThreshold == null ? _.swapThreshold : _.invertedSwapThreshold, At, ot === n);
         var O;
@@ -17048,7 +17048,7 @@ D.prototype = {
         T = G === 1;
         var se = Tt(ne, o, M, a, n, l, t, T);
         if (se !== !1)
-          return (se === 1 || se === -1) && (T = se === 1), V2 = !0, setTimeout(MR, 30), C(), T && !fe ? o.appendChild(M) : n.parentNode.insertBefore(M, T ? fe : n), k && S0(k, 0, j - k.scrollTop), re = M.parentNode, P !== void 0 && !At && (Ft = Math.abs(P - pe(n)[ae])), B(), S(!0);
+          return (se === 1 || se === -1) && (T = se === 1), z2 = !0, setTimeout(MR, 30), C(), T && !fe ? o.appendChild(M) : n.parentNode.insertBefore(M, T ? fe : n), k && S0(k, 0, j - k.scrollTop), re = M.parentNode, P !== void 0 && !At && (Ft = Math.abs(P - _e(n)[ae])), B(), S(!0);
       }
       if (o.contains(M))
         return S(!1);
@@ -17071,7 +17071,7 @@ D.prototype = {
       this._nulling();
       return;
     }
-    nt = !1, At = !1, wt = !1, clearInterval(this._loopId), clearTimeout(this._dragStartTimer), C2(this.cloneId), C2(this._dragStartId), this.nativeDraggable && (J(document, "drop", this), J(o, "dragstart", this._onDragStart)), this._offMoveEvents(), this._offUpEvents(), ft && L(document.body, "user-select", ""), L(M, "transform", ""), t && (_t && (t.cancelable && t.preventDefault(), !n.dropBubble && t.stopPropagation()), I && I.parentNode && I.parentNode.removeChild(I), (ne === re || he && he.lastPutMode !== "clone") && ie && ie.parentNode && ie.parentNode.removeChild(ie), M && (this.nativeDraggable && J(M, "dragend", this), p2(M), M.style["will-change"] = "", _t && !nt && ze(M, he ? he.options.ghostClass : this.options.ghostClass, !1), ze(M, this.options.chosenClass, !1), be({
+    nt = !1, At = !1, wt = !1, clearInterval(this._loopId), clearTimeout(this._dragStartTimer), V2(this.cloneId), V2(this._dragStartId), this.nativeDraggable && (J(document, "drop", this), J(o, "dragstart", this._onDragStart)), this._offMoveEvents(), this._offUpEvents(), ft && L(document.body, "user-select", ""), L(M, "transform", ""), t && (_t && (t.cancelable && t.preventDefault(), !n.dropBubble && t.stopPropagation()), I && I.parentNode && I.parentNode.removeChild(I), (ne === re || he && he.lastPutMode !== "clone") && ie && ie.parentNode && ie.parentNode.removeChild(ie), M && (this.nativeDraggable && J(M, "dragend", this), p2(M), M.style["will-change"] = "", _t && !nt && ze(M, he ? he.options.ghostClass : this.options.ghostClass, !1), ze(M, this.options.chosenClass, !1), be({
       sortable: this,
       name: "unchoose",
       toEl: re,
@@ -17199,20 +17199,20 @@ function Tt(e, t, o, n, a, l, c, _) {
   return window.CustomEvent && !Fe && !Ot ? u = new CustomEvent("move", {
     bubbles: !0,
     cancelable: !0
-  }) : (u = document.createEvent("Event"), u.initEvent("move", !0, !0)), u.to = t, u.from = e, u.dragged = o, u.draggedRect = n, u.related = a || t, u.relatedRect = l || pe(t), u.willInsertAfter = _, u.originalEvent = c, e.dispatchEvent(u), p && (m = p.call(s, u, c)), m;
+  }) : (u = document.createEvent("Event"), u.initEvent("move", !0, !0)), u.to = t, u.from = e, u.dragged = o, u.draggedRect = n, u.related = a || t, u.relatedRect = l || _e(t), u.willInsertAfter = _, u.originalEvent = c, e.dispatchEvent(u), p && (m = p.call(s, u, c)), m;
 }
 function p2(e) {
   e.draggable = !1;
 }
 function MR() {
-  V2 = !1;
+  z2 = !1;
 }
 function kR(e, t, o) {
-  var n = pe(st(o.el, 0, o.options, !0)), a = 10;
+  var n = _e(st(o.el, 0, o.options, !0)), a = 10;
   return t ? e.clientX < n.left - a || e.clientY < n.top && e.clientX < n.right : e.clientY < n.top - a || e.clientY < n.bottom && e.clientX < n.left;
 }
 function OR(e, t, o) {
-  var n = pe(W2(o.el, o.options.draggable)), a = 10;
+  var n = _e(N2(o.el, o.options.draggable)), a = 10;
   return t ? e.clientX > n.right + a || e.clientX <= n.right && e.clientY > n.bottom && e.clientX >= n.left : e.clientX > n.right && e.clientY > n.top || e.clientX <= n.right && e.clientY > n.bottom + a;
 }
 function HR(e, t, o, n, a, l, c, _) {
@@ -17246,7 +17246,7 @@ function BR(e) {
 function Pt(e) {
   return setTimeout(e, 0);
 }
-function C2(e) {
+function V2(e) {
   return clearTimeout(e);
 }
 n2 && Q(document, "touchmove", function(e) {
@@ -17267,7 +17267,7 @@ D.utils = {
   clone: M0,
   index: Me,
   nextTick: Pt,
-  cancelNextTick: C2,
+  cancelNextTick: V2,
   detectDirection: O0,
   getChild: st
 };
@@ -17287,7 +17287,7 @@ D.create = function(e, t) {
   return new D(e, t);
 };
 D.version = _R;
-var ce = [], pt, S2, M2 = !1, m2, h2, Xt, mt;
+var ce = [], pt, C2, S2 = !1, m2, h2, Xt, mt;
 function TR() {
   function e() {
     this.defaults = {
@@ -17313,7 +17313,7 @@ function TR() {
       this.sortable.nativeDraggable ? J(document, "dragover", this._handleAutoScroll) : (J(document, "pointermove", this._handleFallbackAutoScroll), J(document, "touchmove", this._handleFallbackAutoScroll), J(document, "mousemove", this._handleFallbackAutoScroll)), To(), It(), vR();
     },
     nulling: function() {
-      Xt = S2 = pt = M2 = mt = m2 = h2 = null, ce.length = 0;
+      Xt = C2 = pt = S2 = mt = m2 = h2 = null, ce.length = 0;
     },
     _handleFallbackAutoScroll: function(o) {
       this._handleAutoScroll(o, !0);
@@ -17323,7 +17323,7 @@ function TR() {
       if (Xt = o, n || this.options.forceAutoScrollFallback || Ot || Fe || ft) {
         f2(o, this.options, _, n);
         var u = Ue(_, !0);
-        M2 && (!mt || l !== m2 || c !== h2) && (mt && To(), mt = setInterval(function() {
+        S2 && (!mt || l !== m2 || c !== h2) && (mt && To(), mt = setInterval(function() {
           var s = Ue(document.elementFromPoint(l, c), !0);
           s !== u && (u = s, It()), f2(o, a.options, s, n);
         }, 10), m2 = l, h2 = c);
@@ -17351,10 +17351,10 @@ function To() {
 var f2 = C0(function(e, t, o, n) {
   if (!!t.scroll) {
     var a = (e.touches ? e.touches[0] : e).clientX, l = (e.touches ? e.touches[0] : e).clientY, c = t.scrollSensitivity, _ = t.scrollSpeed, u = Ae(), s = !1, p;
-    S2 !== o && (S2 = o, It(), pt = t.scroll, p = t.scrollFn, pt === !0 && (pt = Ue(o, !0)));
+    C2 !== o && (C2 = o, It(), pt = t.scroll, p = t.scrollFn, pt === !0 && (pt = Ue(o, !0)));
     var m = 0, $ = pt;
     do {
-      var w = $, g = pe(w), x = g.top, y = g.bottom, C = g.left, S = g.right, B = g.width, N = g.height, W = void 0, G = void 0, P = w.scrollWidth, U = w.scrollHeight, K = L(w), ae = w.scrollLeft, k = w.scrollTop;
+      var w = $, g = _e(w), x = g.top, y = g.bottom, C = g.left, S = g.right, B = g.width, N = g.height, W = void 0, G = void 0, P = w.scrollWidth, U = w.scrollHeight, K = L(w), ae = w.scrollLeft, k = w.scrollTop;
       w === u ? (W = B < P && (K.overflowX === "auto" || K.overflowX === "scroll" || K.overflowX === "visible"), G = N < U && (K.overflowY === "auto" || K.overflowY === "scroll" || K.overflowY === "visible")) : (W = B < P && (K.overflowX === "auto" || K.overflowX === "scroll"), G = N < U && (K.overflowY === "auto" || K.overflowY === "scroll"));
       var j = W && (Math.abs(S - a) <= c && ae + B < P) - (Math.abs(C - a) <= c && !!ae), O = G && (Math.abs(y - l) <= c && k + N < U) - (Math.abs(x - l) <= c && !!k);
       if (!ce[m])
@@ -17368,7 +17368,7 @@ var f2 = C0(function(e, t, o, n) {
         layer: m
       }), 24))), m++;
     } while (t.bubbleScroll && $ !== u && ($ = Ue($, !1)));
-    M2 = s;
+    S2 = s;
   }
 }, 30), B0 = function(t) {
   var o = t.originalEvent, n = t.putSortable, a = t.dragEl, l = t.activeSortable, c = t.dispatchSortableEvent, _ = t.hideGhostForTarget, u = t.unhideGhostForTarget;
@@ -17382,9 +17382,9 @@ var f2 = C0(function(e, t, o, n) {
     }));
   }
 };
-function G2() {
+function W2() {
 }
-G2.prototype = {
+W2.prototype = {
   startIndex: null,
   dragStart: function(t) {
     var o = t.oldDraggableIndex;
@@ -17398,23 +17398,23 @@ G2.prototype = {
   },
   drop: B0
 };
-Le(G2, {
+Le(W2, {
   pluginName: "revertOnSpill"
 });
-function Y2() {
+function G2() {
 }
-Y2.prototype = {
+G2.prototype = {
   onSpill: function(t) {
     var o = t.dragEl, n = t.putSortable, a = n || this.sortable;
     a.captureAnimationState(), o.parentNode && o.parentNode.removeChild(o), a.animateAll();
   },
   drop: B0
 };
-Le(Y2, {
+Le(G2, {
   pluginName: "removeOnSpill"
 });
 D.mount(new TR());
-D.mount(Y2, G2);
+D.mount(G2, W2);
 function v2(e) {
   e.parentElement !== null && e.parentElement.removeChild(e);
 }
@@ -17432,7 +17432,7 @@ function DR(e) {
     return t[n] || (t[n] = e(n));
   };
 }
-const FR = /-(\w)/g, PR = DR((e) => e.replace(FR, (t, o) => o.toUpperCase())), T0 = ["Start", "Add", "Remove", "Update", "End"], E0 = ["Choose", "Unchoose", "Sort", "Filter", "Clone"], L0 = ["Move"], IR = [L0, T0, E0].flatMap((e) => e).map((e) => `on${e}`), k2 = {
+const FR = /-(\w)/g, PR = DR((e) => e.replace(FR, (t, o) => o.toUpperCase())), T0 = ["Start", "Add", "Remove", "Update", "End"], E0 = ["Choose", "Unchoose", "Sort", "Filter", "Clone"], L0 = ["Move"], IR = [L0, T0, E0].flatMap((e) => e).map((e) => `on${e}`), M2 = {
   manage: L0,
   manageAndEmit: T0,
   emit: E0
@@ -17582,7 +17582,7 @@ function WR({ $attrs: e, componentData: t = {} }) {
 function GR({ $attrs: e, callBackBuilder: t }) {
   const o = F0(P0(e));
   Object.entries(t).forEach(([a, l]) => {
-    k2[a].forEach((c) => {
+    M2[a].forEach((c) => {
       o[`on${c}`] = l(c);
     });
   });
@@ -17722,7 +17722,7 @@ const tU = {
 }, oU = [
   "update:modelValue",
   "change",
-  ...[...k2.manageAndEmit, ...k2.emit].map((e) => e.toLowerCase())
+  ...[...M2.manageAndEmit, ...M2.emit].map((e) => e.toLowerCase())
 ], U0 = V({
   name: "draggable",
   inheritAttrs: !1,
@@ -18334,7 +18334,7 @@ const tU = {
       items: []
     }), n = R("state"), { items: a } = me(t, "rowOptions", n.formDesign), { items: l } = me(t, "options", n.formDesign);
     return xe([() => t.options.defaultValue, () => a, () => l], () => {
-      const _ = [], u = de(t.options.defaultValue) || [];
+      const _ = [], u = pe(t.options.defaultValue) || [];
       for (let s = 0; s < a.value.length; s++)
         qo(u[s]) ? _[s] = u[s] : _[s] = Array(l.value.length).fill(!1);
       o.items = _;
@@ -18638,7 +18638,7 @@ const tU = {
     }
   },
   setup(e) {
-    const t = O2(), o = (n) => {
+    const t = k2(), o = (n) => {
       t.value = n;
     };
     return Po(() => {
@@ -18939,7 +18939,7 @@ const tU = {
           if (u.uuid)
             t.items.find((x) => x.uuid === a.value) && (n({ uuid: u.uuid, key: "label", value: u.label }), n({ uuid: u.uuid, key: "key", value: u.key }));
           else {
-            const g = de(x0);
+            const g = pe(x0);
             g.uuid = `${g.component.replaceAll("-", "_")}_${$t(8)}`, g.options.label = u.label, g.options.key = u.key, a.value = g.uuid, o({ uuid: t.uuid, items: [...t.items, g] });
           }
           l.isShow = !1;
@@ -19275,7 +19275,7 @@ const tU = {
       t.value = l.url, o.value = !0;
     }, a = () => (we.warning("\u8BF7\u5728\u5B57\u6BB5\u8BBE\u7F6E\u7684\u9ED8\u8BA4\u503C\u79FB\u9664\uFF01"), !1);
     return (l, c) => {
-      const _ = U2, u = b("el-icon"), s = b("el-upload"), p = b("el-dialog"), m = b("el-form-item");
+      const _ = R2, u = b("el-icon"), s = b("el-upload"), p = b("el-dialog"), m = b("el-form-item");
       return r(), z(m, {
         prop: e.path,
         label: e.options.label,
@@ -19535,7 +19535,7 @@ const VN = { name: "carbon-play-outline", render: zN }, CN = { class: "form-oper
       code: ""
     }), l = R("state"), c = R("clear"), _ = R("revoke"), u = R("forward"), s = R("init"), p = ke(() => l.cached), m = ke(() => l.current), $ = () => {
       o.value = !0, Xe(() => {
-        t.value && t.value.init(de(l.formDesign));
+        t.value && t.value.init(pe(l.formDesign));
       });
     }, w = () => {
       t.value.submit().then((S) => {
@@ -19556,7 +19556,7 @@ const VN = { name: "carbon-play-outline", render: zN }, CN = { class: "form-oper
       n.isShow = !1;
     };
     return (S, B) => {
-      const N = VN, W = b("el-icon"), G = b("el-tooltip"), P = bN, U = Qe, K = b("el-divider"), ae = mN, k = uN, j = N2, O = b("el-button"), E = b("el-dialog"), fe = et;
+      const N = VN, W = b("el-icon"), G = b("el-tooltip"), P = bN, U = Qe, K = b("el-divider"), ae = mN, k = uN, j = q2, O = b("el-button"), E = b("el-dialog"), fe = et;
       return r(), d("div", CN, [
         v(G, {
           effect: "dark",
@@ -19770,10 +19770,10 @@ const VN = { name: "carbon-play-outline", render: zN }, CN = { class: "form-oper
 }), RN = /* @__PURE__ */ Object.assign(IN, {
   setup(e) {
     const t = R("uuids"), o = R("groups"), n = R("register"), a = (l) => {
-      const c = de(l);
+      const c = pe(l);
       return c.uuid = c.uuid || `${c.component.replaceAll("-", "_")}_${$t(8)}`, c.options.key = c.options.key || c.uuid, c;
     };
-    return n("\u8F93\u5165\u7EC4\u4EF6", zE, 1), n("\u9009\u62E9\u7EC4\u4EF6", VE, 2), n("\u590D\u6742\u7EC4\u4EF6", CE, 3), n("\u77E9\u9635\u7EC4\u4EF6", SE, 4), n("\u5C55\u793A\u7EC4\u4EF6", ME, 4), n("\u5E03\u5C40\u7EC4\u4EF6", kE, 5), (l, c) => (r(), d("div", LN, [
+    return n("\u8F93\u5165\u7EC4\u4EF6", PI, 1), n("\u9009\u62E9\u7EC4\u4EF6", II, 2), n("\u590D\u6742\u7EC4\u4EF6", RI, 3), n("\u77E9\u9635\u7EC4\u4EF6", UI, 4), n("\u5C55\u793A\u7EC4\u4EF6", qI, 4), n("\u5E03\u5C40\u7EC4\u4EF6", NI, 5), (l, c) => (r(), d("div", LN, [
       (r(!0), d(F, null, Y(A(o).sort((_, u) => _.order - u.order), (_) => (r(), d("div", {
         key: _.name,
         class: "form-item-section"
@@ -19833,7 +19833,7 @@ const VN = { name: "carbon-play-outline", render: zN }, CN = { class: "form-oper
       for (let O = 0; O < k.length; O++)
         j.push(k[O].uuid), k[O].items && k[O].items.length && l(k[O].items, j);
       return j;
-    }, c = ke(() => a.value.reduce((k, j) => k.concat(j.components || []), [z2])), _ = ke(() => l(n.formDesign.items, [])), u = (k = [], j) => {
+    }, c = ke(() => a.value.reduce((k, j) => k.concat(j.components || []), [Co])), _ = ke(() => l(n.formDesign.items, [])), u = (k = [], j) => {
       let O;
       if (!!j) {
         for (let E = 0; E < k.length; E++) {
@@ -19848,7 +19848,7 @@ const VN = { name: "carbon-play-outline", render: zN }, CN = { class: "form-oper
       if (!!j)
         for (let O = 0; O < k.length; O++) {
           if (k[O].uuid === j) {
-            const E = de(k[O]);
+            const E = pe(k[O]);
             return E.uuid = E.options.key = `${E.component.replace("/-/gi", "_")}_${$t(8)}`, Uo(E, "items") && (E.items = []), k.splice(O + 1, 0, E), E;
           }
           if (k[O].items && k[O].items.length) {
@@ -19883,27 +19883,27 @@ const VN = { name: "carbon-play-outline", render: zN }, CN = { class: "form-oper
       n.selected.options[k] = j, G();
     }, C = (k) => {
       const j = n.selected.options[k];
-      n.selected.options[k] = H2(j) ? c.value.find((O) => O.name === n.selected.name).options[k] : "{{  }}", G();
+      n.selected.options[k] = O2(j) ? c.value.find((O) => O.name === n.selected.name).options[k] : "{{  }}", G();
     }, S = (k) => {
       const j = s(n.formDesign.items, k);
       j && (n.selected = j), G();
     }, B = (k) => {
       p(n.formDesign.items, k), n.selected && n.selected.uuid === k && (n.selected = n.formDesign), G();
     }, N = () => {
-      n.cached.length && n.current > 0 && (n.current--, n.formDesign = de(n.cached[n.current]), m(n.selected.uuid));
+      n.cached.length && n.current > 0 && (n.current--, n.formDesign = pe(n.cached[n.current]), m(n.selected.uuid));
     }, W = () => {
-      n.cached.length && n.current < n.cached.length - 1 && (n.current++, n.formDesign = de(n.cached[n.current]), m(n.selected.uuid));
+      n.cached.length && n.current < n.cached.length - 1 && (n.current++, n.formDesign = pe(n.cached[n.current]), m(n.selected.uuid));
     }, G = () => {
-      n.cached.length >= 10 && n.cached.shift(), n.cached.splice(n.current + 1, 1 / 0, de(n.formDesign)), n.current = n.cached.length - 1;
+      n.cached.length >= 10 && n.cached.shift(), n.cached.splice(n.current + 1, 1 / 0, pe(n.formDesign)), n.current = n.cached.length - 1;
     }, P = (k) => {
-      n.formDesign = k || de(z2), n.selected = u([n.formDesign], n.selected.uuid) || n.formDesign, G();
+      n.formDesign = k || pe(Co), n.selected = u([n.formDesign], n.selected.uuid) || n.formDesign, G();
     }, U = () => {
       n.formDesign.items = [], n.selected = n.formDesign, G();
     }, K = (k = "\u57FA\u7840\u7EC4\u4EF6", j = [], O = 0) => {
       const E = a.value.findIndex((fe) => fe.name === k);
       o && o.fields && o.fields.length && (j = j.filter((fe) => o.fields.includes(fe.component))), j.length && (E > -1 ? a.value[E].components = j : a.value.push({ name: k, components: j, order: O }));
     }, ae = () => n.formDesign;
-    return P(), _e("state", n), _e("uuids", _), _e("clear", U), _e("init", P), _e("setSelected", m), _e("mouseEnter", $), _e("mouseLeave", w), _e("updateFormItem", g), _e("updateFormOption", x), _e("updateSelectedFormOption", y), _e("switchInterpolate", C), _e("copyFormItem", S), _e("removeFormItem", B), _e("revoke", N), _e("forward", W), _e("groups", a), _e("register", K), t({
+    return P(), de("state", n), de("uuids", _), de("clear", U), de("init", P), de("setSelected", m), de("mouseEnter", $), de("mouseLeave", w), de("updateFormItem", g), de("updateFormOption", x), de("updateSelectedFormOption", y), de("switchInterpolate", C), de("copyFormItem", S), de("removeFormItem", B), de("revoke", N), de("forward", W), de("groups", a), de("register", K), t({
       init: P,
       register: K,
       getJson: ae
@@ -19925,10 +19925,10 @@ const VN = { name: "carbon-play-outline", render: zN }, CN = { class: "form-oper
   }
 });
 function eW(e) {
-  e.component("FormDesign", YN), e.component("FormRender", N2);
+  e.component("FormDesign", YN), e.component("FormRender", q2);
 }
 export {
   YN as FormDesign,
-  N2 as FormRender,
+  q2 as FormRender,
   eW as default
 };

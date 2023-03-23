@@ -1,18 +1,17 @@
 import { defineConfig } from 'vite'
-import { fileURLToPath, URL } from 'node:url'
+import { URL, fileURLToPath } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import VueMacros from 'unplugin-vue-macros/vite'
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import path from 'path'
-import { visualizer } from 'rollup-plugin-visualizer'
 import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@giantgo-render': fileURLToPath(new URL('../../packages', import.meta.url))
+      '@giantgo-render': fileURLToPath(new URL('./packages', import.meta.url))
     }
   },
   plugins: [
@@ -22,27 +21,28 @@ export default defineConfig({
       compiler: 'vue3'
     }),
     Components({
-      dirs: ['../components'],
+      dirs: ['./packages/components'],
       // allow auto load markdown components under `./src/components/`
       extensions: ['vue'],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [IconsResolver({})],
-      dts: './components.d.ts'
+      dts: './packages/giantgo-render/components.d.ts'
     }),
     dts({
-      insertTypesEntry: true,
-      outputDir: './dist'
+      skipDiagnostics: false,
+      logDiagnostics: true,
+      insertTypesEntry: true
     })
   ],
   build: {
+    outDir: './packages/giantgo-render/dist',
     lib: {
-      entry: path.resolve(__dirname, 'src/main.ts'),
+      entry: path.resolve(__dirname, 'packages/giantgo-render/src/main.ts'),
       name: 'GiantgoRender',
       fileName: (format) => `giantgo-render.${format}.js`
     },
     rollupOptions: {
-      plugins: [visualizer()],
       // 确保外部化处理那些你不想打包进库的依赖
       external: ['vue', 'element-plus', 'axios', '@wangeditor/editor', 'ace-builds'],
       output: {

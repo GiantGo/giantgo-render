@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "pnpm -C play dev",
-    "build": "pnpm -C packages/giantgo-render build",
+    "build": "vue-tsc --noEmit && vite build",
     "lint": "eslint packages --ext .vue,.js,.ts,.jsx,.tsx,.md,.json",
     "example:dev": "pnpm -C example dev",
     "example:build": "pnpm -C example build",

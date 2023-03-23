@@ -27,7 +27,7 @@ declare namespace _sfc_main {
         add: (evt: any) => any;
         dragStart: (evt: any) => any;
         updateItems: (items: any) => any;
-        draggable: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").DefineComponent<{
+        draggable: import("vue").DefineComponent<{
             list: {
                 type: ArrayConstructor;
                 required: boolean;
@@ -83,7 +83,7 @@ declare namespace _sfc_main {
             computeFutureIndex(relatedContext: any, evt: any): any;
             onDragMove(evt: any, originalEvent: any): any;
             onDragEnd(): void;
-        }, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, any[], any, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").VNodeProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").AllowedComponentProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentCustomProps, Readonly<{
+        }, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, any[], any, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
             move: Function;
             tag: string;
             clone: Function;
@@ -111,7 +111,7 @@ declare namespace _sfc_main {
         add: (evt: any) => any;
         dragStart: (evt: any) => any;
         updateItems: (items: any) => any;
-        draggable: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").DefineComponent<{
+        draggable: import("vue").DefineComponent<{
             list: {
                 type: ArrayConstructor;
                 required: boolean;
@@ -167,7 +167,7 @@ declare namespace _sfc_main {
             computeFutureIndex(relatedContext: any, evt: any): any;
             onDragMove(evt: any, originalEvent: any): any;
             onDragEnd(): void;
-        }, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, any[], any, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").VNodeProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").AllowedComponentProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentCustomProps, Readonly<{
+        }, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, any[], any, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
             move: Function;
             tag: string;
             clone: Function;

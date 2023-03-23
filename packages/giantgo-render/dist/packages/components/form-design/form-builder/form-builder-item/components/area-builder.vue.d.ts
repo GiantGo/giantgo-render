@@ -13,27 +13,24 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        props: any;
-        state: any;
-        items: import("vue").Ref<{
-            label: string;
+        region: {
             value: string;
-        }[]>;
-        inject: typeof inject;
-        useOptions: typeof useOptions;
+            label: string;
+            children?: any[] | undefined;
+        }[];
+        reactive: typeof reactive;
+        areaTree: import('../../../../../utils').AreaTreeNode[];
     };
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        props: any;
-        state: any;
-        items: import("vue").Ref<{
-            label: string;
+        region: {
             value: string;
-        }[]>;
-        inject: typeof inject;
-        useOptions: typeof useOptions;
+            label: string;
+            children?: any[] | undefined;
+        }[];
+        reactive: typeof reactive;
+        areaTree: import('../../../../../utils').AreaTreeNode[];
     };
 }
-import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { useOptions } from "../../../../../hooks/use-options";
+import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

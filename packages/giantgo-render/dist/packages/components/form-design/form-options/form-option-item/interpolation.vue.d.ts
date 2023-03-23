@@ -6,7 +6,7 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        tips: import("@vue/reactivity").Ref<{
+        tips: import("vue").Ref<{
             value: string;
             label: string;
         }[]>;
@@ -17,7 +17,7 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        tips: import("@vue/reactivity").Ref<{
+        tips: import("vue").Ref<{
             value: string;
             label: string;
         }[]>;
@@ -26,5 +26,5 @@ declare namespace _sfc_main {
         ref: typeof ref;
     };
 }
-import { getInterpolation } from '../../../../utils/interpolation';
+import { getInterpolation } from "../../../../utils/interpolation";
 import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

@@ -15,8 +15,8 @@ declare namespace _sfc_main {
             remote: string;
             items: never[];
         };
-        code: import("@vue/reactivity").Ref<string>;
-        codeDialog: import("@vue/reactivity").Ref<boolean>;
+        code: import("vue").Ref<string>;
+        codeDialog: import("vue").Ref<boolean>;
         state: any;
         emitChange: () => void;
         update: (index: any, key: any, value: any) => void;
@@ -27,7 +27,7 @@ declare namespace _sfc_main {
         setInternal: () => void;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;
@@ -44,8 +44,8 @@ declare namespace _sfc_main {
             remote: string;
             items: never[];
         };
-        code: import("@vue/reactivity").Ref<string>;
-        codeDialog: import("@vue/reactivity").Ref<boolean>;
+        code: import("vue").Ref<string>;
+        codeDialog: import("vue").Ref<boolean>;
         state: any;
         emitChange: () => void;
         update: (index: any, key: any, value: any) => void;
@@ -56,7 +56,7 @@ declare namespace _sfc_main {
         setInternal: () => void;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;

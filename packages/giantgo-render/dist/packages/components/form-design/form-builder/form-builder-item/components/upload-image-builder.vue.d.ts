@@ -13,8 +13,8 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        dialogImageUrl: import("@vue/reactivity").Ref<string>;
-        dialogVisible: import("@vue/reactivity").Ref<boolean>;
+        dialogImageUrl: import("vue").Ref<string>;
+        dialogVisible: import("vue").Ref<boolean>;
         handlePreview: (uploadFile: any) => void;
         beforeRemove: () => boolean;
         ref: typeof ref;
@@ -23,8 +23,8 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        dialogImageUrl: import("@vue/reactivity").Ref<string>;
-        dialogVisible: import("@vue/reactivity").Ref<boolean>;
+        dialogImageUrl: import("vue").Ref<string>;
+        dialogVisible: import("vue").Ref<boolean>;
         handlePreview: (uploadFile: any) => void;
         beforeRemove: () => boolean;
         ref: typeof ref;

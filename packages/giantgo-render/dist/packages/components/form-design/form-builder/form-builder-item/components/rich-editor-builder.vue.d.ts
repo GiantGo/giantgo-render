@@ -13,17 +13,17 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        editorRef: import("@vue/reactivity").ShallowRef<any>;
+        editorRef: import("vue").ShallowRef<any>;
         handleCreated: (editor: any) => void;
-        onBeforeUnmount: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onBeforeUnmount: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         shallowRef: typeof shallowRef;
-        Editor: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").DefineComponent<{
+        Editor: import("vue").DefineComponent<{
             mode: {
                 type: StringConstructor;
                 default: string;
             };
             defaultContent: {
-                type: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").PropType<import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[]>;
+                type: import("vue").PropType<import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[]>;
                 default: never[];
             };
             defaultHtml: {
@@ -31,7 +31,7 @@ declare namespace _sfc_main {
                 default: string;
             };
             defaultConfig: {
-                type: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>>;
+                type: import("vue").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>>;
                 default: {};
             };
             modelValue: {
@@ -39,8 +39,8 @@ declare namespace _sfc_main {
                 default: string;
             };
         }, {
-            box: import("@vue/reactivity").Ref<null>;
-        }, unknown, {}, {}, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, Record<string, any>, string, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").VNodeProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").AllowedComponentProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentCustomProps, Readonly<{
+            box: import("vue").Ref<null>;
+        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
             mode?: unknown;
             defaultContent?: unknown;
             defaultHtml?: unknown;
@@ -59,21 +59,21 @@ declare namespace _sfc_main {
             defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>;
             modelValue: string;
         }>;
-        Toolbar: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").DefineComponent<{
+        Toolbar: import("vue").DefineComponent<{
             editor: {
-                type: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").PropType<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IDomEditor>;
+                type: import("vue").PropType<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IDomEditor>;
             };
             mode: {
                 type: StringConstructor;
                 default: string;
             };
             defaultConfig: {
-                type: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>>;
+                type: import("vue").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>>;
                 default: {};
             };
         }, {
-            selector: import("@vue/reactivity").Ref<null>;
-        }, unknown, {}, {}, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, Record<string, any>, string, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").VNodeProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").AllowedComponentProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentCustomProps, Readonly<{
+            selector: import("vue").Ref<null>;
+        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
             editor?: unknown;
             mode?: unknown;
             defaultConfig?: unknown;
@@ -90,17 +90,17 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        editorRef: import("@vue/reactivity").ShallowRef<any>;
+        editorRef: import("vue").ShallowRef<any>;
         handleCreated: (editor: any) => void;
-        onBeforeUnmount: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onBeforeUnmount: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         shallowRef: typeof shallowRef;
-        Editor: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").DefineComponent<{
+        Editor: import("vue").DefineComponent<{
             mode: {
                 type: StringConstructor;
                 default: string;
             };
             defaultContent: {
-                type: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").PropType<import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[]>;
+                type: import("vue").PropType<import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[]>;
                 default: never[];
             };
             defaultHtml: {
@@ -108,7 +108,7 @@ declare namespace _sfc_main {
                 default: string;
             };
             defaultConfig: {
-                type: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>>;
+                type: import("vue").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>>;
                 default: {};
             };
             modelValue: {
@@ -116,8 +116,8 @@ declare namespace _sfc_main {
                 default: string;
             };
         }, {
-            box: import("@vue/reactivity").Ref<null>;
-        }, unknown, {}, {}, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, Record<string, any>, string, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").VNodeProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").AllowedComponentProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentCustomProps, Readonly<{
+            box: import("vue").Ref<null>;
+        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
             mode?: unknown;
             defaultContent?: unknown;
             defaultHtml?: unknown;
@@ -136,21 +136,21 @@ declare namespace _sfc_main {
             defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>;
             modelValue: string;
         }>;
-        Toolbar: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").DefineComponent<{
+        Toolbar: import("vue").DefineComponent<{
             editor: {
-                type: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").PropType<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IDomEditor>;
+                type: import("vue").PropType<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IDomEditor>;
             };
             mode: {
                 type: StringConstructor;
                 default: string;
             };
             defaultConfig: {
-                type: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>>;
+                type: import("vue").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>>;
                 default: {};
             };
         }, {
-            selector: import("@vue/reactivity").Ref<null>;
-        }, unknown, {}, {}, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, Record<string, any>, string, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").VNodeProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").AllowedComponentProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentCustomProps, Readonly<{
+            selector: import("vue").Ref<null>;
+        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
             editor?: unknown;
             mode?: unknown;
             defaultConfig?: unknown;

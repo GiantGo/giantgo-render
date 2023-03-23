@@ -10,8 +10,8 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        code: import("@vue/reactivity").Ref<string>;
-        codeDialog: import("@vue/reactivity").Ref<boolean>;
+        code: import("vue").Ref<string>;
+        codeDialog: import("vue").Ref<boolean>;
         editData: () => void;
         setData: () => import("element-plus").MessageHandler | undefined;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
@@ -23,8 +23,8 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        code: import("@vue/reactivity").Ref<string>;
-        codeDialog: import("@vue/reactivity").Ref<boolean>;
+        code: import("vue").Ref<string>;
+        codeDialog: import("vue").Ref<boolean>;
         editData: () => void;
         setData: () => import("element-plus").MessageHandler | undefined;
         ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;

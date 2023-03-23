@@ -3,8 +3,8 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        formRenderRef: import("@vue/reactivity").Ref<null>;
-        previewDialog: import("@vue/reactivity").Ref<boolean>;
+        formRenderRef: import("vue").Ref<null>;
+        previewDialog: import("vue").Ref<boolean>;
         jsonDialog: {
             title: string;
             isShow: boolean;
@@ -20,8 +20,8 @@ declare namespace _sfc_main {
         revoke: any;
         forward: any;
         init: any;
-        cached: import("@vue/reactivity").ComputedRef<any>;
-        current: import("@vue/reactivity").ComputedRef<any>;
+        cached: import("vue").ComputedRef<any>;
+        current: import("vue").ComputedRef<any>;
         preview: () => void;
         submit: () => void;
         reset: () => void;
@@ -42,8 +42,8 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        formRenderRef: import("@vue/reactivity").Ref<null>;
-        previewDialog: import("@vue/reactivity").Ref<boolean>;
+        formRenderRef: import("vue").Ref<null>;
+        previewDialog: import("vue").Ref<boolean>;
         jsonDialog: {
             title: string;
             isShow: boolean;
@@ -59,8 +59,8 @@ declare namespace _sfc_main {
         revoke: any;
         forward: any;
         init: any;
-        cached: import("@vue/reactivity").ComputedRef<any>;
-        current: import("@vue/reactivity").ComputedRef<any>;
+        cached: import("vue").ComputedRef<any>;
+        current: import("vue").ComputedRef<any>;
         preview: () => void;
         submit: () => void;
         reset: () => void;

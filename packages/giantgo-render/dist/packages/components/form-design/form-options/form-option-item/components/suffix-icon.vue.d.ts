@@ -9,7 +9,7 @@ declare namespace _sfc_main {
         emit: any;
     }): {
         emit: any;
-        drawer: import("@vue/reactivity").Ref<boolean>;
+        drawer: import("vue").Ref<boolean>;
         pickIcon: (icon: any) => void;
         ElementPlusIconsVue: typeof ElementPlusIconsVue;
         ref: typeof ref;
@@ -19,7 +19,7 @@ declare namespace _sfc_main {
         emit: any;
     }): {
         emit: any;
-        drawer: import("@vue/reactivity").Ref<boolean>;
+        drawer: import("vue").Ref<boolean>;
         pickIcon: (icon: any) => void;
         ElementPlusIconsVue: typeof ElementPlusIconsVue;
         ref: typeof ref;

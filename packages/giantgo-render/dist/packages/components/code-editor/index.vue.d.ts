@@ -1,5 +1,5 @@
 export default _sfc_main;
-declare const _sfc_main: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").DefineComponent<{
+declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: {
         type: StringConstructor;
         required: true;
@@ -26,7 +26,7 @@ declare const _sfc_main: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vu
     focus(): void;
     blur(): void;
     selectAll(): void;
-}, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentOptionsMixin, string[], string, import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").VNodeProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").AllowedComponentProps & import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentCustomProps, Readonly<import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ExtractPropTypes<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {
         type: StringConstructor;
         required: true;
