@@ -1,3 +1,6 @@
+import type { SFCInstallWithContext } from 'element-plus/es/utils';
+import type { MessageHandler, Message } from 'element-plus';
+import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -10,11 +13,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        code: import("vue").Ref<string>;
-        codeDialog: import("vue").Ref<boolean>;
+        code: Ref<string>;
+        codeDialog: Ref<boolean>;
         editData: () => void;
-        setData: () => import("element-plus").MessageHandler | undefined;
-        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        setData: () => MessageHandler | undefined;
+        ElMessage: SFCInstallWithContext<Message>;
         ref: typeof ref;
     };
     function setup(__props: any, { expose, emit }: {
@@ -23,11 +26,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        code: import("vue").Ref<string>;
-        codeDialog: import("vue").Ref<boolean>;
+        code: Ref<string>;
+        codeDialog: Ref<boolean>;
         editData: () => void;
-        setData: () => import("element-plus").MessageHandler | undefined;
-        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        setData: () => MessageHandler | undefined;
+        ElMessage: SFCInstallWithContext<Message>;
         ref: typeof ref;
     };
 }

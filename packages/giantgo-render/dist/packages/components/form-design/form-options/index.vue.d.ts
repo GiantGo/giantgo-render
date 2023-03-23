@@ -1,19 +1,20 @@
+import type { ComputedRef, computed } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
         state: any;
-        selected: import("vue").ComputedRef<any>;
-        computed: typeof import("@vue/reactivity").computed;
+        selected: ComputedRef<any>;
+        computed: typeof computed;
         inject: typeof inject;
     };
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
         state: any;
-        selected: import("vue").ComputedRef<any>;
-        computed: typeof import("@vue/reactivity").computed;
+        selected: ComputedRef<any>;
+        computed: typeof computed;
         inject: typeof inject;
     };
 }

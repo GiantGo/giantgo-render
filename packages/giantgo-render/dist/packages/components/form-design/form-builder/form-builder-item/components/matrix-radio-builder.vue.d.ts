@@ -1,3 +1,4 @@
+import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -15,11 +16,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         state: any;
-        rows: import("vue").Ref<{
+        rows: Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: import("vue").Ref<{
+        columns: Ref<{
             label: string;
             value: string;
         }[]>;
@@ -31,11 +32,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         state: any;
-        rows: import("vue").Ref<{
+        rows: Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: import("vue").Ref<{
+        columns: Ref<{
             label: string;
             value: string;
         }[]>;

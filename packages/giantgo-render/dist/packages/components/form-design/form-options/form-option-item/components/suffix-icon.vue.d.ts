@@ -1,3 +1,4 @@
+import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -9,7 +10,7 @@ declare namespace _sfc_main {
         emit: any;
     }): {
         emit: any;
-        drawer: import("vue").Ref<boolean>;
+        drawer: Ref<boolean>;
         pickIcon: (icon: any) => void;
         ElementPlusIconsVue: typeof ElementPlusIconsVue;
         ref: typeof ref;
@@ -19,7 +20,7 @@ declare namespace _sfc_main {
         emit: any;
     }): {
         emit: any;
-        drawer: import("vue").Ref<boolean>;
+        drawer: Ref<boolean>;
         pickIcon: (icon: any) => void;
         ElementPlusIconsVue: typeof ElementPlusIconsVue;
         ref: typeof ref;

@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "../",
+    "baseUrl": "../",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -13,7 +16,18 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "allowJs": true,
-    "types": ["unplugin-icons/types/vue", "unplugin-vue-macros/macros-global"]
+    "types": ["unplugin-icons/types/vue", "unplugin-vue-macros/macros-global"],
+    "paths": {
+      "@giantgo-render/*": ["../*"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "../components/**/*.vue"]
+  "include": [
+    "./src/**/*.ts",
+    "../components/**/*.ts",
+    "../components/**/*.d.ts",
+    "../components/**/*.vue",
+    "../hooks/**/*.ts",
+    "../tokens/**/*.ts",
+    "../utils/**/*.ts"
+  ]
 }

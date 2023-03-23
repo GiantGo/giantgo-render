@@ -1,3 +1,7 @@
+import type { IEditorConfig, IDomEditor, IToolbarConfig } from '.pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core';
+import type { Descendant } from '.pnpm/slate@0.72.8/node_modules/slate';
+import type { ComponentInternalInstance, DefineComponent, PropType, ComponentOptionsMixin, VNodeProps, AllowedComponentProps, ComponentCustomProps } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
+import type { ShallowRef, Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -13,17 +17,17 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        editorRef: import("vue").ShallowRef<any>;
+        editorRef: ShallowRef<any>;
         handleCreated: (editor: any) => void;
-        onBeforeUnmount: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onBeforeUnmount: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
         shallowRef: typeof shallowRef;
-        Editor: import("vue").DefineComponent<{
+        Editor: DefineComponent<{
             mode: {
                 type: StringConstructor;
                 default: string;
             };
             defaultContent: {
-                type: import("vue").PropType<import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[]>;
+                type: PropType<Descendant[]>;
                 default: never[];
             };
             defaultHtml: {
@@ -31,7 +35,7 @@ declare namespace _sfc_main {
                 default: string;
             };
             defaultConfig: {
-                type: import("vue").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>>;
+                type: PropType<Partial<IEditorConfig>>;
                 default: {};
             };
             modelValue: {
@@ -39,8 +43,8 @@ declare namespace _sfc_main {
                 default: string;
             };
         }, {
-            box: import("vue").Ref<null>;
-        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+            box: Ref<null>;
+        }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
             mode?: unknown;
             defaultContent?: unknown;
             defaultHtml?: unknown;
@@ -48,59 +52,59 @@ declare namespace _sfc_main {
             modelValue?: unknown;
         } & {
             mode: string;
-            defaultContent: import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[];
+            defaultContent: Descendant[];
             defaultHtml: string;
-            defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>;
+            defaultConfig: Partial<IEditorConfig>;
             modelValue: string;
         }>, {
             mode: string;
-            defaultContent: import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[];
+            defaultContent: Descendant[];
             defaultHtml: string;
-            defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>;
+            defaultConfig: Partial<IEditorConfig>;
             modelValue: string;
         }>;
-        Toolbar: import("vue").DefineComponent<{
+        Toolbar: DefineComponent<{
             editor: {
-                type: import("vue").PropType<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IDomEditor>;
+                type: PropType<IDomEditor>;
             };
             mode: {
                 type: StringConstructor;
                 default: string;
             };
             defaultConfig: {
-                type: import("vue").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>>;
+                type: PropType<Partial<IToolbarConfig>>;
                 default: {};
             };
         }, {
-            selector: import("vue").Ref<null>;
-        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+            selector: Ref<null>;
+        }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
             editor?: unknown;
             mode?: unknown;
             defaultConfig?: unknown;
         } & {
             mode: string;
-            defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>;
+            defaultConfig: Partial<IToolbarConfig>;
         } & {
-            editor?: import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IDomEditor | undefined;
+            editor?: IDomEditor | undefined;
         }>, {
             mode: string;
-            defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>;
+            defaultConfig: Partial<IToolbarConfig>;
         }>;
     };
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        editorRef: import("vue").ShallowRef<any>;
+        editorRef: ShallowRef<any>;
         handleCreated: (editor: any) => void;
-        onBeforeUnmount: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onBeforeUnmount: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
         shallowRef: typeof shallowRef;
-        Editor: import("vue").DefineComponent<{
+        Editor: DefineComponent<{
             mode: {
                 type: StringConstructor;
                 default: string;
             };
             defaultContent: {
-                type: import("vue").PropType<import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[]>;
+                type: PropType<Descendant[]>;
                 default: never[];
             };
             defaultHtml: {
@@ -108,7 +112,7 @@ declare namespace _sfc_main {
                 default: string;
             };
             defaultConfig: {
-                type: import("vue").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>>;
+                type: PropType<Partial<IEditorConfig>>;
                 default: {};
             };
             modelValue: {
@@ -116,8 +120,8 @@ declare namespace _sfc_main {
                 default: string;
             };
         }, {
-            box: import("vue").Ref<null>;
-        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+            box: Ref<null>;
+        }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
             mode?: unknown;
             defaultContent?: unknown;
             defaultHtml?: unknown;
@@ -125,43 +129,43 @@ declare namespace _sfc_main {
             modelValue?: unknown;
         } & {
             mode: string;
-            defaultContent: import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[];
+            defaultContent: Descendant[];
             defaultHtml: string;
-            defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>;
+            defaultConfig: Partial<IEditorConfig>;
             modelValue: string;
         }>, {
             mode: string;
-            defaultContent: import(".pnpm/slate@0.72.8/node_modules/slate").Descendant[];
+            defaultContent: Descendant[];
             defaultHtml: string;
-            defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IEditorConfig>;
+            defaultConfig: Partial<IEditorConfig>;
             modelValue: string;
         }>;
-        Toolbar: import("vue").DefineComponent<{
+        Toolbar: DefineComponent<{
             editor: {
-                type: import("vue").PropType<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IDomEditor>;
+                type: PropType<IDomEditor>;
             };
             mode: {
                 type: StringConstructor;
                 default: string;
             };
             defaultConfig: {
-                type: import("vue").PropType<Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>>;
+                type: PropType<Partial<IToolbarConfig>>;
                 default: {};
             };
         }, {
-            selector: import("vue").Ref<null>;
-        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+            selector: Ref<null>;
+        }, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
             editor?: unknown;
             mode?: unknown;
             defaultConfig?: unknown;
         } & {
             mode: string;
-            defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>;
+            defaultConfig: Partial<IToolbarConfig>;
         } & {
-            editor?: import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IDomEditor | undefined;
+            editor?: IDomEditor | undefined;
         }>, {
             mode: string;
-            defaultConfig: Partial<import(".pnpm/@wangeditor+core@1.1.11_vu3jpz3o6j5tbrd357xpyxme2a/node_modules/@wangeditor/core").IToolbarConfig>;
+            defaultConfig: Partial<IToolbarConfig>;
         }>;
     };
 }

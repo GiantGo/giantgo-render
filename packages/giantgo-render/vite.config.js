@@ -25,6 +25,8 @@ export default defineConfig({
       dts: './components.d.ts'
     }),
     dts({
+      staticImport: true,
+      skipDiagnostics: false,
       insertTypesEntry: true,
       outputDir: './dist'
     })
@@ -32,7 +34,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/main.ts'),
-      name: 'giantgo-render',
+      name: 'GiantgoRender',
       fileName: (format) => `giantgo-render.${format}.js`
     },
     rollupOptions: {

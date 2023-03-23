@@ -1,5 +1,6 @@
+import type { DefineComponent, ComponentOptionsMixin, VNodeProps, AllowedComponentProps, ComponentCustomProps, ExtractPropTypes } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
 export default _sfc_main;
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _sfc_main: DefineComponent<{
     modelValue: {
         type: StringConstructor;
         required: true;
@@ -26,7 +27,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     focus(): void;
     blur(): void;
     selectAll(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, ComponentOptionsMixin, ComponentOptionsMixin, string[], string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
     modelValue: {
         type: StringConstructor;
         required: true;

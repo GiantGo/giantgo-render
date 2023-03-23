@@ -1,10 +1,13 @@
+import type { SFCInstallWithContext } from 'element-plus/es/utils';
+import type { MessageHandler, Message } from 'element-plus';
+import type { Ref, ComputedRef, computed } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        formRenderRef: import("vue").Ref<null>;
-        previewDialog: import("vue").Ref<boolean>;
+        formRenderRef: Ref<null>;
+        previewDialog: Ref<boolean>;
         jsonDialog: {
             title: string;
             isShow: boolean;
@@ -20,8 +23,8 @@ declare namespace _sfc_main {
         revoke: any;
         forward: any;
         init: any;
-        cached: import("vue").ComputedRef<any>;
-        current: import("vue").ComputedRef<any>;
+        cached: ComputedRef<any>;
+        current: ComputedRef<any>;
         preview: () => void;
         submit: () => void;
         reset: () => void;
@@ -30,20 +33,20 @@ declare namespace _sfc_main {
             value: any;
         }) => void;
         editJson: () => void;
-        saveJson: () => import("element-plus").MessageHandler | undefined;
-        computed: typeof import("@vue/reactivity").computed;
+        saveJson: () => MessageHandler | undefined;
+        computed: typeof computed;
         inject: typeof inject;
         nextTick: typeof nextTick;
         reactive: typeof reactive;
         ref: typeof ref;
-        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        ElMessage: SFCInstallWithContext<Message>;
         cloneDeep: <T>(value: T) => T;
     };
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        formRenderRef: import("vue").Ref<null>;
-        previewDialog: import("vue").Ref<boolean>;
+        formRenderRef: Ref<null>;
+        previewDialog: Ref<boolean>;
         jsonDialog: {
             title: string;
             isShow: boolean;
@@ -59,8 +62,8 @@ declare namespace _sfc_main {
         revoke: any;
         forward: any;
         init: any;
-        cached: import("vue").ComputedRef<any>;
-        current: import("vue").ComputedRef<any>;
+        cached: ComputedRef<any>;
+        current: ComputedRef<any>;
         preview: () => void;
         submit: () => void;
         reset: () => void;
@@ -69,13 +72,13 @@ declare namespace _sfc_main {
             value: any;
         }) => void;
         editJson: () => void;
-        saveJson: () => import("element-plus").MessageHandler | undefined;
-        computed: typeof import("@vue/reactivity").computed;
+        saveJson: () => MessageHandler | undefined;
+        computed: typeof computed;
         inject: typeof inject;
         nextTick: typeof nextTick;
         reactive: typeof reactive;
         ref: typeof ref;
-        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        ElMessage: SFCInstallWithContext<Message>;
         cloneDeep: <T>(value: T) => T;
     };
 }

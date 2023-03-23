@@ -1,5 +1,6 @@
+import type { DefineComponent, ComponentOptionsMixin, VNodeProps, AllowedComponentProps, ComponentCustomProps, ExtractPropTypes } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
 export default _sfc_main;
-declare const _sfc_main: import("vue").DefineComponent<{
+declare const _sfc_main: DefineComponent<{
     width: {
         type: StringConstructor;
         default: string;
@@ -54,7 +55,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     getPropImagesAndCacheImages(): any[];
     clearCacheImages(): never[];
     clearSignature(): any;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, ComponentOptionsMixin, ComponentOptionsMixin, Record<string, any>, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
     width: {
         type: StringConstructor;
         default: string;

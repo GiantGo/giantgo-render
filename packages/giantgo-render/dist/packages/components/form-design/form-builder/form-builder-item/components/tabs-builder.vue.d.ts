@@ -1,3 +1,5 @@
+import type { FormDesign } from '@giantgo-render/tokens';
+import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -23,12 +25,12 @@ declare namespace _sfc_main {
         props: any;
         updateFormItem: any;
         updateFormOption: any;
-        tabsValue: import("vue").Ref<string>;
+        tabsValue: Ref<string>;
         tabDialog: {
             title: string;
             isShow: boolean;
         };
-        formRef: import("vue").Ref<null>;
+        formRef: Ref<null>;
         rules: {
             label: {
                 required: boolean;
@@ -54,7 +56,7 @@ declare namespace _sfc_main {
         nextTick: typeof nextTick;
         reactive: typeof reactive;
         ref: typeof ref;
-        objectLayout: import("@giantgo-render/tokens").FormDesign;
+        objectLayout: FormDesign;
         cloneDeep: <T>(value: T) => T;
         makeId: typeof makeId;
     };
@@ -64,12 +66,12 @@ declare namespace _sfc_main {
         props: any;
         updateFormItem: any;
         updateFormOption: any;
-        tabsValue: import("vue").Ref<string>;
+        tabsValue: Ref<string>;
         tabDialog: {
             title: string;
             isShow: boolean;
         };
-        formRef: import("vue").Ref<null>;
+        formRef: Ref<null>;
         rules: {
             label: {
                 required: boolean;
@@ -95,7 +97,7 @@ declare namespace _sfc_main {
         nextTick: typeof nextTick;
         reactive: typeof reactive;
         ref: typeof ref;
-        objectLayout: import("@giantgo-render/tokens").FormDesign;
+        objectLayout: FormDesign;
         cloneDeep: <T>(value: T) => T;
         makeId: typeof makeId;
     };

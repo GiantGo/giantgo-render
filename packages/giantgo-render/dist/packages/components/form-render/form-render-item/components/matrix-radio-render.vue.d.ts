@@ -1,3 +1,5 @@
+import type { ComponentInternalInstance } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
+import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -21,18 +23,18 @@ declare namespace _sfc_main {
             items: never[];
         };
         state: any;
-        rows: import("vue").Ref<{
+        rows: Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: import("vue").Ref<{
+        columns: Ref<{
             label: string;
             value: string;
         }[]>;
         change: (rIndex: any, value: any) => void;
         setInternal: () => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
         cloneDeep: <T>(value: T) => T;
@@ -48,18 +50,18 @@ declare namespace _sfc_main {
             items: never[];
         };
         state: any;
-        rows: import("vue").Ref<{
+        rows: Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: import("vue").Ref<{
+        columns: Ref<{
             label: string;
             value: string;
         }[]>;
         change: (rIndex: any, value: any) => void;
         setInternal: () => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
         cloneDeep: <T>(value: T) => T;

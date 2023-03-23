@@ -1,3 +1,5 @@
+import type { FormDesign } from '@giantgo-render/tokens';
+import type { DefineComponent, ComponentOptionsMixin, VNodeProps, AllowedComponentProps, ComponentCustomProps } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
 export default _sfc_main;
 declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
@@ -8,7 +10,7 @@ declare namespace _sfc_main {
         register: any;
         clone: (original: any) => any;
         inject: typeof inject;
-        draggable: import("vue").DefineComponent<{
+        draggable: DefineComponent<{
             list: {
                 type: ArrayConstructor;
                 required: boolean;
@@ -64,7 +66,7 @@ declare namespace _sfc_main {
             computeFutureIndex(relatedContext: any, evt: any): any;
             onDragMove(evt: any, originalEvent: any): any;
             onDragEnd(): void;
-        }, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, any[], any, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+        }, ComponentOptionsMixin, ComponentOptionsMixin, any[], any, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
             move: Function;
             tag: string;
             clone: Function;
@@ -83,12 +85,12 @@ declare namespace _sfc_main {
         }>;
         cloneDeep: <T>(value: T) => T;
         makeId: typeof makeId;
-        assists: import("@giantgo-render/tokens").FormDesign[];
-        complexs: import("@giantgo-render/tokens").FormDesign[];
-        inputs: import("@giantgo-render/tokens").FormDesign[];
-        layouts: import("@giantgo-render/tokens").FormDesign[];
-        matrixs: import("@giantgo-render/tokens").FormDesign[];
-        pickers: import("@giantgo-render/tokens").FormDesign[];
+        assists: FormDesign[];
+        complexs: FormDesign[];
+        inputs: FormDesign[];
+        layouts: FormDesign[];
+        matrixs: FormDesign[];
+        pickers: FormDesign[];
     };
     function setup(__props: any, { expose }: {
         expose: any;
@@ -98,7 +100,7 @@ declare namespace _sfc_main {
         register: any;
         clone: (original: any) => any;
         inject: typeof inject;
-        draggable: import("vue").DefineComponent<{
+        draggable: DefineComponent<{
             list: {
                 type: ArrayConstructor;
                 required: boolean;
@@ -154,7 +156,7 @@ declare namespace _sfc_main {
             computeFutureIndex(relatedContext: any, evt: any): any;
             onDragMove(evt: any, originalEvent: any): any;
             onDragEnd(): void;
-        }, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, any[], any, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+        }, ComponentOptionsMixin, ComponentOptionsMixin, any[], any, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
             move: Function;
             tag: string;
             clone: Function;
@@ -173,12 +175,12 @@ declare namespace _sfc_main {
         }>;
         cloneDeep: <T>(value: T) => T;
         makeId: typeof makeId;
-        assists: import("@giantgo-render/tokens").FormDesign[];
-        complexs: import("@giantgo-render/tokens").FormDesign[];
-        inputs: import("@giantgo-render/tokens").FormDesign[];
-        layouts: import("@giantgo-render/tokens").FormDesign[];
-        matrixs: import("@giantgo-render/tokens").FormDesign[];
-        pickers: import("@giantgo-render/tokens").FormDesign[];
+        assists: FormDesign[];
+        complexs: FormDesign[];
+        inputs: FormDesign[];
+        layouts: FormDesign[];
+        matrixs: FormDesign[];
+        pickers: FormDesign[];
     };
 }
 import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

@@ -1,3 +1,4 @@
+import type { ComputedRef } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     const name: string;
@@ -28,8 +29,8 @@ declare namespace _sfc_main {
         mouseleave: () => any;
         copy: () => any;
         remove: () => any;
-        isSelected: import("vue").ComputedRef<boolean>;
-        isHover: import("vue").ComputedRef<boolean>;
+        isSelected: ComputedRef<boolean>;
+        isHover: ComputedRef<boolean>;
     };
     function setup(props: any): {
         select: () => any;
@@ -37,7 +38,7 @@ declare namespace _sfc_main {
         mouseleave: () => any;
         copy: () => any;
         remove: () => any;
-        isSelected: import("vue").ComputedRef<boolean>;
-        isHover: import("vue").ComputedRef<boolean>;
+        isSelected: ComputedRef<boolean>;
+        isHover: ComputedRef<boolean>;
     };
 }

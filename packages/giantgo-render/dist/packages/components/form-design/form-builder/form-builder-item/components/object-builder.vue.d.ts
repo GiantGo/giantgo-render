@@ -1,3 +1,4 @@
+import type { DefineComponent, ComponentOptionsMixin, VNodeProps, AllowedComponentProps, ComponentCustomProps } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -27,7 +28,7 @@ declare namespace _sfc_main {
         add: (evt: any) => any;
         dragStart: (evt: any) => any;
         updateItems: (items: any) => any;
-        draggable: import("vue").DefineComponent<{
+        draggable: DefineComponent<{
             list: {
                 type: ArrayConstructor;
                 required: boolean;
@@ -83,7 +84,7 @@ declare namespace _sfc_main {
             computeFutureIndex(relatedContext: any, evt: any): any;
             onDragMove(evt: any, originalEvent: any): any;
             onDragEnd(): void;
-        }, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, any[], any, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+        }, ComponentOptionsMixin, ComponentOptionsMixin, any[], any, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
             move: Function;
             tag: string;
             clone: Function;
@@ -111,7 +112,7 @@ declare namespace _sfc_main {
         add: (evt: any) => any;
         dragStart: (evt: any) => any;
         updateItems: (items: any) => any;
-        draggable: import("vue").DefineComponent<{
+        draggable: DefineComponent<{
             list: {
                 type: ArrayConstructor;
                 required: boolean;
@@ -167,7 +168,7 @@ declare namespace _sfc_main {
             computeFutureIndex(relatedContext: any, evt: any): any;
             onDragMove(evt: any, originalEvent: any): any;
             onDragEnd(): void;
-        }, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, any[], any, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
+        }, ComponentOptionsMixin, ComponentOptionsMixin, any[], any, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<{
             move: Function;
             tag: string;
             clone: Function;

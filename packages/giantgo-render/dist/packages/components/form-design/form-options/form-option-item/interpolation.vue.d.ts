@@ -1,3 +1,4 @@
+import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -6,7 +7,7 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        tips: import("vue").Ref<{
+        tips: Ref<{
             value: string;
             label: string;
         }[]>;
@@ -17,7 +18,7 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        tips: import("vue").Ref<{
+        tips: Ref<{
             value: string;
             label: string;
         }[]>;

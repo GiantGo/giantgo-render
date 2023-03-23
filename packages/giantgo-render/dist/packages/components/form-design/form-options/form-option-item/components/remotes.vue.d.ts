@@ -1,3 +1,6 @@
+import type { Message } from 'element-plus';
+import type { SFCInstallWithContext } from 'element-plus/es/utils';
+import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -17,9 +20,9 @@ declare namespace _sfc_main {
             remoteResults: {};
             loading: boolean;
         };
-        formRef: import("vue").Ref<null>;
-        remoteTabsValue: import("vue").Ref<string>;
-        remoteDialog: import("vue").Ref<boolean>;
+        formRef: Ref<null>;
+        remoteTabsValue: Ref<string>;
+        remoteDialog: Ref<boolean>;
         showRemote: () => void;
         saveRemote: () => void;
         editRemote: (target: any, action: any) => void;
@@ -28,7 +31,7 @@ declare namespace _sfc_main {
         testRequest: () => void;
         reactive: typeof reactive;
         ref: typeof ref;
-        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        ElMessage: SFCInstallWithContext<Message>;
         cloneDeep: <T>(value: T) => T;
         isEmpty: (value?: any) => boolean;
         createRequest: typeof createRequest;
@@ -47,9 +50,9 @@ declare namespace _sfc_main {
             remoteResults: {};
             loading: boolean;
         };
-        formRef: import("vue").Ref<null>;
-        remoteTabsValue: import("vue").Ref<string>;
-        remoteDialog: import("vue").Ref<boolean>;
+        formRef: Ref<null>;
+        remoteTabsValue: Ref<string>;
+        remoteDialog: Ref<boolean>;
         showRemote: () => void;
         saveRemote: () => void;
         editRemote: (target: any, action: any) => void;
@@ -58,7 +61,7 @@ declare namespace _sfc_main {
         testRequest: () => void;
         reactive: typeof reactive;
         ref: typeof ref;
-        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        ElMessage: SFCInstallWithContext<Message>;
         cloneDeep: <T>(value: T) => T;
         isEmpty: (value?: any) => boolean;
         createRequest: typeof createRequest;

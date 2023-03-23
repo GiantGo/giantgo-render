@@ -18,5 +18,5 @@
   "vueCompilerOptions": {
     "plugins": ["@vue-macros/volar/define-options"]
   },
-  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.vue"]
+  "include": ["./packages/**/*.ts", "./packages/**/*.d.ts", "./packages/**/*.vue"]
 }

@@ -1,3 +1,5 @@
+import type { ComponentInternalInstance } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
+import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -24,11 +26,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        tabsValue: import("vue").Ref<string>;
+        tabsValue: Ref<string>;
         emitter: any;
         update: (key: any, value: any) => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
     };
     function setup(__props: any, { expose, emit }: {
@@ -37,11 +39,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         emit: any;
-        tabsValue: import("vue").Ref<string>;
+        tabsValue: Ref<string>;
         emitter: any;
         update: (key: any, value: any) => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: import("vue").ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
         ref: typeof ref;
     };
 }
