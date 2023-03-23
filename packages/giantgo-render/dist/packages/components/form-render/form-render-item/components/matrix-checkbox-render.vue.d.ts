@@ -1,5 +1,3 @@
-import type { ComponentInternalInstance } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
-import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -23,18 +21,18 @@ declare namespace _sfc_main {
             items: never[];
         };
         state: any;
-        rows: Ref<{
+        rows: import("@vue/reactivity").Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: Ref<{
+        columns: import("@vue/reactivity").Ref<{
             label: string;
             value: string;
         }[]>;
         change: (rIndex: any, cIndex: any, value: any) => void;
         setInternal: () => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
         useOptions: typeof useOptions;
@@ -51,18 +49,18 @@ declare namespace _sfc_main {
             items: never[];
         };
         state: any;
-        rows: Ref<{
+        rows: import("@vue/reactivity").Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: Ref<{
+        columns: import("@vue/reactivity").Ref<{
             label: string;
             value: string;
         }[]>;
         change: (rIndex: any, cIndex: any, value: any) => void;
         setInternal: () => void;
         inject: typeof inject;
-        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
         useOptions: typeof useOptions;
@@ -73,5 +71,5 @@ declare namespace _sfc_main {
 import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { watch } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { useOptions } from "@giantgo-render/hooks/use-options";
-import { isArray } from "@giantgo-render/utils/types";
+import { useOptions } from '../../../../hooks/use-options';
+import { isArray } from '../../../../utils/types';

@@ -1,4 +1,3 @@
-import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -15,7 +14,7 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         props: any;
-        signatureRef: Ref<null>;
+        signatureRef: import("@vue/reactivity").Ref<null>;
         ref: typeof ref;
         watch: typeof watch;
     };
@@ -23,7 +22,7 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         props: any;
-        signatureRef: Ref<null>;
+        signatureRef: import("@vue/reactivity").Ref<null>;
         ref: typeof ref;
         watch: typeof watch;
     };

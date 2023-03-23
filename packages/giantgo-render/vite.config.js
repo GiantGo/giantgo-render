@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import VueMacros from 'unplugin-vue-macros/vite'
 import Components from 'unplugin-vue-components/vite'
@@ -9,6 +10,11 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import dts from 'vite-plugin-dts'
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@giantgo-render': fileURLToPath(new URL('../../packages', import.meta.url))
+    }
+  },
   plugins: [
     VueMacros(),
     vue(),
@@ -25,8 +31,6 @@ export default defineConfig({
       dts: './components.d.ts'
     }),
     dts({
-      staticImport: true,
-      skipDiagnostics: false,
       insertTypesEntry: true,
       outputDir: './dist'
     })

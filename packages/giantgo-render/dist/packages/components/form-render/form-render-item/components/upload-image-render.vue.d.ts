@@ -1,7 +1,3 @@
-import type { ComponentInternalInstance } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
-import type { Message } from 'element-plus';
-import type { SFCInstallWithContext } from 'element-plus/es/utils';
-import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -24,15 +20,15 @@ declare namespace _sfc_main {
         data: {
             fileList: never[];
         };
-        dialogImageUrl: Ref<string>;
-        dialogVisible: Ref<boolean>;
+        dialogImageUrl: import("@vue/reactivity").Ref<string>;
+        dialogVisible: import("@vue/reactivity").Ref<boolean>;
         beforeUpload: (file: any) => boolean;
         handleChange: (res: any, file: any, fileList: any) => void;
         handleError: () => void;
         handlePreview: (uploadFile: any) => void;
         setInternal: () => void;
-        ElMessage: SFCInstallWithContext<Message>;
-        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;
@@ -47,15 +43,15 @@ declare namespace _sfc_main {
         data: {
             fileList: never[];
         };
-        dialogImageUrl: Ref<string>;
-        dialogVisible: Ref<boolean>;
+        dialogImageUrl: import("@vue/reactivity").Ref<string>;
+        dialogVisible: import("@vue/reactivity").Ref<boolean>;
         beforeUpload: (file: any) => boolean;
         handleChange: (res: any, file: any, fileList: any) => void;
         handleError: () => void;
         handlePreview: (uploadFile: any) => void;
         setInternal: () => void;
-        ElMessage: SFCInstallWithContext<Message>;
-        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;

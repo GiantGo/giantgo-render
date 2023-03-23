@@ -1,4 +1,3 @@
-import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -7,7 +6,7 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        tips: Ref<{
+        tips: import("@vue/reactivity").Ref<{
             value: string;
             label: string;
         }[]>;
@@ -18,7 +17,7 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        tips: Ref<{
+        tips: import("@vue/reactivity").Ref<{
             value: string;
             label: string;
         }[]>;
@@ -27,5 +26,5 @@ declare namespace _sfc_main {
         ref: typeof ref;
     };
 }
-import { getInterpolation } from "@giantgo-render/utils/interpolation";
+import { getInterpolation } from '../../../../utils/interpolation';
 import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

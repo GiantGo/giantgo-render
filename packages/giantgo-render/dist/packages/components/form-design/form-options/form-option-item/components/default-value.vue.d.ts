@@ -1,4 +1,3 @@
-import type { ComputedRef, computed } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -8,20 +7,20 @@ declare namespace _sfc_main {
         expose: any;
     }): {
         state: any;
-        component: ComputedRef<any>;
-        items: ComputedRef<any>;
-        options: ComputedRef<any>;
-        computed: typeof computed;
+        component: import("@vue/reactivity").ComputedRef<any>;
+        items: import("@vue/reactivity").ComputedRef<any>;
+        options: import("@vue/reactivity").ComputedRef<any>;
+        computed: typeof import("@vue/reactivity").computed;
         inject: typeof inject;
     };
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
         state: any;
-        component: ComputedRef<any>;
-        items: ComputedRef<any>;
-        options: ComputedRef<any>;
-        computed: typeof computed;
+        component: import("@vue/reactivity").ComputedRef<any>;
+        items: import("@vue/reactivity").ComputedRef<any>;
+        options: import("@vue/reactivity").ComputedRef<any>;
+        computed: typeof import("@vue/reactivity").computed;
         inject: typeof inject;
     };
 }

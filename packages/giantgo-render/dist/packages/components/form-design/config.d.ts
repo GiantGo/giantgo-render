@@ -1,4 +1,4 @@
-import type { FormDesign } from '@giantgo-render/tokens';
+import type { FormDesign } from '../../tokens';
 export declare const inputs: Array<FormDesign>;
 export declare const pickers: Array<FormDesign>;
 export declare const complexs: Array<FormDesign>;

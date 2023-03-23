@@ -1,6 +1,3 @@
-import type { Message } from 'element-plus';
-import type { SFCInstallWithContext } from 'element-plus/es/utils';
-import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -16,22 +13,22 @@ declare namespace _sfc_main {
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        dialogImageUrl: Ref<string>;
-        dialogVisible: Ref<boolean>;
+        dialogImageUrl: import("@vue/reactivity").Ref<string>;
+        dialogVisible: import("@vue/reactivity").Ref<boolean>;
         handlePreview: (uploadFile: any) => void;
         beforeRemove: () => boolean;
         ref: typeof ref;
-        ElMessage: SFCInstallWithContext<Message>;
+        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
     };
     function setup(__props: any, { expose }: {
         expose: any;
     }): {
-        dialogImageUrl: Ref<string>;
-        dialogVisible: Ref<boolean>;
+        dialogImageUrl: import("@vue/reactivity").Ref<string>;
+        dialogVisible: import("@vue/reactivity").Ref<boolean>;
         handlePreview: (uploadFile: any) => void;
         beforeRemove: () => boolean;
         ref: typeof ref;
-        ElMessage: SFCInstallWithContext<Message>;
+        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
     };
 }
 import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";

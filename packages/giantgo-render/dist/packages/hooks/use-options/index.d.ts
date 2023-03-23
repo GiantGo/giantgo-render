@@ -1,7 +1,6 @@
-import type { Ref } from '@vue/reactivity';
-import type { FormDesign, Options } from '@giantgo-render/tokens';
+import type { FormDesign, Options } from '../../tokens';
 export declare function useOptions(props: any, key: string, formDesign: FormDesign): {
-    items: Ref<{
+    items: import("@vue/reactivity").Ref<{
         label: string;
         value: string;
     }[]>;

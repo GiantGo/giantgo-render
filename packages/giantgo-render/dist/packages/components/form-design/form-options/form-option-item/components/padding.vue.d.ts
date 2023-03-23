@@ -1,4 +1,3 @@
-import type { ComponentInternalInstance } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -19,7 +18,7 @@ declare namespace _sfc_main {
         };
         emitChange: () => void;
         setInternal: () => void;
-        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
     };
@@ -37,7 +36,7 @@ declare namespace _sfc_main {
         };
         emitChange: () => void;
         setInternal: () => void;
-        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         watch: typeof watch;
     };

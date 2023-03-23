@@ -1,6 +1,3 @@
-import type { Message } from 'element-plus';
-import type { SFCInstallWithContext } from 'element-plus/es/utils';
-import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -20,9 +17,9 @@ declare namespace _sfc_main {
             remoteResults: {};
             loading: boolean;
         };
-        formRef: Ref<null>;
-        remoteTabsValue: Ref<string>;
-        remoteDialog: Ref<boolean>;
+        formRef: import("@vue/reactivity").Ref<null>;
+        remoteTabsValue: import("@vue/reactivity").Ref<string>;
+        remoteDialog: import("@vue/reactivity").Ref<boolean>;
         showRemote: () => void;
         saveRemote: () => void;
         editRemote: (target: any, action: any) => void;
@@ -31,7 +28,7 @@ declare namespace _sfc_main {
         testRequest: () => void;
         reactive: typeof reactive;
         ref: typeof ref;
-        ElMessage: SFCInstallWithContext<Message>;
+        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
         cloneDeep: <T>(value: T) => T;
         isEmpty: (value?: any) => boolean;
         createRequest: typeof createRequest;
@@ -50,9 +47,9 @@ declare namespace _sfc_main {
             remoteResults: {};
             loading: boolean;
         };
-        formRef: Ref<null>;
-        remoteTabsValue: Ref<string>;
-        remoteDialog: Ref<boolean>;
+        formRef: import("@vue/reactivity").Ref<null>;
+        remoteTabsValue: import("@vue/reactivity").Ref<string>;
+        remoteDialog: import("@vue/reactivity").Ref<boolean>;
         showRemote: () => void;
         saveRemote: () => void;
         editRemote: (target: any, action: any) => void;
@@ -61,7 +58,7 @@ declare namespace _sfc_main {
         testRequest: () => void;
         reactive: typeof reactive;
         ref: typeof ref;
-        ElMessage: SFCInstallWithContext<Message>;
+        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
         cloneDeep: <T>(value: T) => T;
         isEmpty: (value?: any) => boolean;
         createRequest: typeof createRequest;
@@ -70,5 +67,5 @@ declare namespace _sfc_main {
 }
 import { reactive } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
 import { ref } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { createRequest } from "@giantgo-render/utils/request";
-import { uuid as makeId } from "@giantgo-render/utils/uuid";
+import { createRequest } from '../../../../../utils/request';
+import { uuid as makeId } from '../../../../../utils/uuid';

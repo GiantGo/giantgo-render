@@ -1,7 +1,3 @@
-import type { ComponentInternalInstance } from '.pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core';
-import type { SFCInstallWithContext } from 'element-plus/es/utils';
-import type { MessageHandler, Message } from 'element-plus';
-import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -22,17 +18,17 @@ declare namespace _sfc_main {
             };
             patterns: never[];
         };
-        code: Ref<string>;
-        codeDialog: Ref<boolean>;
+        code: import("@vue/reactivity").Ref<string>;
+        codeDialog: import("@vue/reactivity").Ref<boolean>;
         emitChange: () => void;
         update: (index: any, key: any, value: any) => void;
         addRule: () => void;
         removeRule: (index: any) => void;
         editRules: () => void;
-        setRules: () => MessageHandler | undefined;
+        setRules: () => import("element-plus").MessageHandler | undefined;
         setInternal: () => void;
-        ElMessage: SFCInstallWithContext<Message>;
-        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;
@@ -52,17 +48,17 @@ declare namespace _sfc_main {
             };
             patterns: never[];
         };
-        code: Ref<string>;
-        codeDialog: Ref<boolean>;
+        code: import("@vue/reactivity").Ref<string>;
+        codeDialog: import("@vue/reactivity").Ref<boolean>;
         emitChange: () => void;
         update: (index: any, key: any, value: any) => void;
         addRule: () => void;
         removeRule: (index: any) => void;
         editRules: () => void;
-        setRules: () => MessageHandler | undefined;
+        setRules: () => import("element-plus").MessageHandler | undefined;
         setInternal: () => void;
-        ElMessage: SFCInstallWithContext<Message>;
-        onMounted: (hook: () => any, target?: ComponentInternalInstance | null | undefined) => false | Function | undefined;
+        ElMessage: import("element-plus/es/utils").SFCInstallWithContext<import("element-plus").Message>;
+        onMounted: (hook: () => any, target?: import(".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core").ComponentInternalInstance | null | undefined) => false | Function | undefined;
         reactive: typeof reactive;
         ref: typeof ref;
         watch: typeof watch;

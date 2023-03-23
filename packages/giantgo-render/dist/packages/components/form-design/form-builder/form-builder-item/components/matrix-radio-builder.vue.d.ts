@@ -1,4 +1,3 @@
-import type { Ref } from '@vue/reactivity';
 export default _sfc_main;
 declare namespace _sfc_main {
     namespace props {
@@ -16,11 +15,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         state: any;
-        rows: Ref<{
+        rows: import("@vue/reactivity").Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: Ref<{
+        columns: import("@vue/reactivity").Ref<{
             label: string;
             value: string;
         }[]>;
@@ -32,11 +31,11 @@ declare namespace _sfc_main {
     }): {
         props: any;
         state: any;
-        rows: Ref<{
+        rows: import("@vue/reactivity").Ref<{
             label: string;
             value: string;
         }[]>;
-        columns: Ref<{
+        columns: import("@vue/reactivity").Ref<{
             label: string;
             value: string;
         }[]>;
@@ -45,4 +44,4 @@ declare namespace _sfc_main {
     };
 }
 import { inject } from ".pnpm/@vue+runtime-core@3.2.37/node_modules/@vue/runtime-core";
-import { useOptions } from "@giantgo-render/hooks/use-options";
+import { useOptions } from '../../../../../hooks/use-options';
