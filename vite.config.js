@@ -30,6 +30,7 @@ export default defineConfig({
       dts: './packages/giantgo-render/components.d.ts'
     }),
     dts({
+      staticImport: true,
       skipDiagnostics: false,
       logDiagnostics: true,
       insertTypesEntry: true
