@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./packages/giantgo-render/dist/types",
     "baseUrl": ".",
     "target": "ESNext",
     "useDefineForClassFields": true,

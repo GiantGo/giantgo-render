@@ -5,7 +5,7 @@
   "files": ["dist"],
   "main": "./dist/giantgo-render.umd.js",
   "module": "./dist/giantgo-render.es.js",
-  "types": "./dist/giantgo-render.es.d.ts",
+  "types": "./dist/types/giantgo-render/src/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/giantgo-render.es.js",
@@ -59,14 +59,12 @@
     "@vue/shared": "^3.2.37",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
-    "rollup-plugin-visualizer": "^5.7.1",
     "sass": "^1.54.3",
     "typescript": "^4.7.4",
     "unplugin-icons": "^0.14.8",
     "unplugin-vue-components": "^0.22.3",
     "unplugin-vue-macros": "^0.10.0",
     "vite": "^3.0.0",
-    "vite-plugin-dts": "^2.1.0",
     "vue-tsc": "^0.40.1"
   }
 }

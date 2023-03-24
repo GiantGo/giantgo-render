@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "dev": "pnpm -C play dev",
-    "build": "vue-tsc --noEmit && vite build",
+    "typecheck": "vue-tsc --noEmit",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "lint": "eslint packages --ext .vue,.js,.ts,.jsx,.tsx,.md,.json",
     "example:dev": "pnpm -C example dev",
     "example:build": "pnpm -C example build",
@@ -57,14 +58,12 @@
     "eslint-plugin-vue": "^9.3.0",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
-    "rollup-plugin-visualizer": "^5.7.1",
     "sass": "^1.54.3",
     "typescript": "^4.7.4",
     "unplugin-icons": "^0.14.8",
     "unplugin-vue-components": "^0.22.3",
     "unplugin-vue-macros": "^0.10.0",
     "vite": "^3.0.0",
-    "vite-plugin-dts": "^2.1.0",
     "vue-tsc": "^0.40.1"
   }
 }
