@@ -1,6 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <el-radio-group v-if="!options.hidden" :model-value="options.defaultValue" :disabled="options.disabled">
+    <el-radio-group :model-value="options.defaultValue" :disabled="options.disabled">
       <el-radio v-for="item in items" :key="item.value" :label="item.value" :border="options.border">
         {{ item.label }}
       </el-radio>

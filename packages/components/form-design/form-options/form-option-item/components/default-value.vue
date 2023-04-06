@@ -26,6 +26,7 @@ const options = computed(() =>
   Object.assign({}, state.selected.options, {
     label: '',
     clearable: true,
+    hidden: false,
     disabled: false,
     width: '100%'
   })

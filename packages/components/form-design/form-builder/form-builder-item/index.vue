@@ -10,7 +10,14 @@
         </div>
       </div>
       <div class="info">{{ options.key }}</div>
-      <component :is="component + '-builder'" :uuid="uuid" :items="items" :options="options" :path="path" />
+      <component
+        :is="component + '-builder'"
+        v-if="!options.hidden"
+        :uuid="uuid"
+        :items="items"
+        :options="options"
+        :path="path"
+      />
     </div>
   </div>
 </template>
