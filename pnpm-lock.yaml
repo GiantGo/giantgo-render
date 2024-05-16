@@ -25,7 +25,7 @@ importers:
       ace-builds: ^1.8.1
       autoprefixer: ^10.4.8
       axios: ^0.23.0
-      element-plus: 2.3.0
+      element-plus: 2.7.3
       eslint: ^8.22.0
       eslint-config-prettier: ^8.5.0
       eslint-define-config: ^1.6.0
@@ -58,7 +58,7 @@ importers:
       '@wangeditor/editor-for-vue': 5.1.12_3czidxuhsdmk6jzpqgazshrppa
       ace-builds: 1.9.5
       axios: 0.23.0
-      element-plus: 2.3.0_vue@3.2.37
+      element-plus: 2.7.3_vue@3.2.37
       giantgo-render: link:packages/giantgo-render
       lodash-es: 4.17.21
       mitt: 3.0.0
@@ -115,7 +115,7 @@ importers:
       autoprefixer: ^10.4.8
       axios: ^0.23.0
       china-area-data: ^5.0.1
-      element-plus: 2.3.0
+      element-plus: 2.7.3
       lodash-es: ^4.17.21
       mitt: ^3.0.0
       postcss: ^8.4.16
@@ -136,7 +136,7 @@ importers:
       ace-builds: 1.9.5
       axios: 0.23.0
       china-area-data: 5.0.1
-      element-plus: 2.3.0_vue@3.2.37
+      element-plus: 2.7.3_vue@3.2.37
       lodash-es: 4.17.21
       mitt: 3.0.0
       signature_pad: 4.0.7
@@ -426,6 +426,14 @@ packages:
 
   /@element-plus/icons-vue/2.0.9_vue@3.2.37:
     resolution: {integrity: sha512-okdrwiVeKBmW41Hkl0eMrXDjzJwhQMuKiBOu17rOszqM+LS/yBYpNQNV5Jvoh06Wc+89fMmb/uhzf8NZuDuUaQ==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.37
+    dev: false
+
+  /@element-plus/icons-vue/2.3.1_vue@3.2.37:
+    resolution: {integrity: sha512-XxVUZv48RZAd87ucGS48jPf6pKu0yV5UCg9f4FFwtrYxXOwWuVJo6wOvSLKEoMQKjv8GsX/mhP6UsC1lRwbUWg==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -1564,13 +1572,13 @@ packages:
     resolution: {integrity: sha512-vqZxT8C5mlDZ//hQFhneHmOLnj1LhbzxV0+I1yqHV8SB1Oo4Y5Ne9+qQhwHl7O1s9s9cRuo2l5CoLEHdhMTwZg==}
     dev: true
 
-  /element-plus/2.3.0_vue@3.2.37:
-    resolution: {integrity: sha512-3s3JO4+LHLi61tFwF2emIHx6nxwKKdj5YWcj3GUBoXKhbuRjhq6xqaxWpBlPk7jySr/8Eci5++T2THbvrpGn7A==}
+  /element-plus/2.7.3_vue@3.2.37:
+    resolution: {integrity: sha512-OaqY1kQ2xzNyRFyge3fzM7jqMwux+464RBEqd+ybRV9xPiGxtgnj/sVK4iEbnKnzQIa9XK03DOIFzoToUhu1DA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
       '@ctrl/tinycolor': 3.4.1
-      '@element-plus/icons-vue': 2.0.9_vue@3.2.37
+      '@element-plus/icons-vue': 2.3.1_vue@3.2.37
       '@floating-ui/dom': 1.0.1
       '@popperjs/core': /@sxzz/popperjs-es/2.11.7
       '@types/lodash': 4.14.182
