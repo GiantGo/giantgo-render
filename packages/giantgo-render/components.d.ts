@@ -153,6 +153,7 @@ declare module '@vue/runtime-core' {
     UploadName: typeof import('./../components/form-design/form-options/form-option-item/components/upload-name.vue')['default']
     UploadSize: typeof import('./../components/form-design/form-options/form-option-item/components/upload-size.vue')['default']
     UploadUrl: typeof import('./../components/form-design/form-options/form-option-item/components/upload-url.vue')['default']
+    ValueFormat: typeof import('./../components/form-design/form-options/form-option-item/components/value-format.vue')['default']
     Width: typeof import('./../components/form-design/form-options/form-option-item/components/width.vue')['default']
   }
 }

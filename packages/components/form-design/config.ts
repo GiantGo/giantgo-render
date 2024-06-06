@@ -188,6 +188,7 @@ export const pickers: Array<FormDesign> = [
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'HH:mm:ss',
+      valueFormat: '',
       hidden: false,
       clearable: false,
       disabled: false
@@ -206,6 +207,7 @@ export const pickers: Array<FormDesign> = [
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'HH:mm:ss',
+      valueFormat: '',
       hidden: false,
       clearable: false,
       disabled: false
@@ -224,6 +226,7 @@ export const pickers: Array<FormDesign> = [
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'YYYY-MM-DD',
+      valueFormat: '',
       hidden: false,
       clearable: false,
       disabled: false
@@ -242,6 +245,7 @@ export const pickers: Array<FormDesign> = [
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'YYYY-MM-DD',
+      valueFormat: '',
       hidden: false,
       clearable: false,
       disabled: false
@@ -650,5 +654,6 @@ export const optionKeyLabels: Record<string, string> = {
   uploadName: '文件字段名',
   uploadSize: '上传大小限制',
   uploadUrl: '上传地址',
+  valueFormat: '日期格式',
   width: '组件宽度'
 }
