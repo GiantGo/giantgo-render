@@ -1,0 +1,1 @@
+import{_ as e,y as a,x as t,W as r}from"./plugin-vue_export-helper.c15f2d1f.js";var d="/giantgo-render/assets/home.gif";const f='{"title":"api index.md","description":"","frontmatter":{},"relativePath":"api/index.md","lastUpdated":1646015212120}',i={},n=r("",3),o=[n];function s(_,c,p,h,m,l){return t(),a("div",null,o)}var g=e(i,[["render",s]]);export{f as __pageData,g as default};
