@@ -1,16 +1,16 @@
-@import 'form-design';
-@import 'form-picker';
-@import 'form-operator';
-@import 'form-builder';
-@import 'form-setting';
-@import 'form-render';
+@use 'form-design';
+@use 'form-picker';
+@use 'form-operator';
+@use 'form-builder';
+@use 'form-setting';
+@use 'form-render';
 
 .rich-editor-container {
   z-index: 1;
-  border: 1px solid #ccc;
+  border: 1px solid var(--el-border-color);
 
   .rich-editor-toolbar {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--el-border-color);
   }
 
   .rich-editor {

@@ -7,7 +7,7 @@
     padding: 2.5px;
     width: 100%;
     min-height: 80px;
-    background: #ffffff;
+    background: var(--el-bg-color-overlay);
     border: 1px dashed var(--el-border-color);
     overflow-x: hidden;
     overflow-y: auto;
@@ -64,7 +64,7 @@
           height: 25px;
           line-height: 25px;
           text-align: center;
-          color: #ffffff;
+          color: var(--el-color-white);
           cursor: pointer;
         }
 
