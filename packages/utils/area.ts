@@ -1,6 +1,6 @@
 import { areaList } from '@vant/area-data'
 
-interface AreaTreeNode {
+export interface AreaTreeNode {
   value: string
   label: string
   children?: Array<AreaTreeNode>

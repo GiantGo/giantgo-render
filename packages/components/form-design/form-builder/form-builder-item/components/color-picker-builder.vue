@@ -1,11 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <el-color-picker
-      v-if="!options.hidden"
-      :model-value="options.defaultValue"
-      :disabled="options.disabled"
-      :show-alpha="options.showAlpha"
-    />
+    <el-color-picker :model-value="options.defaultValue" :disabled="options.disabled" :show-alpha="options.showAlpha" />
   </el-form-item>
 </template>
 

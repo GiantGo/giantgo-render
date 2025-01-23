@@ -1,7 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-input
-      v-if="!options.hidden"
       type="text"
       :model-value="options.defaultValue"
       :placeholder="options.placeholder"

@@ -30,7 +30,7 @@ export default defineConfig({
           importStyle: 'sass'
         })
       ],
-      dts: '../packages/giantgo-render/components.d.ts'
+      dts: false
     })
   ]
 })

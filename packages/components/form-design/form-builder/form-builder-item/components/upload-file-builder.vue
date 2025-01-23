@@ -1,7 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-upload
-      v-if="!options.hidden"
       :file-list="options.defaultValue"
       :action="options.uploadUrl"
       :name="options.uploadName"

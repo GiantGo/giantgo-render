@@ -1,7 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
     <el-rate
-      v-if="!options.hidden"
       class="form-rate"
       :model-value="options.defaultValue"
       :disabled="options.disabled"

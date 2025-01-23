@@ -7,6 +7,7 @@
       :clearable="options.clearable"
       :disabled="options.disabled"
       :format="options.format"
+      :value-format="options.valueFormat"
       :prefix-icon="ElementPlusIconsVue[options.prefixIcon]"
       @update:modelValue="$emit('update:modelValue', $event)"
     />

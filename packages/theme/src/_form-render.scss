@@ -8,7 +8,9 @@
   .el-input__inner,
   .el-select,
   .el-cascader,
-  .el-slider {
+  .el-slider,
+  .el-date-editor.el-input,
+  .el-date-editor.el-input__wrapper {
     width: 100%;
   }
 

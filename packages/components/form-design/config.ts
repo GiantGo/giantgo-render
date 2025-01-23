@@ -188,6 +188,7 @@ export const pickers: Array<FormDesign> = [
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'HH:mm:ss',
+      valueFormat: '',
       hidden: false,
       clearable: false,
       disabled: false
@@ -206,6 +207,7 @@ export const pickers: Array<FormDesign> = [
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'HH:mm:ss',
+      valueFormat: '',
       hidden: false,
       clearable: false,
       disabled: false
@@ -224,6 +226,7 @@ export const pickers: Array<FormDesign> = [
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'YYYY-MM-DD',
+      valueFormat: '',
       hidden: false,
       clearable: false,
       disabled: false
@@ -242,6 +245,7 @@ export const pickers: Array<FormDesign> = [
       width: '100%',
       prefixIcon: 'el-icon-time',
       format: 'YYYY-MM-DD',
+      valueFormat: '',
       hidden: false,
       clearable: false,
       disabled: false
@@ -396,6 +400,7 @@ export const complexs: Array<FormDesign> = [
       rules,
       width: '100%',
       height: '100px',
+      hidden: false,
       disabled: false,
       penColor: '#000000',
       backgroundColor: '#dddddd'
@@ -483,6 +488,7 @@ export const objectLayout: FormDesign = {
     key: '',
     defaultValue: {},
     width: '100%',
+    hidden: false,
     gutter: 0
   },
   items: []
@@ -496,7 +502,8 @@ export const assists: Array<FormDesign> = [
     options: {
       content: '文字',
       width: '100%',
-      lineHeight: '40px'
+      lineHeight: '40px',
+      hidden: false
     }
   },
   {
@@ -505,7 +512,8 @@ export const assists: Array<FormDesign> = [
     uuid: '',
     options: {
       richContent: '<strong>HTML</strong>',
-      width: '100%'
+      width: '100%',
+      hidden: false
     }
   },
   {
@@ -513,7 +521,8 @@ export const assists: Array<FormDesign> = [
     component: 'divider',
     uuid: '',
     options: {
-      width: '100%'
+      width: '100%',
+      hidden: false
     }
   }
 ]
@@ -645,5 +654,6 @@ export const optionKeyLabels: Record<string, string> = {
   uploadName: '文件字段名',
   uploadSize: '上传大小限制',
   uploadUrl: '上传地址',
+  valueFormat: '日期格式',
   width: '组件宽度'
 }

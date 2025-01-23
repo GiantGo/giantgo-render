@@ -19,6 +19,7 @@
       >
         <form-builder-item
           :component="element.component"
+          :p-uuid="uuid"
           :uuid="element.uuid"
           :items="element.items"
           :options="element.options"
@@ -43,6 +44,7 @@ defineOptions({
 
 const props = defineProps({
   path: String,
+  pUuid: String,
   uuid: String,
   items: {
     type: Array,

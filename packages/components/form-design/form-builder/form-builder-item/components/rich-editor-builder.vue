@@ -1,6 +1,6 @@
 <template>
   <el-form-item :prop="path" :label="options.label" :rules="options.rules">
-    <div v-if="!options.hidden" class="rich-editor-container">
+    <div class="rich-editor-container">
       <Toolbar class="rich-editor-toolbar" :editor="editorRef" />
       <Editor
         class="rich-editor"

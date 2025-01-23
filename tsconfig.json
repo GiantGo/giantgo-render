@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "outDir": "./packages/giantgo-render/dist/types",
+    "baseUrl": ".",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "allowJs": true,
+    "types": ["unplugin-icons/types/vue", "unplugin-vue-macros/macros-global"],
+    "paths": {
+      "@giantgo-render/*": ["packages/*"]
+    }
+  },
+  "vueCompilerOptions": {
+    "plugins": ["@vue-macros/volar/define-options"]
+  },
+  "include": [
+    "packages/giantgo-render/src/**/*.ts",
+    "packages/components/**/*.ts",
+    "packages/components/**/*.d.ts",
+    "packages/components/**/*.vue",
+    "packages/hooks/**/*.ts",
+    "packages/tokens/**/*.ts",
+    "packages/utils/**/*.ts",
+    "*.d.ts"
+  ]
+}

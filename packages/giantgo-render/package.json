@@ -1,9 +1,11 @@
 {
   "name": "giantgo-render",
-  "version": "1.3.13",
+  "version": "1.4.6",
   "description": "A form generator and form render for Vue3 + ElementPlus",
-  "main": "./dist/main.umd.js",
-  "module": "./dist/main.es.js",
+  "files": ["dist"],
+  "main": "./dist/giantgo-render.umd.js",
+  "module": "./dist/giantgo-render.es.js",
+  "types": "./dist/types/giantgo-render/src/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/giantgo-render.es.js",
@@ -14,9 +16,6 @@
   "publishConfig": {
     "main": "./dist/giantgo-render.umd.js",
     "module": "./dist/giantgo-render.es.js"
-  },
-  "scripts": {
-    "build": "vue-tsc --noEmit && vite build"
   },
   "repository": {
     "type": "git",
@@ -44,7 +43,7 @@
     "ace-builds": "^1.8.1",
     "axios": "^0.23.0",
     "china-area-data": "^5.0.1",
-    "element-plus": "2.3.0",
+    "element-plus": "2.9.0",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.0",
     "signature_pad": "^4.0.0",
@@ -60,14 +59,12 @@
     "@vue/shared": "^3.2.37",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
-    "rollup-plugin-visualizer": "^5.7.1",
-    "sass": "^1.54.3",
+    "sass": "^1.81.0",
     "typescript": "^4.7.4",
     "unplugin-icons": "^0.14.8",
     "unplugin-vue-components": "^0.22.3",
     "unplugin-vue-macros": "^0.10.0",
     "vite": "^3.0.0",
-    "vite-plugin-dts": "^1.4.1",
     "vue-tsc": "^0.40.1"
   }
 }

@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "dev": "pnpm -C play dev",
-    "build": "pnpm -C packages/giantgo-render build",
+    "typecheck": "vue-tsc --noEmit",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "lint": "eslint packages --ext .vue,.js,.ts,.jsx,.tsx,.md,.json",
     "example:dev": "pnpm -C example dev",
     "example:build": "pnpm -C example build",
@@ -31,7 +32,7 @@
     "@wangeditor/editor-for-vue": "^5.1.12",
     "ace-builds": "^1.8.1",
     "axios": "^0.23.0",
-    "element-plus": "2.3.0",
+    "element-plus": "2.9.0",
     "giantgo-render": "workspace:*",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.0",
@@ -46,6 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^5.34.0",
     "@typescript-eslint/parser": "^5.34.0",
     "@vitejs/plugin-vue": "^3.0.0",
+    "@vue-macros/volar": "^0.9.1",
     "@vue/compiler-sfc": "^3.2.37",
     "@vue/shared": "^3.2.37",
     "autoprefixer": "^10.4.8",
@@ -56,14 +58,12 @@
     "eslint-plugin-vue": "^9.3.0",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
-    "rollup-plugin-visualizer": "^5.7.1",
-    "sass": "^1.54.3",
+    "sass": "^1.81.0",
     "typescript": "^4.7.4",
     "unplugin-icons": "^0.14.8",
     "unplugin-vue-components": "^0.22.3",
     "unplugin-vue-macros": "^0.10.0",
     "vite": "^3.0.0",
-    "vite-plugin-dts": "^1.4.1",
     "vue-tsc": "^0.40.1"
   }
 }
