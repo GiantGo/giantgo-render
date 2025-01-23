@@ -656,7 +656,7 @@ onMounted(() => {
           defaultValue: '',
           rules: [
             { required: false, message: '请输入年龄', trigger: 'blur' },
-            { pattern: '^\\d{1,2}$', message: '请输入正确的年龄', trigger: 'blur' }
+            { pattern: '^(1\d{0,2}|[1-9]\d?)$', message: '请输入正确的年龄', trigger: 'blur' }
           ],
           width: '100%',
           placeholder: '请输入年龄',
