@@ -10986,7 +10986,7 @@ const y2 = ["image/png", "image/jpeg", "image/svg+xml"], xT = (e) => y2.includes
   setup(e, { emit: t }) {
     const o = e, n = X(null), a = () => {
       const { data: _ } = n.value.saveSignature();
-      t("update:modelValue", _);
+      t("update:modelValue", _ || "");
     }, l = () => {
       n.value.undoSignature(), a();
     }, c = () => {

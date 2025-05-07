@@ -40,7 +40,7 @@ const signatureRef = ref(null)
 
 const endStroke = () => {
   const { data } = signatureRef.value.saveSignature()
-  emit('update:modelValue', data)
+  emit('update:modelValue', data || '')
 }
 
 const undo = () => {
